@@ -12,7 +12,7 @@ This project maps security capabilities available as part of cloud platforms to 
 
 As the usage of cloud infrastructure has exploded and, correspondingly, attackers start to target that infrastructure, cloud providers have worked to build security in by providing numerous security capabilities in the cloud offerings to prevent or detect attacks. While laudable, this is very similar to the state that the on-prem security space was in as endpoint and post-compromise detection exploded -- there are many exciting security capabilities, but also uncertainty about what specific tools do and do not help address.
 
-Luckily, with the development of the ATT&CK cloud platforms, we’re already ahead of the game.  ATT&CK Cloud provides a well-formed categorization of the TTPs that adversaries use to attack cloud infrastructures, and can utilized to understand what cloud security capabilities do, just like what has been accomplished with endpoint.
+Luckily, with the development of the ATT&CK cloud platforms, we’re already ahead of the game.  [ATT&CK Cloud](https://attack.mitre.org/matrices/enterprise/cloud/)  provides a well-formed categorization of the TTPs that adversaries use to attack cloud infrastructures, and can utilized to understand what cloud security capabilities do, just like what has been accomplished with endpoint.
 
 The most immediate impact of this project will be on end users of Microsoft Azure (the prototype platform). Those users will have a better understanding of what security capabilities are available to them and what each of those capabilities can provide. That can be used to inform configuration decisions, determine which capabilities to purchase, or help understand gaps in defenses.
 
