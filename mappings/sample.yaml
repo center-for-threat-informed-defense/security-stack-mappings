@@ -1,0 +1,50 @@
+version: 1.0
+ATT&CK version: 
+date:  1/21/2021
+name: 
+author: 
+contact: 
+organization: 
+platform: 
+tags: 
+  - none
+  - none
+description:
+
+techniques:
+  - id: 
+    name: 
+    sub-techniques: 
+      - id: 
+        name: 
+        scores: 
+          - function:
+            value:
+            comment:
+          - function:
+            value:
+            comment:
+      - id: 
+        name: 
+        scores: 
+          - function:
+            value:
+            comment:
+          - function:
+            value:
+            comment:
+  - id: 
+    name: 
+    sub-techniques: 
+      - id: 
+        name: 
+        scores: 
+          - function:
+            value:
+            comment:
+          - function:
+            value:
+            comment:
+comments:
+references:
+  - none
