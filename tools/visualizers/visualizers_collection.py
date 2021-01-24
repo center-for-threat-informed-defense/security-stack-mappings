@@ -3,7 +3,7 @@ import inspect
 
 from visualizers.base_visualizer import AbstractVisualizer
 
-class VisualizerCollection:
+class VisualizersCollection:
 
     visualizers = {}
 

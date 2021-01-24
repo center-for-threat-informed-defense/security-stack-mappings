@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from visualizers.visualizers_collection import VisualizerCollection
+from visualizers.visualizers_collection import VisualizersCollection
 from pathlib import Path
 import json
 import yaml
@@ -26,7 +26,7 @@ def validate_mapping_files(mapping_files):
 
 
 if __name__ == "__main__":
-    visualizers_col = VisualizerCollection()
+    visualizers_col = VisualizersCollection()
 
     parser = argparse.ArgumentParser(description='Validate a cloud security '
         'mapping file and output a markdown version.')
