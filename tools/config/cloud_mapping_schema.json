@@ -1,0 +1,146 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/center-for-threat-informed-defense/cloud_security_stack_mappings/blob/main/cloudMapSchema.schema.json",
+    "title": "Cloud ATT&CK Mapping",
+    "description": "Schema for YAML of the Cloud ATT&CK Mapping format",
+    "type": "object",
+    "properties": {
+        "version": {
+            "description": "The version of this data mapping format.",
+            "type": "number"
+        },
+        "ATT&CK version": {
+            "description": "The version of the ATT&CK (Cloud) matrix used to source the techniques included in this mapping.",
+            "type": "number"
+        },
+        "date": {
+            "description": "Last update time?  Creation time?  Maybe add a field for both?",
+            "type": "string"
+        },
+        "name": {
+            "description": "The name of the security control being mapped in this file.",
+            "type": "string"
+        },
+        "author": {
+            "description": "The name of the author of this mapping file.",
+            "type": ["string", "null"]
+        },
+        "contact": {
+            "description": "The email address  of the author of this mapping file.",
+            "type": ["string", "null"]
+        },
+        "organization": {
+            "description": "The organization that produced this mapping file.",
+            "type": ["string", "null"]
+        },
+        "platform": {
+            "description": "The cloud platform of the security control being mapped in this file.",
+            "type": "string"
+        },
+        "tags": {
+            "description": "Will enable the mapping tool to produce coverage visualizations (e.g. ATT&CK Navigator) by aggregating security controls by these tag values.",
+            "type": ["array","null"],
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "description": {
+            "description": "The description of the security control",
+            "type": "string"
+        },
+        "techniques": {
+            "description": "List of technique objects that describe the ATT&CK Cloud techniques that the control is able to offer protection.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "The ID of the ATT&CK technique.",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the ATT&CK technique.",
+                        "type": "string"
+                    },
+                    "sub-techniques": {
+                        "description": "List of Sub-technique objects that describe the specific sub-techniques of this technique that this control provides protection against.",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "description": "The ID of the ATT&CK sub-technique.",
+                                    "type": "string"
+                                },
+                                "name": {
+                                    "description": "The name of the ATT&CK sub-technique.",
+                                    "type": "string"
+                                },
+                                "scores": {
+                                    "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK cloud sub-technique.",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "function": {
+                                                "description": "The type of protection provided.",
+                                                "type": "string",
+                                                "enum": [
+                                                    "Prevent",
+                                                    "Detect",
+                                                    "Response"
+                                                ]
+                                            },
+                                            "value": {
+                                                "description": "The score",
+                                                "type": "string"
+                                            },
+                                            "comment": {
+                                                "description": "A description of the justification for the assessed score.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "function",
+                                            "value",
+                                            "comment"
+                                        ]
+                                    }
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "name",
+                                "scores"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "id",
+                    "name",
+                    "sub-techniques"
+                ],
+                "comments": {
+                    "description": "A description of any assumptions that were made while producing this mapping.",
+                    "type": "string"
+                },
+                "references": {
+                    "description": "A description of any useful references for understanding the data contained in this mapping.",
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [
+        "version",
+        "ATT&CK version",
+        "date",
+        "name",
+        "platform",
+        "description",
+        "techniques"
+    ]
+}
