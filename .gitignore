@@ -3,3 +3,4 @@ output/
 __pycache__/
 *.py[cod]
 *$py.class
+tools/mapping.db
