@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://github.com/center-for-threat-informed-defense/cloud_security_stack_mappings/blob/main/cloudMapSchema.schema.json",
+    "$id": "https://github.com/center-for-threat-informed-defense/cloud_security_stack_mappings/blob/main/tools/config/cloud_mapping_schema.json",
     "title": "Cloud ATT&CK Mapping",
     "description": "Schema for YAML of the Cloud ATT&CK Mapping format",
     "type": "object",
@@ -84,7 +84,7 @@
                                     "items": {
                                         "type": "object",
                                         "properties": {
-                                            "function": {
+                                            "category": {
                                                 "description": "The type of protection provided.",
                                                 "type": "string",
                                                 "enum": [
@@ -103,7 +103,7 @@
                                             }
                                         },
                                         "required": [
-                                            "function",
+                                            "category",
                                             "value",
                                             "comment"
                                         ]
