@@ -90,7 +90,7 @@
                                                 "enum": [
                                                     "Prevent",
                                                     "Detect",
-                                                    "Response"
+                                                    "Respond"
                                                 ]
                                             },
                                             "value": {
