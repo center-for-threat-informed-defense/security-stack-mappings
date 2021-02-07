@@ -8,10 +8,10 @@ This project provides the following:
 - **Mapping data format** - The specification of a YAML file that captures the mapping of a security control native to a cloud platform to the set of ATT&CK techniques that it offers protection.
 - **Scoring Rubric** - A scoring rubric that enables assessing how effective a security control native to a cloud platform protects against the set of ATT&CK techniques that it is mapped to.  This scoring rubric enables providing a score for each technique that the security control is mapped to.
 - **Methodology** – A methodolgy for using the mapping data format and scoring rubric to produce mapping files for security controls native to a cloud platform.  By providing a methodology, we hope to encourage a consistent, best-practice approach to performing mappings that will make mappings more comparable to each other. It also encourages community mappings to be developed – including, potentially, by security vendors themselves.
-- **Visualization Tool** – A Python-based visualization tool that enables producing a visualization of a mapping file as ATT&CK Navigator layers.
+- **[Visualization Tool](tools/)** – A Python-based visualization tool that enables producing a visualization of a mapping file as ATT&CK Navigator layers.
 
 We envision that the community can use the functionality produced by this project to produce mapping files for various cloud platforms or even other security stacks.  To encourage this endeavor, this project has produced mapping files for the following cloud platforms:
-- Microsoft Azure
+- [Microsoft Azure](mappings/Azure/)
 
 ## Background
 
