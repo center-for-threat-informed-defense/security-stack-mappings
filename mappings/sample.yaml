@@ -18,19 +18,19 @@ techniques:
       - id: 
         name: 
         scores: 
-          - function:
+          - category:
             value:
             comment:
-          - function:
+          - category:
             value:
             comment:
       - id: 
         name: 
         scores: 
-          - function:
+          - category:
             value:
             comment:
-          - function:
+          - category:
             value:
             comment:
   - id: 
@@ -39,10 +39,10 @@ techniques:
       - id: 
         name: 
         scores: 
-          - function:
+          - category:
             value:
             comment:
-          - function:
+          - category:
             value:
             comment:
 comments:
