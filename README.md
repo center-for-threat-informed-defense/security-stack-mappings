@@ -2,7 +2,7 @@
 
 ## What is the Cloud Security Stack Mappings project?
 
-The aim of this project is to help organizations better understand what native security controls are available on cloud platforms to prevent, detect and mitigate common cloud threats to their cloud workloads.  It achieves this by mapping security capabilities that are available as part of these platforms to the [ATT&CK techniques](https://attack.mitre.org/matrices/enterprise/) that they can prevent, detect, or respond to. This will allow organizations that adopt cloud platforms for their workloads to make threat-informed decisions when selecting which native security capabilities to use to protect their workloads. 
+The aim of this project is to help organizations better understand what native security controls are available on cloud platforms to prevent, detect and mitigate common cloud threats to their cloud workloads.  It achieves this by mapping security capabilities that are available as part of these platforms to the [ATT&CK techniques](https://attack.mitre.org/matrices/enterprise/) that they can prevent, detect, or respond to. This will allow organizations that adopt cloud platforms for their workloads to make threat-informed decisions when selecting which native security capabilities to use to protect their workloads.  
 
 This project provides the following:
 - **[Mapping data format](docs/mapping_format.md)** - The specification of a YAML file that captures the mapping of a security control native to a cloud platform to the set of ATT&CK techniques that it offers protection.
