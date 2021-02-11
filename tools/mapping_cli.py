@@ -20,6 +20,8 @@ class MappingCLI():
         self.mapping_db = MappingDatabase(self.attack_ds)
         self.mapping_db.init_database()
 
+    def output_attack_json(self):
+        self.attack_ds.output_attack_json()
     
     def load_mapping_files(self, map_dir):
         self.mapping_files = [path for path in Path(map_dir).rglob("*.yaml") 
@@ -60,7 +62,7 @@ if __name__ == "__main__":
     parser.add_argument('--action',
         help='Specify the action to perform',
         required=True,
-        choices=['rebuild-mappings', 'visualize'])
+        choices=['rebuild-mappings', 'visualize', 'output-techniques-json'])
     parser.add_argument('--map-dir', 
         help='Path to the directory containing the mapping files',
         default="../mappings", required=False, type=dir_path)
@@ -83,5 +85,7 @@ if __name__ == "__main__":
             raise argparse.ArgumentTypeError(
                 'Visualize action requires the --output parameter be specified')
         mapping_cli.visualize(args.visualizer, args.output)
-    elif args.mode == "rebuild-mappings":
+    elif args.action == "rebuild-mappings":
         mapping_cli.rebuild_mapping_db()
+    elif args.action == "output-techniques-json":
+        mapping_cli.output_attack_json()
