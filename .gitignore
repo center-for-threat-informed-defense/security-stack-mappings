@@ -5,3 +5,4 @@ __pycache__/
 *$py.class
 tools/mapping.db
 .vscode
+tools/techniques.json

@@ -1,6 +1,8 @@
 from stix2 import TAXIICollectionSource, Filter
 from taxii2client.v20 import Collection
 
+import json
+
 class AttackDataSource:
 
     ENTERPRISE_ATTACK_COLLECTION = "95ecc380-afe9-11e4-9b6c-751b66dd541e"
@@ -50,5 +52,38 @@ class AttackDataSource:
 
 
     def get_techniques(self):
-        techniques = self.tc_src.query([Filter("type", "=", "attack-pattern")])
+        techniques = self.tc_src.query([
+            Filter("type", "=", "attack-pattern"),
+            Filter('x_mitre_is_subtechnique', '=', False)
+        ])
         return techniques
+
+    
+    def output_attack_json(self):
+        techniques = self.get_techniques()
+        output_techniques = {}
+
+        for technique in techniques:
+            tech = {}
+            tech_id = self.get_attack_id(technique)
+            tech["technique_id"] = tech_id
+            tech["technique_name"] = technique["name"]
+            tech["platforms"] = technique.get("x_mitre_platforms", [])
+            tech["sub_techniques"] = []
+
+            output_techniques[tech_id] = tech
+
+        sub_techs = self.get_subtechniques()
+        for sub_ts in sub_techs:
+            attack_id = self.get_attack_id(sub_ts)
+            technique_id = attack_id.split('.')[0]
+
+            sub_tech = {}
+            sub_tech["sub_technique_id"] = attack_id
+            sub_tech["sub_technique_name"] = sub_ts["name"]
+            sub_tech["platforms"] = sub_ts.get("x_mitre_platforms", [])
+
+            output_techniques[technique_id]["sub_techniques"].append(sub_tech)
+
+        with open("techniques.json", "w") as f:
+            json.dump(output_techniques, f, indent=4)
