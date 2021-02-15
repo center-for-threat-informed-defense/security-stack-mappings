@@ -4,7 +4,7 @@ from visualizers.visualizers_collection import VisualizersCollection
 from utils.attack_data_source import AttackDataSource
 from db.database import MappingDatabase
 from pathlib import Path
-from utils.validation import dir_path
+from utils.validation import dir_path, verify_tags, verify_attack_info, verify_scores
 import json
 import yaml
 import os
@@ -41,7 +41,14 @@ class MappingCLI():
                 mapping_yaml = yaml.safe_load(f)
 
             print(f"Validating mapping file {mapping_file} ...")
-            jsonschema.validate(mapping_yaml, cloud_map_schema)
+            try:
+                jsonschema.validate(mapping_yaml, cloud_map_schema)
+            except Exception as e:
+                print(e.message)
+
+            verify_tags(mapping_file)
+            verify_attack_info(mapping_file)
+            verify_scores(mapping_file)
 
         # parse mapping files and insert basic metadata about each mapping in db
 
@@ -86,6 +93,6 @@ if __name__ == "__main__":
                 'Visualize action requires the --output parameter be specified')
         mapping_cli.visualize(args.visualizer, args.output)
     elif args.action == "rebuild-mappings":
-        mapping_cli.rebuild_mapping_db()
+        mapping_cli.rebuild_mappings()
     elif args.action == "output-techniques-json":
         mapping_cli.output_attack_json()
