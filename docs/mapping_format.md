@@ -67,7 +67,10 @@ A score object describes the assessment (score) of the effectiveness of the prev
 
 
 
-## Example 1 Mapping: Password Protection
+## Example Mapping 
+Not a true representation of a mapping but includes extra fields to better show variations on the mapping structure.
+
+
 - **version**: 1.0
 - **ATT&CK version**: 8.1
 - **creation date**: 1/21/2021
@@ -117,30 +120,30 @@ A score object describes the assessment (score) of the effectiveness of the prev
                     - \-
                         - **value**: Prevent
                         - **category**: Partial
-                        - comment
+                        - **comment**
             - \-
-                - sub-techniques:
+                - **sub-techniques**:
                     - \-
-                        - id: T1110.005
-                        - name:  XXXXXXXXX
+                        - **id**: T1110.005
+                        - **name**:  XXXXXXXXX
                     - \-    
-                        - id: T1110.00X
-                        - name:  XXXXXXXXX
-                - scores
+                        - **id**: T1110.00X
+                        - **name**:  XXXXXXXXX
+                - **scores**
                     - \-
-                        - value
-                        - category
-                        - comment
+                        - **value**
+                        - **category**
+                        - **comment**
                     - \-
-                        - value
-                        - category
-                        - comment
+                        - **value**
+                        - **category**
+                        - **comment**
     - \-
-        - id:  T1115
-        - name:
-        - technique-scores
-            - comment
-            - value
-            - category
-    - comments
-    - references
+        - **id**: T11XX
+        - **name**:
+        - **technique-scores**
+            - **comment**
+            - **value**
+            - **category**
+    - **comments**
+    - **references**
