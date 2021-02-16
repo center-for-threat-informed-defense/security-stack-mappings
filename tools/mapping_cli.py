@@ -4,12 +4,12 @@ from visualizers.visualizers_collection import VisualizersCollection
 from utils.attack_data_source import AttackDataSource
 from db.database import MappingDatabase
 from pathlib import Path
-from utils.validation import dir_path, verify_tags, verify_attack_info, verify_scores
+from utils.utils import file_path, dir_path
+from utils.mapping_validator import MappingValidator
 import json
 import yaml
 import os
 import argparse
-import jsonschema
 
 
 class MappingCLI():
@@ -19,38 +19,37 @@ class MappingCLI():
         self.attack_ds = AttackDataSource()
         self.mapping_db = MappingDatabase(self.attack_ds)
         self.mapping_db.init_database()
+        self.mapping_validator = MappingValidator(self.attack_ds)
+
 
     def output_attack_json(self):
         self.attack_ds.output_attack_json()
     
+
     def load_mapping_files(self, map_dir):
         self.mapping_files = [path for path in Path(map_dir).rglob("*.yaml") 
             if 'sample.yaml' not in path.name]
+
+
+    def load_mapping_file(self, map_file):
+        self.mapping_files = [map_file]
 
 
     def get_visualizer_names(self):
         return self.visualizers.visualizers.keys()
 
 
-    def rebuild_mappings(self):
-        with open('config/cloud_mapping_schema.json') as file_object:
-            cloud_map_schema = json.load(file_object)
-
+    def validate_mapping_files(self):
         for mapping_file in self.mapping_files:
             with open(mapping_file, "r") as f:
                 mapping_yaml = yaml.safe_load(f)
 
-            print(f"Validating mapping file {mapping_file} ...")
-            try:
-                jsonschema.validate(mapping_yaml, cloud_map_schema)
-            except Exception as e:
-                print(e.message)
+            self.mapping_validator.validate_mapping(mapping_file, mapping_yaml)
 
-            verify_tags(mapping_file)
-            verify_attack_info(mapping_file)
-            verify_scores(mapping_file)
 
-        # parse mapping files and insert basic metadata about each mapping in db
+    def rebuild_mappings(self):
+        self.validate_mapping_files()
+        # TODO:  parse mapping files and insert basic metadata about each mapping in db
 
     
     def visualize(self, visualizer, output_dir):
@@ -69,10 +68,12 @@ if __name__ == "__main__":
     parser.add_argument('--action',
         help='Specify the action to perform',
         required=True,
-        choices=['rebuild-mappings', 'visualize', 'output-techniques-json'])
-    parser.add_argument('--map-dir', 
+        choices=['output-techniques-json', 'rebuild-mappings', 'validate', 'visualize'])
+    parser.add_argument('--mapping-dir',
         help='Path to the directory containing the mapping files',
         default="../mappings", required=False, type=dir_path)
+    parser.add_argument('--mapping-file',
+        help='Path to the mapping file', required=False, type=file_path)
     parser.add_argument('-O', '--output', 
         help='Path to the directory were the visualizations will be written',
         required=False, type=dir_path)
@@ -81,8 +82,6 @@ if __name__ == "__main__":
         required=False, choices=mapping_cli.get_visualizer_names())
 
     args = parser.parse_args()
-
-    mapping_cli.load_mapping_files(args.map_dir)
 
     if args.action == "visualize":
         if not args.visualizer:
@@ -93,6 +92,13 @@ if __name__ == "__main__":
                 'Visualize action requires the --output parameter be specified')
         mapping_cli.visualize(args.visualizer, args.output)
     elif args.action == "rebuild-mappings":
+        mapping_cli.load_mapping_files(args.mapping_dir)
         mapping_cli.rebuild_mappings()
     elif args.action == "output-techniques-json":
         mapping_cli.output_attack_json()
+    elif args.action == "validate":
+        if args.mapping_file:
+            mapping_cli.load_mapping_file(args.mapping_file)
+        else:
+            mapping_cli.load_mapping_files(args.mapping_dir)
+        mapping_cli.validate_mapping_files()

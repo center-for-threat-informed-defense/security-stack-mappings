@@ -59,7 +59,7 @@ class AttackDataSource:
         return techniques
 
     
-    def output_attack_json(self):
+    def get_techniques_and_sub_techniques(self, sub_technique_keys = True):
         techniques = self.get_techniques()
         output_techniques = {}
 
@@ -69,7 +69,10 @@ class AttackDataSource:
             tech["technique_id"] = tech_id
             tech["technique_name"] = technique["name"]
             tech["platforms"] = technique.get("x_mitre_platforms", [])
-            tech["sub_techniques"] = []
+            if sub_technique_keys:
+                tech["sub_techniques"] = {}
+            else:
+                tech["sub_techniques"] = []
 
             output_techniques[tech_id] = tech
 
@@ -83,7 +86,15 @@ class AttackDataSource:
             sub_tech["sub_technique_name"] = sub_ts["name"]
             sub_tech["platforms"] = sub_ts.get("x_mitre_platforms", [])
 
-            output_techniques[technique_id]["sub_techniques"].append(sub_tech)
+            if sub_technique_keys:
+                output_techniques[technique_id]["sub_techniques"][attack_id] = sub_tech
+            else:
+                output_techniques[technique_id]["sub_techniques"].append(sub_tech)
+        
+        return output_techniques
 
+
+    def output_attack_json(self, false):
+        output_techniques = self.get_techniques_and_sub_techniques()
         with open("techniques.json", "w") as f:
             json.dump(output_techniques, f, indent=4)
