@@ -1,0 +1,86 @@
+import os
+import yaml
+import json
+import jsonschema
+
+class MappingValidator:
+
+    def __init__(self, attack_ds):
+        self.valid_tags = self.load_tags()
+        self.attack_ds = []
+        self.attack_ds = attack_ds
+        self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
+
+
+    def load_tags(self):
+        fn = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config/valid_tags.yaml')
+        with open(fn) as file_object:
+            return file_object.read().splitlines()
+
+
+    def verify_tags(self, mapping):
+        for tag in mapping['tags']:
+            if not tag in self.valid_tags:
+                print(f"Tag {tag} from mapping file {mf['name']} is not contained within valid_tags.yaml.")
+
+
+    def verify_attack_info(self, mapping):
+        for technique in mapping['techniques']:
+            tech_id = technique['id']
+            tech_name = technique['name']
+            if tech_id in self.valid_techniques:
+                if tech_name == self.valid_techniques[tech_id]['technique_name']:
+                    for sub_techs in technique['sub-techniques-scores']:
+                        for subs in sub_techs['sub-techniques']:
+                            if subs['id'] not in self.valid_techniques[tech_id]["sub_techniques"]:
+                                print(f"  Error:  Sub-technique {subs['id']} - {subs['name']} is not a sub-technique"
+                                    f" of {tech_id} - {tech_name}")
+                            elif self.valid_techniques[tech_id]["sub_techniques"][subs['id']]['sub_technique_name'] != subs['name']:
+                                print(f"  Error:  Invalid name {subs['name']} for sub-technique subs['id'] "
+                                    f", should be {self.valid_techniques[tech_id]['sub_techniques'][subs['id']]['sub_technique_id']}");
+                else:
+                    print(f"  Error: Technique name {tech_name} from mapping file does not match {tech_id} technique "
+                        f"name {self.valid_techniques[tech_id]['technique_name']}")
+            else:
+                print(f"  Error: {tech_id} is not a valid ATT&CK Technique ID.")
+
+
+    def verify_scores(self, mapping):
+        for technique in mapping['techniques']:
+            if not technique['technique-scores'] and not technique['sub-techniques-scores'][0]['scores']:
+                print(f"Error: There are no scores for {technique['name']}")
+                return
+
+            if technique['technique-scores']:
+                tech_scores = technique['technique-scores']
+                cat_list = []
+                for score in tech_scores:
+                    cat_list.append(score['category'])
+                    if cat_list.count(score['category']) > 1:
+                        print(f"Error: There is more than one score of type {score['category']}  in "
+                            f"technique-scores for {technique['name']}")
+
+            for subs in technique['sub-techniques-scores']:
+                if subs['scores']:
+                    sub_scores = subs['scores']
+                    cat_list = []
+                    for score in sub_scores:
+                        cat_list.append(score['category'])
+                        if cat_list.count(score['category']) > 1:
+                            print(f"Error: There is more than one score of type {score['category']}"
+                                f" in sub-techniques-scores for {technique['name']}")
+
+
+    def validate_mapping(self, mapping_file, mapping_yaml):
+        with open('config/cloud_mapping_schema.json') as file_object:
+            cloud_map_schema = json.load(file_object)
+
+        print(f"Validating mapping file {mapping_file} ...")
+        try:
+            jsonschema.validate(mapping_yaml, cloud_map_schema)
+        except Exception as e:
+            print(e)
+
+        self.verify_tags(mapping_yaml)
+        self.verify_attack_info(mapping_yaml)
+        self.verify_scores(mapping_yaml)

@@ -13,8 +13,12 @@
             "description": "The version of the ATT&CK (Cloud) matrix used to source the techniques included in this mapping.",
             "type": "number"
         },
-        "date": {
-            "description": "Last update time?  Creation time?  Maybe add a field for both?",
+        "creation date": {
+            "description": "Creation date of the mapping file",
+            "type": "string"
+        },
+        "last update": {
+            "description": "Date of last update of the mapping file",
             "type": "string"
         },
         "name": {
@@ -64,8 +68,7 @@
                         "description": "The name of the ATT&CK technique.",
                         "type": "string"
                     },
-                    "sub-techniques": {
-                        "description": "List of Sub-technique objects that describe the specific sub-techniques of this technique that this control provides protection against.",
+                    "technique-scores": {
                         "type": "array",
                         "items": {
                             "type": "object",
@@ -77,6 +80,28 @@
                                 "name": {
                                     "description": "The name of the ATT&CK sub-technique.",
                                     "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "sub-techniques-scores": {
+                        "description": "List of Sub-technique objects that describe the specific sub-techniques of this technique that this control provides protection against.",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "sub-techniques": {
+                                    "type": "array",
+                                    "items": {
+                                        "id": {
+                                            "description": "The ID of the ATT&CK sub-technique.",
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "description": "The name of the ATT&CK sub-technique.",
+                                            "type": "string"
+                                        }
+                                    }
                                 },
                                 "scores": {
                                     "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK cloud sub-technique.",
@@ -104,24 +129,17 @@
                                         },
                                         "required": [
                                             "category",
-                                            "value",
-                                            "comment"
+                                            "value"
                                         ]
                                     }
                                 }
                             },
                             "required": [
-                                "id",
-                                "name",
-                                "scores"
                             ]
                         }
                     }
                 },
                 "required": [
-                    "id",
-                    "name",
-                    "sub-techniques"
                 ],
                 "comments": {
                     "description": "A description of any assumptions that were made while producing this mapping.",
@@ -137,7 +155,6 @@
     "required": [
         "version",
         "ATT&CK version",
-        "date",
         "name",
         "platform",
         "description",
