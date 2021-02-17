@@ -68,19 +68,23 @@ A score object describes the assessment (score) of the effectiveness of the prev
 
 
 ## Example Mapping 
-Not a true representation of a mapping but includes extra fields to better show variations on the mapping structure.
 
-
-- **version**: 1.0
-- **ATT&CK version**: 8.1
-- **creation date**: 1/21/2021
-- **name**: Azure Active Directory Password Protection
-- **author**:
-- **contact**: ctid@mitre-engenuity.org
-- **organization**: Center for Threat Informed Defense (CTID)
-- **platform**: Azure
-- **tags**: Identity, Azure Active Directory, Passwords, Credentials
-- **description**: Azure AD Password Protection provides a global banned password lists are
+```
+version: 1.0
+ATT&CK version: 8.1
+creation_date: 1/21/2021
+name: Azure Active Directory Password Protection
+author: 
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags: 
+  - Identity
+  - Azure Active Directory
+  - Passwords
+  - Credentials
+description: > 
+  Azure AD Password Protection provides a global banned password lists are
   automatically applied to all users in an Azure AD tenant.  The Azure AD
   Identity Protection team constantly analyzes Azure AD security telemetry data
   looking for commonly used weak or compromised passwords.  When weak terms are
@@ -88,62 +92,33 @@ Not a true representation of a mapping but includes extra fields to better show 
   business and security needs, you can define entries in a custom banned 
   password list. When users change or reset their passwords, these banned 
   password lists are checked to enforce the use of strong passwords.
-- **techniques**
-    - \-
-        - **id**:  T1110
-        - **name**: Brute Force
-        - **technique-scores**
-            - \-
-                - **category**: Prevent
-                - **value** : Partial
-                - **comment**
-            - \-
-                - **category**
-                - **value**
-                - **comment**
-        - **sub-technique-scores**
-            - \-
-                - **sub-techniques**:
-                    - \-
-                        - **id**: T1110.001
-                        - **name**:  Password Guessing
-                    - \-
-                        - **id**: T1110.002
-                        - **name**:  Password Cracking
-                    - \-
-                        - **id**: T1110.003
-                        - **name**:  Password Spraying
-                    - \-
-                        - **id**: T1110.004
-                        - **name**:  Credential Stuffing
-                - **scores**
-                    - \-
-                        - **value**: Prevent
-                        - **category**: Partial
-                        - **comment**
-            - \-
-                - **sub-techniques**:
-                    - \-
-                        - **id**: T1110.005
-                        - **name**:  XXXXXXXXX
-                    - \-    
-                        - **id**: T1110.00X
-                        - **name**:  XXXXXXXXX
-                - **scores**
-                    - \-
-                        - **value**
-                        - **category**
-                        - **comment**
-                    - \-
-                        - **value**
-                        - **category**
-                        - **comment**
-    - \-
-        - **id**: T11XX
-        - **name**:
-        - **technique-scores**
-            - **comment**
-            - **value**
-            - **category**
-    - **comments**
-    - **references**
+techniques:
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Prevent
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+        - id: T1110.001
+          name: Password Guessing
+        - id: T1110.002
+          name: Password Cracking
+        - id: T1110.003
+          name: Password Spraying
+        - id: T1110.004
+          name: Credential Stuffing
+        scores:
+          - category: Prevent
+            value: Partial
+comments: >
+  All scores have been assessed as Partial because this control increases the
+  strength of user passwords thereby reducing the likelihood of a successful
+  brute force attack.  Due to the fact that a user's password is not checked 
+  against the banned list of passwords unless the user changes or resets their 
+  password (which is an infrequent event), there is still ample opportunity 
+  for attackers to utilize this technique to gain access. This is what prevented
+  the score from being elevated to Significant.
+references:
+  - https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad
+```
