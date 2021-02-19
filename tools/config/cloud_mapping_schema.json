@@ -140,16 +140,21 @@
                     }
                 },
                 "required": [
-                ],
-                "comments": {
-                    "description": "A description of any assumptions that were made while producing this mapping.",
-                    "type": "string"
-                },
-                "references": {
-                    "description": "A description of any useful references for understanding the data contained in this mapping.",
-                    "type": "string"
-                }
+                ]
             }
+        },
+        "comments": {
+            "description": "A description of any assumptions that were made while producing this mapping.",
+            "type": "string"
+        },
+        "references": {
+            "description": "A description of any useful references for understanding the data contained in this mapping.",
+            "type": ["array","null"],
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
         }
     },
     "required": [
@@ -159,5 +164,6 @@
         "platform",
         "description",
         "techniques"
-    ]
+    ],
+    "additionalProperties": false
 }
