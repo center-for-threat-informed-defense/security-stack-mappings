@@ -72,7 +72,7 @@ A score object describes the assessment (score) of the effectiveness of the prev
 ```
 version: 1.0
 ATT&CK version: 8.1
-creation_date: 1/21/2021
+creation date: 1/21/2021
 name: Azure Active Directory Password Protection
 author: 
 contact: ctid@mitre-engenuity.org
