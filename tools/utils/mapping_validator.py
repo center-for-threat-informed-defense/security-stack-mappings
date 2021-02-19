@@ -9,19 +9,22 @@ class MappingValidator:
         self.valid_tags = self.load_tags()
         self.attack_ds = []
         self.attack_ds = attack_ds
-        self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
+        self.valid_techniques = {}
 
 
     def load_tags(self):
-        fn = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config/valid_tags.yaml')
+        fn = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config/valid_tags.txt')
         with open(fn) as file_object:
             return file_object.read().splitlines()
 
 
     def verify_tags(self, mapping):
-        for tag in mapping['tags']:
-            if not tag in self.valid_tags:
-                print(f"Tag {tag} from mapping file {mapping['name']} is not contained within valid_tags.yaml.")
+        if "tags" in mapping:
+            for tag in mapping['tags']:
+                if not tag in self.valid_tags:
+                    print(f"Tag {tag} from mapping file {mapping['name']} is not contained within valid_tags.yaml.")
+        else:
+            print(f"  Warning:  Mapping file does not include any tags.")
 
 
     def verify_attack_info(self, mapping):
@@ -61,31 +64,34 @@ class MappingValidator:
                         print(f"Error: There is more than one score of type {score['category']}  in "
                             f"technique-scores for {technique['name']}")
             if 'sub-techniques-scores' in technique:
-                sub_list = []
-                for subs in technique['sub-techniques-scores']:
-                    for sub_id in subs['sub-techniques']:
-                        if sub_id in sub_list:
-                            print(f"Error: The sub-technique {sub_id['name']} under technique {technique['name']} has been scored more than once.")
-                        sub_list.append(sub_id)
-                    if subs['scores']:
-                        sub_scores = subs['scores']
-                        cat_list = []
-                        for score in sub_scores:
-                            cat_list.append(score['category'])
-                            if cat_list.count(score['category']) > 1:
-                                print(f"Error: There is more than one score of type {score['category']}"
-                                    f" in sub-techniques-scores for {technique['name']}")
+                if technique['sub-techniques-scores']:
+                    sub_list = []
+                    for subs in technique['sub-techniques-scores']:
+                        for sub_id in subs['sub-techniques']:
+                            if sub_id in sub_list:
+                                print(f"Error: The sub-technique {sub_id['name']} under technique {technique['name']} has been scored more than once.")
+                            sub_list.append(sub_id)
+                        if subs['scores']:
+                            sub_scores = subs['scores']
+                            cat_list = []
+                            for score in sub_scores:
+                                cat_list.append(score['category'])
+                                if cat_list.count(score['category']) > 1:
+                                    print(f"Error: There is more than one score of type {score['category']}"
+                                        f" in sub-techniques-scores for {technique['name']}")
+                else:
+                    print(f"  Error:  Empty sub-techniques-scores object for technique {technique['name']}")
 
 
     def validate_mapping(self, mapping_file, mapping_yaml):
+        if not self.valid_techniques:
+            self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
+
         with open('config/cloud_mapping_schema.json') as file_object:
             cloud_map_schema = json.load(file_object)
 
         print(f"Validating mapping file {mapping_file} ...")
-        try:
-            jsonschema.validate(mapping_yaml, cloud_map_schema)
-        except Exception as e:
-            print(e)
+        jsonschema.validate(mapping_yaml, cloud_map_schema)
 
         self.verify_tags(mapping_yaml)
         self.verify_attack_info(mapping_yaml)
