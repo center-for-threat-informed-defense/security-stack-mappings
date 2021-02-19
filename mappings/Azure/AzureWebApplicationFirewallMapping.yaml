@@ -1,0 +1,291 @@
+version: '1.0'
+ATT&CK version: '8.1'
+creation date: 02/18/2021
+name: ''
+author: 'Clem Skorupka '
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+techniques:
+  - id: T1595
+    name: Active Scanning
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: 'Covers web app vulnerabilities, not other services.'
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1595.002
+            name: Vulnerability Scanning
+        scores:
+          - category: Prevent
+            value: Partial
+            comments: Focus on Web Vuln scanning OWASP CORE
+          - category: Detect
+            value: Partial
+      - sub-techniques: []
+        scores: []
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Prevent
+        value: Partial
+      - category: Detect
+        value: Partial
+    sub-techniques-scores: []
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Prevent
+        value: Significant
+      - category: Detect
+        value: Significant
+    sub-techniques-scores: []
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Prevent
+        value: Partial
+      - category: Detect
+        value: Partial
+    sub-techniques-scores: []
+  - id: T1176
+    name: Browser Extensions
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: Review depending on signatures
+      - category: Detect
+        value: Partial
+        comments: 'Review depending on signatures '
+    sub-techniques-scores: []
+  - id: T1205
+    name: Traffic Signaling
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: Provides telemetry but wouldn't identify the activity as bad or block it
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1205.001
+            name: Port Knocking
+        scores:
+          - category: Prevent
+            value: Minimal
+            comments: may block some ports depending on fw rules.
+          - category: Detect
+            value: Minimal
+            comments: may provide telemetry though not identify activity
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: covers some techniques traversing perimeter
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: ''
+            name: ''
+        scores:
+          - category: Prevent
+            value: Significant
+          - category: Detect
+            value: Significant
+      - sub-techniques:
+          - id: T1110.003
+            name: Password Spraying
+        scores:
+          - category: Prevent
+            value: Significant
+          - category: Detect
+            value: Significant
+      - sub-techniques:
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Prevent
+            value: Partial
+            comments: Review may depend on how noisy/threshold
+          - category: Detect
+            value: Partial
+  - id: T1056
+    name: Input Capture
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: web portal capture
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1056.003
+            name: Web Portal Capture
+        scores:
+          - category: Prevent
+            value: Partial
+            comments: >-
+              Review Direct attacks to compromise server (vs valid credentials) ( or do we just
+              focus on identifying/stopping the behavior once the portal is compromised?
+          - category: Detect
+            value: Partial
+  - id: T1526
+    name: Cloud Service Discovery
+    technique-scores:
+      - category: Detect
+        value: Minimum
+        comments: 'minimal: some telemetry for detect'
+    sub-techniques-scores: []
+  - id: T1046
+    name: Network Service Scanning
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: may block some ports
+      - category: Detect
+        value: Partial
+        comments: may provide telemetry or trigger a scanner signature
+    sub-techniques-scores: []
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Prevent
+        value: Partial
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.001
+            name: Web Protocols
+        scores:
+          - category: Prevent
+            value: Partial
+          - category: Detect
+            value: Partial
+  - id: T1001
+    name: Data Obfuscation
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: Some protocol enforcement for T1001.003
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1001.003
+            name: Protocol Impersonation
+        scores:
+          - category: Prevent
+            value: Significant
+          - category: Detect
+            value: Significant
+  - id: T1008
+    name: Fallback Channels
+    technique-scores:
+      - category: Prevent
+        value: Partial
+      - category: Detect
+        value: Partial
+    sub-techniques-scores: []
+  - id: T1572
+    name: Protocol Tunneling
+    technique-scores:
+      - category: Prevent
+        value: Partial
+      - category: Detect
+        value: Partial
+    sub-techniques-scores: []
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Prevent
+        value: Partial
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1048.001
+            name: Exfiltration Over Symmetric Encrypted Non-C2 Protocol
+          - id: T1048.003
+            name: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
+          - id: T1048.002
+            name: Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
+        scores:
+          - category: Prevent
+            value: Partial
+          - category: Detect
+            value: Partial
+  - id: T1041
+    name: Exfiltration Over C2 Channel
+    technique-scores:
+      - category: Prevent
+        value: Partial
+      - category: Detect
+        value: Partial
+    sub-techniques-scores: []
+  - id: T1567
+    name: Exfiltration Over Web Service
+    technique-scores:
+      - category: Prevent
+        value: Partial
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1567.002
+            name: Exfiltration to Cloud Storage
+          - id: T1567.001
+            name: Exfiltration to Code Repository
+          - id: ''
+            name: ''
+        scores:
+          - category: Prevent
+            value: Minimal
+            comments: telemetry
+          - category: Detect
+            value: Minimal
+            comments: telemetry
+  - id: T1491
+    name: Defacement
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: >-
+          note will identify direct attacks, not defacing due to abuse of a valid account, not
+          internal defacement from compromised internal host
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1491.002
+            name: External Defacement
+        scores:
+          - category: Prevent
+            value: Significant
+          - category: Detect
+            value: Significant
+  - id: T1499
+    name: Endpoint Denial of Service
+    technique-scores:
+      - category: Prevent
+        value: Significant
+      - category: Detect
+        value: Significant
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1499.004
+            name: Application or System Exploitation
+          - id: T1499.003
+            name: Application Exhaustion Flood
+          - id: T1499.002
+            name: Service Exhaustion Flood
+          - id: T1499.001
+            name: OS Exhaustion Flood
+        scores:
+          - category: Prevent
+            value: Significant
+          - category: Detect
+            value: Significant
