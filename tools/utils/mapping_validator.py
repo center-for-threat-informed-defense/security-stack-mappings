@@ -9,11 +9,11 @@ class MappingValidator:
         self.valid_tags = self.load_tags()
         self.attack_ds = []
         self.attack_ds = attack_ds
-        self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
+        self.valid_techniques = {}
 
 
     def load_tags(self):
-        fn = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config/valid_tags.yaml')
+        fn = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config/valid_tags.txt')
         with open(fn) as file_object:
             return file_object.read().splitlines()
 
@@ -78,6 +78,9 @@ class MappingValidator:
 
 
     def validate_mapping(self, mapping_file, mapping_yaml):
+        if not self.valid_techniques:
+            self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
+
         with open('config/cloud_mapping_schema.json') as file_object:
             cloud_map_schema = json.load(file_object)
 
