@@ -4,7 +4,7 @@ Below is the structure of the data format that captures the details of how a sec
 
 
 ## Data Dictionary
-### Top Level Fields
+### Top Level Metadata Fields
  
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
@@ -43,7 +43,7 @@ A technique object describes an ATT&CK technique that the security control provi
 
 
 
-### SubTechniqueScore Object Fields
+### SubTechniquesScore Object Fields
  
 A score object describes the assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.
  
