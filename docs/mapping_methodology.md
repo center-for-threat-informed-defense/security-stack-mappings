@@ -15,7 +15,7 @@ The methodology consists of the following steps:
 Cyber security has emerged as an essential component of cloud platforms, and consequently cloud providers tend to offer a variety of documentation on the security capabilities of their platform.  Peruse the cloud platform documentation (e.g. security reference architectures, security benchmarks, security documentation of various cloud services, etc.) to identify the security controls offered by the platform for protecting workloads on the platform.  Keep the following in mind while selecting controls:
 - The scope of the controls mapped by this project are the technical control types and do not include administrative or physical control types.
 - The selected controls should be native to the platform, i.e. produced by the cloud vendor themselves or third-party controls branded by the cloud provider.  Thirty-party security controls offered in cloud marketplaces are considered out of scope.
-- Cloud services often provide individual The scope of controls mapped tend to be stand-alone
+- The security controls selected to be mapped as part of this project tend to be controls that are marketed as standalone security products available on the platform.  The intent is not to provide a mapping for all settings/features of individual platform services that are security related.  This is a non-trivial undertaking that may be explored at a later time.
 
 ## Step 2:  Security Control Review
 For each identified security control, consult the documentation for the control made available by the cloud provider to understand its capabilities.  Gather the following facts about the security control that will later help in mapping the control to the set of ATT&CK techniques and sub-techniques it is able to mitigate:
@@ -65,8 +65,12 @@ After identifying the techniques and sub-techniques that are mappable to the con
 
 ## Step 5:  Create A Mapping
 The previous steps enabled you to gather the information required to create a mapping file for a control according to the [mapping data format](docs/mapping_format.md).  Use the following guidelines to help you in the process of create a mapping:
+- The mapping format promotes producing mappings that are self-contained, enabled a reader of the mapping file to understand the basic functionality provided by the control and also the rational for selecting the ATT&CK techniques and sub-techniques it maps.  Use the various comment and description fields to communicate this information to readers.
 - Populate the tags field with tags that will enable you to categorize the control in different ways, for example, by the resource(s) protected by the control.  The tags field can then be utilized to visualize multiple controls with the same tag.
     - Do not include ATT&CK information in the tag field.  This information is already present in the techniques field of the YAML mapping file and the visualization tools also support grouping controls by ATT&CK (sub-)techniques and therefore there is no need to duplicate the information in the tags field.
     - The list of valid tags is maintained in the [valid_tags.txt](tools/config/valid_tags.txt) file.  If you introduce a new tag, add it to this file.
-
-- Validate the mapping file using the ...
+- When scoring a control's effectiveness at mitigating a technique or sub-technique, you are encouraged to include a comment along with the score that explains your assessment.  Comments can be provided at multiple levels: top level, per technique or per group of sub-techniques.  Choose the level that makes the most sense for a control, for example:
+    - If the score and rational applies to most techniques in scope of the mapping, rather than repeating the comment for each technique, add a comment using the top-level comment field of the mapping file.
+    - If the score and rational applies to multiple groups of sub-techniques for a technique, provide a comment along with the score at the technique level.
+    - If the score and rational is specific to a group of sub-techniques, provide a comment along with the score at the sub-techniques level.
+- Use the [Mapping CLI](tools/README.md) to validate the structure and contents of the mappings that you produce.  The tool can be used to validate individual mapping files or a directory of mapping files.
