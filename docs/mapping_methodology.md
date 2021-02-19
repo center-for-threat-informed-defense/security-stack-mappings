@@ -53,7 +53,7 @@ The following may help with this process:
 
 
 ## Step 4:  Score Assessments
-After identifying the techniques and sub-techniques that are mappable to the control, use the [scoring rubric](docs/scoring.md) to score the effectiveness of the security function (prevent, detect, respond) provided by the control in mitigating the behavior described by the ATT&CK entity.
+After identifying the techniques and sub-techniques that are mappable to the control, use the [scoring rubric](./scoring.md) to score the effectiveness of the security function (prevent, detect, respond) provided by the control in mitigating the behavior described by the ATT&CK entity.
 -  For a given technique, start with scoring each sub-technique that is mappable to the control.  
     - Typically the control's effectiveness at mitigating the behavior described by a sub-technique is scored as Partial or Significant.  If you are inclined to score a control's effectiveness at mitigating the behavior described by a sub-technique as Minimal, carefully consider whether this control would actually be a practical means of mitigating the sub-technique.  Often times, technically the control can mitigate the sub-technique but in the real-world it wouldn't be used for that purpose.  In that case, rather than including it in the mapping with a minimal score, the recommendation is to exclude it.
 - After scoring each sub-technique for the technique, proceed to provide a score for the overall technique, considering the following:
@@ -64,13 +64,13 @@ After identifying the techniques and sub-techniques that are mappable to the con
 
 
 ## Step 5:  Create A Mapping
-The previous steps enabled you to gather the information required to create a mapping file for a control according to the [mapping data format](docs/mapping_format.md).  Use the following guidelines to help you in the process of create a mapping:
+The previous steps enabled you to gather the information required to create a mapping file for a control according to the [mapping data format](./mapping_format.md).  Use the following guidelines to help you in the process of create a mapping:
 - The mapping format promotes producing mappings that are self-contained, enabled a reader of the mapping file to understand the basic functionality provided by the control and also the rational for selecting the ATT&CK techniques and sub-techniques it maps.  Use the various comment and description fields to communicate this information to readers.
 - Populate the tags field with tags that will enable you to categorize the control in different ways, for example, by the resource(s) protected by the control.  The tags field can then be utilized to visualize multiple controls with the same tag.
     - Do not include ATT&CK information in the tag field.  This information is already present in the techniques field of the YAML mapping file and the visualization tools also support grouping controls by ATT&CK (sub-)techniques and therefore there is no need to duplicate the information in the tags field.
-    - The list of valid tags is maintained in the [valid_tags.txt](tools/config/valid_tags.txt) file.  If you introduce a new tag, add it to this file.
+    - The list of valid tags is maintained in the [valid_tags.txt](../tools/config/valid_tags.txt) file.  If you introduce a new tag, add it to this file.
 - When scoring a control's effectiveness at mitigating a technique or sub-technique, you are encouraged to include a comment along with the score that explains your assessment.  Comments can be provided at multiple levels: top level, per technique or per group of sub-techniques.  Choose the level that makes the most sense for a control, for example:
     - If the score and rational applies to most techniques in scope of the mapping, rather than repeating the comment for each technique, add a comment using the top-level comment field of the mapping file.
     - If the score and rational applies to multiple groups of sub-techniques for a technique, provide a comment along with the score at the technique level.
     - If the score and rational is specific to a group of sub-techniques, provide a comment along with the score at the sub-techniques level.
-- Use the [Mapping CLI](tools/README.md) to validate the structure and contents of the mappings that you produce.  The tool can be used to validate individual mapping files or a directory of mapping files.
+- Use the [Mapping CLI](../tools/README.md) to validate the structure and contents of the mappings that you produce.  The tool can be used to validate individual mapping files or a directory of mapping files.
