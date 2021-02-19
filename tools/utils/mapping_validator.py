@@ -21,7 +21,7 @@ class MappingValidator:
     def verify_tags(self, mapping):
         for tag in mapping['tags']:
             if not tag in self.valid_tags:
-                print(f"Tag {tag} from mapping file {mf['name']} is not contained within valid_tags.yaml.")
+                print(f"Tag {tag} from mapping file {mapping['name']} is not contained within valid_tags.yaml.")
 
 
     def verify_attack_info(self, mapping):
@@ -30,14 +30,15 @@ class MappingValidator:
             tech_name = technique['name']
             if tech_id in self.valid_techniques:
                 if tech_name == self.valid_techniques[tech_id]['technique_name']:
-                    for sub_techs in technique['sub-techniques-scores']:
-                        for subs in sub_techs['sub-techniques']:
-                            if subs['id'] not in self.valid_techniques[tech_id]["sub_techniques"]:
-                                print(f"  Error:  Sub-technique {subs['id']} - {subs['name']} is not a sub-technique"
-                                    f" of {tech_id} - {tech_name}")
-                            elif self.valid_techniques[tech_id]["sub_techniques"][subs['id']]['sub_technique_name'] != subs['name']:
-                                print(f"  Error:  Invalid name {subs['name']} for sub-technique subs['id'] "
-                                    f", should be {self.valid_techniques[tech_id]['sub_techniques'][subs['id']]['sub_technique_id']}");
+                    if 'sub-techniques-scores' in technique:
+                        for sub_techs in technique['sub-techniques-scores']:
+                            for subs in sub_techs['sub-techniques']:
+                                if subs['id'] not in self.valid_techniques[tech_id]["sub_techniques"]:
+                                    print(f"  Error:  Sub-technique {subs['id']} - {subs['name']} is not a sub-technique"
+                                        f" of {tech_id} - {tech_name}")
+                                elif self.valid_techniques[tech_id]["sub_techniques"][subs['id']]['sub_technique_name'] != subs['name']:
+                                    print(f"  Error:  Invalid name {subs['name']} for sub-technique subs['id'] "
+                                        f", should be {self.valid_techniques[tech_id]['sub_techniques'][subs['id']]['sub_technique_id']}");
                 else:
                     print(f"  Error: Technique name {tech_name} from mapping file does not match {tech_id} technique "
                         f"name {self.valid_techniques[tech_id]['technique_name']}")
@@ -59,16 +60,21 @@ class MappingValidator:
                     if cat_list.count(score['category']) > 1:
                         print(f"Error: There is more than one score of type {score['category']}  in "
                             f"technique-scores for {technique['name']}")
-
-            for subs in technique['sub-techniques-scores']:
-                if subs['scores']:
-                    sub_scores = subs['scores']
-                    cat_list = []
-                    for score in sub_scores:
-                        cat_list.append(score['category'])
-                        if cat_list.count(score['category']) > 1:
-                            print(f"Error: There is more than one score of type {score['category']}"
-                                f" in sub-techniques-scores for {technique['name']}")
+            if 'sub-techniques-scores' in technique:
+                sub_list = []
+                for subs in technique['sub-techniques-scores']:
+                    for sub_id in subs['sub-techniques']:
+                        if sub_id in sub_list:
+                            print(f"Error: The sub-technique {sub_id['name']} under technique {technique['name']} has been scored more than once.")
+                        sub_list.append(sub_id)
+                    if subs['scores']:
+                        sub_scores = subs['scores']
+                        cat_list = []
+                        for score in sub_scores:
+                            cat_list.append(score['category'])
+                            if cat_list.count(score['category']) > 1:
+                                print(f"Error: There is more than one score of type {score['category']}"
+                                    f" in sub-techniques-scores for {technique['name']}")
 
 
     def validate_mapping(self, mapping_file, mapping_yaml):
