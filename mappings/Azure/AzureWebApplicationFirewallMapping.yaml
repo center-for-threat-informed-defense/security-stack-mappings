@@ -1,11 +1,14 @@
-version: '1.0'
-ATT&CK version: '8.1'
+version: 1.0
+ATT&CK version: 8.1
 creation date: 02/18/2021
-name: ''
-author: 'Clem Skorupka '
+name: 'Azure Web Application Firewall'
+author: 'Clem Skorupka'
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
+description: > 
+  Azure Web Application Firewall (WAF) provides centralized protection of your web applications 
+  from common exploits and vulnerabilities.
 techniques:
   - id: T1595
     name: Active Scanning
@@ -23,8 +26,6 @@ techniques:
             comments: Focus on Web Vuln scanning OWASP CORE
           - category: Detect
             value: Partial
-      - sub-techniques: []
-        scores: []
   - id: T1189
     name: Drive-by Compromise
     technique-scores:
@@ -32,7 +33,6 @@ techniques:
         value: Partial
       - category: Detect
         value: Partial
-    sub-techniques-scores: []
   - id: T1190
     name: Exploit Public-Facing Application
     technique-scores:
@@ -40,7 +40,6 @@ techniques:
         value: Significant
       - category: Detect
         value: Significant
-    sub-techniques-scores: []
   - id: T1203
     name: Exploitation for Client Execution
     technique-scores:
@@ -48,7 +47,6 @@ techniques:
         value: Partial
       - category: Detect
         value: Partial
-    sub-techniques-scores: []
   - id: T1176
     name: Browser Extensions
     technique-scores:
@@ -58,7 +56,6 @@ techniques:
       - category: Detect
         value: Partial
         comments: 'Review depending on signatures '
-    sub-techniques-scores: []
   - id: T1205
     name: Traffic Signaling
     technique-scores:
@@ -88,8 +85,6 @@ techniques:
       - sub-techniques:
           - id: T1110.001
             name: Password Guessing
-          - id: ''
-            name: ''
         scores:
           - category: Prevent
             value: Significant
@@ -138,7 +133,6 @@ techniques:
       - category: Detect
         value: Minimum
         comments: 'minimal: some telemetry for detect'
-    sub-techniques-scores: []
   - id: T1046
     name: Network Service Scanning
     technique-scores:
@@ -148,7 +142,6 @@ techniques:
       - category: Detect
         value: Partial
         comments: may provide telemetry or trigger a scanner signature
-    sub-techniques-scores: []
   - id: T1071
     name: Application Layer Protocol
     technique-scores:
@@ -189,7 +182,6 @@ techniques:
         value: Partial
       - category: Detect
         value: Partial
-    sub-techniques-scores: []
   - id: T1572
     name: Protocol Tunneling
     technique-scores:
@@ -197,7 +189,6 @@ techniques:
         value: Partial
       - category: Detect
         value: Partial
-    sub-techniques-scores: []
   - id: T1048
     name: Exfiltration Over Alternative Protocol
     technique-scores:
@@ -225,7 +216,6 @@ techniques:
         value: Partial
       - category: Detect
         value: Partial
-    sub-techniques-scores: []
   - id: T1567
     name: Exfiltration Over Web Service
     technique-scores:
@@ -239,8 +229,6 @@ techniques:
             name: Exfiltration to Cloud Storage
           - id: T1567.001
             name: Exfiltration to Code Repository
-          - id: ''
-            name: ''
         scores:
           - category: Prevent
             value: Minimal
