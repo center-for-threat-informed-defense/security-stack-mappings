@@ -4,7 +4,7 @@ Below is the structure of the data format that captures the details of how a sec
 
 
 ## Data Dictionary
-### Top Level Fields
+### Top Level Metadata Fields
  
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
@@ -43,7 +43,7 @@ A technique object describes an ATT&CK technique that the security control provi
 
 
 
-### SubTechniqueScore Object Fields
+### SubTechniquesScore Object Fields
  
 A score object describes the assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.
  
@@ -72,7 +72,7 @@ A score object describes the assessment (score) of the effectiveness of the prev
 ```
 version: 1.0
 ATT&CK version: 8.1
-creation_date: 1/21/2021
+creation date: 1/21/2021
 name: Azure Active Directory Password Protection
 author: 
 contact: ctid@mitre-engenuity.org
