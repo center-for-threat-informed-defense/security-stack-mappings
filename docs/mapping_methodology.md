@@ -11,6 +11,8 @@ The methodology consists of the following steps:
 1. **Score Assessment** - Assess the effectiveness of the type of protection the control provides for the identified ATT&CK techniques and sub-techniques.
 1. **Create a Mapping** - Creating a mapping based on the information gathered from the previous steps. 
 
+[TBD insert diagram/flow chart]
+
 ## Step 1:  Identify Platform Security Controls
 Cyber security has emerged as an essential component of cloud platforms, and consequently cloud providers tend to offer a variety of documentation on the security capabilities of their platform.  Peruse the cloud platform documentation (e.g. security reference architectures, security benchmarks, security documentation of various cloud services, etc.) to identify the security controls offered by the platform for protecting workloads on the platform.  Keep the following in mind while selecting controls:
 - The scope of the controls mapped by this project are the technical control types and do not include administrative or physical control types.

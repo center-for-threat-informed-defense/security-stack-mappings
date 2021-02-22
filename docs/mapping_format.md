@@ -59,7 +59,7 @@ A score object describes the assessment (score) of the effectiveness of the prev
 |------|------|----------|-------------|
 | category | String | yes | The control category. <br /> Valid values:  [Prevent, Detect, Respond] |
 | value | String | yes | The [score](scoring.md) <br /> Ex:  (Minimal, Partial, Significant) |
-| comment | String | no | A justification for the assessed score or any related comments. |
+| comments | String | no | A justification for the assessed score or any related comments. |
 
 
 
