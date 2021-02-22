@@ -28,7 +28,11 @@ class MappingValidator:
 
 
     def verify_attack_info(self, mapping):
-        for technique in mapping['techniques']:
+        techniques = mapping.get("techniques", [])
+        if not techniques:
+            print(f"  Error:  Mapping file does not include any techniques.")
+
+        for technique in techniques:
             tech_id = technique['id']
             tech_name = technique['name']
             if tech_id in self.valid_techniques:

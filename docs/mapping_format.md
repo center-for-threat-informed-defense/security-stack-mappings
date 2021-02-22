@@ -1,6 +1,11 @@
 # Mapping Format
 
-Below is the structure of the data format that captures the details of how a security control maps to ATT&CK techniques.  Details of each field are provided in the subsequent section along with some examples.
+Below is the structure of the data format that captures the details of how a security control maps to ATT&CK techniques.  
+
+<img src="DataFormatEntityDiagram.png" width="900px">
+_Above:  Entity Diagram for a Mapping File
+
+Details of each field are provided in the subsequent section along with an example mapping file.
 
 
 ## Data Dictionary
@@ -8,20 +13,20 @@ Below is the structure of the data format that captures the details of how a sec
  
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| version | String | yes | The version of this data mapping format. |
-| ATT&CK version | String |	yes | The version of the ATT&CK (Enterprise) matrix used to source the techniques included in this mapping. |
-| creation date | String | yes | Creation time <br /> Format:  1/21/2021 |
-| last update | String | no | Last update time <br /> Format:  1/21/2021 |
+| version | String | yes | The version of the data mapping format used in this mapping file. |
+| ATT&CK version | String |	yes | The version of the ATT&CK (Enterprise) matrix used to source the (sub-)techniques included in this mapping file. |
+| creation date | String | yes | Creation time of this mapping file.<br /> Format:  1/21/2021 |
+| last update | String | no | Last update time of this mapping file.<br /> Format:  1/21/2021 |
 | name | String | yes |	The name of the security control being mapped in this file. |
-| author | String | no | The name of the author of this mapping file. |
+| author | String | no | The author of this mapping file. |
 | contact | String | no | The email address of the author of this mapping file. |
 | organization | String | no | The organization that produced this mapping file. |
-| platform | String | yes | The cloud platform of the security control being mapped in this file. |
-| tags | String | List of Strings | no | Will enable the mapping tool to produce visualizations (e.g. ATT&CK Navigator) by aggregating security controls by these tag values. <br /> Ex:  Produce an ATT&CK Navigator layer for all security controls tagged with "Azure AD". |
+| platform | String | yes | The platform of the security control being mapped in this file. <br /> Ex:  Azure, AWS, Windows, etc. |
+| tags | List of Strings | no | Will enable the mapping tool to produce visualizations (e.g. ATT&CK Navigator) by aggregating security controls by these tag values. <br /> Ex:  Produce an ATT&CK Navigator layer for all security controls tagged with "Azure AD". |
 | description | String | yes | The description of the security control |
 | techniques | List of Technique objects <br /> List Size:  [1-*] | yes |List of technique objects that describe the ATT&CK techniques that the control is able to offer protection. |
-| comments | String | no | Use it to document any assumptions or comments on the mapping. |
-| references | List of Strings | no	| A description of any useful references for understanding the data contained in this mapping. <br /> Ex:  A link to the documentation for the security control |
+| comments | String | no | Document any assumptions or comments on the mapping. |
+| references | List of URLs | no	| A list of link to documentation helpful in understanding the data contained in this mapping. <br /> Ex:  A link to the documentation for the security control |
 
 
 
@@ -34,35 +39,29 @@ A technique object describes an ATT&CK technique that the security control provi
 |------|------|----------|-------------|
 |id | String | yes | The ID of the ATT&CK technique. |
 | name | String | yes |The name of the ATT&CK technique. |
-| technique-scores | List of Score objects <br /> List Size: [1-3] | no* | This optional field is a list of Score objects that enables assessing the effectiveness of the prevent, detect, and/or respond protections provided by the security control for this ATT&CK technique. |
-| sub-techniques-scores	| List of Sub-techniqueScore objects <br /> List Size:  [1-*] | no* | This optional field is a list of Sub-techniqueScore objects that describe the specific sub-techniques of this technique that this control provides protection against. |
-
-
-**\*A technique object must either have a technique-scores field or a sub-technique-scores field or both.**
-
+| technique-scores | List of Score objects <br /> List Size: [1-3] | yes | The list of Score objects that enables assessing the effectiveness of the prevent, detect, and/or respond protections provided by the security control for this ATT&CK technique. |
+| sub-techniques-scores	| List of SubTechniquesScore objects <br /> List Size:  [1-*] | no | This list of SubTechniquesScore objects that describe the specific sub-techniques of this technique that this control provides protection against. If the ATT&CK technique supports sub-techniques, this field is mandatory.|
 
 
 
 ### SubTechniquesScore Object Fields
  
-A score object describes the assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.
+A score object describes the assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for the list of ATT&CK sub-techniques included in this object.
  
 | Name | Type | Required | Description |
 |------|-------|---------|-------------|
-| sub-techniques | List of sub-technique ID and name tuples. | yes | The list of sub-techniques, identified by their ID and Name that the score objects apply to.  The length of this list should be at least 1.  This field supports providing a score for a group of sub-techniques rather than having to provide it for each sub-technique individually. |
+| sub-techniques | List of sub-technique id and name tuples. | yes | The list of sub-techniques, identified by their id and name fields, that the scores field in this object apply to.  The length of this list should be at least one, i.e. at least one sub-technique must be in the list.  This field supports providing a score for a group of sub-techniques rather than having to provide it for each sub-technique individually. |
 | scores | List of Score objects <br /> List Size: [1-3] | yes | The list of score objects that describe the type of protection provided by this control to the specified sub-techniques. |
 
 
-
-
 ### Score Object Fields
-A score object describes the assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK technique.
+A score object describes the assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK (sub-)technique.
  
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
 | category | String | yes | The control category. <br /> Valid values:  [Prevent, Detect, Respond] |
-| value | String | yes | The score <br /> (Ex: Minimal, Partial, Full, etc.) |
-| comment | String | no | A description of the justification for the assessed score or any related comments. |
+| value | String | yes | The [score](scoring.md) <br /> Ex:  (Minimal, Partial, Significant) |
+| comment | String | no | A justification for the assessed score or any related comments. |
 
 
 
