@@ -3,7 +3,7 @@
 Below is the structure of the data format that captures the details of how a security control maps to ATT&CK techniques.  
 
 <img src="DataFormatEntityDiagram.png" width="900px">
-_Above:  Entity Diagram for a Mapping File
+_Above:  Entity Diagram for Data Mapping Format_
 
 Details of each field are provided in the subsequent section along with an example mapping file.
 
