@@ -1,12 +1,10 @@
 # Mapping Format
 
-Below is the structure of the data format that captures the details of how a security control maps to ATT&CK techniques.  
+Below is the structure of the data format that captures the details of how a security control maps to ATT&CK (sub-)techniques.  The type, description and required attributes of each field are provided in the subsequent sections along with an example mapping file.
 
 <img src="DataFormatEntityDiagram.png" width="900px">
-_Above:  Entity Diagram for Data Mapping Format_
 
-Details of each field are provided in the subsequent section along with an example mapping file.
-
+*Above:  Entity Diagram for Data Mapping Format*
 
 ## Data Dictionary
 ### Top Level Metadata Fields
