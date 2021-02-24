@@ -27,8 +27,7 @@ class MappingCLI():
     
 
     def load_mapping_files(self, map_dir):
-        self.mapping_files = [path for path in Path(map_dir).rglob("*.yaml") 
-            if 'sample.yaml' not in path.name]
+        self.mapping_files = [path for path in Path(map_dir).rglob("*.yaml")]
 
 
     def load_mapping_file(self, map_file):
