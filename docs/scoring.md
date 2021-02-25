@@ -6,7 +6,7 @@ Both techniques and (groups of) sub-techniques are scored (consult the [mapping 
   - If a technique does not support sub-techniques, its score should reflect the control's ability mitigate the behavior described in the _Procedure Examples_ section of the technique's description.  This ensures that score assessments are grounded in real-world occurrences of the technique.
   - If a technique does support sub-techniques, then the aggregate score of its sub-techniques should be considered when assessing the technique's score. 
     - For example, if the control provides Significant protection for most of the technique's sub-techniques along with its procedure examples, it should be scored as Significant.
-    - If it only provides a Significant protection for a small number of a technique's sub-techniques, then this should adversely affect the score of the technique, irrespective of how well it mitigates the technique's procedure examples.  The degree to which the technique's score is affected is left to the discretion of the assessor.
+    - If it only provides a Significant protection for a minority of a technique's sub-techniques, then this should adversely affect the score of the technique, irrespective of how well it mitigates the technique's procedure examples.  The degree to which the technique's score is affected is left to the discretion of the assessor.
 
 The scoring rubric provides the following score values:
 - **Minimal**:  The control provides minimum mitigation of the ATT&CK (sub-)technique.
@@ -50,7 +50,7 @@ The scoring rubric used to assess a security control's ability to detect the exe
 
 ## Respond Scoring
 
-The unique nature of response controls requires a different set of factors to consider when assessing its effectiveness:
+Respond scoring assesses a security control's ability to respond to the execution of an ATT&CK (sub-)technique.  The unique nature of this capability requires a different set of factors to consider when assessing its effectiveness:
 
 - **Detection**:  An important factor in scoring the respond capability of a control is how well it is able to detect the behavior that it responds to.  Consequently, a low detection score for a control also adversely impacts any response capability it provides.
 - **Type of response**: type of technical response provided by the control:
