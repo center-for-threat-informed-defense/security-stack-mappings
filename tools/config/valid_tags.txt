@@ -1,4 +1,5 @@
 Azure Active Directory
+Azure Defender
 Azure Defender for Server
 Azure Security Center
 Endpoint
