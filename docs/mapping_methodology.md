@@ -75,4 +75,4 @@ The previous steps enabled you to gather the information required to create a ma
     - If the score and rational applies to most techniques in scope of the mapping, rather than repeating the comment for each technique, add a comment using the top-level comment field of the mapping file.
     - If the score and rational applies to multiple groups of sub-techniques for a technique, provide a comment along with the score at the technique level.
     - If the score and rational is specific to a group of sub-techniques, provide a comment along with the score at the sub-techniques level.
-- Use the [Mapping CLI](../tools/README.md) to validate the structure and contents of the mappings that you produce.  The tool can be used to validate individual mapping files or a directory of mapping files.
+- Use the [Mapping CLI](../tools/README.md) to validate and produce ATT&CK Navigator layers for the mappings that you produce.  The tool can be applied to an individual mapping file or a directory of mapping files.
