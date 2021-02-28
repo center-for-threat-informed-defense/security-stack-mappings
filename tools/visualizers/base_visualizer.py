@@ -49,4 +49,5 @@ class AbstractVisualizer(ABC):
         pre, _ = os.path.splitext(output_name)
         output_name = ".".join([pre, self.get_output_extension()])
 
+        print(f" Generating {output_name}")
         self.write_visualization(output_name, visualization)
