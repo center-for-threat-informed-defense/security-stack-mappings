@@ -70,18 +70,37 @@
                     },
                     "technique-scores": {
                         "type": "array",
+                        "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK cloud sub-technique.",
                         "items": {
                             "type": "object",
                             "properties": {
-                                "id": {
-                                    "description": "The ID of the ATT&CK sub-technique.",
-                                    "type": "string"
+                                "category": {
+                                    "description": "The type of protection provided.",
+                                    "type": "string",
+                                    "enum": [
+                                        "Prevent",
+                                        "Detect",
+                                        "Respond"
+                                    ]
                                 },
-                                "name": {
-                                    "description": "The name of the ATT&CK sub-technique.",
+                                "value": {
+                                    "description": "The score",
+                                    "type": "string",
+                                    "enum": [
+                                        "Minimal",
+                                        "Partial",
+                                        "Significant"
+                                    ]
+                                },
+                                "comment": {
+                                    "description": "A description of the justification for the assessed score.",
                                     "type": "string"
                                 }
-                            }
+                            },
+                            "required": [
+                                "category",
+                                "value"
+                            ]
                         }
                     },
                     "sub-techniques-scores": {
@@ -120,7 +139,12 @@
                                             },
                                             "value": {
                                                 "description": "The score",
-                                                "type": "string"
+                                                "type": "string",
+                                                "enum": [
+                                                    "Minimal",
+                                                    "Partial",
+                                                    "Significant"
+                                                ]
                                             },
                                             "comment": {
                                                 "description": "A description of the justification for the assessed score.",

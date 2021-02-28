@@ -10,14 +10,31 @@ class MarkdownVisualizer(AbstractVisualizer):
     def get_name():
         return "Markdown"
 
+    def get_output_extension(self):
+        return "md"
+
+
+    def get_output_folder_name(self):
+        return "markdowns"
+
+
+    def write_visualization(self, output_name, visualization):
+        visualization.file_name = output_name
+        visualization.create_md_file()
+
+        pre, _ = os.path.splitext(output_name)
+        html_name = ".".join([pre, "html"])
+
+        markdown.markdownFromFile(extensions= ['tables', 'nl2br', 'sane_lists'], 
+            input=visualization.file_name, output=html_name, encoding='utf8')
+
+
     def visualize(self, mapping_files, options = {}):
-        output_dir = options["output_dir"]
         for mapping_file in mapping_files:
-            fname = os.path.join(output_dir, mapping_file.name)
             with open(mapping_file, "r") as f:
                 mapping_yaml = yaml.safe_load(f)
             
-            mdFile = MdUtils(file_name=fname, title=mapping_yaml['name'])
+            mdFile = MdUtils(file_name="", title=mapping_yaml['name'])
 
             for key in mapping_yaml:
                 if(key == "techniques"):
@@ -33,27 +50,28 @@ class MarkdownVisualizer(AbstractVisualizer):
                         mdFile.write('  \n\n')
                         mdFile.write('Sub-Techniques:', bold_italics_code='b')
                         mdFile.write('  \n\n')
-                        subs = k['sub-techniques']
-                        sub_counter = 1
-                        sub_list = ["Id", "Name", "Category", "Value", "Comment"]
+                        subs = k.get('sub-techniques', [])
 
-                        for i in subs:
-                            scores = i['scores']
-                            for j in scores:
-                                sub_counter += 1
-                                sub_list.append(str(i['id']))
-                                sub_list.append(str(i['name']))
-                                sub_list.append(str(j['category']))
-                                sub_list.append(str(j['value']))
-                                sub_list.append(str(j['comment']))
+                        if subs:
+                            sub_counter = 1
+                            sub_list = ["Id", "Name", "Category", "Value", "Comment"]
 
-                        mdFile.new_table(columns=5, rows=sub_counter, text=sub_list, text_align='left')
-                        mdFile.write('\n***\n')
+                            for i in subs:
+                                scores = i['scores']
+                                for j in scores:
+                                    sub_counter += 1
+                                    sub_list.append(str(i['id']))
+                                    sub_list.append(str(i['name']))
+                                    sub_list.append(str(j['category']))
+                                    sub_list.append(str(j['value']))
+                                    sub_list.append(str(j['comment']))
+
+                            mdFile.new_table(columns=5, rows=sub_counter, text=sub_list, text_align='left')
+                            mdFile.write('\n***\n')
 
                 else:
                     mdFile.write(key.capitalize() + ':', bold_italics_code='b')
                     mdFile.write(' ' + str(mapping_yaml[key]))
                     mdFile.write('  \n\n')
 
-            mdFile.create_md_file()
-            markdown.markdownFromFile(extensions= ['tables', 'nl2br', 'sane_lists'], input=mdFile.file_name + '.md', output=mdFile.file_name +'.html', encoding='utf8')
+                self.output(options, mapping_file, mdFile)

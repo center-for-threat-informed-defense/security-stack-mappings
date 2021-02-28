@@ -6,3 +6,7 @@ __pycache__/
 tools/mapping.db
 .vscode
 tools/techniques.json
+
+# Temporarily ignore this directory and file, we'll remove this once we have the final version of the visualizations
+mappings/Azure/layers/
+mappings/Azure/markdowns/
