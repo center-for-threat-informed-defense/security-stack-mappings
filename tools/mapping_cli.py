@@ -31,7 +31,7 @@ class MappingCLI():
 
 
     def load_mapping_file(self, map_file):
-        self.mapping_files = [map_file]
+        self.mapping_files = [Path(map_file)]
 
 
     def get_visualizer_names(self):
@@ -39,11 +39,15 @@ class MappingCLI():
 
 
     def validate_mapping_files(self):
+        validation_pass = True
         for mapping_file in self.mapping_files:
             with open(mapping_file, "r") as f:
                 mapping_yaml = yaml.safe_load(f)
 
-            self.mapping_validator.validate_mapping(mapping_file, mapping_yaml)
+            validation_pass = validation_pass and \
+                self.mapping_validator.validate_mapping(mapping_file, mapping_yaml)
+
+        return validation_pass
 
 
     def rebuild_mappings(self):
@@ -54,6 +58,10 @@ class MappingCLI():
     def visualize(self, visualizer, output_dir):
         options = {}
         options["output_dir"] = output_dir
+        if output_dir:
+            options["output_inline"] = False
+        else:
+            options["output_inline"] = True
 
         visualizer = self.visualizers.visualizers[visualizer]()
         # For now visualize all mappings, later allow selecting a subset from db
@@ -79,16 +87,26 @@ if __name__ == "__main__":
     parser.add_argument('--visualizer',
         help='The name of the visualizer that will generate the visualizations',
         required=False, choices=mapping_cli.get_visualizer_names())
+    parser.add_argument('--skip-validation',
+        help='Skip validation when visualizing mapping(s)',
+        required=False, default=False, action='store_true')
 
     args = parser.parse_args()
 
     if args.action == "visualize":
         if not args.visualizer:
             raise argparse.ArgumentTypeError(
-                'Visualize action requires the --visualizer parameter be specified')
-        if not args.output:
-            raise argparse.ArgumentTypeError(
-                'Visualize action requires the --output parameter be specified')
+                'Visualize action with a mapping-file specified requires the --visualizer parameter be specified')
+        if args.mapping_file:
+            if not args.output:
+                raise argparse.ArgumentTypeError(
+                    'Visualize action requires the --output parameter be specified')
+        if args.mapping_file:
+            mapping_cli.load_mapping_file(args.mapping_file)
+        else:
+            mapping_cli.load_mapping_files(args.mapping_dir)
+        if not args.skip_validation:
+            mapping_cli.validate_mapping_files()
         mapping_cli.visualize(args.visualizer, args.output)
     elif args.action == "rebuild-mappings":
         mapping_cli.load_mapping_files(args.mapping_dir)

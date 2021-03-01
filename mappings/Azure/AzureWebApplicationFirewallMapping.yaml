@@ -131,7 +131,7 @@ techniques:
     name: Cloud Service Discovery
     technique-scores:
       - category: Detect
-        value: Minimum
+        value: Minimal
         comments: 'minimal: some telemetry for detect'
   - id: T1046
     name: Network Service Scanning

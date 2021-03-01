@@ -10,6 +10,16 @@ class MappingValidator:
         self.attack_ds = []
         self.attack_ds = attack_ds
         self.valid_techniques = {}
+        self.validation_pass = True
+
+
+    def print_validation_error(self, msg):
+        self.validation_pass = False
+        print(f"  Error:  {msg}")
+
+
+    def print_validation_warning(self, msg):
+        print(f"  Warning:  {msg}")
 
 
     def load_tags(self):
@@ -22,15 +32,16 @@ class MappingValidator:
         if "tags" in mapping:
             for tag in mapping['tags']:
                 if not tag in self.valid_tags:
-                    print(f"Tag {tag} from mapping file {mapping['name']} is not contained within valid_tags.yaml.")
+                    self.print_validation_error(f"Tag {tag} from mapping file {mapping['name']} "
+                        "is not contained within valid_tags.yaml.")
         else:
-            print(f"  Warning:  Mapping file does not include any tags.")
+            self.print_validation_warning(f"Mapping file does not include any tags.")
 
 
     def verify_attack_info(self, mapping):
         techniques = mapping.get("techniques", [])
         if not techniques:
-            print(f"  Error:  Mapping file does not include any techniques.")
+            self.print_validation_error(f"Mapping file does not include any techniques.")
 
         for technique in techniques:
             tech_id = technique['id']
@@ -41,22 +52,22 @@ class MappingValidator:
                         for sub_techs in technique['sub-techniques-scores']:
                             for subs in sub_techs['sub-techniques']:
                                 if subs['id'] not in self.valid_techniques[tech_id]["sub_techniques"]:
-                                    print(f"  Error:  Sub-technique {subs['id']} - {subs['name']} is not a sub-technique"
-                                        f" of {tech_id} - {tech_name}")
+                                    self.print_validation_error(f"Sub-technique {subs['id']} - {subs['name']} "
+                                        f"is not a sub-technique of {tech_id} - {tech_name}")
                                 elif self.valid_techniques[tech_id]["sub_techniques"][subs['id']]['sub_technique_name'] != subs['name']:
-                                    print(f"  Error:  Invalid name {subs['name']} for sub-technique subs['id'] "
+                                    self.print_validation_error(f"Invalid name {subs['name']} for sub-technique subs['id'] "
                                         f", should be {self.valid_techniques[tech_id]['sub_techniques'][subs['id']]['sub_technique_id']}");
                 else:
-                    print(f"  Error: Technique name {tech_name} from mapping file does not match {tech_id} technique "
-                        f"name {self.valid_techniques[tech_id]['technique_name']}")
+                    self.print_validation_error(f"Technique name {tech_name} from mapping file does not match {tech_id} "
+                        f"technique name {self.valid_techniques[tech_id]['technique_name']}")
             else:
-                print(f"  Error: {tech_id} is not a valid ATT&CK Technique ID.")
+                self.print_validation_error(f"{tech_id} is not a valid ATT&CK Technique ID.")
 
 
     def verify_scores(self, mapping):
         for technique in mapping['techniques']:
             if not technique['technique-scores'] and not technique['sub-techniques-scores'][0]['scores']:
-                print(f"Error: There are no scores for {technique['name']}")
+                self.print_validation_error(f"There are no scores for {technique['name']}")
                 return
 
             if technique['technique-scores']:
@@ -65,7 +76,7 @@ class MappingValidator:
                 for score in tech_scores:
                     cat_list.append(score['category'])
                     if cat_list.count(score['category']) > 1:
-                        print(f"Error: There is more than one score of type {score['category']}  in "
+                        self.print_validation_error(f"There is more than one score of type {score['category']}  in "
                             f"technique-scores for {technique['name']}")
             if 'sub-techniques-scores' in technique:
                 if technique['sub-techniques-scores']:
@@ -73,7 +84,8 @@ class MappingValidator:
                     for subs in technique['sub-techniques-scores']:
                         for sub_id in subs['sub-techniques']:
                             if sub_id in sub_list:
-                                print(f"Error: The sub-technique {sub_id['name']} under technique {technique['name']} has been scored more than once.")
+                                self.print_validation_error(f"The sub-technique {sub_id['name']} under "
+                                    f"technique {technique['name']} has been scored more than once.")
                             sub_list.append(sub_id)
                         if subs['scores']:
                             sub_scores = subs['scores']
@@ -81,13 +93,14 @@ class MappingValidator:
                             for score in sub_scores:
                                 cat_list.append(score['category'])
                                 if cat_list.count(score['category']) > 1:
-                                    print(f"Error: There is more than one score of type {score['category']}"
+                                    self.print_validation_error(f"There is more than one score of type {score['category']}"
                                         f" in sub-techniques-scores for {technique['name']}")
                 else:
-                    print(f"  Error:  Empty sub-techniques-scores object for technique {technique['name']}")
+                    self.print_validation_error(f"Empty sub-techniques-scores object for technique {technique['name']}")
 
 
     def validate_mapping(self, mapping_file, mapping_yaml):
+        self.validation_pass = True
         if not self.valid_techniques:
             self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
 
@@ -100,3 +113,5 @@ class MappingValidator:
         self.verify_tags(mapping_yaml)
         self.verify_attack_info(mapping_yaml)
         self.verify_scores(mapping_yaml)
+
+        return self.validation_pass
