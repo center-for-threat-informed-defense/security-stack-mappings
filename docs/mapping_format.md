@@ -24,7 +24,7 @@ Below is the structure of the data format that captures the details of how a sec
 | description | String | yes | The description of the security control |
 | techniques | List of Technique objects <br /> List Size:  [1-*] | yes |List of technique objects that describe the ATT&CK techniques that the control is able to offer protection. |
 | comments | String | no | Document any assumptions or comments on the mapping. |
-| references | List of URLs | no	| A list of link to documentation helpful in understanding the data contained in this mapping. <br /> Ex:  A link to the documentation for the security control |
+| references | List of URLs | no	| A list of links to documentation helpful in understanding the data contained in this mapping. <br /> Ex:  A link to the documentation for the security control |
 
 
 
@@ -81,7 +81,9 @@ tags:
   - Passwords
   - Credentials
 description: > 
-  Azure AD Password Protection provides a global banned password lists are
+  Azure AD Password Protection detects and blocks known weak passwords and their variants, 
+  and can also block additional weak terms that are specific to your organization.
+  Azure AD Password Protection provides a global banned password list that is
   automatically applied to all users in an Azure AD tenant.  The Azure AD
   Identity Protection team constantly analyzes Azure AD security telemetry data
   looking for commonly used weak or compromised passwords.  When weak terms are

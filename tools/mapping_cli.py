@@ -70,8 +70,7 @@ class MappingCLI():
 
 if __name__ == "__main__":
     mapping_cli = MappingCLI()
-    parser = argparse.ArgumentParser(description='Validate a cloud security '
-        'mapping file and output a markdown version.')
+    parser = argparse.ArgumentParser(description='Validates mapping files and produces various mapping visualizations.')
     parser.add_argument('--action',
         help='Specify the action to perform',
         required=True,
