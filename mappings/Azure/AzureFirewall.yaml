@@ -18,7 +18,7 @@ techniques:
   - id: T1590
     name: Gather Victim Network Information
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: Can prevent some scans and probes of targeted network
     sub-techniques-scores:
@@ -26,12 +26,12 @@ techniques:
           - id: T1590.004
             name: Network Topology
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
   - id: T1595
     name: Active Scanning
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Significant
         comments: Can prevent network scanning and vunerability scanning of targeted endpoints.
       - category: Detect
@@ -47,12 +47,12 @@ techniques:
           - id: T1595.002
             name: Vulnerability Scanning
         scores:
-          - category: Prevent
+          - category: Protect
             value: Significant
   - id: T1133
     name: External Remote Services
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: Can limit access to external remote services to minimum necessary
       - category: Detect
@@ -67,7 +67,7 @@ techniques:
   - id: T1205
     name: Traffic Signaling
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: Can block access to ports used in traffic signalling
       - category: Detect
@@ -76,7 +76,7 @@ techniques:
     sub-techniques-scores:
       - sub-techniques: []
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
           - category: Detect
             value: Minimal
@@ -86,19 +86,19 @@ techniques:
   - id: T1046
     name: Network Service Scanning
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Significant
         comments: Can prevent inter-host scanning / enforce network segmentation
   - id: T1018
     name: Remote System Discovery
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: Can prevent some discovery between enclaves
   - id: T1563
     name: Remote Service Session Hijacking
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: Can limit hijacking between enclaves
     sub-techniques-scores:
@@ -108,12 +108,12 @@ techniques:
           - id: T1563.001
             name: SSH Hijacking
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
   - id: T1008
     name: Fallback Channels
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Minimal
         comments: Can prevent access to known malicious destinations
       - category: Detect
@@ -125,25 +125,25 @@ techniques:
   - id: T1095
     name: Non-Application Layer Protocol
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Significant
         comments: 'Can restrict use of non-application layer protocols such as icmp '
   - id: T1571
     name: Non-Standard Port
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Significant
         comments: can restrict access to non-standard ports
   - id: T1219
     name: Remote Access Software
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: can restrict flow of some protocols across firewall boundaries.
   - id: T1048
     name: Exfiltration Over Alternative Protocol
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: 'Can restrict protocol use across firewall, though allowed protocols still can be used.'
     sub-techniques-scores:
@@ -153,12 +153,12 @@ techniques:
           - id: T1048.001
             name: Exfiltration Over Symmetric Encrypted Non-C2 Protocol
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
   - id: T1041
     name: Exfiltration Over C2 Channel
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: Can restrict some protocols / C2 channels
       - category: Detect
@@ -170,7 +170,7 @@ techniques:
   - id: T1499
     name: Endpoint Denial of Service
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Significant
     sub-techniques-scores:
       - sub-techniques:
@@ -181,14 +181,14 @@ techniques:
           - id: T1499.001
             name: OS Exhaustion Flood
         scores:
-          - category: Prevent
+          - category: Protect
             value: Significant
             comments: Resource exhaustion attacks can be mitigated by the stateful firewall
       - sub-techniques:
           - id: T1499.004
             name: Application or System Exploitation
         scores:
-          - category: Prevent
+          - category: Protect
             value: Minimal
             comments: >-
               Simple stateful firewall will not stop particular low-volume exploits (needs IDPS/
@@ -196,7 +196,7 @@ techniques:
   - id: T1498
     name: Network Denial of Service
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: >-
           Can reduce network denial of service by dropping packets. Need DDOS protection from
@@ -208,7 +208,7 @@ techniques:
           - id: T1498.001
             name: Direct Network Flood
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
 references:
   - https://docs.microsoft.com/en-us/azure/firewall/overview

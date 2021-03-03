@@ -17,7 +17,7 @@ techniques:
   - id: T1595
     name: Active Scanning
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: 'Covers web app vulnerabilities, not other services.'
     sub-techniques-scores:
@@ -25,7 +25,7 @@ techniques:
           - id: T1595.002
             name: Vulnerability Scanning
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
             comments: Focus on Web Vuln scanning OWASP CORE
           - category: Detect
@@ -33,28 +33,28 @@ techniques:
   - id: T1189
     name: Drive-by Compromise
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
       - category: Detect
         value: Partial
   - id: T1190
     name: Exploit Public-Facing Application
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Significant
       - category: Detect
         value: Significant
   - id: T1203
     name: Exploitation for Client Execution
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
       - category: Detect
         value: Partial
   - id: T1176
     name: Browser Extensions
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: Review depending on signatures
       - category: Detect
@@ -71,7 +71,7 @@ techniques:
           - id: T1205.001
             name: Port Knocking
         scores:
-          - category: Prevent
+          - category: Protect
             value: Minimal
             comments: may block some ports depending on fw rules.
           - category: Detect
@@ -80,7 +80,7 @@ techniques:
   - id: T1110
     name: Brute Force
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: covers some techniques traversing perimeter
       - category: Detect
@@ -90,7 +90,7 @@ techniques:
           - id: T1110.001
             name: Password Guessing
         scores:
-          - category: Prevent
+          - category: Protect
             value: Significant
           - category: Detect
             value: Significant
@@ -98,7 +98,7 @@ techniques:
           - id: T1110.003
             name: Password Spraying
         scores:
-          - category: Prevent
+          - category: Protect
             value: Significant
           - category: Detect
             value: Significant
@@ -106,7 +106,7 @@ techniques:
           - id: T1110.004
             name: Credential Stuffing
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
             comments: Review may depend on how noisy/threshold
           - category: Detect
@@ -114,7 +114,7 @@ techniques:
   - id: T1056
     name: Input Capture
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: web portal capture
       - category: Detect
@@ -124,7 +124,7 @@ techniques:
           - id: T1056.003
             name: Web Portal Capture
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
             comments: >-
               Review Direct attacks to compromise server (vs valid credentials) ( or do we just
@@ -140,7 +140,7 @@ techniques:
   - id: T1046
     name: Network Service Scanning
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: may block some ports
       - category: Detect
@@ -149,7 +149,7 @@ techniques:
   - id: T1071
     name: Application Layer Protocol
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
       - category: Detect
         value: Partial
@@ -158,14 +158,14 @@ techniques:
           - id: T1071.001
             name: Web Protocols
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
           - category: Detect
             value: Partial
   - id: T1001
     name: Data Obfuscation
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: Some protocol enforcement for T1001.003
       - category: Detect
@@ -175,28 +175,28 @@ techniques:
           - id: T1001.003
             name: Protocol Impersonation
         scores:
-          - category: Prevent
+          - category: Protect
             value: Significant
           - category: Detect
             value: Significant
   - id: T1008
     name: Fallback Channels
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
       - category: Detect
         value: Partial
   - id: T1572
     name: Protocol Tunneling
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
       - category: Detect
         value: Partial
   - id: T1048
     name: Exfiltration Over Alternative Protocol
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
       - category: Detect
         value: Partial
@@ -209,21 +209,21 @@ techniques:
           - id: T1048.002
             name: Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
           - category: Detect
             value: Partial
   - id: T1041
     name: Exfiltration Over C2 Channel
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
       - category: Detect
         value: Partial
   - id: T1567
     name: Exfiltration Over Web Service
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
       - category: Detect
         value: Partial
@@ -234,7 +234,7 @@ techniques:
           - id: T1567.001
             name: Exfiltration to Code Repository
         scores:
-          - category: Prevent
+          - category: Protect
             value: Minimal
             comments: telemetry
           - category: Detect
@@ -243,7 +243,7 @@ techniques:
   - id: T1491
     name: Defacement
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
         comments: >-
           note will identify direct attacks, not defacing due to abuse of a valid account, not
@@ -255,14 +255,14 @@ techniques:
           - id: T1491.002
             name: External Defacement
         scores:
-          - category: Prevent
+          - category: Protect
             value: Significant
           - category: Detect
             value: Significant
   - id: T1499
     name: Endpoint Denial of Service
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Significant
       - category: Detect
         value: Significant
@@ -277,7 +277,7 @@ techniques:
           - id: T1499.001
             name: OS Exhaustion Flood
         scores:
-          - category: Prevent
+          - category: Protect
             value: Significant
           - category: Detect
             value: Significant

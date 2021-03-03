@@ -1,6 +1,6 @@
 # Scoring Rubric
 
-This project provides three different categories: prevent, detect and respond, for scoring the effectiveness of a security control's ability to mitigate the threats described in the [MITRE ATT&CK Enterprise matrix](https://attack.mitre.org/matrices/enterprise/).
+This project provides three different categories: protect, detect and respond, for scoring the effectiveness of a security control's ability to mitigate the threats described in the [MITRE ATT&CK Enterprise matrix](https://attack.mitre.org/matrices/enterprise/).
 
 Both techniques and (groups of) sub-techniques are scored (consult the [mapping format](mapping_format.md) for how this is represented) with the following guidelines for scoring a technique:
 - If a technique does not support sub-techniques, its score should reflect the control's ability mitigate the behavior described in the _Procedure Examples_ section of the technique's description.  This ensures that score assessments are grounded in real-world occurrences of the technique.
@@ -35,15 +35,15 @@ In order to promote consistent assessments, the following scoring factors should
 
 
 
-## Prevent Scoring
+## Protect Scoring
 
 The scoring rubric used to assess a security control's ability to prevent the execution of an ATT&CK (sub-)technique is presented below:  
 
 | Score | Description | 
 |------|------|
-| **Minimal** | Low prevent coverage factor irrespective of other score factors | 
-| **Partial** | Medium - high prevent coverage factor <br />Temporal factor of hours/days | 
-| **Significant** | High prevent coverage factor <br />Real-time, or near real-time (seconds, low minutes) temporal factor |
+| **Minimal** | Low protect coverage factor irrespective of other score factors |
+| **Partial** | Medium - high protet coverage factor <br />Temporal factor of hours/days |
+| **Significant** | High protect coverage factor <br />Real-time, or near real-time (seconds, low minutes) temporal factor |
 
 ## Detect Scoring
 

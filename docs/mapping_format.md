@@ -37,14 +37,14 @@ A technique object describes an ATT&CK technique that the security control provi
 |------|------|----------|-------------|
 |id | String | yes | The ID of the ATT&CK technique. |
 | name | String | yes |The name of the ATT&CK technique. |
-| technique-scores | List of Score objects <br /> List Size: [1-3] | yes | The list of Score objects that enables assessing the effectiveness of the prevent, detect, and/or respond protections provided by the security control for this ATT&CK technique. |
+| technique-scores | List of Score objects <br /> List Size: [1-3] | yes | The list of Score objects that enables assessing the effectiveness of the protect, detect, and/or respond mitigations provided by the security control for this ATT&CK technique. |
 | sub-techniques-scores	| List of SubTechniquesScore objects <br /> List Size:  [1-*] | no | This list of SubTechniquesScore objects that describe the specific sub-techniques of this technique that this control provides protection against. If the ATT&CK technique supports sub-techniques, this field is mandatory.|
 
 
 
 ### SubTechniquesScore Object Fields
  
-A score object describes the assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for the list of ATT&CK sub-techniques included in this object.
+A score object describes the assessment (score) of the effectiveness of the protect, detect, and/or response mitigations provided by the security control for the list of ATT&CK sub-techniques included in this object.
  
 | Name | Type | Required | Description |
 |------|-------|---------|-------------|
@@ -53,11 +53,11 @@ A score object describes the assessment (score) of the effectiveness of the prev
 
 
 ### Score Object Fields
-A score object describes the assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK (sub-)technique.
+A score object describes the assessment (score) of the effectiveness of the protect, detect, and/or response mitigations provided by the security control for this ATT&CK (sub-)technique.
  
 | Name | Type | Required | Description |
 |------|------|----------|-------------|
-| category | String | yes | The control category. <br /> Valid values:  [Prevent, Detect, Respond] |
+| category | String | yes | The control category. <br /> Valid values:  [Protect, Detect, Respond] |
 | value | String | yes | The [score](scoring.md) <br /> Ex:  (Minimal, Partial, Significant) |
 | comments | String | no | A justification for the assessed score or any related comments. |
 
@@ -95,7 +95,7 @@ techniques:
   - id: T1110
     name: Brute Force
     technique-scores:
-      - category: Prevent
+      - category: Protect
         value: Partial
     sub-techniques-scores:
       - sub-techniques:
@@ -108,7 +108,7 @@ techniques:
         - id: T1110.004
           name: Credential Stuffing
         scores:
-          - category: Prevent
+          - category: Protect
             value: Partial
 comments: >
   All scores have been assessed as Partial because this control increases the
