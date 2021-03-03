@@ -1,0 +1,213 @@
+version: '1.0'
+ATT&CK version: '8.1'
+creation date: 02/22/2021
+name: Azure Firewall
+author: Clem Skorupka
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Network
+  - ''
+description: >-
+  Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual
+  Network resources. 
+
+  It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud
+  scalability.
+techniques:
+  - id: T1590
+    name: Gather Victim Network Information
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: Can prevent some scans and probes of targeted network
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1590.004
+            name: Network Topology
+        scores:
+          - category: Prevent
+            value: Partial
+  - id: T1595
+    name: Active Scanning
+    technique-scores:
+      - category: Prevent
+        value: Significant
+        comments: Can prevent network scanning and vunerability scanning of targeted endpoints.
+      - category: Detect
+        value: Significant
+        comments: Can provide telemetry on scanners
+      - category: Respond
+        value: Minimal
+        comments: TBD
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1595.001
+            name: Scanning IP Blocks
+          - id: T1595.002
+            name: Vulnerability Scanning
+        scores:
+          - category: Prevent
+            value: Significant
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: Can limit access to external remote services to minimum necessary
+      - category: Detect
+        value: Partial
+        comments: Can provide telemetry of systems attempting access to remote services
+      - category: Respond
+        value: Minimal
+        comments: TBD
+    sub-techniques-scores:
+      - sub-techniques: []
+        scores: []
+  - id: T1205
+    name: Traffic Signaling
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: Can block access to ports used in traffic signalling
+      - category: Detect
+        value: Minimal
+        comments: can provide some telemetry on port knocking attempts
+    sub-techniques-scores:
+      - sub-techniques: []
+        scores:
+          - category: Prevent
+            value: Partial
+          - category: Detect
+            value: Minimal
+          - category: Respond
+            value: Minimal
+            comments: TBD
+  - id: T1046
+    name: Network Service Scanning
+    technique-scores:
+      - category: Prevent
+        value: Significant
+        comments: Can prevent inter-host scanning / enforce network segmentation
+  - id: T1018
+    name: Remote System Discovery
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: Can prevent some discovery between enclaves
+  - id: T1563
+    name: Remote Service Session Hijacking
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: Can limit hijacking between enclaves
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1563.002
+            name: RDP Hijacking
+          - id: T1563.001
+            name: SSH Hijacking
+        scores:
+          - category: Prevent
+            value: Partial
+  - id: T1008
+    name: Fallback Channels
+    technique-scores:
+      - category: Prevent
+        value: Minimal
+        comments: Can prevent access to known malicious destinations
+      - category: Detect
+        value: Minimal
+        comments: Can provide telemetry
+      - category: Respond
+        value: Minimal
+        comments: Can provide telemetry / network forensics
+  - id: T1095
+    name: Non-Application Layer Protocol
+    technique-scores:
+      - category: Prevent
+        value: Significant
+        comments: 'Can restrict use of non-application layer protocols such as icmp '
+  - id: T1571
+    name: Non-Standard Port
+    technique-scores:
+      - category: Prevent
+        value: Significant
+        comments: can restrict access to non-standard ports
+  - id: T1219
+    name: Remote Access Software
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: can restrict flow of some protocols across firewall boundaries.
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: 'Can restrict protocol use across firewall, though allowed protocols still can be used.'
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1048.003
+            name: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
+          - id: T1048.001
+            name: Exfiltration Over Symmetric Encrypted Non-C2 Protocol
+        scores:
+          - category: Prevent
+            value: Partial
+  - id: T1041
+    name: Exfiltration Over C2 Channel
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: Can restrict some protocols / C2 channels
+      - category: Detect
+        value: Minimal
+        comments: Can provide telemetry
+      - category: Respond
+        value: Minimal
+        comments: TBD
+  - id: T1499
+    name: Endpoint Denial of Service
+    technique-scores:
+      - category: Prevent
+        value: Significant
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1499.003
+            name: Application Exhaustion Flood
+          - id: T1499.002
+            name: Service Exhaustion Flood
+          - id: T1499.001
+            name: OS Exhaustion Flood
+        scores:
+          - category: Prevent
+            value: Significant
+            comments: Resource exhaustion attacks can be mitigated by the stateful firewall
+      - sub-techniques:
+          - id: T1499.004
+            name: Application or System Exploitation
+        scores:
+          - category: Prevent
+            value: Minimal
+            comments: >-
+              Simple stateful firewall will not stop particular low-volume exploits (needs IDPS/
+              deep packet inspection)
+  - id: T1498
+    name: Network Denial of Service
+    technique-scores:
+      - category: Prevent
+        value: Partial
+        comments: >-
+          Can reduce network denial of service by dropping packets. Need DDOS protection from
+          upstream provider for large scale attacks.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1498.002
+            name: Reflection Amplification
+          - id: T1498.001
+            name: Direct Network Flood
+        scores:
+          - category: Prevent
+            value: Partial
