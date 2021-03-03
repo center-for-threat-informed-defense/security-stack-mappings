@@ -6,6 +6,10 @@ author: 'Clem Skorupka'
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
+tags:
+  - Web
+  - WAF
+  - Web Access Firewall
 description: > 
   Azure Web Application Firewall (WAF) provides centralized protection of your web applications 
   from common exploits and vulnerabilities.
@@ -277,3 +281,5 @@ techniques:
             value: Significant
           - category: Detect
             value: Significant
+references:
+  - https://docs.microsoft.com/en-us/azure/web-application-firewall/overview

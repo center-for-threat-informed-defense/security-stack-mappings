@@ -16,6 +16,8 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
         with open("config/navigator_layer_config.yaml", "r") as f:
             self.config = yaml.safe_load(f)
 
+        self.legend = []
+
 
     @staticmethod
     def get_name():
@@ -30,6 +32,17 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
         return "layers"
 
 
+    def get_legend(self):
+        if self.legend:
+            return self.legend
+        
+        for category, score_color  in self.config["score_colors"].items():
+            for score, color in score_color.items():
+                self.legend.append({"label": f"{category} - {score}", "color":color})
+        
+        return self.legend
+
+
     def get_scores_data(self, mapping_scores):
         metadata = []
         scores = []
@@ -37,7 +50,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
         for score in mapping_scores:
             metadata.append({"name": "category", "value": score["category"]})
             metadata.append({"name": "value", "value": score["value"]})
-            metadata.append({"name": "comment", "value": score.get("comment","")})
+            metadata.append({"name": "comment", "value": score.get("comments","")})
             metadata.append({"divider": True})
             scores.append(score["value"])
             category = score["category"]
@@ -84,4 +97,5 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                         sub = self.get_tech_or_sub(sub)
                         layer["techniques"].append(sub)
 
+            layer["legendItems"] = self.get_legend()
             self.output(options, mapping_file, json.dumps(layer, indent=4))
