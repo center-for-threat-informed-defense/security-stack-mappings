@@ -3,10 +3,17 @@
 This project provides three different categories: prevent, detect and respond, for scoring the effectiveness of a security control's ability to mitigate the threats described in the [MITRE ATT&CK Enterprise matrix](https://attack.mitre.org/matrices/enterprise/).
 
 Both techniques and (groups of) sub-techniques are scored (consult the [mapping format](mapping_format.md) for how this is represented) with the following guidelines for scoring a technique:
-  - If a technique does not support sub-techniques, its score should reflect the control's ability mitigate the behavior described in the _Procedure Examples_ section of the technique's description.  This ensures that score assessments are grounded in real-world occurrences of the technique.
-  - If a technique does support sub-techniques, then the aggregate score of its sub-techniques should be considered when assessing the technique's score. 
+- If a technique does not support sub-techniques, its score should reflect the control's ability mitigate the behavior described in the _Procedure Examples_ section of the technique's description.  This ensures that score assessments are grounded in real-world occurrences of the technique.
+- If a technique does support sub-techniques, the aggregate score of its sub-techniques should be included in the technique's score. 
     - For example, if the control provides Significant protection for most of the technique's sub-techniques along with its procedure examples, it should be scored as Significant.
-    - If it only provides a Significant protection for a minority of a technique's sub-techniques, then this should adversely affect the score of the technique, irrespective of how well it mitigates the technique's procedure examples.  The degree to which the technique's score is affected is left to the discretion of the assessor.
+    - If it only provides Significant protection for a minority of a technique's sub-techniques, then this should adversely affect the score of the technique, irrespective of how well it mitigates the technique's procedure examples.  The degree to which the technique's score is affected is left to the discretion of the assessor.
+
+The following guidelines are for scoring sub-techniques:
+- Typically the control's effectiveness at mitigating the behavior described by a sub-technique is scored as Partial or Significant.  If you are inclined to score a control's effectiveness at mitigating the behavior described by a sub-technique as Minimal, carefully consider whether this control would actually be a practical means of mitigating the sub-technique.  Often times, technically the control can mitigate the sub-technique but in the real-world it wouldn't be used for that purpose.  In that case, rather than including it in the mapping with a minimal score, the recommendation is to exclude it.
+    - Note:  the Minimal score can and is often used to score at the technique level; a control can provide, for example, significant protection against a sub-technique of the technique while not providing protection for a majority of its remaining sub-techniques.  In this case, it is appropriate for the technique to be scored as Minimal.
+- Sub-techniques of a technique that are specific to an operating system not supported by the platform should not adversely impact the score of the technique.
+    - Example:  When scoring controls for the Azure platform, a majority of the sub-techniques for a particular technique are specific to the MacOS operating system.  The control being mapped does not support the MacOS operating system.  In that case, since the MacOS operating system has minimal support on the Azure platform, these sub-techniques should be excluded from consideration when assessing the effectiveness of the control.
+
 
 The scoring rubric provides the following score values:
 - **Minimal**:  The control provides minimum mitigation of the ATT&CK (sub-)technique.
