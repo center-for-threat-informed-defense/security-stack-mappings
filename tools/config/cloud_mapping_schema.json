@@ -92,7 +92,7 @@
                                         "Significant"
                                     ]
                                 },
-                                "comment": {
+                                "comments": {
                                     "description": "A description of the justification for the assessed score.",
                                     "type": "string"
                                 }
@@ -100,7 +100,8 @@
                             "required": [
                                 "category",
                                 "value"
-                            ]
+                            ],
+                            "additionalProperties": false
                         }
                     },
                     "sub-techniques-scores": {
@@ -146,7 +147,7 @@
                                                     "Significant"
                                                 ]
                                             },
-                                            "comment": {
+                                            "comments": {
                                                 "description": "A description of the justification for the assessed score.",
                                                 "type": "string"
                                             }
@@ -154,17 +155,20 @@
                                         "required": [
                                             "category",
                                             "value"
-                                        ]
+                                        ],
+                                        "additionalProperties": false
                                     }
                                 }
                             },
                             "required": [
-                            ]
+                            ],
+                            "additionalProperties": false
                         }
                     }
                 },
                 "required": [
-                ]
+                ],
+                "additionalProperties": false
             }
         },
         "comments": {

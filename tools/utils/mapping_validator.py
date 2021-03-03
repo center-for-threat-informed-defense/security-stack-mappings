@@ -38,6 +38,12 @@ class MappingValidator:
             self.print_validation_warning(f"Mapping file does not include any tags.")
 
 
+    def verify_references(self, mapping):
+        if len(mapping.get("references", [])) == 0:
+            self.print_validation_warning(f"Mapping file does not include any references, "
+                "it is recommended to add at least the URL for the control documentation.")
+
+
     def verify_attack_info(self, mapping):
         techniques = mapping.get("techniques", [])
         if not techniques:
@@ -55,8 +61,8 @@ class MappingValidator:
                                     self.print_validation_error(f"Sub-technique {subs['id']} - {subs['name']} "
                                         f"is not a sub-technique of {tech_id} - {tech_name}")
                                 elif self.valid_techniques[tech_id]["sub_techniques"][subs['id']]['sub_technique_name'] != subs['name']:
-                                    self.print_validation_error(f"Invalid name {subs['name']} for sub-technique subs['id'] "
-                                        f", should be {self.valid_techniques[tech_id]['sub_techniques'][subs['id']]['sub_technique_id']}");
+                                    self.print_validation_error(f"Invalid name, {subs['name']}, for sub-technique {subs['id']}"
+                                        f", should be {self.valid_techniques[tech_id]['sub_techniques'][subs['id']]['sub_technique_name']}");
                 else:
                     self.print_validation_error(f"Technique name {tech_name} from mapping file does not match {tech_id} "
                         f"technique name {self.valid_techniques[tech_id]['technique_name']}")
@@ -111,6 +117,7 @@ class MappingValidator:
         jsonschema.validate(mapping_yaml, cloud_map_schema)
 
         self.verify_tags(mapping_yaml)
+        self.verify_references(mapping_yaml)
         self.verify_attack_info(mapping_yaml)
         self.verify_scores(mapping_yaml)
 
