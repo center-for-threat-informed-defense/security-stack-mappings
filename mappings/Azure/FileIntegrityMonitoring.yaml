@@ -305,7 +305,7 @@ techniques:
   - id: T1553
     name: Subvert Trust Controls
     technique-scores:
-      - category: Prevent
+      - category: Detect
         value: Partial
         comments: >-
           This control can be used to detect a subset of this technique's sub-techniques while

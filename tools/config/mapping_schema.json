@@ -70,7 +70,7 @@
                     },
                     "technique-scores": {
                         "type": "array",
-                        "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.",
+                        "description": "List of Score objects that provides an assessment (score) of the effectiveness of the protect, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.",
                         "items": {
                             "type": "object",
                             "properties": {
@@ -78,7 +78,7 @@
                                     "description": "The type of protection provided.",
                                     "type": "string",
                                     "enum": [
-                                        "Prevent",
+                                        "Protect",
                                         "Detect",
                                         "Respond"
                                     ]
@@ -124,7 +124,7 @@
                                     }
                                 },
                                 "scores": {
-                                    "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.",
+                                    "description": "List of Score objects that provides an assessment (score) of the effectiveness of the protect, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.",
                                     "type": "array",
                                     "items": {
                                         "type": "object",
@@ -133,7 +133,7 @@
                                                 "description": "The type of protection provided.",
                                                 "type": "string",
                                                 "enum": [
-                                                    "Prevent",
+                                                    "Protect",
                                                     "Detect",
                                                     "Respond"
                                                 ]

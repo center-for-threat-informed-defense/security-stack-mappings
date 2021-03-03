@@ -22,7 +22,7 @@ Cyber security has emerged as an essential component of technology platforms, an
 ## Step 2:  Security Control Review
 For each identified security control, consult the available documentation to understand its capabilities.  Gather the following facts about the security control that will later help in mapping the control to the set of ATT&CK techniques and sub-techniques it is able to mitigate:
 - Category of security function provided by the control:
-    - Prevent:  reduces the likelihood of the occurrence of a cybersecurity event.
+    - Protect:  reduces the likelihood of the occurrence of a cybersecurity event.
     - Detect:   identifies the occurrence of a cybersecurity event.
     - Respond:  reduces or remediates the impact of a cybersecurity event.
 - The resource type(s) protected by the control (e.g. identity, storage, network, etc.).
@@ -50,14 +50,14 @@ The following may help with this process:
 - If the technique contains sub-techniques:
     - For each sub-technique, review its description and procedure examples to determine if the control is able to mitigate the behavior described.
     - Ensure the control supports the sub-technique platforms.
-    - If this control is a preventative control, the sub-technique Mitigations section can be especially useful in determining if this sub-technique would be prevented by this control.
+    - If this control is a protective control, the sub-technique Mitigations section can be especially useful in determining if this sub-technique would be prevented by this control.
     - If this control is a detective control, the sub-technique Detections section can be especially useful in determining if this sub-technique would be detected by this control.
 - ATT&CK currently does not provide guidance on how to respond to (sub-)techniques.  Utilize the (sub-)technique description and
 procedure examples to determine if it should be in scope.
 
 
 ## Step 4:  Score Assessments
-After identifying the techniques and sub-techniques that are mappable to the control, use the [scoring rubric](./scoring.md) to score the effectiveness of the security function (prevent, detect, respond) provided by the control in mitigating the behavior described by the ATT&CK entity.
+After identifying the techniques and sub-techniques that are mappable to the control, use the [scoring rubric](./scoring.md) to score the effectiveness of the security function (protect, detect, respond) provided by the control in mitigating the behavior described by the ATT&CK entity.
 
 ## Step 5:  Create A Mapping
 The previous steps enabled you to gather the information required to create a mapping file for a control according to the [mapping data format](./mapping_format.md).  Use the following guidelines to help you in the process of creating a mapping:
