@@ -1,8 +1,8 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/center-for-threat-informed-defense/cloud_security_stack_mappings/blob/main/tools/config/cloud_mapping_schema.json",
-    "title": "Cloud ATT&CK Mapping",
-    "description": "Schema for YAML of the Cloud ATT&CK Mapping format",
+    "title": "Native Security Stack ATT&CK Mapping",
+    "description": "Schema for YAML of the Security Stack ATT&CK Mapping format",
     "type": "object",
     "properties": {
         "version": {
@@ -10,7 +10,7 @@
             "type": "number"
         },
         "ATT&CK version": {
-            "description": "The version of the ATT&CK (Cloud) matrix used to source the techniques included in this mapping.",
+            "description": "The version of the ATT&CK Enterprise matrix used to source the techniques included in this mapping.",
             "type": "number"
         },
         "creation date": {
@@ -38,7 +38,7 @@
             "type": ["string", "null"]
         },
         "platform": {
-            "description": "The cloud platform of the security control being mapped in this file.",
+            "description": "The technology platform of the security control being mapped in this file.",
             "type": "string"
         },
         "tags": {
@@ -55,7 +55,7 @@
             "type": "string"
         },
         "techniques": {
-            "description": "List of technique objects that describe the ATT&CK Cloud techniques that the control is able to offer protection.",
+            "description": "List of technique objects that describe the ATT&CK techniques that the control is able to offer protection.",
             "type": "array",
             "items": {
                 "type": "object",
@@ -70,7 +70,7 @@
                     },
                     "technique-scores": {
                         "type": "array",
-                        "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK cloud sub-technique.",
+                        "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.",
                         "items": {
                             "type": "object",
                             "properties": {
@@ -124,7 +124,7 @@
                                     }
                                 },
                                 "scores": {
-                                    "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK cloud sub-technique.",
+                                    "description": "List of Score objects that provides an assessment (score) of the effectiveness of the prevent, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.",
                                     "type": "array",
                                     "items": {
                                         "type": "object",

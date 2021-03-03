@@ -110,11 +110,11 @@ class MappingValidator:
         if not self.valid_techniques:
             self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
 
-        with open('config/cloud_mapping_schema.json') as file_object:
-            cloud_map_schema = json.load(file_object)
+        with open('config/mapping_schema.json') as file_object:
+            mapping_schema = json.load(file_object)
 
         print(f"Validating mapping file {mapping_file} ...")
-        jsonschema.validate(mapping_yaml, cloud_map_schema)
+        jsonschema.validate(mapping_yaml, mapping_schema)
 
         self.verify_tags(mapping_yaml)
         self.verify_references(mapping_yaml)
