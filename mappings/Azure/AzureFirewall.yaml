@@ -1,5 +1,5 @@
-version: '1.0'
-ATT&CK version: '8.1'
+version: 1.0
+ATT&CK version: 8.1
 creation date: 02/22/2021
 name: Azure Firewall
 author: Clem Skorupka
@@ -8,7 +8,6 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Network
-  - ''
 description: >-
   Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual
   Network resources. 
@@ -211,3 +210,5 @@ techniques:
         scores:
           - category: Prevent
             value: Partial
+references:
+  - https://docs.microsoft.com/en-us/azure/firewall/overview
