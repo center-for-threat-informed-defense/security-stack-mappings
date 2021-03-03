@@ -1,9 +1,16 @@
 Azure Active Directory
 Azure Defender
-Azure Defender for Server
+Azure Defender for Servers
 Azure Security Center
 Azure Sentinel
 Endpoint
 Identity
 Passwords
 Credentials
+File system
+Registry
+Windows
+Linux
+Web
+WAF
+Web Access Firewall
