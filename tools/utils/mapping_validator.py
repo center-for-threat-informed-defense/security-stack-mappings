@@ -88,11 +88,19 @@ class MappingValidator:
                 if technique['sub-techniques-scores']:
                     sub_list = []
                     for subs in technique['sub-techniques-scores']:
+                        if not len(subs.get('sub-techniques', [])):
+                            self.print_validation_error(f"Empty sub-technique list for sub-techniques-scores object " 
+                                f"for technique {technique['name']}")
+
                         for sub_id in subs['sub-techniques']:
                             if sub_id in sub_list:
                                 self.print_validation_error(f"The sub-technique {sub_id['name']} under "
                                     f"technique {technique['name']} has been scored more than once.")
                             sub_list.append(sub_id)
+
+                        if not len(subs.get('scores', [])):
+                            self.print_validation_error(f"Empty scores list for sub-techniques-scores object " 
+                                f"for technique {technique['name']}")
                         if subs['scores']:
                             sub_scores = subs['scores']
                             cat_list = []

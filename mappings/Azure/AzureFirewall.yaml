@@ -61,9 +61,6 @@ techniques:
       - category: Respond
         value: Minimal
         comments: TBD
-    sub-techniques-scores:
-      - sub-techniques: []
-        scores: []
   - id: T1205
     name: Traffic Signaling
     technique-scores:
@@ -74,7 +71,9 @@ techniques:
         value: Minimal
         comments: can provide some telemetry on port knocking attempts
     sub-techniques-scores:
-      - sub-techniques: []
+      - sub-techniques:
+          - id: T1205.001
+            name: Port Knocking
         scores:
           - category: Protect
             value: Partial
@@ -211,4 +210,4 @@ techniques:
           - category: Protect
             value: Partial
 references:
-  - https://docs.microsoft.com/en-us/azure/firewall/overview
+  - 'https://docs.microsoft.com/en-us/azure/firewall/overview'
