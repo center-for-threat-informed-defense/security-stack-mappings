@@ -2,7 +2,7 @@
 
 ## What is the Security Stack Mappings project?
 
-The aim of this project is to help organizations better understand what _native_ security controls are available on technology platforms to prevent, detect and respond to common threats to workloads running on the platform.  It achieves this by mapping security capabilities that are available as part of these platforms to the [ATT&CK techniques](https://attack.mitre.org/matrices/enterprise/) that they can prevent, detect, or respond to. This will allow organizations that adopt these platforms to make threat-informed decisions when selecting which native security capabilities to use to protect their workloads.  
+The aim of this project is to help organizations better understand what _native_ security controls are available on technology platforms to protect, detect and respond to common threats to workloads running on the platform.  It achieves this by mapping security capabilities that are available as part of these platforms to the [ATT&CK techniques](https://attack.mitre.org/matrices/enterprise/) that they can protect, detect, or respond to. This will allow organizations that adopt these platforms to make threat-informed decisions when selecting which native security capabilities to use to protect their workloads.  
 
 This project provides the following:
 - **[Mapping data format](docs/mapping_format.md)** - The specification of a YAML file that captures the mapping of a security control native to a technology platform to the set of ATT&CK techniques that it mitigates.
