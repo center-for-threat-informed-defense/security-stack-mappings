@@ -32,7 +32,7 @@ class MappingValidator:
         if "tags" in mapping:
             for tag in mapping['tags']:
                 if not tag in self.valid_tags:
-                    self.print_validation_error(f"Tag {tag} from mapping file {mapping['name']} "
+                    self.print_validation_error(f"Tag '{tag}' from mapping file {mapping['name']} "
                         "is not contained within valid_tags.yaml.")
         else:
             self.print_validation_warning(f"Mapping file does not include any tags.")
@@ -122,6 +122,9 @@ class MappingValidator:
             mapping_schema = json.load(file_object)
 
         print(f"Validating mapping file {mapping_file} ...")
+        if mapping_file.name.endswith(".yml"):
+            self.print_validation_warning(f"Mapping file extension yaml is preferred to yml.")
+
         jsonschema.validate(mapping_yaml, mapping_schema)
 
         self.verify_tags(mapping_yaml)

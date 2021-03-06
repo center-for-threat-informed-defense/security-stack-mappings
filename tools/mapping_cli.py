@@ -28,6 +28,7 @@ class MappingCLI():
 
     def load_mapping_files(self, map_dir):
         self.mapping_files = [path for path in Path(map_dir).rglob("*.yaml")]
+        self.mapping_files.extend([path for path in Path(map_dir).rglob("*.yml")])
 
 
     def load_mapping_file(self, map_file):
