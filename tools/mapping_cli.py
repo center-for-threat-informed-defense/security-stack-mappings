@@ -1,121 +1,143 @@
 #!/usr/bin/env python3
 
-from visualizers.visualizers_collection import VisualizersCollection
-from utils.attack_data_source import AttackDataSource
-from db.database import MappingDatabase
-from pathlib import Path
-from utils.utils import file_path, dir_path
-from utils.mapping_validator import MappingValidator
-import json
-import yaml
-import os
 import argparse
+from mapping_driver import MappingDriver
+from utils.utils import file_path, dir_path
+from prettytable import PrettyTable
 
 
-class MappingCLI():
-
-    def __init__(self):
-        self.visualizers = VisualizersCollection()
-        self.attack_ds = AttackDataSource()
-        self.mapping_db = MappingDatabase(self.attack_ds)
-        self.mapping_db.init_database()
-        self.mapping_validator = MappingValidator(self.attack_ds)
+parser = argparse.ArgumentParser(description='Validates mapping files and produces various mapping visualizations.')
+subparsers = parser.add_subparsers(dest="subcommand", description="Specify the subcommand with -h option for help"
+    " (Ex:  ./mapping_cli visualize -h)")
+mapping_driver = MappingDriver()
 
 
-    def output_attack_json(self):
-        self.attack_ds.output_attack_json()
+def argument(*name_or_flags, **kwargs):
+    """Convenience function to properly format arguments to pass to the subcommand decorator. """
+    return (list(name_or_flags), kwargs)
+
+
+def subcommand(args=[], parent=subparsers):
+    def decorator(func):
+        parser = parent.add_parser(func.__name__, description=func.__doc__)
+        for arg in args:
+            parser.add_argument(*arg[0], **arg[1])
+        parser.set_defaults(func=func)
+    return decorator
+
+
+@subcommand([
+    argument("--visualizer", help="The name of the visualizer that will generate the visualizations", 
+        required=True,choices=mapping_driver.get_visualizer_names()),
+    argument('--mapping-dir', help='Path to the directory containing the mapping files',
+        default="../mappings", required=False, type=dir_path),
+    argument('--mapping-file', help='Path to the mapping file', required=False, type=file_path),
+    argument("--output", help="Path to the directory were the visualizations will be written",
+        required=False, type=dir_path),
+    argument("--skip-validation", help="Skip validation when visualizing mapping(s)",
+        required=False, default=False, action="store_true"),
+    argument('--tag', help="Return mappings with the specified tag, this will utilize the db "
+        "rather than traversing the file system", action="append", required=False),
+    argument('--title', help="Title of the visualization", required=False),
+    argument('--description', help="Description of the visualization", required=False, default=""),
+    argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
+    ])
+def visualize(args):
+    """Build visualizations from mapping file(s)"""
+
+    options = {}
+    if not args.visualizer:
+        raise argparse.ArgumentTypeError(
+            'Visualize action with a mapping-file specified requires the --visualizer parameter be specified')
+    if args.tag:
+        if args.mapping_file:
+            raise argparse.ArgumentTypeError(
+                'Specifying tags is mutually exclusive with --mapping-file argument')
+        if args.mapping_dir and args.mapping_dir != "../mappings":
+            raise argparse.ArgumentTypeError(
+                'Specifying tags is mutually exclusive with --mapping-file argument')
+        if not args.title:
+            raise argparse.ArgumentTypeError('Specifying tags requires the --title argument')
+    if args.mapping_file:
+        if not args.output:
+            raise argparse.ArgumentTypeError(
+                'The --mapping-file parameter also requires the --output parameter be specified')
+
+    if args.tag:
+        mappings = mapping_driver.query_mapping_files(args.tag, args.relationship)
+        mapping_files = [mapping.path for mapping in mappings]
+        mapping_files = mapping_driver.load_mapping_files_as_unit(mapping_files)
+        options["title"] = args.title
+        options["description"] = args.description
+    elif args.mapping_file:
+        mapping_driver.load_mapping_file(args.mapping_file)
+    elif args.mapping_dir:
+        mapping_driver.load_mapping_dir(args.mapping_dir)
+    else:
+        raise argparse.ArgumentTypeError(
+            "One of --tags --mapping-file or mapping-dir is required")
+
+
+    if not args.skip_validation:
+        mapping_driver.validate_mapping_files()
+
+    mapping_driver.visualize(args.visualizer, args.output, options)
+
+
+@subcommand()
+def techniques_json(args):
+    """Output a JSON file of ATT&CK tactics and techniques"""
+    mapping_driver.output_attack_json()
+
+
+@subcommand([
+    argument('--mapping-dir', help='Path to the directory containing the mapping files',
+        default="../mappings", required=False, type=dir_path),
+    argument('--mapping-file', help='Path to the mapping file', required=False, type=file_path)
+    ])
+def validate(args):
+    if args.mapping_file:
+        mapping_driver.load_mapping_file(args.mapping_file)
+    else:
+        mapping_driver.load_mapping_dir(args.mapping_dir)
+    mapping_driver.validate_mapping_files()
+
+
+@subcommand([
+    argument('--mapping-dir', help='Path to the directory containing the mapping files',
+        default="../mappings", required=False, type=dir_path),
+    argument("--skip-validation", help="Skip validation when visualizing mapping(s)",
+        required=False, default=False, action="store_true")
+    ])
+def rebuild_mappings(args):
+    mapping_driver.load_mapping_dir(args.mapping_dir)
+    mapping_driver.rebuild_mappings(args.skip_validation)
+
+
+@subcommand([
+    argument('--tag', help="Return mappings with the specified tag", action="append", required=False),
+    argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
+    ])
+def list_mappings(args):
+    table = PrettyTable(["Name", "Mapping File", "Tag(s)", "Description"])
+    table.align["Name"] = "l"
+    table.align["Mapping File"] = "l"
+    table.align["Tag(s)"] = "l"
+    filter_tags = args.tag if args.tag else []
+    mappings = mapping_driver.query_mapping_files(filter_tags, args.relationship)
+    for mapping in mappings:
+        tags = [tag.name for tag in mapping.tags]
+        if filter_tags:
+            tags = list(set(tags) & set(filter_tags))
+            description = (mapping.description[:80] + "...") if len(mapping.description) > 80 else mapping.description
+            table.add_row([mapping.name, mapping.path, ",\n".join(tags), description])
     
-
-    def load_mapping_files(self, map_dir):
-        self.mapping_files = [path for path in Path(map_dir).rglob("*.yaml")]
-        self.mapping_files.extend([path for path in Path(map_dir).rglob("*.yml")])
-
-
-    def load_mapping_file(self, map_file):
-        self.mapping_files = [Path(map_file)]
-
-
-    def get_visualizer_names(self):
-        return self.visualizers.visualizers.keys()
-
-
-    def validate_mapping_files(self):
-        validation_pass = True
-        for mapping_file in self.mapping_files:
-            with open(mapping_file, "r") as f:
-                mapping_yaml = yaml.safe_load(f)
-
-            validation_pass = validation_pass and \
-                self.mapping_validator.validate_mapping(mapping_file, mapping_yaml)
-
-        return validation_pass
-
-
-    def rebuild_mappings(self):
-        self.validate_mapping_files()
-        # TODO:  parse mapping files and insert basic metadata about each mapping in db
-
-    
-    def visualize(self, visualizer, output_dir):
-        options = {}
-        options["output_dir"] = output_dir
-        if output_dir:
-            options["output_inline"] = False
-        else:
-            options["output_inline"] = True
-
-        visualizer = self.visualizers.visualizers[visualizer]()
-        # For now visualize all mappings, later allow selecting a subset from db
-        visualizer.visualize(self.mapping_files, options)
+    print(table)
 
 
 if __name__ == "__main__":
-    mapping_cli = MappingCLI()
-    parser = argparse.ArgumentParser(description='Validates mapping files and produces various mapping visualizations.')
-    parser.add_argument('--action',
-        help='Specify the action to perform',
-        required=True,
-        choices=['output-techniques-json', 'rebuild-mappings', 'validate', 'visualize'])
-    parser.add_argument('--mapping-dir',
-        help='Path to the directory containing the mapping files',
-        default="../mappings", required=False, type=dir_path)
-    parser.add_argument('--mapping-file',
-        help='Path to the mapping file', required=False, type=file_path)
-    parser.add_argument('-O', '--output', 
-        help='Path to the directory were the visualizations will be written',
-        required=False, type=dir_path)
-    parser.add_argument('--visualizer',
-        help='The name of the visualizer that will generate the visualizations',
-        required=False, choices=mapping_cli.get_visualizer_names())
-    parser.add_argument('--skip-validation',
-        help='Skip validation when visualizing mapping(s)',
-        required=False, default=False, action='store_true')
-
     args = parser.parse_args()
-
-    if args.action == "visualize":
-        if not args.visualizer:
-            raise argparse.ArgumentTypeError(
-                'Visualize action with a mapping-file specified requires the --visualizer parameter be specified')
-        if args.mapping_file:
-            if not args.output:
-                raise argparse.ArgumentTypeError(
-                    'Visualize action requires the --output parameter be specified')
-        if args.mapping_file:
-            mapping_cli.load_mapping_file(args.mapping_file)
-        else:
-            mapping_cli.load_mapping_files(args.mapping_dir)
-        if not args.skip_validation:
-            mapping_cli.validate_mapping_files()
-        mapping_cli.visualize(args.visualizer, args.output)
-    elif args.action == "rebuild-mappings":
-        mapping_cli.load_mapping_files(args.mapping_dir)
-        mapping_cli.rebuild_mappings()
-    elif args.action == "output-techniques-json":
-        mapping_cli.output_attack_json()
-    elif args.action == "validate":
-        if args.mapping_file:
-            mapping_cli.load_mapping_file(args.mapping_file)
-        else:
-            mapping_cli.load_mapping_files(args.mapping_dir)
-        mapping_cli.validate_mapping_files()
+    if args.subcommand is None:
+        parser.print_help()
+    else:
+        args.func(args)

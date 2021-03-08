@@ -4,12 +4,25 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
+
+mapping_tag_xref = Table('mapping_tag_xref', Base.metadata,
+    Column('mapping_id', Integer, ForeignKey('mapping.mapping_id')),
+    Column('tag_id', Integer, ForeignKey('tag.tag_id'))
+)
+
+
 class Mapping(Base):
     __tablename__ = "mapping"
     mapping_id = Column(Integer, primary_key=True)
     name = Column(String, nullable=False, unique=True)
     path = Column(String, nullable=False, unique=True)
+    description = Column(String, nullable=True, unique=False)
     platform = Column(String, nullable=False)
+    tags = relationship(
+        "Tag",
+        secondary=mapping_tag_xref,
+        cascade="all,delete",
+        backref="mappings")
 
 
 tactic_and_technique_xref = Table('tactic_technique_xref', Base.metadata,
@@ -32,7 +45,9 @@ class Technique(Base):
     name = Column(String, nullable=False, unique=True)
     tactics = relationship(
         "Tactic",
-        secondary=tactic_and_technique_xref)
+        secondary=tactic_and_technique_xref,
+        cascade="all,delete",
+        backref="techniques")
 
 
 class SubTechnique(Base):
@@ -54,3 +69,9 @@ class Score(Base):
         ForeignKey("sub_technique.sub_technique_id"))
     score_function = Column(String, nullable=False)
     value = Column(String, nullable=False)
+
+
+class Tag(Base):
+    __tablename__ = "tag"
+    tag_id = Column(Integer, primary_key=True)
+    name = Column(String, nullable=False, unique=True)
