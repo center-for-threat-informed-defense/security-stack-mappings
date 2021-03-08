@@ -7,8 +7,8 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - ''
-  - ''
+  - Azure Defender
+  - Credentials
 description: >-
   Azure Defender detects unusual and potentially harmful attempts to access or exploit Key Vault
   accounts. When anomalous activities occur, Azure Defender shows alerts and optionally sends them

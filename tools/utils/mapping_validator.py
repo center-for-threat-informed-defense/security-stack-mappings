@@ -42,6 +42,10 @@ class MappingValidator:
         if len(mapping.get("references", [])) == 0:
             self.print_validation_warning(f"Mapping file does not include any references, "
                 "it is recommended to add at least the URL for the control documentation.")
+        for reference in mapping.get("references", []):
+            if not reference:
+                self.print_validation_error(f"References section contains an empty reference")
+
 
 
     def verify_attack_info(self, mapping):
