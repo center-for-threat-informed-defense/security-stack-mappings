@@ -41,13 +41,16 @@ class AbstractVisualizer(ABC):
     def output(self, options, mapping_file, visualization):
         output_dir = options["output_dir"]
         output_inline = options["output_inline"]
+        file_name = options.get("output_filename", mapping_file.name)
         if output_inline:
             output_dir = os.path.join(mapping_file.parent, self.get_output_folder_name())
             Path(output_dir).mkdir(exist_ok=True)
         
-        output_name = os.path.join(output_dir, mapping_file.name)
+        output_name = os.path.join(output_dir, file_name)
         pre, _ = os.path.splitext(output_name)
         output_name = ".".join([pre, self.get_output_extension()])
 
         print(f" Generating {output_name}")
         self.write_visualization(output_name, visualization)
+
+        return output_name

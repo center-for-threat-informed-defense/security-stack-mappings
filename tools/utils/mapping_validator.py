@@ -22,6 +22,10 @@ class MappingValidator:
         print(f"  Warning:  {msg}")
 
 
+    def get_tags(self):
+        return self.valid_tags
+
+
     def load_tags(self):
         fn = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config/valid_tags.txt')
         with open(fn) as file_object:

@@ -94,7 +94,8 @@ class AttackDataSource:
         return output_techniques
 
 
-    def output_attack_json(self, false):
-        output_techniques = self.get_techniques_and_sub_techniques()
+    def output_attack_json(self):
+        output_techniques = self.get_techniques_and_sub_techniques(False)
+        print("  Outputting techniques.json ...")
         with open("techniques.json", "w") as f:
             json.dump(output_techniques, f, indent=4)
