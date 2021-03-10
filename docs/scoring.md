@@ -42,7 +42,7 @@ The scoring rubric used to assess a security control's ability to prevent the ex
 | Score | Description | 
 |------|------|
 | **Minimal** | Low protect coverage factor irrespective of other score factors |
-| **Partial** | Medium - high protet coverage factor <br />Temporal factor of hours/days |
+| **Partial** | Medium - high protect coverage factor <br />Temporal factor of hours/days |
 | **Significant** | High protect coverage factor <br />Real-time, or near real-time (seconds, low minutes) temporal factor |
 
 ## Detect Scoring
