@@ -3,7 +3,7 @@
 This project provides three different categories: protect, detect and respond, for scoring the effectiveness of a security control's ability to mitigate the threats described in the [MITRE ATT&CK Enterprise matrix](https://attack.mitre.org/matrices/enterprise/).
 
 Both techniques and (groups of) sub-techniques are scored (consult the [mapping format](mapping_format.md) for how this is represented) with the following guidelines for scoring a technique:
-- If a technique does not support sub-techniques, its score should reflect the control's ability mitigate the behavior described in the _Procedure Examples_ section of the technique's description.  This ensures that score assessments are grounded in real-world occurrences of the technique.
+- If a technique does not support sub-techniques, its score should reflect the control's ability to mitigate the behavior described in the technique's description.  The technique's _Procedure Examples_ section should also be reviewed to better understand how adversaries have utilized this technique to ensure that score assessments are grounded in real-world occurrences of the technique.
 - If a technique does support sub-techniques, the aggregate score of its sub-techniques should be included in the technique's score. 
     - For example, if the control provides Significant protection for most of the technique's sub-techniques along with its procedure examples, it should be scored as Significant.
     - If it only provides Significant protection for a minority of a technique's sub-techniques, then this should adversely affect the score of the technique, irrespective of how well it mitigates the technique's procedure examples.  The degree to which the technique's score is affected is left to the discretion of the assessor.
@@ -22,7 +22,7 @@ The scoring rubric provides the following score values:
 
 In order to promote consistent assessments, the following scoring factors should be considered when assessing a control's mitigation capability.  This list of factors is only intended to illustrate some of the most common factors considered when scoring and is by no means exhaustive, contributions are welcome:
 - **Coverage**
-    - Assesses the control's ability to mitigate the behavior described in the (sub-)technique with respect to the variations in its execution as described in the _Procedure Examples_ section of its ATT&CK page.
+    - Assesses the control's ability to mitigate the behavior described in the description of the (sub-)technique while also considering the (sub-)technique's _Procedure Examples_ section to ensure the score assessment is grounded in real-world occurrences of the (sub-)technique. 
     - Coverage is a critical factor, typically if a control provides minimal coverage, its score is assessed as Minimal irrespective of other score factors.
 - **Temporal**
     - Assesses how frequently the control operates.
