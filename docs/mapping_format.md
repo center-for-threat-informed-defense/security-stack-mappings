@@ -22,7 +22,7 @@ Below is the structure of the data format that captures the details of how a sec
 | platform | String | yes | The platform of the security control being mapped in this file. <br /> Ex:  Azure, AWS, Windows, etc. |
 | tags | List of Strings | no | Will enable the mapping tool to produce visualizations (e.g. ATT&CK Navigator) by aggregating security controls by these tag values. <br /> Ex:  Produce an ATT&CK Navigator layer for all security controls tagged with "Azure AD". |
 | description | String | yes | The description of the security control |
-| techniques | List of Technique objects <br /> List Size:  [1-*] | yes |List of technique objects that describe the ATT&CK techniques that the control is able to offer protection. |
+| techniques | List of Technique objects <br /> List Size:  [1-*] | no |List of technique objects that describe the ATT&CK techniques that the control is able to mitigate. This field is optional for controls that are currently not mappable (please ensure to document this explicitly as a comment).|
 | comments | String | no | Document any assumptions or comments on the mapping. |
 | references | List of URLs | no	| A list of links to documentation helpful in understanding the data contained in this mapping. <br /> Ex:  A link to the documentation for the security control |
 
