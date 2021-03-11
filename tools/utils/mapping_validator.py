@@ -39,13 +39,13 @@ class MappingValidator:
         try:
             datetime.datetime.strptime(c_date, '%m/%d/%Y')
         except ValueError:
-            self.print_validation_error(f"The creation date field, '{c_date}' must be formated as mm/dd/yyyy")
+            self.print_validation_error(f"The creation date field, '{c_date}' must be formatted as mm/dd/yyyy")
 
         l_date = mapping.get("last update", "03/01/2021")
         try:
             datetime.datetime.strptime(l_date, '%m/%d/%Y')
         except ValueError:
-            self.print_validation_error(f"The last update field, '{l_date}' must be formated as mm/dd/yyyy")
+            self.print_validation_error(f"The last update field, '{l_date}' must be formatted as mm/dd/yyyy")
 
 
     def verify_tags(self, mapping):
