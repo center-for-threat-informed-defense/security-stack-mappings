@@ -190,8 +190,7 @@
         "ATT&CK version",
         "name",
         "platform",
-        "description",
-        "techniques"
+        "description"
     ],
     "additionalProperties": false
 }

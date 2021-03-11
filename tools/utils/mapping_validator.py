@@ -2,6 +2,7 @@ import os
 import yaml
 import json
 import jsonschema
+import datetime
 
 class MappingValidator:
 
@@ -11,6 +12,7 @@ class MappingValidator:
         self.attack_ds = attack_ds
         self.valid_techniques = {}
         self.validation_pass = True
+        self.comments_found = False
 
 
     def print_validation_error(self, msg):
@@ -30,6 +32,20 @@ class MappingValidator:
         fn = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config/valid_tags.txt')
         with open(fn) as file_object:
             return file_object.read().splitlines()
+
+
+    def verify_dates(self, mapping):
+        c_date = mapping.get("creation date", "03/01/2021")
+        try:
+            datetime.datetime.strptime(c_date, '%m/%d/%Y')
+        except ValueError:
+            self.print_validation_error(f"The creation date field, '{c_date}' must be formatted as mm/dd/yyyy")
+
+        l_date = mapping.get("last update", "03/01/2021")
+        try:
+            datetime.datetime.strptime(l_date, '%m/%d/%Y')
+        except ValueError:
+            self.print_validation_error(f"The last update field, '{l_date}' must be formatted as mm/dd/yyyy")
 
 
     def verify_tags(self, mapping):
@@ -55,7 +71,7 @@ class MappingValidator:
     def verify_attack_info(self, mapping):
         techniques = mapping.get("techniques", [])
         if not techniques:
-            self.print_validation_error(f"Mapping file does not include any techniques.")
+            self.print_validation_warning(f"Mapping file does not include any techniques.")
 
         for technique in techniques:
             tech_id = technique['id']
@@ -79,7 +95,7 @@ class MappingValidator:
 
 
     def verify_scores(self, mapping):
-        for technique in mapping['techniques']:
+        for technique in mapping.get('techniques', []):
             if not technique['technique-scores'] and not technique['sub-techniques-scores'][0]['scores']:
                 self.print_validation_error(f"There are no scores for {technique['name']}")
                 return
@@ -92,6 +108,9 @@ class MappingValidator:
                     if cat_list.count(score['category']) > 1:
                         self.print_validation_error(f"There is more than one score of type {score['category']}  in "
                             f"technique-scores for {technique['name']}")
+                    
+                    if score.get("comments", ""):
+                        self.comments_found = True
             if 'sub-techniques-scores' in technique:
                 if technique['sub-techniques-scores']:
                     sub_list = []
@@ -117,12 +136,15 @@ class MappingValidator:
                                 if cat_list.count(score['category']) > 1:
                                     self.print_validation_error(f"There is more than one score of type {score['category']}"
                                         f" in sub-techniques-scores for {technique['name']}")
+                                if score.get("comments", ""):
+                                    self.comments_found = True
                 else:
                     self.print_validation_error(f"Empty sub-techniques-scores object for technique {technique['name']}")
 
 
     def validate_mapping(self, mapping_file, mapping_yaml):
         self.validation_pass = True
+        self.comments_found = False
         if not self.valid_techniques:
             self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
 
@@ -135,9 +157,17 @@ class MappingValidator:
 
         jsonschema.validate(mapping_yaml, mapping_schema)
 
+        self.verify_dates(mapping_yaml)
         self.verify_tags(mapping_yaml)
         self.verify_references(mapping_yaml)
         self.verify_attack_info(mapping_yaml)
         self.verify_scores(mapping_yaml)
+
+        if mapping_yaml.get("comments", ""):
+            self.comments_found = True
+
+        if not self.comments_found:
+            self.print_validation_warning(f"This mapping file does not contain any comments explaining scoring."
+                "  Adding comments to score objects enriches the value of mappings.")
 
         return self.validation_pass
