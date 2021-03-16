@@ -1,0 +1,73 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/11/2021
+name: Alerts for DNS
+author: clem skorupka
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Network
+  - DNS
+description: >
+  Azure Defender for DNS provides an additional layer of protection for your cloud resources by
+  continuously monitoring all DNS queries from your Azure resources and running advanced security
+  analytics to alert you about suspicious activity
+techniques:
+  - id: T1568
+    name: Dynamic Resolution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >
+          Can identify "random" DNS occurences whcih can be associated with DGA or Fast Flux. 
+          Partial for coverage and accuracy (potential for false positive/benign)
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1568.001
+            name: Fast Flux DNS
+          - id: T1568.002
+            name: Domain Generation Algorithms
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              detects "random" dns name occurences, potentially indicative of Fast Flux or DGA .
+              Potential false positives from benign "random" dns names.
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect potential DNS protocol misuse/anomalies. Technique coverage restricted to DNS.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.004
+            name: DNS
+        scores:
+          - category: Detect
+            value: Significant
+            comments: can alert on anomalies and misuse in DNS protocol
+  - id: T1572
+    name: Protocol Tunneling
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can identify protocol misuse/anomalies in DNS
+  - id: T1090
+    name: Proxy
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect DNS activity to anonymity networks e.g. TOR
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect anomalous use of DNS
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction '
+  - >-
+    "https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction
+    https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-resourcemanager"
