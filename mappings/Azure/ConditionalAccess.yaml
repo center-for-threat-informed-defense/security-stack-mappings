@@ -1,0 +1,112 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/17/2021
+name: Conditional Access
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Active Directory
+  - Identity
+description: >-
+  The modern security perimeter now extends beyond an organization's network to include user and
+  device identity. Organizations can utilize these identity signals as part of their access control
+  decisions.  Conditional Access is the tool used by Azure Active Directory to bring signals
+  together, to make decisions, and enforce organizational policies. Conditional Access is at the
+  heart of the new identity driven control plane.
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control only provides protection for one of this technique's sub-techniques while not
+          providing any protection for the remaining and therefore its coverage score is Minimal,
+          resulting in a Minimal score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control can protect against the abuse of valid cloud accounts by requiring MFA or
+              blocking access altogether based on signals such as the user's IP location
+              information, device compliance state,  risky sign-in/user state (through integration
+              with Azure AD Identity Protection).  Additionally, session controls that can limit
+              what a valid user can do within an app can also be triggered based on the
+              aforementioned triggers.
+  - id: T1074
+    name: Data Staged
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control only provides the ability restrict file downloads for a limited set of
+          applications and therefore its overall Coverage score is minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1074.002
+            name: Remote Data Staging
+          - id: T1074.001
+            name: Local Data Staging
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              Conditional Access (CA), when granting (risky) users access to Office applications
+              like SharePoint and OneDrive, can restrict what they can do in these applications
+              using its app-enforced restrictions.   For example, it can enforce that users on
+              unmanaged devices will have browser-only access to SharePoint/OneDrive with no ability
+              to download, print, or sync files.  This can impede an adversary's ability to collect
+              and stage files  This  overall offers minimal coverage as it requires the target
+              application to support such a feature that can be triggered by this control and to
+              date only a few (Office) application support this.
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Conditional Access, when granting (risky) users access to cloud storage, specifically
+          OneDrive, can restrict what they can do in these applications using its app-enforced
+          restrictions.   For example, it can enforce that users on unmanaged devices will have
+          browser-only access to OneDrive with no ability to download, print, or sync files.  This
+          can impede an adversary's ability to exfiltrate data from OneDrive.  The protection
+          coverage provided by this control is Minimal as it doesn't provide protection for other
+          Azure storage services such as the Azure Storage service.
+  - id: T1213
+    name: Data from Information Repositories
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control only provides the ability restrict an adversary from collecting valuable
+          information for a limited set of applications (SharePoint, Exchange, OneDrive) and
+          therefore its overall Coverage score is minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1213.002
+            name: Sharepoint
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              Conditional Access (CA), when granting (risky) users access to Office applications
+              like SharePoint can restrict what they can do in these applications using its
+              app-enforced restrictions.   For example, it can enforce that users on unmanaged
+              devices will have browser-only access to SharePoint with no ability to download,
+              print, or sync files.  Furthermore, with its integration with Microsoft Cloud App
+              Security, it can even restrict  cut, copy and paste operations.  This can impede an
+              adversary's ability to collect valuable information and/or files from the
+              application.   This protection is partial as it doesn't prohibit an adversary from
+              potentially viewing sensitive information and manually collecting it, for example
+              simply writing down information by hand.
+comments: >-
+  At first glance, this control seems mappable to Exfiltration (sub-)techniques but upon further
+  analysis, it doesn't really mitigate exfiltration but rather its prerequisite Collection
+  (sub-)techniques.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview'
