@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Table
+from sqlalchemy import Column, Integer, String, ForeignKey, Table, UniqueConstraint
 from sqlalchemy.orm import relationship, backref
 from sqlalchemy.ext.declarative import declarative_base
 
@@ -9,6 +9,31 @@ mapping_tag_xref = Table('mapping_tag_xref', Base.metadata,
     Column('mapping_id', Integer, ForeignKey('mapping.mapping_id')),
     Column('tag_id', Integer, ForeignKey('tag.tag_id'))
 )
+
+
+class MappingTechniqueScore(Base):
+    __tablename__ = "mapping_technique_score"
+    id = Column(Integer, primary_key=True)
+    mapping_id = Column(Integer, ForeignKey('mapping.mapping_id'))
+    technique_id = Column(Integer, ForeignKey('technique.technique_id'))
+    score_id = Column(Integer, ForeignKey('score.score_id', ondelete='CASCADE'))
+
+    __table_args__ = (UniqueConstraint(mapping_id, technique_id, score_id),)
+    mapping = relationship("Mapping")
+    technique = relationship("Technique")
+    score = relationship("Score")
+
+class MappingSubTechniqueScore(Base):
+    __tablename__ = "mapping_sub_technique_score"
+    id = Column(Integer, primary_key=True)
+    mapping_id = Column(Integer, ForeignKey('mapping.mapping_id'), nullable=False)
+    sub_technique_id = Column(Integer, ForeignKey('sub_technique.technique_id'), nullable=False)
+    score_id = Column(Integer, ForeignKey('score.score_id'), nullable=False)
+
+    __table_args__ = (UniqueConstraint(mapping_id, sub_technique_id, score_id),)
+    mapping = relationship("Mapping")
+    sub_technique = relationship("SubTechnique")
+    score = relationship("Score")
 
 
 class Mapping(Base):
@@ -62,13 +87,11 @@ class SubTechnique(Base):
 
 
 class Score(Base):
-    __tablename__ = "mapping_score"
+    __tablename__ = "score"
     score_id = Column(Integer, primary_key=True)
-    mapping_id = Column("mapping_id", Integer, ForeignKey("mapping.mapping_id"))
-    sub_technique_id = Column("sub_technique_id", Integer, 
-        ForeignKey("sub_technique.sub_technique_id"))
-    score_function = Column(String, nullable=False)
+    category = Column(String, nullable=False)
     value = Column(String, nullable=False)
+    comments = Column(String, nullable=False)
 
 
 class Tag(Base):

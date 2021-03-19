@@ -2,7 +2,7 @@
 
 import argparse
 from mapping_driver import MappingDriver
-from utils.utils import file_path, dir_path
+from utils.utils import file_path, dir_path, chunkstring
 from prettytable import PrettyTable
 
 
@@ -106,12 +106,14 @@ def validate(args):
 @subcommand([
     argument('--mapping-dir', help='Path to the directory containing the mapping files',
         default="../mappings", required=False, type=dir_path),
+    argument('--skip-attack', help='Rebuild just the mappings, do not rebuild the ATT&CK entities',
+        default=False, required=False, action="store_true"),
     argument("--skip-validation", help="Skip validation when visualizing mapping(s)",
         required=False, default=False, action="store_true")
     ])
 def rebuild_mappings(args):
     mapping_driver.load_mapping_dir(args.mapping_dir)
-    mapping_driver.rebuild_mappings(args.skip_validation)
+    mapping_driver.rebuild_mappings(args.skip_validation, args.skip_attack)
 
 
 @subcommand([
@@ -123,14 +125,42 @@ def list_mappings(args):
     table.align["Name"] = "l"
     table.align["Mapping File"] = "l"
     table.align["Tag(s)"] = "l"
+    table.align["Description"] = "l"
     filter_tags = args.tag if args.tag else []
     mappings = mapping_driver.query_mapping_files(filter_tags, args.relationship)
     for mapping in mappings:
         tags = [tag.name for tag in mapping.tags]
         if filter_tags:
             tags = list(set(tags) & set(filter_tags))
-            description = (mapping.description[:80] + "...") if len(mapping.description) > 80 else mapping.description
-            table.add_row([mapping.name, mapping.path, ",\n".join(tags), description])
+        description = "\n".join(chunkstring(mapping.description, 100))
+        path = "\n".join(chunkstring(mapping.path, 40))
+        table.add_row([mapping.name, path, ",\n".join(tags), description])
+    
+    print(table)
+
+
+@subcommand([
+    argument('--category', help="Return mappings with the specified score category", \
+        action="append", required=False,choices = ["Protect","Detect", "Respond"]),
+    argument('--width', help="Set the width of the Comments column", type=int, required=False, default=100),
+    argument('--level', help="", required=False, default="Technique", choices = ["Technique","Sub-technique"]),
+    ])
+def list_scores(args):
+    if args.level == "Technqiue":
+        table = PrettyTable(["Name", "Mapping File", "Technique", "Score", "Comments"])
+    else:
+        table = PrettyTable(["Name", "Mapping File", "Sub-technique", "Score", "Comments"])
+    table.align["Name"] = "l"
+    table.align["Mapping File"] = "l"
+    table.align["Sub-technique"] = "l"
+    table.align["Comments"] = "l"
+    filter_category = args.category if args.category else []
+    data = mapping_driver.query_mapping_file_scores(filter_category, args.level)
+    for mapping, sub_technique, score in data:
+        sub_technique_info = "\n".join(chunkstring(f"{sub_technique.attack_id} {sub_technique.name}", 20))
+        path = "\n".join(chunkstring(mapping.path, 40))
+        description = "\n".join(chunkstring(score.comments, args.width))
+        table.add_row([mapping.name, path, sub_technique_info, score.value, description])
     
     print(table)
 
