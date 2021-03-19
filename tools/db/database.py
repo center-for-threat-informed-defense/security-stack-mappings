@@ -1,7 +1,8 @@
 from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
 
-from db.model import Base, Tactic, Technique, SubTechnique, Mapping, Tag
+from db.model import Base, Tactic, Technique, SubTechnique, Mapping, Tag, \
+    MappingSubTechniqueScore, MappingTechniqueScore, Score
 
 import yaml
 
@@ -17,10 +18,18 @@ class MappingDatabase:
         self.session = Session()
 
 
-    def init_database(self, mapping_files, tags):
-        Base.metadata.drop_all(self.engine)
-        Base.metadata.create_all(self.engine)
-        self.build_attack_database()
+    def init_database(self, mapping_files, tags, skip_attack):
+        if skip_attack:
+            self.session.query(MappingTechniqueScore).delete()
+            self.session.query(MappingSubTechniqueScore).delete()
+            self.session.query(Score).delete()
+            self.session.query(Mapping).delete()
+            self.session.query(Tag).delete()
+            self.session.commit()
+        else:
+            Base.metadata.drop_all(self.engine)
+            Base.metadata.create_all(self.engine)
+            self.build_attack_database()
         self.build_mapping_database(mapping_files, tags)
 
 
@@ -34,6 +43,41 @@ class MappingDatabase:
             mapping_entities = self.session.query(Mapping)
 
         return mapping_entities
+
+    
+    def query_mapping_file_scores(self, categories, level):
+        if categories:
+            if level == "Technique":
+                mapping_entities = self.session.query(Mapping,Technique,Score).select_from(Mapping)\
+                    .join(MappingTechniqueScore).join(Technique).join(Score).\
+                        filter(Score.category.in_(categories))
+            else:
+                mapping_entities = self.session.query(Mapping,SubTechnique,Score).select_from(MappingSubTechniqueScore)\
+                    .join(Mapping).join(SubTechnique, SubTechnique.sub_technique_id == \
+                        MappingSubTechniqueScore.sub_technique_id).join(Score).\
+                        filter(Score.category.in_(categories))
+        else:
+            mapping_entities = self.session.query(Mapping)
+
+        return mapping_entities
+
+    
+    def insert_score(self, score_yaml):
+        score = Score(category=score_yaml["category"], value=score_yaml["value"], comments=score_yaml.get("comments",""))
+        self.session.add(score)
+        return score
+    
+
+    def insert_technique_score(self, mapping, technique, score):
+        mapping_score = MappingTechniqueScore(mapping=mapping,
+            technique=technique, score=score)
+        self.session.add(mapping_score)
+
+
+    def insert_sub_technique_score(self, mapping, sub_technique, score):
+        mapping_score = MappingSubTechniqueScore(mapping=mapping,
+            sub_technique=sub_technique, score=score)
+        self.session.add(mapping_score)
 
 
     def build_mapping_database(self, mapping_files, tags):
@@ -58,6 +102,20 @@ class MappingDatabase:
             if yaml_tags:
                 tag_entities = self.session.query(Tag).filter(Tag.name.in_(yaml_tags)).all()
                 mapping_entity.tags.extend(tag_entities)
+
+            for technique_yaml in mapping_yaml.get("techniques", []):
+                technique = self.session.query(Technique).filter(Technique.attack_id == technique_yaml["id"]).first()
+                for score_yaml in technique_yaml["technique-scores"]:
+                    score = self.insert_score(score_yaml)
+                    self.insert_technique_score(mapping_entity, technique, score)
+
+                for sub_technique_score_yaml in technique_yaml.get("sub-techniques-scores", []):
+                    for score_yaml in sub_technique_score_yaml["scores"]:
+                        score = self.insert_score(score_yaml)
+                        for sub_technique_yaml in sub_technique_score_yaml["sub-techniques"]:
+                            sub_technique = self.session.query(SubTechnique).\
+                                filter(SubTechnique.attack_id == sub_technique_yaml["id"]).first()
+                            self.insert_sub_technique_score(mapping_entity, sub_technique, score)
 
 
         self.session.commit()

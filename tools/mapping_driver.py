@@ -25,6 +25,10 @@ class MappingDriver():
         return self.mapping_db.query_mapping_files(tags, relationship)
     
 
+    def query_mapping_file_scores(self, categories, level):
+        return self.mapping_db.query_mapping_file_scores(categories, level)
+    
+
     def load_mapping_files_as_unit(self, map_files):
         paths = []
         for map_file in map_files:
@@ -68,9 +72,9 @@ class MappingDriver():
         return self.__validate_mapping_files(self.mapping_files)
 
 
-    def rebuild_mappings(self, skip_validation):
+    def rebuild_mappings(self, skip_validation, skip_attack):
         if skip_validation or self.validate_mapping_files():
-            self.mapping_db.init_database(self.mapping_files, self.mapping_validator.get_tags())
+            self.mapping_db.init_database(self.mapping_files, self.mapping_validator.get_tags(), skip_attack)
 
     
     def visualize(self, visualizer, output_dir, options={}):

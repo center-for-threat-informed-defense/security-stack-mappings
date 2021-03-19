@@ -22,3 +22,8 @@ Make sure to run rebuild_mappings command before these commands (that have tag a
 1.  Help:  ./mapping_cli.py visualize -h
 1.  Another example:  ./mapping_cli.py visualize --visualizer AttackNavigator  --skip-validation
 1.  Another example:  ./mapping_cli.py visualize --visualizer AttackNavigator --tag "Azure Defender" --title "Azure Defender" --skip-validation
+
+New functionality to review scores values and comments
+1. ./mapping_cli.py list_scores --category Protect
+1. ./mapping_cli.py list_scores --category Protect --level Sub-technique
+1. ./mapping_cli.py list_scores --category Protect --level Technique --width 100
