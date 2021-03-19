@@ -25,8 +25,8 @@ class MappingDriver():
         return self.mapping_db.query_mapping_files(tags, relationship)
     
 
-    def query_mapping_file_scores(self, categories, level):
-        return self.mapping_db.query_mapping_file_scores(categories, level)
+    def query_mapping_file_scores(self, categories, attack_ids, level):
+        return self.mapping_db.query_mapping_file_scores(categories, attack_ids, level)
     
 
     def load_mapping_files_as_unit(self, map_files):

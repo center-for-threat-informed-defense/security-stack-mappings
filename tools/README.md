@@ -25,5 +25,8 @@ Make sure to run rebuild_mappings command before these commands (that have tag a
 
 New functionality to review scores values and comments
 1. ./mapping_cli.py list_scores --category Protect
+1. ./mapping_cli.py list_scores --category Protect --attack-id T1078
+1. ./mapping_cli.py list_scores --category Protect --attack-id T1078 --attack-id T1578 
+1. ./mapping_cli.py list_scores --attack-id T1078 --attack-id T1578 
 1. ./mapping_cli.py list_scores --category Protect --level Sub-technique
 1. ./mapping_cli.py list_scores --category Protect --level Technique --width 100

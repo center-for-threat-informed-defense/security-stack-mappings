@@ -145,28 +145,40 @@ def list_mappings(args):
 @subcommand([
     argument('--category', help="Return mappings with the specified score category", \
         action="append", required=False,choices = ["Protect","Detect", "Respond"]),
-    argument('--width', help="Set the width of the Comments column", type=int, required=False, default=100),
-    argument('--level', help="", required=False, default="Technique", choices = ["Technique","Sub-technique"]),
+    argument('--attack-id', help="The ATT&CK ID to retrieve data about", \
+        action="append", required=False),
+    argument('--width', help="Set the width of the Comments column", type=int, required=False, default=90),
+    argument('--level', help="Return technique data or sub-technique data", required=False, \
+        default="Technique", choices = ["Technique","Sub-technique"]),
     ])
 def list_scores(args):
+    filter_category = args.category if args.category else []
+    attack_ids = args.attack_id if args.attack_id else []
+    if not filter_category and not attack_ids:
+        raise argparse.ArgumentTypeError('One of --category or --attack-id is required')
+        
     if args.level == "Technqiue":
-        table = PrettyTable(["Name", "Mapping File", "Technique", "Score", "Comments"])
+        table = PrettyTable(["Name", "Mapping File", "Technique", "Category", "Score", "Comments"])
     else:
-        table = PrettyTable(["Name", "Mapping File", "Sub-technique", "Score", "Comments"])
+        table = PrettyTable(["Name", "Mapping File", "Sub-technique", "Category", "Score", "Comments"])
+
     table.align["Name"] = "l"
     table.align["Mapping File"] = "l"
     table.align["Sub-technique"] = "l"
     table.align["Comments"] = "l"
-    filter_category = args.category if args.category else []
-    data = mapping_driver.query_mapping_file_scores(filter_category, args.level)
+
+    data = mapping_driver.query_mapping_file_scores(filter_category, attack_ids, args.level)
     num_rows = 0
     for mapping, attack_entity, score in data:
         sub_technique_info = "\n".join(chunkstring(f"{attack_entity.attack_id} {attack_entity.name}", 25))
         path = "\n".join(chunkstring(mapping.path, 40))
         description = "\n".join(chunkstring(score.comments, args.width))
-        table.add_row([mapping.name, path, sub_technique_info, score.value, description])
+        table.add_row([mapping.name, path, sub_technique_info, score.category, score.value, description])
         num_rows +=1
     
+    if filter_category:
+        table.del_column("Category")
+
     print(table)
     print(f"Total Rows:  {num_rows}")
 
