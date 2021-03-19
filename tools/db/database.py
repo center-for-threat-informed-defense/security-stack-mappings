@@ -48,14 +48,14 @@ class MappingDatabase:
     def query_mapping_file_scores(self, categories, level):
         if categories:
             if level == "Technique":
-                mapping_entities = self.session.query(Mapping,Technique,Score).select_from(Mapping)\
-                    .join(MappingTechniqueScore).join(Technique).join(Score).\
-                        filter(Score.category.in_(categories))
+                mapping_entities = self.session.query(Mapping,Technique,Score).select_from(MappingTechniqueScore)\
+                    .join(Mapping).join(Technique).join(Score).\
+                        filter(Score.category.in_(categories)).order_by(Mapping.name.asc(), Technique.attack_id.asc())
             else:
                 mapping_entities = self.session.query(Mapping,SubTechnique,Score).select_from(MappingSubTechniqueScore)\
-                    .join(Mapping).join(SubTechnique, SubTechnique.sub_technique_id == \
-                        MappingSubTechniqueScore.sub_technique_id).join(Score).\
-                        filter(Score.category.in_(categories))
+                    .join(Mapping).join(SubTechnique).join(Score).\
+                        filter(Score.category.in_(categories)).order_by(Mapping.name.asc(), SubTechnique.attack_id.asc())
+
         else:
             mapping_entities = self.session.query(Mapping)
 

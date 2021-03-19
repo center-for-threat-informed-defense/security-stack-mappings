@@ -128,6 +128,7 @@ def list_mappings(args):
     table.align["Description"] = "l"
     filter_tags = args.tag if args.tag else []
     mappings = mapping_driver.query_mapping_files(filter_tags, args.relationship)
+    num_rows = 0
     for mapping in mappings:
         tags = [tag.name for tag in mapping.tags]
         if filter_tags:
@@ -135,8 +136,10 @@ def list_mappings(args):
         description = "\n".join(chunkstring(mapping.description, 100))
         path = "\n".join(chunkstring(mapping.path, 40))
         table.add_row([mapping.name, path, ",\n".join(tags), description])
+        num_rows +=1
     
     print(table)
+    print(f"Total Rows:  {num_rows}")
 
 
 @subcommand([
@@ -156,13 +159,16 @@ def list_scores(args):
     table.align["Comments"] = "l"
     filter_category = args.category if args.category else []
     data = mapping_driver.query_mapping_file_scores(filter_category, args.level)
-    for mapping, sub_technique, score in data:
-        sub_technique_info = "\n".join(chunkstring(f"{sub_technique.attack_id} {sub_technique.name}", 20))
+    num_rows = 0
+    for mapping, attack_entity, score in data:
+        sub_technique_info = "\n".join(chunkstring(f"{attack_entity.attack_id} {attack_entity.name}", 25))
         path = "\n".join(chunkstring(mapping.path, 40))
         description = "\n".join(chunkstring(score.comments, args.width))
         table.add_row([mapping.name, path, sub_technique_info, score.value, description])
+        num_rows +=1
     
     print(table)
+    print(f"Total Rows:  {num_rows}")
 
 
 if __name__ == "__main__":

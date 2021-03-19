@@ -27,7 +27,7 @@ class MappingSubTechniqueScore(Base):
     __tablename__ = "mapping_sub_technique_score"
     id = Column(Integer, primary_key=True)
     mapping_id = Column(Integer, ForeignKey('mapping.mapping_id'), nullable=False)
-    sub_technique_id = Column(Integer, ForeignKey('sub_technique.technique_id'), nullable=False)
+    sub_technique_id = Column(Integer, ForeignKey('sub_technique.sub_technique_id'), nullable=False)
     score_id = Column(Integer, ForeignKey('score.score_id'), nullable=False)
 
     __table_args__ = (UniqueConstraint(mapping_id, sub_technique_id, score_id),)
