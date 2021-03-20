@@ -4,6 +4,7 @@ Azure Defender
 Azure Defender for Servers
 Azure Security Center
 Azure Sentinel
+CASB
 Credentials
 DNS
 File system
