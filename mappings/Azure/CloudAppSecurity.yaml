@@ -7,14 +7,10 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - CASB
-  - ''
 description: >-
-  "Cloud App Security enables you to identify high-risk use and cloud security issues, detect
-  abnormal user behavior, and prevent threats in your sanctioned cloud apps. Get visibility into
-  user and admin activities and define policies to automatically alert when suspicious behavior or
-  specific activities that you consider risky are detected. Draw from the vast amount of Microsoft
-  threat intelligence and security research data to help ensure that your sanctioned apps have all
-  the security controls you need in place and help you maintain control over them."
+Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection,
+API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and
+combat cyberthreats across all your Microsoft and third-party cloud services.
 techniques:
   - id: T1078
     name: Valid Accounts
@@ -204,7 +200,7 @@ techniques:
       - category: Detect
         value: Partial
         comments: Can identify anomalous admin activity
-comments: 'This is Azure "CASB" '
+comments: ''
 references:
   - 'https://docs.microsoft.com/en-us/cloud-app-security/policies-cloud-discovery'
   - 'https://docs.microsoft.com/en-us/cloud-app-security/policies-information-protection'
