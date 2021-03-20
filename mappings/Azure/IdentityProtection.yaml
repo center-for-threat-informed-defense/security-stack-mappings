@@ -75,7 +75,7 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              This control supports detecting risky sign-ins and users that involved federated users
+              This control supports detecting risky sign-ins and users that involve federated users
               and therefore can potentially alert on this activity.  Not all alert types for this
               control support federated accounts therefore the detection coverage for this technique
               is partial.
