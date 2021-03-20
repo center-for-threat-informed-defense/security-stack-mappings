@@ -30,3 +30,6 @@ New functionality to review scores values and comments
 1. ./mapping_cli.py list_scores --attack-id T1078 --attack-id T1578 
 1. ./mapping_cli.py list_scores --category Protect --level Sub-technique
 1. ./mapping_cli.py list_scores --category Protect --level Technique --width 100
+1. ./mapping_cli.py list_scores --control "Azure AD Identity Protection"
+1. ./mapping_cli.py list_scores --control "Azure AD Identity Protection" --level Sub-technique
+1. ./mapping_cli.py list_scores  --attack-id T1078 --level Technique --control "Azure AD Identity Protection"
