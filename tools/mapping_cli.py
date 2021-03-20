@@ -143,10 +143,11 @@ def list_mappings(args):
 
 
 @subcommand([
-    argument('--category', help="Return mappings with the specified score category", \
+    argument('--category', help="Filter by score category", \
         action="append", required=False,choices = ["Protect","Detect", "Respond"]),
-    argument('--attack-id', help="The ATT&CK ID to retrieve data about", \
+    argument('--attack-id', help="Filter by ATT&CK ID (specify Technique [default] or Sub-technique using --level parameter)", \
         action="append", required=False),
+    argument('--control', help="Filter by a control (name)", action="append", required=False),
     argument('--width', help="Set the width of the Comments column", type=int, required=False, default=90),
     argument('--level', help="Return technique data or sub-technique data", required=False, \
         default="Technique", choices = ["Technique","Sub-technique"]),
@@ -154,10 +155,11 @@ def list_mappings(args):
 def list_scores(args):
     filter_category = args.category if args.category else []
     attack_ids = args.attack_id if args.attack_id else []
-    if not filter_category and not attack_ids:
-        raise argparse.ArgumentTypeError('One of --category or --attack-id is required')
+    controls = args.control if args.control else []
+    if not controls and not filter_category and not attack_ids:
+        raise argparse.ArgumentTypeError('A combination of --control, --category or --attack-id parameters is required')
         
-    if args.level == "Technqiue":
+    if args.level == "Technique":
         table = PrettyTable(["Name", "Mapping File", "Technique", "Category", "Score", "Comments"])
     else:
         table = PrettyTable(["Name", "Mapping File", "Sub-technique", "Category", "Score", "Comments"])
@@ -167,7 +169,7 @@ def list_scores(args):
     table.align["Sub-technique"] = "l"
     table.align["Comments"] = "l"
 
-    data = mapping_driver.query_mapping_file_scores(filter_category, attack_ids, args.level)
+    data = mapping_driver.query_mapping_file_scores(filter_category, attack_ids, controls, args.level)
     num_rows = 0
     for mapping, attack_entity, score in data:
         sub_technique_info = "\n".join(chunkstring(f"{attack_entity.attack_id} {attack_entity.name}", 25))

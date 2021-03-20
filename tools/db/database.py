@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, func
+from sqlalchemy import create_engine, func, and_
 from sqlalchemy.orm import sessionmaker
 
 from db.model import Base, Tactic, Technique, SubTechnique, Mapping, Tag, \
@@ -55,36 +55,32 @@ class MappingDatabase:
         return ids
 
     
-    def query_mapping_file_scores(self, categories, attack_ids, level):
-        categories_sql, attack_ids_sql = (None,None)
+    def query_mapping_file_scores(self, categories, attack_ids, controls, level):
+        if level == "Technique":
+            sql = self.session.query(Mapping,Technique,Score).select_from(MappingTechniqueScore)\
+                .join(Mapping).join(Technique).join(Score)
+        else:
+            sql = self.session.query(Mapping,SubTechnique,Score).select_from(MappingSubTechniqueScore)\
+                .join(Mapping).join(SubTechnique).join(Score)
+
+        filters = []
         if categories:
-            if level == "Technique":
-                categories_sql = self.session.query(Mapping,Technique,Score).select_from(MappingTechniqueScore)\
-                    .join(Mapping).join(Technique).join(Score).filter(Score.category.in_(categories))
-            else:
-                categories_sql = self.session.query(Mapping,SubTechnique,Score).select_from(MappingSubTechniqueScore)\
-                    .join(Mapping).join(SubTechnique).join(Score).filter(Score.category.in_(categories))
+            filters.append(Score.category.in_(categories))
         if attack_ids:
             if level == "Technique":
-                attack_ids_sql = self.session.query(Mapping,Technique,Score).select_from(MappingTechniqueScore)\
-                    .join(Mapping).join(Technique).join(Score).filter(Technique.attack_id.in_(attack_ids))
+                filters.append(Technique.attack_id.in_(attack_ids))
             else:
                 attack_ids = self.get_sub_technique_ids(attack_ids)
-                attack_ids_sql = self.session.query(Mapping,SubTechnique,Score).select_from(MappingSubTechniqueScore)\
-                    .join(Mapping).join(SubTechnique).join(Score).filter(SubTechnique.attack_id.in_(attack_ids))
+                filters.append(SubTechnique.attack_id.in_(attack_ids))
+        if controls:
+            filters.append(Mapping.name.in_(controls))
+        
+        sql = sql.filter(and_(*filters))
 
-        if categories_sql and attack_ids_sql:
-            return categories_sql.intersect(attack_ids_sql)
-        elif categories_sql:
-            if level == "Technique":
-                return categories_sql.order_by(Mapping.name.asc(), Technique.attack_id.asc())
-            else:
-                return categories_sql.order_by(Mapping.name.asc(), SubTechnique.attack_id.asc())
+        if level == "Technique":
+            return sql.order_by(Mapping.name.asc(), Technique.attack_id.asc())
         else:
-            if level == "Technique":
-                return attack_ids_sql.order_by(Mapping.name.asc(), Technique.attack_id.asc())
-            else:
-                return attack_ids_sql.order_by(Mapping.name.asc(), SubTechnique.attack_id.asc())
+            return sql.order_by(Mapping.name.asc(), SubTechnique.attack_id.asc())
 
     
     def insert_score(self, score_yaml):
