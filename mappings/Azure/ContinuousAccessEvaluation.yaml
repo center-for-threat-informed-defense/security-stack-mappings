@@ -1,0 +1,51 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/20/2021
+name: Continuous Access Evaluation
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Identity
+  - Azure Active Directory
+description: >-
+  Continuous Access Evaluation (CAE) provides the next level of identity security by terminating
+  active user sessions to a subset of Microsoft services (Exchange and Teams) in real-time on
+  changes such as account disable, password reset, and admin initiated user revocation.  CAE aims to
+  improve the response time in situations where a policy setting that applies to a user changes but
+  the user is able to circumvent the new policy setting because their OAuth access token was issued
+  before the policy change.  It’s typical that security access tokens issued by Azure AD, like OAuth
+  2.0 access tokens, are valid for an hour.
+
+
+  CAE enables the scenario where users lose access to organizational SharePoint Online files, email,
+  calendar, or tasks, and Teams from Microsoft 365 client apps within mins after critical security
+  events (such as user account is deleted, MFA is enabled for a user, High user risk detected by
+  Azure AD Identity Protection, etc.).
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Respond
+        value: Minimal
+        comments: >-
+          This control only protects cloud accounts and therefore its overall coverage is minimal
+          resulting in a Minimal respond score for this technique.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Respond
+            value: Partial
+            comments: >-
+              Security controls like Azure AD Identity Protection can raise a user's risk level
+              asynchronously after they have used a valid account to access organizational data. 
+              This CAE control can respond to this change in the users risky state to terminate the
+              user's access within minutes or enforce an additional authentication method such as
+              MFA.   This mitigates the impact of an adversary using a valid account.  This is
+              control only forces the user to re-authenticate and doesn't resolve the usage of a
+              valid account (i.e. password change) and is therefore a containment type of response. 
+references:
+  - >-
+    https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation
