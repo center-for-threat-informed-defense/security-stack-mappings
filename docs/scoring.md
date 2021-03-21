@@ -37,7 +37,7 @@ In order to promote consistent assessments, the following scoring factors should
 
 ## Protect Scoring
 
-The scoring rubric used to assess a security control's ability to prevent the execution of an ATT&CK (sub-)technique is presented below:  
+The scoring rubric used to assess a security control's ability to prevent or minimize the impact of the execution of an ATT&CK (sub-)technique is presented below:  
 
 | Score | Description | 
 |------|------|
