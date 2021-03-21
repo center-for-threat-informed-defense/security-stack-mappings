@@ -11,6 +11,7 @@ File system
 Identity
 Linux
 Microsoft 365 Defender
+MFA
 Network
 Passwords
 Registry
