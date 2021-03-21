@@ -8,6 +8,7 @@ platform: Azure
 tags:
   - Azure Active Directory
   - Identity
+  - MFA
 description: >-
   The modern security perimeter now extends beyond an organization's network to include user and
   device identity. Organizations can utilize these identity signals as part of their access control
@@ -15,6 +16,32 @@ description: >-
   together, to make decisions, and enforce organizational policies. Conditional Access is at the
   heart of the new identity driven control plane.
 techniques:
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Conditional Access can be used to enforce MFA for users which provides significant protection against 
+          password compromises, requiring the adversary to complete an additional authentication method before
+          their access is permitted.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.002
+            name: Password Cracking
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a
+              password compromise, requiring the adversary to complete an additional authentication method before 
+              their access is permitted.
   - id: T1078
     name: Valid Accounts
     technique-scores:
@@ -30,11 +57,11 @@ techniques:
             name: Cloud Accounts
         scores:
           - category: Protect
-            value: Partial
+            value: Significant
             comments: >-
               This control can protect against the abuse of valid cloud accounts by requiring MFA or
               blocking access altogether based on signals such as the user's IP location
-              information, device compliance state,  risky sign-in/user state (through integration
+              information, device compliance state, risky sign-in/user state (through integration
               with Azure AD Identity Protection).  Additionally, session controls that can limit
               what a valid user can do within an app can also be triggered based on the
               aforementioned triggers.
