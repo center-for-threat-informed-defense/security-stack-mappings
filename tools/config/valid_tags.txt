@@ -6,6 +6,7 @@ Azure Security Center
 Azure Sentinel
 CASB
 Credentials
+Database
 DNS
 File system
 Identity
