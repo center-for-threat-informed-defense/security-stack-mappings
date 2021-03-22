@@ -1,0 +1,83 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/12/2021
+name: Advanced Threat Protection for Azure SQL Database
+author: Eric Kannampuzha
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Defender
+  - Azure Security Center
+  - Database
+description: >-
+  This control provides alerts for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
+  Analytics. An alert may be generated on suspicious database activities, potential vulnerabilities,
+  and SQL injection attacks, as well as anomalous database access and queries patterns.
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides alerts for a set of Azure database offerings. Databases that
+          have been deployed to endpoints within Azure or third-party databases deployed to Azure do
+          not generate alerts for this control.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may alert on logon events that are suspicious. This includes logins from
+              unusual locations, logins from suspicious IP addresses, and users that do not commonly
+              access the resource. These alerts may limit the ability of an attacker to utilize a
+              valid cloud account to access and manipulate Azure databases. 
+  - id: T1213
+    name: Data from Information Repositories
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may alert on extraction of a large amount of data to an unusual location. No
+          documentation is provided on the logic for determining an unusual location.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control covers the majority of sub-techniques for this parent technique and may cover
+          both successful and unsuccessful brute force attacks.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may alert on repeated sign in attempts to the resource and successful
+              logins from a suspicious location, IP address, or a user that does not commonly log in
+              to the resource. 
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may alert on usage of faulty SQL statements. This generates an alert for a
+          possible SQL injection by an application. Alerts may not be generated on usage of valid
+          SQL statements by attackers for malicious purposes.
+comments: ''
+references:
+  - 'https://docs.microsoft.com/en-us/azure/azure-sql/database/threat-detection-overview'
+  - >-
+    https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse
