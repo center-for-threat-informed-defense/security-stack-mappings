@@ -51,8 +51,8 @@ The scoring rubric used to assess a security control's ability to detect the exe
 
 | Score | Description | 
 |------|------|
-| **Minimal** | Low detection coverage factor irrespective of other score factors | 
-| **Partial** | Medium - high detection coverage factor <br />Suboptimal accuracy and/or temporal score |
+| **Minimal** | Low or uncertain detection coverage factor irrespective of other score factors |
+| **Partial** | Medium - high detection coverage factor <br />Unknown or suboptimal accuracy and/or temporal score |
 | **Significant** | High detection coverage factor <br /> Low false-positive/false-negative rates <br />Real-time, or near real-time (seconds, low minutes) temporal factor |
 
 ## Respond Scoring
