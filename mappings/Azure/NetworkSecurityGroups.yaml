@@ -313,6 +313,11 @@ techniques:
             value: Partial
 comments: >-
   Note: one can employ Application Security Groups in NSG rules to map rules to workloads etc. Not
-  scoring ASG as a separate control.
+  scoring ASG as a separate control. One can employ Adaptive Network Hardening to generate
+  recommended NSG rules based on traffic, known trusted configuration, threat intelligence, and
+  other inidcators of compromise. Not scoring ANH as a separate control.
 references:
   - 'https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview'
+  - 'https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works'
+  - >-
+    https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-network-hardening
