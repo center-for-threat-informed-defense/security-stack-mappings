@@ -8,6 +8,7 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Defender
+  - Azure Defender for SQL
   - Azure Security Center
   - Database
 description: >-
