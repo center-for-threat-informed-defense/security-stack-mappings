@@ -1,0 +1,224 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/22/2021
+name: Azure Network Traffic Analytics
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+description: >-
+  "Traffic Analytics is a cloud-based solution that provides visibility into user and application
+  activity in cloud networks. Traffic analytics analyzes Network Watcher network security group
+  (NSG) flow logs to provide insights into traffic flow in your Azure cloud."
+techniques:
+  - id: T1199
+    name: Trusted Relationship
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can analyze NSG traffic related to trusted third parties
+  - id: T1602
+    name: Data from Configuration Repository
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can identify anomalous traffic wrt configuration repositories or identified configuration
+          management ports.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1602.001
+            name: SNMP (MIB Dump)
+          - id: T1602.002
+            name: Network Device Configuration Dump
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1542
+    name: Pre-OS Boot
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: 'Can identify anomalous traffic related to one sub-technique (tftp boot) '
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1542.005
+            name: TFTP Boot
+        scores:
+          - category: Detect
+            value: Partial
+            comments: Can identify anomalous TFTP boot traffic
+  - id: T1563
+    name: Remote Service Session Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can identify anomalous RDP and SSH sessions or blocked attempts.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1563.002
+            name: RDP Hijacking
+          - id: T1563.001
+            name: SSH Hijacking
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect anomalous traffic wrt specific protocols/ports
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1048.003
+            name: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
+          - id: T1048.002
+            name: Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
+          - id: T1048.001
+            name: Exfiltration Over Symmetric Encrypted Non-C2 Protocol
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can identify anomalous traffic wrt specific ports (though can't identify presence or
+              lack of encryption)
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect anomalous traffic to and from externally facing systems wrt NSG policy
+  - id: T1021
+    name: Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect anomalous traffic or attempts related to NSG for remote services.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1021.006
+            name: Windows Remote Management
+          - id: T1021.005
+            name: VNC
+          - id: T1021.004
+            name: SSH
+          - id: T1021.002
+            name: SMB/Windows Admin Shares
+          - id: T1021.001
+            name: Remote Desktop Protocol
+          - id: T1021.003
+            name: Distributed Component Object Model
+        scores:
+          - category: Detect
+            value: Partial
+            comments: Can detect anomalous traffic wrt remote access protocols and groups.
+  - id: T1072
+    name: Software Deployment Tools
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect anomalous traffic wrt critical systems and software deployment ports
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can identify anomalous access to administrative systems or ports, though can't identify
+          specific sub-techniques/activity.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can identify anomalous access to external remote services
+  - id: T1136
+    name: Create Account
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect anomalous connections to administrative systems/ports
+  - id: T1482
+    name: Domain Trust Discovery
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can identify anomalous traffic and discovery attempts to different domains.
+  - id: T1046
+    name: Network Service Scanning
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: Can detect network service scanning/discovery activity
+  - id: T1571
+    name: Non-Standard Port
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: Can identify anomalous traffic wrt non-application protocols
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can identify anomalous traffic wrt NSG and application layer protocols
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.004
+            name: DNS
+          - id: T1071.003
+            name: Mail Protocols
+          - id: T1071.002
+            name: File Transfer Protocols
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can detect anomalous application protocol traffic wrt NSG (though web traffic would be
+              typically too commonplace for this control to be useful)
+  - id: T1499
+    name: Endpoint Denial of Service
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can identify volumetric attacks and multi-sourced attacks
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1499.003
+            name: Application Exhaustion Flood
+          - id: T1499.002
+            name: Service Exhaustion Flood
+          - id: T1499.001
+            name: OS Exhaustion Flood
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1570
+    name: Lateral Tool Transfer
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect anomalous traffic between systems
+  - id: T1090
+    name: Proxy
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect anomalous traffic between systems and to external networks.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1090.003
+            name: Multi-hop Proxy
+          - id: T1090.002
+            name: External Proxy
+          - id: T1090.001
+            name: Internal Proxy
+        scores:
+          - category: Detect
+            value: Partial
+            comments: can't detect domain fronting
+comments: >-
+  Network Traffic Analytics can make queries with respect to Network Security Groups. Mappings made
+  with some reasonable assumptions on NSGs such as a group for management systems.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics'
