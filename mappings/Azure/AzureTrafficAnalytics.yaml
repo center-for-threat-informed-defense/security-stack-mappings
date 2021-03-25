@@ -5,6 +5,9 @@ name: Azure Network Traffic Analytics
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
+tags:
+  - Analytics
+  - Network
 description: >-
   "Traffic Analytics is a cloud-based solution that provides visibility into user and application
   activity in cloud networks. Traffic analytics analyzes Network Watcher network security group

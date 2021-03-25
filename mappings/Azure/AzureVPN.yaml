@@ -51,3 +51,6 @@ techniques:
         scores:
           - category: Protect
             value: Significant
+references:
+  - >-
+    https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways

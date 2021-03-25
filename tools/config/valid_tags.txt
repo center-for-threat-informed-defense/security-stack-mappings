@@ -2,12 +2,15 @@ Analytics
 Azure Active Directory
 Azure Defender
 Azure Defender for Servers
+Azure Defender for SQL
 Azure Security Center
 Azure Sentinel
+Azure VPN Gateway
 CASB
 Credentials
 Database
 DNS
+Encryption
 File system
 Identity
 Linux
@@ -16,6 +19,7 @@ MFA
 Network
 Passwords
 Registry
+VPN
 WAF
 Web
 Web Access Firewall
