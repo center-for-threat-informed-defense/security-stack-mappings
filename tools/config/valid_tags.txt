@@ -1,4 +1,5 @@
 Analytics
+Adaptive Network Hardening
 Azure Active Directory
 Azure Defender
 Azure Defender for Servers
