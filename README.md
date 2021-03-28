@@ -29,7 +29,7 @@ Please submit issues for any technical questions/concerns or contact ctid@mitre-
 Also see the guidance for contributors if are you interested in contributing or simply reporting issues.
 
 ## Notice
-Copyright 2021 MITRE Engenuity. Approved for public release. Document number XXXXX
+Copyright 2021 MITRE Engenuity. Approved for public release. Document number CT0019
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
