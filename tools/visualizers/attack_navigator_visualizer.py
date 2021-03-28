@@ -91,7 +91,8 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
 
             if existing["category"] != entity["category"]:
                 existing["category"] = "Mixed"
-                max_score = [existing["score"], entity["score"]].sort()
+                max_score = [existing["score"], entity["score"]]
+                max_score.sort()
                 max_score = max_score[-1]
                 color = self.config["score_colors"][existing["category"]][max_score]
                 existing["color"] = color

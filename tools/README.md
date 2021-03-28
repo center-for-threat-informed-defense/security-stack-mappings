@@ -21,6 +21,7 @@ Make sure to run rebuild_mappings command before these commands (that have tag a
 1.  More examples:  ./mapping_cli.py list_mappings --tag "Azure Defender" --tag "Azure Sentinel" --relationship OR
 1.  Help:  ./mapping_cli.py visualize -h
 1.  Another example:  ./mapping_cli.py visualize --visualizer AttackNavigator  --skip-validation
+1.  One mapping file: ./mapping_cli.py visualize --visualizer AttackNavigator --mapping-file ../mappings/Azure/IdentityProtection.yaml --output /tmp
 1.  Another example:  ./mapping_cli.py visualize --visualizer AttackNavigator --tag "Azure Defender" --title "Azure Defender" --skip-validation
 
 New functionality to review scores values and comments
