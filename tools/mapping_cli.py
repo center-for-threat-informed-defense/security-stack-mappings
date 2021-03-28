@@ -119,6 +119,7 @@ def rebuild_mappings(args):
 @subcommand([
     argument('--tag', help="Return mappings with the specified tag", action="append", required=False),
     argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
+    argument('--width', help="Set the width of the Comments column", type=int, required=False, default=80),
     ])
 def list_mappings(args):
     table = PrettyTable(["Name", "Mapping File", "Tag(s)", "Description"])
@@ -133,7 +134,7 @@ def list_mappings(args):
         tags = [tag.name for tag in mapping.tags]
         if filter_tags:
             tags = list(set(tags) & set(filter_tags))
-        description = "\n".join(chunkstring(mapping.description, 100))
+        description = "\n".join(chunkstring(mapping.description, args.width))
         path = "\n".join(chunkstring(mapping.path, 40))
         table.add_row([mapping.name, path, ",\n".join(tags), description])
         num_rows +=1
@@ -148,7 +149,7 @@ def list_mappings(args):
     argument('--attack-id', help="Filter by ATT&CK ID (specify Technique [default] or Sub-technique using --level parameter)", \
         action="append", required=False),
     argument('--control', help="Filter by a control (name)", action="append", required=False),
-    argument('--width', help="Set the width of the Comments column", type=int, required=False, default=90),
+    argument('--width', help="Set the width of the Comments column", type=int, required=False, default=80),
     argument('--level', help="Return technique data or sub-technique data", required=False, \
         default="Technique", choices = ["Technique","Sub-technique"]),
     ])
