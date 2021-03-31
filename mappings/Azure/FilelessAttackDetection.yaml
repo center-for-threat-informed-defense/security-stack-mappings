@@ -17,7 +17,42 @@ description: >-
   extracts insights directly from the memory of processes. Specific insights include the
   identification of known toolkits and crypto mining software, shellcode, and injected malicious
   executables in process memory. Alerts include descriptions with process metadata.
-techniques: []
+techniques:
+  - id: T1055
+    name: Process Injection
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control covers all relevant sub-techniques (those that affect Windows). Detection is
+          periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1055.001
+            name: Dynamic-link Library Injection
+          - id: T1055.002
+            name: Portable Executable Injection
+          - id: T1055.003
+            name: Thread Execution Hijacking
+          - id: T1055.004
+            name: Asynchronous Procedure Call
+          - id: T1055.005
+            name: Thread Local Storage
+          - id: T1055.011
+            name: Extra Window Memory Injection
+          - id: T1055.012
+            name: Process Hollowing
+          - id: T1055.013
+            name: Process Doppelgänging
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Injection attacks are specifically cited as a detection focus for the control, with
+              even more specific references to Process Hollowing, executable image injection, and
+              threads started in a dynamically allocated code segment. Detection is periodic at an
+              unknown rate.
+comments: 'This control operates periodically, but the specific period is unknown.'
 references:
   - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction'
   - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference'
