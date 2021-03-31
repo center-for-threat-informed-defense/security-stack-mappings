@@ -1,0 +1,23 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/29/2021
+name: Fileless Attack Detection
+author: Matt Bajzek
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Defender
+  - Azure Defender for Servers
+  - Windows
+  - Network
+description: >-
+  Fileless Attack Detection uses automated memory forensic techniques to identify fileless attack
+  toolkits, techniques, and behaviors. This control periodically scans machines at runtime, and
+  extracts insights directly from the memory of processes. Specific insights include the
+  identification of known toolkits and crypto mining software, shellcode, and injected malicious
+  executables in process memory. Alerts include descriptions with process metadata.
+techniques: []
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference'
