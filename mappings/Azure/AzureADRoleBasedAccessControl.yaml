@@ -125,6 +125,16 @@ techniques:
           This control can be used to limit the number of users that have access to storage
           solutions except for the applications, users, and services that require access, thereby
           reducing the attack surface.
+  - id: T1528
+    name: Steal Application Access Token
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to limit the number of users that are authorized to grant consent
+          to applications for accessing organizational data.  This can reduce the likelihood that a
+          user is fooled into granting consent to a malicious application that then utilizes the
+          user's OAuth access token to access organizational data.
 comments: >-
   RBAC enables organizations to limit the number of users within the organization with an IAM role
   that has administrative privileges.  This enables limiting the number of users within the tenant
