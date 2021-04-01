@@ -88,6 +88,61 @@ techniques:
           This control identifies shellcode executing within process memory, including shellcode
           executed as a payload in the exploitation of a software vulnerability. Detection is
           periodic at an unknown rate.
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Crypto mining activity is specifically cited as a detection focus for the control.
+          Detection is periodic at an unknown rate.
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          injected into browser or other process memory as part of a drive-by attack. Detection is
+          periodic at an unknown rate.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          injected to exploit a vulnerability in a public-facing application. Detection is periodic
+          at an unknown rate.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          injected to exploit a vulnerability in an exposed service. Detection is periodic at an
+          unknown rate.
+  - id: T1559
+    name: Inter-Process Communication
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control covers the command execution aspects of both of this technique's
+          sub-techniques. Detection is periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1559.001
+            name: Component Object Model
+          - id: T1559.002
+            name: Dynamic Data Exchange
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control identifies suspicious command execution within process memory. Detection
+              is periodic at an unknown rate.
 comments: 'This control operates periodically, but the specific period is unknown.'
 references:
   - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction'
