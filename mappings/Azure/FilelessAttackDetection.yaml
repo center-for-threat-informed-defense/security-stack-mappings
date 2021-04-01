@@ -52,6 +52,42 @@ techniques:
               even more specific references to Process Hollowing, executable image injection, and
               threads started in a dynamically allocated code segment. Detection is periodic at an
               unknown rate.
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          executed as a payload in the exploitation of a software vulnerability. Detection is
+          periodic at an unknown rate.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          executed as a payload in the exploitation of a software vulnerability. Detection is
+          periodic at an unknown rate.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          executed as a payload in the exploitation of a software vulnerability. Detection is
+          periodic at an unknown rate.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          executed as a payload in the exploitation of a software vulnerability. Detection is
+          periodic at an unknown rate.
 comments: 'This control operates periodically, but the specific period is unknown.'
 references:
   - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction'
