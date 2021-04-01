@@ -1,0 +1,149 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/29/2021
+name: Fileless Attack Detection
+author: Matt Bajzek
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Defender
+  - Azure Defender for Servers
+  - Windows
+  - Network
+description: >-
+  Fileless Attack Detection uses automated memory forensic techniques to identify fileless attack
+  toolkits, techniques, and behaviors. This control periodically scans machines at runtime, and
+  extracts insights directly from the memory of processes. Specific insights include the
+  identification of known toolkits and crypto mining software, shellcode, and injected malicious
+  executables in process memory. Alerts include descriptions with process metadata.
+techniques:
+  - id: T1055
+    name: Process Injection
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control covers all relevant sub-techniques (those that affect Windows). Detection is
+          periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1055.001
+            name: Dynamic-link Library Injection
+          - id: T1055.002
+            name: Portable Executable Injection
+          - id: T1055.003
+            name: Thread Execution Hijacking
+          - id: T1055.004
+            name: Asynchronous Procedure Call
+          - id: T1055.005
+            name: Thread Local Storage
+          - id: T1055.011
+            name: Extra Window Memory Injection
+          - id: T1055.012
+            name: Process Hollowing
+          - id: T1055.013
+            name: Process Doppelgänging
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Injection attacks are specifically cited as a detection focus for the control, with
+              even more specific references to Process Hollowing, executable image injection, and
+              threads started in a dynamically allocated code segment. Detection is periodic at an
+              unknown rate.
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          executed as a payload in the exploitation of a software vulnerability. Detection is
+          periodic at an unknown rate.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          executed as a payload in the exploitation of a software vulnerability. Detection is
+          periodic at an unknown rate.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          executed as a payload in the exploitation of a software vulnerability. Detection is
+          periodic at an unknown rate.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          executed as a payload in the exploitation of a software vulnerability. Detection is
+          periodic at an unknown rate.
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Crypto mining activity is specifically cited as a detection focus for the control.
+          Detection is periodic at an unknown rate.
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          injected into browser or other process memory as part of a drive-by attack. Detection is
+          periodic at an unknown rate.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          injected to exploit a vulnerability in a public-facing application. Detection is periodic
+          at an unknown rate.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control identifies shellcode executing within process memory, including shellcode
+          injected to exploit a vulnerability in an exposed service. Detection is periodic at an
+          unknown rate.
+  - id: T1559
+    name: Inter-Process Communication
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control covers the command execution aspects of both of this technique's
+          sub-techniques. Detection is periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1559.001
+            name: Component Object Model
+          - id: T1559.002
+            name: Dynamic Data Exchange
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control identifies suspicious command execution within process memory. Detection
+              is periodic at an unknown rate.
+comments: 'This control operates periodically, but the specific period is unknown.'
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference'
