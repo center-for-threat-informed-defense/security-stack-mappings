@@ -7,7 +7,8 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - ''
+  - Windows
+  - Linux
 description: >-
   "Use Azure Automation Update Management or a third-party solution to ensure that the most recent
   security updates are installed on your Windows and Linux VMs. "
@@ -104,4 +105,4 @@ comments: >-
   Generally applies to techniques that leverage vulnerabilities in unpatched software, which tend to
   be a subset of possible methods for a given TTP. 
 references:
-  - ''
+  - 'https://docs.microsoft.com/en-us/azure/automation/update-management/overview'
