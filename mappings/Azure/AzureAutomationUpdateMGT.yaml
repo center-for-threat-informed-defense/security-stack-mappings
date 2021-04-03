@@ -1,0 +1,107 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/02/2021
+name: Azure Automation Update Management
+author: clem skorupka
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - ''
+description: >-
+  "Use Azure Automation Update Management or a third-party solution to ensure that the most recent
+  security updates are installed on your Windows and Linux VMs. "
+techniques:
+  - id: T1195
+    name: Supply Chain Compromise
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: Coverage of some aspects of software supply chain compromise
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1195.002
+            name: Compromise Software Supply Chain
+          - id: T1195.001
+            name: Compromise Software Dependencies and Development Tools
+        scores:
+          - category: Protect
+            value: Partial
+  - id: T1072
+    name: Software Deployment Tools
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: Coverage of attacks that leverage software flaws in unpatched deployment tools
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: Coverage of techniques that leverage vulnerabilities in unpatched remote services.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: 'Coverage of methods that exploit unpatched vulnerabilities in software/systems. '
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: Coverage of methods that leverage vulnerabilities in unpatched software.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Partial coverage for techniques that exploit vulnerabilities in (common) unpatched
+          software.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: coverage of techniques that leverage unpatched software vulnerabilities
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: Covers methods that leverage unpatched vulnerabilities.
+  - id: T1499
+    name: Endpoint Denial of Service
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          protection against DOS that leverages system/application vulnerability as opposed to
+          volumetric attacks
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1499.004
+            name: Application or System Exploitation
+        scores:
+          - category: Protect
+            value: Significant
+  - id: T1554
+    name: Compromise Client Software Binary
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Managed software updates can provide a baseline to compare with potentially
+          compromised/modified software binaries.
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: Protects against subset of methods that leverage unpatched client software
+comments: >-
+  Generally applies to techniques that leverage vulnerabilities in unpatched software, which tend to
+  be a subset of possible methods for a given TTP. 
+references:
+  - ''
