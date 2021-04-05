@@ -1,0 +1,86 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/31/2021
+name: Azure Dedicated HSM
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+description: >-
+  "Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure.... for
+  customers who require FIPS 140-2 Level 3-validated devices and complete and exclusive control of
+  the HSM appliance."
+techniques:
+  - id: T1552
+    name: Unsecured Credentials
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: 'Coverage partial: Protects private keys'
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1552.004
+            name: Private Keys
+        scores:
+          - category: Protect
+            value: Significant
+            comments: Provides significant protection of private keys
+      - sub-techniques:
+          - id: T1552.004
+            name: Private Keys
+        scores:
+          - category: Protect
+            value: Significant
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: Reduces likelihood of obtaining private keys to use or generate new valid accounts
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.003
+            name: Local Accounts
+          - id: T1078.002
+            name: Domain Accounts
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              Coverage partial since typical HSM use would be for special protected applications and
+              accounts.
+  - id: T1588
+    name: Obtain Capabilities
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          coverage limited to subtechniques involved with stealing credentials / certificates / keys
+          from the organization.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1588.004
+            name: Digital Certificates
+          - id: T1588.003
+            name: Code Signing Certificates
+        scores:
+          - category: Protect
+            value: Partial
+  - id: T1553
+    name: Subvert Trust Controls
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: coverage limited to code signing and install root certificate
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1553.004
+            name: Install Root Certificate
+          - id: T1553.002
+            name: Code Signing
+        scores:
+          - category: Protect
+            value: Partial
+comments: 'Note there is also a Managed HSM service '
+references:
+  - 'https://docs.microsoft.com/en-us/azure/dedicated-hsm/overview'
+  - 'https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/'
