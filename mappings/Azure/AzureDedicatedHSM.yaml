@@ -1,6 +1,6 @@
 version: 1
 ATT&CK version: 8.1
-creation date: 03/31/2021
+creation date: 04/05/2021
 name: Azure Dedicated HSM
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
@@ -24,12 +24,6 @@ techniques:
           - category: Protect
             value: Significant
             comments: Provides significant protection of private keys
-      - sub-techniques:
-          - id: T1552.004
-            name: Private Keys
-        scores:
-          - category: Protect
-            value: Significant
   - id: T1078
     name: Valid Accounts
     technique-scores:
