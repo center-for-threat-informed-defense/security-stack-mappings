@@ -1,0 +1,99 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/02/2021
+name: Docker Host Hardening
+author: Eric Kannampuzha
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Security Center
+  - Containers
+  - Linux
+description: >-
+  Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux
+  machines running Docker containers. Security Center continuously assesses the configurations of
+  these containers. It then compares them with the Center for Internet Security (CIS) Docker
+  Benchmark. Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you
+  if your containers don't satisfy any of the controls. When it finds misconfigurations, Security
+  Center generates security recommendations.
+techniques:
+  - id: T1525
+    name: Implant Container Image
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may alert on Docker containers that are misconfigured or do not conform to
+          CIS Docker Benchmarks. This may result in detection of container images implanted within
+          Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes.
+  - id: T1548
+    name: Abuse Elevation Control Mechanism
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: This control is only relevant for Linux endpoints containing Docker containers.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1548.001
+            name: Setuid and Setgid
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control may provide recommendations to remove setuid and setguid permissions from
+              container images. It may not be feasible to audit and remediate all binaries that have
+              and require setuid and setguid permissions.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations on how to reduce the surface area and mechanisms
+          by which an attacker could escalate privileges. 
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may recommend usage of TLS to encrypt communication between the Docker daemon
+          and clients. This can prevent possible leakage of sensitive information through network
+          sniffing. 
+  - id: T1083
+    name: File and Directory Discovery
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may provide recommendations to ensure sensitive host system directories are
+          not mounted in the container. 
+  - id: T1021
+    name: Remote Services
+    technique-scores:
+      - category: Protect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1021.004
+            name: SSH
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control may provide recommendations to ensure sshd is not running within Docker
+              containers. This can prevent attackers from utilizing unmonitored SSH servers within
+              containers. This may not prevent attackers from installing a SSH server in containers
+              or hosts.
+  - id: T1005
+    name: Data from Local System
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations that limit the ability of an attacker to gain
+          access to a host from a container, preventing the attacker from discovering and
+          compromising local system data.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/harden-docker-hosts'
