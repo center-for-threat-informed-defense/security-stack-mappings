@@ -5,6 +5,8 @@ name: Azure Dedicated HSM
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
+tags:
+  - Credentials
 description: >-
   "Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure.... for
   customers who require FIPS 140-2 Level 3-validated devices and complete and exclusive control of
