@@ -1,0 +1,167 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/05/2021
+name: Azure Defender for App Service
+author: Matt Bajzek
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Defender
+  - Azure Security Center
+  - Windows
+  - Linux
+description: >-
+  Azure Defender for App Service monitors VM instances and their management interfaces, App Service
+  apps and their requests/responses, and App Service internal logs to detect threats to App Service
+  resources and provide security recommendations to mitigate them.
+techniques:
+  - id: T1584
+    name: Compromise Infrastructure
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control only addresses one of the technique's sub-techniques, resulting in a score of
+          Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1584.001
+            name: Domains
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              Subdomain hijacking is a focus of this control, and its Dangling DNS detection alert
+              feature is activated when an App Service website is decommissioned and its
+              corresponding DNS entry is not deleted, allowing users to remove those entries before
+              they can be leveraged by an adversary.
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control detects file downloads associated with digital currency mining as well as
+          host data related to process and command execution associated with mining. Temporal factor
+          is unknown.
+  - id: T1204
+    name: User Execution
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides meaningful detection for one of the technique's two
+          sub-techniques, and temporal factor is unknown, resulting in a score of Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1204.001
+            name: Malicious Link
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control monitors for references to suspicious domain names and file downloads
+              from known malware sources, and monitors processes for downloads from raw-data
+              websites like Pastebin, all of which are relevant for detecting users' interactions
+              with malicious download links, but malicious links which exploit browser
+              vulnerabilities for execution are unlikely to be detected, and temporal factor is
+              unknown, resulting in a score of Minimal.
+  - id: T1140
+    name: Deobfuscate/Decode Files or Information
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control analyzes host data to detect base-64 encoded executables within command
+          sequences. It also monitors for use of certutil to decode executables. Temporal factor is
+          unknown.
+  - id: T1566
+    name: Phishing
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control only provides (minimal) protection for one of the technique's sub-techniques,
+          so its score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1566.002
+            name: Spearphishing Link
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control monitors for known phishing links on the Azure App Services website and
+              generates alerts if they are detected, potentially preventing their access by users.
+              This is a very specific avenue, only covers known links, and temporal factor is
+              unknown, so score is Minimal.
+  - id: T1059
+    name: Command and Scripting Interpreter
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides detection coverage for two sub-techniques, and only detects
+          certain specific sub-technique behaviors, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1059.004
+            name: Unix Shell
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control monitors host data for potential reverse shells used for command and
+              control. Temporal factor is unknown.
+      - sub-techniques:
+          - id: T1059.001
+            name: PowerShell
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control monitors for execution of known malicious PowerShell PowerSploit cmdlets.
+              Temporal factor is uknown.
+  - id: T1105
+    name: Ingress Tool Transfer
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control detects binary downloads via certutil, monitors for FTP access from IP
+          addresses found in threat intelligence, monitors for references to suspicious domain names
+          and file downloads from known malware sources, and monitors processes for downloads from
+          raw-data websites like Pastebin. Temporal factor is unknown.
+  - id: T1595
+    name: Active Scanning
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides detection for one of the two sub-techniques, so score is
+          Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1595.002
+            name: Vulnerability Scanning
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control monitors for web fingerprinting tools including nmap and Blind Elephant,
+              as well as scanners looking for vulnerability in applications like Drupal, Joomla, and
+              WordPress. Temporal factor is unknown.
+  - id: T1594
+    name: Search Victim-Owned Websites
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control monitors for accesses of potentially sensitive web pages from source IP
+          addresses whose access pattern resembles that of a web scanner or have not been logged
+          before. Temporal factor is unknown.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-app-service-introduction'
+  - 'https://azure.microsoft.com/en-us/services/app-service/'
