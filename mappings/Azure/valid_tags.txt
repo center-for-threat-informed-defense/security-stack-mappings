@@ -5,6 +5,7 @@ Azure Defender
 Azure Defender for Servers
 Azure Defender for SQL
 Azure Security Center
+Azure Security Center Recommendation
 Azure Sentinel
 Azure VPN Gateway
 CASB

@@ -102,7 +102,12 @@ class MappingDatabase:
 
 
     def build_mapping_database(self, mapping_files, tags):
-        for tag in tags:
+        all_tags = []
+        for platform in tags:
+            all_tags.extend(tags[platform])
+        all_tags = list(set(all_tags))
+
+        for tag in all_tags:
             tag_entity = Tag()
             tag_entity.name = tag
             self.session.add(tag_entity)

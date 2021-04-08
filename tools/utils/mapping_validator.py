@@ -3,11 +3,12 @@ import yaml
 import json
 import jsonschema
 import datetime
+from pathlib import Path
 
 class MappingValidator:
 
     def __init__(self, attack_ds):
-        self.valid_tags = self.load_tags()
+        self.load_tags()
         self.attack_ds = []
         self.attack_ds = attack_ds
         self.valid_techniques = {}
@@ -29,9 +30,14 @@ class MappingValidator:
 
 
     def load_tags(self):
-        fn = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'config/valid_tags.txt')
-        with open(fn) as file_object:
-            return file_object.read().splitlines()
+        self.valid_tags = {}
+        mappings_dir = Path(os.path.dirname(__file__)) / '../../mappings'
+        platform_dirs = [x for x in mappings_dir.iterdir() if x.is_dir()]
+        for platform_dir in platform_dirs:
+            valid_tags = platform_dir / "valid_tags.txt"
+            if valid_tags.exists():
+                with open(valid_tags) as file_object:
+                    self.valid_tags[platform_dir.name] = file_object.read().splitlines()
 
 
     def verify_dates(self, mapping):
@@ -51,7 +57,7 @@ class MappingValidator:
     def verify_tags(self, mapping):
         if "tags" in mapping:
             for tag in mapping['tags']:
-                if not tag in self.valid_tags:
+                if not tag in self.valid_tags[mapping['platform']]:
                     self.print_validation_error(f"Tag '{tag}' from mapping file {mapping['name']} "
                         "is not contained within valid_tags.yaml.")
         else:
