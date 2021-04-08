@@ -327,60 +327,19 @@ comments: >-
 
   The following improvement actions were analyzed:
 
-  Require MFA for administrative roles
 
-  Designate more than one global admin
-
-  Do not allow users to grant consent to unmanaged applications
-
-  Use limited administrative roles
-
-  Do not expire passwords
-
-  Enable policy to block legacy authentication
-
-  Turn on sign-in risk policy
-
-  Turn on user risk policy
-
-  Ensure all users can complete multi-factor authentication for secure access
-
-  Enable self-service password reset
-
-  Resolve unsecure account attributes
-
-  Reduce lateral movement path risk to sensitive entities
-
-  Set a honeytoken account
-
-  Stop clear text credentials exposure
-
-  Install Defender for Identity Sensor on all Domain Controllers
-
-  Disable Print spooler service on domain controllers
-
-  Configure VPN integration
-
-  Configure Microsoft Defender for Endpoint Integration (*excluded, would increase the scope, see
-  mapping for Microsoft Defender for Endpoint)
-
-  Stop legacy protocols communication
-
-  Stop weak cipher usage
-
-  Remove dormant accounts from sensitive groups
-
-  Protect and manage local admin passwords with Microsoft LAPS
-
-  Remove unsecure SID history attributes from entities
-
-  Fix Advanced Audit Policy issues
-
-  Modify unsecure Kerberos delegations to prevent impersonation
+  Require MFA for administrative roles, Designate more than one global admin, Do not allow users to grant consent to unmanaged applications,
+  Use limited administrative roles, Do not expire passwords, Enable policy to block legacy authentication 
+  Turn on sign-in risk policy, Turn on user risk policy, Ensure all users can complete multi-factor authentication for secure access,
+  Enable self-service password reset, Resolve unsecure account attributes, Reduce lateral movement path risk to sensitive entities, 
+  Set a honeytoken account, Stop clear text credentials exposure, Install Defender for Identity Sensor on all Domain Controllers, 
+  Disable Print spooler service on domain controllers, Configure VPN integration, Configure Microsoft Defender for Endpoint Integration (*excluded, would increase the scope, see
+  mapping for Microsoft Defender for Endpoint), Stop legacy protocols communication, Stop weak cipher usage, Remove dormant accounts from sensitive groups,
+  Protect and manage local admin passwords with Microsoft LAPS, Remove unsecure SID history attributes from entities, Fix Advanced Audit Policy issues, 
+  Modify unsecure Kerberos delegations to prevent impersonation. 
 
 
-  All scores were capped at Partial since this control provides recommendations rather than
-  applying/enforcing the recommended actions.
+  All scores were capped at Partial since this control provides recommendations rather than applying/enforcing the recommended actions.
 references:
   - 'https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/identity-secure-score'
   - >-
