@@ -11,6 +11,7 @@ tags:
   - Azure Security Center
   - Windows
   - Linux
+  - Azure Defender for App Service
 description: >-
   Azure Defender for App Service monitors VM instances and their management interfaces, App Service
   apps and their requests/responses, and App Service internal logs to detect threats to App Service
@@ -43,8 +44,9 @@ techniques:
         value: Partial
         comments: >-
           This control detects file downloads associated with digital currency mining as well as
-          host data related to process and command execution associated with mining. Temporal factor
-          is unknown.
+          host data related to process and command execution associated with mining. It also
+          includes fileless attack detection, which specifically targets crypto mining activity.
+          Temporal factor is unknown.
   - id: T1204
     name: User Execution
     technique-scores:
@@ -161,7 +163,131 @@ techniques:
           This control monitors for accesses of potentially sensitive web pages from source IP
           addresses whose access pattern resembles that of a web scanner or have not been logged
           before. Temporal factor is unknown.
+  - id: T1055
+    name: Process Injection
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection covers all relevant sub-techniques. Detection is
+          periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1055.001
+            name: Dynamic-link Library Injection
+          - id: T1055.002
+            name: Portable Executable Injection
+          - id: T1055.003
+            name: Thread Execution Hijacking
+          - id: T1055.004
+            name: Asynchronous Procedure Call
+          - id: T1055.005
+            name: Thread Local Storage
+          - id: T1055.011
+            name: Extra Window Memory Injection
+          - id: T1055.012
+            name: Process Hollowing
+          - id: T1055.013
+            name: Process Doppelgänging
+          - id: T1055.008
+            name: Ptrace System Calls
+          - id: T1055.009
+            name: Proc Memory
+          - id: T1055.014
+            name: VDSO Hijacking
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Injection attacks are specifically cited as a detection focus for Fileless Attack
+              Detection, which is part of this control, with even more specific references to
+              Process Hollowing, executable image injection, and threads started in a dynamically
+              allocated code segment. Detection is periodic at an unknown rate.
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode injected into browser or other process memory as part of a
+          drive-by attack. Detection is periodic at an unknown rate.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode injected to exploit a vulnerability in a public-facing
+          application. Detection is periodic at an unknown rate.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode injected to exploit a vulnerability in an exposed service.
+          Detection is periodic at an unknown rate.
+  - id: T1559
+    name: Inter-Process Communication
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection covers the command execution aspects of both of
+          this technique's sub-techniques. Detection is periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1559.001
+            name: Component Object Model
+          - id: T1559.002
+            name: Dynamic Data Exchange
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control's Fileless Attack Detection identifies suspicious command execution
+              within process memory. Detection is periodic at an unknown rate.
 references:
   - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference'
   - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-app-service-introduction'
   - 'https://azure.microsoft.com/en-us/services/app-service/'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction'
