@@ -1,0 +1,634 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/05/2021
+name: Azure Defender for App Service
+author: Matt Bajzek
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Defender
+  - Azure Security Center
+  - Windows
+  - Linux
+  - Azure Defender for App Service
+description: >-
+  Azure Defender for App Service monitors VM instances and their management interfaces, App Service
+  apps and their requests/responses, and App Service internal logs to detect threats to App Service
+  resources and provide security recommendations to mitigate them.
+techniques:
+  - id: T1584
+    name: Compromise Infrastructure
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control only addresses one of the technique's sub-techniques, resulting in a score of
+          Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1584.001
+            name: Domains
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              Subdomain hijacking is a focus of this control, and its Dangling DNS detection alert
+              feature is activated when an App Service website is decommissioned and its
+              corresponding DNS entry is not deleted, allowing users to remove those entries before
+              they can be leveraged by an adversary.
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control detects file downloads associated with digital currency mining as well as
+          host data related to process and command execution associated with mining. It also
+          includes fileless attack detection, which specifically targets crypto mining activity.
+          Temporal factor is unknown.
+  - id: T1204
+    name: User Execution
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides meaningful detection for one of the technique's two
+          sub-techniques, and temporal factor is unknown, resulting in a score of Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1204.001
+            name: Malicious Link
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control monitors for references to suspicious domain names and file downloads
+              from known malware sources, and monitors processes for downloads from raw-data
+              websites like Pastebin, all of which are relevant for detecting users' interactions
+              with malicious download links, but malicious links which exploit browser
+              vulnerabilities for execution are unlikely to be detected, and temporal factor is
+              unknown, resulting in a score of Minimal.
+  - id: T1140
+    name: Deobfuscate/Decode Files or Information
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control analyzes host data to detect base-64 encoded executables within command
+          sequences. It also monitors for use of certutil to decode executables. Temporal factor is
+          unknown.
+  - id: T1566
+    name: Phishing
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control only provides (minimal) protection for one of the technique's sub-techniques,
+          so its score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1566.002
+            name: Spearphishing Link
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control monitors for known phishing links on the Azure App Services website and
+              generates alerts if they are detected, potentially preventing their access by users.
+              This is a very specific avenue, only covers known links, and temporal factor is
+              unknown, so score is Minimal.
+  - id: T1059
+    name: Command and Scripting Interpreter
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides detection coverage for two sub-techniques, and only detects
+          certain specific sub-technique behaviors, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1059.004
+            name: Unix Shell
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control monitors host data for potential reverse shells used for command and
+              control. Temporal factor is unknown.
+      - sub-techniques:
+          - id: T1059.001
+            name: PowerShell
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control monitors for execution of known malicious PowerShell PowerSploit cmdlets.
+              Temporal factor is uknown.
+  - id: T1105
+    name: Ingress Tool Transfer
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control detects binary downloads via certutil, monitors for FTP access from IP
+          addresses found in threat intelligence, monitors for references to suspicious domain names
+          and file downloads from known malware sources, and monitors processes for downloads from
+          raw-data websites like Pastebin. Temporal factor is unknown.
+  - id: T1595
+    name: Active Scanning
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides detection for one of the two sub-techniques, so score is
+          Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1595.002
+            name: Vulnerability Scanning
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control monitors for web fingerprinting tools including nmap and Blind Elephant,
+              as well as scanners looking for vulnerability in applications like Drupal, Joomla, and
+              WordPress. Temporal factor is unknown.
+  - id: T1594
+    name: Search Victim-Owned Websites
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control monitors for accesses of potentially sensitive web pages from source IP
+          addresses whose access pattern resembles that of a web scanner or have not been logged
+          before. Temporal factor is unknown.
+  - id: T1055
+    name: Process Injection
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection covers all relevant sub-techniques. The control
+          also specifically detects  Detection is periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1055.001
+            name: Dynamic-link Library Injection
+          - id: T1055.002
+            name: Portable Executable Injection
+          - id: T1055.003
+            name: Thread Execution Hijacking
+          - id: T1055.004
+            name: Asynchronous Procedure Call
+          - id: T1055.005
+            name: Thread Local Storage
+          - id: T1055.011
+            name: Extra Window Memory Injection
+          - id: T1055.012
+            name: Process Hollowing
+          - id: T1055.013
+            name: Process Doppelgänging
+          - id: T1055.008
+            name: Ptrace System Calls
+          - id: T1055.009
+            name: Proc Memory
+          - id: T1055.014
+            name: VDSO Hijacking
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Injection attacks are specifically cited as a detection focus for Fileless Attack
+              Detection, which is part of this control, with even more specific references to
+              Process Hollowing, executable image injection, and threads started in a dynamically
+              allocated code segment. Detection is periodic at an unknown rate.
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode injected into browser or other process memory as part of a
+          drive-by attack. Detection is periodic at an unknown rate.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode injected to exploit a vulnerability in a public-facing
+          application. Detection is periodic at an unknown rate.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode injected to exploit a vulnerability in an exposed service.
+          Detection is periodic at an unknown rate.
+  - id: T1559
+    name: Inter-Process Communication
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection covers the command execution aspects of both of
+          this technique's sub-techniques. Detection is periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1559.001
+            name: Component Object Model
+          - id: T1559.002
+            name: Dynamic Data Exchange
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control's Fileless Attack Detection identifies suspicious command execution
+              within process memory. Detection is periodic at an unknown rate.
+  - id: T1036
+    name: Masquerading
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: 'This control only addresses one of this technique''s sub-techniques, so score is Minimal.'
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1036.005
+            name: Match Legitimate Name or Location
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control analyzes host data to detect processes with suspicious names, including
+              those named in a way that is suggestive of attacker tools that try to hide in plain
+              sight. False positives are probable, and temporal factor is unknown.
+  - id: T1134
+    name: Access Token Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the
+          Invoke-TokenManipulation module on Windows, but does not address other procedures or
+          platforms, and temporal factor is unknown, so score is Minimal.
+  - id: T1087
+    name: Account Discovery
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one platform and procedure for one of this technique's
+          sub-techniques, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1087.001
+            name: Local Account
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the
+              Get-ProcessTokenGroup module on Windows, but does not address other procedures or
+              platforms, and temporal factor is unknown, so score is Minimal.
+  - id: T1123
+    name: Audio Capture
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the Get-MicrophoneAudio
+          module on Windows, but does not address other procedures or platforms, and temporal factor
+          is unknown, so score is Minimal.
+  - id: T1547
+    name: Boot or Logon Autostart Execution
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one platform and procedure for two of this technique's
+          sub-techniques, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1547.005
+            name: Security Support Provider
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the Install-SSP
+              module on Windows, but does not address other procedures or platforms, and temporal
+              factor is unknown, so score is Minimal.
+      - sub-techniques:
+          - id: T1547.001
+            name: Registry Run Keys / Startup Folder
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via
+              New-UserPersistenceOption on Windows, but does not address other procedures or
+              platforms, and temporal factor is unknown, so score is Minimal.
+  - id: T1543
+    name: Create or Modify System Process
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one platform and procedure for one of this technique's
+          sub-techniques, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1543.003
+            name: Windows Service
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the
+              Privesc-PowerUp modules on Windows, but does not address other procedures, and
+              temporal factor is unknown, so score is Minimal.
+  - id: T1555
+    name: Credentials from Password Stores
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the PowerSploit
+          Exfiltration modules on Windows, but does not address other procedures or platforms, and
+          temporal factor is unknown, so score is Minimal.
+  - id: T1005
+    name: Data from Local System
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the Exfiltration modules
+          on Windows, but does not address other procedures or platforms, and temporal factor is
+          unknown, so score is Minimal.
+  - id: T1482
+    name: Domain Trust Discovery
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the Get-NetDomainTrust
+          and Get-NetForestTrust modules, but does not address other procedures, and temporal factor
+          is unknown, so score is Minimal.
+  - id: T1574
+    name: Hijack Execution Flow
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one platform and procedure for some of this technique's
+          sub-techniques, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1574.001
+            name: DLL Search Order Hijacking
+          - id: T1574.007
+            name: Path Interception by PATH Environment Variable
+          - id: T1574.008
+            name: Path Interception by Search Order Hijacking
+          - id: T1574.009
+            name: Path Interception by Unquoted Path
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of these sub-techniques via the
+              Privesc-PowerUp modules, but does not address other procedures, and temporal factor is
+              unknown, so score is Minimal.
+  - id: T1056
+    name: Input Capture
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one platform and procedure for one of this technique's
+          sub-techniques, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1056.001
+            name: Keylogging
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the
+              Get-Keystrokes Exfiltration module on Windows, but does not address other procedures
+              or platforms, and temporal factor is unknown, so score is Minimal.
+  - id: T1027
+    name: Obfuscated Files or Information
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one platform and procedure for one of this technique's
+          sub-techniques, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1027.005
+            name: Indicator Removal from Tools
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the
+              Find-AVSignature AntivirusBypass module on Windows, but does not address other
+              procedures or platforms, and temporal factor is unknown, so score is Minimal.
+  - id: T1003
+    name: OS Credential Dumping
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one procedure for one of this technique's sub-techniques, so
+          score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1003.001
+            name: LSASS Memory
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the Exfiltration
+              modules, but does not address other procedures, and temporal factor is unknown, so
+              score is Minimal.
+  - id: T1057
+    name: Process Discovery
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the
+          Get-ProcessTokenPrivilege PowerUp module on Windows, but does not address other procedures
+          or platforms, and temporal factor is unknown, so score is Minimal.
+  - id: T1012
+    name: Query Registry
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the Privesc-PowerUp
+          modules, but does not address other procedures, and temporal factor is unknown, so score
+          is Minimal.
+  - id: T1053
+    name: Scheduled Task/Job
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one platform and procedure for one of this technique's
+          sub-techniques, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1053.005
+            name: Scheduled Task
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the
+              New-UserPersistenceOption Persistence module on Windows, but does not address other
+              procedures, and temporal factor is unknown, so score is Minimal.
+  - id: T1113
+    name: Screen Capture
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the Get-TimedScreenshot
+          module on Windows, but does not address other procedures or platforms, and temporal factor
+          is unknown, so score is Minimal.
+  - id: T1558
+    name: Steal or Forge Kerberos Tickets
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one procedure for one of this technique's sub-techniques, so
+          score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1558.003
+            name: Kerberoasting
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the
+              Invoke-Kerberoast module, but does not address other procedures, and temporal factor
+              is unknown, so score is Minimal.
+  - id: T1552
+    name: Unsecured Credentials
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only covers one platform and procedure for two of this technique's
+          sub-techniques, so score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1552.002
+            name: Credentials in Registry
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the
+              Get-UnattendedInstallFile, Get-Webconfig, Get-ApplicationHost, Get-SiteListPassword,
+              Get-CachedGPPPassword, and RegistryAutoLogon modules, but does not address other
+              procedures, and temporal factor is unknown, so score is Minimal.
+      - sub-techniques:
+          - id: T1552.006
+            name: Group Policy Preferences
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control analyzes host data to detect execution of known malicious PowerShell
+              PowerSploit cmdlets. This covers execution of this sub-technique via the Exfiltration
+              modules, but does not address other procedures, and temporal factor is unknown, so
+              score is Minimal.
+  - id: T1047
+    name: Windows Management Instrumentation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control analyzes host data to detect execution of known malicious PowerShell
+          PowerSploit cmdlets. This covers execution of this technique via the Invoke-WmiCommand
+          module, but does not address other procedures, and temporal factor is unknown, so score is
+          Minimal.
+comments: >-
+  The AppServices_KnownCredentialAccessTools alert is used to detect suspicious processes associated
+  with credential theft. This is clearly linked to the Credential Access tactic, but does not
+  clearly detect any specific technique or set of techniques, so it has been omitted from this
+  mapping.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-app-service-introduction'
+  - 'https://azure.microsoft.com/en-us/services/app-service/'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction'
