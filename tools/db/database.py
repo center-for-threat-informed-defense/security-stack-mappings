@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, func, and_
+from sqlalchemy import create_engine, func, and_, or_
 from sqlalchemy.orm import sessionmaker
 
 from db.model import Base, Tactic, Technique, SubTechnique, Mapping, Tag, \
@@ -33,7 +33,7 @@ class MappingDatabase:
         self.build_mapping_database(mapping_files, tags)
 
 
-    def query_mapping_files(self, tags, relationship):
+    def query_mapping_files(self, tags, relationship, control_names, platforms):
         if tags:
             mapping_entities = self.session.query(Mapping).select_from(Mapping)\
                 .join(Mapping.tags).filter(Tag.name.in_(tags)).group_by(Mapping.mapping_id)
@@ -41,6 +41,18 @@ class MappingDatabase:
                 mapping_entities = mapping_entities.having(func.count(Tag.tag_id) == len(tags))
         else:
             mapping_entities = self.session.query(Mapping)
+
+        if control_names:
+            control_filters = []
+            for control in control_names:
+                control_filters.append(Mapping.name.like(f"%{control}%"))
+            mapping_entities = mapping_entities.filter(and_(or_(*control_filters)))
+
+        if platforms:
+            platform_filters = []
+            for platform in platforms:
+                platform_filters.append(Mapping.platform.like(f"%{platform}%"))
+            mapping_entities = mapping_entities.filter(and_(or_(*platform_filters)))
 
         return mapping_entities
 
@@ -51,11 +63,12 @@ class MappingDatabase:
             if "." in attack_id:
                 ids.append(attack_id)
             else:
-                ids.extend([value[0] for value in self.session.query(SubTechnique.attack_id).join(Technique).filter(Technique.attack_id == attack_id).all()])
+                ids.extend([value[0] for value in self.session.query(SubTechnique.attack_id).\
+                    join(Technique).filter(Technique.attack_id == attack_id).all()])
         return ids
 
     
-    def query_mapping_file_scores(self, categories, attack_ids, controls, level):
+    def query_mapping_file_scores(self, categories, attack_ids, controls, level, platforms, scores):
         if level == "Technique":
             sql = self.session.query(Mapping,Technique,Score).select_from(MappingTechniqueScore)\
                 .join(Mapping).join(Technique).join(Score)
@@ -73,7 +86,17 @@ class MappingDatabase:
                 attack_ids = self.get_sub_technique_ids(attack_ids)
                 filters.append(SubTechnique.attack_id.in_(attack_ids))
         if controls:
-            filters.append(Mapping.name.in_(controls))
+            control_filters = []
+            for control in controls:
+                control_filters.append(Mapping.name.like(f"%{control}%"))
+            filters.append(and_(or_(*control_filters)))
+        if platforms:
+            platform_filters = []
+            for platform in platforms:
+                platform_filters.append(Mapping.platform.like(f"%{platform}%"))
+            filters.append(or_(*platform_filters))
+        if scores:
+            filters.append(Score.value.in_(scores))
         
         sql = sql.filter(and_(*filters))
 

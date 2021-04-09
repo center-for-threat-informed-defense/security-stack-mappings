@@ -21,12 +21,12 @@ class MappingDriver():
         self.attack_ds.output_attack_json()
 
 
-    def query_mapping_files(self, tags, relationship):
-        return self.mapping_db.query_mapping_files(tags, relationship)
+    def query_mapping_files(self, tags, relationship, control_names, platforms):
+        return self.mapping_db.query_mapping_files(tags, relationship, control_names, platforms)
     
 
-    def query_mapping_file_scores(self, categories, attack_ids, controls, level):
-        return self.mapping_db.query_mapping_file_scores(categories, attack_ids, controls, level)
+    def query_mapping_file_scores(self, categories, attack_ids, controls, level, platforms, scores):
+        return self.mapping_db.query_mapping_file_scores(categories, attack_ids, controls, level, platforms, scores)
     
 
     def load_mapping_files_as_unit(self, map_files):

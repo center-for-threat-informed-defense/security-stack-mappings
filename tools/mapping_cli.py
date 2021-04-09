@@ -120,6 +120,8 @@ def rebuild_mappings(args):
     argument('--tag', help="Return mappings with the specified tag", action="append", required=False),
     argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
     argument('--width', help="Set the width of the Comments column", type=int, required=False, default=80),
+    argument('--name', help="Filter the returned mappings by a substring of the control name.", action="append", required=False),
+    argument('--platform', help="Filter by mapping platform (e.g. Azure).", action="append", required=False),
     ])
 def list_mappings(args):
     table = PrettyTable(["Name", "Mapping File", "Tag(s)", "Description"])
@@ -128,7 +130,7 @@ def list_mappings(args):
     table.align["Tag(s)"] = "l"
     table.align["Description"] = "l"
     filter_tags = args.tag if args.tag else []
-    mappings = mapping_driver.query_mapping_files(filter_tags, args.relationship)
+    mappings = mapping_driver.query_mapping_files(filter_tags, args.relationship, args.name, args.platform)
     num_rows = 0
     for mapping in mappings:
         tags = [tag.name for tag in mapping.tags]
@@ -149,6 +151,9 @@ def list_mappings(args):
     argument('--attack-id', help="Filter by ATT&CK ID (specify Technique [default] or Sub-technique using --level parameter)", \
         action="append", required=False),
     argument('--control', help="Filter by a control (name)", action="append", required=False),
+    argument('--platform', help="Filter by mapping platform (e.g. Azure).", action="append", required=False),
+    argument('--score', help="Filter by mapping score", action="append", choices = ["Minimal", "Partial", "Significant"], \
+         required=False),
     argument('--width', help="Set the width of the Comments column", type=int, required=False, default=80),
     argument('--level', help="Return technique data or sub-technique data", required=False, \
         default="Technique", choices = ["Technique","Sub-technique"]),
@@ -157,8 +162,12 @@ def list_scores(args):
     filter_category = args.category if args.category else []
     attack_ids = args.attack_id if args.attack_id else []
     controls = args.control if args.control else []
-    if not controls and not filter_category and not attack_ids:
-        raise argparse.ArgumentTypeError('A combination of --control, --category or --attack-id parameters is required')
+    scores = list(set(args.score if args.score else []))
+    platforms = args.platform if args.platform else []
+
+    if not controls and not filter_category and not attack_ids and not scores and not platforms:
+        raise argparse.ArgumentTypeError('At least one filter option must be provided: '
+            '--control, --category, --score, --platform or --attack-id parameters is required')
         
     if args.level == "Technique":
         table = PrettyTable(["Name", "Mapping File", "Technique", "Category", "Score", "Comments"])
@@ -170,7 +179,7 @@ def list_scores(args):
     table.align["Sub-technique"] = "l"
     table.align["Comments"] = "l"
 
-    data = mapping_driver.query_mapping_file_scores(filter_category, attack_ids, controls, args.level)
+    data = mapping_driver.query_mapping_file_scores(filter_category, attack_ids, controls, args.level, platforms, scores)
     num_rows = 0
     for mapping, attack_entity, score in data:
         sub_technique_info = "\n".join(chunkstring(f"{attack_entity.attack_id} {attack_entity.name}", 25))
