@@ -55,7 +55,7 @@ class MappingValidator:
 
 
     def verify_tags(self, mapping):
-        if "tags" in mapping:
+        if "tags" in mapping and mapping["tags"]:
             for tag in mapping['tags']:
                 if not tag in self.valid_tags[mapping['platform']]:
                     self.print_validation_error(f"Tag '{tag}' from mapping file {mapping['name']} "
