@@ -92,6 +92,14 @@ techniques:
           This control may provide recommendations to enable scanning and auditing of container
           images. This can provide information on images that have been added with high privileges
           or vulnerabilities.
+  - id: T1535
+    name: Unused/Unsupported Cloud Regions
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may provide recommendations to restrict the allowed locations your organization
+          can specify when deploying resources or create resource groups.
   - id: T1505
     name: Server Software Component
     technique-scores:
