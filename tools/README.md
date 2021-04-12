@@ -43,3 +43,4 @@ New functionality to review scores values and comments
 1. ./mapping_cli.py list_scores --category Protect --platform Azure --score Minimal --score Significant
 1. ./mapping_cli.py list_scores --category Protect --platform Azure --score Minimal --score Partial
 1. ./mapping_cli.py list_scores --platform Azure --score Minimal --score Partial
+1. ./mapping_cli.py list_scores --control "Security Group" --tactic "Defense"
