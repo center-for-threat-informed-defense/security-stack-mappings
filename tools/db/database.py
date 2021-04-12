@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, func, and_, or_
 from sqlalchemy.orm import sessionmaker
 
 from db.model import Base, Tactic, Technique, SubTechnique, Mapping, Tag, \
-    MappingSubTechniqueScore, MappingTechniqueScore, Score
+    MappingSubTechniqueScore, MappingTechniqueScore, Score, tactic_and_technique_xref
 
 import yaml
 
@@ -68,13 +68,13 @@ class MappingDatabase:
         return ids
 
     
-    def query_mapping_file_scores(self, categories, attack_ids, controls, level, platforms, scores):
+    def query_mapping_file_scores(self, categories, attack_ids, controls, level, platforms, scores, tactics):
         if level == "Technique":
             sql = self.session.query(Mapping,Technique,Score).select_from(MappingTechniqueScore)\
-                .join(Mapping).join(Technique).join(Score)
+                .join(Mapping).join(Technique).join(Score).join(tactic_and_technique_xref).join(Tactic)
         else:
             sql = self.session.query(Mapping,SubTechnique,Score).select_from(MappingSubTechniqueScore)\
-                .join(Mapping).join(SubTechnique).join(Score)
+                .join(Mapping).join(SubTechnique).join(Score).join(Technique).join(tactic_and_technique_xref).join(Tactic)
 
         filters = []
         if categories:
@@ -97,6 +97,11 @@ class MappingDatabase:
             filters.append(or_(*platform_filters))
         if scores:
             filters.append(Score.value.in_(scores))
+        if tactics:
+            tactics_filters = []
+            for tactic in tactics:
+                tactics_filters.append(Tactic.name.like(f"%{tactic}%"))
+            filters.append(or_(*tactics_filters))
         
         sql = sql.filter(and_(*filters))
 
