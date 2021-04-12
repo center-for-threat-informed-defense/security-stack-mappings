@@ -99,7 +99,7 @@ techniques:
         value: Minimal
         comments: >-
           This control may provide recommendations to restrict the allowed locations your organization
-          can specify when deploying resources or create resource groups.
+          can specify when deploying resources or creating resource groups.
   - id: T1505
     name: Server Software Component
     technique-scores:
