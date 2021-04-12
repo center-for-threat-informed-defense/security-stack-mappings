@@ -1,0 +1,263 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 03/31/2021
+name: Azure Policy
+author: Eric Kannampuzha
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - ''
+description: >-
+  Azure Policy evaluates resources in Azure by comparing the properties of those resources to
+  business rules. These business rules, described in JSON format, are known as policy definitions.
+  Azure Policy helps to enforce organizational standards and to assess compliance at-scale.
+techniques:
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations  to restrict access to applications that are
+          public facing and providing information on vulnerable applications.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations to secure external remote services, such as
+          restricting SSH access, enabling multi-factor authentication for VPN access, and auditing
+          external remote services that are not necessary or updated.
+  - id: T1590
+    name: Gather Victim Network Information
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations to restrict access to cloud resources from public
+          networks and to route traffic between resources through Azure. Recommendations are also
+          provided to use private DNS zones. If these recommendations are implemented the visible
+          network information should be reduced.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1590.002
+            name: DNS
+          - id: T1590.004
+            name: Network Topology
+          - id: T1590.005
+            name: IP Addresses
+          - id: T1590.006
+            name: Network Security Appliances
+        scores:
+          - category: Protect
+            value: Partial
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control may provide recommendations to audit and restrict privileges on Azure
+              cloud accounts. This control may provide information to reduce surface area for
+              privileged access to Azure.
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Protect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.001
+            name: Additional Cloud Credentials
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control may recommend removing deprecated accounts, reducing privileges, and
+              enabling multi-factor authentication. This can reduce the amount of accounts available
+              to be exploited and  what could be done with those accounts.
+  - id: T1525
+    name: Implant Container Image
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may provide recommendations to enable scanning and auditing of container
+          images. This can provide information on images that have been added with high privileges
+          or vulnerabilities.
+  - id: T1505
+    name: Server Software Component
+    technique-scores:
+      - category: Protect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1505.001
+            name: SQL Stored Procedures
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control may provide recommendations to enable other Azure controls that provide
+              information on potentially exploitable SQL stored procedures. Recommendations to
+              reduce unnecessary privileges from accounts and stored procedures can mitigate
+              exploitable of this technique.  
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may provide recommendations for vulnerability assessment and outdated
+          applications and cloud services. This control covers a wide range of Azure cloud services
+          to help reduce the surface area for exploitation.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control may provide recommendations to implement multi-factor authentication,
+              implement password security policies, and replacing password authentication with more
+              secure authentication methods. This control can affect Azure, Azure cloud application,
+              and endpoint credentials.
+  - id: T1555
+    name: Credentials from Password Stores
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may provide recommendations for auditing and hardening Azure Key Vault to
+          prevent malicious access and segment key access.
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations to enable various Azure services that route
+          traffic through secure networks, segment all network traffic, and enable TLS encryption
+          where available.
+  - id: T1580
+    name: Cloud Infrastructure Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations to enable Azure services that limit access to
+          cloud infrastructure. Several Azure services and controls provide mitigations against
+          cloud infrastructure discovery.
+  - id: T1538
+    name: Cloud Service Dashboard
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations to enable Azure services that limit access to
+          Azure Resource Manager and other Azure dashboards. Several Azure services and controls
+          provide mitigations against this technique.
+  - id: T1526
+    name: Cloud Service Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations to enable Azure services that limit access to
+          cloud services. Several Azure services and controls provide mitigations against cloud
+          service discovery.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations to enable Azure security controls to harden
+          remote services and reduce surface area for possible exploitation.
+  - id: T1021
+    name: Remote Services
+    technique-scores:
+      - category: Protect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1021.001
+            name: Remote Desktop Protocol
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control may provide recommendations to restrict public access to Remote Desktop
+              Protocol.
+      - sub-techniques:
+          - id: T1021.004
+            name: SSH
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control may provide recommendations to restrict public SSH access and enable
+              usage of SSH keys. 
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide recommendations to enable Azure Defender for Storage and other
+          security controls to prevent access to data from cloud storage objects. 
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Protect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.004
+            name: DNS
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control may provide recommendations to enable Azure Defender for DNS which can
+              monitor DNS queries between Azure applications for malicious traffic.
+  - id: T1537
+    name: Transfer Data to Cloud Account
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may provide recommendations to enable security controls that monitor and
+          prevent malicious transfer of data to cloud accounts.
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may provide recommendations to enable soft deletion and purge protection in
+          Azure Key Vault. This can help mitigate against malicious deletion of keys and secrets
+          stored within Key Vault.
+comments: 'This mapping is focused on the list of built-in policy definitions provided by Azure. '
+references:
+  - 'https://docs.microsoft.com/en-us/azure/governance/policy/overview'
+  - 'https://docs.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies#api-for-fhir'
