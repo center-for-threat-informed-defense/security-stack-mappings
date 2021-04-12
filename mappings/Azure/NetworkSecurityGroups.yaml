@@ -141,7 +141,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: 'Can limit access to critical systems . '
+        comments: 'Can limit access to critical systems.'
   - id: T1098
     name: Account Manipulation
     technique-scores:

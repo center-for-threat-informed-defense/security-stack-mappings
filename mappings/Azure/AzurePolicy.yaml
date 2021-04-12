@@ -6,8 +6,6 @@ author: Eric Kannampuzha
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
-tags:
-  - ''
 description: >-
   Azure Policy evaluates resources in Azure by comparing the properties of those resources to
   business rules. These business rules, described in JSON format, are known as policy definitions.
