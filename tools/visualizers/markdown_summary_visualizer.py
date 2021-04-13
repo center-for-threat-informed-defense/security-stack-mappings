@@ -136,6 +136,9 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             platform_data[mapping_yaml['name']].append(mapping_yaml.get("references", []))
 
             tags = mapping_yaml.get("tags", [])
+            # account for the tag element being present in the yaml but empty
+            if not tags:
+                tags = []
             platform_data[mapping_yaml['name']].append(tags)
             for tag in tags:
                 platform_tags[tag].append(mapping_yaml['name'])

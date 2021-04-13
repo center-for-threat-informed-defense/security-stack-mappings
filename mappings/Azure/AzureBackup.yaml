@@ -5,6 +5,7 @@ name: Azure Backup
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
+tags:
 description: >-
   "The Azure Backup service provides simple, secure, and cost-effective solutions to back up your
   data and recover it from the Microsoft Azure cloud."

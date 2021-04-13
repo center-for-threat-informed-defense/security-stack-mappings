@@ -6,6 +6,8 @@ author: Clem Skorupka
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
+tags:
+  - Network
 description: >-
   Azure DDoS Protection Standard, combined with application design best practices, provides enhanced
   DDoS mitigation features to defend against DDoS attacks. 
@@ -46,3 +48,6 @@ techniques:
         scores:
           - category: Protect
             value: Significant
+references:
+  - >-
+    https://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview
