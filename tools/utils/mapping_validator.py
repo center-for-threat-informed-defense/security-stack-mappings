@@ -55,11 +55,15 @@ class MappingValidator:
 
 
     def verify_tags(self, mapping):
-        if "tags" in mapping and mapping["tags"]:
-            for tag in mapping['tags']:
-                if not tag in self.valid_tags[mapping['platform']]:
-                    self.print_validation_error(f"Tag '{tag}' from mapping file {mapping['name']} "
-                        "is not contained within valid_tags.yaml.")
+        if "tags" in mapping:
+            # this if check is here because we don't want to emit a warning in this case
+            # If the tags element is present but empty, then the assumption is that the 
+            # author explicitly excluded tags.
+            if mapping["tags"]:
+                for tag in mapping['tags']:
+                    if not tag in self.valid_tags[mapping['platform']]:
+                        self.print_validation_error(f"Tag '{tag}' from mapping file {mapping['name']} "
+                            "is not contained within valid_tags.yaml.")
         else:
             self.print_validation_warning(f"Mapping file does not include any tags.")
 
