@@ -1,0 +1,131 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/12/2021
+name: Azure Sentinel Analytics
+author: Clem Skorupka
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+description: Out of the box Azure Sentinel Analytics (from the rule template list)
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          May detect suspicious modification of domain trust settings. Also "Correlate Unfamiliar
+          sign-in properties" can enhance detection of anomalous activity.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+          - id: T1078.002
+            name: Domain Accounts
+          - id: T1078.001
+            name: Default Accounts
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1484
+    name: Domain Policy Modification
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can identify potentially malicious modifiactions of domain policy "Modified Domain
+          Federation Trust Settings"
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1484.002
+            name: Domain Trust Modification
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can detect potentially malicious changes to domain policy wrt federation trust
+              settings
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can detect "First Access Credential Applied..." which can be a sign of account
+          manipulation to attain persistance etc.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.003
+            name: Add Office 365 Global Administrator Role
+          - id: T1098.002
+            name: Exchange Email Delegate Permissions
+          - id: T1098.001
+            name: Additional Cloud Credentials
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "Security Service Registry ACL Modification" can detect attempts to modify registry ACL to
+          evade security solutions.  "Azure DevOps Audit Stream Disabled" can detect audit stream
+          being turned off.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1562.002
+            name: Disable Windows Event Logging
+          - id: T1562.001
+            name: Disable or Modify Tools
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1566
+    name: Phishing
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect suspicious app permissions that can be associated with OAuth phishing.
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can detect suspicious app permission consents that are associated with drive-by compromise
+          tricking users into installing a malicious app.
+  - id: T1134
+    name: Access Token Manipulation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          the "Azure DevOps Perasonal Access Token misuse" Can be used to identify anomalous use of
+          Personal Access Tokens. won't specifically identify sub techniques.
+  - id: T1070
+    name: Indicator Removal on Host
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "Azure DevOps Agent Pool Created  Then Deleted" detects specific suspicious activity for
+          DevOps Agent Pool. Close to file deletion sub-technique, though not a match.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: '"High count of failed logins by a user" is specific to iis server. '
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+        scores:
+          - category: Detect
+            value: Partial
+comments: >-
+  Note: only mapped out of the box analytics. Did not score analytics that were specific ioc-based
+  (e.g.  ip addresses or hashes ).  Did not score analytics that required a 3rd party integration
+  (e.g. Alsid or TrendMicro). Refer to specific analytics by name in quotes.
