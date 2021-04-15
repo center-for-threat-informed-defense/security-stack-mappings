@@ -4,6 +4,7 @@ import argparse
 from mapping_driver import MappingDriver
 from utils.utils import file_path, dir_path, chunkstring
 from prettytable import PrettyTable
+from pathlib import Path
 
 
 parser = argparse.ArgumentParser(description='Validates mapping files and produces various mapping visualizations.')
@@ -124,7 +125,8 @@ def rebuild_mappings(args):
     argument('--platform', help="Filter by mapping platform (e.g. Azure).", action="append", required=False),
     ])
 def list_mappings(args):
-    table = PrettyTable(["Name", "Mapping File", "Tag(s)", "Description"])
+    table = PrettyTable(["No.", "Name", "Mapping File", "Tag(s)", "Description"])
+    table.align["No."] = "l"
     table.align["Name"] = "l"
     table.align["Mapping File"] = "l"
     table.align["Tag(s)"] = "l"
@@ -136,9 +138,11 @@ def list_mappings(args):
         tags = [tag.name for tag in mapping.tags]
         if filter_tags:
             tags = list(set(tags) & set(filter_tags))
-        description = "\n".join(chunkstring(mapping.description, args.width))
-        path = "\n".join(chunkstring(mapping.path, 40))
-        table.add_row([mapping.name, path, ",\n".join(tags), description])
+        description = "\n ".join(chunkstring(mapping.description, args.width))
+        path = Path(mapping.path)
+        path = "\n ".join(chunkstring(f"{path.parent.name}/{path.name}", 40))
+        name = "\n ".join(chunkstring(mapping.name, 30))
+        table.add_row([(num_rows + 1), name, path, ",\n".join(tags), description])
         num_rows +=1
     
     print(table)
@@ -172,23 +176,29 @@ def list_scores(args):
             '--control, --category, --score, --platform, --tactic or --attack-id parameters is required')
         
     if args.level == "Technique":
-        table = PrettyTable(["Name", "Mapping File", "Technique", "Category", "Score", "Comments"])
+        table = PrettyTable(["No.", "Name", "Mapping File", "Technique", "Category", "Score", "Comments"])
     else:
-        table = PrettyTable(["Name", "Mapping File", "Sub-technique", "Category", "Score", "Comments"])
+        table = PrettyTable(["No.", "Name", "Mapping File", "Sub-technique", "Category", "Score", "Comments"])
 
+    table.align["No."] = "l"
     table.align["Name"] = "l"
     table.align["Mapping File"] = "l"
+    table.align["Technique"] = "l"
     table.align["Sub-technique"] = "l"
     table.align["Comments"] = "l"
+    table.align["Category"] = "l"
+    table.align["Score"] = "l"
 
     data = mapping_driver.query_mapping_file_scores(filter_category, attack_ids, \
         controls, args.level, platforms, scores, tactics)
     num_rows = 0
     for mapping, attack_entity, score in data:
-        sub_technique_info = "\n".join(chunkstring(f"{attack_entity.attack_id} {attack_entity.name}", 25))
-        path = "\n".join(chunkstring(mapping.path, 40))
-        description = "\n".join(chunkstring(score.comments, args.width))
-        table.add_row([mapping.name, path, sub_technique_info, score.category, score.value, description])
+        attack_entity_info = "\n ".join(chunkstring(f"{attack_entity.attack_id} {attack_entity.name}", 25))
+        path = Path(mapping.path)
+        path = "\n ".join(chunkstring(f"{path.parent.name}/{path.name}", 40))
+        description = "\n ".join(chunkstring(score.comments, args.width))
+        name = "\n ".join(chunkstring(mapping.name, 30))
+        table.add_row([num_rows + 1, name, path, attack_entity_info, score.category, score.value, description])
         num_rows +=1
     
     if filter_category:
