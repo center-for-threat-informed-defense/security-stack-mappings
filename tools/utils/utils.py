@@ -15,4 +15,19 @@ def file_path(path):
 
 
 def chunkstring(string, length):
-    return (string[0+i:length+i] for i in range(0, len(string), length))
+    chunks = string.strip().replace('\n',' ').split(" ")
+    final_chunks = []
+    working_chunk = ""
+    current_len = 0
+    for chunk in chunks:
+        if (current_len + len(chunk)) <= length:
+            working_chunk += f" {chunk}"
+            current_len = len(working_chunk)
+        else:
+            if working_chunk:
+                final_chunks.append(working_chunk)
+            working_chunk = chunk
+            current_len = len(working_chunk)
+    
+    final_chunks.append(working_chunk)
+    return final_chunks
