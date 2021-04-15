@@ -7,6 +7,7 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Active Directory
+  - Azure Security Center Recommendation
   - Identity
 description: >-
   Managed identities for Azure resources provide Azure services with an automatically managed

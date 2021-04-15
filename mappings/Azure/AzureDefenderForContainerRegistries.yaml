@@ -8,6 +8,7 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Defender
+  - Azure Security Center Recommendation
   - Containers
 description: >-
   Azure Defender for container registries includes a vulnerability scanner to scan the images in

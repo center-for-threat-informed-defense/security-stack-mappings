@@ -8,6 +8,7 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Security Center
+  - Azure Security Center Recommendation
   - Azure Defender for Servers
 description: >-
   This control locks down inbound traffic to management ports for protocols such as RDP and SSH and

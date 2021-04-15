@@ -8,6 +8,7 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Security Center
+  - Azure Security Center Recommendation
   - Azure Defender for Servers
 description: >-
   Security Center uses machine learning to analyze the applications running on machines and create a

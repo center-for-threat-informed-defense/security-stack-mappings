@@ -1,0 +1,484 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/07/2021
+name: Azure Security Center Recommendations
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Security Center
+  - Azure Security Center Recommendation
+description: >-
+  This feature of Azure Security Center assesses your workloads and raises threat prevention
+  recommendations and security alerts.
+techniques:
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's recommendations related to enforcing the usage of the secure versions of
+          the HTTP and FTP protocols (HTTPS and FTPS) can lead to encrypting traffic which reduces
+          the ability for an adversary to gather sensitive data via network sniffing.  
+
+
+          This also applies to the "Service Fabric clusters should have the ClusterProtectionLevel
+          property set to EncryptAndSign", "Enforce SSL connection should be enabled for MySQL
+          database servers", "Enforce SSL connection should be enabled for PostgreSQL database
+          servers", "Only secure connections to your Redis Cache should be enabled" and "Secure
+          transfer to storage accounts should be enabled" recommendations for their respective
+          protocols.
+
+
+          The "Usage of host networking and ports should be restricted" recommendation for
+          Kubernetes clusters can also lead to mitigating this technique.
+
+
+          These recommendations are limited to specific technologies on the platform and therefore
+          its coverage score is Minimal.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's CORS related recommendations can help lead to hardened web applications. 
+          This can reduce  the likelihood of an application being exploited to reveal sensitive data
+          that can lead to the compromise of an environment. 
+
+
+          Likewise this control's recommendations related to keeping Java/PHP up to date for
+          API/Function/Web apps can lead to hardening the public facing content that uses these
+          runtimes.
+
+
+          This control's recommendations related to disabling Public network access for Azure
+          databases can lead to reducing the exposure of resources to the public Internet and
+          thereby reduce the attack surface.
+
+
+          These recommendations are limited to specific technologies (Java, PHP and CORS, SQL DBs)
+          and therefore provide Minimal coverage leading to a Minimal score.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Authentication to Linux machines should require SSH keys" can obviate SSH
+          Brute Force password attacks.  Because this is specific to Linux, the coverage score is
+          Minimal leading to an overall Minimal score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Authentication to Linux machines should require SSH keys" can obviate
+              SSH Brute Force password attacks.  Because this is specific to Linux, the coverage
+              score is Minimal leading to an overall Minimal score.
+  - id: T1542
+    name: Pre-OS Boot
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides recommendations for enabling Secure Boot of Linux VMs that can
+          mitigate a few of the sub-techniques of this technique.  Because this is a recommendation
+          and only limited to a few sub-techniques of this technique, its assessed score is Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1542.001
+            name: System Firmware
+          - id: T1542.003
+            name: Bootkit
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Secure Boot should be enabled on your Linux virtual machine" and
+              "Virtual machines should be attested for boot integrity health" recommendations can
+              lead to enabling secure boot on Linux VMs to mitigate these sub-techniques.  Because
+              this recommendation is specific to Linux VM and is a recommendation, its score is
+              capped at Partial.
+  - id: T1499
+    name: Endpoint Denial of Service
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control provides recommendations for limiting the CPU and memory resources consumed
+          by a container to minimize resource exhaustion attacks.  Because this control only covers
+          one sub-technique of this technique, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1499.001
+            name: OS Exhaustion Flood
+        scores:
+          - category: Protect
+            value: Partial
+            comments: "This control's \"Container CPU and memory limits should be enforced\t\" recommendation can lead to preventing resource exhaustion attacks by recommending enforcing limits for containers to ensure the runtime prevents the container from using more than the configured resource limit.\nBecause this is a recommendation , its score is capped at Partial."
+  - id: T1525
+    name: Implant Container Image
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: "This control's \"Container images should be deployed from trusted registries only\",  \"Container registries should not allow unrestricted network access\" and \"Container registries should use private link\t\" recommendations can lead to ensuring that container images are only loaded from trusted registries thereby mitigating this technique."
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: "This control's \"Container with privilege escalation should be avoided\", \"Least privileged Linux capabilities should be enforced for containers\t\", \"Privileged containers should be avoided\", \"Running containers as root user should be avoided\" and \"Containers sharing sensitive host namespaces should be avoided\" recommendations can make it difficult for adversaries to advance their operation through exploitation of undiscovered or unpatched vulnerabilities.  Because this is a recommendation, the assessed score has been capped at Partial."
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can prevent modifying the ssh_authorized keys file.  Because it is a
+          recommendation and limited to only one sub-technique, its score is Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.004
+            name: SSH Authorized Keys
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing modification of a Kubernetes
+              container's file system which can mitigate this technique.  Because this
+              recommendation is specific to Kubernetes containers, its score is Minimal.
+  - id: T1554
+    name: Compromise Client Software Binary
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can lead to preventing modification of binaries in Kubernetes containers
+          thereby mitigating this technique.  Because this is a recommendation, its score is capped
+          at Partial.
+  - id: T1136
+    name: Create Account
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can mitigate a sub-technique of this technique.  Due to its Minimal
+          coverage, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1136.001
+            name: Local Account
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing system files from being modified in
+              Kubernetes containers thereby mitigating this sub-technique since adding an account
+              (on Linux) requires modifying system files.  Because this is a recommendation, its
+              score is capped at Partial.
+  - id: T1543
+    name: Create or Modify System Process
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can mitigate a sub-technique of this technique.  Due to its Minimal
+          coverage, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1543.002
+            name: Systemd Service
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing the addition or modification of
+              systemd service files in Kubernetes containers thereby mitigating this sub-technique. 
+              Because this is a recommendation, and specific to Kubernetes containers, its score is
+              assessed as Minimal.
+  - id: T1546
+    name: Event Triggered Execution
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can mitigate a sub-technique of this technique.  Due to its Minimal
+          coverage, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1546.004
+            name: .bash_profile and .bashrc
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing the addition or modification of the
+              file system in Kubernetes containers thereby mitigating this sub-technique.  Because
+              this is a recommendation, and specific to Kubernetes containers, its score is assessed
+              as Minimal.
+  - id: T1505
+    name: Server Software Component
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can mitigate a sub-technique of this technique.  Due to its Minimal
+          coverage, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1505.003
+            name: Web Shell
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing modifications to the  file system in
+              Kubernetes containers which can mitigate adversaries installing web shells.  Because
+              this is a recommendation, and specific to Kubernetes containers, its score is assessed
+              as Minimal.
+  - id: T1222
+    name: File and Directory Permissions Modification
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can mitigate a sub-technique of this technique.  Due to its Minimal
+          coverage, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1222.002
+            name: Linux and Mac File and Directory Permissions Modification
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing the modification of the file system
+              permissions in Kubernetes containers thereby mitigating this sub-technique.  Because
+              this is a recommendation, and specific to Kubernetes containers, its score is assessed
+              as Minimal.
+  - id: T1564
+    name: Hide Artifacts
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can mitigate some of the sub-techniques of this technique.  Due to its
+          partial coverage and Minimal score assessed for its sub-techniques, its score is assessed
+          as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1564.001
+            name: Hidden Files and Directories
+          - id: T1564.005
+            name: Hidden File System
+          - id: T1564.006
+            name: Run Virtual Instance
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing these sub-techniques which result in
+              changes to the file system directly or indirectly during their execution.  Because
+              this is a recommendation, and specific to Kubernetes containers, its score is assessed
+              as Minimal.
+  - id: T1053
+    name: Scheduled Task/Job
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can mitigate a few of the sub-techniques of this technique.  Due to its
+          Minimal coverage, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1053.003
+            name: Cron
+          - id: T1053.006
+            name: Systemd Timers
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing the addition or modification of
+              config files in Kubernetes containers required to implement the behaviors described in
+              these sub-techniques.   Because this is a recommendation, and specific to Kubernetes
+              containers, its score is assessed as Minimal.
+  - id: T1556
+    name: Modify Authentication Process
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can mitigate a sub-techniques of this technique.  Due to it being a
+          recommendation and providing minimal coverage, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1556.003
+            name: Pluggable Authentication Modules
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to preventing this sub-technique which often
+              modifies PAM components in the file system.  Because this is a recommendation, and
+              specific to Kubernetes containers, its score is assessed as Minimal.
+  - id: T1080
+    name: Taint Shared Content
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" and \"Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers\t\" recommendations can mitigate this technique.  Due to it being a recommendation, it score is capped at Partial."
+  - id: T1074
+    name: Data Staged
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can lead to mitigating a sub-technique of this technique by preventing
+          modification of the local filesystem.  Due to it being a recommendation, its score is
+          capped at Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1074.001
+            name: Local Data Staging
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to mitigating this sub-technique by preventing
+              modification of the local filesystem.  Due to it being a recommendation, its score is
+              capped at Partial.
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can lead to mitigating this technique by preventing modification of the
+          local filesystem.  Due to it being a recommendation, its score is capped at Partial.
+  - id: T1486
+    name: Data Encrypted for Impact
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can lead to mitigating this technique by preventing modification of the
+          local filesystem.  Due to it being a recommendation, its score is capped at Partial.
+  - id: T1565
+    name: Data Manipulation
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Immutable (read-only) root filesystem should be enforced for containers"
+          recommendation can lead to mitigating a sub-technique of this technique by preventing
+          modification of the local filesystem.  Due to it being a recommendation and mitigating
+          only one sub-technique, its score is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1565.001
+            name: Stored Data Manipulation
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Immutable (read-only) root filesystem should be enforced for
+              containers" recommendation can lead to mitigating this sub-technique by preventing
+              modification of the local filesystem.  
+
+
+              Likewise this control's recommendations related to using customer-managed keys to
+              encrypt data at rest and enabling transparent data encryption for SQL databases can
+              mitigate this sub-technique by reducing an adversary’s ability to perform tailored
+              data modifications.
+
+
+              Due to it being a recommendation, its score is capped at Partial.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's recommendations about removing deprecated and external accounts with
+          sensitive permissions from your subscription can lead to mitigating the Cloud Accounts
+          sub-technique of this technique.  Because this is a recommendation and has low coverage,
+          it is assessed as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Deprecated accounts should be removed from your subscription" and
+              "Deprecated accounts with owner permissions should be removed from your subscription"
+              recommendation can lead to removing accounts that should not be utilized from your
+              subscriptions thereby denying adversaries the usage of these accounts to find ways to
+              access your data without being noticed.  
+
+
+              Likewise, the recommendations related to External account permissions can also
+              mitigate this sub-technique.
+
+
+              Because this is a recommendation and only limited to deprecated and external accounts,
+              this is scored as Minimal.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's "Management ports should be closed on your virtual machines" recommendation
+          can lead to reducing the attack surface of your Azure VMs by recommending closing
+          management ports.  Because this is a recommendation, its score is limited to Partial.
+comments: >-
+  Security Center recommendations include recommendations to enable security controls that have
+  already been mapped separately  (e.g. "Azure Defender for App Service should be enabled").   
+  Rather than including the (sub-)techniques that these controls map to within this mapping, consult
+  the mapping files for these controls.  To make this latter task easier, we have tagged all such
+  controls with the "Azure Security Center Recommendation" tag.
+
+
+  All scores are capped at Partial since this control provides recommendations rather than
+  applying/enforcing the recommended actions.
+
+
+  IoT related recommendations were not included in this mapping.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/recommendations-reference'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction'
