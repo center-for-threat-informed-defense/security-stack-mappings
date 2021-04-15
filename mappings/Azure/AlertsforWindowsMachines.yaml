@@ -1,0 +1,498 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/05/2021
+name: Alerts for Windows Machines
+author: Eric Kannampuzha
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Defender
+  - Azure Defender for Servers
+  - Windows
+description: >-
+  For Windows, Azure Defender integrates with Azure services to monitor and protect your
+  Windows-based machines. Security Center presents the alerts and remediation suggestions from all
+  of these services in an easy-to-use format.
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.003
+            name: Local Accounts
+          - id: T1078.001
+            name: Default Accounts
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect suspicious activity from existing Windows accounts and logons
+              from suspicious IP addresses.
+  - id: T1059
+    name: Command and Scripting Interpreter
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1059.001
+            name: PowerShell
+          - id: T1059.003
+            name: Windows Command Shell
+        scores:
+          - category: Detect
+            value: Significant
+            comments: >-
+              This control may detect suspicious usage of PowerShell and the Windows command line.
+              These detections include usage of suspicious arguments, dynamic script construction,
+              and shellcode on the commandline.
+  - id: T1204
+    name: User Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1204.002
+            name: Malicious File
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect the usage of a malware dropper and other indicators of a
+              malicious file being executed by the user.
+  - id: T1547
+    name: Boot or Logon Autostart Execution
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1547.001
+            name: Registry Run Keys / Startup Folder
+        scores:
+          - category: Detect
+            value: Partial
+            comments: This control may detect when the registry is leveraged to gain persistence.
+  - id: T1136
+    name: Create Account
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1136.001
+            name: Local Account
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect when an account is created with an account name that closely
+              resembles a standard Windows account or group name. This may be an account created by
+              an attacker to blend into the environment.
+  - id: T1543
+    name: Create or Modify System Process
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1543.003
+            name: Windows Service
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect when the tscon.exe binary is installed as a service to exploit
+              RDP sessions or when a rare service group is executed under SVCHOST. 
+  - id: T1546
+    name: Event Triggered Execution
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1546.002
+            name: Screensaver
+        scores:
+          - category: Detect
+            value: Significant
+            comments: >-
+              This control may detect when a suspicious screensaver process is executed, based on
+              the location of the .scr file.
+      - sub-techniques:
+          - id: T1546.008
+            name: Accessibility Features
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect when the binary for the sticky keys utility has been replaced,
+              possibly to gain persistence or execution.
+  - id: T1548
+    name: Abuse Elevation Control Mechanism
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: The only sub-technique scored is the only one relevant to Windows.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1548.002
+            name: Bypass User Account Control
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect when User Account Control is bypassed by manipulating the
+              Windows registry. There may be other methods to bypass User Account Control that may
+              not be detected.
+  - id: T1055
+    name: Process Injection
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection covers all relevant sub-techniques. Detection is
+          periodic at an unknown rate.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1055.001
+            name: Dynamic-link Library Injection
+          - id: T1055.002
+            name: Portable Executable Injection
+          - id: T1055.003
+            name: Thread Execution Hijacking
+          - id: T1055.005
+            name: Thread Local Storage
+          - id: T1055.004
+            name: Asynchronous Procedure Call
+          - id: T1055.011
+            name: Extra Window Memory Injection
+          - id: T1055.012
+            name: Process Hollowing
+          - id: T1055.013
+            name: Process Doppelgänging
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Injection attacks are specifically cited as a detection focus for Fileless Attack
+              Detection, which is part of this control, with even more specific references to
+              Process Hollowing, executable image injection, and threads started in a dynamically
+              allocated code segment. Detection is periodic at an unknown rate.
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's Fileless Attack Detection identifies shellcode executing within process
+          memory, including shellcode executed as a payload in the exploitation of a software
+          vulnerability. Detection is periodic at an unknown rate.
+  - id: T1140
+    name: Deobfuscate/Decode Files or Information
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may detect decoding of suspicious files by certutil.exe and may detect the
+          presence of various encoding schemes to obfuscate malicious scripts and commandline
+          arguments.
+  - id: T1222
+    name: File and Directory Permissions Modification
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1222.001
+            name: Windows File and Directory Permissions Modification
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect the usage of cacls.exe to modify file and directory
+              permissions.
+  - id: T1564
+    name: Hide Artifacts
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1564.003
+            name: Hidden Window
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect usage of the WindowPosition registry value to hide application
+              windows in non-visible sections of the desktop.
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1562.004
+            name: Disable or Modify System Firewall
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect modification of the Windows firewall through use of netsh.exe
+              or using a method that matches a known threat actor.
+      - sub-techniques:
+          - id: T1562.001
+            name: Disable or Modify Tools
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect when critical services have been disabled, such as Windows
+              Security Center. This control may also detect when IIS logging has been disabled.
+  - id: T1070
+    name: Indicator Removal on Host
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1070.004
+            name: File Deletion
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect suspicious file cleanup commands and shadow copy deletion
+              activity.
+      - sub-techniques:
+          - id: T1070.001
+            name: Clear Windows Event Logs
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect when an event log has been cleared or IIS logs have been
+              deleted.
+  - id: T1112
+    name: Modify Registry
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may detect several methods used to modify the registry for purposes of
+          persistence, privilege elevation, and execution.
+  - id: T1027
+    name: Obfuscated Files or Information
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may detect usage of VBScript.Encode and base-64 encoding to obfuscate
+          malicious commands and scripts.
+  - id: T1218
+    name: Signed Binary Proxy Execution
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1218.005
+            name: Mshta
+          - id: T1218.011
+            name: Rundll32
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect suspicious usage of Mshta to execute PowerShell and suspicious
+              Rundll32 execution.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Detect
+            value: Significant
+            comments: >-
+              This control may detect successful and failed brute force attempts with logic that
+              factors the IP, time between attempts, and other suspicious activity.
+  - id: T1003
+    name: OS Credential Dumping
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may detect usage of native Windows tool (e.g. sqldumper.exe) being used in a
+          way that allows to extract credentials from memory.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1003.004
+            name: LSA Secrets
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may detect when the registry is modified to allow logon credentials to be
+              stored in clear text in LSA memory. This change allows a threat actor to gain plain
+              text credentials from the host machine.
+  - id: T1558
+    name: Steal or Forge Kerberos Tickets
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1558.001
+            name: Golden Ticket
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect commandline parameters consistent with a Kerberos Golden
+              Ticket attack.
+  - id: T1087
+    name: Account Discovery
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1087.001
+            name: Local Account
+          - id: T1087.002
+            name: Domain Account
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect when the local administrators group is enumerated or when
+              mulitiple domain accounts are queried.
+  - id: T1082
+    name: System Information Discovery
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: This control may detect local reconnaissance activity using the systeminfo commands.
+  - id: T1563
+    name: Remote Service Session Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1563.002
+            name: RDP Hijacking
+        scores:
+          - category: Detect
+            value: Partial
+            comments: This control may detect RDP hijacking through use of the tscon.exe binary.
+  - id: T1105
+    name: Ingress Tool Transfer
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may detect usage of malware droppers and creation of suspicious files on the
+          host machine.
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1048.001
+            name: Exfiltration Over Symmetric Encrypted Non-C2 Protocol
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may detect suspicious use of the Telegram tool for transferring malicious
+              binaries across hosts.
+  - id: T1489
+    name: Service Stop
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: This control may detect when critical services have been disabled through use of net.exe.
+  - id: T1202
+    name: Indirect Command Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may detect suspicious use of Pcalua.exe to launch executable code. There are
+          other methods of indirect command execution that this control may not detect.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-windows'
