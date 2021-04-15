@@ -6,6 +6,7 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
+  - Azure Security Center Recommendation
   - Network
 description: >-
   Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL

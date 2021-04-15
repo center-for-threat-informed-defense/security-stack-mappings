@@ -8,6 +8,7 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Defender
+  - Azure Security Center Recommendation
   - Credentials
 description: >-
   Azure Defender detects unusual and potentially harmful attempts to access or exploit Key Vault

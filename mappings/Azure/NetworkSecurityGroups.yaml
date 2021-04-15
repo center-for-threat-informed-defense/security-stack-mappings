@@ -6,8 +6,9 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - Network
   - Adaptive Network Hardening
+  - Azure Security Center Recommendation
+  - Network
 description: >-
   You can use an Azure network security group to filter network traffic to and from Azure resources
   in an Azure virtual network. A network security group contains security rules that allow or deny

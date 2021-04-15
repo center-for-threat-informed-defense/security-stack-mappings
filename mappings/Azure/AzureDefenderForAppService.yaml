@@ -9,6 +9,7 @@ platform: Azure
 tags:
   - Azure Defender
   - Azure Security Center
+  - Azure Security Center Recommendation
   - Windows
   - Linux
   - Azure Defender for App Service

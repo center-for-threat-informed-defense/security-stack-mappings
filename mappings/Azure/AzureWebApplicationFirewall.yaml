@@ -7,6 +7,7 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
+  - Azure Security Center Recommendation
   - Web
   - WAF
   - Web Access Firewall

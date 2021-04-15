@@ -8,6 +8,7 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Defender
+  - Azure Security Center Recommendation
   - Azure Sentinel
 description: >-
   Azure Defender for Storage can detect unusual and potentially harmful attempts to access or

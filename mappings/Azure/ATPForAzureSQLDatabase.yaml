@@ -10,6 +10,7 @@ tags:
   - Azure Defender
   - Azure Defender for SQL
   - Azure Security Center
+  - Azure Security Center Recommendation
   - Database
 description: >-
   This control provides alerts for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
