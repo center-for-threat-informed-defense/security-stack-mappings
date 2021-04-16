@@ -13,7 +13,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: TODO
+        comments: This control provides coverage for only two of this technique's sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1562.001
@@ -36,7 +36,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: TODO
+        comments: This control only provides partial coverage for one of this technique's sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1568.002
@@ -63,7 +63,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: TODO
+        comments: This control only provides coverage for specific cases of the relevant sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1078.004
@@ -88,7 +88,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: TODO
+        comments: This control only provides partial coverage for one of this technique's sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1137.005
@@ -141,7 +141,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: TODO
+        comments: This control only provides minimal coverage this technique's sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1136.001
@@ -163,7 +163,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: TODO
+        comments: This control only provides partial coverage for one of this technique's sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1558.003
@@ -198,8 +198,8 @@ techniques:
     name: Active Scanning
     technique-scores:
       - category: Detect
-        value: Minimal
-        comments: TODO
+        value: Partial
+        comments: This control provides partial coverage for one of this technique's two sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1595.002
@@ -230,7 +230,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: TODO
+        comments: This control only provides minimal coverage for one of this technique's sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1021.001
