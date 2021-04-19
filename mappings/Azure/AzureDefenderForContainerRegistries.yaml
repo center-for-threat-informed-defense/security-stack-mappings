@@ -2,7 +2,6 @@ version: 1
 ATT&CK version: 8.1
 creation date: 03/29/2021
 name: Azure Defender for Container Registries
-author: Eric Kannampuzha
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure

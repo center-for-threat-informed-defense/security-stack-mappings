@@ -2,7 +2,6 @@ version: 1
 ATT&CK version: 8.1
 creation date: 03/12/2021
 name: Advanced Threat Protection for Azure SQL Database
-author: Eric Kannampuzha
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
