@@ -1,0 +1,4936 @@
+{
+    "name": "Network",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.1"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: Network Security Groups,Azure Private Link,Azure DNS Alias Records,Azure Alerts for Network Layer,Azure VPN Gateway,Azure DDOS Protection Standard,Azure DNS Analytics,Azure Firewall,Alerts for DNS,Azure Network Traffic Analytics",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1199",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can isolate portions of network that do not require network-wide access, limiting some attackers that leverage trusted relationships such as remote access for vendor maintenance. Coverage partial, Temporal Immediate"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limits the ability of attackers to intercept/redirect traffic to just within the defined enclaves."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1602",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit attackers access to configuration repositories such as SNMP management stations, or to dumps of client configurations from common management ports."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1602.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to client management interfaces or configuration databases"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1602.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to client management interfaces or configuration databases"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can cover one sub-technique partially (booting from remote devies ala TFTP boot)"
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542.005",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict clients from connecting (and therefore booting) via TFTP"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit/minimize connectivity via RDP and SSH."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit hijacking by limiting use of RDP or SSH services"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit hijacking by limiting use of RDP or SSH services"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "NSG can minimize alternative protocols allowed to communicate externally."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can segment externally facing servers from the rest of the network"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to remote services to minimum necessary."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can deny direct access to remote services with NSG rules to restrict access via proxies etc."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.006",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.005",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1072",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to critical systems."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to domain controllers etc."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limit access to domain controllers etc."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limit access to domain controllers etc."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limit access to domain controllers etc."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limit access to domain controllers etc."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to remote services to trusted paths and proxies."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit network access to domain controllers. Partial coverage domain and cloud account techniques."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Partial, since allowed systems could still access."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Partial, since allowed systems could still access."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Covers only manipulation in transit."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit potential for intercepting traffic for manipulation."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1482",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can isolate sensitive domains to limit discovery"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access on host and port basis"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1095",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict non-application layer protocols between systems and enclaves."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1571",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict traffic to standard ports."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict some protocols, though not inspect/restrict the application layer"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict direct access to endpoints"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to endpoints."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to endpoints."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to endpoints."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1570",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit traffic between systems and enclaves to minimum necessary."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict direct access to systems. Partial since can't restrict incoming requests (more anti-DDOS and firewall with rate-limiting)"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict ports and inter-system / inter-enclave connections. Doesn't cover domain-fronting."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access between systems, enclaves, and workloads."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access between systems, enclaves, and workloads."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access between systems, enclaves, and workloads."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1219",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict system and enclave communications"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1205",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict communication by port."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1205.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent MiTM attacks wrt traversing the internet."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent MiTM for traffic between remote users, cloud, and 3rd party by routing on private network."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent MiTM for traffic between remote users, cloud, and 3rd party by routing on private network."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent data manipulation in transit by routing over private network"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Coverage partial limited to manipulation over private network path."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Prevents Denial of Service (DOS) against systems that would otherwise need to connect via an internet-traversing path (coverage partial, since doesn't apply to systems that must be directly exposed to internet)"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Provides private path for traffic, eliminating exposure to internet-generated Denial of Service (DOS) attacks."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Reduced risk of traffic being captured  over the internet"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1584",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Alias Records"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1584.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Alias Records"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Alias records prevent dangling references by tightly coupling the life cycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource.  This control is effective for protecting DNS records that resolve to Azure resources but does not offer protection for records pointing to non-Azure resources, resulting in a Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Partial, doesn't cover Password Cracking (done offline typically)"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#00FFFF",
+            "score": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#00FFFF",
+            "score": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#00FFFF",
+            "score": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify connections to known malicious sites. Partial (arguably minimal) since the malicious sites must be on block list. No sub-techniques scored since not enough fidelity in the alert. "
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Prevents capture of information in transit."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Prevents intercept and manipulation of data in transit."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Covers data in transit."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Designed to address multiple DDOS techniques including volumetric attacks."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Protects against volumetric and protocol DOS, though not application. (could score Partial here)"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "May detect C2 wrt DNS via frequent talkers."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can be used forensically to identify clients communicated with identified C2 hosts."
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                }
+            ],
+            "color": "#ff0505",
+            "score": "Partial",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1568.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#b80000",
+            "score": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1568.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#b80000",
+            "score": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous / high talker DNS clients, possibly related to exfil via DNS"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detection restricted to DNS protocol"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detection restricted to DNS protocol"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect DNS queries to known malicious sites"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify clients that attempted to resolve previously unknown malicious sites"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1566.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1590",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent some scans and probes of targeted network"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent network scanning and vunerability scanning of targeted endpoints."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry on scanners"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "TBD"
+                }
+            ],
+            "color": "#5c00a3",
+            "score": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1595.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to external remote services to minimum necessary"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry of systems attempting access to remote services"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "TBD"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1205",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can block access to ports used in traffic signalling"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide some telemetry on port knocking attempts"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1205.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "TBD"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent inter-host scanning / enforce network segmentation"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1018",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent some discovery between enclaves"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit hijacking between enclaves"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1008",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent access to known malicious destinations"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry / network forensics"
+                }
+            ],
+            "color": "#bf6bff",
+            "score": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1095",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict use of non-application layer protocols such as ICMP"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1571",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to non-standard ports"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1219",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict flow of some protocols across firewall boundaries."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict protocol use across firewall, though allowed protocols still can be used."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict some protocols / C2 channels"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "TBD"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Resource exhaustion attacks can be mitigated by the stateful firewall"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Resource exhaustion attacks can be mitigated by the stateful firewall"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Resource exhaustion attacks can be mitigated by the stateful firewall"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Simple stateful firewall will not stop particular low-volume exploits (needs IDPS/ deep packet inspection)"
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can reduce network denial of service (DOS) by dropping packets. Need DDOS protection from upstream provider for large scale attacks."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1568",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify \"random\" DNS occurences which can be associated with domain generation algorithm or Fast Flux sub-techniques.  Partial for coverage and accuracy (potential for false positive/benign).\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect potential DNS protocol misuse/anomalies. Technique coverage is restricted to DNS and therefore results in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can alert on anomalies and misuse of the DNS protocol."
+                }
+            ],
+            "color": "#00FFFF",
+            "score": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1572",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify protocol misuse/anomalies in DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect DNS activity to anonymity networks e.g. TOR.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous use of DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1199",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can analyze network security group (NSG) traffic related to trusted third parties"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1602",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic wrt configuration repositories or identified configuration management ports."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1602.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1602.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1542",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic related to one sub-technique (TFTP boot)"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1542.005",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous TFTP boot traffic"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1563",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous RDP and SSH sessions or blocked attempts."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1563.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1563.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt specific protocols/ports"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic wrt specific ports (though can't identify presence or lack of encryption)"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic wrt specific ports (though can't identify presence or lack of encryption)"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic wrt specific ports (though can't identify presence or lack of encryption)"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic to and from externally facing systems wrt network security group (NSG) policy"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic or attempts related to network security group (NSG) for remote services."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.006",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt remote access protocols and groups."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.005",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt remote access protocols and groups."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt remote access protocols and groups."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt remote access protocols and groups."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt remote access protocols and groups."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt remote access protocols and groups."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1072",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt critical systems and software deployment ports"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous access to administrative systems or ports, though can't identify specific sub-techniques/activity."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous access to external remote services"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous connections to administrative systems/ports"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1482",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic and discovery attempts to different domains."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect network service scanning/discovery activity"
+                }
+            ],
+            "color": "#00FFFF",
+            "score": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1571",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic wrt non-application protocols"
+                }
+            ],
+            "color": "#00FFFF",
+            "score": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic wrt NSG and application layer protocols"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous application protocol traffic wrt network security group (NSG)  (though web traffic would be typically too commonplace for this control to be useful)"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous application protocol traffic wrt network security group (NSG)  (though web traffic would be typically too commonplace for this control to be useful)"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous application protocol traffic wrt network security group (NSG)  (though web traffic would be typically too commonplace for this control to be useful)"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify volumetric attacks and multi-sourced attacks"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1570",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic between systems"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic between systems and to external networks."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can't detect domain fronting"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can't detect domain fronting"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can't detect domain fronting"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

@@ -1,0 +1,1330 @@
+{
+    "name": "Network Security Groups",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.1"
+    },
+    "domain": "enterprise-attack",
+    "description": "You can use an Azure network security group to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1199",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can isolate portions of network that do not require network-wide access, limiting some attackers that leverage trusted relationships such as remote access for vendor maintenance. Coverage partial, Temporal Immediate"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limits the ability of attackers to intercept/redirect traffic to just within the defined enclaves."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1602",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit attackers access to configuration repositories such as SNMP management stations, or to dumps of client configurations from common management ports."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1602.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to client management interfaces or configuration databases"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1602.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to client management interfaces or configuration databases"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can cover one sub-technique partially (booting from remote devies ala TFTP boot)"
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542.005",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict clients from connecting (and therefore booting) via TFTP"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit/minimize connectivity via RDP and SSH."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit hijacking by limiting use of RDP or SSH services"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit hijacking by limiting use of RDP or SSH services"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "NSG can minimize alternative protocols allowed to communicate externally."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can segment externally facing servers from the rest of the network"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to remote services to minimum necessary."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can deny direct access to remote services with NSG rules to restrict access via proxies etc."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.006",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.005",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1072",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to critical systems."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to domain controllers etc."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limit access to domain controllers etc."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limit access to domain controllers etc."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limit access to domain controllers etc."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Limit access to domain controllers etc."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to remote services to trusted paths and proxies."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit network access to domain controllers. Partial coverage domain and cloud account techniques."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Partial, since allowed systems could still access."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Partial, since allowed systems could still access."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Covers only manipulation in transit."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit potential for intercepting traffic for manipulation."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1482",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can isolate sensitive domains to limit discovery"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access on host and port basis"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1095",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict non-application layer protocols between systems and enclaves."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1571",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict traffic to standard ports."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict some protocols, though not inspect/restrict the application layer"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict direct access to endpoints"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to endpoints."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to endpoints."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to endpoints."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1570",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit traffic between systems and enclaves to minimum necessary."
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict direct access to systems. Partial since can't restrict incoming requests (more anti-DDOS and firewall with rate-limiting)"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict ports and inter-system / inter-enclave connections. Doesn't cover domain-fronting."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access between systems, enclaves, and workloads."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access between systems, enclaves, and workloads."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access between systems, enclaves, and workloads."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1219",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict system and enclave communications"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1205",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict communication by port."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1205.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

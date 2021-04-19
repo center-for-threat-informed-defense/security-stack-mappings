@@ -17,6 +17,8 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
             self.config = yaml.safe_load(f)
 
         self.legend = []
+        self.tag_mode = False
+        self.tags = {}
 
 
     @staticmethod
@@ -29,7 +31,10 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
 
 
     def get_output_folder_name(self):
-        return "layers"
+        if self.tag_mode:
+            return "layers/tags"
+        else:
+            return "layers"
 
 
     def get_legend(self):
@@ -63,7 +68,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
         return metadata, category, max_score
 
 
-    def get_tech_or_sub(self, entity, mapping_yaml, unit_mode):
+    def get_tech_or_sub(self, entity, mapping_yaml):
         tech = {}
         tech["techniqueID"] = entity["id"]
         tech["enabled"] = "True"
@@ -71,7 +76,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
 
         metadata, category, max_score = self.get_scores_data(entity["scores"])
         tech["metadata"] = metadata
-        if unit_mode:
+        if self.tag_mode:
             tech["metadata"].insert(0, {"name": "control", "value": mapping_yaml["name"]})
 
         color = self.config["score_colors"][category][max_score]
@@ -100,44 +105,78 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
             techniques[entity_id] = entity
 
 
-    def visualize(self, mapping_files, options):
-        for mapping_file in mapping_files:
-            layer = copy.deepcopy(self.layer_template)
-            techniques = {}
+    def visualize_mapping(self, mapping_file, layer):
+        techniques = {}
+        with open(mapping_file, "r") as f:
+            mapping_yaml = yaml.safe_load(f)
+            layer["name"] = mapping_yaml["name"]
+            layer["description"] = mapping_yaml["description"]
 
-            # mapping_file can actually be a list of files, e.g. mapping files that share a tag
-            m_files, unit_mode = (mapping_file, True) if type(mapping_file) is list else ([mapping_file], False)
+            for technique in mapping_yaml.get("techniques", []):
+                tech = {"id": technique["id"], "scores": technique["technique-scores"]}
+                tech = self.get_tech_or_sub(tech, mapping_yaml)
+                self.add_technique_or_sub(techniques, tech)
 
-            if unit_mode:
-                options["output_filename"] = options["title"].replace(" ", "_")
-                layer["name"] = options["title"]
-                layer["description"] = options["description"]
-
-            names = []
-            for mapping_file in m_files:
-                with open(mapping_file, "r") as f:
-                    mapping_yaml = yaml.safe_load(f)
-
-                names.append(mapping_yaml["name"])
-                if not unit_mode:
-                    layer["name"] = mapping_yaml["name"]
-                    layer["description"] = mapping_yaml["description"]
-
-                for technique in mapping_yaml.get("techniques", []):
-                    tech = {"id": technique["id"], "scores": technique["technique-scores"]}
-                    tech = self.get_tech_or_sub(tech, mapping_yaml, unit_mode)
-                    self.add_technique_or_sub(techniques, tech)
-
-                    for sub_tech_scores in technique.get("sub-techniques-scores", []):
-                        for sub_tech in sub_tech_scores.get("sub-techniques", []):
-                            sub = {"id": sub_tech["id"], "scores": sub_tech_scores["scores"]}
-                            sub = self.get_tech_or_sub(sub, mapping_yaml, unit_mode)
-                            self.add_technique_or_sub(techniques, sub)
+                for sub_tech_scores in technique.get("sub-techniques-scores", []):
+                    for sub_tech in sub_tech_scores.get("sub-techniques", []):
+                        sub = {"id": sub_tech["id"], "scores": sub_tech_scores["scores"]}
+                        sub = self.get_tech_or_sub(sub, mapping_yaml)
+                        self.add_technique_or_sub(techniques, sub)
 
             layer["techniques"].extend(list(techniques.values()))
             layer["legendItems"] = self.get_legend()
-            if unit_mode:
+
+            return mapping_yaml["name"], mapping_yaml["platform"], mapping_yaml.get("tags", [])
+
+
+    
+    def visualize_mappings(self, mapping_file, options):
+        layer = copy.deepcopy(self.layer_template)
+
+        self.tag_mode = type(mapping_file) is list
+
+        if self.tag_mode:
+            # mapping_file is actually a list of files, e.g. mapping files that share a tag
+            m_files = mapping_file
+
+            names = []
+            for mapping_file in m_files:
+                name, _, _ = self.visualize_mapping(mapping_file, layer)
+                names.append(name)
+
+            options["output_filename"] = options["title"].replace(" ", "_")
+            layer["name"] = options["title"]
+            layer["description"] = options.get("description", None)
+            if not layer["description"]:
                 names = ",".join(names)
-                if(not layer["description"]):
-                    layer["description"] = f"Controls: {names}"
+                layer["description"] = f"Controls: {names}"
+        else:
+            name, platform, mapping_tags = self.visualize_mapping(mapping_file, layer)
+            platform_tags = self.tags.get(platform, {})
+            if not platform_tags:
+                self.tags[platform] = platform_tags
+
+            for tag in mapping_tags:
+                platform_tag = platform_tags.get(tag, [])
+                if not platform_tag:
+                    platform_tags[tag] = platform_tag
+                platform_tag.append(mapping_file)
+
+        return layer
+
+
+    def visualize(self, mapping_files, options):
+        for mapping_file in mapping_files:
+            layer = self.visualize_mappings(mapping_file, options)
+            if self.tag_mode:
+                mapping_file = mapping_file[0]
             self.output(options, mapping_file, json.dumps(layer, indent=4))
+
+        if options["generate-tags"]:
+            for platform, platform_tags in self.tags.items():
+                for tag in platform_tags:
+                    options["title"] = tag
+                    mappings = platform_tags[tag]
+                    if mappings:
+                        layer = self.visualize_mappings(mappings, options)
+                        self.output(options, mappings[0], json.dumps(layer, indent=4))

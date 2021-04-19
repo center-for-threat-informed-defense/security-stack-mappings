@@ -1,0 +1,406 @@
+{
+    "name": "Azure Private Link",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.1"
+    },
+    "domain": "enterprise-attack",
+    "description": "Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.\nTraffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1557",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent MiTM attacks wrt traversing the internet."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent MiTM for traffic between remote users, cloud, and 3rd party by routing on private network."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent MiTM for traffic between remote users, cloud, and 3rd party by routing on private network."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent data manipulation in transit by routing over private network"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Coverage partial limited to manipulation over private network path."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Prevents Denial of Service (DOS) against systems that would otherwise need to connect via an internet-traversing path (coverage partial, since doesn't apply to systems that must be directly exposed to internet)"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Provides private path for traffic, eliminating exposure to internet-generated Denial of Service (DOS) attacks."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Reduced risk of traffic being captured  over the internet"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}
