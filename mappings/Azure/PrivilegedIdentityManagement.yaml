@@ -44,7 +44,7 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          This control provides  significant protection for some of this technique's sub-techniques
+          This control provides significant protection for some of this technique's sub-techniques
           while not providing any protection for others, resulting in a Partial score.
       - category: Detect
         value: Minimal
@@ -105,7 +105,7 @@ techniques:
             comments: >-
               Privileged roles such as the User Administrator role can be configured to require MFA
               on activation to provide additional protection against the execution of this
-              technique.  In addition these privileged roles can be assigned as eligible rather than
+              technique.  In addition, these privileged roles can be assigned as eligible rather than
               permanently active roles to further reduce the attack surface.
 references:
   - >-

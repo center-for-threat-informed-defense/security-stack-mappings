@@ -30,16 +30,15 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          Limits ability of attacker to intercept/redirect traffic to just within the defined
-          enclaves
+          Limits the ability of attackers to intercept/redirect traffic to just within the defined enclaves.
   - id: T1602
     name: Data from Configuration Repository
     technique-scores:
       - category: Protect
         value: Partial
         comments: >-
-          Can limit attackers access to configuration repositories such as snmp management stations,
-          or to dumps of client configuratiosn from common management ports.
+          Can limit attackers access to configuration repositories such as SNMP management stations,
+          or to dumps of client configurations from common management ports.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1602.002
@@ -49,13 +48,13 @@ techniques:
         scores:
           - category: Protect
             value: Partial
-            comments: Can limit access to client management interfaces or configuration database
+            comments: Can limit access to client management interfaces or configuration databases
   - id: T1542
     name: Pre-OS Boot
     technique-scores:
       - category: Protect
         value: Minimal
-        comments: Can cover one sub-technique partially (booting from remote devies ala TFTP boot
+        comments: Can cover one sub-technique partially (booting from remote devies ala TFTP boot)
     sub-techniques-scores:
       - sub-techniques:
           - id: T1542.005
@@ -69,7 +68,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: Can limit/minimize connectivity via RDP
+        comments: Can limit/minimize connectivity via RDP and SSH.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1563.002
@@ -79,7 +78,7 @@ techniques:
         scores:
           - category: Protect
             value: Partial
-            comments: Can limit hijacking by limiting use of rdp or ssh services
+            comments: Can limit hijacking by limiting use of RDP or SSH services
   - id: T1048
     name: Exfiltration Over Alternative Protocol
     technique-scores:
@@ -105,7 +104,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: Can segment externally facing servers from rest of network
+        comments: Can segment externally facing servers from the rest of the network
   - id: T1210
     name: Exploitation of Remote Services
     technique-scores:
@@ -118,8 +117,7 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          Can deny direct access to remote services with NSG rules to restrict access via proxies
-          etc.
+          Can deny direct access to remote services with NSG rules to restrict access via proxies etc.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1021.006
@@ -142,7 +140,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: 'Can limit access to critical systems.'
+        comments: Can limit access to critical systems.
   - id: T1098
     name: Account Manipulation
     technique-scores:
@@ -175,8 +173,7 @@ techniques:
       - category: Protect
         value: Partial
         comments: |-
-          Can limit network access to domain controllers.
-          Partial coverage domain and cloud acct techniques.
+          Can limit network access to domain controllers. Partial coverage domain and cloud account techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1136.003
@@ -186,7 +183,7 @@ techniques:
         scores:
           - category: Protect
             value: Partial
-            comments: 'partial, since allowed systems could still access '
+            comments: Partial, since allowed systems could still access.
   - id: T1565
     name: Data Manipulation
     technique-scores:
@@ -200,7 +197,7 @@ techniques:
         scores:
           - category: Protect
             value: Partial
-            comments: can limit potential for intercepting traffic for manipulation.
+            comments: Can limit potential for intercepting traffic for manipulation.
   - id: T1482
     name: Domain Trust Discovery
     technique-scores:
@@ -230,7 +227,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: 'Can restrict some protocols, though not inspect/restrict application layer'
+        comments: Can restrict some protocols, though not inspect/restrict the application layer
     sub-techniques-scores:
       - sub-techniques:
           - id: T1071.004
@@ -259,7 +256,7 @@ techniques:
         scores:
           - category: Protect
             value: Partial
-            comments: 'can restrict access to endpoints. '
+            comments: Can restrict access to endpoints.
   - id: T1570
     name: Lateral Tool Transfer
     technique-scores:
@@ -273,15 +270,14 @@ techniques:
         value: Partial
         comments: >-
           Can restrict direct access to systems. Partial since can't restrict incoming requests
-          (more and anti-DDOS and firewall with rate-limiting)
+          (more anti-DDOS and firewall with rate-limiting)
   - id: T1090
     name: Proxy
     technique-scores:
       - category: Protect
         value: Partial
         comments: >-
-          Can restrict ports and inter-system / inter-enclave connections. Doesn't cover
-          domain-fronting.
+          Can restrict ports and inter-system / inter-enclave connections. Doesn't cover domain-fronting.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1090.003
@@ -293,7 +289,7 @@ techniques:
         scores:
           - category: Protect
             value: Partial
-            comments: 'Can restrict access between systems, enclaves, and workloads.'
+            comments: Can restrict access between systems, enclaves, and workloads.
   - id: T1219
     name: Remote Access Software
     technique-scores:
@@ -314,9 +310,9 @@ techniques:
           - category: Protect
             value: Partial
 comments: >-
-  Note: one can employ Application Security Groups in NSG rules to map rules to workloads etc. Not
-  scoring ASG as a separate control. One can employ Adaptive Network Hardening to generate
-  recommended NSG rules based on traffic, known trusted configuration, threat intelligence, and
+  Note: one can employ Application Security Groups (ASG) in Network Security Group (NSG) rules to map 
+  rules to workloads etc. Not scoring ASG as a separate control. One can employ Adaptive Network Hardening (ANH) 
+  to generate recommended NSG rules based on traffic, known trusted configuration, threat intelligence, and
   other inidcators of compromise. Not scoring ANH as a separate control.
 references:
   - 'https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview'

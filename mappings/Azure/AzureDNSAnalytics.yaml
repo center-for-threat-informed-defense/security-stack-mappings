@@ -9,18 +9,9 @@ tags:
   - DNS
   - Network
 description: >-
-  "DNS Analytics helps you to:
-
-
-  Identify clients that try to resolve malicious domain names.
-
-  Identify stale resource records.
-
-  Identify frequently queried domain names and talkative DNS clients.
-
-  View request load on DNS servers.
-
-  View dynamic DNS registration failures.
+  "DNS Analytics helps you to: identify clients that try to resolve malicious domain names,
+  identify stale resource records, identify frequently queried domain names and talkative DNS clients, 
+  view request load on DNS servers, and view dynamic DNS registration failures.
 
   The solution collects, analyzes, and correlates Windows DNS analytic and audit logs and other
   related data from your DNS servers."
@@ -46,7 +37,7 @@ techniques:
     technique-scores:
       - category: Respond
         value: Partial
-        comments: Can be used for after-the-fact analysis of potential fast-flux dns C2
+        comments: Can be used for after-the-fact analysis of potential fast-flux DNS C2
     sub-techniques-scores:
       - sub-techniques:
           - id: T1568.001
@@ -61,7 +52,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Partial
-        comments: 'Can identify anomalous / high talker DNS clients, possibly related to exfil via DNS'
+        comments: Can identify anomalous / high talker DNS clients, possibly related to exfil via DNS
     sub-techniques-scores:
       - sub-techniques:
           - id: T1048.003
@@ -81,7 +72,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Partial
-        comments: can detect dns queries to known malicious sites
+        comments: Can detect DNS queries to known malicious sites
       - category: Respond
         value: Partial
         comments: Can identify clients that attempted to resolve previously unknown malicious sites
@@ -97,8 +88,8 @@ techniques:
 comments: >-
   For temporal score, generally high with respect to access to known bad domains: "The event-related
   data is collected near real time from the analytic and audit logs provided by enhanced DNS logging
-  and diagnostics in Windows Server 2012 R2." . DNS logs and analytics can be used in response
+  and diagnostics in Windows Server 2012 R2.". DNS logs and analytics can be used in a response
   context, for example to identify client access to previously unknown malicious domains.  "Noisy"
-  client alert may be useful for identifying some C2 over DNS.
+  client alerts may be useful for identifying some C2 over DNS.
 references:
   - 'https://docs.microsoft.com/en-us/azure/azure-monitor/insights/dns-analytics'

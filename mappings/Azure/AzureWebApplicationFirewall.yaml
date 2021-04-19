@@ -28,7 +28,7 @@ techniques:
         scores:
           - category: Protect
             value: Partial
-            comments: Focus on Web Vuln scanning OWASP CORE
+            comments: Focuses on web vulnerability scanning of OWASP Core Rule Set (CRS).
           - category: Detect
             value: Partial
   - id: T1189
@@ -52,15 +52,6 @@ techniques:
         value: Partial
       - category: Detect
         value: Partial
-  - id: T1176
-    name: Browser Extensions
-    technique-scores:
-      - category: Protect
-        value: Partial
-        comments: Review depending on signatures
-      - category: Detect
-        value: Partial
-        comments: 'Review depending on signatures '
   - id: T1205
     name: Traffic Signaling
     technique-scores:
@@ -74,16 +65,16 @@ techniques:
         scores:
           - category: Protect
             value: Minimal
-            comments: may block some ports depending on fw rules.
+            comments: May block some ports depending on firewall rules.
           - category: Detect
             value: Minimal
-            comments: may provide telemetry though not identify activity
+            comments: May provide telemetry but without identifying it as a Port Knocking activity
   - id: T1110
     name: Brute Force
     technique-scores:
       - category: Protect
         value: Partial
-        comments: covers some techniques traversing perimeter
+        comments: Covers some techniques traversing the perimeter.
       - category: Detect
         value: Partial
     sub-techniques-scores:
@@ -117,7 +108,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: web portal capture
+        comments: Web portal capture
       - category: Detect
         value: Partial
     sub-techniques-scores:
@@ -128,8 +119,8 @@ techniques:
           - category: Protect
             value: Partial
             comments: >-
-              Review Direct attacks to compromise server (vs valid credentials) ( or do we just
-              focus on identifying/stopping the behavior once the portal is compromised?
+              Review Direct attacks to compromise server (vs valid credentials) (or do we just
+              focus on identifying/stopping the behavior once the portal is compromised?)
           - category: Detect
             value: Partial
   - id: T1526
@@ -137,16 +128,16 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: 'minimal: some telemetry for detect'
+        comments: 'Minimal: some telemetry for detect'
   - id: T1046
     name: Network Service Scanning
     technique-scores:
       - category: Protect
         value: Partial
-        comments: may block some ports
+        comments: May block some ports
       - category: Detect
         value: Partial
-        comments: may provide telemetry or trigger a scanner signature
+        comments: May provide telemetry or trigger a scanner signature
   - id: T1071
     name: Application Layer Protocol
     technique-scores:
@@ -168,7 +159,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: Some protocol enforcement for T1001.003
+        comments: Some protocol enforcement for T1001.003 Protocol Impersonation
       - category: Detect
         value: Partial
     sub-techniques-scores:
@@ -237,17 +228,17 @@ techniques:
         scores:
           - category: Protect
             value: Minimal
-            comments: telemetry
+            comments: Provides telemetry
           - category: Detect
             value: Minimal
-            comments: telemetry
+            comments: Provides telemetry
   - id: T1491
     name: Defacement
     technique-scores:
       - category: Protect
         value: Partial
         comments: >-
-          note will identify direct attacks, not defacing due to abuse of a valid account, not
+          Note will identify direct attacks, not defacing due to abuse of a valid account, not
           internal defacement from compromised internal host
       - category: Detect
         value: Partial

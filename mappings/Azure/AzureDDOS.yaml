@@ -20,7 +20,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Significant
-        comments: Designed to address multiple DDOS techniques including Volumetric attacks.
+        comments: Designed to address multiple DDOS techniques including volumetric attacks.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1498.002
@@ -36,8 +36,7 @@ techniques:
       - category: Protect
         value: Significant
         comments: >-
-          Protects against Volumetric and Protocol DOS, though not Application. (could score Partial
-          here)
+          Protects against volumetric and protocol DOS, though not application. (could score Partial here)
     sub-techniques-scores:
       - sub-techniques:
           - id: T1499.003

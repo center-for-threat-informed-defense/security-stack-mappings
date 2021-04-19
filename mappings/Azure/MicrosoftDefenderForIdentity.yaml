@@ -6,10 +6,10 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - Microsoft 365 Defender
   - Credentials
-  - Identity
   - DNS
+  - Identity
+  - Microsoft 365 Defender
   - Windows
 description: >-
   Microsoft Defender for Identity (formerly Azure Advanced Threat Protection, also known as Azure
@@ -34,13 +34,13 @@ techniques:
             value: Significant
             comments: >-
               The following alert of this control is able to detect domain account discovery: 
-              Account enumeration reconnaissance (external ID 2003).  This shouldn't occur
+              "Account enumeration reconnaissance (external ID 2003)".  This shouldn't occur
               frequently and therefore the false positive rate should be minimal.
 
-              The Security principal reconnaissance (LDAP) (external ID 2038) alert is also relevant
+              The "Security principal reconnaissance (LDAP) (external ID 2038)" alert is also relevant
               and its machine learning capabilities should reduce the false positive rate.
 
-              The User and IP address reconnaissance (SMB) (external ID 2012) alert can also provide
+              The "User and IP address reconnaissance (SMB) (external ID 2012)" alert can also provide
               a detection on a variation of this sub-technique.
   - id: T1482
     name: Domain Trust Discovery
@@ -48,7 +48,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control's Active Directory attributes reconnaissance (LDAP) (external ID 2210) alert
+          This control's "Active Directory attributes reconnaissance (LDAP) (external ID 2210)" alert
           may be able to detect this operation.  There are statements in the documentation for the
           alert, such as: "Active Directory LDAP reconnaissance is used by attackers to gain
           critical information about the domain environment. This information can help attackers map
@@ -61,7 +61,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control's Active Directory attributes reconnaissance (LDAP) (external ID 2210) alert
+          This control's "Active Directory attributes reconnaissance (LDAP) (external ID 2210)" alert
           may be able to detect this operation.  There are statements in the documentation for the
           alert, such as: "Active Directory LDAP reconnaissance is used by attackers to gain
           critical information about the domain environment. This information can help attackers map
@@ -74,7 +74,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control provides  significant detection for one of this technique's sub-techniques,
+          This control provides significant detection for one of this technique's sub-techniques,
           while not providing any detection for the remaining, resulting in a Minimal score.
     sub-techniques-scores:
       - sub-techniques:
@@ -84,13 +84,13 @@ techniques:
           - category: Detect
             value: Significant
             comments: >-
-              This control's Security principal reconnaissance (LDAP) (external ID 2038) alert can
+              This control's "Security principal reconnaissance (LDAP) (external ID 2038)" alert can
               be used to detect when an adversary "perform suspicious LDAP enumeration queries or
               queries targeted to sensitive groups that use methods not previously observed."  This
               alert employs machine learning which should reduce the number of false positives.
 
-              Additionally, this control's User and Group membership reconnaissance (SAMR) (external
-              ID 2021) alert can detect this sub-technique and also employs machine learning which
+              Additionally, this control's "User and Group membership reconnaissance (SAMR) (external
+              ID 2021)" alert can detect this sub-technique and also employs machine learning which
               should reduce the false-positive rate.
   - id: T1210
     name: Exploitation of Remote Services
@@ -98,16 +98,14 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control's Remote code execution over DNS (external ID 2036) alert can look for an
+          This control's "Remote code execution over DNS (external ID 2036)" alert can look for an
           attacker attempting to exploit CVE-2018-8626, a remote code execution vulnerability exists
           in Windows Domain Name System (DNS) servers.  In this detection, a Defender for Identity
           security alert is triggered when DNS queries suspected of exploiting the CVE-2018-8626
           security vulnerability are made against a domain controller in the network.  
 
-
-          Likewise this controls Suspected SMB packet manipulation (CVE-2020-0796 exploitation)
+          Likewise this controls "Suspected SMB packet manipulation (CVE-2020-0796 exploitation)"
           alert can detect a remote code execution vulnerability with SMBv3.
-
 
           Because these detections are specific to a few CVEs, its coverage is Minimal resulting in
           a Minimal score.
@@ -117,9 +115,8 @@ techniques:
       - category: Detect
         value: Partial
         comments: >-
-          This control provides  partial detection, due to unknown effectiveness
-          (false-positive/true-positive rate) of the alert,  for some of this technique's
-          sub-techniques, resulting in a Minimal score.
+          This control provides partial detection for some of this technique's sub-techniques 
+          (due to unknown false-positive/true-positive rate), resulting in a Partial score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1550.002
@@ -130,12 +127,12 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              This control's Suspected identity theft (pass-the-hash) (external ID 2017) alert
+              This control's "Suspected identity theft (pass-the-hash) (external ID 2017)" alert
               specifically looks for pass-the-hash attacks but there is not enough information to
               determine its effectiveness and therefore a conservative assessment of a Partial score
               is assigned.
 
-              This control's Suspected identity theft (pass-the-ticket) (external ID 2018) alert
+              This control's "Suspected identity theft (pass-the-ticket) (external ID 2018)" alert
               specifically looks for pass-the-ticket attacks but there is not enough information to
               determine its effectiveness and therefore a conservative assessment of a Partial score
               is assigned.
@@ -155,7 +152,7 @@ techniques:
           - category: Detect
             value: Minimal
             comments: >-
-              This control's Suspected NTLM relay attack (Exchange account) (external ID 2037) alert
+              This control's "Suspected NTLM relay attack (Exchange account) (external ID 2037)" alert
               can detect NTLM relay attack specific to the Exchange service.  Because this detection
               is limited to this variation of the sub-technique, its coverage score is Minimal
               resulting in an overall Minimal score.
@@ -177,14 +174,14 @@ techniques:
           - category: Detect
             value: Significant
             comments: >-
-              This control's Suspected Brute Force attack (Kerberos, NTLM) (external ID 2023) alert
+              This control's "Suspected Brute Force attack (Kerberos, NTLM) (external ID 2023)" alert
               can detect these brute force sub-techniques.  It incorporates a machine learning
               feature that should reduce the number of false positives.
 
-              Similarly, its Suspected Brute Force attack (LDAP) (external ID 2004) alert can detect
+              Similarly, its "Suspected Brute Force attack (LDAP) (external ID 2004)" alert can detect
               brute force attacks using LDAP simple binds.
 
-              The Suspected Brute Force attack (SMB) (external ID 2033) alert is also relevant but
+              The "Suspected Brute Force attack (SMB) (external ID 2033)" alert is also relevant but
               the details are sparse.
   - id: T1558
     name: Steal or Forge Kerberos Tickets
@@ -204,13 +201,13 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              This control's Suspected Kerberos SPN exposure (external ID 2410) alert is able to
+              This control's "Suspected Kerberos SPN exposure (external ID 2410)" alert is able to
               detect when an attacker use tools to enumerate service accounts and their respective
               SPNs (Service principal names), request a Kerberos service ticket for the services,
               capture the Ticket Granting Service (TGS) tickets from memory and extract their
               hashes, and save them for later use in an offline brute force attack.  
 
-              Similarly its Suspected AS-REP Roasting attack (external ID 2412) is able to detect
+              Similarly its "Suspected AS-REP Roasting attack (external ID 2412)" alert is able to detect
               AS-REP Roasting sub-technique.
 
               The accuracy of these alerts is unknown and therefore its score has been assessed as
@@ -230,7 +227,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control's Suspicious VPN connection (external ID 2025) utilizes machine learning
+          This control's "Suspicious VPN connection (external ID 2025)" alert utilizes machine learning
           models to learn  normal VPN connections for a user and detect deviations from the norm. 
           This detection is specific to VPN traffic and therefore its overall coverage is Minimal. 
   - id: T1555
@@ -249,11 +246,11 @@ techniques:
           - category: Detect
             value: Minimal
             comments: >-
-              This control's Malicious request of Data Protection API master key (external ID 2020)
+              This control's "Malicious request of Data Protection API master key (external ID 2020)"
               alert can be used to detect when an attacker attempts to utilize the Data Protection
-              API (DPAPI), used by Windows to securely protect passwords saved by browsers,
-              encrypted files, and other sensitive data, to decrypt sensitive data using backup
-              master key stored on domain controllers.  This alert is specific to using DPAPI to
+              API (DPAPI) to decrypt sensitive data using the backup of the master key stored on domain controllers.
+              DPAPI is used by Windows to securely protect passwords saved by browsers,
+              encrypted files, and other sensitive data.   This alert is specific to using DPAPI to
               retrieve the master backup key and therefore provides minimal coverage resulting in a
               Minimal score.
   - id: T1047
@@ -262,12 +259,11 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >+
-          This control's Remote code execution attempt (external ID 2019) alert can detect Remote
-          code execution via WMI.  This may lead to false positives as Administrative workstations,
+          This control's "Remote code execution attempt (external ID 2019)" alert can detect Remote
+          code execution via WMI.  This may lead to false positives as administrative workstations,
           IT team members, and service accounts can all perform legitimate administrative tasks
           against domain controllers.  Additionally, this alert seems to be specific to detecting
           execution on domain controllers and AD FS servers, limiting its coverage.
-
   - id: T1059
     name: Command and Scripting Interpreter
     technique-scores:
@@ -284,9 +280,9 @@ techniques:
           - category: Detect
             value: Minimal
             comments: >-
-              This control's Remote code execution attempt (external ID 2019) alert can detect
+              This control's "Remote code execution attempt (external ID 2019)" alert can detect
               Remote code execution via Powershell.  This may lead to false positives as
-              Administrative workstations, IT team members, and service accounts can all perform
+              administrative workstations, IT team members, and service accounts can all perform
               legitimate administrative tasks against domain controllers.  Additionally, this alert
               seems to be specific to detecting execution on domain controllers and AD FS servers,
               limiting its coverage.
@@ -306,17 +302,15 @@ techniques:
           - category: Detect
             value: Minimal
             comments: >+
-              This control's Remote code execution attempt (external ID 2019) alert can detect
-              Remote code execution via Psexec.  This may lead to false positives as Administrative
+              This control's "Remote code execution attempt (external ID 2019)" alert can detect
+              Remote code execution via Psexec.  This may lead to false positives as administrative
               workstations, IT team members, and service accounts can all perform legitimate
               administrative tasks against domain controllers.  Additionally, this alert seems to be
               specific to detecting execution on domain controllers and AD FS servers, limiting its
               coverage.
 
-
-              This control's Data exfiltration over SMB (external ID 2030) may also be able to
+              This control's "Data exfiltration over SMB (external ID 2030)" alert may also be able to
               detect exfiltration of sensitive data on domain controllers using SMB.
-
   - id: T1569
     name: System Services
     technique-scores:
@@ -333,8 +327,8 @@ techniques:
           - category: Detect
             value: Minimal
             comments: >-
-              This control's Remote code execution attempt (external ID 2019) alert can detect
-              Remote code execution via Psexec.  This may lead to false positives as Administrative
+              This control's "Remote code execution attempt (external ID 2019)" alert can detect
+              Remote code execution via Psexec.  This may lead to false positives as administrative
               workstations, IT team members, and service accounts can all perform legitimate
               administrative tasks against domain controllers.  Additionally, this alert seems to be
               specific to detecting execution on domain controllers and AD FS servers, limiting its
@@ -345,9 +339,9 @@ techniques:
       - category: Detect
         value: Significant
         comments: >-
-          This control's Suspected DCShadow attack (domain controller promotion) (external ID 2028)
-          and Suspected DCShadow attack (domain controller replication request) (external ID 2029)
-          alerts can detect this technique.  Also should be a low false positive rate as the number
+          This control's "Suspected DCShadow attack (domain controller promotion) (external ID 2028)"
+          and "Suspected DCShadow attack (domain controller replication request) (external ID 2029)"
+          alerts can detect this technique.  Also should be a low false positive rate as the quantity
           and identity of domain controllers on the network should change very infrequently.
   - id: T1003
     name: OS Credential Dumping
@@ -366,11 +360,10 @@ techniques:
           - category: Detect
             value: Significant
             comments: >-
-              This control's Suspected DCSync attack (replication of directory services) (external
-              ID 2006) alert can detect DCSync attacks.  The false positive rate should be low due
+              This control's "Suspected DCSync attack (replication of directory services) (external
+              ID 2006)" alert can detect DCSync attacks.  The false positive rate should be low due
               to the identity of domain controllers on the network changing infrequently and
-              therefore replication requests received from non-domain controllers should be a red
-              flag.
+              therefore replication requests received from non-domain controllers should be a red flag.
       - sub-techniques:
           - id: T1003.003
             name: NTDS
@@ -378,7 +371,7 @@ techniques:
           - category: Detect
             value: Minimal
             comments: >-
-              The documentation for this control's Data exfiltration over SMB (external ID 2030)
+              The documentation for this control's "Data exfiltration over SMB (external ID 2030)" alert
               implies that it may be able to detect the transfer of sensitive data such as the
               Ntds.dit on monitored domain controllers.  This is specific to domain controllers and
               therefore results in a reduced coverage score.
@@ -398,9 +391,9 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              This control's Suspected skeleton key attack (encryption downgrade) (external ID 2010)
+              This control's "Suspected skeleton key attack (encryption downgrade) (external ID 2010)"
               alert can detect skeleton attacks.  This alert provides partial protection as it
-              detects on a specific IOC of Skeleton malware, its usage of weaker encryption
+              detects on a specific type of malware, Skeleton malware, and its usage of weaker encryption
               algorithms to hash the user's passwords on the domain controller.  The description of
               the alert implies it utilizes machine learning to look for anomalous usage of weak
               encryption algorithms which should result in a reduced false positive rate.
@@ -410,13 +403,12 @@ techniques:
       - category: Detect
         value: Partial
         comments: >-
-          This controls's Suspicious additions to sensitive groups (external ID 2024) alert can
-          utilize machine learning to detect when an attacker add users to highly privileged groups.
+          This controls's "Suspicious additions to sensitive groups (external ID 2024)" alert can
+          utilize machine learning to detect when an attacker adds users to highly privileged groups.
           Adding users is done to gain access to more resources, and gain persistency.  This
           detection relies on profiling the group modification activities of users, and alerting
-          when an abnormal addition to a sensitive group is seen. Defender for Identity profiles
+          when an abnormal addition to a sensitive group is observed. Defender for Identity profiles
           continuously. 
-
 
           This alert provides Partial coverage of this technique with a reduced false-positive rate
           by utilizing machine learning models.
@@ -436,7 +428,7 @@ techniques:
           - category: Detect
             value: Minimal
             comments: >-
-              This control's Suspicious service creation (external ID 2026) alert is able to detect
+              This control's "Suspicious service creation (external ID 2026)" alert is able to detect
               suspicious service creation on a domain controller or AD FS server in your
               organization.  As a result of this detecting being specific to these hosts, the
               coverage score is Minimal resulting in Minimal detection.
@@ -456,7 +448,7 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              This control's Suspicious communication over DNS (external ID 2031) alert can detect
+              This control's "Suspicious communication over DNS (external ID 2031)" alert can detect
               malicious communication over DNS used for data exfiltration, command, and control,
               and/or evading corporate network restrictions.  The accuracy of this control is
               unknown and therefore its score has been assessed as Partial.
@@ -476,12 +468,12 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              This control's Suspicious communication over DNS (external ID 2031) alert can detect
+              This control's "Suspicious communication over DNS (external ID 2031)" alert can detect
               malicious communication over DNS used for data exfiltration, command, and control,
               and/or evading corporate network restrictions.  The accuracy of this control is
               unknown and therefore its score has been assessed as Partial.
 comments: >-
-  Understandably (to avoid enabling the adversary to circumvent the detection), many of the
+  Understandably (to avoid enabling adversaries to circumvent the detection), many of the
   detections provided by this control do not provide a detailed description of the detection logic
   making it often times difficult to map to ATT&CK Techniques.
 references:

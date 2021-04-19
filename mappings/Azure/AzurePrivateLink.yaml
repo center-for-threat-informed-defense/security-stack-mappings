@@ -13,7 +13,6 @@ description: >-
   Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual
   network.
 
-
   Traffic between your virtual network and the service travels the Microsoft backbone network.
   Exposing your service to the public internet is no longer necessary. You can create your own
   private link service in your virtual network and deliver it to your customers. Setup and
@@ -36,14 +35,14 @@ techniques:
           - category: Protect
             value: Partial
             comments: >-
-              Can prevent mitm for traffic between remote users, cloud, and 3rd party by routing on
+              Can prevent MiTM for traffic between remote users, cloud, and 3rd party by routing on
               private network.
   - id: T1565
     name: Data Manipulation
     technique-scores:
       - category: Protect
         value: Partial
-        comments: can prevent data manipulation in transit by routing over private network
+        comments: Can prevent data manipulation in transit by routing over private network
     sub-techniques-scores:
       - sub-techniques:
           - id: T1565.002
@@ -58,7 +57,7 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          Prevents DOS against systems that would otherwise need to connect via an
+          Prevents Denial of Service (DOS) against systems that would otherwise need to connect via an
           internet-traversing path (coverage partial, since doesn't apply to systems that must be
           directly exposed to internet)
     sub-techniques-scores:
@@ -79,7 +78,8 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: 'Provides private path for traffic, eliminating exposure to internet-generated DOS attacks.'
+        comments: Provides private path for traffic, eliminating exposure to internet-generated 
+                  Denial of Service (DOS) attacks.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1498.002
@@ -96,8 +96,8 @@ techniques:
         value: Partial
         comments: Reduced risk of traffic being captured  over the internet
 comments: >-
-  This is a private network service, allowing connections between azure, on-prem, and 3rd party
-  services without traversing the internet. Generally this reduces risk from MiTM, DOS,
+  This is a private network service, allowing connections between Azure, on-prem, and 3rd party
+  services without traversing the Internet. Generally this reduces risk from MiTM, DOS,
   network-based data manipulation and network sniffing from untrusted network.
 references:
   - 'https://docs.microsoft.com/azure/private-link/private-link-overview'

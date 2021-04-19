@@ -18,7 +18,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Partial
-        comments: Can analyze NSG traffic related to trusted third parties
+        comments: Can analyze network security group (NSG) traffic related to trusted third parties
   - id: T1602
     name: Data from Configuration Repository
     technique-scores:
@@ -41,7 +41,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Partial
-        comments: 'Can identify anomalous traffic related to one sub-technique (tftp boot) '
+        comments: Can identify anomalous traffic related to one sub-technique (TFTP boot)
     sub-techniques-scores:
       - sub-techniques:
           - id: T1542.005
@@ -83,20 +83,19 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              Can identify anomalous traffic wrt specific ports (though can't identify presence or
-              lack of encryption)
+              Can identify anomalous traffic wrt specific ports (though can't identify presence or lack of encryption)
   - id: T1190
     name: Exploit Public-Facing Application
     technique-scores:
       - category: Detect
         value: Partial
-        comments: Can detect anomalous traffic to and from externally facing systems wrt NSG policy
+        comments: Can detect anomalous traffic to and from externally facing systems wrt network security group (NSG) policy
   - id: T1021
     name: Remote Services
     technique-scores:
       - category: Detect
         value: Partial
-        comments: Can detect anomalous traffic or attempts related to NSG for remote services.
+        comments: Can detect anomalous traffic or attempts related to network security group (NSG) for remote services.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1021.006
@@ -177,8 +176,8 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              Can detect anomalous application protocol traffic wrt NSG (though web traffic would be
-              typically too commonplace for this control to be useful)
+              Can detect anomalous application protocol traffic wrt network security group (NSG) 
+              (though web traffic would be typically too commonplace for this control to be useful)
   - id: T1499
     name: Endpoint Denial of Service
     technique-scores:
@@ -219,7 +218,7 @@ techniques:
         scores:
           - category: Detect
             value: Partial
-            comments: can't detect domain fronting
+            comments: Can't detect domain fronting
 comments: >-
   Network Traffic Analytics can make queries with respect to Network Security Groups. Mappings made
   with some reasonable assumptions on NSGs such as a group for management systems.

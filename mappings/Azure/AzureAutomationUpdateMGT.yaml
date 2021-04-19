@@ -7,8 +7,8 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - Windows
   - Linux
+  - Windows
 description: >-
   "Use Azure Automation Update Management or a third-party solution to ensure that the most recent
   security updates are installed on your Windows and Linux VMs. "
@@ -45,7 +45,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Significant
-        comments: 'Coverage of methods that exploit unpatched vulnerabilities in software/systems. '
+        comments: Coverage of methods that exploit unpatched vulnerabilities in software/systems.
   - id: T1068
     name: Exploitation for Privilege Escalation
     technique-scores:
@@ -58,14 +58,13 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          Partial coverage for techniques that exploit vulnerabilities in (common) unpatched
-          software.
+          Partial coverage for techniques that exploit vulnerabilities in (common) unpatched software.
   - id: T1212
     name: Exploitation for Credential Access
     technique-scores:
       - category: Protect
         value: Significant
-        comments: coverage of techniques that leverage unpatched software vulnerabilities
+        comments: Coverage of techniques that leverage unpatched software vulnerabilities
   - id: T1203
     name: Exploitation for Client Execution
     technique-scores:
@@ -78,7 +77,7 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          protection against DOS that leverages system/application vulnerability as opposed to
+          Protection against Denial of Service (DOS) attacks that leverage system/application vulnerabilities as opposed to
           volumetric attacks
     sub-techniques-scores:
       - sub-techniques:
@@ -100,7 +99,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: Protects against subset of methods that leverage unpatched client software
+        comments: Protects against a subset of methods that leverage unpatched client software
 comments: >-
   Generally applies to techniques that leverage vulnerabilities in unpatched software, which tend to
   be a subset of possible methods for a given TTP. 

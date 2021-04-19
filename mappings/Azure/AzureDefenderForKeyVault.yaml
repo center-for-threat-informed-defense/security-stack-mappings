@@ -32,11 +32,11 @@ techniques:
       - category: Detect
         value: Significant
         comments: >-
-          This control may detect suspicious secret access from Azure key vault. This does not apply
+          This control may detect suspicious secret access from Azure key vaults. This does not apply
           to any sub-techniques under T1555 - Credentials from Password Stores but Azure Key Vault
           can be treated as a store for passwords, keys, and certificates. The coverage of this
           control could be deemed high for cloud credential and secret storage within Key Vault but
-          it not applicable to traditional password stores, such as password managers, keychain, or
+          is not applicable to traditional password stores, such as password managers, keychain, or
           web browsers. 
 comments: >-
   This control provides alerts for suspicious activity for Azure Key Vault. Documentation has been

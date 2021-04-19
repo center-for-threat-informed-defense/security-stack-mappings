@@ -19,7 +19,7 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          This control may provide recommendations  to restrict access to applications that are
+          This control may provide recommendations to restrict access to applications that are
           public facing and providing information on vulnerable applications.
   - id: T1133
     name: External Remote Services
@@ -265,7 +265,7 @@ techniques:
           This control may provide recommendations to enable soft deletion and purge protection in
           Azure Key Vault. This can help mitigate against malicious deletion of keys and secrets
           stored within Key Vault.
-comments: 'This mapping is focused on the list of built-in policy definitions provided by Azure. '
+comments: 'This mapping is focused on the list of built-in policy definitions provided by Azure Policy.'
 references:
   - 'https://docs.microsoft.com/en-us/azure/governance/policy/overview'
   - 'https://docs.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies#api-for-fhir'

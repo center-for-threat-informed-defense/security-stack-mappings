@@ -2,7 +2,7 @@
 
 Below is the structure of the data format that captures the details of how a security control maps to ATT&CK (sub-)techniques.  The type, description and required attributes of each field are provided in the subsequent sections along with an example mapping file.
 
-<img src="DataFormatEntityDiagram.png" width="900px">
+<img src="/images/DataFormatEntityDiagram.png" width="900px">
 
 *Above:  Entity Diagram for Data Mapping Format*
 

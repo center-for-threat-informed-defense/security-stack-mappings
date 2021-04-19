@@ -28,7 +28,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Significant
-        comments: provides significant mitigation against defacement
+        comments: Provides significant mitigation against defacement
     sub-techniques-scores:
       - sub-techniques:
           - id: T1491.002
@@ -61,7 +61,7 @@ techniques:
               procedures for recovery.
 comments: >-
   Azure Backup service provides defense against destruction/manipulation of data at rest. Scoring as
-  "Significant" since it is an essential practice against data destruction et al, though argument
-  for "partial" since does not prevent so much as enable recovery.
+  "Significant" since it is an essential practice against data destruction et al, though there is an argument
+  for a Partial score since it does not prevent so much as enable recovery.
 references:
   - 'https://docs.microsoft.com/en-us/azure/backup/backup-overview'

@@ -23,7 +23,7 @@ techniques:
         value: Significant
         comments: >-
           Conditional Access can be used to enforce MFA for users which provides significant protection against 
-          password compromises, requiring the adversary to complete an additional authentication method before
+          password compromises, requiring an adversary to complete an additional authentication method before
           their access is permitted.
     sub-techniques-scores:
       - sub-techniques:
@@ -40,7 +40,7 @@ techniques:
             value: Significant
             comments: >-
               Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a
-              password compromise, requiring the adversary to complete an additional authentication method before 
+              password compromise, requiring an adversary to complete an additional authentication method before 
               their access is permitted.
   - id: T1078
     name: Valid Accounts
@@ -71,7 +71,7 @@ techniques:
       - category: Protect
         value: Minimal
         comments: >-
-          This control only provides the ability restrict file downloads for a limited set of
+          This control only provides the ability to restrict file downloads for a limited set of
           applications and therefore its overall Coverage score is minimal.
     sub-techniques-scores:
       - sub-techniques:
@@ -90,7 +90,7 @@ techniques:
               to download, print, or sync files.  This can impede an adversary's ability to collect
               and stage files  This  overall offers minimal coverage as it requires the target
               application to support such a feature that can be triggered by this control and to
-              date only a few (Office) application support this.
+              date only a few (Office) applications support this.
   - id: T1530
     name: Data from Cloud Storage Object
     technique-scores:
@@ -103,14 +103,14 @@ techniques:
           browser-only access to OneDrive with no ability to download, print, or sync files.  This
           can impede an adversary's ability to exfiltrate data from OneDrive.  The protection
           coverage provided by this control is Minimal as it doesn't provide protection for other
-          Azure storage services such as the Azure Storage service.
+          storage services available on Azure such as the Azure Storage service.
   - id: T1213
     name: Data from Information Repositories
     technique-scores:
       - category: Protect
         value: Minimal
         comments: >-
-          This control only provides the ability restrict an adversary from collecting valuable
+          This control only provides the ability to restrict an adversary from collecting valuable
           information for a limited set of applications (SharePoint, Exchange, OneDrive) and
           therefore its overall Coverage score is minimal.
     sub-techniques-scores:
@@ -133,7 +133,6 @@ techniques:
               simply writing down information by hand.
 comments: >-
   At first glance, this control seems mappable to Exfiltration (sub-)techniques but upon further
-  analysis, it doesn't really mitigate exfiltration but rather its prerequisite Collection
-  (sub-)techniques.
+  analysis, it doesn't really mitigate exfiltration but rather its prerequisite Collection (sub-)techniques.
 references:
   - 'https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview'

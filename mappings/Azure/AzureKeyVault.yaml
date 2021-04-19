@@ -25,7 +25,7 @@ techniques:
           This control can provide protection against attackers stealing application access tokens
           if they are stored within Azure Key Vault. Key vault significantly raises the bar for
           access for stored tokens by requiring legitimate credentials with proper authorization.
-          Applications may have to be modified to take advantage of Key Vault  and may not always be
+          Applications may have to be modified to take advantage of Key Vault and may not always be
           possible to utilize.
   - id: T1555
     name: Credentials from Password Stores

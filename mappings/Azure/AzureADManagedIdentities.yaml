@@ -12,7 +12,7 @@ tags:
 description: >-
   Managed identities for Azure resources provide Azure services with an automatically managed
   identity in Azure Active Directory. You can use this identity to authenticate to any service that
-  supports Azure AD authentication, without having credentials in your code.
+  supports Azure AD authentication, without having to hard-code credentials in your code.
 techniques:
   - id: T1552
     name: Unsecured Credentials
@@ -31,7 +31,7 @@ techniques:
             value: Partial
             comments: >-
               This control provides an alternative to hard-coding credentials for accessing Azure
-              services in application code.   This control only protects credentials for accessing
+              services in application code.  This control only protects credentials for accessing
               Azure services and not other credential types, resulting in a Partial coverage score.
 references:
   - >-

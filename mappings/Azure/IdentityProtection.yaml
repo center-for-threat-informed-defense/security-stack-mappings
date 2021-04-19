@@ -27,8 +27,10 @@ techniques:
       - category: Respond
         value: Minimal
         comments: >-
-          Provides Significant response capabilities for one of this technique's sub-techniques
-          (cloud accounts).
+          Provides significant response capabilities for one of this technique's sub-techniques
+          (cloud accounts).  Due to this capability being specific to cloud accounts and not the
+          remaining sub-techniques of this technique, the coverage score is Minimal resulting in an
+          overall Minimal score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1078.004
@@ -61,12 +63,11 @@ techniques:
           This control can be effective at detecting forged web credentials because it uses
           environment properties (e.g. IP address, device info, etc.) to detect risky users and
           sign-ins even when valid credentials are utilized.  It provides partial coverage of this
-          techniques sub-techniques and therefore has been assessed a Partial score.
+          technique's sub-techniques and therefore has been assessed a Partial score.
       - category: Respond
         value: Partial
         comments: >-
-          Provides Significant response capabilities for one of this technique's sub-techniques
-          (SAML tokens).
+          Provides Significant response capabilities for one of this technique's sub-techniques (SAML tokens).
     sub-techniques-scores:
       - sub-techniques:
           - id: T1606.002

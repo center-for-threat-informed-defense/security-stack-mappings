@@ -6,8 +6,9 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - Network
   - Analytics
+  - Azure Security Center
+  - Network
 description: >-
   Security Center network-layer analytics are based on sample IPFIX data, which are packet headers
   collected by Azure core routers. Based on this data feed, Security Center uses machine learning
@@ -37,13 +38,13 @@ techniques:
       - category: Detect
         value: Partial
         comments: >-
-          Could identify connections to known malicious sites. Partial (arguably minimal) since must
-          be on block list. No sub-techniques scored since not enough fidelity in the alert. 
+          This control can identify connections to known malicious sites. Partial (arguably minimal) since the
+          malicious sites must be on block list. No sub-techniques scored since not enough fidelity in the alert. 
 comments: >-
-  Associated with Azure Security Center.
+  Associated with the Azure Security Center.
 
-  The alerts can pick up outbound DOS, though that's not an ATT&CK technique per se (description
-  oriented towards inbound DOS), also is a form of resource hijacking (though not in ATT&CK
-  description, which is oriented towards cryptomining)
+  The alerts can pick up outbound Denial of Service (DOS) attacks, though that's not an ATT&CK technique 
+  per se (description oriented towards inbound DOS), also is a form of resource hijacking (though not in ATT&CK
+  description, which is oriented towards cryptomining).
 references:
   - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurenetlayer'
