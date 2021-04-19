@@ -1,0 +1,200 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/16/2021
+name: Azure Sentinel Analytics
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+description: 'Out of the box Analytics for Azure Sentinel '
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "Failed Host logons but success logon to AzureAD" can detect some potentially malicious
+          domain logon activity that leverages a valid account.  
+
+          "
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.002
+            name: Domain Accounts
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1195
+    name: Supply Chain Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "AzureDevops Service Connection Abuse" Can detect potential malicious behavior associated
+          with use of large number of service connections. 
+
+          "External Upstream Source added to Azure DevOps" identifies a specific behavior that could
+          compromise the devops build pipeline
+
+          "Azure DevOps Pull Request Policy Bypassing - History" can identify specific potentially
+          malicious behavior that compromises the build process.
+
+          "Azure DevOps Pipeline modified by a New User" identifies potentially malicious activity
+          that could compromise the devops pipeline.
+
+          "Azure DevOps Administrator Group Monitoring" monitors for specific activity which could
+          compromise the build/release process.
+
+          "New Agent Added to Pool by New User or a New OS" can detect a suspicious behavior that
+          could potentially compromise devops pipeline
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1195.001
+            name: Compromise Software Dependencies and Development Tools
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Detects a specific behavior that may be indicative of software build/release process
+              abuse
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Hi count of failed attempts same client IP" detects  brute-force password guessing for
+          specific service (iis).
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+        scores:
+          - category: Detect
+            value: Minimal
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Full Admin policy created and then attached to Role, User, or Group" is an AWS-specific
+          analytic that identifies potential account-manipulation for persistence or priv esc.
+          (score mininimal for spcificity) (scoring this 3rd party since AWS can be very commonnly
+          used).
+
+          "New access credential added to Application or Service Principal" can identify potentially
+          malicious  additional credentials for privilege esc, persistence
+
+          "Suspicious granting of permissions to an account" can identify some potentially
+          illegitimate permission-granting activity (specifically from a previously unseen IP).
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.001
+            name: Additional Cloud Credentials
+        scores:
+          - category: Detect
+            value: Minimal
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: '"Malformed user agent" can detect potential C2 or C2 agent activity.'
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.001
+            name: Web Protocols
+        scores:
+          - category: Detect
+            value: Minimal
+  - id: T1567
+    name: Exfiltration Over Web Service
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Malformed user agent" may detect potential exfiltration over a web service by malcious
+          code with a hard-coded user agent string, or possibly data encoded via the user agent
+          string. spcific method so scoring minimal.
+
+          "SharePointFileOperation via previously unseen IPs" may detect potential exfil activity
+          via sharepoint.
+  - id: T1595
+    name: Active Scanning
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Malformed user agent" analytic may detect hard-coded user-agent strings associated with
+          an adversary's vulnerability scanning tool.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1595.002
+            name: Vulnerability Scanning
+        scores:
+          - category: Detect
+            value: Minimal
+  - id: T1105
+    name: Ingress Tool Transfer
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "Linked Malicious Storage Artifacts" may identify potential downloaded adversary tools
+          that are missed by anti-malware.
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Multiple users email forwarded to same destination" can detect potential exfiltration via
+          email. specific method so a minimal score.
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "Process execution frequency anomaly" may detect potential resource hijacking / use of
+          processor.
+
+          "Suspicious number of resource (sic) creation or deployed" can identify potential misuse
+          and hijacking of resources.
+  - id: T1070
+    name: Indicator Removal on Host
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "Security Event Log cleared" detects potentially malicious clearing of Windows Security
+          events
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1070.001
+            name: Clear Windows Event Logs
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              "Security Event Log Cleared" gets a partial score for coverage (vs other windows event
+              logs).
+  - id: T1059
+    name: Command and Scripting Interpreter
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "Base64 encoded Windows process command-lines" can identify Base64 encoded PE files being
+          launched from command line.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1059.001
+            name: PowerShell
+          - id: T1059.003
+            name: Windows Command Shell
+        scores:
+          - category: Detect
+            value: Partial
+comments: Analytics rule templates. note did not score ioc-based or 3rd-party analytics.
