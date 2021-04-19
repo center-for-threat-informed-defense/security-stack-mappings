@@ -41,11 +41,27 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             #input=visualization.file_name, output=html_name, encoding='utf8')
 
 
-    def visualize_platform_controls(self, platform, platform_data, mdFile):
+    def get_control_reference(self, control):
+        item = Header.header_anchor(control)
+        item = item.split(" ")
+        item = "[" + " ".join(item[1:]).replace(".", "")
+        return item
+
+
+    def get_list_item(self, index, name):
+        return f"{index}. {name}"
+        
+    
+    def visualize_platform_controls(self, platform, platform_data, platform_tags, mdFile):
         mdFile.new_header(level=1, title="Controls", add_table_of_contents='y')
+        control_index = 0
+        controls_map = {}
         for control_name in sorted(list(platform_data.keys())):
+            control_index += 1
             control_data = platform_data[control_name]
-            mdFile.new_header(level=2, title=control_name, add_table_of_contents='y')
+            title = self.get_list_item(control_index, control_name)
+            controls_map[control_name] = title
+            mdFile.new_header(level=2, title=title, add_table_of_contents='y')
             mdFile.new_paragraph(control_data[0])
 
             mapping = control_data[1]
@@ -57,25 +73,29 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             mdFile.write(f"- [Navigator Layer]({layer})\n")
             #mdFile.write(f"- [Navigator Layer](https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL={layer})\n")
 
-            techniques = control_data[6]
-            techniques.sort()
-            mdFile.new_header(level=3, title="Technique(s)", add_table_of_contents='n')
-            for technique in techniques:
-                mdFile.write(f"- {technique}\n")
-            mdFile.write('  \n\n')
-
             comments = control_data[3]
             if comments:
                 mdFile.new_header(level=3, title="Mapping Comments", add_table_of_contents='n')
                 mdFile.new_paragraph(comments)
                 mdFile.write('  \n\n')
 
+            techniques = control_data[6]
+            techniques.sort()
+            mdFile.new_header(level=3, title="Technique(s)", add_table_of_contents='n')
+            table_data = ["Technique", "Category", "Value", "Comment"]
+            for tech in techniques:
+                table_data.extend(tech)
+            mdFile.new_table(4, len(techniques) + 1, text=table_data, text_align='left')
+            mdFile.write('  \n\n')
+
             tags = control_data[5]
             if tags:
                 tags.sort()
                 mdFile.new_header(level=3, title="Tag(s)", add_table_of_contents='n')
                 for tag in tags:
-                    mdFile.write(f"- {Header.header_anchor(tag)}\n")
+                    tag_index = platform_tags.index(tag) + 1
+                    ref = self.get_control_reference(self.get_list_item(tag_index, tag))
+                    mdFile.write(f"- {ref}\n")
                 mdFile.write('  \n\n')
 
             references = control_data[4]
@@ -84,17 +104,23 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
                 mdFile.write(f"- {reference}\n")
             mdFile.write('  \n\n')
         
-    
-    def visualize_platform_tags(self, platform, platform_tags, mdFile):
-        mdFile.new_header(level=1, title="Tags", add_table_of_contents='y')
+        return controls_map
 
+    
+    def visualize_platform_tags(self, platform, platform_tags, controls_map, mdFile):
+        mdFile.new_header(level=1, title="Control Tags", add_table_of_contents='y')
+
+        tag_index = 0
         for tag in sorted(list(platform_tags.keys())):
+            tag_index += 1
             controls = platform_tags[tag]
             controls.sort()
-            mdFile.new_header(level=2, title=tag, add_table_of_contents='y')
+            tag_title = self.get_list_item(tag_index, tag)
+            mdFile.new_header(level=2, title=tag_title, add_table_of_contents='y')
             mdFile.new_header(level=3, title="Controls", add_table_of_contents='n')
             for control in controls:
-                mdFile.write(f"- {Header.header_anchor(control)}\n")
+                ref = self.get_control_reference(controls_map[control])
+                mdFile.write(f"- {ref}\n")
 
             #mdFile.write('\n\n')
             mdFile.new_header(level=3, title="Navigator Layer", add_table_of_contents='n')
@@ -113,6 +139,16 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             print(f"Warning:  Platform {platform} doesn't have a tags file located here:  {tags_path}")
 
         return tags
+
+
+    def get_technique_rows(self, technique):
+        techs = []
+        desc = f"[{technique['id']} - {technique['name']}](https://attack.mitre.org/techniques/{technique['id']}/)"
+        for score in technique["technique-scores"]:
+            comment = score.get("comments", "").replace("\n", "<br/>").strip()
+            techs.append([desc, score['category'], score['value'], comment])
+
+        return techs
 
 
     def visualize(self, mapping_files, options = {}):
@@ -145,8 +181,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
             techniques = []
             for technique in mapping_yaml.get("techniques", []):
-                technique = f"[{technique['id']} - {technique['name']}](https://attack.mitre.org/techniques/{technique['id']}/)"
-                techniques.append(technique)
+                technique_rows = self.get_technique_rows(technique)
+                techniques.extend(technique_rows)
             platform_data[mapping_yaml['name']].append(techniques)
 
         for platform, platform_data in summary_data.items():
@@ -156,8 +192,10 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             mdFile.new_header(level=1, title="Introduction", add_table_of_contents='y')
             mdFile.new_paragraph(summary)
 
-            self.visualize_platform_controls(platform, platform_data[1], mdFile)
-            self.visualize_platform_tags(platform, platform_data[2], mdFile)
+            tags = list(platform_data[2])
+            tags.sort()
+            control_map = self.visualize_platform_controls(platform, platform_data[1], tags, mdFile)
+            self.visualize_platform_tags(platform, platform_data[2], control_map, mdFile)
 
             readme_path = platform_data[0]
             options["output_absolute_filename"] = readme_path
