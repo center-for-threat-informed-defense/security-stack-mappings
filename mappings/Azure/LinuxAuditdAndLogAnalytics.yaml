@@ -7,8 +7,8 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - Linux
   - Azure Defender
+  - Linux
 description: >-
   This integration enables collection of auditd events in all supported Linux distributions, without
   any prerequisites. Auditd records are collected, enriched, and aggregated into events by using the
@@ -38,8 +38,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control may alert on suspicious arguments used to exploit Xorg vulnerabilities for
-          privilege escalation. 
+          This control may alert on suspicious arguments used to exploit Xorg vulnerabilities for privilege escalation. 
   - id: T1098
     name: Account Manipulation
     technique-scores:
@@ -95,7 +94,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: 'The only sub-technique is control is relevant for is Web Shell. '
+        comments: The only sub-technique this control is relevant for is Web Shell.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1505.003
@@ -104,8 +103,7 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              This control may alert on usage of web shells. No documentation is provided on logic
-              for this detection.
+              This control may alert on usage of web shells. No documentation is provided on logic for this detection.
   - id: T1564
     name: Hide Artifacts
     technique-scores:
@@ -149,8 +147,7 @@ techniques:
             value: Significant
             comments: >-
               This control may alert on manipulation of the on-host firewall. Firewall rules should
-              not be changed often in a standard environment and such an event can provide a high
-              fidelity event.
+              not be changed often in a standard environment and such an event can provide a high fidelity alert.
       - sub-techniques:
           - id: T1562.006
             name: Indicator Blocking
@@ -167,8 +164,7 @@ techniques:
       - category: Detect
         value: Partial
         comments: >-
-          This control is only relevant for Linux environments and may alert on multiple
-          sub-techniques.
+          This control is only relevant for Linux environments and may alert on multiple sub-techniques.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1070.002
@@ -195,8 +191,9 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control only contains coverage for the Compile After Delivery sub-technique while all
-          sub-techniques listed under this technique are applicable to Linux environments.
+          This control only provides detection coverage for the Compile After Delivery sub-technique while
+          not providing detection for all other sub-techniques relevant to the Linux platform.  As a result
+          of this minimal coverage, the overall score is assessed as Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1027.004

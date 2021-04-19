@@ -8,7 +8,7 @@ platform: Azure
 tags:
   - Credentials
 description: >-
-  "Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure.... for
+  "Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure ... for
   customers who require FIPS 140-2 Level 3-validated devices and complete and exclusive control of
   the HSM appliance."
 techniques:
@@ -17,7 +17,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: 'Coverage partial: Protects private keys'
+        comments: 'Coverage partial: protects private keys'
     sub-techniques-scores:
       - sub-techniques:
           - id: T1552.004
@@ -42,16 +42,14 @@ techniques:
           - category: Protect
             value: Partial
             comments: >-
-              Coverage partial since typical HSM use would be for special protected applications and
-              accounts.
+              Coverage partial since typical HSM use would be for special protected applications and accounts.
   - id: T1588
     name: Obtain Capabilities
     technique-scores:
       - category: Protect
         value: Partial
         comments: >-
-          coverage limited to subtechniques involved with stealing credentials / certificates / keys
-          from the organization.
+          Coverage limited to sub-techniques involved with stealing credentials / certificates / keys from the organization.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1588.004
@@ -66,7 +64,7 @@ techniques:
     technique-scores:
       - category: Protect
         value: Partial
-        comments: coverage limited to code signing and install root certificate
+        comments: Coverage limited to code signing and install root certificate
     sub-techniques-scores:
       - sub-techniques:
           - id: T1553.004
@@ -76,7 +74,7 @@ techniques:
         scores:
           - category: Protect
             value: Partial
-comments: 'Note there is also a Managed HSM service '
+comments: 'Note there is also a Managed HSM service.'
 references:
   - 'https://docs.microsoft.com/en-us/azure/dedicated-hsm/overview'
   - 'https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/'

@@ -11,12 +11,11 @@ tags:
   - Identity
   - MFA
 description: >-
-  The identity secure score is percentage that functions as an indicator for how aligned you are
-  with Microsoft's best practice recommendations for security. Each improvement action in identity
-  secure score is tailored to your specific configuration.  The score helps you to:  Objectively
-  measure your identity security posture. Plan identity security improvements, Review the success of
+  The identity secure score is a percentage that functions as an indicator for how aligned you are
+  with Microsoft's best practice recommendations for security. Each improvement action in Identity
+  Secure Score is tailored to your specific configuration.  The score helps you to:  Objectively
+  measure your identity security posture, plan identity security improvements, and review the success of
   your improvements.  
-
 
   Every 48 hours, Azure looks at your security configuration and compares your settings with the
   recommended best practices. Based on the outcome of this evaluation, a new score is calculated for
@@ -51,11 +50,9 @@ techniques:
               accounts, requiring the adversary to complete an additional authentication method
               before their access is permitted. 
 
-
               This control's "Do not expire passwords" recommendation also can mitigate the Password
               Guessing or Cracking sub-techniques by disabling password reset which tends to lead to
               users selecting weaker passwords.  
-
 
               This control's "Enable policy to block legacy authentication" and "Stop legacy
               protocols communication" can protect against these brute force attacks as Microsoft
@@ -64,10 +61,8 @@ techniques:
               Additionally, the same research shows that more than 99 percent of password spray and
               more than 97 percent of credential stuffing attacks use legacy authentication.
 
-
               This control's "Resolve unsecure account attributes" can lead to detecting accounts
               with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.
-
 
               Because these are recommendations and do not actually enforce MFA, the assessed score
               is capped at Partial. 
@@ -85,7 +80,7 @@ techniques:
         comments: >-
           This control provides recommendations that lead to detections for malicious usage of valid
           cloud accounts but does not provide recommendations for the remaining sub-techniques and
-          therefore its overall detection coverage is minimal.
+          therefore its overall detection coverage score is minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1078.004
@@ -100,11 +95,9 @@ techniques:
               the adversary to complete an additional authentication process before access is
               permitted.  See the mapping for MFA for more details.  
 
-
               This control's "Use limited administrative roles" recommendation recommends reviewing
               and limiting the number of accounts with global admin privilege, reducing what an
               adversary can do with a compromised valid account.
-
 
               Because these are recommendations and do not actually enforce the protections, the
               assessed score is capped at Partial. 
@@ -151,8 +144,7 @@ techniques:
         comments: >-
           This control's "Designate more than one global admin" can enable recovery from an
           adversary locking a global administrator account (deleted, locked, or manipulated (ex:
-          changed credentials)).  Due to this being a recommendation, its score is capped as
-          Partial.
+          changed credentials)).  Due to this being a recommendation, its score is capped as Partial.
   - id: T1528
     name: Steal Application Access Token
     technique-scores:
@@ -207,7 +199,6 @@ techniques:
               detecting Active Directory accounts which do not require Kerberos preauthentication. 
               Preauthentication offers protection against offline (Kerberos) Password Cracking.  
 
-
               Because this is a recommendation its score is capped as Partial.
       - sub-techniques:
           - id: T1558.001
@@ -219,7 +210,7 @@ techniques:
               This control's "Reduce lateral movement path risk to sensitive entities"
               recommendation can lead to protecting sensitive accounts against Pass-the-Hash and
               Pass-the-Ticket attacks that may result in an adversary acquiring a golden ticket. 
-              It  recommends running the Lateral-Movement-Paths report to understand and identify
+              It recommends running the Lateral-Movement-Paths report to understand and identify
               exactly how attackers can move laterally through the monitored network to gain access
               to privileged identities such as the KRBTGT on the domain controller.  Because this is
               a recommendation, its score has been capped as Partial.
@@ -243,7 +234,7 @@ techniques:
         value: Minimal
         comments: >-
           This control's "Resolve unsecure account attributes" provides recommendations that can
-          lead to strengthening how accounts are stored in Active Directory.   This control provides
+          lead to strengthening how accounts are stored in Active Directory.  This control provides
           recommendations specific to a few types of unsecured credentials (reversible and weakly
           encrypted credentials) while not providing recommendations for any other, resulting in a
           Minimal score.
@@ -280,10 +271,9 @@ techniques:
         comments: >+
           This control's "Stop clear text credentials exposure" provides a recommendation to run the
           "Entities exposing credentials in clear text" assessment that monitors your traffic for
-          any entities exposing credentials in clear text ( via LDAP simple-bind).  This assessment
+          any entities exposing credentials in clear text (via LDAP simple-bind).  This assessment
           seems specific to LDAP simple-binds and coupled with the fact that it is a recommendation
           and is not enforced, results in a Minimal score.
-
   - id: T1133
     name: External Remote Services
     technique-scores:
@@ -317,27 +307,27 @@ techniques:
               Identity profiles to be risky.  Because this is a recommendation and not actually
               enforced, coupled with the detection its assessed score is capped at Partial. 
 comments: >-
-  This control was mapped to (sub-)techniques based on the security score improvement actions listed
+  This control was mapped to (sub-)techniques based on the Security Score improvement actions listed
   in a sample Azure AD tenant that we provisioned.  We were unable to find a comprehensive list of
   the security checks made by the control listed in its documentation.  We did note that there were
-  some improvement actions listed that our tenant received the max score leading us to believe that
+  some improvement actions listed that our tenant received the max score, leading us to believe that
   the actions listed were the complete list of checks and not just those that were outstanding for
   our tenant.
 
-
   The following improvement actions were analyzed:
 
-
-  Require MFA for administrative roles, Designate more than one global admin, Do not allow users to grant consent to unmanaged applications,
+  Require MFA for administrative roles, Designate more than one global admin, 
+  Do not allow users to grant consent to unmanaged applications,
   Use limited administrative roles, Do not expire passwords, Enable policy to block legacy authentication 
   Turn on sign-in risk policy, Turn on user risk policy, Ensure all users can complete multi-factor authentication for secure access,
   Enable self-service password reset, Resolve unsecure account attributes, Reduce lateral movement path risk to sensitive entities, 
   Set a honeytoken account, Stop clear text credentials exposure, Install Defender for Identity Sensor on all Domain Controllers, 
-  Disable Print spooler service on domain controllers, Configure VPN integration, Configure Microsoft Defender for Endpoint Integration (*excluded, would increase the scope, see
-  mapping for Microsoft Defender for Endpoint), Stop legacy protocols communication, Stop weak cipher usage, Remove dormant accounts from sensitive groups,
-  Protect and manage local admin passwords with Microsoft LAPS, Remove unsecure SID history attributes from entities, Fix Advanced Audit Policy issues, 
-  Modify unsecure Kerberos delegations to prevent impersonation. 
-
+  Disable Print spooler service on domain controllers, Configure VPN integration, 
+  Configure Microsoft Defender for Endpoint Integration (*excluded, would increase the scope, see mapping for Microsoft 
+  Defender for Endpoint), Stop legacy protocols communication, Stop weak cipher usage, 
+  Remove dormant accounts from sensitive groups, Protect and manage local admin passwords with Microsoft LAPS, 
+  Remove unsecure SID history attributes from entities, Fix Advanced Audit Policy issues, Modify unsecure Kerberos 
+  delegations to prevent impersonation. 
 
   All scores were capped at Partial since this control provides recommendations rather than applying/enforcing the recommended actions.
 references:

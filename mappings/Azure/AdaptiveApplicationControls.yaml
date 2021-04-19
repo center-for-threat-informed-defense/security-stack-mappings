@@ -21,11 +21,11 @@ techniques:
     name: User Execution
     technique-scores:
       - category: Detect
-        value: Minimal
+        value: Partial
         comments: >-
-          This control only provides detection for some of this technique's sub-techniques while not
+          This control only provides detection for one of this technique's sub-techniques while not
           providing any detection capability for its other sub-technique, and therefore its coverage
-          score is Minimal, resulting in a Minimal score.
+          score is Partial, resulting in a Partial score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1204.002
@@ -42,11 +42,11 @@ techniques:
     name: Masquerading
     technique-scores:
       - category: Detect
-        value: Minimal
+        value: Partial
         comments: >-
-          This control only provides detection for some of this technique's sub-techniques while not
+          This control provides detection for some of this technique's sub-techniques while not
           providing any detection capability for the remaining sub-techniques, and therefore its
-          coverage score is Minimal, resulting in a Minimal score.
+          coverage score is Partial, resulting in a Partial score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1036.005

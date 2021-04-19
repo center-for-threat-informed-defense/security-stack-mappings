@@ -15,7 +15,7 @@ tags:
 description: >-
   This control provides alerts for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
   Analytics. An alert may be generated on suspicious database activities, potential vulnerabilities,
-  and SQL injection attacks, as well as anomalous database access and queries patterns.
+  and SQL injection attacks, as well as anomalous database access and query patterns.
 techniques:
   - id: T1078
     name: Valid Accounts
@@ -78,7 +78,6 @@ techniques:
           This control may alert on usage of faulty SQL statements. This generates an alert for a
           possible SQL injection by an application. Alerts may not be generated on usage of valid
           SQL statements by attackers for malicious purposes.
-comments: ''
 references:
   - 'https://docs.microsoft.com/en-us/azure/azure-sql/database/threat-detection-overview'
   - >-

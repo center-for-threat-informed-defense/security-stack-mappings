@@ -6,8 +6,8 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - Identity
   - Azure Active Directory
+  - Identity
 description: >-
   Continuous Access Evaluation (CAE) provides the next level of identity security by terminating
   active user sessions to a subset of Microsoft services (Exchange and Teams) in real-time on
@@ -16,7 +16,6 @@ description: >-
   the user is able to circumvent the new policy setting because their OAuth access token was issued
   before the policy change.  It’s typical that security access tokens issued by Azure AD, like OAuth
   2.0 access tokens, are valid for an hour.
-
 
   CAE enables the scenario where users lose access to organizational SharePoint Online files, email,
   calendar, or tasks, and Teams from Microsoft 365 client apps within mins after critical security

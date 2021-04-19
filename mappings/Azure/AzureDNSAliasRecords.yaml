@@ -7,14 +7,13 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - DNS
+  - Network
 description: >+
   Azure DNS alias records are qualifications on a DNS record set. They can reference other Azure
   resources from within your DNS zone.   For example, you can create an alias record set that
   references an Azure public IP address instead of an A record. Your alias record set points to an
   Azure public IP address service instance dynamically. As a result, the alias record set seamlessly
   updates itself during DNS resolution.
-
-
 techniques:
   - id: T1584
     name: Compromise Infrastructure

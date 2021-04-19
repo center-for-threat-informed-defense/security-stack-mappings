@@ -16,6 +16,12 @@ description: >-
   Multi-factor authentication is a process where a user is prompted during the sign-in process for
   an additional form of identification, such as to enter a code on their cellphone or to provide a
   fingerprint scan.
+
+  If you only use a password to authenticate a user, it leaves an insecure vector for attack. If 
+  the password is weak or has been exposed elsewhere, is it really the user signing in with the 
+  username and password, or is it an attacker? When you require a second form of authentication,
+  security is increased as this additional factor isn't something that's easy for an attacker to 
+  obtain or duplicate.
 techniques:
   - id: T1110
     name: Brute Force

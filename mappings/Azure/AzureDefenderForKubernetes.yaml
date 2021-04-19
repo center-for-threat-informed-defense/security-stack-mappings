@@ -12,7 +12,7 @@ tags:
   - Containers
 description: >-
   Azure Defender for Kubernetes provides cluster-level threat protection by monitoring your
-  AKS-managed services through the logs retrieved by Azure Kubernetes Service (AKS). Examples of
+  Azure Kubernetes Service (AKS) managed services through the logs retrieved by AKS. Examples of
   security events that Azure Defender for Kubernetes monitors include exposed Kubernetes dashboards,
   creation of high privileged roles, and the creation of sensitive mounts.
 techniques:

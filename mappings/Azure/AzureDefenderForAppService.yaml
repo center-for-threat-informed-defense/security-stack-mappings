@@ -8,11 +8,11 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Defender
+  - Azure Defender for App Service
   - Azure Security Center
   - Azure Security Center Recommendation
-  - Windows
   - Linux
-  - Azure Defender for App Service
+  - Windows
 description: >-
   Azure Defender for App Service monitors VM instances and their management interfaces, App Service
   apps and their requests/responses, and App Service internal logs to detect threats to App Service
@@ -86,7 +86,7 @@ techniques:
         value: Minimal
         comments: >-
           This control only provides (minimal) protection for one of the technique's sub-techniques,
-          so its score is Minimal.
+          resulting in a Minimal score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1566.002
@@ -142,8 +142,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control only provides detection for one of the two sub-techniques, so score is
-          Minimal.
+          This control only provides detection for one of the two sub-techniques, so score is Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1595.002
@@ -171,7 +170,8 @@ techniques:
         value: Partial
         comments: >-
           This control's Fileless Attack Detection covers all relevant sub-techniques. The control
-          also specifically detects  Detection is periodic at an unknown rate.
+          also specifically detects process hollowing, executable image injection, and threads started in a dynamically
+          allocated code segment. Detection is periodic at an unknown rate.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1055.001
@@ -292,7 +292,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Minimal
-        comments: 'This control only addresses one of this technique''s sub-techniques, so score is Minimal.'
+        comments: 'This control only addresses one of this technique''s sub-techniques, so its score is Minimal.'
     sub-techniques-scores:
       - sub-techniques:
           - id: T1036.005
@@ -350,8 +350,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control only covers one platform and procedure for two of this technique's
-          sub-techniques, so score is Minimal.
+          This control only covers one platform and procedure for two of this technique's sub-techniques, so score is Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1547.005
@@ -381,8 +380,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control only covers one platform and procedure for one of this technique's
-          sub-techniques, so score is Minimal.
+          This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1543.003
@@ -477,8 +475,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control only covers one platform and procedure for one of this technique's
-          sub-techniques, so score is Minimal.
+          This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1027.005
@@ -537,8 +534,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control only covers one platform and procedure for one of this technique's
-          sub-techniques, so score is Minimal.
+          This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1053.005
@@ -567,8 +563,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control only covers one procedure for one of this technique's sub-techniques, so
-          score is Minimal.
+          This control only covers one procedure for one of this technique's sub-techniques, so score is Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1558.003
@@ -587,8 +582,7 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control only covers one platform and procedure for two of this technique's
-          sub-techniques, so score is Minimal.
+          This control only covers one platform and procedure for two of this technique's sub-techniques, so score is Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1552.002

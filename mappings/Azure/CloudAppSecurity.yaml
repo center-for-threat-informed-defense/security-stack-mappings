@@ -47,7 +47,7 @@ techniques:
         scores:
           - category: Detect
             value: Partial
-            comments: can detect large data exfil events
+            comments: Can detect large data exfil events
   - id: T1189
     name: Drive-by Compromise
     technique-scores:
@@ -77,7 +77,7 @@ techniques:
     technique-scores:
       - category: Detect
         value: Partial
-        comments: 'Can detect potentially risky apps '
+        comments: Can detect potentially risky apps
   - id: T1526
     name: Cloud Service Discovery
     technique-scores:
@@ -90,8 +90,7 @@ techniques:
       - category: Detect
         value: Partial
         comments: >-
-          May detect anomalous user behavior wwrt information repositories such as sharepoint or
-          confluence.
+          May detect anomalous user behavior wrt information repositories such as Sharepoint or Confluence.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1213.002
@@ -108,8 +107,7 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          Information protection policies can detect and encrypt sensitive information at rest on
-          supported platforms.
+          Information protection policies can detect and encrypt sensitive information at rest on supported platforms.
       - category: Detect
         value: Partial
         comments: Can detect sensitive information at rest.
@@ -119,8 +117,7 @@ techniques:
       - category: Protect
         value: Partial
         comments: >-
-          Can detect and encrypt sensitive information at rest on supported platforms, and restrict
-          access.
+          Can detect and encrypt sensitive information at rest on supported platforms, and restrict access.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1565.001
