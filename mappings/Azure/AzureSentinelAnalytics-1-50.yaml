@@ -2,7 +2,6 @@ version: 1
 ATT&CK version: 8.1
 creation date: 04/12/2021
 name: Azure Sentinel Analytics
-author: Clem Skorupka
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure

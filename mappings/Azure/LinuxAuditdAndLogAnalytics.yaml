@@ -2,7 +2,6 @@ version: 1
 ATT&CK version: 8.1
 creation date: 03/08/2021
 name: Linux auditd alerts and Log Analytics agent integration
-author: Eric Kannampuzha
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure

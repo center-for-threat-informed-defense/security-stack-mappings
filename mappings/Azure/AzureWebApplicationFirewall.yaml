@@ -2,7 +2,6 @@ version: 1.0
 ATT&CK version: 8.1
 creation date: 02/18/2021
 name: 'Azure Web Application Firewall'
-author: 'Clem Skorupka'
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure

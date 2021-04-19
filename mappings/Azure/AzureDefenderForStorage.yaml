@@ -2,7 +2,6 @@ version: 1.0
 ATT&CK version: 8.2
 creation date: 02/22/2021
 name: Azure Defender for Storage
-author: Eric Kannampuzha
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
