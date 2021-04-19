@@ -1,0 +1,901 @@
+{
+    "name": "Azure Firewall",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.1"
+    },
+    "domain": "enterprise-attack",
+    "description": "Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. \nIt's a fully stateful firewall as a service (FWaaS) with built-in high availability and unrestricted cloud scalability.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1590",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent some scans and probes of targeted network"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent network scanning and vunerability scanning of targeted endpoints."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry on scanners"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "TBD"
+                }
+            ],
+            "color": "#5c00a3",
+            "score": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1595.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to external remote services to minimum necessary"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry of systems attempting access to remote services"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "TBD"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1205",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can block access to ports used in traffic signalling"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide some telemetry on port knocking attempts"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1205.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "TBD"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent inter-host scanning / enforce network segmentation"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1018",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent some discovery between enclaves"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit hijacking between enclaves"
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1563.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1008",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can prevent access to known malicious destinations"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry / network forensics"
+                }
+            ],
+            "color": "#bf6bff",
+            "score": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1095",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict use of non-application layer protocols such as ICMP"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1571",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict access to non-standard ports"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1219",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict flow of some protocols across firewall boundaries."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict protocol use across firewall, though allowed protocols still can be used."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can restrict some protocols / C2 channels"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can provide telemetry"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "TBD"
+                }
+            ],
+            "color": "#9305ff",
+            "score": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Resource exhaustion attacks can be mitigated by the stateful firewall"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Resource exhaustion attacks can be mitigated by the stateful firewall"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Resource exhaustion attacks can be mitigated by the stateful firewall"
+                }
+            ],
+            "color": "#7FFF00",
+            "score": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Simple stateful firewall will not stop particular low-volume exploits (needs IDPS/ deep packet inspection)"
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can reduce network denial of service (DOS) by dropping packets. Need DDOS protection from upstream provider for large scale attacks."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}
