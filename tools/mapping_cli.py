@@ -168,6 +168,9 @@ def list_mappings(args):
     argument('--width', help="Set the width of the Comments column", type=int, required=False, default=80),
     argument('--level', help="Return technique data or sub-technique data", required=False, \
         default="Technique", choices = ["Technique","Sub-technique"]),
+    argument('--tag', help="Return mappings with the specified tag. "
+        "This does a LIKE search for exact match, surround w/ quotes (e.g. '\"Azure Defender\"'", 
+        action="append", required=False),
     ])
 def list_scores(args):
     filter_category = args.category if args.category else []
@@ -176,10 +179,11 @@ def list_scores(args):
     scores = list(set(args.score if args.score else []))
     platforms = args.platform if args.platform else []
     tactics = args.tactic if args.tactic else []
+    tags = args.tag if args.tag else []
 
-    if not controls and not filter_category and not attack_ids and not scores and not platforms and not tactics:
+    if not controls and not filter_category and not attack_ids and not scores and not platforms and not tactics and not tags:
         raise argparse.ArgumentTypeError('At least one filter option must be provided: '
-            '--control, --category, --score, --platform, --tactic or --attack-id parameters is required')
+            '--control, --category, --score, --platform, --tactic or --attack-id or --tag parameters is required')
         
     if args.level == "Technique":
         table = PrettyTable(["No.", "Name", "Mapping File", "Technique", "Category", "Score", "Comments"])
@@ -196,7 +200,7 @@ def list_scores(args):
     table.align["Score"] = "l"
 
     data = mapping_driver.query_mapping_file_scores(filter_category, attack_ids, \
-        controls, args.level, platforms, scores, tactics)
+        controls, args.level, platforms, scores, tactics, tags)
     num_rows = 0
     for mapping, attack_entity, score in data:
         attack_entity_info = "\n ".join(chunkstring(f"{attack_entity.attack_id} {attack_entity.name}", 25))

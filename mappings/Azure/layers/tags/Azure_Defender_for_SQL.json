@@ -50,11 +50,30 @@
                 {
                     "name": "comment",
                     "value": "This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "SQL Vulnerability Assessment"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1078.004",
@@ -232,17 +251,10 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on usage of faulty SQL statements. This generates an alert for a possible SQL injection by an application. Alerts may not be generated on usage of valid SQL statements by attackers for malicious purposes."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "SQL Vulnerability Assessment"
@@ -260,35 +272,9 @@
                     "value": "This control provides recommendations to patch if SQL server is out of date and to disable unneeded features to reduce exploitable surface area."
                 }
             ],
-            "color": "#659D32",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1078",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "SQL Vulnerability Assessment"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#9CBA7F",
-            "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1078.001",

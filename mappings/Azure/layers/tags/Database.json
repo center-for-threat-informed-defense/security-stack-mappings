@@ -50,11 +50,49 @@
                 {
                     "name": "comment",
                     "value": "This control provides minimal detection coverage for the only relevant sub-technique so score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "SQL Vulnerability Assessment"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1078.004",
@@ -76,6 +114,25 @@
                 {
                     "name": "comment",
                     "value": "This control triggers an alert when there is a change in the access pattern to an Azure Cosmos account based on access from an unusual geographical location. False positives are fairly likely and misuse from a typical location is not covered, so score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on logon events that are suspicious. This includes logins from unusual locations, logins from suspicious IP addresses, and users that do not commonly access the resource. These alerts may limit the ability of an attacker to utilize a valid cloud account to access and manipulate Azure databases. "
                 }
             ],
             "color": "#AEEEEE",
@@ -102,69 +159,10 @@
                 {
                     "name": "comment",
                     "value": "This control triggers an alert when an unusually large amount of data is extracted from/by an account compared to recent activity. False positives are fairly likely and extraction in quantities below the control's threshold is not detected, so score is Minimal. Neither of the sub-techniques are relevant in this context, since they are repository-specific."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1078",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
                 },
                 {
-                    "name": "category",
-                    "value": "Detect"
+                    "divider": true
                 },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1078.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on logon events that are suspicious. This includes logins from unusual locations, logins from suspicious IP addresses, and users that do not commonly access the resource. These alerts may limit the ability of an attacker to utilize a valid cloud account to access and manipulate Azure databases. "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1213",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
                 {
                     "name": "control",
                     "value": "Advanced Threat Protection for Azure SQL Database"
@@ -310,17 +308,10 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on usage of faulty SQL statements. This generates an alert for a possible SQL injection by an application. Alerts may not be generated on usage of valid SQL statements by attackers for malicious purposes."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "SQL Vulnerability Assessment"
@@ -338,35 +329,9 @@
                     "value": "This control provides recommendations to patch if SQL server is out of date and to disable unneeded features to reduce exploitable surface area."
                 }
             ],
-            "color": "#659D32",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1078",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "SQL Vulnerability Assessment"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#9CBA7F",
-            "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1078.001",

@@ -50,6 +50,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on suspicious Unix shell and PHP execution. Mismatched script extensions may also generate alerts of suspicious activity. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides detection coverage for two sub-techniques, and only detects certain specific sub-technique behaviors, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -76,6 +95,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on suspicious command line activity. Alerts may be generated on possible detection of shellcode usage on the command line and "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors host data for potential reverse shells used for command and control. Temporal factor is unknown."
                 }
             ],
             "color": "#AEEEEE",
@@ -102,11 +140,68 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on suspicious arguments used to exploit Xorg vulnerabilities for privilege escalation. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Coverage of methods that leverage vulnerabilities in unpatched software."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#9305ff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1098",
@@ -116,6 +211,25 @@
                 {
                     "name": "control",
                     "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
                 },
                 {
                     "name": "category",
@@ -154,6 +268,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on addition of new SSH keys to the authorized key file and unusual process access of the authorized key file."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
             "color": "#00FFFF",
@@ -180,6 +313,44 @@
                 {
                     "name": "comment",
                     "value": "This control is only relevant for Linux endpoint machines and the only sub-technique relevant for Linux is Kernel Modules and Extensions. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for two of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -206,6 +377,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on a suspicious shared object file being loaded as a kernel module. No documentation is provided on the logic but kernel module loading is a relatively rare event and can only be done with a small set of commands."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
             "color": "#00FFFF",
@@ -414,6 +604,25 @@
                 {
                     "name": "comment",
                     "value": "This control only provides coverage for two sub-techniques under this technique and provides no coverage for other relevant sub-techniques, such as, Impair Command History Logging or Disable or Modify Tools."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Due to low detection coverage, this technique is scored as minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -440,6 +649,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on manipulation of the on-host firewall. Firewall rules should not be changed often in a standard environment and such an event can provide a high fidelity alert."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "There are numerous ways depending on the operating system that these sub-techniques can be accomplished.  Monitoring the Windows Registry is one way depending on the procedure chosen to implement the sub-technique and therefore the overall coverage is low."
                 }
             ],
             "color": "#00FFFF",
@@ -466,6 +694,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on activity which disables auditd logging on Linux endpoints. The auditd package may not be the only logging system being utilized and this control may not alert on activity that disables other logging software."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "There are numerous ways depending on the operating system that these sub-techniques can be accomplished.  Monitoring the Windows Registry is one way depending on the procedure chosen to implement the sub-technique and therefore the overall coverage is low."
                 }
             ],
             "color": "#5F9F9F",
@@ -570,6 +817,25 @@
                 {
                     "name": "comment",
                     "value": "This control only provides detection coverage for the Compile After Delivery sub-technique while not providing detection for all other sub-techniques relevant to the Linux platform.  As a result of this minimal coverage, the overall score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -674,6 +940,44 @@
                 {
                     "name": "comment",
                     "value": "This control is only relevant for Linux environments."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Most credential dumping operations do not require modifying resources that can be detected by this control (i.e. Registry and File system) and therefore its coverage is minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one procedure for one of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#5F9F9F",
@@ -726,11 +1030,30 @@
                 {
                     "name": "comment",
                     "value": "This control is only relevant for Linux environments. Among the sub-techinques that are relevant for Linux, this control may only alert on SSH."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1021.004",
@@ -752,11 +1075,30 @@
                 {
                     "name": "comment",
                     "value": "This control may alerts on SSH brute force attempts, addition of new SSH keys, and usage of a SSH server within a container. Alerts may not be generated by usage of existing SSH keys by malicious actors for lateral movement. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to ensure sshd is not running within Docker containers. This can prevent attackers from utilizing unmonitored SSH servers within containers. This may not prevent attackers from installing a SSH server in containers or hosts."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1525",
@@ -778,6 +1120,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on suspicious container images running mining software or SSH servers. Privileged Docker containers and privileged commands running within containers may also be detected. These alerts are only generated on containers in Linux endpoint machines and not for containers running from Azure Docker deployment."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
                 }
             ],
             "color": "#5F9F9F",
@@ -804,6 +1165,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on usage of a screenshot tool. Documentation is not provided on the logic for determining a screenshot tool. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-TimedScreenshot module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#5F9F9F",
@@ -934,11 +1314,30 @@
                 {
                     "name": "comment",
                     "value": "Coverage of techniques that leverage vulnerabilities in unpatched remote services."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in an exposed service. Detection is periodic at an unknown rate."
                 }
             ],
-            "color": "#659D32",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1211",
@@ -960,37 +1359,30 @@
                 {
                     "name": "comment",
                     "value": "Coverage of methods that exploit unpatched vulnerabilities in software/systems."
-                }
-            ],
-            "color": "#7FFF00",
-            "score": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "Azure Automation Update Management"
+                    "value": "Azure Defender for App Service"
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Detect"
                 },
                 {
                     "name": "value",
-                    "value": "Significant"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "Coverage of methods that leverage vulnerabilities in unpatched software."
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#5c00a3",
             "score": "Significant",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1190",
@@ -1012,11 +1404,30 @@
                 {
                     "name": "comment",
                     "value": "Partial coverage for techniques that exploit vulnerabilities in (common) unpatched software."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
                 }
             ],
-            "color": "#659D32",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1212",
@@ -1038,11 +1449,30 @@
                 {
                     "name": "comment",
                     "value": "Coverage of techniques that leverage unpatched software vulnerabilities"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#5c00a3",
             "score": "Significant",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1203",
@@ -1064,11 +1494,30 @@
                 {
                     "name": "comment",
                     "value": "Covers methods that leverage unpatched vulnerabilities."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#5c00a3",
             "score": "Significant",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1499",
@@ -1168,11 +1617,30 @@
                 {
                     "name": "comment",
                     "value": "Protects against a subset of methods that leverage unpatched client software"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected into browser or other process memory as part of a drive-by attack. Detection is periodic at an unknown rate."
                 }
             ],
-            "color": "#659D32",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1053",
@@ -1194,6 +1662,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -1298,46 +1785,13 @@
                 {
                     "name": "comment",
                     "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1053.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1098",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
+                    "value": "Azure Defender for App Service"
                 },
                 {
                     "name": "category",
@@ -1349,33 +1803,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1098.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the New-UserPersistenceOption Persistence module on Windows, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -1383,7 +1811,7 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1547",
+            "techniqueID": "T1053.006",
             "enabled": "True",
             "showSubtechniques": "True",
             "metadata": [
@@ -1428,6 +1856,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via New-UserPersistenceOption on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -1532,20 +1979,13 @@
                 {
                     "name": "comment",
                     "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1547.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "File Integrity Monitoring"
+                    "value": "Azure Defender for App Service"
                 },
                 {
                     "name": "category",
@@ -1553,11 +1993,11 @@
                 },
                 {
                     "name": "value",
-                    "value": "Significant"
+                    "value": "Minimal"
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Install-SSP module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -1766,6 +2206,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -1818,6 +2277,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Privesc-PowerUp modules on Windows, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -2156,6 +2634,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for some of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -2260,11 +2757,30 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux endpoints containing Docker containers."
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1548.002",
@@ -2397,32 +2913,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Most credential dumping operations do not require modifying resources that can be detected by this control (i.e. Registry and File system) and therefore its coverage is minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1003.001",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -2442,6 +2932,25 @@
                 {
                     "name": "comment",
                     "value": "This control can be used to detect the Windows Security Support Provider (SSP) DLLs variation of this sub-technique by monitoring the Registry keys used to register these DLLs.  These keys should change infrequently and therefore false positives should be minimal. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Exfiltration modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#5F9F9F",
@@ -2501,32 +3010,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1562",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Due to low detection coverage, this technique is scored as minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1562.001",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -2546,58 +3029,6 @@
                 {
                     "name": "comment",
                     "value": "This control can be used to monitor Registry keys related to security software or event logging processes that can detect when an adversary attempts to disable these tools via modifying or deleting Registry keys.  A majority of the cited procedure examples for this sub-technique are related to killing security processes rather than modifying the Registry, and therefore the detection coverage for this control is low."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1562.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "There are numerous ways depending on the operating system that these sub-techniques can be accomplished.  Monitoring the Windows Registry is one way depending on the procedure chosen to implement the sub-technique and therefore the overall coverage is low."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1562.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "There are numerous ways depending on the operating system that these sub-techniques can be accomplished.  Monitoring the Windows Registry is one way depending on the procedure chosen to implement the sub-technique and therefore the overall coverage is low."
                 }
             ],
             "color": "#AEEEEE",
@@ -2889,58 +3320,6 @@
             "color": "#9CBA7F",
             "score": "Minimal",
             "category": "Protect"
-        },
-        {
-            "techniqueID": "T1059",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides detection coverage for two sub-techniques, and only detects certain specific sub-technique behaviors, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1059.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control monitors host data for potential reverse shells used for command and control. Temporal factor is unknown."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
         },
         {
             "techniqueID": "T1059.001",
@@ -3385,188 +3764,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1203",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1211",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1212",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1189",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected into browser or other process memory as part of a drive-by attack. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1210",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in an exposed service. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1559",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -3801,136 +3998,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1547",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for two of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1547.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Install-SSP module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1547.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via New-UserPersistenceOption on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1543",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1543.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Privesc-PowerUp modules on Windows, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1555",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -3976,11 +4043,30 @@
                 {
                     "name": "comment",
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations that limit the ability of an attacker to gain access to a host from a container, preventing the attacker from discovering and compromising local system data."
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#9305ff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1482",
@@ -4002,32 +4088,6 @@
                 {
                     "name": "comment",
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-NetDomainTrust and Get-NetForestTrust modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1574",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for some of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -4191,32 +4251,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1027",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1027.005",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -4236,58 +4270,6 @@
                 {
                     "name": "comment",
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Find-AVSignature AntivirusBypass module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one procedure for one of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1003.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Exfiltration modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -4340,84 +4322,6 @@
                 {
                     "name": "comment",
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Privesc-PowerUp modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1053",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1053.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the New-UserPersistenceOption Persistence module on Windows, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1113",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-TimedScreenshot module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -4581,58 +4485,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1525",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1548",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is only relevant for Linux endpoints containing Docker containers."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score": "Minimal",
-            "category": "Protect"
-        },
-        {
             "techniqueID": "T1548.001",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -4656,32 +4508,6 @@
             ],
             "color": "#9CBA7F",
             "score": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
             "category": "Protect"
         },
         {
@@ -4734,84 +4560,6 @@
             ],
             "color": "#9CBA7F",
             "score": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1021",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#9CBA7F",
-            "score": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1021.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations to ensure sshd is not running within Docker containers. This can prevent attackers from utilizing unmonitored SSH servers within containers. This may not prevent attackers from installing a SSH server in containers or hosts."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1005",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations that limit the ability of an attacker to gain access to a host from a container, preventing the attacker from discovering and compromising local system data."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
             "category": "Protect"
         }
     ],

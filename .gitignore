@@ -7,3 +7,4 @@ tools/mapping.db
 .vscode
 *.swp
 tools/techniques.json
+mappings/Azure/layers/AzureSentinelAnalytics-*

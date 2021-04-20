@@ -154,6 +154,25 @@
                 {
                     "name": "comment",
                     "value": "This control can identify connections to known malicious sites. Partial (arguably minimal) since the malicious sites must be on block list. No sub-techniques scored since not enough fidelity in the alert. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic wrt NSG and application layer protocols"
                 }
             ],
             "color": "#5F9F9F",
@@ -886,32 +905,6 @@
             ],
             "color": "#00FFFF",
             "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can identify anomalous traffic wrt NSG and application layer protocols"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
             "category": "Detect"
         },
         {
