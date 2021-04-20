@@ -48,7 +48,7 @@ Contents
 	* [39. Docker Host Hardening](#39-docker-host-hardening)
 	* [40. File Integrity Monitoring](#40-file-integrity-monitoring)
 	* [41. Integrated Vulnerability Scanner Powered by Qualys](#41-integrated-vulnerability-scanner-powered-by-qualys)
-	* [42. Just-in-Time(JIT) VM Access](#42-just-in-timejit-vm-access)
+	* [42. Just-in-Time VM Access](#42-just-in-time-vm-access)
 	* [43. Linux auditd alerts and Log Analytics agent integration](#43-linux-auditd-alerts-and-log-analytics-agent-integration)
 	* [44. Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
 	* [45. Microsoft Antimalware for Azure](#45-microsoft-antimalware-for-azure)
@@ -1800,7 +1800,7 @@ Once this control is deployed, it will run a scan every four hours and scans can
   
 
 
-## 42. Just-in-Time(JIT) VM Access
+## 42. Just-in-Time VM Access
 
 
 This control locks down inbound traffic to management ports for protocols such as RDP and SSH and only provides access upon request for a specified period of time. This reduces exposure to attacks while providing easy access when you need to connect to a virtual machine. Specific permissions are required to request access to virtual machines that have this control enabled and access can be requested through the Azure web UI, PowerShell, and a REST API.
@@ -2239,7 +2239,7 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Adaptive Application Controls](#1-adaptive-application-controls)
 - [Alerts for Windows Machines](#5-alerts-for-windows-machines)
 - [File Integrity Monitoring](#40-file-integrity-monitoring)
-- [Just-in-Time(JIT) VM Access](#42-just-in-time(jit)-vm-access)
+- [Just-in-Time VM Access](#42-just-in-time-vm-access)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Defender_for_Servers.json)
@@ -2256,7 +2256,7 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Docker Host Hardening](#39-docker-host-hardening)
 - [File Integrity Monitoring](#40-file-integrity-monitoring)
 - [Integrated Vulnerability Scanner Powered by Qualys](#41-integrated-vulnerability-scanner-powered-by-qualys)
-- [Just-in-Time(JIT) VM Access](#42-just-in-time(jit)-vm-access)
+- [Just-in-Time VM Access](#42-just-in-time-vm-access)
 - [Microsoft Antimalware for Azure](#45-microsoft-antimalware-for-azure)
 
 ### Navigator Layer
@@ -2282,7 +2282,7 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Security Center Recommendations](#30-azure-security-center-recommendations)
 - [Azure Web Application Firewall](#35-azure-web-application-firewall)
 - [File Integrity Monitoring](#40-file-integrity-monitoring)
-- [Just-in-Time(JIT) VM Access](#42-just-in-time(jit)-vm-access)
+- [Just-in-Time VM Access](#42-just-in-time-vm-access)
 - [Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
 - [Network Security Groups](#47-network-security-groups)
 - [Role Based Access Control](#49-role-based-access-control)

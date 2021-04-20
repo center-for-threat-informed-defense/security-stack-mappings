@@ -43,6 +43,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
     def get_control_reference(self, control):
         item = Header.header_anchor(control)
+        # Don't include the control # in the link display
         item = item.split(" ")
         item = "[" + " ".join(item[1:]).replace(".", "")
         return item
