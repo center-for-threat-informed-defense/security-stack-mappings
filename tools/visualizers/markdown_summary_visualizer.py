@@ -193,6 +193,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             summary = self.platform_summaries.get(platform, "")
             mdFile.new_header(level=1, title="Introduction", add_table_of_contents='y')
             mdFile.new_paragraph(summary)
+            mdFile.new_paragraph("[Aggregate Navigator Layer For All Controls](layers/platform.json)")
 
             tags = list(platform_data[2])
             tags.sort()
