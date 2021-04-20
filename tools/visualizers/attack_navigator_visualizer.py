@@ -105,8 +105,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
             techniques[entity_id] = entity
 
 
-    def visualize_mapping(self, mapping_file, layer):
-        techniques = {}
+    def visualize_mapping_file(self, mapping_file, layer, techniques):
         with open(mapping_file, "r") as f:
             mapping_yaml = yaml.safe_load(f)
             layer["name"] = mapping_yaml["name"]
@@ -123,15 +122,13 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                         sub = self.get_tech_or_sub(sub, mapping_yaml)
                         self.add_technique_or_sub(techniques, sub)
 
-            layer["techniques"].extend(list(techniques.values()))
-            layer["legendItems"] = self.get_legend()
-
             return mapping_yaml["name"], mapping_yaml["platform"], mapping_yaml.get("tags", [])
 
 
     
-    def visualize_mappings(self, mapping_file, options):
+    def visualize_mapping(self, mapping_file, options):
         layer = copy.deepcopy(self.layer_template)
+        techniques = {}
 
         self.tag_mode = type(mapping_file) is list
 
@@ -141,7 +138,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
 
             names = []
             for mapping_file in m_files:
-                name, _, _ = self.visualize_mapping(mapping_file, layer)
+                name, _, _ = self.visualize_mapping_file(mapping_file, layer, techniques)
                 names.append(name)
 
             options["output_filename"] = options["title"].replace(" ", "_")
@@ -151,7 +148,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                 names = ",".join(names)
                 layer["description"] = f"Controls: {names}"
         else:
-            name, platform, mapping_tags = self.visualize_mapping(mapping_file, layer)
+            name, platform, mapping_tags = self.visualize_mapping_file(mapping_file, layer, techniques)
             platform_tags = self.tags.get(platform, {})
             if not platform_tags:
                 self.tags[platform] = platform_tags
@@ -162,12 +159,14 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                     platform_tags[tag] = platform_tag
                 platform_tag.append(mapping_file)
 
+        layer["techniques"].extend(list(techniques.values()))
+        layer["legendItems"] = self.get_legend()
         return layer
 
 
     def visualize(self, mapping_files, options):
         for mapping_file in mapping_files:
-            layer = self.visualize_mappings(mapping_file, options)
+            layer = self.visualize_mapping(mapping_file, options)
             if self.tag_mode:
                 mapping_file = mapping_file[0]
             self.output(options, mapping_file, json.dumps(layer, indent=4))
@@ -178,5 +177,5 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                     options["title"] = tag
                     mappings = platform_tags[tag]
                     if mappings:
-                        layer = self.visualize_mappings(mappings, options)
+                        layer = self.visualize_mapping(mappings, options)
                         self.output(options, mappings[0], json.dumps(layer, indent=4))

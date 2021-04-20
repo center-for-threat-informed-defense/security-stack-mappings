@@ -68,13 +68,14 @@ class MappingDatabase:
         return ids
 
     
-    def query_mapping_file_scores(self, categories, attack_ids, controls, level, platforms, scores, tactics):
+    def query_mapping_file_scores(self, categories, attack_ids, controls, level, platforms, scores, tactics, tags):
         if level == "Technique":
             sql = self.session.query(Mapping,Technique,Score).select_from(MappingTechniqueScore)\
-                .join(Mapping).join(Technique).join(Score).join(tactic_and_technique_xref).join(Tactic)
+                .join(Mapping).join(Technique).join(Score).join(tactic_and_technique_xref).join(Tactic).join(Mapping.tags)
         else:
             sql = self.session.query(Mapping,SubTechnique,Score).select_from(MappingSubTechniqueScore)\
-                .join(Mapping).join(SubTechnique).join(Score).join(Technique).join(tactic_and_technique_xref).join(Tactic)
+                .join(Mapping).join(SubTechnique).join(Score).join(Technique).join(tactic_and_technique_xref).join(Tactic)\
+                .join(Mapping.tags)
 
         filters = []
         if categories:
@@ -102,6 +103,14 @@ class MappingDatabase:
             for tactic in tactics:
                 tactics_filters.append(Tactic.name.like(f"%{tactic}%"))
             filters.append(or_(*tactics_filters))
+        if tags:
+            tags_filters = []
+            for tag in tags:
+                if tag.startswith('"'):
+                    tags_filters.append(Tag.name == tag.replace('"', ""))
+                else:
+                    tags_filters.append(Tag.name.like(f"%{tag}%"))
+            filters.append(or_(*tags_filters))
         
         sql = sql.filter(and_(*filters))
 

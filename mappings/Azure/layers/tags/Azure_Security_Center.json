@@ -6,7 +6,7 @@
         "layer": "4.1"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Azure Security Center Recommendations,Adaptive Application Controls,Alerts for Azure Cosmos DB,File Integrity Monitoring,Azure Alerts for Network Layer,Advanced Threat Protection for Azure SQL Database,Azure Defender for App Service,Microsoft Antimalware for Azure,Just-in-Time(JIT) VM Access,Integrated Vulnerability Scanner Powered by Qualys,Docker Host Hardening",
+    "description": "Controls: Azure Security Center Recommendations,Adaptive Application Controls,Alerts for Azure Cosmos DB,File Integrity Monitoring,Azure Alerts for Network Layer,Advanced Threat Protection for Azure SQL Database,Azure Defender for App Service,Microsoft Antimalware for Azure,Just-in-Time VM Access,Integrated Vulnerability Scanner Powered by Qualys,Docker Host Hardening",
     "filters": {
         "platforms": [
             "Linux",
@@ -50,6 +50,25 @@
                 {
                     "name": "comment",
                     "value": "This control's recommendations related to enforcing the usage of the secure versions of the HTTP and FTP protocols (HTTPS and FTPS) can lead to encrypting traffic which reduces the ability for an adversary to gather sensitive data via network sniffing.  \nThis also applies to the \"Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign\", \"Enforce SSL connection should be enabled for MySQL database servers\", \"Enforce SSL connection should be enabled for PostgreSQL database servers\", \"Only secure connections to your Redis Cache should be enabled\" and \"Secure transfer to storage accounts should be enabled\" recommendations for their respective protocols.\nThe \"Usage of host networking and ports should be restricted\" recommendation for Kubernetes clusters can also lead to mitigating this technique.\nThese recommendations are limited to specific technologies on the platform and therefore its coverage score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may recommend usage of TLS to encrypt communication between the Docker daemon and clients. This can prevent possible leakage of sensitive information through network sniffing. "
                 }
             ],
             "color": "#9CBA7F",
@@ -76,11 +95,87 @@
                 {
                     "name": "comment",
                     "value": "This control's CORS related recommendations can help lead to hardened web applications.  This can reduce  the likelihood of an application being exploited to reveal sensitive data that can lead to the compromise of an environment. \nLikewise this control's recommendations related to keeping Java/PHP up to date for API/Function/Web apps can lead to hardening the public facing content that uses these runtimes.\nThis control's recommendations related to disabling Public network access for Azure databases can lead to reducing the exposure of resources to the public Internet and thereby reduce the attack surface.\nThese recommendations are limited to specific technologies (Java, PHP and CORS, SQL DBs) and therefore provide Minimal coverage leading to a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on usage of faulty SQL statements. This generates an alert for a possible SQL injection by an application. Alerts may not be generated on usage of valid SQL statements by attackers for malicious purposes."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Just-in-Time VM Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at exploitation of a public-facing application unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#9305ff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1110",
@@ -102,11 +197,68 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Authentication to Linux machines should require SSH keys\" recommendation can  lead to obviating SSH Brute Force password attacks.  Because this is specific to Linux, the coverage score is Minimal leading to an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Partial, doesn't cover Password Cracking (done offline typically)"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control covers the majority of sub-techniques for this parent technique and may cover both successful and unsuccessful brute force attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Just-in-Time VM Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at brute forcing a protocol, such as RDP or SSH, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1110.001",
@@ -128,11 +280,68 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Authentication to Linux machines should require SSH keys\" can obviate SSH Brute Force password attacks.  Because this is specific to Linux, the coverage score is Minimal leading to an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Just-in-Time VM Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1110.003",
@@ -154,11 +363,68 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Authentication to Linux machines should require SSH keys\" can obviate SSH Brute Force password attacks.  Because this is specific to Linux, the coverage score is Minimal leading to an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Just-in-Time VM Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1110.004",
@@ -180,11 +446,68 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Authentication to Linux machines should require SSH keys\" can obviate SSH Brute Force password attacks.  Because this is specific to Linux, the coverage score is Minimal leading to an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Just-in-Time VM Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1542",
@@ -336,11 +659,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Container images should be deployed from trusted registries only\", \"Container registries should not allow unrestricted network access\" and \"Container registries should use private link\" recommendations can lead to ensuring that container images are only loaded from trusted registries thereby mitigating this technique."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
                 }
             ],
-            "color": "#659D32",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1068",
@@ -362,11 +704,68 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Container with privilege escalation should be avoided\", \"Least privileged Linux capabilities should be enforced for containers\", \"Privileged containers should be avoided\", \"Running containers as root user should be avoided\" and \"Containers sharing sensitive host namespaces should be avoided\" recommendations can make it difficult for adversaries to advance their operation through exploitation of undiscovered or unpatched vulnerabilities.  Because this is a recommendation, the assessed score has been capped at Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
                 }
             ],
-            "color": "#659D32",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1098",
@@ -388,11 +787,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can prevent modifying the ssh_authorized keys file.  Because it is a recommendation and limited to only one sub-technique, its score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1098.004",
@@ -414,11 +832,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing modification of a Kubernetes container's file system which can mitigate this technique.  Because this recommendation is specific to Kubernetes containers, its score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1554",
@@ -518,11 +955,49 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-technique of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1543.002",
@@ -544,11 +1019,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the addition or modification of systemd service files in Kubernetes containers thereby mitigating this sub-technique.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1546",
@@ -570,11 +1064,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-technique of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The detection score for this technique was assessed as Partial because it doesn't detect some of the sub-techniques of this technique such as Windows Management Instrumentation (WMI) Event Subscription and Trap sub-techniques.  Additionally for  some sub-techniques, this control can be noisy.\n"
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#9305ff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1546.004",
@@ -596,11 +1109,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the addition or modification of the file system in Kubernetes containers thereby mitigating this sub-technique.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1505",
@@ -674,11 +1206,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-technique of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect file and directory permissions modifications for Windows but there is no indication it can do so for Linux platforms."
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#9305ff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1222.002",
@@ -830,11 +1381,49 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a few of the sub-techniques of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1053.003",
@@ -856,11 +1445,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the addition or modification of config files in Kubernetes containers required to implement the behaviors described in these sub-techniques.   Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1053.006",
@@ -882,11 +1490,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the addition or modification of config files in Kubernetes containers required to implement the behaviors described in these sub-techniques.   Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1556",
@@ -908,11 +1535,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-techniques of this technique.  Due to it being a recommendation and providing minimal coverage, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is effective for detecting the Registry and file system artifacts that are generated during the execution of some variations of this technique while minimizing false positives due to the locations being monitored changing infrequently (e.g. /etc/pam.d/). "
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#9305ff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1556.003",
@@ -934,11 +1580,30 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\"  recommendation can lead to preventing this sub-technique which often modifies  Pluggable Authentication Modules (PAM) components in the file system.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The PAM configuration and module paths (/etc/pam.d/) can be monitored for changes using this control.  The files in this path should not change often and therefore false positives should be minimal."
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#5c00a3",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1080",
@@ -1142,11 +1807,49 @@
                 {
                     "name": "comment",
                     "value": "This control's recommendations about removing deprecated and external accounts with sensitive permissions from your subscription can lead to mitigating the Cloud Accounts sub-technique of this technique.  Because this is a recommendation and has low coverage, it is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Azure Cosmos DB"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal detection coverage for the only relevant sub-technique so score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1078.004",
@@ -1168,11 +1871,49 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Deprecated accounts should be removed from your subscription\" and \"Deprecated accounts with owner permissions should be removed from your subscription\" recommendation can lead to removing accounts that should not be utilized from your subscriptions thereby denying adversaries the usage of these accounts to find ways to access your data without being noticed.  \nLikewise, the recommendations related to External account permissions can also mitigate this sub-technique.\nBecause this is a recommendation and only limited to deprecated and external accounts, this is scored as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Azure Cosmos DB"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control triggers an alert when there is a change in the access pattern to an Azure Cosmos account based on access from an unusual geographical location. False positives are fairly likely and misuse from a typical location is not covered, so score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on logon events that are suspicious. This includes logins from unusual locations, logins from suspicious IP addresses, and users that do not commonly access the resource. These alerts may limit the ability of an attacker to utilize a valid cloud account to access and manipulate Azure databases. "
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#9305ff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1133",
@@ -1194,6 +1935,25 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Management ports should be closed on your virtual machines\" recommendation can lead to reducing the attack surface of your Azure VMs by recommending closing management ports.  Because this is a recommendation, its score is limited to Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Just-in-Time VM Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at utilizing external remote services, such as RDP or a VPN, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
                 }
             ],
             "color": "#659D32",
@@ -1220,11 +1980,49 @@
                 {
                     "name": "comment",
                     "value": "This control only provides detection for one of this technique's sub-techniques while not providing any detection capability for its other sub-technique, and therefore its coverage score is Partial, resulting in a Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides meaningful detection for one of the technique's two sub-techniques, and temporal factor is unknown, resulting in a score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Microsoft Antimalware for Azure"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1204.002",
@@ -1246,11 +2044,45 @@
                 {
                     "name": "comment",
                     "value": "Once this control is activated, it generates alerts for any executable that has been run and is not included in an allow list. There is a significant potential for false positives from new non-malicious executables, and events are calculated once every twelve hours, so its temporal score is Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Microsoft Antimalware for Azure"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors activity in cloud services and on virtual machines to block malware execution. This is dependent on a signature being available. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors activity in cloud services and on virtual machines to detect malware execution. This is dependent on a signature being available. "
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1036",
@@ -1272,6 +2104,25 @@
                 {
                     "name": "comment",
                     "value": "This control provides detection for some of this technique's sub-techniques while not providing any detection capability for the remaining sub-techniques, and therefore its coverage score is Partial, resulting in a Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only addresses one of this technique's sub-techniques, so its score is Minimal."
                 }
             ],
             "color": "#5F9F9F",
@@ -1298,6 +2149,25 @@
                 {
                     "name": "comment",
                     "value": "Once this control is activated, it generates alerts for any executable that is run and is not included in an allow list. Path-based masquerading may subvert path-based rules within this control, resulting in false negatives, but hash and publisher-based rules will still detect untrusted executables. Events are calculated once every twelve hours, so its temporal score is Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect processes with suspicious names, including those named in a way that is suggestive of attacker tools that try to hide in plain sight. False positives are probable, and temporal factor is unknown."
                 }
             ],
             "color": "#5F9F9F",
@@ -1376,6 +2246,25 @@
                 {
                     "name": "comment",
                     "value": "This control only provides detection for one of this technique's sub-techniques while not providing any detection capability for the remaining sub-techniques, and therefore its coverage score is Minimal, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to detect a subset of this technique's sub-techniques while minimizing the false positive rate."
                 }
             ],
             "color": "#AEEEEE",
@@ -1409,58 +2298,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1078",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Azure Cosmos DB"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides minimal detection coverage for the only relevant sub-technique so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1078.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Azure Cosmos DB"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control triggers an alert when there is a change in the access pattern to an Azure Cosmos account based on access from an unusual geographical location. False positives are fairly likely and misuse from a typical location is not covered, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1213",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -1480,20 +2317,13 @@
                 {
                     "name": "comment",
                     "value": "This control triggers an alert when an unusually large amount of data is extracted from/by an account compared to recent activity. False positives are fairly likely and extraction in quantities below the control's threshold is not detected, so score is Minimal. Neither of the sub-techniques are relevant in this context, since they are repository-specific."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1053",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "File Integrity Monitoring"
+                    "value": "Advanced Threat Protection for Azure SQL Database"
                 },
                 {
                     "name": "category",
@@ -1501,15 +2331,15 @@
                 },
                 {
                     "name": "value",
-                    "value": "Significant"
+                    "value": "Minimal"
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "This control may alert on extraction of a large amount of data to an unusual location. No documentation is provided on the logic for determining an unusual location."
                 }
             ],
-            "color": "#00FFFF",
-            "score": "Significant",
+            "color": "#AEEEEE",
+            "score": "Minimal",
             "category": "Detect"
         },
         {
@@ -1565,32 +2395,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1053.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1053.005",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -1610,46 +2414,13 @@
                 {
                     "name": "comment",
                     "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1053.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1098",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
+                    "value": "Azure Defender for App Service"
                 },
                 {
                     "name": "category",
@@ -1661,33 +2432,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1098.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the New-UserPersistenceOption Persistence module on Windows, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -1714,6 +2459,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for two of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -1740,6 +2504,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via New-UserPersistenceOption on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -1844,6 +2627,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Install-SSP module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#00FFFF",
@@ -2059,58 +2861,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1543",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1543.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1543.003",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -2130,20 +2880,13 @@
                 {
                     "name": "comment",
                     "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1546",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "File Integrity Monitoring"
+                    "value": "Azure Defender for App Service"
                 },
                 {
                     "name": "category",
@@ -2151,15 +2894,15 @@
                 },
                 {
                     "name": "value",
-                    "value": "Partial"
+                    "value": "Minimal"
                 },
                 {
                     "name": "comment",
-                    "value": "The detection score for this technique was assessed as Partial because it doesn't detect some of the sub-techniques of this technique such as Windows Management Instrumentation (WMI) Event Subscription and Trap sub-techniques.  Additionally for  some sub-techniques, this control can be noisy.\n"
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Privesc-PowerUp modules on Windows, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
-            "color": "#5F9F9F",
-            "score": "Partial",
+            "color": "#00FFFF",
+            "score": "Significant",
             "category": "Detect"
         },
         {
@@ -2190,32 +2933,6 @@
         },
         {
             "techniqueID": "T1546.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1546.004",
             "enabled": "True",
             "showSubtechniques": "True",
             "metadata": [
@@ -2468,6 +3185,25 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for some of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -2572,11 +3308,30 @@
                 {
                     "name": "comment",
                     "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux endpoints containing Docker containers."
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1548.002",
@@ -2631,32 +3386,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1556",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is effective for detecting the Registry and file system artifacts that are generated during the execution of some variations of this technique while minimizing false positives due to the locations being monitored changing infrequently (e.g. /etc/pam.d/). "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1556.002",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -2683,32 +3412,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1556.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "The PAM configuration and module paths (/etc/pam.d/) can be monitored for changes using this control.  The files in this path should not change often and therefore false positives should be minimal."
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1003",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -2728,6 +3431,25 @@
                 {
                     "name": "comment",
                     "value": "Most credential dumping operations do not require modifying resources that can be detected by this control (i.e. Registry and File system) and therefore its coverage is minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one procedure for one of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -2754,20 +3476,13 @@
                 {
                     "name": "comment",
                     "value": "This control can be used to detect the Windows Security Support Provider (SSP) DLLs variation of this sub-technique by monitoring the Registry keys used to register these DLLs.  These keys should change infrequently and therefore false positives should be minimal. "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1222",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "File Integrity Monitoring"
+                    "value": "Azure Defender for App Service"
                 },
                 {
                     "name": "category",
@@ -2775,11 +3490,11 @@
                 },
                 {
                     "name": "value",
-                    "value": "Partial"
+                    "value": "Minimal"
                 },
                 {
                     "name": "comment",
-                    "value": "This control can detect file and directory permissions modifications for Windows but there is no indication it can do so for Linux platforms."
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Exfiltration modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#5F9F9F",
@@ -2917,32 +3632,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1553",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to detect a subset of this technique's sub-techniques while minimizing the false positive rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1553.003",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -2995,110 +3684,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1110",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Partial, doesn't cover Password Cracking (done offline typically)"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1071",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -3118,214 +3703,6 @@
                 {
                     "name": "comment",
                     "value": "This control can identify connections to known malicious sites. Partial (arguably minimal) since the malicious sites must be on block list. No sub-techniques scored since not enough fidelity in the alert. "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1078",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1078.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on logon events that are suspicious. This includes logins from unusual locations, logins from suspicious IP addresses, and users that do not commonly access the resource. These alerts may limit the ability of an attacker to utilize a valid cloud account to access and manipulate Azure databases. "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1213",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on extraction of a large amount of data to an unusual location. No documentation is provided on the logic for determining an unusual location."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control covers the majority of sub-techniques for this parent technique and may cover both successful and unsuccessful brute force attacks."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource. "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource. "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource. "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on usage of faulty SQL statements. This generates an alert for a possible SQL injection by an application. Alerts may not be generated on usage of valid SQL statements by attackers for malicious purposes."
                 }
             ],
             "color": "#5F9F9F",
@@ -3411,32 +3788,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1204",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides meaningful detection for one of the technique's two sub-techniques, and temporal factor is unknown, resulting in a score of Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1204.001",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -3508,11 +3859,45 @@
                 {
                     "name": "comment",
                     "value": "This control only provides (minimal) protection for one of the technique's sub-techniques, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Microsoft Antimalware for Azure"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#9CBA7F",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1566.002",
@@ -3638,11 +4023,45 @@
                 {
                     "name": "comment",
                     "value": "This control detects binary downloads via certutil, monitors for FTP access from IP addresses found in threat intelligence, monitors for references to suspicious domain names and file downloads from known malware sources, and monitors processes for downloads from raw-data websites like Pastebin. Temporal factor is unknown."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Microsoft Antimalware for Azure"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may scan created files for malware and proceed to quarantine and/or delete the file. This control is dependent on a signature being available."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may scan created files for malware. This control is dependent on a signature being available."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1595",
@@ -4054,11 +4473,30 @@
                 {
                     "name": "comment",
                     "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1211",
@@ -4080,24 +4518,17 @@
                 {
                     "name": "comment",
                     "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "Azure Defender for App Service"
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
                 },
                 {
                     "name": "category",
-                    "value": "Detect"
+                    "value": "Protect"
                 },
                 {
                     "name": "value",
@@ -4105,12 +4536,12 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1212",
@@ -4132,11 +4563,30 @@
                 {
                     "name": "comment",
                     "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1189",
@@ -4158,24 +4608,17 @@
                 {
                     "name": "comment",
                     "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected into browser or other process memory as part of a drive-by attack. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "Azure Defender for App Service"
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
                 },
                 {
                     "name": "category",
-                    "value": "Detect"
+                    "value": "Protect"
                 },
                 {
                     "name": "value",
@@ -4183,12 +4626,12 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1210",
@@ -4210,11 +4653,30 @@
                 {
                     "name": "comment",
                     "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in an exposed service. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1559",
@@ -4288,58 +4750,6 @@
                 {
                     "name": "comment",
                     "value": "This control's Fileless Attack Detection identifies suspicious command execution within process memory. Detection is periodic at an unknown rate."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1036",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only addresses one of this technique's sub-techniques, so its score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1036.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect processes with suspicious names, including those named in a way that is suggestive of attacker tools that try to hide in plain sight. False positives are probable, and temporal factor is unknown."
                 }
             ],
             "color": "#5F9F9F",
@@ -4451,136 +4861,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1547",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for two of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1547.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Install-SSP module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1547.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via New-UserPersistenceOption on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1543",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1543.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Privesc-PowerUp modules on Windows, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1555",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -4626,11 +4906,30 @@
                 {
                     "name": "comment",
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations that limit the ability of an attacker to gain access to a host from a container, preventing the attacker from discovering and compromising local system data."
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#9305ff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1482",
@@ -4652,32 +4951,6 @@
                 {
                     "name": "comment",
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-NetDomainTrust and Get-NetForestTrust modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1574",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for some of this technique's sub-techniques, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -4860,11 +5133,45 @@
                 {
                     "name": "comment",
                     "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Microsoft Antimalware for Azure"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
                 }
             ],
-            "color": "#AEEEEE",
+            "color": "#bf6bff",
             "score": "Minimal",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1027.005",
@@ -4886,58 +5193,6 @@
                 {
                     "name": "comment",
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Find-AVSignature AntivirusBypass module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one procedure for one of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1003.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Exfiltration modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -4990,58 +5245,6 @@
                 {
                     "name": "comment",
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Privesc-PowerUp modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1053",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, so score is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1053.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the New-UserPersistenceOption Persistence module on Windows, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
                 }
             ],
             "color": "#AEEEEE",
@@ -5231,47 +5434,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1566",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Microsoft Antimalware for Azure"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#bf6bff",
-            "score": "Minimal",
-            "category": "Mixed"
-        },
-        {
             "techniqueID": "T1566.001",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -5310,155 +5472,6 @@
             ],
             "color": "#9305ff",
             "score": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1204",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Microsoft Antimalware for Azure"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#9CBA7F",
-            "score": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1204.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Microsoft Antimalware for Azure"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control monitors activity in cloud services and on virtual machines to block malware execution. This is dependent on a signature being available. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control monitors activity in cloud services and on virtual machines to detect malware execution. This is dependent on a signature being available. "
-                }
-            ],
-            "color": "#bf6bff",
-            "score": "Minimal",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1105",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Microsoft Antimalware for Azure"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may scan created files for malware and proceed to quarantine and/or delete the file. This control is dependent on a signature being available."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may scan created files for malware. This control is dependent on a signature being available."
-                }
-            ],
-            "color": "#bf6bff",
-            "score": "Minimal",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1027",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Microsoft Antimalware for Azure"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#bf6bff",
-            "score": "Minimal",
             "category": "Mixed"
         },
         {
@@ -5503,396 +5516,6 @@
             "category": "Mixed"
         },
         {
-            "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Just-in-Time(JIT) VM Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at exploitation of a public-facing application unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
-                }
-            ],
-            "color": "#7FFF00",
-            "score": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1133",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Just-in-Time(JIT) VM Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at utilizing external remote services, such as RDP or a VPN, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
-                }
-            ],
-            "color": "#7FFF00",
-            "score": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Just-in-Time(JIT) VM Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at brute forcing a protocol, such as RDP or SSH, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
-                }
-            ],
-            "color": "#7FFF00",
-            "score": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Just-in-Time(JIT) VM Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Just-in-Time(JIT) VM Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Just-in-Time(JIT) VM Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": ""
-                }
-            ],
-            "color": "#00FFFF",
-            "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1189",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1203",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1211",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1212",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1210",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1525",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1548",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is only relevant for Linux endpoints containing Docker containers."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score": "Minimal",
-            "category": "Protect"
-        },
-        {
             "techniqueID": "T1548.001",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -5912,58 +5535,6 @@
                 {
                     "name": "comment",
                     "value": "This control may provide recommendations to remove setuid and setguid permissions from container images. It may not be feasible to audit and remediate all binaries that have and require setuid and setguid permissions."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1040",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may recommend usage of TLS to encrypt communication between the Docker daemon and clients. This can prevent possible leakage of sensitive information through network sniffing. "
                 }
             ],
             "color": "#9CBA7F",
@@ -6046,32 +5617,6 @@
             ],
             "color": "#9CBA7F",
             "score": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1005",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations that limit the ability of an attacker to gain access to a host from a container, preventing the attacker from discovering and compromising local system data."
-                }
-            ],
-            "color": "#659D32",
-            "score": "Partial",
             "category": "Protect"
         }
     ],
