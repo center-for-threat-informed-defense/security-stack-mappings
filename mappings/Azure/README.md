@@ -93,6 +93,8 @@ Contents
 
 
 This page enumerates the native security controls available on the Azure platform that have been mapped to [MITRE ATT&CK](https://attack.mitre.org/).  <br>Most controls included in scope were derived from the [Azure Security Benchmark (v2)](https://docs.microsoft.com/en-us/azure/security/benchmarks/overview) and our own independent research.
+
+[Aggregate Navigator Layer For All Controls](layers/platform.json)
 # Controls
 
 ## 1. Adaptive Application Controls

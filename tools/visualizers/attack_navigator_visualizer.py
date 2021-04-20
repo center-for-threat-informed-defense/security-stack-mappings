@@ -19,6 +19,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
         self.legend = []
         self.tag_mode = False
         self.tags = {}
+        self.controls_by_platform = {}
 
 
     @staticmethod
@@ -159,6 +160,11 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                     platform_tags[tag] = platform_tag
                 platform_tag.append(mapping_file)
 
+            platform_controls = self.controls_by_platform.get(platform, [])
+            if not platform_controls:
+                self.controls_by_platform[platform] = platform_controls
+            platform_controls.append(mapping_file)
+
         layer["techniques"].extend(list(techniques.values()))
         layer["legendItems"] = self.get_legend()
         return layer
@@ -171,7 +177,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                 mapping_file = mapping_file[0]
             self.output(options, mapping_file, json.dumps(layer, indent=4))
 
-        if options["generate-tags"]:
+        if options["include-aggregates"]:
             for platform, platform_tags in self.tags.items():
                 for tag in platform_tags:
                     options["title"] = tag
@@ -179,3 +185,9 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                     if mappings:
                         layer = self.visualize_mapping(mappings, options)
                         self.output(options, mappings[0], json.dumps(layer, indent=4))
+
+            for platform, mappings in self.controls_by_platform.items():
+                options["title"] = "platform"
+                layer = self.visualize_mapping(mappings, options)
+                self.tag_mode = False
+                self.output(options, mappings[0], json.dumps(layer, indent=4))
