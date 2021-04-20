@@ -37,24 +37,26 @@ Contents
 	* [28. Azure Policy](#28-azure-policy)
 	* [29. Azure Private Link](#29-azure-private-link)
 	* [30. Azure Security Center Recommendations](#30-azure-security-center-recommendations)
-	* [31. Azure Sentinel Analytics](#31-azure-sentinel-analytics)
-	* [32. Azure VPN Gateway](#32-azure-vpn-gateway)
-	* [33. Azure Web Application Firewall](#33-azure-web-application-firewall)
-	* [34. Cloud App Security Policies](#34-cloud-app-security-policies)
-	* [35. Conditional Access](#35-conditional-access)
-	* [36. Continuous Access Evaluation](#36-continuous-access-evaluation)
-	* [37. Docker Host Hardening](#37-docker-host-hardening)
-	* [38. File Integrity Monitoring](#38-file-integrity-monitoring)
-	* [39. Integrated Vulnerability Scanner Powered by Qualys](#39-integrated-vulnerability-scanner-powered-by-qualys)
-	* [40. Just-in-Time(JIT) VM Access](#40-just-in-timejit-vm-access)
-	* [41. Linux auditd alerts and Log Analytics agent integration](#41-linux-auditd-alerts-and-log-analytics-agent-integration)
-	* [42. Managed identities for Azure resources](#42-managed-identities-for-azure-resources)
-	* [43. Microsoft Antimalware for Azure](#43-microsoft-antimalware-for-azure)
-	* [44. Microsoft Defender for Identity](#44-microsoft-defender-for-identity)
-	* [45. Network Security Groups](#45-network-security-groups)
-	* [46. Passwordless Authentication](#46-passwordless-authentication)
-	* [47. Role Based Access Control](#47-role-based-access-control)
-	* [48. SQL Vulnerability Assessment](#48-sql-vulnerability-assessment)
+	* [31. Azure Sentinel Analytics 1-50](#31-azure-sentinel-analytics-1-50)
+	* [32. Azure Sentinel Analytics 101-150](#32-azure-sentinel-analytics-101-150)
+	* [33. Azure Sentinel Analytics 151-200](#33-azure-sentinel-analytics-151-200)
+	* [34. Azure VPN Gateway](#34-azure-vpn-gateway)
+	* [35. Azure Web Application Firewall](#35-azure-web-application-firewall)
+	* [36. Cloud App Security Policies](#36-cloud-app-security-policies)
+	* [37. Conditional Access](#37-conditional-access)
+	* [38. Continuous Access Evaluation](#38-continuous-access-evaluation)
+	* [39. Docker Host Hardening](#39-docker-host-hardening)
+	* [40. File Integrity Monitoring](#40-file-integrity-monitoring)
+	* [41. Integrated Vulnerability Scanner Powered by Qualys](#41-integrated-vulnerability-scanner-powered-by-qualys)
+	* [42. Just-in-Time VM Access](#42-just-in-time-vm-access)
+	* [43. Linux auditd alerts and Log Analytics agent integration](#43-linux-auditd-alerts-and-log-analytics-agent-integration)
+	* [44. Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
+	* [45. Microsoft Antimalware for Azure](#45-microsoft-antimalware-for-azure)
+	* [46. Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
+	* [47. Network Security Groups](#47-network-security-groups)
+	* [48. Passwordless Authentication](#48-passwordless-authentication)
+	* [49. Role Based Access Control](#49-role-based-access-control)
+	* [50. SQL Vulnerability Assessment](#50-sql-vulnerability-assessment)
 * [Control Tags](#control-tags)
 	* [1. Adaptive Network Hardening](#1-adaptive-network-hardening)
 	* [2. Analytics](#2-analytics)
@@ -1307,7 +1309,7 @@ IoT related recommendations were not included in this mapping.
   
 
 
-## 31. Azure Sentinel Analytics
+## 31. Azure Sentinel Analytics 1-50
 
 
 Out of the box Azure Sentinel Analytics (from the rule template list)
@@ -1341,7 +1343,131 @@ Note: only mapped out of the box analytics. Did not score analytics that were sp
   
 
 
-## 32. Azure VPN Gateway
+## 32. Azure Sentinel Analytics 101-150
+
+
+Out of the box Azure Sentinel Analytics (from the rule template list)
+
+- [Mapping File](AzureSentinelAnalytics-101-150.yaml)
+- [Navigator Layer](layers/AzureSentinelAnalytics-101-150.json)
+
+### Mapping Comments
+
+
+Note: only mapped out of the box analytics. Did not score analytics that were specific ioc-based (e.g.  ip addresses or hashes ).  Did not score analytics that required a 3rd party integration
+  (e.g. Alsid or TrendMicro). Refer to specific analytics by name in quotes.  
+
+
+### Technique(s)
+
+|Technique|Category|Value|Comment|
+| :--- | :--- | :--- | :--- |
+|[T1003 - OS Credential Dumping](https://attack.mitre.org/techniques/T1003/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1016 - System Network Configuration Discovery](https://attack.mitre.org/techniques/T1016/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1018 - Remote System Discovery](https://attack.mitre.org/techniques/T1018/)|Detect|Partial|Can detect when "Several deny actions registered" due to Azure Firewall incidents, potentially indicating that an adversary is scanning resources on the network, at a default frequency of once per hour. Note that detection only occurs if the firewall prevents the scanning. Can also detect "Rare client observed with high reverse DNS lookup count" if a particular IP is observed performing an unusually high number of reverse DNS lookups and has not been observed doing so previously.|
+|[T1021 - Remote Services](https://attack.mitre.org/techniques/T1021/)|Detect|Minimal|This control only provides minimal coverage for some of this technique's sub-techniques.|
+|[T1027 - Obfuscated Files or Information](https://attack.mitre.org/techniques/T1027/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1040 - Network Sniffing](https://attack.mitre.org/techniques/T1040/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1041 - Exfiltration Over C2 Channel](https://attack.mitre.org/techniques/T1041/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1046 - Network Service Scanning](https://attack.mitre.org/techniques/T1046/)|Detect|Partial|Can detect a "High count of connections by client IP on many ports" if a given client IP has 30 or more ports used within a 10 minute window, checked at a default frequency of once per hour. Note that false positives are probable based on changes in usage patterns and/or misconfiguration, and this detection only works if scanning is not spread out over a longer timespan. Scanning via "Powershell Empire cmdlets seen in command line" can also be detected.|
+|[T1047 - Windows Management Instrumentation](https://attack.mitre.org/techniques/T1047/)|Detect|Partial|Can detect when adversaries "Gain Code Execution on ADFS Server via Remote WMI Execution", at a default frequency of once per day. Note that this only looks for this behavior on ADFS servers. WMI use via "Powershell Empire cmdlets seen in command line" can also be detected.|
+|[T1049 - System Network Connections Discovery](https://attack.mitre.org/techniques/T1049/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1053 - Scheduled Task/Job](https://attack.mitre.org/techniques/T1053/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1055 - Process Injection](https://attack.mitre.org/techniques/T1055/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1056 - Input Capture](https://attack.mitre.org/techniques/T1056/)|Detect|Minimal|This control can identify two of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1057 - Process Discovery](https://attack.mitre.org/techniques/T1057/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1059 - Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/)|Detect|Minimal|This control can identify two of this technique’s sub-techniques when executed via "Powershell Empire cmdlets seen in command line", but does not address other procedures.|
+|[T1068 - Exploitation for Privilege Escalation](https://attack.mitre.org/techniques/T1068/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1070 - Indicator Removal on Host](https://attack.mitre.org/techniques/T1070/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1071 - Application Layer Protocol](https://attack.mitre.org/techniques/T1071/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via "Powershell Empire cmdlets seen in command line", but does not address other procedures.|
+|[T1078 - Valid Accounts](https://attack.mitre.org/techniques/T1078/)|Detect|Minimal|This control only provides coverage for specific cases of the relevant sub-techniques.|
+|[T1082 - System Information Discovery](https://attack.mitre.org/techniques/T1082/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1083 - File and Directory Discovery](https://attack.mitre.org/techniques/T1083/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1087 - Account Discovery](https://attack.mitre.org/techniques/T1087/)|Detect|Minimal|This control can identify two of this technique’s sub-techniques when executed via "Powershell Empire cmdlets seen in command line", but does not address other procedures.|
+|[T1102 - Web Service](https://attack.mitre.org/techniques/T1102/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1105 - Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1106 - Native API](https://attack.mitre.org/techniques/T1106/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1110 - Brute Force](https://attack.mitre.org/techniques/T1110/)|Detect|Partial|This control includes detection coverage for all sub-techniques on a periodic basis.|
+|[T1113 - Screen Capture](https://attack.mitre.org/techniques/T1113/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1114 - Email Collection](https://attack.mitre.org/techniques/T1114/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1115 - Clipboard Data](https://attack.mitre.org/techniques/T1115/)|Detect|Minimal|This control can identify instances of "Powershell Empire cmdlets seen in command line", at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1125 - Video Capture](https://attack.mitre.org/techniques/T1125/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1127 - Trusted Developer Utilities Proxy Execution](https://attack.mitre.org/techniques/T1127/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1134 - Access Token Manipulation](https://attack.mitre.org/techniques/T1134/)|Detect|Minimal|This control can identify two of this technique’s sub-techniques when executed via "Powershell Empire cmdlets seen in command line", but does not address other procedures.|
+|[T1135 - Network Share Discovery](https://attack.mitre.org/techniques/T1135/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1136 - Create Account](https://attack.mitre.org/techniques/T1136/)|Detect|Minimal|This control only provides minimal coverage this technique's sub-techniques.|
+|[T1137 - Office Application Startup](https://attack.mitre.org/techniques/T1137/)|Detect|Minimal|This control only provides partial coverage for one of this technique's sub-techniques.|
+|[T1140 - Deobfuscate/Decode Files or Information](https://attack.mitre.org/techniques/T1140/)|Detect|Partial|Can detect "Process executed from binary hidden in Base64 encoded file" based on security event searches for decoding by Python, bash/sh, and Ruby at a default frequency of once per day.|
+|[T1190 - Exploit Public-Facing Application](https://attack.mitre.org/techniques/T1190/)|Detect|Minimal|Can detect when "A potentially malicious web request was executed against a web server" based on a high ratio of blocked requests and unobstructed requests to a Web Application Firewall (WAF) for a given client IP and hostname, with a default frequency of once per day.|
+|[T1210 - Exploitation of Remote Services](https://attack.mitre.org/techniques/T1210/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1217 - Browser Bookmark Discovery](https://attack.mitre.org/techniques/T1217/)|Detect|Minimal|This control can identify instances of "Powershell Empire cmdlets seen in command line", at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1482 - Domain Trust Discovery](https://attack.mitre.org/techniques/T1482/)|Detect|Minimal|This control can identify instances of “Powershell Empire cmdlets seen in command line”, at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1484 - Domain Policy Modification](https://attack.mitre.org/techniques/T1484/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1518 - Software Discovery](https://attack.mitre.org/techniques/T1518/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1543 - Create or Modify System Process](https://attack.mitre.org/techniques/T1543/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1546 - Event Triggered Execution](https://attack.mitre.org/techniques/T1546/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1547 - Boot or Logon Autostart Execution](https://attack.mitre.org/techniques/T1547/)|Detect|Minimal|This control can identify three of this technique’s sub-techniques when executed via "Powershell Empire cmdlets seen in command line", but does not address other procedures.|
+|[T1548 - Abuse Elevation Control Mechanism](https://attack.mitre.org/techniques/T1548/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via "Powershell Empire cmdlets seen in command line", but does not address other procedures.|
+|[T1550 - Use Alternate Authentication Material](https://attack.mitre.org/techniques/T1550/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1552 - Unsecured Credentials](https://attack.mitre.org/techniques/T1552/)|Detect|Minimal|This control can identify two of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1552 - Unsecured Credentials](https://attack.mitre.org/techniques/T1552/)|Protect|Minimal|This control provides a highly specific detection for a misconfiguration that can lead to one of this technique's sub-techniques.|
+|[T1555 - Credentials from Password Stores](https://attack.mitre.org/techniques/T1555/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1557 - Man-in-the-Middle](https://attack.mitre.org/techniques/T1557/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1558 - Steal or Forge Kerberos Tickets](https://attack.mitre.org/techniques/T1558/)|Detect|Minimal|This control only provides minimal to partial coverage for some this technique's sub-techniques.|
+|[T1560 - Archive Collected Data](https://attack.mitre.org/techniques/T1560/)|Detect|Minimal|This control can identify instances of "Powershell Empire cmdlets seen in command line", at a default frequency of once per day. This covers execution of this technique via Empire, but does not address other procedures.|
+|[T1562 - Impair Defenses](https://attack.mitre.org/techniques/T1562/)|Detect|Minimal|This control provides coverage for only two of this technique's sub-techniques.|
+|[T1567 - Exfiltration Over Web Service](https://attack.mitre.org/techniques/T1567/)|Detect|Minimal|This control can identify both of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1568 - Dynamic Resolution](https://attack.mitre.org/techniques/T1568/)|Detect|Minimal|This control only provides partial coverage for one of this technique's sub-techniques.|
+|[T1569 - System Services](https://attack.mitre.org/techniques/T1569/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1573 - Encrypted Channel](https://attack.mitre.org/techniques/T1573/)|Detect|Minimal|This control can identify one of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1574 - Hijack Execution Flow](https://attack.mitre.org/techniques/T1574/)|Detect|Minimal|This control can identify several of this technique’s sub-techniques when executed via “Powershell Empire cmdlets seen in command line”, but does not address other procedures.|
+|[T1590 - Gather Victim Network Information](https://attack.mitre.org/techniques/T1590/)|Detect|Minimal|This control detects a highly specific behavior that applies to one sub-technique of this technique.|
+|[T1595 - Active Scanning](https://attack.mitre.org/techniques/T1595/)|Detect|Partial|This control provides partial coverage for one of this technique's two sub-techniques.|
+  
+
+
+### Reference(s)
+  
+
+
+## 33. Azure Sentinel Analytics 151-200
+
+
+Out of the box Analytics for Azure Sentinel 
+
+- [Mapping File](AzureSentinelAnalytics-151-200.yaml)
+- [Navigator Layer](layers/AzureSentinelAnalytics-151-200.json)
+
+### Mapping Comments
+
+
+Analytics rule templates. note did not score ioc-based or 3rd-party analytics.  
+
+
+### Technique(s)
+
+|Technique|Category|Value|Comment|
+| :--- | :--- | :--- | :--- |
+|[T1048 - Exfiltration Over Alternative Protocol](https://attack.mitre.org/techniques/T1048/)|Detect|Minimal|"Multiple users email forwarded to same destination" can detect potential exfiltration via email. specific method so a minimal score.|
+|[T1059 - Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/)|Detect|Partial|"Base64 encoded Windows process command-lines" can identify Base64 encoded PE files being launched from command line.|
+|[T1070 - Indicator Removal on Host](https://attack.mitre.org/techniques/T1070/)|Detect|Partial|"Security Event Log cleared" detects potentially malicious clearing of Windows Security events|
+|[T1071 - Application Layer Protocol](https://attack.mitre.org/techniques/T1071/)|Detect|Minimal|"Malformed user agent" can detect potential C2 or C2 agent activity.|
+|[T1078 - Valid Accounts](https://attack.mitre.org/techniques/T1078/)|Detect|Partial|"Failed Host logons but success logon to AzureAD" can detect some potentially malicious domain logon activity that leverages a valid account.  <br/>"|
+|[T1098 - Account Manipulation](https://attack.mitre.org/techniques/T1098/)|Detect|Minimal|"Full Admin policy created and then attached to Role, User, or Group" is an AWS-specific analytic that identifies potential account-manipulation for persistence or priv esc. (score mininimal for spcificity) (scoring this 3rd party since AWS can be very commonnly used).<br/>"New access credential added to Application or Service Principal" can identify potentially malicious  additional credentials for privilege esc, persistence<br/>"Suspicious granting of permissions to an account" can identify some potentially illegitimate permission-granting activity (specifically from a previously unseen IP).|
+|[T1105 - Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105/)|Detect|Partial|"Linked Malicious Storage Artifacts" may identify potential downloaded adversary tools that are missed by anti-malware.|
+|[T1110 - Brute Force](https://attack.mitre.org/techniques/T1110/)|Detect|Minimal|"Hi count of failed attempts same client IP" detects  brute-force password guessing for specific service (iis).|
+|[T1195 - Supply Chain Compromise](https://attack.mitre.org/techniques/T1195/)|Detect|Partial|"AzureDevops Service Connection Abuse" Can detect potential malicious behavior associated with use of large number of service connections. <br/>"External Upstream Source added to Azure DevOps" identifies a specific behavior that could compromise the devops build pipeline<br/>"Azure DevOps Pull Request Policy Bypassing - History" can identify specific potentially malicious behavior that compromises the build process.<br/>"Azure DevOps Pipeline modified by a New User" identifies potentially malicious activity that could compromise the devops pipeline.<br/>"Azure DevOps Administrator Group Monitoring" monitors for specific activity which could compromise the build/release process.<br/>"New Agent Added to Pool by New User or a New OS" can detect a suspicious behavior that could potentially compromise devops pipeline|
+|[T1496 - Resource Hijacking](https://attack.mitre.org/techniques/T1496/)|Detect|Partial|"Process execution frequency anomaly" may detect potential resource hijacking / use of processor.<br/>"Suspicious number of resource (sic) creation or deployed" can identify potential misuse and hijacking of resources.|
+|[T1567 - Exfiltration Over Web Service](https://attack.mitre.org/techniques/T1567/)|Detect|Minimal|"Malformed user agent" may detect potential exfiltration over a web service by malcious code with a hard-coded user agent string, or possibly data encoded via the user agent string. spcific method so scoring minimal.<br/>"SharePointFileOperation via previously unseen IPs" may detect potential exfil activity via sharepoint.|
+|[T1595 - Active Scanning](https://attack.mitre.org/techniques/T1595/)|Detect|Minimal|"Malformed user agent" analytic may detect hard-coded user-agent strings associated with an adversary's vulnerability scanning tool.|
+  
+
+
+### Reference(s)
+  
+
+
+## 34. Azure VPN Gateway
 
 
 A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. 
@@ -1373,7 +1499,7 @@ You can also use a VPN gateway to send encrypted traffic between Azure virtual n
   
 
 
-## 33. Azure Web Application Firewall
+## 35. Azure Web Application Firewall
 
 
 Azure Web Application Firewall (WAF) provides centralized protection of your web applications  from common exploits and vulnerabilities.
@@ -1435,7 +1561,7 @@ Azure Web Application Firewall (WAF) provides centralized protection of your web
   
 
 
-## 34. Cloud App Security Policies
+## 36. Cloud App Security Policies
 
 
 Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
@@ -1479,7 +1605,7 @@ Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that suppo
   
 
 
-## 35. Conditional Access
+## 37. Conditional Access
 
 
 The modern security perimeter now extends beyond an organization's network to include user and device identity. Organizations can utilize these identity signals as part of their access control decisions.  Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane.
@@ -1517,7 +1643,7 @@ At first glance, this control seems mappable to Exfiltration (sub-)techniques bu
   
 
 
-## 36. Continuous Access Evaluation
+## 38. Continuous Access Evaluation
 
 
 Continuous Access Evaluation (CAE) provides the next level of identity security by terminating active user sessions to a subset of Microsoft services (Exchange and Teams) in real-time on changes such as account disable, password reset, and admin initiated user revocation.  CAE aims to improve the response time in situations where a policy setting that applies to a user changes but the user is able to circumvent the new policy setting because their OAuth access token was issued before the policy change.  It’s typical that security access tokens issued by Azure AD, like OAuth 2.0 access tokens, are valid for an hour.
@@ -1545,7 +1671,7 @@ CAE enables the scenario where users lose access to organizational SharePoint On
   
 
 
-## 37. Docker Host Hardening
+## 39. Docker Host Hardening
 
 
 Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the Center for Internet Security (CIS) Docker Benchmark. Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations.
@@ -1579,7 +1705,7 @@ Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, 
   
 
 
-## 38. File Integrity Monitoring
+## 40. File Integrity Monitoring
 
 
 File integrity monitoring (FIM), also known as change monitoring, examines  operating system files, Windows registries, application software, Linux  system files, and more, for changes that might indicate an attack. File Integrity Monitoring (FIM) informs you when changes occur to sensitive  areas in your resources, so you can investigate and address unauthorized  activity. 
@@ -1634,7 +1760,7 @@ The detection score for most techniques included in this mapping was scored as S
   
 
 
-## 39. Integrated Vulnerability Scanner Powered by Qualys
+## 41. Integrated Vulnerability Scanner Powered by Qualys
 
 
 This control provides a on-demand and scheduled vulnerability scan for Windows and Linux endpoints that are being protected by Azure Defender. The scanner generates a list of possible vulnerabilities in Azure Security Center for possible remediation. 
@@ -1674,7 +1800,7 @@ Once this control is deployed, it will run a scan every four hours and scans can
   
 
 
-## 40. Just-in-Time(JIT) VM Access
+## 42. Just-in-Time VM Access
 
 
 This control locks down inbound traffic to management ports for protocols such as RDP and SSH and only provides access upon request for a specified period of time. This reduces exposure to attacks while providing easy access when you need to connect to a virtual machine. Specific permissions are required to request access to virtual machines that have this control enabled and access can be requested through the Azure web UI, PowerShell, and a REST API.
@@ -1705,7 +1831,7 @@ This control locks down inbound traffic to management ports for protocols such a
   
 
 
-## 41. Linux auditd alerts and Log Analytics agent integration
+## 43. Linux auditd alerts and Log Analytics agent integration
 
 
 This integration enables collection of auditd events in all supported Linux distributions, without any prerequisites. Auditd records are collected, enriched, and aggregated into events by using the Log Analytics agent for Linux agent.
@@ -1747,7 +1873,7 @@ This integration enables collection of auditd events in all supported Linux dist
   
 
 
-## 42. Managed identities for Azure resources
+## 44. Managed identities for Azure resources
 
 
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having to hard-code credentials in your code.
@@ -1775,7 +1901,7 @@ Managed identities for Azure resources provide Azure services with an automatica
   
 
 
-## 43. Microsoft Antimalware for Azure
+## 45. Microsoft Antimalware for Azure
 
 
 Microsoft Antimalware for Azure is a free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. 
@@ -1814,7 +1940,7 @@ Signature based antimalware solutions are generally dependent on Indicators of C
   
 
 
-## 44. Microsoft Defender for Identity
+## 46. Microsoft Defender for Identity
 
 
 Microsoft Defender for Identity (formerly Azure Advanced Threat Protection, also known as Azure ATP) is a cloud-based security solution that leverages your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization.
@@ -1871,7 +1997,7 @@ Understandably (to avoid enabling adversaries to circumvent the detection), many
   
 
 
-## 45. Network Security Groups
+## 47. Network Security Groups
 
 
 You can use an Azure network security group to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
@@ -1931,7 +2057,7 @@ Note: one can employ Application Security Groups (ASG) in Network Security Group
   
 
 
-## 46. Passwordless Authentication
+## 48. Passwordless Authentication
 
 
 Features like multi-factor authentication (MFA) are a great way to secure your organization, but users often get frustrated with the additional security layer on top of having to remember their passwords. Passwordless authentication methods are more convenient because the password is removed and replaced with something you have, plus something you are or something you know.
@@ -1960,7 +2086,7 @@ Features like multi-factor authentication (MFA) are a great way to secure your o
   
 
 
-## 47. Role Based Access Control
+## 49. Role Based Access Control
 
 
 Access management for cloud resources is a critical function for any organization that is using the cloud. Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
@@ -2003,7 +2129,7 @@ RBAC enables organizations to limit the number of users within the organization 
   
 
 
-## 48. SQL Vulnerability Assessment
+## 50. SQL Vulnerability Assessment
 
 
 SQL vulnerability assessment is a service that provides visibility into your security state. The service employs a knowledge base of rules that flag security vulnerabilities. It highlights deviations from best practices, such as misconfigurations, excessive permissions, and unprotected sensitive data.
@@ -2040,10 +2166,10 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ## 1. Adaptive Network Hardening
 
 ### Controls
-- [Network Security Groups](#45-network-security-groups)
+- [Network Security Groups](#47-network-security-groups)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Adaptive_Network_Hardening.json)
 
 ## 2. Analytics
 
@@ -2052,7 +2178,7 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Network Traffic Analytics](#27-azure-network-traffic-analytics)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Analytics.json)
 
 ## 3. Azure Active Directory
 
@@ -2063,14 +2189,14 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Password Policy](#9-azure-ad-password-policy)
 - [Azure AD Privileged Identity Management](#10-azure-ad-privileged-identity-management)
 - [Azure Active Directory Password Protection](#11-azure-active-directory-password-protection)
-- [Conditional Access](#35-conditional-access)
-- [Continuous Access Evaluation](#36-continuous-access-evaluation)
-- [Managed identities for Azure resources](#42-managed-identities-for-azure-resources)
-- [Passwordless Authentication](#46-passwordless-authentication)
-- [Role Based Access Control](#47-role-based-access-control)
+- [Conditional Access](#37-conditional-access)
+- [Continuous Access Evaluation](#38-continuous-access-evaluation)
+- [Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
+- [Passwordless Authentication](#48-passwordless-authentication)
+- [Role Based Access Control](#49-role-based-access-control)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_Active_Directory.json)
 
 ## 4. Azure Defender
 
@@ -2083,12 +2209,12 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Defender for Kubernetes](#22-azure-defender-for-kubernetes)
 - [Azure Defender for Resource Manager](#23-azure-defender-for-resource-manager)
 - [Azure Defender for Storage](#24-azure-defender-for-storage)
-- [File Integrity Monitoring](#38-file-integrity-monitoring)
-- [Integrated Vulnerability Scanner Powered by Qualys](#39-integrated-vulnerability-scanner-powered-by-qualys)
-- [Linux auditd alerts and Log Analytics agent integration](#41-linux-auditd-alerts-and-log-analytics-agent-integration)
+- [File Integrity Monitoring](#40-file-integrity-monitoring)
+- [Integrated Vulnerability Scanner Powered by Qualys](#41-integrated-vulnerability-scanner-powered-by-qualys)
+- [Linux auditd alerts and Log Analytics agent integration](#43-linux-auditd-alerts-and-log-analytics-agent-integration)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_Defender.json)
 
 ## 5. Azure Defender for App Service
 
@@ -2096,27 +2222,27 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Defender for App Service](#19-azure-defender-for-app-service)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_Defender_for_App_Service.json)
 
 ## 6. Azure Defender for SQL
 
 ### Controls
 - [Advanced Threat Protection for Azure SQL Database](#2-advanced-threat-protection-for-azure-sql-database)
-- [SQL Vulnerability Assessment](#48-sql-vulnerability-assessment)
+- [SQL Vulnerability Assessment](#50-sql-vulnerability-assessment)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_Defender_for_SQL.json)
 
 ## 7. Azure Defender for Servers
 
 ### Controls
 - [Adaptive Application Controls](#1-adaptive-application-controls)
 - [Alerts for Windows Machines](#5-alerts-for-windows-machines)
-- [File Integrity Monitoring](#38-file-integrity-monitoring)
-- [Just-in-Time(JIT) VM Access](#40-just-in-time(jit)-vm-access)
+- [File Integrity Monitoring](#40-file-integrity-monitoring)
+- [Just-in-Time VM Access](#42-just-in-time-vm-access)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_Defender_for_Servers.json)
 
 ## 8. Azure Security Center
 
@@ -2127,14 +2253,14 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Alerts for Network Layer](#12-azure-alerts-for-network-layer)
 - [Azure Defender for App Service](#19-azure-defender-for-app-service)
 - [Azure Security Center Recommendations](#30-azure-security-center-recommendations)
-- [Docker Host Hardening](#37-docker-host-hardening)
-- [File Integrity Monitoring](#38-file-integrity-monitoring)
-- [Integrated Vulnerability Scanner Powered by Qualys](#39-integrated-vulnerability-scanner-powered-by-qualys)
-- [Just-in-Time(JIT) VM Access](#40-just-in-time(jit)-vm-access)
-- [Microsoft Antimalware for Azure](#43-microsoft-antimalware-for-azure)
+- [Docker Host Hardening](#39-docker-host-hardening)
+- [File Integrity Monitoring](#40-file-integrity-monitoring)
+- [Integrated Vulnerability Scanner Powered by Qualys](#41-integrated-vulnerability-scanner-powered-by-qualys)
+- [Just-in-Time VM Access](#42-just-in-time-vm-access)
+- [Microsoft Antimalware for Azure](#45-microsoft-antimalware-for-azure)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_Security_Center.json)
 
 ## 9. Azure Security Center Recommendation
 
@@ -2154,15 +2280,15 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Policy](#28-azure-policy)
 - [Azure Private Link](#29-azure-private-link)
 - [Azure Security Center Recommendations](#30-azure-security-center-recommendations)
-- [Azure Web Application Firewall](#33-azure-web-application-firewall)
-- [File Integrity Monitoring](#38-file-integrity-monitoring)
-- [Just-in-Time(JIT) VM Access](#40-just-in-time(jit)-vm-access)
-- [Managed identities for Azure resources](#42-managed-identities-for-azure-resources)
-- [Network Security Groups](#45-network-security-groups)
-- [Role Based Access Control](#47-role-based-access-control)
+- [Azure Web Application Firewall](#35-azure-web-application-firewall)
+- [File Integrity Monitoring](#40-file-integrity-monitoring)
+- [Just-in-Time VM Access](#42-just-in-time-vm-access)
+- [Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
+- [Network Security Groups](#47-network-security-groups)
+- [Role Based Access Control](#49-role-based-access-control)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_Security_Center_Recommendation.json)
 
 ## 10. Azure Sentinel
 
@@ -2170,33 +2296,33 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Defender for Storage](#24-azure-defender-for-storage)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_Sentinel.json)
 
 ## 11. Azure VPN Gateway
 
 ### Controls
-- [Azure VPN Gateway](#32-azure-vpn-gateway)
+- [Azure VPN Gateway](#34-azure-vpn-gateway)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Azure_VPN_Gateway.json)
 
 ## 12. CASB
 
 ### Controls
-- [Cloud App Security Policies](#34-cloud-app-security-policies)
+- [Cloud App Security Policies](#36-cloud-app-security-policies)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/CASB.json)
 
 ## 13. Containers
 
 ### Controls
 - [Azure Defender for Container Registries](#20-azure-defender-for-container-registries)
 - [Azure Defender for Kubernetes](#22-azure-defender-for-kubernetes)
-- [Docker Host Hardening](#37-docker-host-hardening)
+- [Docker Host Hardening](#39-docker-host-hardening)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Containers.json)
 
 ## 14. Credentials
 
@@ -2209,11 +2335,11 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Dedicated HSM](#18-azure-dedicated-hsm)
 - [Azure Defender for Key Vault](#21-azure-defender-for-key-vault)
 - [Azure Key Vault](#26-azure-key-vault)
-- [Microsoft Defender for Identity](#44-microsoft-defender-for-identity)
-- [Passwordless Authentication](#46-passwordless-authentication)
+- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
+- [Passwordless Authentication](#48-passwordless-authentication)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Credentials.json)
 
 ## 15. DNS
 
@@ -2221,36 +2347,36 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Alerts for DNS](#4-alerts-for-dns)
 - [Azure DNS Alias Records](#16-azure-dns-alias-records)
 - [Azure DNS Analytics](#17-azure-dns-analytics)
-- [Microsoft Defender for Identity](#44-microsoft-defender-for-identity)
+- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/DNS.json)
 
 ## 16. Database
 
 ### Controls
 - [Advanced Threat Protection for Azure SQL Database](#2-advanced-threat-protection-for-azure-sql-database)
 - [Alerts for Azure Cosmos DB](#3-alerts-for-azure-cosmos-db)
-- [SQL Vulnerability Assessment](#48-sql-vulnerability-assessment)
+- [SQL Vulnerability Assessment](#50-sql-vulnerability-assessment)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Database.json)
 
 ## 17. Encryption
 
 ### Controls
-- [Azure VPN Gateway](#32-azure-vpn-gateway)
+- [Azure VPN Gateway](#34-azure-vpn-gateway)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Encryption.json)
 
 ## 18. File system
 
 ### Controls
-- [File Integrity Monitoring](#38-file-integrity-monitoring)
+- [File Integrity Monitoring](#40-file-integrity-monitoring)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/File_system.json)
 
 ## 19. Identity
 
@@ -2261,27 +2387,27 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Password Policy](#9-azure-ad-password-policy)
 - [Azure AD Privileged Identity Management](#10-azure-ad-privileged-identity-management)
 - [Azure Active Directory Password Protection](#11-azure-active-directory-password-protection)
-- [Conditional Access](#35-conditional-access)
-- [Continuous Access Evaluation](#36-continuous-access-evaluation)
-- [Managed identities for Azure resources](#42-managed-identities-for-azure-resources)
-- [Microsoft Defender for Identity](#44-microsoft-defender-for-identity)
-- [Passwordless Authentication](#46-passwordless-authentication)
-- [Role Based Access Control](#47-role-based-access-control)
+- [Conditional Access](#37-conditional-access)
+- [Continuous Access Evaluation](#38-continuous-access-evaluation)
+- [Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
+- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
+- [Passwordless Authentication](#48-passwordless-authentication)
+- [Role Based Access Control](#49-role-based-access-control)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Identity.json)
 
 ## 20. Linux
 
 ### Controls
 - [Azure Automation Update Management](#13-azure-automation-update-management)
 - [Azure Defender for App Service](#19-azure-defender-for-app-service)
-- [Docker Host Hardening](#37-docker-host-hardening)
-- [File Integrity Monitoring](#38-file-integrity-monitoring)
-- [Linux auditd alerts and Log Analytics agent integration](#41-linux-auditd-alerts-and-log-analytics-agent-integration)
+- [Docker Host Hardening](#39-docker-host-hardening)
+- [File Integrity Monitoring](#40-file-integrity-monitoring)
+- [Linux auditd alerts and Log Analytics agent integration](#43-linux-auditd-alerts-and-log-analytics-agent-integration)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Linux.json)
 
 ## 21. MFA
 
@@ -2289,19 +2415,19 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Identity Secure Score](#7-azure-ad-identity-secure-score)
 - [Azure AD Multi-Factor Authentication](#8-azure-ad-multi-factor-authentication)
 - [Azure AD Privileged Identity Management](#10-azure-ad-privileged-identity-management)
-- [Conditional Access](#35-conditional-access)
+- [Conditional Access](#37-conditional-access)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/MFA.json)
 
 ## 22. Microsoft 365 Defender
 
 ### Controls
 - [Azure AD Identity Protection](#6-azure-ad-identity-protection)
-- [Microsoft Defender for Identity](#44-microsoft-defender-for-identity)
+- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Microsoft_365_Defender.json)
 
 ## 23. Network
 
@@ -2314,11 +2440,11 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Firewall](#25-azure-firewall)
 - [Azure Network Traffic Analytics](#27-azure-network-traffic-analytics)
 - [Azure Private Link](#29-azure-private-link)
-- [Azure VPN Gateway](#32-azure-vpn-gateway)
-- [Network Security Groups](#45-network-security-groups)
+- [Azure VPN Gateway](#34-azure-vpn-gateway)
+- [Network Security Groups](#47-network-security-groups)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Network.json)
 
 ## 24. Passwords
 
@@ -2327,50 +2453,50 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Password Policy](#9-azure-ad-password-policy)
 - [Azure Active Directory Password Protection](#11-azure-active-directory-password-protection)
 - [Azure Key Vault](#26-azure-key-vault)
-- [Passwordless Authentication](#46-passwordless-authentication)
+- [Passwordless Authentication](#48-passwordless-authentication)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Passwords.json)
 
 ## 25. Registry
 
 ### Controls
-- [File Integrity Monitoring](#38-file-integrity-monitoring)
+- [File Integrity Monitoring](#40-file-integrity-monitoring)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Registry.json)
 
 ## 26. VPN
 
 ### Controls
-- [Azure VPN Gateway](#32-azure-vpn-gateway)
+- [Azure VPN Gateway](#34-azure-vpn-gateway)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/VPN.json)
 
 ## 27. WAF
 
 ### Controls
-- [Azure Web Application Firewall](#33-azure-web-application-firewall)
+- [Azure Web Application Firewall](#35-azure-web-application-firewall)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/WAF.json)
 
 ## 28. Web
 
 ### Controls
-- [Azure Web Application Firewall](#33-azure-web-application-firewall)
+- [Azure Web Application Firewall](#35-azure-web-application-firewall)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Web.json)
 
 ## 29. Web Access Firewall
 
 ### Controls
-- [Azure Web Application Firewall](#33-azure-web-application-firewall)
+- [Azure Web Application Firewall](#35-azure-web-application-firewall)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Web_Access_Firewall.json)
 
 ## 30. Windows
 
@@ -2378,8 +2504,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Alerts for Windows Machines](#5-alerts-for-windows-machines)
 - [Azure Automation Update Management](#13-azure-automation-update-management)
 - [Azure Defender for App Service](#19-azure-defender-for-app-service)
-- [File Integrity Monitoring](#38-file-integrity-monitoring)
-- [Microsoft Defender for Identity](#44-microsoft-defender-for-identity)
+- [File Integrity Monitoring](#40-file-integrity-monitoring)
+- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
 
 ### Navigator Layer
-- [View](changeme)
+- [View](/mappings/Azure/layers/tags/Windows.json)

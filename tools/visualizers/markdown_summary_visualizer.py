@@ -43,6 +43,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
     def get_control_reference(self, control):
         item = Header.header_anchor(control)
+        # Don't include the control # in the link display
         item = item.split(" ")
         item = "[" + " ".join(item[1:]).replace(".", "")
         return item
@@ -124,7 +125,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
             #mdFile.write('\n\n')
             mdFile.new_header(level=3, title="Navigator Layer", add_table_of_contents='n')
-            layer = "changeme"
+            layer_name = tag.replace(" ", "_")
+            layer = f"/mappings/{platform}/layers/tags/{layer_name}.json"
             mdFile.write(f"- [View]({layer})\n")
 
 

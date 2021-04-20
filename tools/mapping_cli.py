@@ -42,6 +42,8 @@ def subcommand(args=[], parent=subparsers):
     argument('--title', help="Title of the visualization", required=False),
     argument('--description', help="Description of the visualization", required=False, default=""),
     argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
+    argument('--include-tags', help='When generating a visualization for mappings, generate it for all tags also.' 
+        '  This depends on visualizer support.', default=False, required=False, action="store_true"),
     ])
 def visualize(args):
     """Build visualizations from mapping file(s)"""
@@ -64,15 +66,19 @@ def visualize(args):
             raise argparse.ArgumentTypeError(
                 'The --mapping-file parameter also requires the --output parameter be specified')
 
+    options["generate-tags"] = False
     if args.tag:
-        mappings = mapping_driver.query_mapping_files(args.tag, args.relationship)
+        mappings = mapping_driver.query_mapping_files(args.tag, args.relationship, None, None)
         mapping_files = [mapping.path for mapping in mappings]
+        if not mapping_files:
+            exit("No mappings returned.  Is the database initialized?")
         mapping_files = mapping_driver.load_mapping_files_as_unit(mapping_files)
         options["title"] = args.title
         options["description"] = args.description
     elif args.mapping_file:
         mapping_driver.load_mapping_file(args.mapping_file)
     elif args.mapping_dir:
+        options["generate-tags"] = args.include_tags
         mapping_driver.load_mapping_dir(args.mapping_dir)
     else:
         raise argparse.ArgumentTypeError(

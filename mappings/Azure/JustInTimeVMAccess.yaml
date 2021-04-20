@@ -1,7 +1,7 @@
 version: 1
 ATT&CK version: 8.1
 creation date: 03/15/2021
-name: Just-in-Time(JIT) VM Access
+name: Just-in-Time VM Access
 contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
