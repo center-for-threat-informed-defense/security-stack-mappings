@@ -40,23 +40,25 @@ Contents
 	* [31. Azure Sentinel Analytics 1-50](#31-azure-sentinel-analytics-1-50)
 	* [32. Azure Sentinel Analytics 101-150](#32-azure-sentinel-analytics-101-150)
 	* [33. Azure Sentinel Analytics 151-200](#33-azure-sentinel-analytics-151-200)
-	* [34. Azure VPN Gateway](#34-azure-vpn-gateway)
-	* [35. Azure Web Application Firewall](#35-azure-web-application-firewall)
-	* [36. Cloud App Security Policies](#36-cloud-app-security-policies)
-	* [37. Conditional Access](#37-conditional-access)
-	* [38. Continuous Access Evaluation](#38-continuous-access-evaluation)
-	* [39. Docker Host Hardening](#39-docker-host-hardening)
-	* [40. File Integrity Monitoring](#40-file-integrity-monitoring)
-	* [41. Integrated Vulnerability Scanner Powered by Qualys](#41-integrated-vulnerability-scanner-powered-by-qualys)
-	* [42. Just-in-Time VM Access](#42-just-in-time-vm-access)
-	* [43. Linux auditd alerts and Log Analytics agent integration](#43-linux-auditd-alerts-and-log-analytics-agent-integration)
-	* [44. Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
-	* [45. Microsoft Antimalware for Azure](#45-microsoft-antimalware-for-azure)
-	* [46. Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
-	* [47. Network Security Groups](#47-network-security-groups)
-	* [48. Passwordless Authentication](#48-passwordless-authentication)
-	* [49. Role Based Access Control](#49-role-based-access-control)
-	* [50. SQL Vulnerability Assessment](#50-sql-vulnerability-assessment)
+	* [34. Azure Sentinel Analytics 201-250](#34-azure-sentinel-analytics-201-250)
+	* [35. Azure Sentinel Analytics 51-100](#35-azure-sentinel-analytics-51-100)
+	* [36. Azure VPN Gateway](#36-azure-vpn-gateway)
+	* [37. Azure Web Application Firewall](#37-azure-web-application-firewall)
+	* [38. Cloud App Security Policies](#38-cloud-app-security-policies)
+	* [39. Conditional Access](#39-conditional-access)
+	* [40. Continuous Access Evaluation](#40-continuous-access-evaluation)
+	* [41. Docker Host Hardening](#41-docker-host-hardening)
+	* [42. File Integrity Monitoring](#42-file-integrity-monitoring)
+	* [43. Integrated Vulnerability Scanner Powered by Qualys](#43-integrated-vulnerability-scanner-powered-by-qualys)
+	* [44. Just-in-Time VM Access](#44-just-in-time-vm-access)
+	* [45. Linux auditd alerts and Log Analytics agent integration](#45-linux-auditd-alerts-and-log-analytics-agent-integration)
+	* [46. Managed identities for Azure resources](#46-managed-identities-for-azure-resources)
+	* [47. Microsoft Antimalware for Azure](#47-microsoft-antimalware-for-azure)
+	* [48. Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
+	* [49. Network Security Groups](#49-network-security-groups)
+	* [50. Passwordless Authentication](#50-passwordless-authentication)
+	* [51. Role Based Access Control](#51-role-based-access-control)
+	* [52. SQL Vulnerability Assessment](#52-sql-vulnerability-assessment)
 * [Control Tags](#control-tags)
 	* [1. Adaptive Network Hardening](#1-adaptive-network-hardening)
 	* [2. Analytics](#2-analytics)
@@ -123,10 +125,10 @@ Security Center uses machine learning to analyze the applications running on mac
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application
+- <https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 2. Advanced Threat Protection for Azure SQL Database
 
 
@@ -156,11 +158,11 @@ This control provides alerts for Azure SQL Database, Azure SQL Managed Instance,
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/azure-sql/database/threat-detection-overview
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse
+- <https://docs.microsoft.com/en-us/azure/azure-sql/database/threat-detection-overview>
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 3. Alerts for Azure Cosmos DB
 
 
@@ -191,12 +193,12 @@ This control is still in preview, so its coverage will likely expand in the futu
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference
-- https://docs.microsoft.com/en-us/azure/security-center/other-threat-protections
-- https://docs.microsoft.com/en-us/azure/cosmos-db/cosmos-db-advanced-threat-protection
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference>
+- <https://docs.microsoft.com/en-us/azure/security-center/other-threat-protections>
+- <https://docs.microsoft.com/en-us/azure/cosmos-db/cosmos-db-advanced-threat-protection>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 4. Alerts for DNS
 
 
@@ -225,11 +227,12 @@ Azure Defender for DNS provides an additional layer of protection for your cloud
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction 
-- "https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-resourcemanager"
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction>
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction>
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-resourcemanager>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 5. Alerts for Windows Machines
 
 
@@ -287,11 +290,11 @@ For Windows, Azure Defender integrates with Azure services to monitor and protec
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-windows
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction>
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-windows>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 6. Azure AD Identity Protection
 
 
@@ -324,13 +327,13 @@ Export risk detection data to third-party utilities for further analysis.
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk
-- https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection
-- https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks
-- https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azuread-identity-protection-adds-support-for-federated/ba-p/244328
+- <https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk>
+- <https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection>
+- <https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks>
+- <https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azuread-identity-protection-adds-support-for-federated/ba-p/244328>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 7. Azure AD Identity Secure Score
 
 
@@ -377,13 +380,13 @@ All scores were capped at Partial since this control provides recommendations ra
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/identity-secure-score
-- https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#
-- https://docs.microsoft.com/en-us/defender-for-identity/cas-isp-unsecure-account-attributes
-- https://techcommunity.microsoft.com/t5/microsoft-defender-for-identity/new-identity-security-posture-assessments-riskiest-lmps-and/m-p/1491675
+- <https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/identity-secure-score>
+- <https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#>
+- <https://docs.microsoft.com/en-us/defender-for-identity/cas-isp-unsecure-account-attributes>
+- <https://techcommunity.microsoft.com/t5/microsoft-defender-for-identity/new-identity-security-posture-assessments-riskiest-lmps-and/m-p/1491675>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 8. Azure AD Multi-Factor Authentication
 
 
@@ -419,10 +422,10 @@ Note that MFA that is triggered in response to privileged operations (such as as
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks
+- <https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 9. Azure AD Password Policy
 
 
@@ -454,10 +457,10 @@ Most scores have been assessed as Partial because this control increases the str
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts
+- <https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 10. Azure AD Privileged Identity Management
 
 
@@ -486,10 +489,10 @@ Privileged Identity Management (PIM) is a service in Azure Active Directory (Azu
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure
+- <https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 11. Azure Active Directory Password Protection
 
 
@@ -523,10 +526,10 @@ All scores have been assessed as Partial because this control increases the stre
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad
+- <https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 12. Azure Alerts for Network Layer
 
 
@@ -559,10 +562,10 @@ The alerts can pick up outbound Denial of Service (DOS) attacks, though that's n
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurenetlayer
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurenetlayer>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 13. Azure Automation Update Management
 
 
@@ -602,10 +605,10 @@ Generally applies to techniques that leverage vulnerabilities in unpatched softw
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/automation/update-management/overview
+- <https://docs.microsoft.com/en-us/azure/automation/update-management/overview>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 14. Azure Backup
 
 
@@ -637,10 +640,10 @@ Azure Backup service provides defense against destruction/manipulation of data a
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/backup/backup-overview
+- <https://docs.microsoft.com/en-us/azure/backup/backup-overview>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 15. Azure DDOS Protection Standard
 
 
@@ -666,10 +669,10 @@ It is automatically tuned to help protect your specific Azure resources in a vir
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview
+- <https://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 16. Azure DNS Alias Records
 
 
@@ -694,10 +697,10 @@ Azure DNS alias records are qualifications on a DNS record set. They can referen
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/dns/dns-alias#prevent-dangling-dns-records
+- <https://docs.microsoft.com/en-us/azure/dns/dns-alias#prevent-dangling-dns-records>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 17. Azure DNS Analytics
 
 
@@ -734,10 +737,10 @@ For temporal score, generally high with respect to access to known bad domains: 
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/azure-monitor/insights/dns-analytics
+- <https://docs.microsoft.com/en-us/azure/azure-monitor/insights/dns-analytics>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 18. Azure Dedicated HSM
 
 
@@ -769,11 +772,11 @@ Note there is also a Managed HSM service.
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/dedicated-hsm/overview
-- https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/
+- <https://docs.microsoft.com/en-us/azure/dedicated-hsm/overview>
+- <https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 19. Azure Defender for App Service
 
 
@@ -844,13 +847,13 @@ The AppServices_KnownCredentialAccessTools alert is used to detect suspicious pr
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-app-service-introduction
-- https://azure.microsoft.com/en-us/services/app-service/
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference>
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-app-service-introduction>
+- <https://azure.microsoft.com/en-us/services/app-service/>
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 20. Azure Defender for Container Registries
 
 
@@ -884,11 +887,11 @@ This mapping file covers Docker container registries security features along wit
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-container-registries-introduction
-- https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-container-registries-introduction>
+- <https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 21. Azure Defender for Key Vault
 
 
@@ -920,11 +923,11 @@ This control provides alerts for suspicious activity for Azure Key Vault. Docume
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-key-vault-introduction
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurekv
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-key-vault-introduction>
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurekv>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 22. Azure Defender for Kubernetes
 
 
@@ -952,11 +955,11 @@ Azure Defender for Kubernetes provides cluster-level threat protection by monito
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-kubernetes-introduction
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-akscluster
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-kubernetes-introduction>
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-akscluster>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 23. Azure Defender for Resource Manager
 
 
@@ -988,11 +991,11 @@ Azure Defender for Resource Manager automatically monitors the  resource managem
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-resource-manager-introduction
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-resourcemanager
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-resource-manager-introduction>
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-resourcemanager>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 24. Azure Defender for Storage
 
 
@@ -1024,11 +1027,11 @@ Azure Defender for Storage can detect unusual and potentially harmful attempts t
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-storage-introduction
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurestorage
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-storage-introduction>
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurestorage>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 25. Azure Firewall
 
 
@@ -1076,10 +1079,10 @@ It's a fully stateful firewall as a service (FWaaS) with built-in high availabil
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/firewall/overview
+- <https://docs.microsoft.com/en-us/azure/firewall/overview>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 26. Azure Key Vault
 
 
@@ -1107,10 +1110,10 @@ Azure Key Vault provides a way to store and manage secrets, keys, and certificat
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/key-vault/general/overview
+- <https://docs.microsoft.com/en-us/azure/key-vault/general/overview>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 27. Azure Network Traffic Analytics
 
 
@@ -1157,10 +1160,10 @@ Network Traffic Analytics can make queries with respect to Network Security Grou
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics
+- <https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 28. Azure Policy
 
 
@@ -1209,11 +1212,11 @@ This mapping is focused on the list of built-in policy definitions provided by A
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/governance/policy/overview
-- https://docs.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies#api-for-fhir
+- <https://docs.microsoft.com/en-us/azure/governance/policy/overview>
+- <https://docs.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies#api-for-fhir>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 29. Azure Private Link
 
 
@@ -1248,10 +1251,10 @@ This is a private network service, allowing connections between Azure, on-prem, 
 
 
 ### Reference(s)
-- https://docs.microsoft.com/azure/private-link/private-link-overview
+- <https://docs.microsoft.com/azure/private-link/private-link-overview>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 30. Azure Security Center Recommendations
 
 
@@ -1306,11 +1309,11 @@ IoT related recommendations were not included in this mapping.
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/recommendations-reference
-- https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction
+- <https://docs.microsoft.com/en-us/azure/security-center/recommendations-reference>
+- <https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction>
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 31. Azure Sentinel Analytics 1-50
 
 
@@ -1344,7 +1347,7 @@ Note: only mapped out of the box analytics. Did not score analytics that were sp
 ### Reference(s)
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 32. Azure Sentinel Analytics 101-150
 
 
@@ -1431,7 +1434,7 @@ Note: only mapped out of the box analytics. Did not score analytics that were sp
 ### Reference(s)
   
 
-
+  [Back to Table Of Contents](#contents)
 ## 33. Azure Sentinel Analytics 151-200
 
 
@@ -1468,8 +1471,94 @@ Analytics rule templates. note did not score ioc-based or 3rd-party analytics.
 ### Reference(s)
   
 
+  [Back to Table Of Contents](#contents)
+## 34. Azure Sentinel Analytics 201-250
 
-## 34. Azure VPN Gateway
+
+Out of the box analytic rule templates for Azure Sentinel
+
+- [Mapping File](AzureSentinelAnalytics-201-250.yaml)
+- [Navigator Layer](layers/AzureSentinelAnalytics-201-250.json)
+
+### Mapping Comments
+
+
+No scoring of 3rd party-dependent analytics or ioc-based analytics (e.g. IP addresses from Threat Intelligence feed)  
+
+
+### Technique(s)
+
+|Technique|Category|Value|Comment|
+| :--- | :--- | :--- | :--- |
+|[T1021 - Remote Services](https://attack.mitre.org/techniques/T1021/)|Detect|Minimal|"Anomalous RDP Login Detections" can identify some potentially suspicious use of RDP<br/>"Multiple RDP connections from Single Systems" can identify above-threshold activity of RDP potentially indicative of lateral movement.|
+|[T1059 - Command and Scripting Interpreter](https://attack.mitre.org/techniques/T1059/)|Detect|Minimal|"New CloudShell User" can detect potentially suspicious Commandline/shell activity. Candidate for additional sub-technique (Cloud Shell, vs powershell etc)<br/>"Rare and Potentially high-risk Office operations" can identify specific rare mailbox-related account and permission changes.|
+|[T1071 - Application Layer Protocol](https://attack.mitre.org/techniques/T1071/)|Detect|Minimal|"Request for single resource on domain" can detect a specific pattern for potential C2 "Beaconing" via web request.|
+|[T1078 - Valid Accounts](https://attack.mitre.org/techniques/T1078/)|Detect|Minimal|"Anomalous SSH Login Detection" can identify some suspicious ssh logins potentially indicative of Valid Acct technique. (local)<br/>"Anomalous RDP Login Detections" can identify some suspicious  RDP activity indicative of Valid Account technique (domain and local)<br/>"Login to AWS management console without MFA" can identify potential use of Valid Account technique (cloud acct)|
+|[T1098 - Account Manipulation](https://attack.mitre.org/techniques/T1098/)|Detect|Minimal|"External User Access Enabled" identifies potentially malicious changes to external domain access specific to Zoom.<br/>"External user added and removed in short timeframe" can detect potential account manipulation technique, specific to Teams.<br/>"New user created and added to the built-in administrator group "  can identify potential attempt to maintain persistence with a new user assigned admin privileges.<br/>"Account added and removed from privileged group" can identify potential attempt to evade defense and escalate privilege.|
+|[T1105 - Ingress Tool Transfer](https://attack.mitre.org/techniques/T1105/)|Detect|Minimal|"New executable via Office FileUploaded Operations" can help identify potential ingress of malicious code and attacker tools to Office services such as Sharepoint and OneDrive (though may generate false positives from normal user exe upload activity)|
+|[T1110 - Brute Force](https://attack.mitre.org/techniques/T1110/)|Detect|Minimal|"SSH - Potential Brute Force" can detect potential Brute force password guessing for SSH<br/>"SecurityEvent - Multiple authentication failures followed by success" can identify brute force attempts wrt domain access.|
+|[T1119 - Automated Collection](https://attack.mitre.org/techniques/T1119/)|Detect|Minimal|"Users searching for VIP user activity" can identify potentially suspicious Log Analytics queries by users looking for a listing of "VIP" activity.|
+|[T1136 - Create Account](https://attack.mitre.org/techniques/T1136/)|Detect|Minimal|"New Cloud Shell User" identifies new Azure cloud Shell  that could be potential attempts to maintain persistence.|
+|[T1486 - Data Encrypted for Impact](https://attack.mitre.org/techniques/T1486/)|Detect|Minimal|"Sensitive Azure Key Vault operations" may help identify attacker attempting to impact data by deleting private key(s) required to decrypt.|
+|[T1490 - Inhibit System Recovery](https://attack.mitre.org/techniques/T1490/)|Detect|Minimal|"Sensitive Azure Key Vault Operations" may help identify attacker activity that interfers with backups|
+|[T1496 - Resource Hijacking](https://attack.mitre.org/techniques/T1496/)|Detect|Partial|"Creation of Expensive Computes in Azure" identifies potential resource hijacking.<br/>"Suspicious Resource deployment" can identify potential resource hijacking.|
+|[T1531 - Account Access Removal](https://attack.mitre.org/techniques/T1531/)|Detect|Minimal|"Sensitive Azure Key Vault operations" may identify attempts to remove account access by deleting keys or deleting entire key vault.|
+|[T1534 - Internal Spearphishing](https://attack.mitre.org/techniques/T1534/)|Detect|Minimal|"suspicious link sharing pattern" can identify potential internal lateral movement via spearphishing (albeit leveraging Zoom not email). Simple threshold rule for specific service, so minimal score. perhaps candidate for new sub-technique of internal spearphishing .|
+|[T1535 - Unused/Unsupported Cloud Regions](https://attack.mitre.org/techniques/T1535/)|Detect|Minimal|"Suspicious Resource deployment" can identify potential attacker attempt to maintain persistence or evade defense. by leveraging unused/unmonitored resources.|
+  
+
+
+### Tag(s)
+- [Analytics](#2-analytics)
+  
+
+
+### Reference(s)
+  
+
+  [Back to Table Of Contents](#contents)
+## 35. Azure Sentinel Analytics 51-100
+
+
+Out of the box Azure Sentinel Analytics (from the rule template list)
+
+- [Mapping File](AzureSentinelAnalytics-51-100.yaml)
+- [Navigator Layer](layers/AzureSentinelAnalytics-51-100.json)
+
+### Mapping Comments
+
+
+Only mapped out of the box analytics. Did not score analytics that were specific ioc-based (e.g.  ip addresses or hashes ).  Did not score analytics that required a 3rd party integration (e.g. Alsid or TrendMicro). Refer to specific analytics by name in quotes.  
+
+
+### Technique(s)
+
+|Technique|Category|Value|Comment|
+| :--- | :--- | :--- | :--- |
+|[T1021 - Remote Services](https://attack.mitre.org/techniques/T1021/)|Detect|Minimal||
+|[T1053 - Scheduled Task/Job](https://attack.mitre.org/techniques/T1053/)|Detect|Minimal||
+|[T1074 - Data Staged](https://attack.mitre.org/techniques/T1074/)|Detect|Minimal||
+|[T1078 - Valid Accounts](https://attack.mitre.org/techniques/T1078/)|Detect|Minimal||
+|[T1080 - Taint Shared Content](https://attack.mitre.org/techniques/T1080/)|Detect|Partial|This control may detect "Potential Build Process Compromise" when source code files have been modified immediately after the build process has started. The analytic "ADO Build Variable Modified by New User" may also indicate malicious modification to the build process to taint shared content.|
+|[T1087 - Account Discovery](https://attack.mitre.org/techniques/T1087/)|Detect|Minimal||
+|[T1098 - Account Manipulation](https://attack.mitre.org/techniques/T1098/)|Detect|Minimal||
+|[T1110 - Brute Force](https://attack.mitre.org/techniques/T1110/)|Detect|Partial||
+|[T1210 - Exploitation of Remote Services](https://attack.mitre.org/techniques/T1210/)|Detect|Minimal|This control may detect "Gain Code Execution on ADFS Server via SMB + Remote Service or Scheduled Task"|
+|[T1213 - Data from Information Repositories](https://attack.mitre.org/techniques/T1213/)|Detect|Minimal||
+|[T1550 - Use Alternate Authentication Material](https://attack.mitre.org/techniques/T1550/)|Detect|Minimal||
+|[T1552 - Unsecured Credentials](https://attack.mitre.org/techniques/T1552/)|Detect|Minimal||
+|[T1556 - Modify Authentication Process](https://attack.mitre.org/techniques/T1556/)|Detect|Minimal|This control may detect when "MFA disabled for a user" and "GitHub Two Factor Auth Disable".|
+|[T1562 - Impair Defenses](https://attack.mitre.org/techniques/T1562/)|Detect|Minimal||
+|[T1600 - Weaken Encryption](https://attack.mitre.org/techniques/T1600/)|Detect|Minimal|This control may detect when "Zoom E2E Encryption Disabled".|
+  
+
+
+### Reference(s)
+- <https://docs.microsoft.com/en-us/azure/sentinel/overview>
+  
+
+  [Back to Table Of Contents](#contents)
+## 36. Azure VPN Gateway
 
 
 A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. 
@@ -1497,11 +1586,11 @@ You can also use a VPN gateway to send encrypted traffic between Azure virtual n
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways
+- <https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways>
   
 
-
-## 35. Azure Web Application Firewall
+  [Back to Table Of Contents](#contents)
+## 37. Azure Web Application Firewall
 
 
 Azure Web Application Firewall (WAF) provides centralized protection of your web applications  from common exploits and vulnerabilities.
@@ -1559,11 +1648,11 @@ Azure Web Application Firewall (WAF) provides centralized protection of your web
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/web-application-firewall/overview
+- <https://docs.microsoft.com/en-us/azure/web-application-firewall/overview>
   
 
-
-## 36. Cloud App Security Policies
+  [Back to Table Of Contents](#contents)
+## 38. Cloud App Security Policies
 
 
 Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.
@@ -1602,12 +1691,12 @@ Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that suppo
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/cloud-app-security/policies-cloud-discovery
-- https://docs.microsoft.com/en-us/cloud-app-security/policies-information-protection
+- <https://docs.microsoft.com/en-us/cloud-app-security/policies-cloud-discovery>
+- <https://docs.microsoft.com/en-us/cloud-app-security/policies-information-protection>
   
 
-
-## 37. Conditional Access
+  [Back to Table Of Contents](#contents)
+## 39. Conditional Access
 
 
 The modern security perimeter now extends beyond an organization's network to include user and device identity. Organizations can utilize these identity signals as part of their access control decisions.  Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane.
@@ -1641,11 +1730,11 @@ At first glance, this control seems mappable to Exfiltration (sub-)techniques bu
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview
+- <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview>
   
 
-
-## 38. Continuous Access Evaluation
+  [Back to Table Of Contents](#contents)
+## 40. Continuous Access Evaluation
 
 
 Continuous Access Evaluation (CAE) provides the next level of identity security by terminating active user sessions to a subset of Microsoft services (Exchange and Teams) in real-time on changes such as account disable, password reset, and admin initiated user revocation.  CAE aims to improve the response time in situations where a policy setting that applies to a user changes but the user is able to circumvent the new policy setting because their OAuth access token was issued before the policy change.  It’s typical that security access tokens issued by Azure AD, like OAuth 2.0 access tokens, are valid for an hour.
@@ -1669,11 +1758,11 @@ CAE enables the scenario where users lose access to organizational SharePoint On
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation
+- <https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation>
   
 
-
-## 39. Docker Host Hardening
+  [Back to Table Of Contents](#contents)
+## 41. Docker Host Hardening
 
 
 Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the Center for Internet Security (CIS) Docker Benchmark. Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations.
@@ -1703,11 +1792,11 @@ Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, 
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/harden-docker-hosts
+- <https://docs.microsoft.com/en-us/azure/security-center/harden-docker-hosts>
   
 
-
-## 40. File Integrity Monitoring
+  [Back to Table Of Contents](#contents)
+## 42. File Integrity Monitoring
 
 
 File integrity monitoring (FIM), also known as change monitoring, examines  operating system files, Windows registries, application software, Linux  system files, and more, for changes that might indicate an attack. File Integrity Monitoring (FIM) informs you when changes occur to sensitive  areas in your resources, so you can investigate and address unauthorized  activity. 
@@ -1758,11 +1847,11 @@ The detection score for most techniques included in this mapping was scored as S
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/security-center-file-integrity-monitoring
+- <https://docs.microsoft.com/en-us/azure/security-center/security-center-file-integrity-monitoring>
   
 
-
-## 41. Integrated Vulnerability Scanner Powered by Qualys
+  [Back to Table Of Contents](#contents)
+## 43. Integrated Vulnerability Scanner Powered by Qualys
 
 
 This control provides a on-demand and scheduled vulnerability scan for Windows and Linux endpoints that are being protected by Azure Defender. The scanner generates a list of possible vulnerabilities in Azure Security Center for possible remediation. 
@@ -1797,12 +1886,12 @@ Once this control is deployed, it will run a scan every four hours and scans can
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/deploy-vulnerability-assessment-vm
-- https://docs.microsoft.com/en-us/azure/security-center/remediate-vulnerability-findings-vm
+- <https://docs.microsoft.com/en-us/azure/security-center/deploy-vulnerability-assessment-vm>
+- <https://docs.microsoft.com/en-us/azure/security-center/remediate-vulnerability-findings-vm>
   
 
-
-## 42. Just-in-Time VM Access
+  [Back to Table Of Contents](#contents)
+## 44. Just-in-Time VM Access
 
 
 This control locks down inbound traffic to management ports for protocols such as RDP and SSH and only provides access upon request for a specified period of time. This reduces exposure to attacks while providing easy access when you need to connect to a virtual machine. Specific permissions are required to request access to virtual machines that have this control enabled and access can be requested through the Azure web UI, PowerShell, and a REST API.
@@ -1828,12 +1917,12 @@ This control locks down inbound traffic to management ports for protocols such a
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-api
-- https://docs.microsoft.com/en-us/azure/security-center/just-in-time-explained
+- <https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-api>
+- <https://docs.microsoft.com/en-us/azure/security-center/just-in-time-explained>
   
 
-
-## 43. Linux auditd alerts and Log Analytics agent integration
+  [Back to Table Of Contents](#contents)
+## 45. Linux auditd alerts and Log Analytics agent integration
 
 
 This integration enables collection of auditd events in all supported Linux distributions, without any prerequisites. Auditd records are collected, enriched, and aggregated into events by using the Log Analytics agent for Linux agent.
@@ -1870,12 +1959,12 @@ This integration enables collection of auditd events in all supported Linux dist
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction
-- https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-linux
+- <https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction>
+- <https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-linux>
   
 
-
-## 44. Managed identities for Azure resources
+  [Back to Table Of Contents](#contents)
+## 46. Managed identities for Azure resources
 
 
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having to hard-code credentials in your code.
@@ -1899,11 +1988,11 @@ Managed identities for Azure resources provide Azure services with an automatica
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview
+- <https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview>
   
 
-
-## 45. Microsoft Antimalware for Azure
+  [Back to Table Of Contents](#contents)
+## 47. Microsoft Antimalware for Azure
 
 
 Microsoft Antimalware for Azure is a free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. 
@@ -1937,12 +2026,12 @@ Signature based antimalware solutions are generally dependent on Indicators of C
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/security/fundamentals/antimalware
-- https://docs.microsoft.com/en-us/azure/security/fundamentals/antimalware-code-samples
+- <https://docs.microsoft.com/en-us/azure/security/fundamentals/antimalware>
+- <https://docs.microsoft.com/en-us/azure/security/fundamentals/antimalware-code-samples>
   
 
-
-## 46. Microsoft Defender for Identity
+  [Back to Table Of Contents](#contents)
+## 48. Microsoft Defender for Identity
 
 
 Microsoft Defender for Identity (formerly Azure Advanced Threat Protection, also known as Azure ATP) is a cloud-based security solution that leverages your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization.
@@ -1995,11 +2084,11 @@ Understandably (to avoid enabling adversaries to circumvent the detection), many
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/defender-for-identity/what-is
+- <https://docs.microsoft.com/en-us/defender-for-identity/what-is>
   
 
-
-## 47. Network Security Groups
+  [Back to Table Of Contents](#contents)
+## 49. Network Security Groups
 
 
 You can use an Azure network security group to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.
@@ -2053,13 +2142,13 @@ Note: one can employ Application Security Groups (ASG) in Network Security Group
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview
-- https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works
-- https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-network-hardening
+- <https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview>
+- <https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works>
+- <https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-network-hardening>
   
 
-
-## 48. Passwordless Authentication
+  [Back to Table Of Contents](#contents)
+## 50. Passwordless Authentication
 
 
 Features like multi-factor authentication (MFA) are a great way to secure your organization, but users often get frustrated with the additional security layer on top of having to remember their passwords. Passwordless authentication methods are more convenient because the password is removed and replaced with something you have, plus something you are or something you know.
@@ -2084,11 +2173,11 @@ Features like multi-factor authentication (MFA) are a great way to secure your o
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless
+- <https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless>
   
 
-
-## 49. Role Based Access Control
+  [Back to Table Of Contents](#contents)
+## 51. Role Based Access Control
 
 
 Access management for cloud resources is a critical function for any organization that is using the cloud. Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
@@ -2127,11 +2216,11 @@ RBAC enables organizations to limit the number of users within the organization 
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/role-based-access-control/overview
+- <https://docs.microsoft.com/en-us/azure/role-based-access-control/overview>
   
 
-
-## 50. SQL Vulnerability Assessment
+  [Back to Table Of Contents](#contents)
+## 52. SQL Vulnerability Assessment
 
 
 SQL vulnerability assessment is a service that provides visibility into your security state. The service employs a knowledge base of rules that flag security vulnerabilities. It highlights deviations from best practices, such as misconfigurations, excessive permissions, and unprotected sensitive data.
@@ -2158,30 +2247,35 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 
 
 ### Reference(s)
-- https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-vulnerability-assessment
-- https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-vulnerability-assessment-rules
+- <https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-vulnerability-assessment>
+- <https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-vulnerability-assessment-rules>
   
 
-
+  [Back to Table Of Contents](#contents)
 # Control Tags
 
 ## 1. Adaptive Network Hardening
 
 ### Controls
-- [Network Security Groups](#47-network-security-groups)
+- [Network Security Groups](#49-network-security-groups)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Adaptive_Network_Hardening.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 2. Analytics
 
 ### Controls
 - [Azure Alerts for Network Layer](#12-azure-alerts-for-network-layer)
 - [Azure Network Traffic Analytics](#27-azure-network-traffic-analytics)
+- [Azure Sentinel Analytics 201-250](#34-azure-sentinel-analytics-201-250)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Analytics.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 3. Azure Active Directory
 
 ### Controls
@@ -2191,15 +2285,17 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Password Policy](#9-azure-ad-password-policy)
 - [Azure AD Privileged Identity Management](#10-azure-ad-privileged-identity-management)
 - [Azure Active Directory Password Protection](#11-azure-active-directory-password-protection)
-- [Conditional Access](#37-conditional-access)
-- [Continuous Access Evaluation](#38-continuous-access-evaluation)
-- [Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
-- [Passwordless Authentication](#48-passwordless-authentication)
-- [Role Based Access Control](#49-role-based-access-control)
+- [Conditional Access](#39-conditional-access)
+- [Continuous Access Evaluation](#40-continuous-access-evaluation)
+- [Managed identities for Azure resources](#46-managed-identities-for-azure-resources)
+- [Passwordless Authentication](#50-passwordless-authentication)
+- [Role Based Access Control](#51-role-based-access-control)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Active_Directory.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 4. Azure Defender
 
 ### Controls
@@ -2211,13 +2307,15 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Defender for Kubernetes](#22-azure-defender-for-kubernetes)
 - [Azure Defender for Resource Manager](#23-azure-defender-for-resource-manager)
 - [Azure Defender for Storage](#24-azure-defender-for-storage)
-- [File Integrity Monitoring](#40-file-integrity-monitoring)
-- [Integrated Vulnerability Scanner Powered by Qualys](#41-integrated-vulnerability-scanner-powered-by-qualys)
-- [Linux auditd alerts and Log Analytics agent integration](#43-linux-auditd-alerts-and-log-analytics-agent-integration)
+- [File Integrity Monitoring](#42-file-integrity-monitoring)
+- [Integrated Vulnerability Scanner Powered by Qualys](#43-integrated-vulnerability-scanner-powered-by-qualys)
+- [Linux auditd alerts and Log Analytics agent integration](#45-linux-auditd-alerts-and-log-analytics-agent-integration)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Defender.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 5. Azure Defender for App Service
 
 ### Controls
@@ -2225,27 +2323,33 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Defender_for_App_Service.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 6. Azure Defender for SQL
 
 ### Controls
 - [Advanced Threat Protection for Azure SQL Database](#2-advanced-threat-protection-for-azure-sql-database)
-- [SQL Vulnerability Assessment](#50-sql-vulnerability-assessment)
+- [SQL Vulnerability Assessment](#52-sql-vulnerability-assessment)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Defender_for_SQL.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 7. Azure Defender for Servers
 
 ### Controls
 - [Adaptive Application Controls](#1-adaptive-application-controls)
 - [Alerts for Windows Machines](#5-alerts-for-windows-machines)
-- [File Integrity Monitoring](#40-file-integrity-monitoring)
-- [Just-in-Time VM Access](#42-just-in-time-vm-access)
+- [File Integrity Monitoring](#42-file-integrity-monitoring)
+- [Just-in-Time VM Access](#44-just-in-time-vm-access)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Defender_for_Servers.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 8. Azure Security Center
 
 ### Controls
@@ -2255,15 +2359,17 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Alerts for Network Layer](#12-azure-alerts-for-network-layer)
 - [Azure Defender for App Service](#19-azure-defender-for-app-service)
 - [Azure Security Center Recommendations](#30-azure-security-center-recommendations)
-- [Docker Host Hardening](#39-docker-host-hardening)
-- [File Integrity Monitoring](#40-file-integrity-monitoring)
-- [Integrated Vulnerability Scanner Powered by Qualys](#41-integrated-vulnerability-scanner-powered-by-qualys)
-- [Just-in-Time VM Access](#42-just-in-time-vm-access)
-- [Microsoft Antimalware for Azure](#45-microsoft-antimalware-for-azure)
+- [Docker Host Hardening](#41-docker-host-hardening)
+- [File Integrity Monitoring](#42-file-integrity-monitoring)
+- [Integrated Vulnerability Scanner Powered by Qualys](#43-integrated-vulnerability-scanner-powered-by-qualys)
+- [Just-in-Time VM Access](#44-just-in-time-vm-access)
+- [Microsoft Antimalware for Azure](#47-microsoft-antimalware-for-azure)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Security_Center.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 9. Azure Security Center Recommendation
 
 ### Controls
@@ -2282,16 +2388,18 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Policy](#28-azure-policy)
 - [Azure Private Link](#29-azure-private-link)
 - [Azure Security Center Recommendations](#30-azure-security-center-recommendations)
-- [Azure Web Application Firewall](#35-azure-web-application-firewall)
-- [File Integrity Monitoring](#40-file-integrity-monitoring)
-- [Just-in-Time VM Access](#42-just-in-time-vm-access)
-- [Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
-- [Network Security Groups](#47-network-security-groups)
-- [Role Based Access Control](#49-role-based-access-control)
+- [Azure Web Application Firewall](#37-azure-web-application-firewall)
+- [File Integrity Monitoring](#42-file-integrity-monitoring)
+- [Just-in-Time VM Access](#44-just-in-time-vm-access)
+- [Managed identities for Azure resources](#46-managed-identities-for-azure-resources)
+- [Network Security Groups](#49-network-security-groups)
+- [Role Based Access Control](#51-role-based-access-control)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Security_Center_Recommendation.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 10. Azure Sentinel
 
 ### Controls
@@ -2299,33 +2407,41 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_Sentinel.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 11. Azure VPN Gateway
 
 ### Controls
-- [Azure VPN Gateway](#34-azure-vpn-gateway)
+- [Azure VPN Gateway](#36-azure-vpn-gateway)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Azure_VPN_Gateway.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 12. CASB
 
 ### Controls
-- [Cloud App Security Policies](#36-cloud-app-security-policies)
+- [Cloud App Security Policies](#38-cloud-app-security-policies)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/CASB.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 13. Containers
 
 ### Controls
 - [Azure Defender for Container Registries](#20-azure-defender-for-container-registries)
 - [Azure Defender for Kubernetes](#22-azure-defender-for-kubernetes)
-- [Docker Host Hardening](#39-docker-host-hardening)
+- [Docker Host Hardening](#41-docker-host-hardening)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Containers.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 14. Credentials
 
 ### Controls
@@ -2337,49 +2453,59 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Dedicated HSM](#18-azure-dedicated-hsm)
 - [Azure Defender for Key Vault](#21-azure-defender-for-key-vault)
 - [Azure Key Vault](#26-azure-key-vault)
-- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
-- [Passwordless Authentication](#48-passwordless-authentication)
+- [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
+- [Passwordless Authentication](#50-passwordless-authentication)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Credentials.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 15. DNS
 
 ### Controls
 - [Alerts for DNS](#4-alerts-for-dns)
 - [Azure DNS Alias Records](#16-azure-dns-alias-records)
 - [Azure DNS Analytics](#17-azure-dns-analytics)
-- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
+- [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/DNS.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 16. Database
 
 ### Controls
 - [Advanced Threat Protection for Azure SQL Database](#2-advanced-threat-protection-for-azure-sql-database)
 - [Alerts for Azure Cosmos DB](#3-alerts-for-azure-cosmos-db)
-- [SQL Vulnerability Assessment](#50-sql-vulnerability-assessment)
+- [SQL Vulnerability Assessment](#52-sql-vulnerability-assessment)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Database.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 17. Encryption
 
 ### Controls
-- [Azure VPN Gateway](#34-azure-vpn-gateway)
+- [Azure VPN Gateway](#36-azure-vpn-gateway)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Encryption.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 18. File system
 
 ### Controls
-- [File Integrity Monitoring](#40-file-integrity-monitoring)
+- [File Integrity Monitoring](#42-file-integrity-monitoring)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/File_system.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 19. Identity
 
 ### Controls
@@ -2389,48 +2515,56 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Password Policy](#9-azure-ad-password-policy)
 - [Azure AD Privileged Identity Management](#10-azure-ad-privileged-identity-management)
 - [Azure Active Directory Password Protection](#11-azure-active-directory-password-protection)
-- [Conditional Access](#37-conditional-access)
-- [Continuous Access Evaluation](#38-continuous-access-evaluation)
-- [Managed identities for Azure resources](#44-managed-identities-for-azure-resources)
-- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
-- [Passwordless Authentication](#48-passwordless-authentication)
-- [Role Based Access Control](#49-role-based-access-control)
+- [Conditional Access](#39-conditional-access)
+- [Continuous Access Evaluation](#40-continuous-access-evaluation)
+- [Managed identities for Azure resources](#46-managed-identities-for-azure-resources)
+- [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
+- [Passwordless Authentication](#50-passwordless-authentication)
+- [Role Based Access Control](#51-role-based-access-control)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Identity.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 20. Linux
 
 ### Controls
 - [Azure Automation Update Management](#13-azure-automation-update-management)
 - [Azure Defender for App Service](#19-azure-defender-for-app-service)
-- [Docker Host Hardening](#39-docker-host-hardening)
-- [File Integrity Monitoring](#40-file-integrity-monitoring)
-- [Linux auditd alerts and Log Analytics agent integration](#43-linux-auditd-alerts-and-log-analytics-agent-integration)
+- [Docker Host Hardening](#41-docker-host-hardening)
+- [File Integrity Monitoring](#42-file-integrity-monitoring)
+- [Linux auditd alerts and Log Analytics agent integration](#45-linux-auditd-alerts-and-log-analytics-agent-integration)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Linux.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 21. MFA
 
 ### Controls
 - [Azure AD Identity Secure Score](#7-azure-ad-identity-secure-score)
 - [Azure AD Multi-Factor Authentication](#8-azure-ad-multi-factor-authentication)
 - [Azure AD Privileged Identity Management](#10-azure-ad-privileged-identity-management)
-- [Conditional Access](#37-conditional-access)
+- [Conditional Access](#39-conditional-access)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/MFA.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 22. Microsoft 365 Defender
 
 ### Controls
 - [Azure AD Identity Protection](#6-azure-ad-identity-protection)
-- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
+- [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Microsoft_365_Defender.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 23. Network
 
 ### Controls
@@ -2442,12 +2576,14 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Firewall](#25-azure-firewall)
 - [Azure Network Traffic Analytics](#27-azure-network-traffic-analytics)
 - [Azure Private Link](#29-azure-private-link)
-- [Azure VPN Gateway](#34-azure-vpn-gateway)
-- [Network Security Groups](#47-network-security-groups)
+- [Azure VPN Gateway](#36-azure-vpn-gateway)
+- [Network Security Groups](#49-network-security-groups)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Network.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 24. Passwords
 
 ### Controls
@@ -2455,59 +2591,74 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Password Policy](#9-azure-ad-password-policy)
 - [Azure Active Directory Password Protection](#11-azure-active-directory-password-protection)
 - [Azure Key Vault](#26-azure-key-vault)
-- [Passwordless Authentication](#48-passwordless-authentication)
+- [Passwordless Authentication](#50-passwordless-authentication)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Passwords.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 25. Registry
 
 ### Controls
-- [File Integrity Monitoring](#40-file-integrity-monitoring)
+- [File Integrity Monitoring](#42-file-integrity-monitoring)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Registry.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 26. VPN
 
 ### Controls
-- [Azure VPN Gateway](#34-azure-vpn-gateway)
+- [Azure VPN Gateway](#36-azure-vpn-gateway)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/VPN.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 27. WAF
 
 ### Controls
-- [Azure Web Application Firewall](#35-azure-web-application-firewall)
+- [Azure Web Application Firewall](#37-azure-web-application-firewall)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/WAF.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 28. Web
 
 ### Controls
-- [Azure Web Application Firewall](#35-azure-web-application-firewall)
+- [Azure Web Application Firewall](#37-azure-web-application-firewall)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Web.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 29. Web Access Firewall
 
 ### Controls
-- [Azure Web Application Firewall](#35-azure-web-application-firewall)
+- [Azure Web Application Firewall](#37-azure-web-application-firewall)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Web_Access_Firewall.json)
+  
 
+  [Back to Table Of Contents](#contents)
 ## 30. Windows
 
 ### Controls
 - [Alerts for Windows Machines](#5-alerts-for-windows-machines)
 - [Azure Automation Update Management](#13-azure-automation-update-management)
 - [Azure Defender for App Service](#19-azure-defender-for-app-service)
-- [File Integrity Monitoring](#40-file-integrity-monitoring)
-- [Microsoft Defender for Identity](#46-microsoft-defender-for-identity)
+- [File Integrity Monitoring](#42-file-integrity-monitoring)
+- [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
 
 ### Navigator Layer
 - [View](/mappings/Azure/layers/tags/Windows.json)
+  
+
+  [Back to Table Of Contents](#contents)

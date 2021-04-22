@@ -3,6 +3,7 @@ import markdown
 from mdutils.mdutils import MdUtils
 from mdutils.tools.Header import Header
 from pathlib import Path
+from io import BytesIO
 import yaml
 import os
 import json
@@ -12,6 +13,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
     def __init__(self):
         super().__init__()
 
+        self.html_template = False
         with open("config/markdown_summary.json", "r") as f:
             self.platform_summaries = json.load(f)
 
@@ -19,6 +21,11 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
     @staticmethod
     def get_name():
         return "MarkdownSummary"
+
+
+    def initialize_html_template(self):
+        with open("config/markdown_summary_template.html", "r") as f:
+            self.html_template = f.read()
 
 
     def get_output_extension(self):
@@ -34,11 +41,17 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
         visualization.new_table_of_contents(table_title='Contents', depth=2)
         visualization.create_md_file()
 
-        pre, _ = os.path.splitext(output_name)
-        html_name = ".".join([pre, "html"])
+        if self.html_template:
+            pre, _ = os.path.splitext(output_name)
+            html_name = ".".join([pre, "html"])
 
-        #markdown.markdownFromFile(extensions= ['tables', 'nl2br', 'sane_lists'], 
-            #input=visualization.file_name, output=html_name, encoding='utf8')
+            markdown_data = BytesIO()
+            markdown.markdownFromFile(extensions= ['tables', 'nl2br', 'sane_lists'], 
+                input=visualization.file_name, output=markdown_data, encoding='utf8')
+            
+            print(f" Generating {html_name}")
+            with open(html_name, "w") as f:
+                f.write(self.html_template.replace("<CONTENT_HERE>", markdown_data.getvalue().decode('UTF-8')))
 
 
     def get_control_reference(self, control):
@@ -102,8 +115,10 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             references = control_data[4]
             mdFile.new_header(level=3, title="Reference(s)", add_table_of_contents='n')
             for reference in references:
-                mdFile.write(f"- {reference}\n")
+                reference = reference.replace('"', "")
+                mdFile.write(f"- <{reference}>\n")
             mdFile.write('  \n\n')
+            mdFile.write('  [Back to Table Of Contents](#contents)')
         
         return controls_map
 
@@ -128,6 +143,9 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             layer_name = tag.replace(" ", "_")
             layer = f"/mappings/{platform}/layers/tags/{layer_name}.json"
             mdFile.write(f"- [View]({layer})\n")
+
+            mdFile.write('  \n\n')
+            mdFile.write('  [Back to Table Of Contents](#contents)')
 
 
     def load_platform_tags(self, platform, platform_path):
@@ -154,6 +172,9 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
 
     def visualize(self, mapping_files, options = {}):
+        if options.get("include-html", False):
+            self.initialize_html_template()
+
         summary_data = {}
         for mapping_file in mapping_files:
             mapping_path = Path(mapping_file)
