@@ -1,5 +1,6 @@
 name: Azure Static Web Apps CI/CD
-
+env:
+  OUTPUT_PATH: ${{ github.workspace }}/.output
 on:
   push:
     branches:
@@ -21,8 +22,9 @@ jobs:
       - name: Prepare output folder
         run: |
           mkdir build;
-          cp -r mappings/Azure build;
-          mv build/README.html build/index.html;
+          cp -r mappings/Azure ${{ env.OUTPUT_PATH }};
+          ls -l ${{ env.OUTPUT_PATH }};
+          mv ${{ env.OUTPUT_PATH }}/README.html ${{ env.OUTPUT_PATH }}/index.html;
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v0.0.1-preview
