@@ -38,6 +38,20 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
             return "layers"
 
 
+    def print_statistics(self, platform, layer, mappings):
+        technique_count = 0
+        subtechnique_count = 0
+
+        for entity in layer["techniques"]:
+            if "." in entity["techniqueID"]:
+                subtechnique_count += 1
+            else:
+                technique_count += 1
+
+        num_mappings = len(mappings)
+        print(f"\n{platform} Platform:  Mappings:  {num_mappings} Techniques:  {technique_count} Sub-techniques:  {subtechnique_count}")
+
+
     def get_legend(self):
         if self.legend:
             return self.legend
@@ -104,7 +118,6 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                 existing["color"] = color
         else:
             techniques[entity_id] = entity
-
 
     def visualize_mapping_file(self, mapping_file, layer, techniques):
         with open(mapping_file, "r") as f:
@@ -187,7 +200,9 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
                         self.output(options, mappings[0], json.dumps(layer, indent=4))
 
             for platform, mappings in self.controls_by_platform.items():
-                options["title"] = "platform"
+                options["title"] = f"{platform} platform native security controls"
                 layer = self.visualize_mapping(mappings, options)
+                options["output_filename"] = "platform"
                 self.tag_mode = False
                 self.output(options, mappings[0], json.dumps(layer, indent=4))
+                self.print_statistics(platform, layer, mappings)

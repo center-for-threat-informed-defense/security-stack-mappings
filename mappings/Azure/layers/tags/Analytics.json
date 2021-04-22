@@ -6,7 +6,7 @@
         "layer": "4.1"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Azure Alerts for Network Layer,Azure Network Traffic Analytics",
+    "description": "Controls: Azure Sentinel Analytics 201-250,Azure Alerts for Network Layer,Azure Network Traffic Analytics",
     "filters": {
         "platforms": [
             "Linux",
@@ -31,10 +31,268 @@
     "hideDisabled": false,
     "techniques": [
         {
+            "techniqueID": "T1078",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Anomalous SSH Login Detection\" can identify some suspicious ssh logins potentially indicative of Valid Acct technique. (local)\n\"Anomalous RDP Login Detections\" can identify some suspicious  RDP activity indicative of Valid Account technique (domain and local)\n\"Login to AWS management console without MFA\" can identify potential use of Valid Account technique (cloud acct)"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Anomalous RDP Login Detections\" can identify some potentially suspicious use of RDP\n\"Multiple RDP connections from Single Systems\" can identify above-threshold activity of RDP potentially indicative of lateral movement."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic or attempts related to network security group (NSG) for remote services."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect some anomalous RDP activity"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous traffic wrt remote access protocols and groups."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"External User Access Enabled\" identifies potentially malicious changes to external domain access specific to Zoom.\n\"External user added and removed in short timeframe\" can detect potential account manipulation technique, specific to Teams.\n\"New user created and added to the built-in administrator group \"  can identify potential attempt to maintain persistence with a new user assigned admin privileges.\n\"Account added and removed from privileged group\" can identify potential attempt to evade defense and escalate privilege."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous access to administrative systems or ports, though can't identify specific sub-techniques/activity."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1496",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Creation of Expensive Computes in Azure\" identifies potential resource hijacking.\n\"Suspicious Resource deployment\" can identify potential resource hijacking."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
             "techniqueID": "T1110",
             "enabled": "True",
             "showSubtechniques": "True",
             "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"SSH - Potential Brute Force\" can detect potential Brute force password guessing for SSH\n\"SecurityEvent - Multiple authentication failures followed by success\" can identify brute force attempts wrt domain access."
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "Azure Alerts for Network Layer"
@@ -52,15 +310,34 @@
                     "value": "Partial, doesn't cover Password Cracking (done offline typically)"
                 }
             ],
-            "color": "#5F9F9F",
-            "score": "Partial",
+            "color": "#AEEEEE",
+            "score": "Minimal",
             "category": "Detect"
         },
         {
-            "techniqueID": "T1110.003",
+            "techniqueID": "T1110.001",
             "enabled": "True",
             "showSubtechniques": "True",
             "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "Azure Alerts for Network Layer"
@@ -78,12 +355,381 @@
                     "value": ""
                 }
             ],
-            "color": "#00FFFF",
-            "score": "Significant",
+            "color": "#5F9F9F",
+            "score": "Partial",
             "category": "Detect"
         },
         {
-            "techniqueID": "T1110.001",
+            "techniqueID": "T1490",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Sensitive Azure Key Vault Operations\" may help identify attacker activity that interfers with backups"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Sensitive Azure Key Vault operations\" may help identify attacker attempting to impact data by deleting private key(s) required to decrypt."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1531",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Sensitive Azure Key Vault operations\" may identify attempts to remove account access by deleting keys or deleting entire key vault."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1119",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Users searching for VIP user activity\" can identify potentially suspicious Log Analytics queries by users looking for a listing of \"VIP\" activity."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1105",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"New executable via Office FileUploaded Operations\" can help identify potential ingress of malicious code and attacker tools to Office services such as Sharepoint and OneDrive (though may generate false positives from normal user exe upload activity)"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1534",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"suspicious link sharing pattern\" can identify potential internal lateral movement via spearphishing (albeit leveraging Zoom not email). Simple threshold rule for specific service, so minimal score. perhaps candidate for new sub-technique of internal spearphishing ."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1535",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Suspicious Resource deployment\" can identify potential attacker attempt to maintain persistence or evade defense. by leveraging unused/unmonitored resources."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Request for single resource on domain\" can detect a specific pattern for potential C2 \"Beaconing\" via web request."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify connections to known malicious sites. Partial (arguably minimal) since the malicious sites must be on block list. No sub-techniques scored since not enough fidelity in the alert. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify anomalous traffic wrt NSG and application layer protocols"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"Request for single resource on domain\" can identify specific pattern for potential C2 beaconing."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"New Cloud Shell User\" identifies new Azure cloud Shell  that could be potential attempts to maintain persistence."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous connections to administrative systems/ports"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": ""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel Analytics 201-250"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"New CloudShell User\" can detect potentially suspicious Commandline/shell activity. Candidate for additional sub-technique (Cloud Shell, vs powershell etc)\n\"Rare and Potentially high-risk Office operations\" can identify specific rare mailbox-related account and permission changes."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.003",
             "enabled": "True",
             "showSubtechniques": "True",
             "metadata": [
@@ -132,51 +778,6 @@
             ],
             "color": "#00FFFF",
             "score": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify connections to known malicious sites. Partial (arguably minimal) since the malicious sites must be on block list. No sub-techniques scored since not enough fidelity in the alert. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can identify anomalous traffic wrt NSG and application layer protocols"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
             "category": "Detect"
         },
         {
@@ -544,32 +1145,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1021",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect anomalous traffic or attempts related to network security group (NSG) for remote services."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1021.006",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -674,32 +1249,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1021.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect anomalous traffic wrt remote access protocols and groups."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1021.003",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -752,32 +1301,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1098",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can identify anomalous access to administrative systems or ports, though can't identify specific sub-techniques/activity."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1133",
             "enabled": "True",
             "showSubtechniques": "True",
@@ -797,32 +1320,6 @@
                 {
                     "name": "comment",
                     "value": "Can identify anomalous access to external remote services"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1136",
-            "enabled": "True",
-            "showSubtechniques": "True",
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect anomalous connections to administrative systems/ports"
                 }
             ],
             "color": "#5F9F9F",
