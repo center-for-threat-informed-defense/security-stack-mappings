@@ -1,0 +1,104 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/22/2021
+name: Azure Sentinel Analytics 251-278
+author: Matt Bajzek
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+description: Out of the box Azure Sentinel Analytics (from the rule template list)
+techniques:
+  - id: T1573
+    name: Encrypted Channel
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: Provides minimal coverage for one sub-technique of this technique.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1573.002
+            name: Asymmetric Cryptography
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "DNS events related to ToR proxies", which may indicate adversary use of
+              Tor. Provides only minimal coverage because it only covers a set of common domains and
+              is easily bypassed via hardcoded IP addresses, redirection, etc.
+  - id: T1090
+    name: Proxy
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: Provides minimal coverage for one sub-technique of this technique.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1090.003
+            name: Multi-hop Proxy
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "DNS events related to ToR proxies", which may indicate adversary use of
+              Tor. Provides only minimal coverage because it only covers a set of common domains and
+              is easily bypassed via hardcoded IP addresses, redirection, etc.
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Can detect "Multiple Password Reset by user" across Azure Active Directory, Office 365,
+          and others via Security Events and Syslog. Does not specifically address sub-techniques,
+          and has a potentially high false positive rate due to routine password changes.
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control detects a highly specific behavior that applies to one sub-technique of this
+          technique.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1562.006
+            name: Indicator Blocking
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "Azure DevOps - Retention Reduced to Zero", which may indicate that an
+              adversary is looking to reduce their malicious activity's footprint by preventing
+              retention of artifacts. Control is specific to indicators produced by Azure DevOps.
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Can detect "DNS events related to mining pools", which may indicate adversary use of
+          resources to mine cryptocurrency. Provides only minimal coverage because it only covers a
+          set of common domains and is easily bypassed via hardcoded IP addresses, redirection, etc.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: This control includes detection coverage for all sub-techniques on a periodic basis.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.002
+            name: Password Cracking
+          - id: T1110.004
+            name: Credential Stuffing
+          - id: T1110.003
+            name: Password Spraying
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can detect "Excessive Windows logon failures" which may indicate attempts to brute
+              force Windows credentials.
+comments: ''
