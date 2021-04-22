@@ -1,0 +1,224 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/19/2021
+name: Azure Sentinel Analytics
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - ''
+description: Out of the box Azure Sentinel Analytics (from the rule template list)
+techniques:
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.004
+            name: Credential Stuffing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.001
+            name: Password Guessing
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect attempts to "Brute force attack against Azure Portal",
+              "Password spray attack against Azure AD application", "Successful logon from IP and
+              failure from a different IP", "Failed logon attempts in authpriv", and "Failed AzureAD
+              logons but success logon to host".
+  - id: T1552
+    name: Unsecured Credentials
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1552.004
+            name: Private Keys
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect "ADFS DKM Master Key Export" and "ADFS Key Export (Sysmon)"
+              which may allow for decryption of access tokens.
+  - id: T1556
+    name: Modify Authentication Process
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may detect when "MFA disabled for a user" and "GitHub Two Factor Auth
+          Disable".
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1562.002
+            name: Disable Windows Event Logging
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may detect "Audit policy manipulation using auditpol utility" to modify
+              and disable logging.
+  - id: T1080
+    name: Taint Shared Content
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may detect "Potential Build Process Compromise" when source code files have
+          been modified immediately after the build process has started. The analytic "ADO Build
+          Variable Modified by New User" may also indicate malicious modification to the build
+          process to taint shared content.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.003
+            name: Local Accounts
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may detect "User account enabled and disabled within 10 mins", "Explicit
+              MFA Deny", and "GitHub Activites from a New Country" which may indicate compromise of
+              a valid account.
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.001
+            name: Additional Cloud Credentials
+        scores:
+          - category: Detect
+            value: Significant
+            comments: >-
+              This control may detect "Credential added after admin consented to Application". This
+              may indicate that the additional credentials are being used for persistence within the
+              cloud environment.
+  - id: T1550
+    name: Use Alternate Authentication Material
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1550.001
+            name: Application Access Token
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect "Azure DevOps - PAT used with Browser." which may indicate
+              usage of Personal Access Tokens intended for code or applications to be used through
+              the web browser for malicious access.
+  - id: T1074
+    name: Data Staged
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1074.001
+            name: Local Data Staging
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: This control may detect "Malware in the recycle bin".
+  - id: T1021
+    name: Remote Services
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1021.001
+            name: Remote Desktop Protocol
+          - id: T1021.004
+            name: SSH
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect "Rare RDP Connections" and "New internet-exposed SSH
+              endpoints"
+  - id: T1600
+    name: Weaken Encryption
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control may detect when "Zoom E2E Encryption Disabled".
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may detect "Gain Code Execution on ADFS Server via SMB + Remote Service or
+          Scheduled Task"
+  - id: T1053
+    name: Scheduled Task/Job
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1053.005
+            name: Scheduled Task
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may detect "Gain Code Execution on ADFS Server via SMB + Remote Service
+              or Scheduled Task"
+  - id: T1087
+    name: Account Discovery
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1087.003
+            name: Email Account
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect "Mail.Read Permissions Granted to Application" which may
+              identify applications that have been abused to gain access to mailboxes.
+  - id: T1213
+    name: Data from Information Repositories
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1213.002
+            name: Sharepoint
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect "SharePointFileOperation via devices with previously unseen
+              user agents" which indicates a high number of upload or download actions by an unknown
+              and possible malicious actor.
+comments: >-
+  Only mapped out of the box analytics. Did not score analytics that were specific ioc-based (e.g. 
+  ip addresses or hashes ).  Did not score analytics that required a 3rd party integration (e.g.
+  Alsid or TrendMicro). Refer to specific analytics by name in quotes.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/sentinel/overview'
