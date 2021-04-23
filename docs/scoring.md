@@ -57,26 +57,10 @@ The scoring rubric used to assess a security control's ability to detect the exe
 
 ## Respond Scoring
 
-Respond scoring assesses a security control's ability to respond to the execution of an ATT&CK (sub-)technique.  The unique nature of this capability requires a different set of factors to consider when assessing its effectiveness:
+Respond scoring assesses a security control's ability to respond to the execution of an ATT&CK (sub-)technique.  The score of this capability is determined by the type of response provided as described below:  
 
-- **Detection**:  An important factor in scoring the respond capability of a control is how well it is able to detect the behavior that it responds to.  Consequently, a low detection score for a control also adversely impacts any response capability it provides.
-- **Type of response**: type of technical response provided by the control:
-    - Data Enrichment/Forensics
-        - Control provides more than basic alerting (basic alerting is considered default functionality of a detect control), typically enriching the data contained in an alert to provide the analyst improved situational awareness.
-        <br/>Example:  Aggregates forensic data from third-party tools
-    - Containment of an incident
-        - Containment involves keeping the threat from growing or impacting other systems.
-        - Minimizes the impact of an incident but requires additional mitigation action to be performed to completely mitigate the threat.
-        <br/>Examples:  Quarantine file, Account Disable
-    - Eradication
-        - Mitigates the threat by removing it.
-        <br/>Examples:  Force Account Password Change, Remove malware from storage, Terminate process and delete executable.
-- **Integration**:  Supports integration with 3rd-party security tools to enrich the control's response capability.
-- **Automation**:  Supports APIs that enable automating and scaling the response capability.
-
-
-| Response Type | Minimal | Partial | Significant |
-|------|------|------|------|
-| Data Enrichment/Forensics | - Minimal detection score, irrespective of other score factors <br/> or <br/> - Partial detection score and minimal support for integrations and automation. |-  Partial/Significant detection score and <br/> - Significant 3rd-party integrations <br/> - Automation/API support | N/A, Data Enrichment/Forensics response type doesn't actually mitigate the threat so its maximum score is Partial.|
-| Containment | - Minimal detection score, irrespective of other factors.| - Partial or Significant detection score and <br/> - Minimum/Partial support for 3rd party integrations <br/> - or No/Minimal Automation/API support | - Partial or Significant detection score and <br />- Provides significant support for platform and 3rd-party integrations and/or <br />-Supports automation/API |
-| Eradication | - Minimal detection score, irrespective of other factors. | - Partial detection score and <br />- Minimal/Partial support for 3rd-party integrations and/or No/Minimal automation/API support |- Significant detection irrespective of other factors. <br />- Partial detection score and </br> - Provides significant support for platform and 3rd-party integrations <br /> - Supports automation/API|
+| Score | Description | 
+|------|------|
+| **Minimal** | **Data Enrichment/Forensics**<br/>The control provides data enrichment/forensic intended to aid an analyst in responding to the ATT&CK (sub-)technique.<br/><br/>Example(s):  Label an event with ATT&CK details.|
+| **Partial** | **Containment of an incident**<br/>The control contains the impact of the (sub-)technique by preventing it from growing or impacting other systems.<br/>Minimizes the impact of an incident but requires additional mitigation action to be performed to completely mitigate the threat.<br><br> Example(s): Quarantine file, Account Disable|
+| **Significant** | **Eradication**</br>Mitigates the threat by removing it. <br/><br/>Example(s):  Force Account Password Change, Remove malware from storage, Terminate process and delete executable.|
