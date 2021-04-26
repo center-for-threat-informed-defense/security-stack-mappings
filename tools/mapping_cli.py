@@ -110,7 +110,11 @@ def validate(args):
         mapping_driver.load_mapping_file(args.mapping_file)
     else:
         mapping_driver.load_mapping_dir(args.mapping_dir)
-    mapping_driver.validate_mapping_files()
+    if mapping_driver.validate_mapping_files():
+        print("\n\nValidation Succeeded!")
+    else:
+        print("\n\nValidation Failed!")
+        exit(1)
 
 
 @subcommand([
