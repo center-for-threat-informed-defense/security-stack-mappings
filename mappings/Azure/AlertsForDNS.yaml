@@ -70,6 +70,5 @@ techniques:
         comments: Can detect anomalous use of DNS.  Because this detection is specific to DNS, 
                   its coverage score is Minimal resulting in an overall Minimal score.
 references:
-  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction'
-  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction'
-  - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-resourcemanager'
+  - https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction
+  - https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-dns
