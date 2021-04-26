@@ -24,7 +24,8 @@ techniques:
         comments: >-
           Can detect "Multiple large queries made by user" and "Query data volume anomolies", both
           of which may indicate that an adversary is using automated queries to collect data in
-          bulk. 
+          bulk. Can also detect "New ServicePrincipal running queries", which may indicate an
+          adversary using an application to perform automated collection via queries.
   - id: T1110
     name: Brute Force
     technique-scores:
@@ -53,9 +54,9 @@ techniques:
         value: Partial
         comments: >-
           Can detect "New processes observed in last 24 hours", "Rare processes run by Service
-          accounts", and "Rare process running on a Linux host". These types of queries are likely
-          to yield high false positive rates, but also provide good coverage for atypical execution
-          of commands and scripts.
+          accounts", "Rare Custom Script Extension" and "Rare process running on a Linux host".
+          These types of queries are likely to yield high false positive rates, but also provide
+          good coverage for atypical execution of commands and scripts.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1059.004
@@ -121,7 +122,17 @@ techniques:
               adversary is using a valid account to access resources or perform actions not typical
               for the account. Can also detect "Non-owner mailbox login activity" and "Powershell or
               non-browser mailbox login activity", both of which may indicate that an adversary is
-              using a valid but atypical account with access to a mailbox to access mail.
+              using a valid but atypical account with access to a mailbox to access mail. Can also
+              detect "Rare User Agent strings" and "Same IP address with multiple csUserAgent",
+              which may indicate that an account is being used from a new device, which may belong
+              to an adversary, but with a high probability of false positives and potential false
+              negatives when adversary behavior comes from a context similar to typical ones. Can
+              also detect "Rare domains seen in Cloud Logs" when accounts from uncommon domains
+              access or attempt to access cloud resources, which may indicate adversary use of a
+              domain account. Can also detect "Same User - Successful logon for a given App and
+              failure on another App within 1m and low distribution", which may indicate that an
+              adversary has gained access to on/more resources with a valid account but then failed
+              to access another resource for which the account does not have access.
   - id: T1568
     name: Dynamic Resolution
     technique-scores:
@@ -216,3 +227,36 @@ techniques:
           Can detect "Multiple Teams deleted by a single user" when a threshold is met for number of
           Teams deleted within an hour. Coverage is minimal because the control is limited to a
           specific resource (teams) and only works when the threshold is met.
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control provides minimal coverage for only one of this technique's sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.004
+            name: DNS
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "RareDNSLookupWithDataTransfer" [sic], which may indicate an adversary
+              using DNS to transfer data. Score is minimal because detection is contingent on DNS
+              traffic meeting requirements to be considered "rare".
+  - id: T1137
+    name: Office Application Startup
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control provides minimal coverage for only one of this technique's sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1137.006
+            name: Add-ins
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "Previously unseen bot or applicaiton added to Teams" [sic], which may
+              indicate the addition of a malicious add-in, but is specific to Microsoft Teams.
