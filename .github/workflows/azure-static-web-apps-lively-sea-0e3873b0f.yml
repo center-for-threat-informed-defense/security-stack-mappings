@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.7, 3.8]
+        python-version: [3.8]
     name: Run Python Validation Script
     steps:
       - uses: actions/checkout@v2
@@ -32,4 +32,5 @@ jobs:
           pip install -r requirements.txt
       - name: Execute validation script
         run: |
+          cd tools
           ./mapping_cli.py validate
