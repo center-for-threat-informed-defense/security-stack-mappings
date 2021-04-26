@@ -207,3 +207,12 @@ techniques:
             comments: >-
               Can detect "Query looking for secrets", which may indicate an adversary attempting to
               pull secrets like passwords or other credentials from tables within a database.
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Can detect "Multiple Teams deleted by a single user" when a threshold is met for number of
+          Teams deleted within an hour. Coverage is minimal because the control is limited to a
+          specific resource (teams) and only works when the threshold is met.
