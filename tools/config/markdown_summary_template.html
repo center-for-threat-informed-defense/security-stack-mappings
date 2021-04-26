@@ -71,6 +71,18 @@ a[href="#contents"]
             nav_link.href = "https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=" + nav_link.href;
             nav_link.target = "_blank";
         }
+
+        //fix Mapping links
+        let mapping_links = document.evaluate("//a[contains(.,'Mapping File')]", document, null, XPathResult.ANY_TYPE, null);
+        let mapping_link = null;
+        let mlinks = [];
+        while(mapping_link = mapping_links.iterateNext()) {
+            mlinks.push(mapping_link);
+        }
+        for (let mapping_link of mlinks) {
+            mapping_link.href = "https://www.treedoc.org/?dataUrl=" + mapping_link.href;
+            mapping_link.target = "_blank";
+        }
     }
 </script>
 <article class="markdown-body">

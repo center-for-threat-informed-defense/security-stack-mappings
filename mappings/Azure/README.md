@@ -2259,8 +2259,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Network Security Groups](#49-network-security-groups)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Adaptive_Network_Hardening.json)
+### Views
+- [Navigator Layer](/layers/tags/Adaptive_Network_Hardening.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2271,8 +2271,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Network Traffic Analytics](#27-azure-network-traffic-analytics)
 - [Azure Sentinel Analytics 201-250](#34-azure-sentinel-analytics-201-250)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Analytics.json)
+### Views
+- [Navigator Layer](/layers/tags/Analytics.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2291,8 +2291,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Passwordless Authentication](#50-passwordless-authentication)
 - [Role Based Access Control](#51-role-based-access-control)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_Active_Directory.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_Active_Directory.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2311,8 +2311,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Integrated Vulnerability Scanner Powered by Qualys](#43-integrated-vulnerability-scanner-powered-by-qualys)
 - [Linux auditd alerts and Log Analytics agent integration](#45-linux-auditd-alerts-and-log-analytics-agent-integration)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_Defender.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_Defender.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2321,8 +2321,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Azure Defender for App Service](#19-azure-defender-for-app-service)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_Defender_for_App_Service.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_Defender_for_App_Service.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2332,8 +2332,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Advanced Threat Protection for Azure SQL Database](#2-advanced-threat-protection-for-azure-sql-database)
 - [SQL Vulnerability Assessment](#52-sql-vulnerability-assessment)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_Defender_for_SQL.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_Defender_for_SQL.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2345,8 +2345,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [File Integrity Monitoring](#42-file-integrity-monitoring)
 - [Just-in-Time VM Access](#44-just-in-time-vm-access)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_Defender_for_Servers.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_Defender_for_Servers.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2365,8 +2365,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Just-in-Time VM Access](#44-just-in-time-vm-access)
 - [Microsoft Antimalware for Azure](#47-microsoft-antimalware-for-azure)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_Security_Center.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_Security_Center.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2395,8 +2395,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Network Security Groups](#49-network-security-groups)
 - [Role Based Access Control](#51-role-based-access-control)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_Security_Center_Recommendation.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_Security_Center_Recommendation.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2405,8 +2405,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Azure Defender for Storage](#24-azure-defender-for-storage)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_Sentinel.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_Sentinel.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2415,8 +2415,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Azure VPN Gateway](#36-azure-vpn-gateway)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Azure_VPN_Gateway.json)
+### Views
+- [Navigator Layer](/layers/tags/Azure_VPN_Gateway.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2425,8 +2425,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Cloud App Security Policies](#38-cloud-app-security-policies)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/CASB.json)
+### Views
+- [Navigator Layer](/layers/tags/CASB.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2437,8 +2437,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Defender for Kubernetes](#22-azure-defender-for-kubernetes)
 - [Docker Host Hardening](#41-docker-host-hardening)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Containers.json)
+### Views
+- [Navigator Layer](/layers/tags/Containers.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2456,8 +2456,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
 - [Passwordless Authentication](#50-passwordless-authentication)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Credentials.json)
+### Views
+- [Navigator Layer](/layers/tags/Credentials.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2469,8 +2469,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure DNS Analytics](#17-azure-dns-analytics)
 - [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/DNS.json)
+### Views
+- [Navigator Layer](/layers/tags/DNS.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2481,8 +2481,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Alerts for Azure Cosmos DB](#3-alerts-for-azure-cosmos-db)
 - [SQL Vulnerability Assessment](#52-sql-vulnerability-assessment)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Database.json)
+### Views
+- [Navigator Layer](/layers/tags/Database.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2491,8 +2491,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Azure VPN Gateway](#36-azure-vpn-gateway)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Encryption.json)
+### Views
+- [Navigator Layer](/layers/tags/Encryption.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2501,8 +2501,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [File Integrity Monitoring](#42-file-integrity-monitoring)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/File_system.json)
+### Views
+- [Navigator Layer](/layers/tags/File_system.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2522,8 +2522,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Passwordless Authentication](#50-passwordless-authentication)
 - [Role Based Access Control](#51-role-based-access-control)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Identity.json)
+### Views
+- [Navigator Layer](/layers/tags/Identity.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2536,8 +2536,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [File Integrity Monitoring](#42-file-integrity-monitoring)
 - [Linux auditd alerts and Log Analytics agent integration](#45-linux-auditd-alerts-and-log-analytics-agent-integration)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Linux.json)
+### Views
+- [Navigator Layer](/layers/tags/Linux.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2549,8 +2549,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Privileged Identity Management](#10-azure-ad-privileged-identity-management)
 - [Conditional Access](#39-conditional-access)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/MFA.json)
+### Views
+- [Navigator Layer](/layers/tags/MFA.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2560,8 +2560,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure AD Identity Protection](#6-azure-ad-identity-protection)
 - [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Microsoft_365_Defender.json)
+### Views
+- [Navigator Layer](/layers/tags/Microsoft_365_Defender.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2579,8 +2579,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure VPN Gateway](#36-azure-vpn-gateway)
 - [Network Security Groups](#49-network-security-groups)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Network.json)
+### Views
+- [Navigator Layer](/layers/tags/Network.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2593,8 +2593,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [Azure Key Vault](#26-azure-key-vault)
 - [Passwordless Authentication](#50-passwordless-authentication)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Passwords.json)
+### Views
+- [Navigator Layer](/layers/tags/Passwords.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2603,8 +2603,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [File Integrity Monitoring](#42-file-integrity-monitoring)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Registry.json)
+### Views
+- [Navigator Layer](/layers/tags/Registry.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2613,8 +2613,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Azure VPN Gateway](#36-azure-vpn-gateway)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/VPN.json)
+### Views
+- [Navigator Layer](/layers/tags/VPN.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2623,8 +2623,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Azure Web Application Firewall](#37-azure-web-application-firewall)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/WAF.json)
+### Views
+- [Navigator Layer](/layers/tags/WAF.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2633,8 +2633,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Azure Web Application Firewall](#37-azure-web-application-firewall)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Web.json)
+### Views
+- [Navigator Layer](/layers/tags/Web.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2643,8 +2643,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 ### Controls
 - [Azure Web Application Firewall](#37-azure-web-application-firewall)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Web_Access_Firewall.json)
+### Views
+- [Navigator Layer](/layers/tags/Web_Access_Firewall.json)
   
 
   [Back to Table Of Contents](#contents)
@@ -2657,8 +2657,8 @@ SQL vulnerability assessment is a service that provides visibility into your sec
 - [File Integrity Monitoring](#42-file-integrity-monitoring)
 - [Microsoft Defender for Identity](#48-microsoft-defender-for-identity)
 
-### Navigator Layer
-- [View](/mappings/Azure/layers/tags/Windows.json)
+### Views
+- [Navigator Layer](/layers/tags/Windows.json)
   
 
   [Back to Table Of Contents](#contents)

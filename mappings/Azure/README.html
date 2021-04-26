@@ -71,6 +71,18 @@ a[href="#contents"]
             nav_link.href = "https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=" + nav_link.href;
             nav_link.target = "_blank";
         }
+
+        //fix Mapping links
+        let mapping_links = document.evaluate("//a[contains(.,'Mapping File')]", document, null, XPathResult.ANY_TYPE, null);
+        let mapping_link = null;
+        let mlinks = [];
+        while(mapping_link = mapping_links.iterateNext()) {
+            mlinks.push(mapping_link);
+        }
+        for (let mapping_link of mlinks) {
+            mapping_link.href = "https://www.treedoc.org/?dataUrl=" + mapping_link.href;
+            mapping_link.target = "_blank";
+        }
     }
 </script>
 <article class="markdown-body">
@@ -5121,9 +5133,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#49-network-security-groups">Network Security Groups</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Adaptive_Network_Hardening.json">View</a></li>
+<li><a href="/layers/tags/Adaptive_Network_Hardening.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>2. Analytics</h2>
@@ -5133,9 +5145,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#27-azure-network-traffic-analytics">Azure Network Traffic Analytics</a></li>
 <li><a href="#34-azure-sentinel-analytics-201-250">Azure Sentinel Analytics 201-250</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Analytics.json">View</a></li>
+<li><a href="/layers/tags/Analytics.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>3. Azure Active Directory</h2>
@@ -5153,9 +5165,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#50-passwordless-authentication">Passwordless Authentication</a></li>
 <li><a href="#51-role-based-access-control">Role Based Access Control</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_Active_Directory.json">View</a></li>
+<li><a href="/layers/tags/Azure_Active_Directory.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>4. Azure Defender</h2>
@@ -5173,9 +5185,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#43-integrated-vulnerability-scanner-powered-by-qualys">Integrated Vulnerability Scanner Powered by Qualys</a></li>
 <li><a href="#45-linux-auditd-alerts-and-log-analytics-agent-integration">Linux auditd alerts and Log Analytics agent integration</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_Defender.json">View</a></li>
+<li><a href="/layers/tags/Azure_Defender.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>5. Azure Defender for App Service</h2>
@@ -5183,9 +5195,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#19-azure-defender-for-app-service">Azure Defender for App Service</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_Defender_for_App_Service.json">View</a></li>
+<li><a href="/layers/tags/Azure_Defender_for_App_Service.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>6. Azure Defender for SQL</h2>
@@ -5194,9 +5206,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#2-advanced-threat-protection-for-azure-sql-database">Advanced Threat Protection for Azure SQL Database</a></li>
 <li><a href="#52-sql-vulnerability-assessment">SQL Vulnerability Assessment</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_Defender_for_SQL.json">View</a></li>
+<li><a href="/layers/tags/Azure_Defender_for_SQL.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>7. Azure Defender for Servers</h2>
@@ -5207,9 +5219,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#42-file-integrity-monitoring">File Integrity Monitoring</a></li>
 <li><a href="#44-just-in-time-vm-access">Just-in-Time VM Access</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_Defender_for_Servers.json">View</a></li>
+<li><a href="/layers/tags/Azure_Defender_for_Servers.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>8. Azure Security Center</h2>
@@ -5227,9 +5239,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#44-just-in-time-vm-access">Just-in-Time VM Access</a></li>
 <li><a href="#47-microsoft-antimalware-for-azure">Microsoft Antimalware for Azure</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_Security_Center.json">View</a></li>
+<li><a href="/layers/tags/Azure_Security_Center.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>9. Azure Security Center Recommendation</h2>
@@ -5257,9 +5269,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#49-network-security-groups">Network Security Groups</a></li>
 <li><a href="#51-role-based-access-control">Role Based Access Control</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_Security_Center_Recommendation.json">View</a></li>
+<li><a href="/layers/tags/Azure_Security_Center_Recommendation.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>10. Azure Sentinel</h2>
@@ -5267,9 +5279,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#24-azure-defender-for-storage">Azure Defender for Storage</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_Sentinel.json">View</a></li>
+<li><a href="/layers/tags/Azure_Sentinel.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>11. Azure VPN Gateway</h2>
@@ -5277,9 +5289,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#36-azure-vpn-gateway">Azure VPN Gateway</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Azure_VPN_Gateway.json">View</a></li>
+<li><a href="/layers/tags/Azure_VPN_Gateway.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>12. CASB</h2>
@@ -5287,9 +5299,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#38-cloud-app-security-policies">Cloud App Security Policies</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/CASB.json">View</a></li>
+<li><a href="/layers/tags/CASB.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>13. Containers</h2>
@@ -5299,9 +5311,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#22-azure-defender-for-kubernetes">Azure Defender for Kubernetes</a></li>
 <li><a href="#41-docker-host-hardening">Docker Host Hardening</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Containers.json">View</a></li>
+<li><a href="/layers/tags/Containers.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>14. Credentials</h2>
@@ -5318,9 +5330,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#48-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
 <li><a href="#50-passwordless-authentication">Passwordless Authentication</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Credentials.json">View</a></li>
+<li><a href="/layers/tags/Credentials.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>15. DNS</h2>
@@ -5331,9 +5343,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#17-azure-dns-analytics">Azure DNS Analytics</a></li>
 <li><a href="#48-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/DNS.json">View</a></li>
+<li><a href="/layers/tags/DNS.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>16. Database</h2>
@@ -5343,9 +5355,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#3-alerts-for-azure-cosmos-db">Alerts for Azure Cosmos DB</a></li>
 <li><a href="#52-sql-vulnerability-assessment">SQL Vulnerability Assessment</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Database.json">View</a></li>
+<li><a href="/layers/tags/Database.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>17. Encryption</h2>
@@ -5353,9 +5365,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#36-azure-vpn-gateway">Azure VPN Gateway</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Encryption.json">View</a></li>
+<li><a href="/layers/tags/Encryption.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>18. File system</h2>
@@ -5363,9 +5375,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#42-file-integrity-monitoring">File Integrity Monitoring</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/File_system.json">View</a></li>
+<li><a href="/layers/tags/File_system.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>19. Identity</h2>
@@ -5384,9 +5396,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#50-passwordless-authentication">Passwordless Authentication</a></li>
 <li><a href="#51-role-based-access-control">Role Based Access Control</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Identity.json">View</a></li>
+<li><a href="/layers/tags/Identity.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>20. Linux</h2>
@@ -5398,9 +5410,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#42-file-integrity-monitoring">File Integrity Monitoring</a></li>
 <li><a href="#45-linux-auditd-alerts-and-log-analytics-agent-integration">Linux auditd alerts and Log Analytics agent integration</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Linux.json">View</a></li>
+<li><a href="/layers/tags/Linux.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>21. MFA</h2>
@@ -5411,9 +5423,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#10-azure-ad-privileged-identity-management">Azure AD Privileged Identity Management</a></li>
 <li><a href="#39-conditional-access">Conditional Access</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/MFA.json">View</a></li>
+<li><a href="/layers/tags/MFA.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>22. Microsoft 365 Defender</h2>
@@ -5422,9 +5434,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#6-azure-ad-identity-protection">Azure AD Identity Protection</a></li>
 <li><a href="#48-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Microsoft_365_Defender.json">View</a></li>
+<li><a href="/layers/tags/Microsoft_365_Defender.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>23. Network</h2>
@@ -5441,9 +5453,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#36-azure-vpn-gateway">Azure VPN Gateway</a></li>
 <li><a href="#49-network-security-groups">Network Security Groups</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Network.json">View</a></li>
+<li><a href="/layers/tags/Network.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>24. Passwords</h2>
@@ -5455,9 +5467,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#26-azure-key-vault">Azure Key Vault</a></li>
 <li><a href="#50-passwordless-authentication">Passwordless Authentication</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Passwords.json">View</a></li>
+<li><a href="/layers/tags/Passwords.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>25. Registry</h2>
@@ -5465,9 +5477,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#42-file-integrity-monitoring">File Integrity Monitoring</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Registry.json">View</a></li>
+<li><a href="/layers/tags/Registry.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>26. VPN</h2>
@@ -5475,9 +5487,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#36-azure-vpn-gateway">Azure VPN Gateway</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/VPN.json">View</a></li>
+<li><a href="/layers/tags/VPN.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>27. WAF</h2>
@@ -5485,9 +5497,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#37-azure-web-application-firewall">Azure Web Application Firewall</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/WAF.json">View</a></li>
+<li><a href="/layers/tags/WAF.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>28. Web</h2>
@@ -5495,9 +5507,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#37-azure-web-application-firewall">Azure Web Application Firewall</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Web.json">View</a></li>
+<li><a href="/layers/tags/Web.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>29. Web Access Firewall</h2>
@@ -5505,9 +5517,9 @@ The detection score for most techniques included in this mapping was scored as S
 <ul>
 <li><a href="#37-azure-web-application-firewall">Azure Web Application Firewall</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Web_Access_Firewall.json">View</a></li>
+<li><a href="/layers/tags/Web_Access_Firewall.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 <h2>30. Windows</h2>
@@ -5519,9 +5531,9 @@ The detection score for most techniques included in this mapping was scored as S
 <li><a href="#42-file-integrity-monitoring">File Integrity Monitoring</a></li>
 <li><a href="#48-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
 </ul>
-<h3>Navigator Layer</h3>
+<h3>Views</h3>
 <ul>
-<li><a href="/mappings/Azure/layers/tags/Windows.json">View</a></li>
+<li><a href="/layers/tags/Windows.json">Navigator Layer</a></li>
 </ul>
 <p><a href="#contents">Back to Table Of Contents</a></p>
 </article>

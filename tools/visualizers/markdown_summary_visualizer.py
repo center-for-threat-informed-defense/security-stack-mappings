@@ -85,7 +85,6 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             mdFile.write("\n\n")
             mdFile.write(f"- [Mapping File]({mapping})\n")
             mdFile.write(f"- [Navigator Layer]({layer})\n")
-            #mdFile.write(f"- [Navigator Layer](https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL={layer})\n")
 
             comments = control_data[3]
             if comments:
@@ -139,10 +138,10 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
                 mdFile.write(f"- {ref}\n")
 
             #mdFile.write('\n\n')
-            mdFile.new_header(level=3, title="Navigator Layer", add_table_of_contents='n')
+            mdFile.new_header(level=3, title="Views", add_table_of_contents='n')
             layer_name = tag.replace(" ", "_")
-            layer = f"/mappings/{platform}/layers/tags/{layer_name}.json"
-            mdFile.write(f"- [View]({layer})\n")
+            layer = f"/layers/tags/{layer_name}.json"
+            mdFile.write(f"- [Navigator Layer]({layer})\n")
 
             mdFile.write('  \n\n')
             mdFile.write('  [Back to Table Of Contents](#contents)')
