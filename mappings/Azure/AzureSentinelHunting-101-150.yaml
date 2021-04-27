@@ -1,0 +1,262 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/23/2021
+name: Azure Sentinel Hunting 101-150
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+description: Out of the box Azure Sentinel Hunting (from the queries)
+techniques:
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Can detect "Multiple Password Reset by user". Does not specifically address
+          sub-techniques, and has a potentially high false positive rate due to routine password
+          changes.
+  - id: T1119
+    name: Automated Collection
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can detect "Multiple large queries made by user" and "Query data volume anomolies", both
+          of which may indicate that an adversary is using automated queries to collect data in
+          bulk. Can also detect "New ServicePrincipal running queries", which may indicate an
+          adversary using an application to perform automated collection via queries.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control only provides coverage for specific cases of the relevant sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.004
+            name: Credential Stuffing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.001
+            name: Password Guessing
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "Multiple Failed Logon on SQL Server in Short time Span", "Permutations on
+              logon attempts by UserPrincipalNames indicating potential brute force", and "Potential
+              IIS brute force" based on failed login attempts. Only specific cases are covered.
+  - id: T1059
+    name: Command and Scripting Interpreter
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can detect "New processes observed in last 24 hours", "Rare processes run by Service
+          accounts", "Rare Custom Script Extension" and "Rare process running on a Linux host".
+          These types of queries are likely to yield high false positive rates, but also provide
+          good coverage for atypical execution of commands and scripts.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1059.004
+            name: Unix Shell
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can detect "Rare process running on a Linux host". This is likely to yield high false
+              positive rates, but also provide good coverage for atypical execution of commands and
+              scripts.
+  - id: T1136
+    name: Create Account
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control only provides coverage for a specific case of the relevant sub-technique.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1136.001
+            name: Local Account
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "New User created on SQL Server", providing coverage for a specific type of
+              local account.
+  - id: T1140
+    name: Deobfuscate/Decode Files or Information
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Can detect, identify, and decode "New PowerShell Scripts encoded on the commandline",
+          providing coverage for a specific type of obfuscated file.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: Can detect numerous cases of this technique's relevant sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.001
+            name: Default Accounts
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can detect "Rare processes run by Service accounts", which may indicate adversary
+              misuse of default accounts.
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+          - id: T1078.002
+            name: Domain Accounts
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can detect "New Admin account activity which was not seen historically", "New client
+              running queries", and "New users running queries", all of which may indicate that an
+              adversary is using a valid account to access resources or perform actions not typical
+              for the account. Can also detect "Non-owner mailbox login activity" and "Powershell or
+              non-browser mailbox login activity", both of which may indicate that an adversary is
+              using a valid but atypical account with access to a mailbox to access mail. Can also
+              detect "Rare User Agent strings" and "Same IP address with multiple csUserAgent",
+              which may indicate that an account is being used from a new device, which may belong
+              to an adversary, but with a high probability of false positives and potential false
+              negatives when adversary behavior comes from a context similar to typical ones. Can
+              also detect "Rare domains seen in Cloud Logs" when accounts from uncommon domains
+              access or attempt to access cloud resources, which may indicate adversary use of a
+              domain account. Can also detect "Same User - Successful logon for a given App and
+              failure on another App within 1m and low distribution", which may indicate that an
+              adversary has gained access to on/more resources with a valid account but then failed
+              to access another resource for which the account does not have access.
+  - id: T1568
+    name: Dynamic Resolution
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control only provides coverage for a specific case of the relevant sub-technique.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1568.002
+            name: Domain Generation Algorithms
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "Potential DGA detected" based on clients with a high NXDomain count, which
+              might indicate an adversary cycling through possible C2 domains where most C2s are not
+              live.
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can detect "Multiple users email forwarded to same destination" and "Office Mail
+          Forwarding - Hunting Version", both of which may indicate that an adversary is using email
+          forwarding to exfiltrate data.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Can detect "Potential IIS code injection attempt", which may indicate an adversary attempt
+          to exploit a public-facing web application.
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control only provides coverage for one of this technique's sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1562.007
+            name: Disable or Modify Cloud Firewall
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can detect "Port opened for an Azure Resource", which may indicate an adversary
+              increasing the accessibility of a resource for easier collection/exfiltration.
+  - id: T1036
+    name: Masquerading
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control provides coverage for only one of this technique's sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1036.005
+            name: Match Legitimate Name or Location
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Can detect "Masquerading Files" and "Rare Process Path", both of which may be the
+              result of an adversary attempting to make malicious activity blend in with legitimate
+              commands and files.
+  - id: T1552
+    name: Unsecured Credentials
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides coverage for a specific case of one of this technique's
+          sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1552.001
+            name: Credentials In Files
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "Query looking for secrets", which may indicate an adversary attempting to
+              pull secrets like passwords or other credentials from tables within a database.
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Can detect "Multiple Teams deleted by a single user" when a threshold is met for number of
+          Teams deleted within an hour. Coverage is minimal because the control is limited to a
+          specific resource (teams) and only works when the threshold is met.
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control provides minimal coverage for only one of this technique's sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.004
+            name: DNS
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "RareDNSLookupWithDataTransfer" [sic], which may indicate an adversary
+              using DNS to transfer data. Score is minimal because detection is contingent on DNS
+              traffic meeting requirements to be considered "rare".
+  - id: T1137
+    name: Office Application Startup
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control provides minimal coverage for only one of this technique's sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1137.006
+            name: Add-ins
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Can detect "Previously unseen bot or applicaiton added to Teams" [sic], which may
+              indicate the addition of a malicious add-in, but is specific to Microsoft Teams.
