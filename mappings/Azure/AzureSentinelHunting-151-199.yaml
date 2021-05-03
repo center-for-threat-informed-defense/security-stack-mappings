@@ -1,0 +1,162 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/28/2021
+name: Azure Sentinel Hunting 151-199
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+description: Out of the box Azure Sentinel Hunting (from the queries)
+techniques:
+  - id: T1213
+    name: Data from Information Repositories
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1213.002
+            name: Sharepoint
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect "SharePointFileOperation via clientIP with previously unseen
+              user agents", "SharePointFileOperation via devices with previously unseen user
+              agents", or "SharePointFileOperation via previously unseen IPs" which may indicate
+              access to Sharepoint by a malicious actor.
+  - id: T1531
+    name: Account Access Removal
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may detect "SQL User deleted from Database", "User removed from SQL Server
+          Roles", or "User removed from SQL Server SecurityAdmin Group".
+  - id: T1018
+    name: Remote System Discovery
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may detect "Squid malformed requests" which may indicate reconnaissance to
+          detect the presence of network security devices.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.004
+            name: Credential Stuffing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.001
+            name: Password Guessing
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may provide "Summary of user logons by logon type" which compares
+              successful and unsuccessful logon attempts to identify lateral movement. This control
+              may also detect "VIP account more than 6 failed logons in 10" which may indicate
+              privilege escalation.
+  - id: T1136
+    name: Create Account
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1136.001
+            name: Local Account
+          - id: T1136.002
+            name: Domain Account
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may provide "Summary of users created using uncommon/undocumented
+              commandline switches" which indicate usage of the net command to create user accounts
+              for persistence. This control may also detect "User created by unauthorized user",
+              "User Granted Access and associated audit activity", or "User Granted Access and
+              Grants others Access" which may identify malicious activity by newly created user
+              accounts.
+      - sub-techniques:
+          - id: T1136.003
+            name: Cloud Account
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may detect "User Granted Access and created resources" which identifies a
+              newly created user account gaining access and creating resources in Azure.
+  - id: T1114
+    name: Email Collection
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1114.002
+            name: Remote Email Collection
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: This control may detect "Suspect Mailbox Export on IIS/OWA"
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.002
+            name: Domain Accounts
+          - id: T1078.003
+            name: Local Accounts
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may detect "Suspicious Windows Login outside normal hours", "User account
+              added or removed from a security group by an unauthorized user", "User Account added
+              to Built in Domain Local or Global Group", "User added to SQL Server SecurityAdmin
+              Group", "User returning more data than daily average", "User Role altered on SQL
+              Server", "User Login IP Address Teleportation", "User made Owner of multiple teams
+
+              ", or "Tracking Privileged Account Rare Activity" which may indicate a compromised
+              valid account.
+  - id: T1505
+    name: Server Software Component
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1505.003
+            name: Web Shell
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect "Web shell command alert enrichment", "Web shell Detection",
+              or "Web shell file alert enrichment" which may indicate malicious activity by a web
+              shell.
+  - id: T1070
+    name: Indicator Removal on Host
+    technique-scores:
+      - category: Detect
+        value: Minimal
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1070.006
+            name: Timestomp
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control may detect "Windows System Time changed on hosts" which may indicate
+              potential timestomping activities.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/sentinel/hunting'
