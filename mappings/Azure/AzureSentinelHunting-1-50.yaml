@@ -1,0 +1,368 @@
+version: 1
+ATT&CK version: 8.1
+creation date: 04/26/2021
+name: Azure Sentinel Hunting Queries
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Analytics
+  - Threat Hunting
+description: >-
+  Azure Sentinel Hunting queries allow analysts to search for potential attack behavior not detected
+  by alerts or other analytics (#1-50)
+techniques:
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: '"Abnormally Long DNS URI queries" can detect some potential C2 or exfil via DNS'
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.004
+            name: DNS
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: '"Abnormally long DNS URI queries" can potentially identify exfiltration via DNS '
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1048.003
+            name: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1531
+    name: Account Access Removal
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          "AD Account Lockout" can identify active directory account lockouts, which may be a sign
+          of impact via account access removal.
+
+          "Anomalous Password Reset" can be indicative of an adversary attempting to impact an
+          organization's services by removing account access.
+  - id: T1136
+    name: Create Account
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Anomalous AAD Account Creation can detect anomalous  azure account creation which an
+          adversary may use for persistence.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1136.002
+            name: Domain Account
+          - id: T1136.003
+            name: Cloud Account
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Anomalous AAD Account Manipulation can identify suspicious changes to accounts such as
+          increased privileges / being added to administrators group etc.
+
+          "Anomalous Activity Role Assignment" can identify some anomalous actions indicative of
+          account manipulation.
+
+          "Anomalous Role Assignment" identifies "High BlastRadius" users (i.e. ones listed as
+          potentially sensitive/high-impact) that added members to a privileged role, indicative of
+          potential account manipulation for persistence.
+
+          "Azure DevOps - Additional Org Admin added" can identify instances of potential account
+          manipulation (e.g. additional cloud privileges) by an attacker, specific to the DevOps
+          service.
+
+          "Azure DevOps - Guest users access enabled" can identify a specific case of potential
+          account manipulation for Azure DevOps..
+
+          "Bots added to multiple teams" can identify a specific instance of potential attempt at
+          persistence via additional cloud permissions.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.001
+            name: Additional Cloud Credentials
+        scores:
+          - category: Detect
+            value: Partial
+      - sub-techniques:
+          - id: T1098.001
+            name: Additional Cloud Credentials
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              "Azure DevOps - Guest users access enabled" can identify a specific case of potential
+              account manipulation for Azure DevOps..
+
+              "Bots added to multiple teams" can identify a specific instance of potential attempt
+              at persistence via additional cloud permissions.
+  - id: T1114
+    name: Email Collection
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Can identify users accessing multiple other users's mailboxes as potential email
+          collection activity.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1114.002
+            name: Remote Email Collection
+        scores:
+          - category: Detect
+            value: Partial
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Anomalous Azure Active Directory Apps based on authentication location" can identify
+          potentially malicious use of valid accounts for domain or cloud.
+
+          "Anomalous Geo Location Logon" identifies potentially suspicious logons from unusual
+          locations that may be indicative of adversarial use of valid accounts for domain or cloud.
+
+          "Anomalous Login to Devices" identifies potential malicious use of valid local accounts.
+
+          "Anomalous Sign-in Activity" identifies potential malicious use of valid domain or cloud
+          accounts.
+
+          "Anomalous Sign-in location by user account and authenticating application" can identify
+          anomalous location changes wrt a user for a given app, which is an indicator of potential
+          malicious valid account activity.
+
+          "Anomalous sign-in location by user account and authenticating application - with details"
+          can identify potential use of valid accounts by attackers.
+
+          "Azure Active Directory sign-in burst from multiple locations" can identify potentially
+          malicious use of valid accounts.
+
+          "Azure Active Directory signins from new locations" may identify potential use of valid
+          accounts by an attacker.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+          - id: T1078.002
+            name: Domain Accounts
+          - id: T1078.003
+            name: Local Accounts
+        scores:
+          - category: Detect
+            value: Minimal
+  - id: T1059
+    name: Command and Scripting Interpreter
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Anomalous Code Execution" can identify users  on virtual machines using anomalous
+          runCommand operation.
+
+          "Azure CloudShell Usage" can identify potentially suspicious cloud shell usage by an
+          attacker. (CloudShell a candidate for sub-technique?)
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Anomalous Data Access" identifies all users performing out-of-profile read operations
+          regarding data or files, which may be indicative of adversarial collection from cloud
+          storage objects.
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Anomalous Defensive Mechanism Modification" identifies users performing delete operations
+          on security policies, which may indicate an adversary attempting to impair defenses.
+
+          "Azure Network Security Group NSG Administrative Operations" can identify potential
+          attempts to impair defenses by disabling or changing network access rules.
+
+          "Azure Sentinel Analytics Rules Administrative Operations" can identify potential attempts
+          to impair defenses by changing or deleting detection analytics.
+
+          "Azure Sentinel Connectors Administrative Operations" can identify potential attempts to
+          impair defenses by changing or deleting Sentinel data source connectors.
+
+          "Azure Sentinel Workbooks Administrative Operations" can identify potential attempts to
+          impair defenses by changing or deleting Sentinel Workbooks.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1562.001
+            name: Disable or Modify Tools
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              "Azure Sentinel Analytics Rules Administrative Operations"  can identify potential
+              attempts to impair defenses by changing or deleting Sentinel detection analytics
+
+              "Azure Sentinel Connectors Administrative Operations" can identify potential attempts
+              to impair defenses by changing or deleting Sentinel data source connectors.
+
+              "Azure Sentinel Workbooks Administrative Operations" can identify potential attempts
+              to impair defenses by changing or deleting Sentinel Workbooks.
+      - sub-techniques:
+          - id: T1562.007
+            name: Disable or Modify Cloud Firewall
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              "Azure Network Security Group NSG Administrative Operations" can identify potential
+              defensive evasion involving changing or disabling network access rules.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Anomalous Failed Logon" identifies "High BlastRadius" user accounts (i.e. potentially
+          sensitive/impactful for a particular organization) that have anomalous failed logon
+          attempts, which may be indicative of Brute Force activity.
+
+          "Attempts to sign-in to disabled accounts by account name" identifies potential
+          brute-force activity. 
+
+          "Attempts to sign-in to disabled accounts by IP address" identifies potential Brute Force
+          activity.
+
+          "Brute Force attack against Azure Portal" can identify potential brute force password
+          guessing attempts.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              "Attempts to sign-in to disabled accounts by IP address" identifies potential Brute
+              Force activity.
+
+              "Brute Force attack against Azure Portal" can identify potential brute force password
+              guessing attempts.
+  - id: T1021
+    name: Remote Services
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "anomalous RDP Activity" can detect potential lateral movement employing RDP
+
+          "Anomalous Resource Access" can identify potential lateral movement via use of valid
+          accounts to access network shares (Windows Event 4624:3)
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1021.001
+            name: Remote Desktop Protocol
+        scores:
+          - category: Detect
+            value: Partial
+      - sub-techniques:
+          - id: T1021.002
+            name: SMB/Windows Admin Shares
+        scores:
+          - category: Detect
+            value: Minimal
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Anomalous Resource Creation and related Network Activity" can identify potential resource
+          hijacking activity.
+
+          "Creation of an anomalous number of resources" can identify activity that is potentially
+          indicative of resource hijacking
+  - id: T1036
+    name: Masquerading
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Azure DevOps Display Name Changes" can identify potential instances of adversary
+          masquerading involving changing the DevOps user Display name.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1036.004
+            name: Masquerade Task or Service
+        scores:
+          - category: Detect
+            value: Minimal
+  - id: T1556
+    name: Modify Authentication Process
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Azure DevOps Conditional Access Disabled" can identify potentially malicious
+          modifications of the DevOps access policy. (candidate for new subtechnique?)
+  - id: T1578
+    name: Modify Cloud Compute Infrastructure
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Azure DevOps - Project Visibility changed to public" can identify a specific action that
+          may be an indicator of an attacker modifying the cloud compute infrastructure.
+
+          "Azure DevOps - Public project created" can identify  a specific instance of potential
+          defense evasion.
+
+          "Azure DevOps - Public project enabled by admin" can identify a specific instance of
+          potential defense evasion.
+
+          "Azure Resources assigned Public IP addresses" can identify specific instances of
+          potential defense evasion
+  - id: T1580
+    name: Cloud Infrastructure Discovery
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Azure storage key enumeration" can identify potential attempts by an attacker to discover
+          cloud infrastructure resources.
+  - id: T1528
+    name: Steal Application Access Token
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Consent to Application discovery" can identify recent permissions granted by a user to a
+          particular app, which could potentially provide those permissions and related access
+          tokens to a malicious actor.
+  - id: T1213
+    name: Data from Information Repositories
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          "Cross workspace query anomaly" can detect specific activity that might be indicative of
+          attacker collecting information (in this case from Azure ML workspaces). doesn't map to
+          current sub techniques.
+comments: >-
+  Note a number of the Hunting queries are examples that can be modified for additional use, however
+  scoring was performed on the queries as-written.
+references:
+  - ''
