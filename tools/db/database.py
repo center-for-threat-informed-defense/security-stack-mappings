@@ -71,11 +71,12 @@ class MappingDatabase:
     def query_mapping_file_scores(self, categories, attack_ids, controls, level, platforms, scores, tactics, tags):
         if level == "Technique":
             sql = self.session.query(Mapping,Technique,Score).select_from(MappingTechniqueScore)\
-                .join(Mapping).join(Technique).join(Score).join(tactic_and_technique_xref).join(Tactic).join(Mapping.tags)
+                .join(Mapping).join(Technique).join(Score).join(tactic_and_technique_xref).join(Tactic)\
+                .join(Mapping.tags, isouter=True)
         else:
             sql = self.session.query(Mapping,SubTechnique,Score).select_from(MappingSubTechniqueScore)\
                 .join(Mapping).join(SubTechnique).join(Score).join(Technique).join(tactic_and_technique_xref).join(Tactic)\
-                .join(Mapping.tags)
+                .join(Mapping.tags, isouter=True)
 
         filters = []
         if categories:

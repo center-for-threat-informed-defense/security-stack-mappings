@@ -1,5 +1,5 @@
 version: 1
-ATT&CK version: 8.1
+ATT&CK version: 8.2
 creation date: 04/05/2021
 name: Alerts for Windows Machines
 contact: ctid@mitre-engenuity.org
@@ -140,10 +140,11 @@ techniques:
             name: Screensaver
         scores:
           - category: Detect
-            value: Significant
+            value: Partial
             comments: >-
               This control may detect when a suspicious screensaver process is executed, based on
-              the location of the .scr file.
+              the location of the .scr file.  Because this detection is based solely on location of
+              the file, it has been scored as Partial.
       - sub-techniques:
           - id: T1546.008
             name: Accessibility Features
@@ -168,8 +169,8 @@ techniques:
             value: Partial
             comments: >-
               This control may detect when User Account Control is bypassed by manipulating the
-              Windows registry. There may be other methods to bypass User Account Control that may
-              not be detected.
+              Windows registry. Although there may be other methods to bypass User Account Control, utilizing
+              the Registry to achieve the bypass is often a prominent method.
   - id: T1055
     name: Process Injection
     technique-scores:
@@ -280,17 +281,17 @@ techniques:
     name: File and Directory Permissions Modification
     technique-scores:
       - category: Detect
-        value: Partial
+        value: Minimal
         comments: >-
-          This control provides detection for some of this technique's sub-techniques resulting in a Partial
-          Coverage score and consequently an overall score of Partial.
+          This control provides minimal detection for some of this technique's sub-techniques resulting in
+          an overall score of Minimal. 
     sub-techniques-scores:
       - sub-techniques:
           - id: T1222.001
             name: Windows File and Directory Permissions Modification
         scores:
           - category: Detect
-            value: Partial
+            value: Minimal
             comments: >-
               This control may detect the usage of cacls.exe to modify file and directory
               permissions.
@@ -316,7 +317,10 @@ techniques:
     name: Impair Defenses
     technique-scores:
       - category: Detect
-        value: Partial
+        value: Minimal
+        comments: >-
+          This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal
+          Coverage score and consequently an overall score of Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1562.004
@@ -340,7 +344,10 @@ techniques:
     name: Indicator Removal on Host
     technique-scores:
       - category: Detect
-        value: Partial
+        value: Minimal
+        comments: >-
+          This control's detection is specific to a minority of this technique's sub-techniques and procedure examples 
+          resulting in a Minimal Coverage score and consequently an overall score of Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1070.004
@@ -401,6 +408,9 @@ techniques:
     technique-scores:
       - category: Detect
         value: Partial
+        comments: >-
+          This control provides detection for some of this technique's sub-techniques and procedure examples resulting 
+          in a Partial Coverage score and consequently an overall score of Partial.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1110.003
@@ -419,10 +429,12 @@ techniques:
     name: OS Credential Dumping
     technique-scores:
       - category: Detect
-        value: Partial
+        value: Minimal
         comments: >-
-          This control may detect usage of native Windows tool (e.g. sqldumper.exe) being used in a
-          way that allows to extract credentials from memory.
+          This control provides detection for a minority of this technique's sub-techniques and procedure examples 
+          resulting in a Minimal Coverage score and consequently an overall score of Minimal.  Furthermore, its detection
+          capability relies on detecting the usage of specific tools (e.g. sqldumper.exe) further adversely impacting 
+          its score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1003.004
@@ -450,13 +462,15 @@ techniques:
           - category: Detect
             value: Partial
             comments: >-
-              This control may detect commandline parameters consistent with a Kerberos Golden
-              Ticket attack.
+              This control may detect commandline parameters consistent with a Kerberos Golden Ticket attack.
   - id: T1087
     name: Account Discovery
     technique-scores:
       - category: Detect
         value: Partial
+        comments: >-
+          This control provides partial detection for some of this technique's sub-techniques and procedure examples
+          resulting in a Partial Coverage score and consequently an overall score of Partial.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1087.001
@@ -473,13 +487,16 @@ techniques:
     name: System Information Discovery
     technique-scores:
       - category: Detect
-        value: Partial
-        comments: This control may detect local reconnaissance activity using the systeminfo commands.
+        value: Minimal
+        comments: This control may detect local reconnaissance activity specific to using the systeminfo commands.
   - id: T1563
     name: Remote Service Session Hijacking
     technique-scores:
       - category: Detect
         value: Partial
+        comments: >-
+          This control provides partial detection for some of this technique's sub-techniques 
+          resulting in a Partial Coverage score and consequently an overall score of Partial.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1563.002
@@ -502,8 +519,8 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal
-          Coverage score and consequently an overall score of Minimal.
+          This control's detection is specific to a minority of this technique's sub-techniques and procedure examples
+          resulting in a Minimal Coverage score and consequently an overall score of Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1048.001
@@ -518,13 +535,14 @@ techniques:
     name: Service Stop
     technique-scores:
       - category: Detect
-        value: Partial
-        comments: This control may detect when critical services have been disabled through use of net.exe.
+        value: Minimal
+        comments: >-
+          This control may detect when critical services have been disabled through the usage of specifically net.exe.
   - id: T1202
     name: Indirect Command Execution
     technique-scores:
       - category: Detect
-        value: Partial
+        value: Minimal
         comments: >-
           This control may detect suspicious use of Pcalua.exe to launch executable code. There are
           other methods of indirect command execution that this control may not detect.

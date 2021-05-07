@@ -1,5 +1,5 @@
 version: 1.0
-ATT&CK version: 8.1
+ATT&CK version: 8.2
 creation date: 02/18/2021
 name: 'Azure Web Application Firewall'
 contact: ctid@mitre-engenuity.org

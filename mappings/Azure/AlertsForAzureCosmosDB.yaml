@@ -1,5 +1,5 @@
 version: 1
-ATT&CK version: 8.1
+ATT&CK version: 8.2
 creation date: 04/07/2021
 name: Alerts for Azure Cosmos DB
 contact: ctid@mitre-engenuity.org

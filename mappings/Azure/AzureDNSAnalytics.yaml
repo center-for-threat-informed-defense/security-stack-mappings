@@ -1,5 +1,5 @@
 version: 1
-ATT&CK version: 8.1
+ATT&CK version: 8.2
 creation date: 03/25/2021
 name: Azure DNS Analytics
 contact: ctid@mitre-engenuity.org
