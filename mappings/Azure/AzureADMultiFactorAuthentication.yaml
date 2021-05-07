@@ -1,5 +1,5 @@
 version: 1
-ATT&CK version: 8.1
+ATT&CK version: 8.2
 creation date: 03/20/2021
 name: Azure AD Multi-Factor Authentication
 contact: ctid@mitre-engenuity.org

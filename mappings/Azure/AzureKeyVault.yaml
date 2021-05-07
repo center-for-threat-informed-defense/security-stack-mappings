@@ -1,5 +1,5 @@
 version: 1
-ATT&CK version: 8.1
+ATT&CK version: 8.2
 creation date: 03/11/2021
 name: Azure Key Vault
 contact: ctid@mitre-engenuity.org

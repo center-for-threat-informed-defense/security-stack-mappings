@@ -23,6 +23,7 @@ MFA
 Network
 Passwords
 Registry
+Threat Hunting
 VPN
 WAF
 Web

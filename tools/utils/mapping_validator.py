@@ -14,6 +14,7 @@ class MappingValidator:
         self.valid_techniques = {}
         self.validation_pass = True
         self.comments_found = False
+        self.attack_version = None
 
 
     def print_validation_error(self, msg):
@@ -155,8 +156,9 @@ class MappingValidator:
     def validate_mapping(self, mapping_file, mapping_yaml):
         self.validation_pass = True
         self.comments_found = False
-        if not self.valid_techniques:
-            self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques()
+        if self.attack_version != mapping_yaml["ATT&CK version"]:
+            self.attack_version = mapping_yaml["ATT&CK version"]
+            self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques(True, self.attack_version)
 
         with open('config/mapping_schema.json') as file_object:
             mapping_schema = json.load(file_object)

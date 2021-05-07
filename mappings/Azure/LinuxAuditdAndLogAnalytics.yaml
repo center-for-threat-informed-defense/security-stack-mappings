@@ -1,5 +1,5 @@
 version: 1
-ATT&CK version: 8.1
+ATT&CK version: 8.2
 creation date: 03/08/2021
 name: Linux auditd alerts and Log Analytics agent integration
 contact: ctid@mitre-engenuity.org

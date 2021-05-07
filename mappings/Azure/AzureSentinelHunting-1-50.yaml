@@ -1,5 +1,5 @@
 version: 1
-ATT&CK version: 8.1
+ATT&CK version: 8.2
 creation date: 04/26/2021
 name: Azure Sentinel Hunting Queries
 contact: ctid@mitre-engenuity.org
@@ -97,14 +97,11 @@ techniques:
             name: Additional Cloud Credentials
         scores:
           - category: Detect
-            value: Partial
-      - sub-techniques:
-          - id: T1098.001
-            name: Additional Cloud Credentials
-        scores:
-          - category: Detect
             value: Minimal
             comments: >-
+              **CLEM** there was an additional score object provided for Additional Cloud Credentials
+              that was scored as partial that I removed.  Was that the right reconciliation?
+
               "Azure DevOps - Guest users access enabled" can identify a specific case of potential
               account manipulation for Azure DevOps..
 
@@ -365,4 +362,4 @@ comments: >-
   Note a number of the Hunting queries are examples that can be modified for additional use, however
   scoring was performed on the queries as-written.
 references:
-  - ''
+  - 'https://docs.microsoft.com/en-us/azure/sentinel/hunting'
