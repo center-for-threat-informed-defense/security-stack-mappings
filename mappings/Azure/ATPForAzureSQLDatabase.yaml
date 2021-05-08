@@ -49,10 +49,13 @@ techniques:
     name: Brute Force
     technique-scores:
       - category: Detect
-        value: Partial
+        value: Minimal
         comments: >-
           This control covers the majority of sub-techniques for this parent technique and may cover
           both successful and unsuccessful brute force attacks.
+          This control only provides alerts for a set of Azure database offerings. Databases that
+          have been deployed to endpoints within Azure or third-party databases deployed to Azure do
+          not generate alerts for this control.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1110.001
@@ -63,16 +66,17 @@ techniques:
             name: Credential Stuffing
         scores:
           - category: Detect
-            value: Partial
+            value: Minimal
             comments: >-
               This control may alert on repeated sign in attempts to the resource and successful
               logins from a suspicious location, IP address, or a user that does not commonly log in
-              to the resource. 
+              to the resource.  Because this control is specific to Azure database offerings, the
+              detection coverage is Minimal.
   - id: T1190
     name: Exploit Public-Facing Application
     technique-scores:
       - category: Detect
-        value: Partial
+        value: Minimal
         comments: >-
           This control may alert on usage of faulty SQL statements. This generates an alert for a
           possible SQL injection by an application. Alerts may not be generated on usage of valid
