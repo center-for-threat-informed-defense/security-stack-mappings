@@ -18,8 +18,8 @@ techniques:
       - category: Detect
         value: Minimal
         comments: >-
-          This control provides minimal detection coverage for the only relevant sub-technique so
-          score is Minimal.
+          This control's detection is specific to the Cosmos DB and therefore provides minimal overall
+          detection coverage for Valid Accounts resulting in a Minimal score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1078.004

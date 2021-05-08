@@ -21,8 +21,8 @@ techniques:
         value: Minimal
         comments: >-
           This control only provides protection for one of this technique's sub-techniques while not
-          providing any protection for the remaining and therefore its coverage score factor is
-          Minimal, resulting in a Minimal score.
+          providing any protection for its procedure examples nor its remaining sub-technqiues and
+          therefore its coverage score factor is Minimal, resulting in a Minimal score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1087.004
@@ -30,6 +30,9 @@ techniques:
         scores:
           - category: Protect
             value: Partial
+            comments: >-
+              This control can be used to implement the least-privilege principle for account management 
+              and thereby limit the accounts that can be used for account discovery.
   - id: T1078
     name: Valid Accounts
     technique-scores:
@@ -37,8 +40,9 @@ techniques:
         value: Minimal
         comments: >-
           This control only provides protection for one of this technique's sub-techniques while not
-          providing any protection for the remaining and therefore its coverage score factor is
-          Minimal, resulting in a Minimal score.
+          providing any protection for its procedure examples (due to being specific to Azure AD) nor
+          its remaining sub-technqiues.  Consequently its coverage score factor is Minimal, resulting
+          in a Minimal score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1078.004
@@ -46,6 +50,9 @@ techniques:
         scores:
           - category: Protect
             value: Partial
+            comments: >-
+              This control can be used to implement the least-privilege principle for account management 
+              and thereby limit what an adversary can do with a valid account.
   - id: T1136
     name: Create Account
     technique-scores:
@@ -62,6 +69,9 @@ techniques:
         scores:
           - category: Protect
             value: Partial
+            comments: >-
+              This control can be used to implement the least-privilege principle for account management 
+              and thereby limit the number of accounts that can create accounts.
   - id: T1098
     name: Account Manipulation
     technique-scores:
@@ -79,6 +89,9 @@ techniques:
         scores:
           - category: Protect
             value: Partial
+            comments: >-
+              This control can be used to implement the least-privilege principle for account management 
+              and thereby limit the number of accounts that can modify accounts.
   - id: T1578
     name: Modify Cloud Compute Infrastructure
     technique-scores:
@@ -100,6 +113,9 @@ techniques:
         scores:
           - category: Protect
             value: Partial
+            comments: >-
+              This control can be used to implement the least-privilege principle for account management 
+              and thereby limit the number of accounts that can perform these privileged operations.
   - id: T1580
     name: Cloud Infrastructure Discovery
     technique-scores:

@@ -21,7 +21,8 @@ techniques:
         value: Minimal
         comments: >-
           This control provides protection for one of this technique's sub-techniques, while not
-          providing any protection for the remaining, resulting in a Minimal score.
+          providing any protection for its procedure examples nor its remaining sub-techniques,
+          resulting in an overall Minimal score.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1552.001
