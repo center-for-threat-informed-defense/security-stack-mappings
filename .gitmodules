@@ -1,0 +1,3 @@
+[submodule "mappings/Azure"]
+	path = mappings/Azure
+	url = git@github.com:center-for-threat-informed-defense/azure-security-stack-mappings.git
