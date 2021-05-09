@@ -48,21 +48,22 @@ techniques:
               complete multi-factor authentication for secure access" recommendations for enabling
               MFA can significantly lead to reducing the impact of a password compromise of
               accounts, requiring the adversary to complete an additional authentication method
-              before their access is permitted. 
+              before their access is permitted.
 
-              This control's "Do not expire passwords" recommendation also can mitigate the Password
-              Guessing or Cracking sub-techniques by disabling password reset which tends to lead to
-              users selecting weaker passwords.  
+              This control's "Do not expire passwords" recommendation also can lead to mitigating the
+              Password Guessing or Cracking sub-techniques by disabling password reset which tends to
+              lead to users selecting weaker passwords.  
 
               This control's "Enable policy to block legacy authentication" and "Stop legacy
-              protocols communication" can protect against these brute force attacks as Microsoft
-              research has shown organizations that have disabled legacy authentication experience
-              67 percent fewer compromises than those where legacy authentication is enabled. 
-              Additionally, the same research shows that more than 99 percent of password spray and
-              more than 97 percent of credential stuffing attacks use legacy authentication.
+              protocols communication" recommendations can lead to protecting against these brute
+              force attacks as Microsoft research has shown organizations that have disabled
+              legacy authentication experience 67 percent fewer compromises than those where legacy
+              authentication is enabled. Additionally, the same research shows that more than 99
+              percent of password spray and more than 97 percent of credential stuffing attacks
+              use legacy authentication.
 
-              This control's "Resolve unsecure account attributes" can lead to detecting accounts
-              with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.
+              This control's "Resolve unsecure account attributes" recommendation can lead to detecting
+              accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.
 
               Because these are recommendations and do not actually enforce MFA, the assessed score
               is capped at Partial. 
@@ -70,17 +71,19 @@ techniques:
     name: Valid Accounts
     technique-scores:
       - category: Protect
-        value: Partial
+        value: Minimal
         comments: >-
-          This control provides recommendations that lead to protections for sensitive valid
-          accounts.  Because these are recommendations and do not actually enforce the protections,
-          the assessed score is Partial. 
+          This control provides recommendations that can lead to protecting against the malicious usage
+          of valid cloud accounts but does not provide recommendations for the remaining sub-techniques
+          Additionally, it provides limited protection for this technique's procedure examples.
+          Consequently, its overall protection coverage score is minimal.
       - category: Detect
         value: Minimal
         comments: >-
-          This control provides recommendations that lead to detections for malicious usage of valid
-          cloud accounts but does not provide recommendations for the remaining sub-techniques and
-          therefore its overall detection coverage score is minimal.
+          This control provides recommendations that can lead to the detection of the malicious usage
+          of valid cloud accounts but does not provide recommendations for the remaining sub-techniques
+          Additionally, it provides limited detection for this technique's procedure examples.
+          Consequently, its overall detection coverage score is minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1078.004
@@ -105,7 +108,7 @@ techniques:
             value: Partial
             comments: >-
               This control's "Turn on sign-in risk policy" and "Turn on user risk policy"
-              recommendations recommend enabling Azure AD Identity Protection which can detect
+              recommendations recommend enabling Azure AD Identity Protection which can lead to detecting
               adversary usage of valid accounts.  See the mapping for Azure AD Identity Protection.
       - sub-techniques:
           - id: T1078.002
@@ -278,12 +281,12 @@ techniques:
     name: External Remote Services
     technique-scores:
       - category: Detect
-        value: Minimal
+        value: Partial
         comments: >-
           This control's "Configure VPN Integration" recommendation can lead to detecting abnormal
-          VPN connections that may be indicative of an attack.  Because this control provides a
-          recommendation and is limited to a specific external remote service type of VPN, it has
-          been assessed as Minimal.
+          VPN connections that may be indicative of an attack.  Although this control provides a
+          recommendation that is limited to a specific external remote service type of VPN, most of
+          this technique's procedure examples are VPN related resulting in a Partial overall score.
   - id: T1134
     name: Access Token Manipulation
     technique-scores:
@@ -291,8 +294,8 @@ techniques:
         value: Minimal
         comments: >-
           This control provides a recommendation that can lead to detecting one of this technique's
-          sub-techniques while not providing recommendations for the remaining.  It is subsequently
-          scored as Minimal.
+          sub-techniques while not providing recommendations relevant to its procedure examples nor
+          its remaining sub-techniques.  It is subsequently scored as Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1134.005

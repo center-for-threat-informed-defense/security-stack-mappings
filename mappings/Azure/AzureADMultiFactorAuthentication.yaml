@@ -45,17 +45,16 @@ techniques:
           - category: Protect
             value: Significant
             comments: >-
-              MFA can be a significantly reduce the impact of a password compromise, requiring the
-              adversary to complete an additional authentication method before their access is
-              permitted.
+              MFA can significantly reduce the impact of a password compromise, requiring the
+              adversary to complete an additional authentication method before their access is permitted.
   - id: T1078
     name: Valid Accounts
     technique-scores:
       - category: Protect
         value: Minimal
         comments: >-
-          This control only protects cloud accounts and therefore its overall detection coverage is
-          minimal.
+          This control only protects cloud accounts and therefore its overall protection coverage is
+          Minimal.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1078.004

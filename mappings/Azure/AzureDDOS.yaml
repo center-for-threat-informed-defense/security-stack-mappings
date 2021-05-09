@@ -35,7 +35,7 @@ techniques:
       - category: Protect
         value: Significant
         comments: >-
-          Protects against volumetric and protocol DOS, though not application. (could score Partial here)
+          Protects against volumetric and protocol DOS, though not application.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1499.003
