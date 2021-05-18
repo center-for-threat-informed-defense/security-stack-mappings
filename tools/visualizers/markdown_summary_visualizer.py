@@ -14,7 +14,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
         super().__init__()
 
         self.html_template = False
-        with open("config/markdown_summary.json", "r") as f:
+        root_dir = self.get_root_folder()
+        with open(f"{root_dir}/tools/config/markdown_summary.json", "r") as f:
             self.platform_summaries = json.load(f)
 
 
@@ -24,7 +25,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
 
     def initialize_html_template(self):
-        with open("config/markdown_summary_template.html", "r") as f:
+        root_dir = self.get_root_folder()
+        with open(f"{root_dir}/tools/config/markdown_summary_template.html", "r") as f:
             self.html_template = f.read()
 
 
