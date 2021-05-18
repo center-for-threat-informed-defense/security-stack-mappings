@@ -10,10 +10,11 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
     def __init__(self):
         super().__init__()
 
-        with open("config/navigator_layer_template.json", "r") as f:
+        root_dir = self.get_root_folder()
+        with open(f"{root_dir}/tools/config/navigator_layer_template.json", "r") as f:
             self.layer_template = json.load(f)
 
-        with open("config/navigator_layer_config.yaml", "r") as f:
+        with open(f"{root_dir}/tools/config/navigator_layer_config.yaml", "r") as f:
             self.config = yaml.safe_load(f)
 
         self.legend = []
