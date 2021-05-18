@@ -39,6 +39,8 @@ class MappingValidator:
             if valid_tags.exists():
                 with open(valid_tags) as file_object:
                     self.valid_tags[platform_dir.name] = file_object.read().splitlines()
+            else:
+                self.valid_tags[platform_dir.name] = []
 
 
     def verify_dates(self, mapping):

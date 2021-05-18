@@ -28,6 +28,9 @@ class AttackDataSource:
     def set_attack_version(self, version=None):
         version = version if version else self.latest_attack_version
 
+        if "." not in str(version):
+            version = f"{version}.0"
+
         if self.tc_src and self.current_version == version:
             return
 
