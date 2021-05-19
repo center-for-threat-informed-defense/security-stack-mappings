@@ -4,13 +4,15 @@ import json
 import os
 import copy
 
+from utils.utils import get_project_root
+
 class AttackNavigatorVisualizer(AbstractVisualizer):
 
 
     def __init__(self):
         super().__init__()
 
-        root_dir = self.get_root_folder()
+        root_dir = get_project_root()
         with open(f"{root_dir}/tools/config/navigator_layer_template.json", "r") as f:
             self.layer_template = json.load(f)
 

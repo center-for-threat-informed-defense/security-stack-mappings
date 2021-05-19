@@ -8,13 +8,15 @@ import yaml
 import os
 import json
 
+from utils.utils import get_project_root
+
 class MarkdownSummaryVisualizer(AbstractVisualizer):
 
     def __init__(self):
         super().__init__()
 
         self.html_template = False
-        root_dir = self.get_root_folder()
+        root_dir = get_project_root()
         with open(f"{root_dir}/tools/config/markdown_summary.json", "r") as f:
             self.platform_summaries = json.load(f)
 
@@ -25,7 +27,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
 
     def initialize_html_template(self):
-        root_dir = self.get_root_folder()
+        root_dir = get_project_root()
         with open(f"{root_dir}/tools/config/markdown_summary_template.html", "r") as f:
             self.html_template = f.read()
 

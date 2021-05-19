@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
+import os
 import argparse
 from mapping_driver import MappingDriver
-from utils.utils import file_path, dir_path, chunkstring
+from utils.utils import file_path, dir_path, chunkstring, get_project_root
 from prettytable import PrettyTable
 from pathlib import Path
 
@@ -30,8 +31,7 @@ def subcommand(args=[], parent=subparsers):
 @subcommand([
     argument("--visualizer", help="The name of the visualizer that will generate the visualizations", 
         required=True,choices=mapping_driver.get_visualizer_names()),
-    argument('--mapping-dir', help='Path to the directory containing the mapping files',
-        default="../mappings", required=False, type=dir_path),
+    argument('--mapping-dir', help='Path to the directory containing the mapping files', required=False, type=dir_path),
     argument('--mapping-file', help='Path to the mapping file', required=False, type=file_path),
     argument("--output", help="Path to the directory were the visualizations will be written",
         required=False, type=dir_path),
@@ -58,9 +58,9 @@ def visualize(args):
         if args.mapping_file:
             raise argparse.ArgumentTypeError(
                 'Specifying tags is mutually exclusive with --mapping-file argument')
-        if args.mapping_dir and args.mapping_dir != "../mappings":
+        if args.mapping_dir:
             raise argparse.ArgumentTypeError(
-                'Specifying tags is mutually exclusive with --mapping-file argument')
+                'Specifying tags is mutually exclusive with --mapping-dir argument')
         if not args.title:
             raise argparse.ArgumentTypeError('Specifying tags requires the --title argument')
     if args.mapping_file:
@@ -84,8 +84,9 @@ def visualize(args):
         options["include-aggregates"] = args.include_aggregates
         mapping_driver.load_mapping_dir(args.mapping_dir)
     else:
-        raise argparse.ArgumentTypeError(
-            "One of --tags --mapping-file or mapping-dir is required")
+        options["include-aggregates"] = args.include_aggregates
+        root_dir = get_project_root()
+        mapping_driver.load_mapping_dir(f'{root_dir}/mappings')
 
 
     if not args.skip_validation:
@@ -102,14 +103,23 @@ def techniques_json(args):
 
 @subcommand([
     argument('--mapping-dir', help='Path to the directory containing the mapping files',
-        default="../mappings", required=False, type=dir_path),
-    argument('--mapping-file', help='Path to the mapping file', required=False, type=file_path)
+        required=False, type=dir_path),
+    argument('--mapping-file', help='Path to the mapping file', required=False, type=file_path),
+    argument('--tags-file', help='Path to the file containing the list of valid tags',
+        required=False, type=file_path)
     ])
 def validate(args):
     if args.mapping_file:
         mapping_driver.load_mapping_file(args.mapping_file)
-    else:
+    elif args.mapping_dir:
         mapping_driver.load_mapping_dir(args.mapping_dir)
+    else:
+        root_dir = get_project_root()
+        mapping_driver.load_mapping_dir(f'{root_dir}/mappings')
+
+    if args.tags_file:
+        mapping_driver.load_specified_tags(args.tags_file)
+
     if mapping_driver.validate_mapping_files():
         print("\n\nValidation Succeeded!")
     else:
@@ -118,19 +128,28 @@ def validate(args):
 
 
 @subcommand([
+    argument('--mapping-db', help='Path to the mapping.db file to generate', default="mapping.db",
+        required=False),
     argument('--mapping-dir', help='Path to the directory containing the mapping files',
-        default="../mappings", required=False, type=dir_path),
+        required=False, type=dir_path),
     argument('--skip-attack', help='Rebuild just the mappings, do not rebuild the ATT&CK entities',
         default=False, required=False, action="store_true"),
     argument("--skip-validation", help="Skip validation when visualizing mapping(s)",
         required=False, default=False, action="store_true")
     ])
 def rebuild_mappings(args):
-    mapping_driver.load_mapping_dir(args.mapping_dir)
+    if args.mapping_dir:
+        mapping_driver.load_mapping_dir(args.mapping_dir)
+    else:
+        root_dir = get_project_root()
+        mapping_driver.load_mapping_dir(f'{root_dir}/mappings')
+
+    mapping_driver.set_mapping_db(args.mapping_db)
     mapping_driver.rebuild_mappings(args.skip_validation, args.skip_attack)
 
 
 @subcommand([
+    argument('--mapping-db', help='Path to the mapping.db file', default="mapping.db", required=False, type=file_path),
     argument('--tag', help="Return mappings with the specified tag", action="append", required=False),
     argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
     argument('--width', help="Set the width of the Comments column", type=int, required=False, default=80),
@@ -145,6 +164,8 @@ def list_mappings(args):
     table.align["Tag(s)"] = "l"
     table.align["Description"] = "l"
     filter_tags = args.tag if args.tag else []
+
+    mapping_driver.set_mapping_db(args.mapping_db)
     mappings = mapping_driver.query_mapping_files(filter_tags, args.relationship, args.name, args.platform)
     num_rows = 0
     for mapping in mappings:
@@ -163,6 +184,7 @@ def list_mappings(args):
 
 
 @subcommand([
+    argument('--mapping-db', help='Path to the mapping.db file', default="mapping.db", required=False, type=file_path),
     argument('--category', help="Filter by score category", \
         action="append", required=False,choices = ["Protect","Detect", "Respond"]),
     argument('--attack-id', help="Filter by ATT&CK ID (specify Technique [default] or Sub-technique using --level parameter)", \
@@ -206,6 +228,7 @@ def list_scores(args):
     table.align["Category"] = "l"
     table.align["Score"] = "l"
 
+    mapping_driver.set_mapping_db(args.mapping_db)
     data = mapping_driver.query_mapping_file_scores(filter_category, attack_ids, \
         controls, args.level, platforms, scores, tactics, tags)
     num_rows = 0

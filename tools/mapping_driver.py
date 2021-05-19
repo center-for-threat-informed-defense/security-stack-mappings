@@ -13,12 +13,15 @@ class MappingDriver():
     def __init__(self):
         self.visualizers = VisualizersCollection()
         self.attack_ds = AttackDataSource()
-        self.mapping_db = MappingDatabase(self.attack_ds)
         self.mapping_validator = MappingValidator(self.attack_ds)
 
 
     def output_attack_json(self):
         self.attack_ds.output_attack_json()
+
+
+    def set_mapping_db(self, db_file):
+        self.mapping_db = MappingDatabase(self.attack_ds, db_file)
 
 
     def query_mapping_files(self, tags, relationship, control_names, platforms):
@@ -45,6 +48,10 @@ class MappingDriver():
 
     def load_mapping_file(self, map_file):
         self.mapping_files = [Path(map_file)]
+
+
+    def load_specified_tags(self, tags_file):
+        self.mapping_validator.load_specified_tags(tags_file)
 
 
     def get_visualizer_names(self):
@@ -75,7 +82,8 @@ class MappingDriver():
 
     def rebuild_mappings(self, skip_validation, skip_attack):
         if skip_validation or self.validate_mapping_files():
-            self.mapping_db.init_database(self.mapping_files, self.mapping_validator.get_tags(), skip_attack)
+            tags = self.mapping_validator.get_tags(self.mapping_files)
+            self.mapping_db.init_database(self.mapping_files, tags, skip_attack)
 
     
     def visualize(self, visualizer, output_dir, options={}):

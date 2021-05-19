@@ -1,16 +1,16 @@
+import yaml
 from sqlalchemy import create_engine, func, and_, or_
 from sqlalchemy.orm import sessionmaker
 
 from db.model import Base, Tactic, Technique, SubTechnique, Mapping, Tag, \
     MappingSubTechniqueScore, MappingTechniqueScore, Score, tactic_and_technique_xref
 
-import yaml
 
 class MappingDatabase:
 
-    def __init__(self, attack_ds):
+    def __init__(self, attack_ds, db_file):
         self.attack_ds = attack_ds
-        self.engine = create_engine(f"sqlite:///mapping.db")
+        self.engine = create_engine(f"sqlite:///{db_file}")
         Base.metadata.create_all(self.engine)
         
         Session = sessionmaker()

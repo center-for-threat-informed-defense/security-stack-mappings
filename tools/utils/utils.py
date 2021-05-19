@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 def dir_path(path):
     if os.path.isdir(path):
@@ -11,7 +12,7 @@ def file_path(path):
     if os.path.isfile(path):
         return path
     else:
-        raise NotAFileError(path)
+        raise FileNotFoundError(path)
 
 
 def chunkstring(string, length):
@@ -31,3 +32,8 @@ def chunkstring(string, length):
     
     final_chunks.append(working_chunk)
     return final_chunks
+
+
+def get_project_root():
+    return str(Path(os.path.dirname(__file__)).parent.parent)
+
