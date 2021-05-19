@@ -33,10 +33,6 @@ class AbstractVisualizer(ABC):
         pass
 
 
-    def get_root_folder(self):
-        return str(Path(os.path.dirname(__file__)).parent.parent)
-
-
     def write_visualization(self, output_name, visualization):
         with open(output_name, "w") as f:
             f.write(visualization)

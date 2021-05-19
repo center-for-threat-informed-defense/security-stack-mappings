@@ -5,16 +5,19 @@ import jsonschema
 import datetime
 from pathlib import Path
 
+from utils.utils import get_project_root
+
 class MappingValidator:
 
     def __init__(self, attack_ds):
-        self.load_tags()
         self.attack_ds = []
         self.attack_ds = attack_ds
         self.valid_techniques = {}
         self.validation_pass = True
         self.comments_found = False
         self.attack_version = None
+        self.specified_tags = None
+        self.tags_from_mappings = {}
 
 
     def print_validation_error(self, msg):
@@ -26,21 +29,37 @@ class MappingValidator:
         print(f"  Warning:  {msg}")
 
 
-    def get_tags(self):
-        return self.valid_tags
+    def get_tags(self, mapping_files):
+        for mapping_file in mapping_files:
+            self.load_tags_for_mapping(mapping_file)
+
+        return self.tags_from_mappings
 
 
-    def load_tags(self):
-        self.valid_tags = {}
-        mappings_dir = Path(os.path.dirname(__file__)) / '../../mappings'
-        platform_dirs = [x for x in mappings_dir.iterdir() if x.is_dir()]
-        for platform_dir in platform_dirs:
-            valid_tags = platform_dir / "valid_tags.txt"
-            if valid_tags.exists():
-                with open(valid_tags) as file_object:
-                    self.valid_tags[platform_dir.name] = file_object.read().splitlines()
-            else:
-                self.valid_tags[platform_dir.name] = []
+    def load_specified_tags(self, tags_file):
+        with open(tags_file) as file_object:
+            self.specified_tags = file_object.read().splitlines()
+
+
+    def load_tags_for_mapping(self, mapping_file, mapping_yaml=None):
+        if self.specified_tags:
+            return self.specified_tags
+
+        platform_dir = Path(os.path.dirname(mapping_file))
+        if mapping_yaml:
+            platform = mapping_yaml["platform"]
+        else:
+            platform = platform_dir.name
+
+        if platform in self.tags_from_mappings:
+            return self.tags_from_mappings[platform]
+        
+        valid_tags = platform_dir / "valid_tags.txt"
+        if valid_tags.exists():
+            with open(valid_tags) as file_object:
+                self.tags_from_mappings[platform] = file_object.read().splitlines()
+
+        return self.tags_from_mappings.get(platform, [])
 
 
     def verify_dates(self, mapping):
@@ -57,6 +76,13 @@ class MappingValidator:
             self.print_validation_error(f"The last update field, '{l_date}' must be formatted as mm/dd/yyyy")
 
 
+    def is_tag_valid(self, tag, platform):
+        if self.specified_tags:
+            return tag in self.specified_tags
+        else:
+            return tag in self.tags_from_mappings.get(platform, [])
+
+
     def verify_tags(self, mapping):
         if "tags" in mapping:
             # this if check is here because we don't want to emit a warning in this case
@@ -64,7 +90,7 @@ class MappingValidator:
             # author explicitly excluded tags.
             if mapping["tags"]:
                 for tag in mapping['tags']:
-                    if not tag in self.valid_tags[mapping['platform']]:
+                    if not self.is_tag_valid(tag, mapping['platform']):
                         self.print_validation_error(f"Tag '{tag}' from mapping file {mapping['name']} "
                             "is not contained within valid_tags.yaml.")
         else:
@@ -162,7 +188,8 @@ class MappingValidator:
             self.attack_version = mapping_yaml["ATT&CK version"]
             self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques(True, self.attack_version)
 
-        with open('config/mapping_schema.json') as file_object:
+        root_dir = get_project_root()
+        with open(f'{root_dir}/tools/config/mapping_schema.json') as file_object:
             mapping_schema = json.load(file_object)
 
         print(f"Validating mapping file {mapping_file} ...")
@@ -172,6 +199,7 @@ class MappingValidator:
         jsonschema.validate(mapping_yaml, mapping_schema)
 
         self.verify_dates(mapping_yaml)
+        self.load_tags_for_mapping(mapping_file, mapping_yaml)
         self.verify_tags(mapping_yaml)
         self.verify_references(mapping_yaml)
         self.verify_attack_info(mapping_yaml)
