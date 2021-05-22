@@ -235,7 +235,10 @@ def list_scores(args):
     for mapping, attack_entity, score in data:
         attack_entity_info = "\n ".join(chunkstring(f"{attack_entity.attack_id} {attack_entity.name}", 25))
         path = Path(mapping.path)
-        path = "\n ".join(chunkstring(f"{path.parent.name}/{path.name}", 40))
+        if path.parent.name:
+            path = "\n ".join(chunkstring(f"{path.parent.name}/{path.name}", 40))
+        else:
+            path = "\n ".join(chunkstring(f"{path.name}", 40))
         description = "\n ".join(chunkstring(score.comments, args.width))
         name = "\n ".join(chunkstring(mapping.name, 30))
         table.add_row([num_rows + 1, name, path, attack_entity_info, score.category, score.value, description])

@@ -215,6 +215,9 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             mdFile = MdUtils(file_name="", title=f"{platform} Controls")
 
             summary = self.platform_summaries.get(platform, "")
+
+            if not summary:
+                print(f"  Warning:  Platform {platform} does not provide summary text from tools/config/markdown_summary.json")
             mdFile.new_header(level=1, title="Introduction", add_table_of_contents='y')
             mdFile.new_paragraph(summary)
             mdFile.new_paragraph("[Aggregate Navigator Layer For All Controls](layers/platform.json)")
