@@ -37,7 +37,7 @@ In order to promote consistent assessments, the following scoring factors should
 
 ## Protect Scoring
 
-The scoring rubric used to assess a security control's ability to prevent or minimize the impact of the execution of an ATT&CK (sub-)technique is presented below:  
+The scoring rubric used to assess a security control's ability to prevent or minimize the impact of the execution of an ATT&CK (sub-)technique is presented below:
 
 | Score | Description | 
 |------|------|
@@ -47,17 +47,17 @@ The scoring rubric used to assess a security control's ability to prevent or min
 
 ## Detect Scoring
 
-The scoring rubric used to assess a security control's ability to detect the execution of an ATT&CK (sub-)technique is presented below:  
+The scoring rubric used to assess a security control's ability to detect the execution of an ATT&CK (sub-)technique is presented below:
 
 | Score | Description | 
 |------|------|
 | **Minimal** | Low or uncertain detection coverage factor irrespective of other score factors |
-| **Partial** | Medium - high detection coverage factor <br />Unknown or suboptimal accuracy and/or temporal score |
+| **Partial** | Medium - high detection coverage factor <br />Temporal factor of hours/days<br />Unknown or suboptimal accuracy and/or temporal score |
 | **Significant** | High detection coverage factor <br /> Low false-positive/false-negative rates <br />Real-time, or near real-time (seconds, low minutes) temporal factor |
 
 ## Respond Scoring
 
-Respond scoring assesses a security control's ability to respond to the execution of an ATT&CK (sub-)technique.  The score of this capability is determined by the type of response provided as described below:  
+Respond scoring assesses a security control's ability to respond to the successful execution of an ATT&CK (sub-)technique.  The score of this capability is determined by the type of response provided as described below:
 
 | Score | Description | 
 |------|------|
