@@ -11,7 +11,8 @@ This project provides the following:
 - **[Mapping Tool](tools/)** – A Python-based tool that enables validating and producing [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for mapping files.
 
 We envision that the community can use the functionality produced by this project to produce mappings for various technology platforms.  To encourage this endeavor, this project has produced mapping files for the following technology platforms:
-- [Microsoft Azure](mappings/Azure/)
+- [Microsoft Azure](https://github.com/center-for-threat-informed-defense/azure-security-stack-mappings)
+- [AWS](https://github.com/center-for-threat-informed-defense/aws-security-stack-mappings)
 
 ## Getting Involved
 
