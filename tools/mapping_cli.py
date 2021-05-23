@@ -134,9 +134,10 @@ def validate(args):
         required=False),
     argument('--mapping-dir', help='Path to the directory containing the mapping files',
         required=False, type=dir_path),
-    argument('--skip-attack', help='Rebuild just the mapping data (and reuse the already built the ATT&CK data)',
+    argument('--skip-attack', help='Rebuild an existing mapping.db by just rebuilding the mapping data'
+        ' (and reuse the already built ATT&CK data)',
         default=False, required=False, action="store_true"),
-    argument("--skip-validation", help="Skip validation of discovered mapping files, just import them.",
+    argument("--skip-validation", help="Skip validation of discovered mapping files, just import them into the db.",
         required=False, default=False, action="store_true")
     ])
 def rebuild_mappings(args):
@@ -161,7 +162,7 @@ def rebuild_mappings(args):
     ])
 def list_mappings(args):
     """List mapping files by name, tag and/or platform.
-    Requires the mapping database to be built using the rebuild_mappings command."""
+    Requires the mapping database to be built using the rebuild_mappings subcommand."""
 
     table = PrettyTable(["No.", "Name", "Mapping File", "Tag(s)", "Description"])
     table.align["No."] = "l"
@@ -210,7 +211,7 @@ def list_mappings(args):
 def list_scores(args):
     """Query mapping data by various filters and return a table consisting of the following columns:
     Control Name, Mapping File Path, Technique/Sub-technique ID & Name, Score, Score comment.
-    Requires the mapping database to be built using the rebuild_mappings command."""
+    Requires the mapping database to be built using the rebuild_mappings subcommand."""
     filter_category = args.category if args.category else []
     attack_ids = args.attack_id if args.attack_id else []
     controls = args.control if args.control else []
