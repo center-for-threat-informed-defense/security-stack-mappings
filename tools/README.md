@@ -11,12 +11,10 @@ The mapping CLI tool provides functionality related to querying and visualizing 
 
 It is best practice to create an isolated [Python virtual environment](https://docs.python.org/3/library/venv.html) using the `venv` standard library module to manage the dependencies between your different Python projects.
 
-```
 1.  Change directory (cd) into the tools directory.
 1.  Create the virtual environment:  python3 -m venv venv
 1.  Activate the environment:  source ./venv/bin/activate
 1.  Install the project requirements:  pip install -r requirements.txt
-```
 
 ### Usage
 ```
@@ -34,7 +32,7 @@ optional arguments:
 subcommands:
   Specify the subcommand with -h option for help (Ex: ./mapping_cli visualize -h)
 
-  {visualize,techniques_json,validate,rebuild_mappings,list_mappings,list_scores}
+  {validate,visualize,rebuild_mappings,list_mappings,list_scores}
 ```
 
 ### Validate
@@ -62,7 +60,7 @@ optional arguments:
 -  Validate a particular mapping file:</br>
 ```./mapping_cli.py validate --mapping-file ../mappings/Azure/JustInTimeVMAccess.yaml```
 
-#### Visualize
+### Visualize
 ```
 ➜  mapping_cli.py visualize -h
 usage: mapping_cli.py visualize [-h] --visualizer
@@ -102,7 +100,7 @@ optional arguments:
   --include-html        When generating a visualization, if supported,
                         generate an HTML version too.
 ```
-##### Examples
+#### Examples
 -  Generate [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for each mapping file in the default mappings directory (```../mappings```):</br>
   ```./mapping_cli.py visualize --visualizer AttackNavigator```
 -  Generate an [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layer for a particular mapping file and save the layer in the `/tmp/my_layers` directory:</br>
@@ -115,28 +113,75 @@ optional arguments:
 ```./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html```
 
 
-List Mappings:
-```.env
-➜  mapping_cli.py list_mappings -h
-usage: mapping_cli.py list_mappings [-h] [--tag TAG] [--relationship {OR,AND}]
-                                    [--width WIDTH] [--name NAME]
-                                    [--platform PLATFORM]
+### Rebuild Mappings
+
+```
+usage: mapping_cli.py rebuild_mappings [-h] [--mapping-db MAPPING_DB]
+                                       [--mapping-dir MAPPING_DIR]
+                                       [--skip-attack] [--skip-validation]
+
+Builds the mapping database used to provide the query capabilities of the
+list_mappings and list_scores modes
 
 optional arguments:
   -h, --help            show this help message and exit
+  --mapping-db MAPPING_DB
+                        Path to the mapping.db file to generate
+  --mapping-dir MAPPING_DIR
+                        Path to the directory containing the mapping files
+  --skip-attack         Rebuild just the mapping data (and reuse the already
+                        built the ATT&CK data)
+  --skip-validation     Skip validation of discovered mapping files, just
+                        import them.
+```
+
+#### Examples
+- Scan all the mapping files in the default mappings directory (`../mappings`) and build a SQLite database containing the mapping data.  Produces the `mapping.db` file in the current directory: <\br>
+  ```
+  ./mapping_cli.py rebuild_mappings
+  ```
+
+
+### List Mappings:
+```
+usage: mapping_cli.py list_mappings [-h] [--mapping-db MAPPING_DB] [--tag TAG]
+                                    [--relationship {OR,AND}] [--width WIDTH]
+                                    [--name NAME] [--platform PLATFORM]
+
+List mapping files by name, tag and/or platform
+
+Requires the mapping database to be built using the rebuild_mappings command.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --mapping-db MAPPING_DB
+                        Path to the mapping.db file
   --tag TAG             Return mappings with the specified tag
   --relationship {OR,AND}
-                        Relationship between tags
+                        Relationship between tags (default OR)
   --width WIDTH         Set the width of the Comments column
   --name NAME           Filter the returned mappings by a substring of the
                         control name.
   --platform PLATFORM   Filter by mapping platform (e.g. Azure).
 ```
+#### Examples
+- List the mapping file of all controls that have "Defender" in the control name and limit the width of the comments section to 40 characters per line:
+  ```
+  ./mapping_cli.py list_mappings --name Defender --width 40
+  ```
+- List the mapping file of all controls that have the tag "Linux" and are from the Azure platform:
+  ```
+  ./mapping_cli.py list_mappings --tag Linux --platform Azure
+  ```
+- List the mapping file of all controls that have the tag "Linux" and the tag "Azure Security Center":
+  ```
+  ./mapping_cli.py list_mappings --tag Linux --tag "Azure Security Center" --relationship AND
+  ```
 
-List Scores:
+###  List Scores:
 ```
-➜  mapping_cli.py list_scores -h
-usage: mapping_cli.py list_scores [-h] [--category {Protect,Detect,Respond}]
+usage: mapping_cli.py list_scores [-h] [--mapping-db MAPPING_DB]
+                                  [--category {Protect,Detect,Respond}]
                                   [--attack-id ATTACK_ID] [--tactic TACTIC]
                                   [--control CONTROL] [--platform PLATFORM]
                                   [--score {Minimal,Partial,Significant}]
@@ -144,8 +189,16 @@ usage: mapping_cli.py list_scores [-h] [--category {Protect,Detect,Respond}]
                                   [--level {Technique,Sub-technique}]
                                   [--tag TAG]
 
+Query mapping data by various filters and return a table consisting of the
+following columns: Control Name, Mapping File Path, Technique/Sub-technique ID
+& Name, Score, Score comment. 
+
+Requires the mapping database to be built using the rebuild_mappings command.
+
 optional arguments:
   -h, --help            show this help message and exit
+  --mapping-db MAPPING_DB
+                        Path to the mapping.db file
   --category {Protect,Detect,Respond}
                         Filter by score category
   --attack-id ATTACK_ID
@@ -163,3 +216,30 @@ optional arguments:
                         LIKE search for exact match, surround w/ quotes (e.g.
                         '"Azure Defender"'
 ```
+
+#### Examples
+- Return a table with a row for each technique in a mapping file that has a Protect score category
+  ```
+  ./mapping_cli.py list_scores --category Protect
+  ```
+- Return a table with a row for each mapping file that has a Protect score category for technique T1078 Valid Accounts
+  ```
+  ./mapping_cli.py list_scores --category Protect --attack-id T1078
+  ```
+- Return a table with a row for each mapping file that has a Protect score category for technique T1078 Valid Accounts or technique T1578 Modify Cloud Compute Infrastructure
+  ```
+  ./mapping_cli.py list_scores --category Protect --attack-id T1078 --attack-id T1578
+  ```
+- Return a table with a row for each mapping file that has a Protect score category for sub-techniques of T1078 Valid Accounts.  Displays the sub-technique scores instead of technique scores.
+  ```
+  ./mapping_cli.py list_scores --category Protect --attack-id T1078 --level Sub-technique
+  ```
+- Return a table with a row for each Azure mapping file that has a Protect score category with a Minimal or Significant score.  Limit the width of the score comments column to 40 characters.
+  ```
+  ./mapping_cli.py list_scores --category Protect --platform Azure --score Minimal --score Significant --width 40
+  ```
+- Return a table with a row for each score category for controls with a name that contains the "Identity Protection" that provide a mapping for technique T1078 Valid Accounts.
+
+  ```
+  ./mapping_cli.py list_scores  --attack-id T1078 --level Technique --control "Identity Protection"
+  ```
