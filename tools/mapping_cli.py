@@ -8,7 +8,8 @@ from prettytable import PrettyTable
 from pathlib import Path
 
 
-parser = argparse.ArgumentParser(description='Validates mapping files and produces various mapping visualizations.')
+parser = argparse.ArgumentParser(description='Provides functionality related to querying and '
+    'visualizing the data contained in mapping files.')
 subparsers = parser.add_subparsers(dest="subcommand", description="Specify the subcommand with -h option for help"
     " (Ex:  ./mapping_cli visualize -h)")
 mapping_driver = MappingDriver()
@@ -42,7 +43,7 @@ def subcommand(args=[], parent=subparsers):
     argument('--title', help="Title of the visualization", required=False),
     argument('--description', help="Description of the visualization", required=False, default=""),
     argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
-    argument('--include-aggregates', help='When generating a visualization for mappings, generate it for each tag and' 
+    argument('--include-aggregates', help='When generating a visualization type for mappings, also generate it for each tag and' 
         ' platform also.  This depends on visualizer support.', default=False, required=False, action="store_true"),
     argument('--include-html', help='When generating a visualization, if supported, generate an HTML version too.',
         default=False, required=False, action="store_true"),
@@ -109,6 +110,7 @@ def techniques_json(args):
         required=False, type=file_path)
     ])
 def validate(args):
+    """Validates a mapping file or all mapping files in a directory"""
     if args.mapping_file:
         mapping_driver.load_mapping_file(args.mapping_file)
     elif args.mapping_dir:
@@ -132,12 +134,14 @@ def validate(args):
         required=False),
     argument('--mapping-dir', help='Path to the directory containing the mapping files',
         required=False, type=dir_path),
-    argument('--skip-attack', help='Rebuild just the mappings, do not rebuild the ATT&CK entities',
+    argument('--skip-attack', help='Rebuild an existing mapping.db by just rebuilding the mapping data'
+        ' (and reuse the already built ATT&CK data)',
         default=False, required=False, action="store_true"),
-    argument("--skip-validation", help="Skip validation when visualizing mapping(s)",
+    argument("--skip-validation", help="Skip validation of discovered mapping files, just import them into the db.",
         required=False, default=False, action="store_true")
     ])
 def rebuild_mappings(args):
+    """Builds the mapping database used to provide the query capabilities of the list_mappings and list_scores modes"""
     if args.mapping_dir:
         mapping_driver.load_mapping_dir(args.mapping_dir)
     else:
@@ -151,12 +155,15 @@ def rebuild_mappings(args):
 @subcommand([
     argument('--mapping-db', help='Path to the mapping.db file', default="mapping.db", required=False, type=file_path),
     argument('--tag', help="Return mappings with the specified tag", action="append", required=False),
-    argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
+    argument('--relationship', help="Relationship between tags (default OR)", required=False, default="OR", choices = ["OR","AND"]),
     argument('--width', help="Set the width of the Comments column", type=int, required=False, default=80),
     argument('--name', help="Filter the returned mappings by a substring of the control name.", action="append", required=False),
     argument('--platform', help="Filter by mapping platform (e.g. Azure).", action="append", required=False),
     ])
 def list_mappings(args):
+    """List mapping files by name, tag and/or platform.
+    Requires the mapping database to be built using the rebuild_mappings subcommand."""
+
     table = PrettyTable(["No.", "Name", "Mapping File", "Tag(s)", "Description"])
     table.align["No."] = "l"
     table.align["Name"] = "l"
@@ -202,6 +209,9 @@ def list_mappings(args):
         action="append", required=False),
     ])
 def list_scores(args):
+    """Query mapping data by various filters and return a table consisting of the following columns:
+    Control Name, Mapping File Path, Technique/Sub-technique ID & Name, Score, Score comment.
+    Requires the mapping database to be built using the rebuild_mappings subcommand."""
     filter_category = args.category if args.category else []
     attack_ids = args.attack_id if args.attack_id else []
     controls = args.control if args.control else []

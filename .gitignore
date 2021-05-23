@@ -8,3 +8,4 @@ tools/mapping.db
 *.swp
 tools/techniques.json
 mappings/Azure/layers/AzureSentinelAnalytics-*
+tools/venv/
