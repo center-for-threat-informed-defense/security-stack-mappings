@@ -8,7 +8,8 @@ from prettytable import PrettyTable
 from pathlib import Path
 
 
-parser = argparse.ArgumentParser(description='Validates mapping files and produces various mapping visualizations.')
+parser = argparse.ArgumentParser(description='Provides functionality related to querying and '
+    'visualizing the data contained in mapping files.')
 subparsers = parser.add_subparsers(dest="subcommand", description="Specify the subcommand with -h option for help"
     " (Ex:  ./mapping_cli visualize -h)")
 mapping_driver = MappingDriver()
@@ -42,7 +43,7 @@ def subcommand(args=[], parent=subparsers):
     argument('--title', help="Title of the visualization", required=False),
     argument('--description', help="Description of the visualization", required=False, default=""),
     argument('--relationship', help="Relationship between tags", required=False, default="OR", choices = ["OR","AND"]),
-    argument('--include-aggregates', help='When generating a visualization for mappings, generate it for each tag and' 
+    argument('--include-aggregates', help='When generating a visualization type for mappings, also generate it for each tag and' 
         ' platform also.  This depends on visualizer support.', default=False, required=False, action="store_true"),
     argument('--include-html', help='When generating a visualization, if supported, generate an HTML version too.',
         default=False, required=False, action="store_true"),
@@ -109,6 +110,7 @@ def techniques_json(args):
         required=False, type=file_path)
     ])
 def validate(args):
+    """Validates a mapping file or all mapping files in a directory"""
     if args.mapping_file:
         mapping_driver.load_mapping_file(args.mapping_file)
     elif args.mapping_dir:

@@ -1,17 +1,24 @@
-## Usage
+## Mapping CLI Tool
 
-### CLI
+### Introduction
 
-To install: 
+The mapping CLI tool provides functionality related to querying and visualizing the data contained in mapping files.  It supports multiple functional modes with each mode accompanied with help text.
+
+### Install
+
+#### Requirements:
+- Python 3
+
+It is best practice to create an isolated [Python virtual environment](https://docs.python.org/3/library/venv.html) using the `venv` standard library module to manage the dependencies between your different Python projects.
+
 ```
-1.  cd tools directory
-2.  Install Python 3
-3.  Create virtual environment:  python3 -m venv ~/Development/cloud_security_stack_mappings
-4.  Activate environment:  source ~/Development/cloud_security_stack_mappings/bin/activate
-5.  Install requirements:  pip install -r requirements.txt
+1.  Change directory (cd) into the tools directory.
+1.  Create the virtual environment:  python3 -m venv venv
+1.  Activate the environment:  source ./venv/bin/activate
+1.  Install the project requirements:  pip install -r requirements.txt
 ```
 
-To use:
+### Usage
 ```
 ➜  ./mapping_cli.py -h
 
@@ -19,19 +26,43 @@ usage: mapping_cli.py [-h]
                       {visualize,techniques_json,validate,rebuild_mappings,list_mappings,list_scores}
                       ...
 
-Validates mapping files and produces various mapping visualizations.
+Provides functionality related to querying and visualizing the data contained in mapping files.
 
 optional arguments:
   -h, --help            show this help message and exit
 
 subcommands:
-  Specify the subcommand with -h option for help (Ex: ./mapping_cli
-  visualize -h)
+  Specify the subcommand with -h option for help (Ex: ./mapping_cli visualize -h)
 
   {visualize,techniques_json,validate,rebuild_mappings,list_mappings,list_scores}
 ```
 
-Vizualize: 
+### Validate
+```
+➜  mapping_cli.py validate -h
+usage: mapping_cli.py validate [-h] [--mapping-dir MAPPING_DIR]
+                               [--mapping-file MAPPING_FILE]
+
+Validates a mapping file or all mapping files in a directory
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --mapping-dir MAPPING_DIR
+                        Path to the directory containing the mapping files
+  --mapping-file MAPPING_FILE
+                        Path to the mapping file
+  --tags-file TAGS_FILE
+                        Path to the file containing the list of valid tags
+```
+#### Examples
+-  Validate all mapping files in the default mappings directory (```../mappings```):</br>
+  ```./mapping_cli.py validate```
+-  Validate all mapping files in a specified directory:</br>
+```./mapping_cli.py validate --mapping-dir <mapping directory>```  
+-  Validate a particular mapping file:</br>
+```./mapping_cli.py validate --mapping-file ../mappings/Azure/JustInTimeVMAccess.yaml```
+
+#### Visualize
 ```
 ➜  mapping_cli.py visualize -h
 usage: mapping_cli.py visualize [-h] --visualizer
@@ -71,20 +102,18 @@ optional arguments:
   --include-html        When generating a visualization, if supported,
                         generate an HTML version too.
 ```
+##### Examples
+-  Generate [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for each mapping file in the default mappings directory (```../mappings```):</br>
+  ```./mapping_cli.py visualize --visualizer AttackNavigator```
+-  Generate an [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layer for a particular mapping file and save the layer in the `/tmp/my_layers` directory:</br>
+```./mapping_cli.py visualize --visualizer AttackNavigator --mapping-file ../mappings/Azure/IdentityProtection.yaml --output /tmp/my_layers```
+-  Generate an [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layer for all mappings with the specified tag:</br>
+```./mapping_cli.py visualize --visualizer AttackNavigator --tag "Azure Defender" --title "Azure Defender" --skip-validation```
+-  Generate [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for each mapping file in the default mappings directory (```../mappings```).  In addition, generate a layer for each tag and an aggregate layer for all mapping files for the platform:</br>
+```./mapping_cli.py visualize --visualizer AttackNavigator --skip-validation --include-aggregates```
+-  Generate a Markdown Summary view for all mapping files in the default mappings directory (```../mappings```).  In addition, generate an HTML version of the view:</br>
+```./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html```
 
-Validate:
-```
-➜  mapping_cli.py validate -h
-usage: mapping_cli.py validate [-h] [--mapping-dir MAPPING_DIR]
-                               [--mapping-file MAPPING_FILE]
-
-optional arguments:
-  -h, --help            show this help message and exit
-  --mapping-dir MAPPING_DIR
-                        Path to the directory containing the mapping files
-  --mapping-file MAPPING_FILE
-                        Path to the mapping file
-```
 
 List Mappings:
 ```.env
