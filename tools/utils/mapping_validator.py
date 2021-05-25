@@ -181,6 +181,15 @@ class MappingValidator:
                     self.print_validation_error(f"Empty sub-techniques-scores object for technique {technique['name']}")
 
 
+    def validate_only_ascii(self, mapping_file):
+        with open(mapping_file) as fp:
+            line_no = 0
+            for line in fp.readlines():
+                line_no += 1
+                if not line.isascii():
+                    self.print_validation_warning(f"Mapping file contains non-ascii characters:  {line_no}:  {line}")
+
+
     def validate_mapping(self, mapping_file, mapping_yaml):
         self.validation_pass = True
         self.comments_found = False
@@ -194,10 +203,11 @@ class MappingValidator:
 
         print(f"Validating mapping file {mapping_file} ...")
         if mapping_file.name.endswith(".yml"):
-            self.print_validation_warning(f"Mapping file extension yaml is preferred to yml.")
+            self.print_validation_warning(f"Mapping file extension yaml is preferable to yml.")
 
         jsonschema.validate(mapping_yaml, mapping_schema)
 
+        self.validate_only_ascii(mapping_file)
         self.verify_dates(mapping_yaml)
         self.load_tags_for_mapping(mapping_file, mapping_yaml)
         self.verify_tags(mapping_yaml)
