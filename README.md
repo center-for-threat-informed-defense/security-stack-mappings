@@ -14,6 +14,13 @@ We envision that the community can use the functionality produced by this projec
 - [Microsoft Azure](https://github.com/center-for-threat-informed-defense/azure-security-stack-mappings#azure-controls)
 - [AWS](https://github.com/center-for-threat-informed-defense/aws-security-stack-mappings#aws-controls)
 
+## Use Cases
+
+There are several use cases for using the mapping files to advance the state-of-the-art and the state-of-the-practice in threat-informed defense.  We have enumerated these use cases in the following document: 
+- **[Use Cases](docs/use_cases.md)**
+
+Do you have additional use cases that we haven't thought of?  We'd love to hear about them, please share your ideas by submitting an issue or contacting ctid@mitre-engenuity.org.
+
 ## Getting Involved
 
 There are several ways that you can get involved with this project and help advance threat-informed defense.
