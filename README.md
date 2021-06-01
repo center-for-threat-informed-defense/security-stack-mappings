@@ -16,10 +16,10 @@ We envision that the community can use the functionality produced by this projec
 
 ## Use Cases
 
-There are several use cases for mapping files that advance the state-of-the-art and the state-of-the-practice in threat-informed defense.  We have enumerated these use cases in the following document: 
+There are several use cases for using the mapping files to advance the state-of-the-art and the state-of-the-practice in threat-informed defense.  We have enumerated these use cases in the following document: 
 - **[Use Cases](docs/use_cases.md)**
 
-Have additional use cases that we haven't thought of?  We'd love to hear about them, please share your ideas by submitting an issue or contacting ctid@mitre-engenuity.org.
+Do you have additional use cases that we haven't thought of?  We'd love to hear about them, please share your ideas by submitting an issue or contacting ctid@mitre-engenuity.org.
 
 ## Getting Involved
 
