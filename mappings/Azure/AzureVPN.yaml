@@ -1,0 +1,61 @@
+version: 1
+ATT&CK version: 8.2
+creation date: 03/05/2021
+name: Azure VPN Gateway
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure VPN Gateway
+  - Encryption
+  - Network
+  - VPN
+description: >-
+  A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic
+  between an Azure virtual network and an on-premises location over the public Internet. 
+
+  You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the
+  Microsoft network.
+techniques:
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control encrypts traffic traversing over untrusted networks which can prevent information
+          from being gathered via network sniffing.
+  - id: T1557
+    name: Man-in-the-Middle
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: This control can mitigate Man-in-the-Middle attacks that manipulate network protocol data in transit.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1557.002
+            name: ARP Cache Poisoning
+          - id: T1557.001
+            name: LLMNR/NBT-NS Poisoning and SMB Relay
+        scores:
+          - category: Protect
+            value: Significant
+  - id: T1565
+    name: Data Manipulation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides significant protection against one sub-technique (Transmitted Data Manipulation) 
+          of this technique while not providing protection for its remaining sub-techniques resulting in overall
+          score of Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1565.002
+            name: Transmitted Data Manipulation
+        scores:
+          - category: Protect
+            value: Significant
+references:
+  - >-
+    https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways

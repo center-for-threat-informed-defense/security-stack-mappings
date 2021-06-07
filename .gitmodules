@@ -1,6 +1,3 @@
-[submodule "mappings/Azure"]
-	path = mappings/Azure
-	url = git@github.com:center-for-threat-informed-defense/azure-security-stack-mappings.git
 [submodule "mappings/AWS"]
 	path = mappings/AWS
 	url = git@github.com:center-for-threat-informed-defense/aws-security-stack-mappings.git
