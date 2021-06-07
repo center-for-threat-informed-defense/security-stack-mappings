@@ -1,0 +1,67 @@
+version: 1
+ATT&CK version: 8.2
+creation date: 03/29/2021
+name: Azure Backup
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Security Center Recommendation
+description: >-
+  "The Azure Backup service provides simple, secure, and cost-effective solutions to back up your
+  data and recover it from the Microsoft Azure cloud."
+techniques:
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: Data backups provide significant mitigation against data destruction.
+  - id: T1486
+    name: Data Encrypted for Impact
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: Provides significant mitigation against data encryption/ransomware attacks.
+  - id: T1491
+    name: Defacement
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: Provides significant mitigation against defacement
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1491.002
+            name: External Defacement
+          - id: T1491.001
+            name: Internal Defacement
+        scores:
+          - category: Protect
+            value: Significant
+  - id: T1561
+    name: Disk Wipe
+    technique-scores:
+      - category: Protect
+        value: Significant
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1561.001
+            name: Disk Content Wipe
+        scores:
+          - category: Protect
+            value: Significant
+      - sub-techniques:
+          - id: T1561.002
+            name: Disk Structure Wipe
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              Allows for recovery of disk content, though Disk structure wipes require additional
+              procedures for recovery.
+comments: >-
+  Azure Backup service provides defense against destruction/manipulation of data at rest. Scoring as
+  "Significant" since it is an essential practice against data destruction et al, though there is an argument
+  for a Partial score since it does not prevent so much as enable recovery.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/backup/backup-overview'

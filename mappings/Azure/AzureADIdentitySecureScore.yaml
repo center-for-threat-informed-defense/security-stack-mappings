@@ -1,0 +1,342 @@
+version: 1
+ATT&CK version: 8.2
+creation date: 03/24/2021
+name: Azure AD Identity Secure Score
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Credentials
+  - Azure Active Directory
+  - Identity
+  - MFA
+description: >-
+  The identity secure score is a percentage that functions as an indicator for how aligned you are
+  with Microsoft's best practice recommendations for security. Each improvement action in Identity
+  Secure Score is tailored to your specific configuration.  The score helps you to:  Objectively
+  measure your identity security posture, plan identity security improvements, and review the success of
+  your improvements.  
+
+  Every 48 hours, Azure looks at your security configuration and compares your settings with the
+  recommended best practices. Based on the outcome of this evaluation, a new score is calculated for
+  your directory.
+techniques:
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          The MFA recommendation provides significant protection against password compromises, but
+          because this is a recommendation and doesn't actually enforce MFA, the assessed score is
+          capped at Partial. 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.002
+            name: Password Cracking
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Require MFA for administrative roles" and "Ensure all users can
+              complete multi-factor authentication for secure access" recommendations for enabling
+              MFA can significantly lead to reducing the impact of a password compromise of
+              accounts, requiring the adversary to complete an additional authentication method
+              before their access is permitted.
+
+              This control's "Do not expire passwords" recommendation also can lead to mitigating the
+              Password Guessing or Cracking sub-techniques by disabling password reset which tends to
+              lead to users selecting weaker passwords.  
+
+              This control's "Enable policy to block legacy authentication" and "Stop legacy
+              protocols communication" recommendations can lead to protecting against these brute
+              force attacks as Microsoft research has shown organizations that have disabled
+              legacy authentication experience 67 percent fewer compromises than those where legacy
+              authentication is enabled. Additionally, the same research shows that more than 99
+              percent of password spray and more than 97 percent of credential stuffing attacks
+              use legacy authentication.
+
+              This control's "Resolve unsecure account attributes" recommendation can lead to detecting
+              accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.
+
+              Because these are recommendations and do not actually enforce MFA, the assessed score
+              is capped at Partial. 
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control provides recommendations that can lead to protecting against the malicious usage
+          of valid cloud accounts but does not provide recommendations for the remaining sub-techniques
+          Additionally, it provides limited protection for this technique's procedure examples.
+          Consequently, its overall protection coverage score is minimal.
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control provides recommendations that can lead to the detection of the malicious usage
+          of valid cloud accounts but does not provide recommendations for the remaining sub-techniques
+          Additionally, it provides limited detection for this technique's procedure examples.
+          Consequently, its overall detection coverage score is minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Require MFA for administrative roles" and "Ensure all users can
+              complete multi-factor authentication for secure access" recommendations of MFA can
+              provide protection against an adversary that obtains valid credentials by requiring
+              the adversary to complete an additional authentication process before access is
+              permitted.  See the mapping for MFA for more details.  
+
+              This control's "Use limited administrative roles" recommendation recommends reviewing
+              and limiting the number of accounts with global admin privilege, reducing what an
+              adversary can do with a compromised valid account.
+
+              Because these are recommendations and do not actually enforce the protections, the
+              assessed score is capped at Partial. 
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control's "Turn on sign-in risk policy" and "Turn on user risk policy"
+              recommendations recommend enabling Azure AD Identity Protection which can lead to detecting
+              adversary usage of valid accounts.  See the mapping for Azure AD Identity Protection.
+      - sub-techniques:
+          - id: T1078.002
+            name: Domain Accounts
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Remove dormant accounts from sensitive groups" recommendation
+              recommends reviewing dormant (domain) accounts from sensitive groups via an assessment
+              report that can identify sensitive accounts that are dormant.
+
+              Because these are recommendations and do not actually enforce the protections coupled
+              with being limited to sensitive accounts, the assessed score is Minimal. 
+      - sub-techniques:
+          - id: T1078.003
+            name: Local Accounts
+          - id: T1078.001
+            name: Default Accounts
+        scores:
+          - category: Protect
+            value: Minimal
+            comments: >-
+              This control's "Protect and manage local admin passwords with Microsoft LAPS" 
+              recommendation recommends periodically running and reviewing the Microsoft LAPS usage
+              report that identifies all Windows based devices not protected by Microsoft LAPS. 
+              This can help reduce the compromise of local administrator accounts.
+
+              Because this is a recommendations and not actually enforced coupled with being limited
+              to sensitive accounts, the assessed score is Minimal. 
+  - id: T1531
+    name: Account Access Removal
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's "Designate more than one global admin" can enable recovery from an
+          adversary locking a global administrator account (deleted, locked, or manipulated (ex:
+          changed credentials)).  Due to this being a recommendation, its score is capped as Partial.
+  - id: T1528
+    name: Steal Application Access Token
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's "Do not allow users to grant consent to unmanaged applications"
+          recommendation can protect against an adversary constructing a malicious application
+          designed to be granted access to resources with the target user's OAuth token by ensuring
+          users can not be fooled into granting consent to the application. 
+
+          Due to this being a recommendation, its score is capped at Partial.
+  - id: T1606
+    name: Forge Web Credentials
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's "Turn on sign-in risk policy" and "Turn on user risk policy"
+          recommendations recommend the usage of Azure AD Identity Protection which can detect one
+          of the sub-techniques of this technique.  This is a recommendation and therefore the score
+          is capped at Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1606.002
+            name: SAML Tokens
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control's "Turn on sign-in risk policy" and "Turn on user risk policy"
+              recommendations recommend enabling Azure AD Identity Protection which can detect the
+              malicious usage of SAML Tokens.  This is a recommendation and therefore the score is
+              capped at Partial.
+  - id: T1558
+    name: Steal or Forge Kerberos Tickets
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides recommendations that lead to protections for some of the
+          sub-techniques of this technique and therefore its overall protection coverage is Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1558.004
+            name: AS-REP Roasting
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Resolve unsecure account attributes" recommendation can lead to
+              detecting Active Directory accounts which do not require Kerberos preauthentication. 
+              Preauthentication offers protection against offline (Kerberos) Password Cracking.  
+
+              Because this is a recommendation its score is capped as Partial.
+      - sub-techniques:
+          - id: T1558.001
+            name: Golden Ticket
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Reduce lateral movement path risk to sensitive entities"
+              recommendation can lead to protecting sensitive accounts against Pass-the-Hash and
+              Pass-the-Ticket attacks that may result in an adversary acquiring a golden ticket. 
+              It recommends running the Lateral-Movement-Paths report to understand and identify
+              exactly how attackers can move laterally through the monitored network to gain access
+              to privileged identities such as the KRBTGT on the domain controller.  Because this is
+              a recommendation, its score has been capped as Partial.
+      - sub-techniques:
+          - id: T1558.003
+            name: Kerberoasting
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Modify unsecure Kerberos delegations to prevent impersonation"
+              recommendation promotes running the "Unsecure Kerberos delegation" report that can
+              identify accounts that have unsecure Kerberos delegation configured.  Unsecured
+              Kerberos delegation can lead to exposing account TGTs to more hosts resulting in an
+              increased attack surface for Kerberoasting.  Due to this control providing a
+              recommendation its score is capped at Partial.
+  - id: T1552
+    name: Unsecured Credentials
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's "Resolve unsecure account attributes" provides recommendations that can
+          lead to strengthening how accounts are stored in Active Directory.  This control provides
+          recommendations specific to a few types of unsecured credentials (reversible and weakly
+          encrypted credentials) while not providing recommendations for any other, resulting in a
+          Minimal score.
+  - id: T1550
+    name: Use Alternate Authentication Material
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides recommendations that lead to protections for some of the
+          sub-techniques of this technique.  Due to it only providing a recommendation, its score
+          has been capped at Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1550.003
+            name: Pass the Ticket
+          - id: T1550.002
+            name: Pass the Hash
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control's "Reduce lateral movement path risk to sensitive entities"
+              recommendation can lead to protecting sensitive accounts against Pass-the-Hash and
+              Pass-the-Ticket attacks by recommending running the Lateral-Movement-Paths report to
+              understand and identify exactly how attackers can move laterally through the monitored
+              network to gain access to privileged identities.  Because this is a recommendation,
+              its score has been capped as Partial.
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >+
+          This control's "Stop clear text credentials exposure" provides a recommendation to run the
+          "Entities exposing credentials in clear text" assessment that monitors your traffic for
+          any entities exposing credentials in clear text (via LDAP simple-bind).  This assessment
+          seems specific to LDAP simple-binds and coupled with the fact that it is a recommendation
+          and is not enforced, results in a Minimal score.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control's "Configure VPN Integration" recommendation can lead to detecting abnormal
+          VPN connections that may be indicative of an attack.  Although this control provides a
+          recommendation that is limited to a specific external remote service type of VPN, most of
+          this technique's procedure examples are VPN related resulting in a Partial overall score.
+  - id: T1134
+    name: Access Token Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control provides a recommendation that can lead to detecting one of this technique's
+          sub-techniques while not providing recommendations relevant to its procedure examples nor
+          its remaining sub-techniques.  It is subsequently scored as Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1134.005
+            name: SID-History Injection
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control's "Remove unsecure SID history attributes from entities" recommendation
+              promotes running the "Unsecure SID history attributes" report periodically which can
+              lead to identifying accounts with SID History attributes which Microsoft Defender for
+              Identity profiles to be risky.  Because this is a recommendation and not actually
+              enforced, coupled with the detection its assessed score is capped at Partial. 
+comments: >-
+  This control was mapped to (sub-)techniques based on the Security Score improvement actions listed
+  in a sample Azure AD tenant that we provisioned.  We were unable to find a comprehensive list of
+  the security checks made by the control listed in its documentation.  We did note that there were
+  some improvement actions listed that our tenant received the max score, leading us to believe that
+  the actions listed were the complete list of checks and not just those that were outstanding for
+  our tenant.
+
+  The following improvement actions were analyzed:
+
+  Require MFA for administrative roles, Designate more than one global admin, 
+  Do not allow users to grant consent to unmanaged applications,
+  Use limited administrative roles, Do not expire passwords, Enable policy to block legacy authentication 
+  Turn on sign-in risk policy, Turn on user risk policy, Ensure all users can complete multi-factor authentication for secure access,
+  Enable self-service password reset, Resolve unsecure account attributes, Reduce lateral movement path risk to sensitive entities, 
+  Set a honeytoken account, Stop clear text credentials exposure, Install Defender for Identity Sensor on all Domain Controllers, 
+  Disable Print spooler service on domain controllers, Configure VPN integration, 
+  Configure Microsoft Defender for Endpoint Integration (*excluded, would increase the scope, see mapping for Microsoft 
+  Defender for Endpoint), Stop legacy protocols communication, Stop weak cipher usage, 
+  Remove dormant accounts from sensitive groups, Protect and manage local admin passwords with Microsoft LAPS, 
+  Remove unsecure SID history attributes from entities, Fix Advanced Audit Policy issues, Modify unsecure Kerberos 
+  delegations to prevent impersonation. 
+
+  All scores were capped at Partial since this control provides recommendations rather than applying/enforcing the recommended actions.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/identity-secure-score'
+  - >-
+    https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#
+  - 'https://docs.microsoft.com/en-us/defender-for-identity/cas-isp-unsecure-account-attributes'
+  - >-
+    https://techcommunity.microsoft.com/t5/microsoft-defender-for-identity/new-identity-security-posture-assessments-riskiest-lmps-and/m-p/1491675

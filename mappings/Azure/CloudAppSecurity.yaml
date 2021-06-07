@@ -1,0 +1,369 @@
+version: 1
+ATT&CK version: 8.2
+creation date: 03/15/2021
+name: Cloud App Security Policies
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - CASB
+description: >-
+  Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that supports various
+  deployment modes including log collection, API connectors, and reverse proxy. It provides rich
+  visibility, control over data travel, and sophisticated analytics to identify and combat
+  cyberthreats across all your Microsoft and third-party cloud services.
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can identify anomalous behavior such as geographically impossible logins and
+          out-of-character activity. 
+
+          Relevant alerts include "Activity from anonymous IP address" , "Activity from infrequent
+          country", "Activity from suspicious IP address", "Impossible Travel", and "Activity
+          performed by terminated user".
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+          - id: T1078.002
+            name: Domain Accounts
+          - id: T1078.001
+            name: Default Accounts
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control can identify anomalous behavior such as geographically impossible logins
+              and out-of-character activity. 
+
+              Relevant alerts include "Activity from anonymous IP address" , "Activity from
+              infrequent country", "Activity from suspicious IP address", "Impossible Travel", and
+              "Activity performed by terminated user".
+  - id: T1567
+    name: Exfiltration Over Web Service
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: This control can limit user methods to send data over web services.
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can identify large volume potential exfiltration activity, and log user
+          activity potentially related to exfiltration via web services. A relevant alert is
+          "Unusual file download (by user)".
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1567.002
+            name: Exfiltration to Cloud Storage
+          - id: T1567.001
+            name: Exfiltration to Code Repository
+        scores:
+          - category: Protect
+            value: Partial
+            comments: This control can identify large volume potential exfiltration activity.
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control can identify large volume potential exfiltration activity, and log user
+              activity potentially related to exfiltration via web services. A relevant alert is
+              "Unusual file download (by user)".
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can detect outdated client browser software, which is a common target
+          of exploitation in drive-by compromises.
+  - id: T1535
+    name: Unused/Unsupported Cloud Regions
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can detect unusual region and activity for cloud resources (preview feature
+          as of this writing).  Relevant alert is "Suspicious creation activity for cloud region".
+  - id: T1187
+    name: Forced Authentication
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control can provide significant protection against forced authentication methods by
+          restricting actions associated with multiple file access methods such as SMB.
+      - category: Detect
+        value: Significant
+        comments: This control can alert on anomalous sharing attempts of confidential data.
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can detect use of unsanctioned business apps and data exfil to unsanctioned
+          storage apps.
+  - id: T1528
+    name: Steal Application Access Token
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can restrict user app permissions which can limit the potential for theft of
+          application access tokens.
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can detect potentially risky apps. Relevant alerts include "Misleading
+          publisher name for an Oauth app" and "Misleading OAuth app name". 
+  - id: T1526
+    name: Cloud Service Discovery
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can detect anomalous user activity that may be associated with cloud service
+          discovery. Relevant alert is "Unusual file share activty (by user)".
+  - id: T1213
+    name: Data from Information Repositories
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control can provide fine-grained access control to information sharing repositories such
+          as Sharepoint or Confluence. Due to this capability being limited to these services, it has
+          been scored as Partial coverage resulting in a Partial score.
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may detect anomalous user behavior wrt information repositories such as
+          Sharepoint or Confluence.  Due to this capability being limited to these services, it has
+          been scored as Partial coverage resulting in a Partial score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1213.002
+            name: Sharepoint
+          - id: T1213.001
+            name: Confluence
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control may detect anomalous user behavior wrt information repositories such as
+              Sharepoint or Confluence.
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control may detect anomalous user behavior wrt information repositories such as
+              Sharepoint or Confluence.
+  - id: T1119
+    name: Automated Collection
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's Information protection policies can detect and encrypt sensitive
+          information at rest on supported platforms, which can inhibit automated data collection
+          activities.
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can detect sensitive information at rest, which may be indicative of data
+          collection activities.
+  - id: T1565
+    name: Data Manipulation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can detect and encrypt sensitive information at rest on supported platforms
+          and restrict access.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1565.001
+            name: Stored Data Manipulation
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control can detect and encrypt sensitive information at rest on supported platforms.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control's polices for access control can limit abuse of external facing remote services.
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can provide logging of activity associated with potential exploitation of
+          remote services such as anomalous geographic access.
+  - id: T1219
+    name: Remote Access Software
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: This control can limit potential C2 via unapproved remote access software.
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can identify potential malicious activity associated with the use or attempted
+          use of unapproved remote access software.
+  - id: T1484
+    name: Domain Policy Modification
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control can detect admin activity from risky IP addresses.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1484.002
+            name: Domain Trust Modification
+          - id: T1484.001
+            name: Group Policy Modification
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: This control can detect admin activity from risky IP addresses.
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control can detect anomalous admin activity that may be indicative of account
+          manipulation. Relevant alerts include "Unusual administrative activity (by user)" and
+          "Unusual addition of credentials to an OAuth app".
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.003
+            name: Add Office 365 Global Administrator Role
+          - id: T1098.001
+            name: Additional Cloud Credentials
+          - id: T1098.002
+            name: Exchange Email Delegate Permissions
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              This control can detect anomalous admin activity that may be indicative of account
+              manipulation. Relevant alerts include "Unusual administrative activity (by user)" and
+              "Unusual addition of credentials to an OAuth app".
+  - id: T1578
+    name: Modify Cloud Compute Infrastructure
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control can identify anomalous admin activity.
+
+          Relevant alerts include "Multiple storage deletion activities", "Multiple VM creation
+          activities", and "Suspicious creation activity for cloud region". 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1578.004
+            name: Revert Cloud Instance
+          - id: T1578.003
+            name: Delete Cloud Instance
+          - id: T1578.001
+            name: Create Snapshot
+          - id: T1578.002
+            name: Create Cloud Instance
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: This control can identify anomalous admin activity.
+  - id: T1531
+    name: Account Access Removal
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: This control can identify anomalous admin activity.
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can identify some behaviors that are potential instances of resource
+          hijacking. Relevant alerts include "Multiple VM Creation activities" and "Suspicious
+          creation activity for cloud region".
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >
+          This control can identify deletion activity which could be potential malicious data
+          destruction. Relevant Alerts include "Multiple storage deletion activities", "Multiple VM
+          deletion activity", "Unusual file deletion activity (by user), "Suspicous email deletion
+          activiy", and "Ransomware activity".
+  - id: T1486
+    name: Data Encrypted for Impact
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can detect a range of ransomware-related activities including encryption.
+          Relevant alert include "Ransomware activities" and "Unusual file deletion activity (by user)".
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control can identify some evidence of potential C2 via a specific application layer
+          protocol (mail). Relevant alerts include  "Suspicious inbox forwarding" and "Suspicious
+          inbox manipulation rule".
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.003
+            name: Mail Protocols
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control can identify some evidence of potential C2 via a specific application
+              layer protocol (mail). Relevant alerts include "Suspicious inbox forwarding" and
+              "Suspicious inbox manipulation rule".
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control can detect some activity indicative of brute force attempts to login.
+          Relevant alert is "Multiple failed login attempts".
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.004
+            name: Credential Stuffing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.001
+            name: Password Guessing
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              This control can detect some activity indicative of brute force attempts to login.
+              Relevant alert is "Multiple failed login attempts".
+  - id: T1534
+    name: Internal Spearphishing
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control can identify anomalous user impersonation activity, which can be an element
+          of internal spearphishing. Relevant alert is "Unusual impersonated activity (by user)".
+comments: >-
+  This control is basically a CASB, and various features can generate logs and alerts that can be
+  incorporated into a SIEM such as Sentinel for moderate to high temporal score.
+references:
+  - 'https://docs.microsoft.com/en-us/cloud-app-security/policies-cloud-discovery'
+  - 'https://docs.microsoft.com/en-us/cloud-app-security/policies-information-protection'
+  - 'https://docs.microsoft.com/en-us/cloud-app-security/investigate-anomaly-alerts'

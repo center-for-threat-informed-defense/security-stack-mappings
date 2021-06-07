@@ -1,0 +1,119 @@
+version: 1
+ATT&CK version: 8.2
+creation date: 03/25/2021
+name: Adaptive Application Controls
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Security Center
+  - Azure Security Center Recommendation
+  - Azure Defender for Servers
+description: >-
+  Security Center uses machine learning to analyze the applications running on machines and create a
+  list of known-safe software. Allow lists are based on specific Azure workloads and can be further
+  customized. They are based on trusted paths, publishers, and hashes. When Adaptive Application
+  Controls are enabled, security alerts are generated when applications are run that have not been
+  defined as safe.
+techniques:
+  - id: T1204
+    name: User Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control only provides detection for one of this technique's sub-techniques while not
+          providing any detection capability for its other sub-technique, and therefore its coverage
+          score is Partial, resulting in a Partial score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1204.002
+            name: Malicious File
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Once this control is activated, it generates alerts for any executable that has been
+              run and is not included in an allow list. There is a significant potential for false
+              positives from new non-malicious executables, and events are calculated once every
+              twelve hours, so its temporal score is Partial.
+  - id: T1036
+    name: Masquerading
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control provides detection for some of this technique's sub-techniques and procedure
+          examples and therefore its coverage score is Partial, resulting in a Partial score. Its
+          detection occurs once every twelve hours, so its temporal score is also Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1036.005
+            name: Match Legitimate Name or Location
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Once this control is activated, it generates alerts for any executable that is run and
+              is not included in an allow list. Path-based masquerading may subvert path-based rules
+              within this control, resulting in false negatives, but hash and publisher-based rules
+              will still detect untrusted executables. Events are calculated once every twelve
+              hours, so its temporal score is Partial.
+      - sub-techniques:
+          - id: T1036.006
+            name: Space after Filename
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Once this control is activated, it generates alerts for any executable that is run and
+              is not included in an allow list. Malicious files of this type would be unlikely to
+              evade detection from any form of allow list. Events are calculated once every twelve
+              hours, so its temporal score is Partial.
+      - sub-techniques:
+          - id: T1036.001
+            name: Invalid Code Signature
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Once this control is activated, it generates alerts for any executable that is run and
+              is not included in an allow list. Because signatures generated via this technique are
+              not valid, these malicious executables would be detected via any form of allow list,
+              including publisher-based. Events are calculated once every twelve hours, so its
+              temporal score is Partial.
+  - id: T1553
+    name: Subvert Trust Controls
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control only provides detection for one of this technique's sub-techniques while not
+          providing any detection capability for the remaining sub-techniques, and therefore its
+          coverage score is Minimal, resulting in a Minimal score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1553.002
+            name: Code Signing
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Once this control is activated, it generates alerts for any executable that is run and
+              is not included in an allow list. While publisher-based allow lists may fail to detect
+              malicious executables with valid signatures, hash and path-based rules will still
+              detect untrusted executables. Events are calculated once every twelve hours, so its
+              temporal score is Partial.
+  - id: T1554
+    name: Compromise Client Software Binary
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Once this control is activated, it generates alerts for any executable that is run and is
+          not included in an allow list. While name and publisher-based allow lists may fail to
+          detect malicious modifications to executable client binaries, hash-based rules will still
+          detect untrusted executables. Events are calculated once every twelve hours, so its
+          temporal score is Partial.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application'
