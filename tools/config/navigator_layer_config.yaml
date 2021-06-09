@@ -19,6 +19,7 @@ score_colors:
     Minimal:  "#bf6bff"
     Partial:  "#9305ff"
     Significant:  "#5c00a3"
+include_numeric_scores: False
 score_values:
     Minimal:  10
     Partial:  50

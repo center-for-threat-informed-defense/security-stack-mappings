@@ -100,10 +100,9 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
         color = self.config["score_colors"][category][max_score]
         tech["color"] = color
 
-        # score_num is only necessary because we want to set score as a string (Minimal, Partial, Significant)
-        # but Navigator only supports numeric values :( For now, we just won't display a score at all.
         tech["score_num"] = self.config["score_values"][max_score]
-        #tech["score"] = self.config["score_values"][max_score]
+        if self.config["include_numeric_scores"]:
+            tech["score"] = self.config["score_values"][max_score]
 
         tech["score_display"] = max_score
         tech["category"] = category
@@ -125,7 +124,8 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
             score_display = copy_src["score_display"]
             color = self.config["score_colors"][existing["category"]][score_display]
             existing["color"] = color
-            # existing["score"] = copy_src["score"]
+            if self.config["include_numeric_scores"]:
+                existing["score"] = copy_src["score"]
             existing["score_display"] = score_display
             existing["score_num"] = copy_src["score_num"]
         else:

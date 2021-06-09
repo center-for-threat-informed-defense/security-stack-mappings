@@ -52,6 +52,9 @@ optional arguments:
   --tags-file TAGS_FILE
                         Path to the file containing the list of valid tags
 ```
+
+The JSON schema used to validate the mapping files can be found in the [config/mapping_schema.json](config/mapping_schema.json) file.
+
 #### Examples
 -  Validate all mapping files in the default mappings directory (```../mappings```):</br>
   ```./mapping_cli.py validate```
@@ -100,6 +103,13 @@ optional arguments:
   --include-html        When generating a visualization, if supported,
                         generate an HTML version too.
 ```
+
+The set of configuration and template files used to generate the visualizations can be found in the config directory:
+- [config/markdown_summary.json](config/markdown_summary.json):  contains the introductory text for each platform that is displayed in the Introduction section of the Markdown Summary view for a platform.
+- [config/markdown_summary_template.html](config/markdown_summary_template.html):  contains the HTML template used when generating an HTML version of the Markdown Summary view.
+- [config/navigator_layer_config.yaml](config/navigator_layer_config.yaml):  contains configuration settings for the Navigator Layer visualizer such as the colors to utilize for each score category and whether to include numeric scores in the generated layer files.
+- [config/navigator_layer_template.json](config/navigator_layer_template.json):  contains the Navigator layer template used by the Navigator visualizer when generating Navigator layer files.
+
 #### Examples
 -  Generate [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for each mapping file in the default mappings directory (```../mappings```):</br>
   ```./mapping_cli.py visualize --visualizer AttackNavigator```
