@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "Azure DDoS Protection Standard, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. \nIt is automatically tuned to help protect your specific Azure resources in a virtual network.",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1498",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -49,13 +52,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1498.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -67,17 +71,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1498.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -89,17 +94,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -115,13 +121,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -133,17 +140,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -155,17 +163,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -177,11 +186,12 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         }
     ],

@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "Controls: Azure VPN Gateway",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1040",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -53,13 +56,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1557",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -79,13 +83,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1557.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -101,17 +106,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1557.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -127,17 +133,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1565",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -157,13 +164,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1565.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -179,11 +187,12 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         }
     ],

@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.\nTraffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1557",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -49,13 +52,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1557.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -71,13 +75,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1557.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -93,13 +98,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1565",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -115,13 +121,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1565.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -137,13 +144,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -159,13 +167,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -177,17 +186,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -199,17 +209,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -221,17 +232,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1499.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -243,17 +255,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1498",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -269,13 +282,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1498.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -287,17 +301,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1498.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -309,17 +324,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1040",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -335,7 +351,8 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         }
     ],

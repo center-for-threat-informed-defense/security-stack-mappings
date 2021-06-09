@@ -73,7 +73,7 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
         for score in mapping_scores:
             metadata.append({"name": "category", "value": score["category"]})
             metadata.append({"name": "value", "value": score["value"]})
-            metadata.append({"name": "comment", "value": score.get("comments","")})
+            metadata.append({"name": "comment", "value": score.get("comments","n/a")})
             metadata.append({"divider": True})
             scores.append(score["value"])
             category = score["category"]
@@ -89,8 +89,8 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
     def get_tech_or_sub(self, entity, mapping_yaml):
         tech = {}
         tech["techniqueID"] = entity["id"]
-        tech["enabled"] = "True"
-        tech["showSubtechniques"] = "True"
+        tech["enabled"] = True
+        tech["showSubtechniques"] = False
 
         metadata, category, max_score = self.get_scores_data(entity["scores"])
         tech["metadata"] = metadata
@@ -99,7 +99,13 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
 
         color = self.config["score_colors"][category][max_score]
         tech["color"] = color
-        tech["score"] = max_score
+
+        # score_num is only necessary because we want to set score as a string (Minimal, Partial, Significant)
+        # but Navigator only supports numeric values :( For now, we just won't display a score at all.
+        tech["score_num"] = self.config["score_values"][max_score]
+        #tech["score"] = self.config["score_values"][max_score]
+
+        tech["score_display"] = max_score
         tech["category"] = category
 
         return tech
@@ -114,15 +120,19 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
 
             if existing["category"] != entity["category"]:
                 existing["category"] = "Mixed"
-                max_score = [existing["score"], entity["score"]]
-                max_score.sort()
-                max_score = max_score[-1]
-                color = self.config["score_colors"][existing["category"]][max_score]
-                existing["color"] = color
+
+            copy_src = existing if existing["score_num"] > entity["score_num"] else entity
+            score_display = copy_src["score_display"]
+            color = self.config["score_colors"][existing["category"]][score_display]
+            existing["color"] = color
+            # existing["score"] = copy_src["score"]
+            existing["score_display"] = score_display
+            existing["score_num"] = copy_src["score_num"]
         else:
             techniques[entity_id] = entity
 
     def visualize_mapping_file(self, mapping_file, layer, techniques):
+        print(f"  Processing mapping file {mapping_file} ...")
         with open(mapping_file, "r") as f:
             mapping_yaml = yaml.safe_load(f)
             layer["name"] = mapping_yaml["name"]
@@ -170,11 +180,12 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
             if not platform_tags:
                 self.tags[platform] = platform_tags
 
-            for tag in mapping_tags:
-                platform_tag = platform_tags.get(tag, [])
-                if not platform_tag:
-                    platform_tags[tag] = platform_tag
-                platform_tag.append(mapping_file)
+            if mapping_tags:
+                for tag in mapping_tags:
+                    platform_tag = platform_tags.get(tag, [])
+                    if not platform_tag:
+                        platform_tags[tag] = platform_tag
+                    platform_tag.append(mapping_file)
 
             platform_controls = self.controls_by_platform.get(platform, [])
             if not platform_controls:

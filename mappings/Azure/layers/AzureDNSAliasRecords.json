@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "Azure DNS alias records are qualifications on a DNS record set. They can reference other Azure resources from within your DNS zone.   For example, you can create an alias record set that references an Azure public IP address instead of an A record. Your alias record set points to an Azure public IP address service instance dynamically. As a result, the alias record set seamlessly updates itself during DNS resolution.\n",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1584",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -49,13 +52,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1584.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -71,7 +75,8 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         }
     ],

@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "Security Center uses machine learning to analyze the applications running on machines and create a list of known-safe software. Allow lists are based on specific Azure workloads and can be further customized. They are based on trusted paths, publishers, and hashes. When Adaptive Application Controls are enabled, security alerts are generated when applications are run that have not been defined as safe.",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1204",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -49,13 +52,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1204.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -71,13 +75,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1036",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -93,13 +98,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1036.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -115,13 +121,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1036.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -137,13 +144,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1036.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -159,13 +167,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1553",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -181,13 +190,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1553.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -203,13 +213,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1554",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -225,7 +236,8 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         }
     ],

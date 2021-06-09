@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "Privileged Identity Management (PIM) is a service in Azure Active Directory (Azure AD) that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune.",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1078",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -49,13 +52,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1078.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -71,13 +75,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1098",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -108,13 +113,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1098.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -145,13 +151,14 @@
                 }
             ],
             "color": "#5c00a3",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1098.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -167,13 +174,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1136",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -189,13 +197,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1136.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -211,7 +220,8 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         }
     ],

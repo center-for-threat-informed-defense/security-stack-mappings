@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "\"Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure ... for customers who require FIPS 140-2 Level 3-validated devices and complete and exclusive control of the HSM appliance.\"",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1552",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -49,13 +52,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1552.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -71,13 +75,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1588",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -93,13 +98,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1588.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -115,13 +121,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1588.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -137,13 +144,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1553",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -159,13 +167,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1553.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -181,13 +190,14 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
             "techniqueID": "T1553.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -203,7 +213,8 @@
                 }
             ],
             "color": "#659D32",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         }
     ],
