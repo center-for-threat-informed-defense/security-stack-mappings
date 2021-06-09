@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "This control locks down inbound traffic to management ports for protocols such as RDP and SSH and only provides access upon request for a specified period of time. This reduces exposure to attacks while providing easy access when you need to connect to a virtual machine. Specific permissions are required to request access to virtual machines that have this control enabled and access can be requested through the Azure web UI, PowerShell, and a REST API.",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -49,13 +52,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1133",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -71,13 +75,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1110",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -93,13 +98,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1110.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -115,13 +121,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1110.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -137,13 +144,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1110.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "category",
@@ -159,7 +167,8 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         }
     ],

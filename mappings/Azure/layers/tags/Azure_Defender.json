@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "Controls: Alerts for Windows Machines,Azure Defender for Storage,Linux auditd alerts and Log Analytics agent integration,Azure Defender for Resource Manager,Azure Defender for Key Vault,Azure Defender for Kubernetes,File Integrity Monitoring,Advanced Threat Protection for Azure SQL Database,Azure Defender for App Service,Azure Defender for Container Registries,Integrated Vulnerability Scanner Powered by Qualys",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1078",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -91,13 +94,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1078.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -117,13 +121,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1078.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -143,13 +148,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1059",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -207,13 +213,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1059.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -252,13 +259,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1059.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -278,13 +286,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1204",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -323,13 +332,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1204.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -349,13 +359,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -409,7 +420,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 },
                 {
                     "divider": true
@@ -431,14 +442,15 @@
                     "value": "This control only covers one platform and procedure for two of this technique's many sub-techniques, resulting in a Minimal score."
                 }
             ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -496,13 +508,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1136",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -541,13 +554,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1136.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -586,13 +600,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1543",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -627,7 +642,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 },
                 {
                     "divider": true
@@ -649,14 +664,15 @@
                     "value": "This control only addresses a minority of this technique's procedure examples and one of its sub-techniques resulting in an overall Minimal score."
                 }
             ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1543.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -714,13 +730,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -758,14 +775,15 @@
                     "value": "The detection score for this technique was assessed as Partial because it doesn't detect some of the sub-techniques of this technique such as Windows Management Instrumentation (WMI) Event Subscription and Trap sub-techniques. Additionally for some sub-techniques, this control can be noisy.\n"
                 }
             ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -804,13 +822,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.008",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -849,13 +868,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1548",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -890,17 +910,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1548.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -939,13 +960,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -984,13 +1006,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1029,13 +1052,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1074,13 +1098,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1119,13 +1144,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1164,13 +1190,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1209,13 +1236,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.011",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1254,13 +1282,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.012",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1299,13 +1328,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.013",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1344,13 +1374,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1203",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1408,13 +1439,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1212",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1472,13 +1504,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1211",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1536,13 +1569,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1068",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1676,13 +1710,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1210",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1740,13 +1775,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1190",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1861,13 +1897,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1189",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1925,13 +1962,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1140",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -1970,13 +2008,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1222",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2011,17 +2050,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1222.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2059,14 +2099,15 @@
                     "value": "This control can detect changes to the permissions of Windows and Linux files and can be used to detect modifications to sensitive directories and files that shouldn't  change frequently. This control at worst scans for changes on an hourly basis."
                 }
             ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1564",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2105,13 +2146,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1564.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2131,13 +2173,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1562",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2214,13 +2257,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1562.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2278,13 +2322,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1562.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2342,13 +2387,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1070",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2405,14 +2451,15 @@
                     "value": "This control may alert on deletion of Kubernetes events. Attackers might delete those events for hiding their operations in the cluster. There is no relevant sub-technique for this control but the parent applies."
                 }
             ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1070.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2432,13 +2479,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1070.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2458,13 +2506,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1112",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2484,13 +2533,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1027",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2548,13 +2598,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1218",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2574,13 +2625,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1218.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2600,13 +2652,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1218.011",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2626,13 +2679,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1110",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2690,13 +2744,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1110.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2754,13 +2809,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1110.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2818,13 +2874,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1110.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2882,13 +2939,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2964,14 +3022,15 @@
                     "value": "This control only addresses a minority of this technique's procedure examples and one  of its sub-techniques resulting in an overall Minimal score."
                 }
             ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1003.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -2991,13 +3050,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1558",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3036,13 +3096,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1558.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3062,13 +3123,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1087",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3126,13 +3188,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1087.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3171,13 +3234,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1087.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3197,13 +3261,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1082",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3223,13 +3288,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1563",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3249,13 +3315,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1563.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3275,13 +3342,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1105",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3354,13 +3422,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1048",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3380,13 +3449,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1048.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3406,13 +3476,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1489",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3432,13 +3503,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1202",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3458,13 +3530,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1530",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3484,13 +3557,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1078.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3529,13 +3603,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1080",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3570,13 +3645,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1537",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3596,13 +3672,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1485",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3622,13 +3699,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1059.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3667,13 +3745,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1098",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3708,17 +3787,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1098.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3757,13 +3837,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3802,13 +3883,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1505",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3828,13 +3910,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1505.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3854,13 +3937,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1564.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3880,13 +3964,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1564.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3906,13 +3991,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1562.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3951,13 +4037,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1070.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -3977,13 +4064,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1070.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4003,13 +4091,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1027.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4029,13 +4118,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1003.008",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4055,13 +4145,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1021",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4081,13 +4172,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1021.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4107,13 +4199,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1525",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4186,13 +4279,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1113",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4231,13 +4325,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1580",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4276,13 +4371,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1538",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4302,13 +4398,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1526",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4328,13 +4425,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1069",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4354,13 +4452,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1069.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4380,13 +4479,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1087.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4406,13 +4506,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1555",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4469,14 +4570,15 @@
                     "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the PowerSploit Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
                 }
             ],
-            "color": "#AEEEEE",
-            "score": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1053",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4492,7 +4594,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 },
                 {
                     "divider": true
@@ -4515,13 +4617,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1053.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4541,13 +4644,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1053.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4567,13 +4671,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1053.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4593,13 +4698,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1053.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4638,13 +4744,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1053.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4664,13 +4771,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4690,13 +4798,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4716,13 +4825,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4742,13 +4852,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4787,13 +4898,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.008",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4813,13 +4925,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.009",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4839,13 +4952,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.010",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4865,13 +4979,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1547.012",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4891,13 +5006,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1037",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4913,17 +5029,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1037.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4943,13 +5060,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1037.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4969,13 +5087,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1543.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -4995,13 +5114,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5021,13 +5141,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5047,13 +5168,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.007",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5073,13 +5195,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.009",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5099,13 +5222,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.011",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5125,13 +5249,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.012",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5151,13 +5276,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.013",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5177,13 +5303,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.010",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5203,13 +5330,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1546.015",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5229,13 +5357,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1574",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5251,7 +5380,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 },
                 {
                     "divider": true
@@ -5274,13 +5403,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1574.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5300,13 +5430,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1137",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5322,17 +5453,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": ""
+                    "value": "n/a"
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1137.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5352,13 +5484,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1548.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5378,13 +5511,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1556",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5404,13 +5538,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1556.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5430,13 +5565,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1556.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5456,13 +5592,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1003.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5501,13 +5638,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1222.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5527,13 +5665,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1553",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5553,13 +5692,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1553.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5579,13 +5719,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1553.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5605,13 +5746,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1213",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5631,13 +5773,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1584",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5657,13 +5800,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1584.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5683,13 +5827,14 @@
                 }
             ],
             "color": "#7FFF00",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
             "techniqueID": "T1496",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5709,13 +5854,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1204.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5735,13 +5881,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1566",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5761,13 +5908,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1566.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5787,13 +5935,14 @@
                 }
             ],
             "color": "#9CBA7F",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
             "techniqueID": "T1595",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5813,13 +5962,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1595.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5839,13 +5989,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1594",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5865,13 +6016,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.008",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5891,13 +6043,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.009",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5917,13 +6070,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1055.014",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5943,13 +6097,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1559",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5969,13 +6124,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1559.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -5995,13 +6151,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1559.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6021,13 +6178,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1036",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6047,13 +6205,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1036.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6073,13 +6232,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1134",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6099,13 +6259,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1123",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6125,13 +6286,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1005",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6151,13 +6313,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1482",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6177,13 +6340,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1574.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6203,13 +6367,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1574.007",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6229,13 +6394,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1574.008",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6255,13 +6421,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1574.009",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6281,13 +6448,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1056",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6307,13 +6475,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1056.001",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6333,13 +6502,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1027.005",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6359,13 +6529,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1057",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6385,13 +6556,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1012",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6411,13 +6583,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1558.003",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6437,13 +6610,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1552",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6463,13 +6637,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1552.002",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6489,13 +6664,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1552.006",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6515,13 +6691,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1047",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -6541,7 +6718,8 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         }
     ],

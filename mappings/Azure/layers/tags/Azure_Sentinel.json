@@ -3,7 +3,7 @@
     "versions": {
         "attack": "8",
         "navigator": "4.2",
-        "layer": "4.1"
+        "layer": "4.2"
     },
     "domain": "enterprise-attack",
     "description": "Controls: Azure Defender for Storage",
@@ -26,14 +26,17 @@
     "layout": {
         "layout": "side",
         "showID": false,
-        "showName": true
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
     },
     "hideDisabled": false,
     "techniques": [
         {
             "techniqueID": "T1530",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -53,13 +56,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1078",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -79,13 +83,14 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
             "techniqueID": "T1078.004",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -105,13 +110,14 @@
                 }
             ],
             "color": "#00FFFF",
-            "score": "Significant",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Detect"
         },
         {
             "techniqueID": "T1105",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -146,13 +152,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1080",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -187,13 +194,14 @@
                 }
             ],
             "color": "#9305ff",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Mixed"
         },
         {
             "techniqueID": "T1537",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -213,13 +221,14 @@
                 }
             ],
             "color": "#5F9F9F",
-            "score": "Partial",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
             "techniqueID": "T1485",
-            "enabled": "True",
-            "showSubtechniques": "True",
+            "enabled": true,
+            "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
@@ -239,7 +248,8 @@
                 }
             ],
             "color": "#AEEEEE",
-            "score": "Minimal",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         }
     ],

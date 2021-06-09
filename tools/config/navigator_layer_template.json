@@ -3,7 +3,7 @@
 	"versions": {
 		"attack": "8",
 		"navigator": "4.2",
-		"layer": "4.1"
+		"layer": "4.2"
 	},
 	"domain": "enterprise-attack",
 	"description": "",
@@ -26,7 +26,10 @@
 	"layout": {
 		"layout": "side",
 		"showID": false,
-		"showName": true
+		"showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
 	},
 	"hideDisabled": false,
 	"techniques": [
