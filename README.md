@@ -2,7 +2,7 @@
 
 ## What is the Security Stack Mappings project?
 
-The aim of this project is to empower organizations with independent data on which _native_ security controls available on technology platforms are most useful in defending against the adversary TTPs that they care about.  It achieves this by mapping security capabilities that are available as part of these platforms to the [ATT&CK techniques](https://attack.mitre.org/matrices/enterprise/) that they can protect, detect, or respond to. This will allow organizations that adopt these platforms to make threat-informed decisions when selecting which native security capabilities to use to protect their workloads.  
+The aim of this project is to empower organizations with independent data on which _native_ security controls available on technology platforms are most useful in defending against the adversary TTPs that they care about.  It achieves this by mapping security capabilities that are available as part of these platforms to the [ATT&CK Enterprise techniques](https://attack.mitre.org/matrices/enterprise/) that they can protect, detect, or respond to. This will allow organizations that adopt these platforms to make threat-informed decisions when selecting which native security capabilities to use to protect their workloads.
 
 This project provides the following:
 - **[Mapping data format](docs/mapping_format.md)** - The specification of a YAML file that captures the mapping of a security control native to a technology platform to the set of ATT&CK techniques that it mitigates.
@@ -11,8 +11,8 @@ This project provides the following:
 - **[Mapping Tool](tools/)** – A Python-based tool that enables validating and producing [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for mapping files.
 
 We envision that the community can use the functionality produced by this project to produce mappings for various technology platforms.  To encourage this endeavor, this project has produced mapping files for the following technology platforms, with more on the roadmap:
-- [Microsoft Azure](https://github.com/center-for-threat-informed-defense/azure-security-stack-mappings#azure-controls)
-- [AWS](https://github.com/center-for-threat-informed-defense/aws-security-stack-mappings#aws-controls) (in-progress)
+- [Microsoft Azure](mappings/Azure#azure-controls)
+- AWS (in-progress)
 
 ## Use Cases
 
