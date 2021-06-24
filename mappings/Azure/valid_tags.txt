@@ -1,0 +1,20 @@
+Adaptive Network Hardening
+Analytics
+Azure Active Directory
+Azure Defender
+Azure Defender for Servers
+Azure Defender for SQL
+Azure Security Center
+Azure Security Center Recommendation
+Containers
+Credentials
+Database
+DNS
+Identity
+Linux
+Microsoft 365 Defender
+MFA
+Network
+Passwords
+Threat Hunting
+Windows

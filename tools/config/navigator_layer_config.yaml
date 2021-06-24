@@ -1,0 +1,26 @@
+score_colors:
+  Protect:
+    #green
+    Minimal:  "#9CBA7F"
+    Partial:  "#659D32"
+    Significant:  "#7FFF00"
+  Detect:
+    #blue
+    Minimal:  "#AEEEEE"
+    Partial:  "#5F9F9F"
+    Significant:  "#00FFFF"
+  Respond:
+    #red
+    Minimal:  "#ff6b6b"
+    Partial:  "#ff0505"
+    Significant:  "#b80000"
+  Mixed:
+    #purple
+    Minimal:  "#bf6bff"
+    Partial:  "#9305ff"
+    Significant:  "#5c00a3"
+include_numeric_scores: False
+score_values:
+    Minimal:  10
+    Partial:  50
+    Significant:  100

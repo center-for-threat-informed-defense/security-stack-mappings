@@ -1,0 +1,196 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/center-for-threat-informed-defense/cloud_security_stack_mappings/blob/main/tools/config/cloud_mapping_schema.json",
+    "title": "Native Security Stack ATT&CK Mapping",
+    "description": "Schema for YAML of the Security Stack ATT&CK Mapping format",
+    "type": "object",
+    "properties": {
+        "version": {
+            "description": "The version of this data mapping format.",
+            "type": "number"
+        },
+        "ATT&CK version": {
+            "description": "The version of the ATT&CK Enterprise matrix used to source the techniques included in this mapping.",
+            "type": "number"
+        },
+        "creation date": {
+            "description": "Creation date of the mapping file",
+            "type": "string"
+        },
+        "last update": {
+            "description": "Date of last update of the mapping file",
+            "type": "string"
+        },
+        "name": {
+            "description": "The name of the security control being mapped in this file.",
+            "type": "string"
+        },
+        "author": {
+            "description": "The name of the author of this mapping file.",
+            "type": ["string", "null"]
+        },
+        "contact": {
+            "description": "The email address  of the author of this mapping file.",
+            "type": ["string", "null"]
+        },
+        "organization": {
+            "description": "The organization that produced this mapping file.",
+            "type": ["string", "null"]
+        },
+        "platform": {
+            "description": "The technology platform of the security control being mapped in this file.",
+            "type": "string"
+        },
+        "tags": {
+            "description": "Will enable the mapping tool to produce coverage visualizations (e.g. ATT&CK Navigator) by aggregating security controls by these tag values.",
+            "type": ["array","null"],
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        },
+        "description": {
+            "description": "The description of the security control",
+            "type": "string"
+        },
+        "techniques": {
+            "description": "List of technique objects that describe the ATT&CK techniques that the control is able to offer protection.",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "The ID of the ATT&CK technique.",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "The name of the ATT&CK technique.",
+                        "type": "string"
+                    },
+                    "technique-scores": {
+                        "type": "array",
+                        "description": "List of Score objects that provides an assessment (score) of the effectiveness of the protect, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "category": {
+                                    "description": "The type of protection provided.",
+                                    "type": "string",
+                                    "enum": [
+                                        "Protect",
+                                        "Detect",
+                                        "Respond"
+                                    ]
+                                },
+                                "value": {
+                                    "description": "The score",
+                                    "type": "string",
+                                    "enum": [
+                                        "Minimal",
+                                        "Partial",
+                                        "Significant"
+                                    ]
+                                },
+                                "comments": {
+                                    "description": "A description of the justification for the assessed score.",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "category",
+                                "value"
+                            ],
+                            "additionalProperties": false
+                        }
+                    },
+                    "sub-techniques-scores": {
+                        "description": "List of Sub-technique objects that describe the specific sub-techniques of this technique that this control provides protection against.",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "sub-techniques": {
+                                    "type": "array",
+                                    "items": {
+                                        "id": {
+                                            "description": "The ID of the ATT&CK sub-technique.",
+                                            "type": "string"
+                                        },
+                                        "name": {
+                                            "description": "The name of the ATT&CK sub-technique.",
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "scores": {
+                                    "description": "List of Score objects that provides an assessment (score) of the effectiveness of the protect, detect, and/or response protections provided by the security control for this ATT&CK sub-technique.",
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "category": {
+                                                "description": "The type of protection provided.",
+                                                "type": "string",
+                                                "enum": [
+                                                    "Protect",
+                                                    "Detect",
+                                                    "Respond"
+                                                ]
+                                            },
+                                            "value": {
+                                                "description": "The score",
+                                                "type": "string",
+                                                "enum": [
+                                                    "Minimal",
+                                                    "Partial",
+                                                    "Significant"
+                                                ]
+                                            },
+                                            "comments": {
+                                                "description": "A description of the justification for the assessed score.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "category",
+                                            "value"
+                                        ],
+                                        "additionalProperties": false
+                                    }
+                                }
+                            },
+                            "required": [
+                            ],
+                            "additionalProperties": false
+                        }
+                    }
+                },
+                "required": [
+                ],
+                "additionalProperties": false
+            }
+        },
+        "comments": {
+            "description": "A description of any assumptions that were made while producing this mapping.",
+            "type": "string"
+        },
+        "references": {
+            "description": "A description of any useful references for understanding the data contained in this mapping.",
+            "type": ["array","null"],
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    },
+    "required": [
+        "version",
+        "ATT&CK version",
+        "name",
+        "platform",
+        "description"
+    ],
+    "additionalProperties": false
+}

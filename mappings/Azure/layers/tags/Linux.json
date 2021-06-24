@@ -1,0 +1,4862 @@
+{
+    "name": "Linux",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: Linux auditd alerts and Log Analytics agent integration,Azure Automation Update Management,File Integrity Monitoring,Azure Defender for App Service,Docker Host Hardening",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1059",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious Unix shell and PHP execution. Mismatched script extensions may also generate alerts of suspicious activity. Only one of the technique's sub-techniques is covered, resulting in a score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal detection for this technique's procedure examples and only two of its sub-techniques (only certain specific sub-technique behaviors), resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious commandline activity. Alerts may be generated on possible detection of shellcode usage on the commandline, based on arguments, location, user, etc."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors host data for potential reverse shells used for command and control. Temporal factor is unknown."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious arguments used to exploit Xorg vulnerabilities for privilege escalation."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage of methods that leverage vulnerabilities in unpatched software since it enables automated updates of software and rapid configuration change management"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial detection for only one of this technique's sub-techniques and does not cover most of its procedure examples, resulting in a score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on addition of new SSH keys to the authorized key file and unusual process access of the authorized key file."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the SSH authorized keys file which may indicate establishment of persistence. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux endpoint machines and the only sub-technique relevant for Linux is Kernel Modules and Extensions."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for two of this technique's many sub-techniques, resulting in a Minimal score."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on a suspicious shared object file being loaded as a kernel module. No documentation is provided on the logic but kernel module loading is a relatively rare event and can only be done with a small set of commands."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux endpoints, and it provides partial coverage for the only sub-technique relevant on Linux endpoints, Local Account."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on usage of the useradd command to create new users and the creation of local user accounts with suspicious similarity to other account names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides coverage for the only sub-technique this control is relevant for, Web Shell, but that coverage is Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on usage of web shells. No documentation is provided on logic for this detection."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1564",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides coverage for a minority of this technique's relevant sub-techniques, resulting in a score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1564.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on the execution of hidden files. Since this control is only triggered on execution, it may not fire on a variety of hidden files or directories that are being utilized for malicious purposes."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1564.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on containers using privileged commands, running SSH servers, or running mining software."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides coverage for a miniority of the sub-techniques under this technique and provides no coverage for other relevant sub-techniques, such as Impair Command History Logging or Disable or Modify Tools, resulting in a score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Due to low detection coverage, this technique is scored as minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on manipulation of the on-host firewall. Firewall rules should not be changed often in a standard environment and such an event can provide a high fidelity alert."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "There are numerous ways depending on the operating system that these sub-techniques can be accomplished.  Monitoring the Windows Registry is one way depending on the procedure chosen to implement the sub-technique and therefore the overall coverage is low."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on activity which disables auditd logging on Linux endpoints. The auditd package may not be the only logging system being utilized and this control may not alert on activity that disables other logging software."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "There are numerous ways depending on the operating system that these sub-techniques can be accomplished.  Monitoring the Windows Registry is one way depending on the procedure chosen to implement the sub-technique and therefore the overall coverage is low."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux environments and provides partial coverage for multiple Linux-relevant sub-techniques."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on possible log tampering activity, including deletion of logs. No documentation is provided on which log sources are targeted by this control."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on clearing of the command history file. Documentation is not provided on the logic for detecting when the command history is cleared but on Linux machines the location of the history file tends not to change from the default."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1027",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides detection coverage for the Compile After Delivery sub-technique while not providing detection for all other sub-techniques relevant to the Linux platform or most of its procedure examples. As a result of this minimal coverage, the overall score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1027.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious compilation. No documentation is provided on the logic for determining a suspicious compilation event."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for most of this technique's sub-techniques and procedures."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux environments, and provides partial coverage for one of the technique's two Linux-relevant sub-techniques."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Most credential dumping operations do not require modifying resources that can be detected by this control (i.e. Registry and File system) and therefore its coverage is minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only addresses a minority of this technique's procedure examples and one  of its sub-techniques resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious access to encrypted user passwords. The documentation does not reference \"/etc/passwd\" and \"/etc/shadow\" directly nor does it describe the logic in determining suspicious access."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux environments. Among the sub-techinques that are relevant for Linux, this control may only alert on SSH."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alerts on SSH brute force attempts, addition of new SSH keys, and usage of a SSH server within a container. Alerts may not be generated by usage of existing SSH keys by malicious actors for lateral movement."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to ensure sshd is not running within Docker containers. This can prevent attackers from utilizing unmonitored SSH servers within containers. This may not prevent attackers from installing a SSH server in containers or hosts."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1525",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious container images running mining software or SSH servers. Privileged Docker containers and privileged commands running within containers may also be detected. These alerts are only generated on containers in Linux endpoint machines and not for containers running from Azure Docker deployment."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1113",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on usage of a screenshot tool. Documentation is not provided on the logic for determining a screenshot tool."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-TimedScreenshot module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1195",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1195.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1195.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1072",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage of attacks that leverage software flaws in unpatched deployment tools since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage of techniques that leverage vulnerabilities in unpatched remote services since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in an exposed service. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1211",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage of defensive evasion methods that exploit unpatched vulnerabilities in software/systems since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for techniques that exploit vulnerabilities in (common) unpatched software since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1212",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage of credential access techniques that leverage unpatched software vulnerabilities since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1203",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage for Exploitation for client execution methods that leverage unpatched vulnerabilities since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides protection against the subset of Denial of Service (DOS) attacks that leverage system/application vulnerabilities as opposed to volumetric attacks since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection against Denial of Service (DOS) attacks that leverage system/application vulnerabilities as opposed to volumetric attacks since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1554",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection against compromised client software binaries since it can provide a baseline to compare with potentially compromised/modified software binaries."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1189",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control protects against a subset of drive-by methods that leverage unpatched client software since it enables automated updates of software and rapid configuration change management"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected into browser or other process memory as part of a drive-by attack. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1053",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control does not address this technique's procedure examples and only one of its sub-techniques resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the New-UserPersistenceOption Persistence module on Windows, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via New-UserPersistenceOption on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Install-SSP module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.009",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.010",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.012",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1037",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1037.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of logon scripts. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1037.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of logon scripts. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only addresses a minority of this technique's procedure examples and one of its sub-techniques resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of Windows services. This control may also detect changes to files used by systemd to create/modify systemd services.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of Windows services. This control may also detect changes to files used by systemd to create/modify systemd services.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Privesc-PowerUp modules on Windows, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The detection score for this technique was assessed as Partial because it doesn't detect some of the sub-techniques of this technique such as Windows Management Instrumentation (WMI) Event Subscription and Trap sub-techniques. Additionally for some sub-techniques, this control can be noisy.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.009",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.011",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.012",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.013",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.010",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The detection score for this group of sub-techniques is assessed as Minimal due to the accuracy component of the score. The registry keys which are modified as a result of these sub-techniques can change frequently or are too numerous to monitor and therefore can result in significant amount of false positives.\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.015",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The detection score for this group of sub-techniques is assessed as Minimal due to the accuracy component of the score. The registry keys which are modified as a result of these sub-techniques can change frequently or are too numerous to monitor and therefore can result in significant amount of false positives.\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only addresses a minority of this technique's procedure examples and provides  minimal detection of some of its sub-techniques resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the ld.so.preload file which may indicate an attempt to hijack execution flow. This sub-technique may also be utilized through an environment  variable which this control may not detect. This control at worst scans for changes on an  hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry to establish persistence with the Office Test sub-technique. The specificity of registry keys involved may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux endpoints containing Docker containers."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1548.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Some UAC bypass methods rely on modifying specific, user-accessible Registry settings that can be monitored using this control.  Overall, there are numerous other bypass methods that do not result in Registry modification that this control will not be effective in detection resulting in a low detection coverage factor."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the sudoers file which may indicate privilege  escalation. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1556",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is effective for detecting the Registry and file system artifacts that are generated during the execution of some variations of this technique while minimizing false positives due to the locations being monitored changing infrequently (e.g. /etc/pam.d/)."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1556.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Registry key used to register a Password Filter DLL can be monitored for changes using this control providing substantial coverage of this sub-technique.  This key should not change often and therefore false positives should be minimal. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1556.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The PAM configuration and module paths (/etc/pam.d/) can be monitored for changes using this control.  The files in this path should not change often and therefore false positives should be minimal. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to detect the Windows Security Support Provider (SSP) DLLs variation of this sub-technique by monitoring the Registry keys used to register these DLLs.  These keys should change infrequently and therefore false positives should be minimal. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Exfiltration modules, but does not address other procedures, and temporal factor is unknown, so score is Minimal."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1222",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1222.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect changes to the permissions of Windows and Linux files and can be used to detect modifications to sensitive directories and files that shouldn't  change frequently. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1222.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect changes to the permissions of Windows and Linux files and can be used to detect modifications to sensitive directories and files that shouldn't  change frequently. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to monitor Registry keys related to security software or event logging processes that can detect when an adversary attempts to disable these tools via modifying or deleting Registry keys.  A majority of the cited procedure examples for this sub-technique are related to killing security processes rather than modifying the Registry, and therefore the detection coverage for this control is low."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1553",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to detect a subset of this technique's sub-techniques while minimizing the false positive rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1553.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect modifications made to the Registry keys used to register Windows Subject Interface Packages (SIPs). Because this sub-technique can be accomplished without modifying the Registry via DLL Search Order Hijacking, it has been scored as Partial. The related Registry keys should not change often and therefore the false positive rate should be minimal. This control at worst scans for changes on an  hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1553.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to detect when the system root certificates has changed by detecting the corresponding Registry or File system modifications that occur as a result.  These root certificates should not change often and therefore the false positive rate is minimal. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1584",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only addresses one of the technique's sub-techniques, resulting in a score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1584.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Subdomain hijacking is a focus of this control, and its Dangling DNS detection alert feature is activated when an App Service website is decommissioned and its corresponding DNS entry is not deleted, allowing users to remove those entries before they can be leveraged by an adversary."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1496",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control detects file downloads associated with digital currency mining as well as host data related to process and command execution associated with mining. It also includes fileless attack detection, which specifically targets crypto mining activity. Temporal factor is unknown."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1204",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides meaningful detection for one of the technique's two sub-techniques, and the temporal factor is unknown, resulting in a score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1204.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors for references to suspicious domain names and file downloads from known malware sources, and monitors processes for downloads from raw-data websites like Pastebin, all of which are relevant for detecting users' interactions with malicious download links, but malicious links which exploit browser vulnerabilities for execution are unlikely to be detected, and temporal factor is unknown, resulting in a score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1140",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect base-64 encoded executables within command sequences. It also monitors for use of certutil to decode executables. Temporal factor is unknown."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides (minimal) protection for one of the technique's sub-techniques, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1566.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors for known phishing links on the Azure App Services website and generates alerts if they are detected, potentially preventing their access by users. This is a very specific avenue, only covers known links, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1059.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors for execution of known malicious PowerShell PowerSploit cmdlets. Temporal factor is uknown."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1105",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control detects binary downloads via certutil, monitors for FTP access from IP addresses found in threat intelligence, monitors for references to suspicious domain names and file downloads from known malware sources, and monitors processes for downloads from raw-data websites like Pastebin. Temporal factor is unknown."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides detection for one of its two sub-techniques, resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors for web fingerprinting tools including nmap and Blind Elephant, as well as scanners looking for vulnerability in applications like Drupal, Joomla, and WordPress. Temporal factor is unknown."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1594",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors for accesses of potentially sensitive web pages from source IP addresses whose access pattern resembles that of a web scanner or have not been logged before. Temporal factor is unknown."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection covers all relevant sub-techniques. The control also specifically detects process hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.011",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.012",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.013",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.009",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.014",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Injection attacks are specifically cited as a detection focus for Fileless Attack Detection, which is part of this control, with even more specific references to Process Hollowing, executable image injection, and threads started in a dynamically allocated code segment. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1559",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection covers the command execution aspects of both of this technique's sub-techniques. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1559.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies suspicious command execution within process memory. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1559.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies suspicious command execution within process memory. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1036",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only addresses a minority of this technique's procedure examples and one of its sub-techniques resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1036.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect processes with suspicious names, including those named in a way that is suggestive of attacker tools that try to hide in plain sight. False positives are probable, and temporal factor is unknown."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1134",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Invoke-TokenManipulation module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, and minimal coverage of its procedure examples resulting in a Minimal overall score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Get-ProcessTokenGroup module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1123",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-MicrophoneAudio module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1555",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the PowerSploit Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations that limit the ability of an attacker to gain access to a host from a container, preventing the attacker from discovering and compromising local system data."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1482",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-NetDomainTrust and Get-NetForestTrust modules, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of these sub-techniques via the Privesc-PowerUp modules, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of these sub-techniques via the Privesc-PowerUp modules, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of these sub-techniques via the Privesc-PowerUp modules, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.009",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of these sub-techniques via the Privesc-PowerUp modules, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1056",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1056.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Get-Keystrokes Exfiltration module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1027.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Find-AVSignature AntivirusBypass module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1057",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-ProcessTokenPrivilege PowerUp module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1012",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Privesc-PowerUp modules, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1558",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one procedure for one of this technique's sub-techniques, resulting in an  overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1558.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Invoke-Kerberoast module, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control does not address this technique's procedure example and provides minimal detection for some of its sub-techniques resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Get-UnattendedInstallFile, Get-Webconfig, Get-ApplicationHost, Get-SiteListPassword, Get-CachedGPPPassword, and RegistryAutoLogon modules, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this sub-technique via the Exfiltration modules, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1047",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Invoke-WmiCommand module, but does not address other procedures, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to remove setuid and setguid permissions from container images. It may not be feasible to audit and remediate all binaries that have and require setuid and setguid permissions."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may recommend usage of TLS to encrypt communication between the Docker daemon and clients. This can prevent possible leakage of sensitive information through network sniffing. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1083",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to ensure sensitive host system directories are not mounted in the container. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

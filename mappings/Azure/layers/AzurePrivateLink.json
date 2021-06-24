@@ -1,0 +1,423 @@
+{
+    "name": "Azure Private Link",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.\nTraffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1557",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for this technique's sub-techniques resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for one of this technique's sub-techniques resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of data manipulation for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Prevents Denial of Service (DOS) against systems that would otherwise need to connect via an internet-traversing path (coverage partial, since doesn't apply to systems that must be directly exposed to the Internet)"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Prevents Denial of Service (DOS) against systems that would otherwise need to connect via an internet-traversing path (coverage partial, since doesn't apply to systems that must be directly exposed to the Internet)"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of a network sniffing attack for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

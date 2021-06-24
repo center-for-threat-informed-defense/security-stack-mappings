@@ -1,0 +1,37 @@
+name: Validate Mappings
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
+
+jobs:
+  build:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+    name: Run Python Validation Script
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+          token: ${{ secrets.SECURITY_STACK_MAPPINGS_CI_WORKFLOW }}
+      - name: Setup python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          cd tools
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Execute validation script
+        run: |
+          cd tools
+          ./mapping_cli.py validate

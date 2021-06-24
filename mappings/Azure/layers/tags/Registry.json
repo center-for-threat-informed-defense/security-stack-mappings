@@ -1,0 +1,1694 @@
+{
+    "name": "Registry",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: File Integrity Monitoring",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1053",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of scheduled tasks. This control may also detect changes to files used by cron or systemd to create/modify scheduled tasks.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the SSH authorized keys file which may indicate establishment of persistence. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.009",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.010",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.012",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that enable Boot or Logon Autostart Execution. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1037",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1037.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of logon scripts. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1037.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of logon scripts. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of Windows services. This control may also detect changes to files used by systemd to create/modify systemd services.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry upon creation or modification of Windows services. This control may also detect changes to files used by systemd to create/modify systemd services.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The detection score for this technique was assessed as Partial because it doesn't detect some of the sub-techniques of this technique such as Windows Management Instrumentation (WMI) Event Subscription and Trap sub-techniques. Additionally for some sub-techniques, this control can be noisy.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.009",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.011",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.012",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.013",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry or files that indicate event triggered execution.  The specificity of registry keys and files used in creation or modification of these scheduled tasks may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.010",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The detection score for this group of sub-techniques is assessed as Minimal due to the accuracy component of the score. The registry keys which are modified as a result of these sub-techniques can change frequently or are too numerous to monitor and therefore can result in significant amount of false positives.\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.015",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The detection score for this group of sub-techniques is assessed as Minimal due to the accuracy component of the score. The registry keys which are modified as a result of these sub-techniques can change frequently or are too numerous to monitor and therefore can result in significant amount of false positives.\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the ld.so.preload file which may indicate an attempt to hijack execution flow. This sub-technique may also be utilized through an environment  variable which this control may not detect. This control at worst scans for changes on an  hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the Windows registry to establish persistence with the Office Test sub-technique. The specificity of registry keys involved may reduce the false positive rate. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Some UAC bypass methods rely on modifying specific, user-accessible Registry settings that can be monitored using this control.  Overall, there are numerous other bypass methods that do not result in Registry modification that this control will not be effective in detection resulting in a low detection coverage factor."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect changes to the sudoers file which may indicate privilege  escalation. This control at worst scans for changes on an hourly basis.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1556",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is effective for detecting the Registry and file system artifacts that are generated during the execution of some variations of this technique while minimizing false positives due to the locations being monitored changing infrequently (e.g. /etc/pam.d/)."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1556.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Registry key used to register a Password Filter DLL can be monitored for changes using this control providing substantial coverage of this sub-technique.  This key should not change often and therefore false positives should be minimal. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1556.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The PAM configuration and module paths (/etc/pam.d/) can be monitored for changes using this control.  The files in this path should not change often and therefore false positives should be minimal. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Most credential dumping operations do not require modifying resources that can be detected by this control (i.e. Registry and File system) and therefore its coverage is minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to detect the Windows Security Support Provider (SSP) DLLs variation of this sub-technique by monitoring the Registry keys used to register these DLLs.  These keys should change infrequently and therefore false positives should be minimal. "
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1222",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1222.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect changes to the permissions of Windows and Linux files and can be used to detect modifications to sensitive directories and files that shouldn't  change frequently. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1222.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect changes to the permissions of Windows and Linux files and can be used to detect modifications to sensitive directories and files that shouldn't  change frequently. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Due to low detection coverage, this technique is scored as minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to monitor Registry keys related to security software or event logging processes that can detect when an adversary attempts to disable these tools via modifying or deleting Registry keys.  A majority of the cited procedure examples for this sub-technique are related to killing security processes rather than modifying the Registry, and therefore the detection coverage for this control is low."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "There are numerous ways depending on the operating system that these sub-techniques can be accomplished.  Monitoring the Windows Registry is one way depending on the procedure chosen to implement the sub-technique and therefore the overall coverage is low."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "There are numerous ways depending on the operating system that these sub-techniques can be accomplished.  Monitoring the Windows Registry is one way depending on the procedure chosen to implement the sub-technique and therefore the overall coverage is low."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1553",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to detect a subset of this technique's sub-techniques while minimizing the false positive rate."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1553.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect modifications made to the Registry keys used to register Windows Subject Interface Packages (SIPs). Because this sub-technique can be accomplished without modifying the Registry via DLL Search Order Hijacking, it has been scored as Partial. The related Registry keys should not change often and therefore the false positive rate should be minimal. This control at worst scans for changes on an  hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1553.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to detect when the system root certificates has changed by detecting the corresponding Registry or File system modifications that occur as a result.  These root certificates should not change often and therefore the false positive rate is minimal. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

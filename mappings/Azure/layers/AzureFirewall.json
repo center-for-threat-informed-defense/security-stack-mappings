@@ -1,0 +1,561 @@
+{
+    "name": "Azure Firewall",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources.  It's a fully stateful firewall as a service (FWaaS) with built-in high availability and unrestricted cloud scalability.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1590",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can prevent the gathering of victim network information via scanning methods but is not effective against methods such as Phishing resulting in a Partial coverage score and an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can prevent attempts by an adversary to gather this information using active scanning methods but is not effective of gathering this information using phishing related methods."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can prevent attempts by an adversary to gather this information using active scanning methods but is not effective of gathering this information using phishing related methods."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can prevent attempts by an adversary to gather this information using active scanning methods but is not effective of gathering this information using phishing related methods."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides Partial protection for its sub-techniques resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can limit access to external remote services to the minimum necessary."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1205",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for this technique's sub-techniques and procedure examples resulting in a Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1205.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can protect against this sub-technique by enforcing limited access to only required ports.  Consequently, even if the adversary is able to utilize port knocking to open additional ports at the host level, it is still blocked at the firewall service level. This service typically applies to external traffic and not internal traffic and therefore lateral movement using this technique within a network is still possible.  Due to this partial coverage, it has been scored as Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control typically filters external network traffic and therefore can be effective for preventing external network service scanning but network service scanning originating from inside the trusted network is not mitigated.  Due to this partial protection coverage, it has been scored as Partial protection."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1018",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control typically filters external network traffic and therefore can be effective for preventing external remote system discovery but such activity originating from inside the trusted network is not mitigated.  Due to this partial protection coverage, it has been scored as Partial protection."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1095",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score.\nFurthermore, it can be used to filter non-application layer protocol traffic such as ICMP."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1571",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can limit access to the minimum required ports and therefore protect against adversaries attempting to use non-standard ports for C2 traffic."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1219",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to limit outgoing traffic to only sites and services used by authorized remote access tools.  This is scored as partial because it doesn't protect against an adversary using an authorized remote access tool for malicious activity."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for this technique's sub-techniques and some of its procedure examples resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

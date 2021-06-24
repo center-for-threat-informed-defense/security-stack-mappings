@@ -1,0 +1,1136 @@
+{
+    "name": "Azure Security Center Recommendations",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "This feature of Azure Security Center assesses your workloads and raises threat prevention recommendations and security alerts.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's recommendations related to enforcing the usage of the secure versions of the HTTP and FTP protocols (HTTPS and FTPS) can lead to encrypting traffic which reduces the ability for an adversary to gather sensitive data via network sniffing.  \nThis also applies to the \"Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign\", \"Enforce SSL connection should be enabled for MySQL database servers\", \"Enforce SSL connection should be enabled for PostgreSQL database servers\", \"Only secure connections to your Redis Cache should be enabled\" and \"Secure transfer to storage accounts should be enabled\" recommendations for their respective protocols.\nThe \"Usage of host networking and ports should be restricted\" recommendation for Kubernetes clusters can also lead to mitigating this technique.\nThese recommendations are limited to specific technologies on the platform and therefore its coverage score is Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's CORS related recommendations can help lead to hardened web applications.  This can reduce  the likelihood of an application being exploited to reveal sensitive data that can lead to the compromise of an environment. \nLikewise this control's recommendations related to keeping Java/PHP up to date for API/Function/Web apps can lead to hardening the public facing content that uses these runtimes.\nThis control's recommendations related to disabling Public network access for Azure databases can lead to reducing the exposure of resources to the public Internet and thereby reduce the attack surface.\nThese recommendations are limited to specific technologies (Java, PHP and CORS, SQL DBs) and therefore provide Minimal coverage leading to a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Authentication to Linux machines should require SSH keys\" recommendation can  lead to obviating SSH Brute Force password attacks.  Because this is specific to Linux, the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Authentication to Linux machines should require SSH keys\" can obviate SSH Brute Force password attacks.  Because this is specific to Linux, the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Authentication to Linux machines should require SSH keys\" can obviate SSH Brute Force password attacks.  Because this is specific to Linux, the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Authentication to Linux machines should require SSH keys\" can obviate SSH Brute Force password attacks.  Because this is specific to Linux, the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides recommendations for enabling Secure Boot of Linux VMs that can mitigate a few of the sub-techniques of this technique.  Because this is a recommendation and only limited to a few sub-techniques of this technique, its assessed score is Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Secure Boot should be enabled on your Linux virtual machine\" and \"Virtual machines should be attested for boot integrity health\" recommendations can lead to enabling secure boot on Linux VMs to mitigate these sub-techniques.  Because this recommendation is specific to Linux VM and is a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Secure Boot should be enabled on your Linux virtual machine\" and \"Virtual machines should be attested for boot integrity health\" recommendations can lead to enabling secure boot on Linux VMs to mitigate these sub-techniques.  Because this recommendation is specific to Linux VM and is a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides recommendations for limiting the CPU and memory resources consumed by a container to minimize resource exhaustion attacks.  Because this control only covers one sub-technique of this technique, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Container CPU and memory limits should be enforced\" recommendation can lead to preventing resource exhaustion attacks by recommending enforcing limits for containers to ensure the runtime prevents the container from using more than the configured resource limit. Because this is a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1525",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Container images should be deployed from trusted registries only\", \"Container registries should not allow unrestricted network access\" and \"Container registries should use private link\" recommendations can lead to ensuring that container images are only loaded from trusted registries thereby mitigating this technique."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Container with privilege escalation should be avoided\", \"Least privileged Linux capabilities should be enforced for containers\", \"Privileged containers should be avoided\", \"Running containers as root user should be avoided\" and \"Containers sharing sensitive host namespaces should be avoided\" recommendations can make it difficult for adversaries to advance their operation through exploitation of undiscovered or unpatched vulnerabilities.  Because this is a recommendation, the assessed score has been capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can prevent modifying the ssh_authorized keys file.  Because it is a recommendation and limited to only one sub-technique, its score is Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing modification of a Kubernetes container's file system which can mitigate this technique.  Because this recommendation is specific to Kubernetes containers, its score is Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1554",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing modification of binaries in Kubernetes containers thereby mitigating this technique.  Because this is a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-technique of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing system files from being modified in Kubernetes containers thereby mitigating this sub-technique since adding an account (on Linux) requires modifying system files.  Because this is a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1543",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-technique of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1543.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the addition or modification of systemd service files in Kubernetes containers thereby mitigating this sub-technique.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1546",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-technique of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1546.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the addition or modification of the file system in Kubernetes containers thereby mitigating this sub-technique.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1505",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-technique of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1505.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing modifications to the file system in Kubernetes containers which can mitigate adversaries installing web shells.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1222",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-technique of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1222.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the modification of the file system permissions in Kubernetes containers thereby mitigating this sub-technique.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1564",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate some of the sub-techniques of this technique.  Due to its partial coverage and Minimal score assessed for its sub-techniques, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1564.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing these sub-techniques which result in changes to the file system directly or indirectly during their execution.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1564.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing these sub-techniques which result in changes to the file system directly or indirectly during their execution.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1564.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing these sub-techniques which result in changes to the file system directly or indirectly during their execution.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a few of the sub-techniques of this technique.  Due to its Minimal coverage, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the addition or modification of config files in Kubernetes containers required to implement the behaviors described in these sub-techniques.   Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to preventing the addition or modification of config files in Kubernetes containers required to implement the behaviors described in these sub-techniques.   Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1556",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can mitigate a sub-techniques of this technique.  Due to it being a recommendation and providing minimal coverage, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1556.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\"  recommendation can lead to preventing this sub-technique which often modifies  Pluggable Authentication Modules (PAM) components in the file system.  Because this is a recommendation, and specific to Kubernetes containers, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1080",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" and \"Usage of pod HostPath volume mounts should be restricted to a known list to restrict node access from compromised containers\" recommendations can mitigate this technique.  Due to it being a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1074",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to mitigating a sub-technique of this technique by preventing modification of the local filesystem.  Due to it being a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1074.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to mitigating this sub-technique by preventing modification of the local filesystem.  Due to it being a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to mitigating this technique by preventing modification of the local filesystem.  Due to it being a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to mitigating this technique by preventing modification of the local filesystem.  Due to it being a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to mitigating a sub-technique of this technique by preventing modification of the local filesystem.  Due to it being a recommendation and mitigating only one sub-technique, its score is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Immutable (read-only) root filesystem should be enforced for containers\" recommendation can lead to mitigating this sub-technique by preventing modification of the local filesystem.  \n\nLikewise this control's recommendations related to using customer-managed keys to encrypt data at rest and enabling transparent data encryption for SQL databases can mitigate this sub-technique by reducing an adversary's ability to perform tailored data modifications.\n\nDue to it being a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's recommendations about removing deprecated and external accounts with sensitive permissions from your subscription can lead to mitigating the Cloud Accounts sub-technique of this technique.  Because this is a recommendation and has low coverage, it is assessed as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Deprecated accounts should be removed from your subscription\" and \"Deprecated accounts with owner permissions should be removed from your subscription\" recommendation can lead to removing accounts that should not be utilized from your subscriptions thereby denying adversaries the usage of these accounts to find ways to access your data without being noticed.  \nLikewise, the recommendations related to External account permissions can also mitigate this sub-technique.\nBecause these are recommendations and only limited to deprecated and external accounts, this is scored as Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Management ports should be closed on your virtual machines\" recommendation can lead to reducing the attack surface of your Azure VMs by recommending closing management ports.  Because this is a recommendation, its score is limited to Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

@@ -1,0 +1,51 @@
+version: 1
+ATT&CK version: 8.2
+creation date: 03/31/2021
+name: Azure Defender for Kubernetes
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Defender
+  - Azure Security Center Recommendation
+  - Containers
+description: >-
+  Azure Defender for Kubernetes provides cluster-level threat protection by monitoring your
+  Azure Kubernetes Service (AKS) managed services through the logs retrieved by AKS. Examples of
+  security events that Azure Defender for Kubernetes monitors include exposed Kubernetes dashboards,
+  creation of high privileged roles, and the creation of sensitive mounts.
+techniques:
+  - id: T1525
+    name: Implant Container Image
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may alert on containers with sensitive volume mounts, unneeded privileges, or
+          running an image with digital currency mining software.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may alert on publicly exposed Kubernetes services. This may provide context
+          on services that should be patched or hardened for public access.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: This control may alert on detection of new privileged containers and high privilege roles.
+  - id: T1070
+    name: Indicator Removal on Host
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may alert on deletion of Kubernetes events. Attackers might delete those
+          events for hiding their operations in the cluster. There is no relevant sub-technique for
+          this control but the parent applies.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/security-center/defender-for-kubernetes-introduction'
+  - 'https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-akscluster'

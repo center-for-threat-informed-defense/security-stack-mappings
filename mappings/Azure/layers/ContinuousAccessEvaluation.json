@@ -1,0 +1,147 @@
+{
+    "name": "Continuous Access Evaluation",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Continuous Access Evaluation (CAE) provides the next level of identity security by terminating active user sessions to a subset of Microsoft services (Exchange and Teams) in real-time on changes such as account disable, password reset, and admin initiated user revocation.  CAE aims to improve the response time in situations where a policy setting that applies to a user changes but the user is able to circumvent the new policy setting because their OAuth access token was issued before the policy change.  It's typical that security access tokens issued by Azure AD, like OAuth 2.0 access tokens, are valid for an hour.\nCAE enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within minutes after critical security events (such as user account is deleted, MFA is enabled for a user, High user risk detected by Azure AD Identity Protection, etc.).",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only protects cloud accounts and therefore its overall coverage is minimal resulting in a Minimal respond score for this technique."
+                }
+            ],
+            "color": "#ff6b6b",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Security controls like Azure AD Identity Protection can raise a user's risk level asynchronously after they have used a valid account to access organizational data.  This CAE control can respond to this change in the users risky state to terminate the user's access within minutes or enforce an additional authentication method such as MFA.   This mitigates the impact of an adversary using a valid account.  This is control only forces the user to re-authenticate and doesn't resolve the usage of a valid account (i.e. password change) and is therefore a containment type of response. "
+                }
+            ],
+            "color": "#ff0505",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Respond"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

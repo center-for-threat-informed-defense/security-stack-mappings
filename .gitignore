@@ -1,0 +1,10 @@
+**/.DS_Store
+output/
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
+tools/mapping.db
+**/.vscode
+**/*.swp
+tools/techniques.json
+tools/venv/

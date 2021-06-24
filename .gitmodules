@@ -1,0 +1,3 @@
+[submodule "mappings/AWS"]
+	path = mappings/AWS
+	url = git@github.com:center-for-threat-informed-defense/aws-security-stack-mappings.git

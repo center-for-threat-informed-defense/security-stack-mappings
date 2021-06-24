@@ -1,0 +1,338 @@
+{
+    "name": "Web",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: Azure Web Application Firewall",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1595",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Web Application Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can protect web applications from active scanning by an adversary. Because this protection is specific to web applications (although frequent targets) and not other application types, it has been scored as Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Web Application Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Focuses on web vulnerability scanning of OWASP Core Rule Set (CRS)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Web Application Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can protect web applications from common attacks (e.g. SQL injection, XSS)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect common web application attack vectors."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Web Application Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can protect web applications from network service scanning by an adversary. Because this protection is specific to web applications (although frequent targets) and not other application types enumerated in the procedure examples of this technique (e.g. Active Directory), it has been scored as Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect network service scanning of web applications by an adversary. Because this detection is specific to web applications (although frequent targets) and not other application types enumerated in the procedure examples of this technique (e.g. Active Directory), it has been scored as Partial."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Web Application Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can protect against one of the sub-techniques of this technique while not providing protection for the remaining, resulting in a Minimal overall score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect one of the sub-techniques of this technique while not providing detection for the remaining, resulting in a Minimal overall score."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Web Application Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can protect web applications from protocol attacks that may be indicative of adversary activity."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect protocol attacks targeting web applications that may be indicative of adversary activity."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

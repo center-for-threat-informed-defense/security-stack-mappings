@@ -1,0 +1,239 @@
+{
+    "name": "Just-in-Time VM Access",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "This control locks down inbound traffic to management ports for protocols such as RDP and SSH and only provides access upon request for a specified period of time. This reduces exposure to attacks while providing easy access when you need to connect to a virtual machine. Specific permissions are required to request access to virtual machines that have this control enabled and access can be requested through the Azure web UI, PowerShell, and a REST API.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at exploitation of a public-facing application unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured. The score is minimal, since this control only applies to specific applications requiring credentialed access, as opposed to a public webserver"
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at utilizing external remote services, such as RDP or a VPN, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at brute forcing a protocol, such as RDP or SSH, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at brute forcing a protocol, such as RDP or SSH, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at brute forcing a protocol, such as RDP or SSH, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be configured to completely block inbound access to selected ports until access is requested. This prevents any attempt at brute forcing a protocol, such as RDP or SSH, unless the attacker has the credentials and permissions to request such access. Even if permission has been granted to an authorized user to access the virtual machine, a list of authorized IP addresses for that access can be configured."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}
