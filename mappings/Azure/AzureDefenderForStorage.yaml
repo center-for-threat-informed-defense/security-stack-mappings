@@ -8,7 +8,6 @@ platform: Azure
 tags:
   - Azure Defender
   - Azure Security Center Recommendation
-  - Azure Sentinel
 description: >-
   Azure Defender for Storage can detect unusual and potentially harmful attempts to access or
   exploit storage accounts. Security alerts may trigger due to suspicious access patterns, suspicious
