@@ -3,7 +3,6 @@ from utils.attack_data_source import AttackDataSource
 from db.database import MappingDatabase
 from pathlib import Path
 from utils.mapping_validator import MappingValidator
-import json
 import yaml
 import os
 
