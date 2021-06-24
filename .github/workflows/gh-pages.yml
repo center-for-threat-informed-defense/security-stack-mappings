@@ -38,7 +38,7 @@ jobs:
       - name: Generate Markdown Summary Visualization
         working-directory: ./tools
         run: |
-          ./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-etml
+          ./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html
       - name: Updates docs folder with latest visualizations
         run: |
           rm -rf docs/Azure
