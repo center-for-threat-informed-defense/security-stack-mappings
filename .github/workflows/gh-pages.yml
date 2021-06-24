@@ -43,6 +43,9 @@ jobs:
         run: |
           rm -rf docs/Azure
           cp -r mappings/Azure docs/
+      - name: Generate Index Page
+        run: |
+          echo '<meta http-equiv="refresh" content="0; URL=Azure/README.html" />' > docs/index.html
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
