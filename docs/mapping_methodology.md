@@ -1,8 +1,8 @@
 # Mapping Methodology
 
-This document describes the methodology used to map security controls native to a technology platform to MITRE ATT&CK&copy; and aims to provide the community a reusable method of using ATT&CK to determine the capabilities of a platform's security offerings.
+This document describes the methodology used to map security controls native to a technology platform to ATT&CK; and aims to provide the community a reusable method of using ATT&CK to determine the capabilities of a platform's security offerings.
 
-MITRE ATT&CK is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base represents adversary goals as tactics and the specific behaviors employed by adversaries to achieve those goals (how) as techniques and sub-techniques.   The methodology described below, utilizes the information in the ATT&CK knowledge base and its underlying data model to understand, assess and record the real-world threats that security controls native to a technology platform are able to mitigate.
+ATT&CK is a globally-accessible knowledge base of adversary tactics and techniques based on real-world observations. The ATT&CK knowledge base represents adversary goals as tactics and the specific behaviors employed by adversaries to achieve those goals (how) as techniques and sub-techniques. The methodology described below, utilizes the information in the ATT&CK knowledge base and its underlying data model to understand, assess and record the real-world threats that security controls native to a technology platform are able to mitigate.
 
 The methodology consists of the following steps:
 1. **Identify Platform Security Controls** - Identify the *native* security controls available on the platform.
