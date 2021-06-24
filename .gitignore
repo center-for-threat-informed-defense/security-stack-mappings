@@ -1,11 +1,10 @@
-.DS_Store
+**/.DS_Store
 output/
-__pycache__/
-*.py[cod]
-*$py.class
+**/__pycache__/
+**/*.py[cod]
+**/*$py.class
 tools/mapping.db
-.vscode
-*.swp
+**/.vscode
+**/*.swp
 tools/techniques.json
-mappings/Azure/layers/AzureSentinelAnalytics-*
 tools/venv/
