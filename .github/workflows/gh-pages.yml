@@ -43,6 +43,8 @@ jobs:
         run: |
           rm -rf docs/Azure
           cp -r mappings/Azure docs/
+          mkdir -p docs/icons
+          cp images/*.svg docs/icons
       - name: Generate Index Page
         run: |
           echo '<meta http-equiv="refresh" content="0; URL=Azure/README.html" />' > docs/index.html
