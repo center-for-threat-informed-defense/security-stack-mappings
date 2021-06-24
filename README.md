@@ -5,7 +5,10 @@ This repository contains a collection of _native_ security controls mapped to MI
 ## Get the Mappings
 
 This project has produced mapping files for the following technology platforms, with more on the roadmap:
-- [Microsoft Azure](https://center-for-threat-informed-defense.github.io/security-stack-mappings/Azure/README.html)
+- Microsoft Azure
+  - [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/Azure/README.html)
+  - [YAML Mappings](mappings/Azure)
+  - [JSON Navigator Layers](mappings/Azure/layers)
 - AWS (in-progress)
 
 ## Supporting Resources
