@@ -7,7 +7,6 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Defender
-  - Azure Defender for App Service
   - Azure Security Center
   - Azure Security Center Recommendation
   - Linux

@@ -10,7 +10,7 @@ tags:
   - Azure Security Center Recommendation
   - Azure Defender for Servers
 description: >-
-  Security Center uses machine learning to analyze the applications running on machines and create a
+  Security Center's Adaptive Application Controls uses machine learning to analyze the applications running on machines and create a
   list of known-safe software. Allow lists are based on specific Azure workloads and can be further
   customized. They are based on trusted paths, publishers, and hashes. When Adaptive Application
   Controls are enabled, security alerts are generated when applications are run that have not been

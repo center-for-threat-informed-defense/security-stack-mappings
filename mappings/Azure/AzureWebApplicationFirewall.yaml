@@ -7,9 +7,6 @@ organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
   - Azure Security Center Recommendation
-  - Web
-  - WAF
-  - Web Access Firewall
 description: > 
   Azure Web Application Firewall (WAF) provides centralized protection of your web applications 
   from common exploits and vulnerabilities.

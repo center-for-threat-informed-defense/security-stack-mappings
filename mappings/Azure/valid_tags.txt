@@ -2,30 +2,19 @@ Adaptive Network Hardening
 Analytics
 Azure Active Directory
 Azure Defender
-Azure Defender for App Service
 Azure Defender for Servers
 Azure Defender for SQL
 Azure Security Center
 Azure Security Center Recommendation
-Azure Sentinel
-Azure VPN Gateway
-CASB
 Containers
 Credentials
 Database
 DNS
-Encryption
-File system
 Identity
 Linux
 Microsoft 365 Defender
 MFA
 Network
 Passwords
-Registry
 Threat Hunting
-VPN
-WAF
-Web
-Web Access Firewall
 Windows

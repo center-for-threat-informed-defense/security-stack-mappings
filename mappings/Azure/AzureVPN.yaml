@@ -6,10 +6,7 @@ contact: ctid@mitre-engenuity.org
 organization: Center for Threat Informed Defense (CTID)
 platform: Azure
 tags:
-  - Azure VPN Gateway
-  - Encryption
   - Network
-  - VPN
 description: >-
   A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic
   between an Azure virtual network and an on-premises location over the public Internet. 

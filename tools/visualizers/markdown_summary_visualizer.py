@@ -53,7 +53,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             markdown.markdownFromFile(extensions= ['tables', 'nl2br', 'sane_lists'], 
                 input=visualization.file_name, output=markdown_data, encoding='utf8')
             
-            print(f" Generating {html_name}")
+            print(f"   Generating {html_name}")
             with open(html_name, "w") as f:
                 f.write(self.html_template.replace("<CONTENT_HERE>", markdown_data.getvalue().decode('UTF-8')))
 
@@ -87,8 +87,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             pre, _ = os.path.splitext(layer)
             layer = pre + ".json"
             mdFile.write("\n\n")
-            mdFile.write(f"- [Mapping File]({mapping})\n")
-            mdFile.write(f"- [Navigator Layer]({layer})\n")
+            mdFile.write(f"- [Mapping File]({mapping}) ([YAML]({mapping}))\n")
+            mdFile.write(f"- [Navigator Layer]({layer}) ([JSON]({layer}))\n")
 
             comments = control_data[3]
             if comments:
@@ -144,8 +144,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             #mdFile.write('\n\n')
             mdFile.new_header(level=3, title="Views", add_table_of_contents='n')
             layer_name = tag.replace(" ", "_")
-            layer = f"/layers/tags/{layer_name}.json"
-            mdFile.write(f"- [Navigator Layer]({layer})\n")
+            layer = f"layers/tags/{layer_name}.json"
+            mdFile.write(f"- [Navigator Layer]({layer}) ([JSON]({layer}))\n")
 
             mdFile.write('  \n\n')
             mdFile.write('  [Back to Table Of Contents](#contents)')
@@ -220,14 +220,20 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
                 print(f"  Warning:  Platform {platform} does not provide summary text from tools/config/markdown_summary.json")
             mdFile.new_header(level=1, title="Introduction", add_table_of_contents='y')
             mdFile.new_paragraph(summary)
-            mdFile.new_paragraph("[Aggregate Navigator Layer For All Controls](layers/platform.json)")
+            mdFile.new_paragraph("[Aggregate Navigator Layer For All Controls](layers/platform.json) ([JSON](layers/platform.json))")
 
             tags = list(platform_data[2])
             tags.sort()
             control_map = self.visualize_platform_controls(platform, platform_data[1], tags, mdFile)
             self.visualize_platform_tags(platform, platform_data[2], control_map, mdFile)
 
-            readme_path = platform_data[0]
-            options["output_absolute_filename"] = readme_path
+            if options.get("output_dir", None):
+                platform_dir = os.path.join(options["output_dir"], platform)
+                if not os.path.exists(platform_dir):
+                    os.makedirs(platform_dir)
+                options["output_absolute_filename"] = os.path.join(platform_dir, "README.md")
+            else:
+                readme_path = platform_data[0]
+                options["output_absolute_filename"] = readme_path
 
             self.output(options, mapping_file, mdFile)

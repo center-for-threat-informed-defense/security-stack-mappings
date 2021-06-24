@@ -2,7 +2,7 @@
 <style>
 h2
 {
-    background: url('https://symbols.getvecta.com/stencil_88/78_microsoft-azure-icon.a7be8f4ec2.svg') no-repeat #e8e8e8;
+    background: url('/security-stack-mappings/icons/azure_icon.svg') no-repeat #e8e8e8;
     background-size: 50px;
     padding-left: 60px;  /* width of the image plus a little extra padding */
     padding-top: 5px;  /* width of the image plus a little extra padding */
@@ -17,14 +17,14 @@ a[href="#contents"]
 </style>
 <script type="text/javascript">
     window.onload = function () {
-        let control_icon_style = "background: url('https://symbols.getvecta.com/stencil_88/78_microsoft-azure-icon.a7be8f4ec2.svg') no-repeat #e8e8e8; \
+        let control_icon_style = "background: url('/security-stack-mappings/icons/azure_icon.svg') no-repeat #e8e8e8; \
              background-size: 50px; \
              padding-left: 60px; \
              padding-top: 5px; \
              display: block; \
         ";
 
-        let tag_icon_style = "background: url('https://symbols.getvecta.com/stencil_321/19_clipboard-icon.e881c2abcd.svg') no-repeat #e8e8e8; \
+        let tag_icon_style = "background: url('/security-stack-mappings/icons/clipboard.svg') no-repeat #e8e8e8; \
              background-size: 35px; \
              padding-left: 40px; \
              padding-top: 5px; \
@@ -36,10 +36,10 @@ a[href="#contents"]
         let last_item_num = 1;
         for (let item of controls_h2s) {
             let item_num = parseInt(item.textContent.split(".")[0]);
-            item.style.cssText = style;
             if (last_item_num > item_num){
                 style = tag_icon_style;
             }
+            item.style.cssText = style;
             last_item_num = item_num;
         }
 
