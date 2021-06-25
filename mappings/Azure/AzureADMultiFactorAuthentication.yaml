@@ -35,8 +35,6 @@ techniques:
       - sub-techniques:
           - id: T1110.001
             name: Password Guessing
-          - id: T1110.002
-            name: Password Cracking
           - id: T1110.003
             name: Password Spraying
           - id: T1110.004
