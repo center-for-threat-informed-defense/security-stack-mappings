@@ -999,25 +999,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Conditional Access"
                 },
                 {

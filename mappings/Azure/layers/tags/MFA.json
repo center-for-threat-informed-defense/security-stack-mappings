@@ -164,71 +164,6 @@
             "category": "Protect"
         },
         {
-            "techniqueID": "T1110.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Identity Secure Score"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
             "techniqueID": "T1110.003",
             "enabled": true,
             "showSubtechniques": false,
@@ -714,6 +649,52 @@
                 {
                     "name": "comment",
                     "value": "Privileged roles such as the User Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition, these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Identity Secure Score"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
                 }
             ],
             "color": "#7FFF00",
