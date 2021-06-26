@@ -1,0 +1,285 @@
+{
+    "name": "Azure Backup",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "\"The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud.\"",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Data backups provide a significant response to data destruction by enabling the restoration of data from backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Data backups provide a significant response to data encryption/ransomware by enabling the restoration of data from backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1491",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Data backups provide a significant response to data defacement attacks by enabling the restoration of data from backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1491.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Data backups provide a significant response to external or internal data defacement attacks by enabling the restoration of data from backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1491.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Data backups provide a significant response to external or internal data defacement attacks by enabling the restoration of data from backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Data backups provide a significant response to disk wipe attacks by enabling the restoration of data from backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Data backups provide a significant response to disk content wipe attacks by enabling the restoration of data from backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Allows for recovery of disk content, though Disk structure wipes require additional procedures for recovery."
+                }
+            ],
+            "color": "#ff0505",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Respond"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

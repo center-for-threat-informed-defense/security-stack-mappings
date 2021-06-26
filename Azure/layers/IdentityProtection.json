@@ -1,0 +1,367 @@
+{
+    "name": "Azure AD Identity Protection",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Identity Protection is a tool that allows organizations to accomplish three key tasks:\nAutomate the detection and remediation of identity-based risks.\nInvestigate risks using data in the portal.\nExport risk detection data to third-party utilities for further analysis.\n",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial detection for some of this technique's sub-techniques and procedure examples resulting in an overall Partial detection score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides a response capability that accompanies its detection capability that can contain and eradicate the impact of this technique.  Because this capability varies between containment (federated accounts) and eradication (cloud accounts) and is only able to respond to some of this technique's sub-techniques, it has been scored as Partial."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides risk detections that can be used to detect suspicious uses of valid accounts, e.g.:  Anonymous IP address, Atypical travel, Malware linked IP address, Unfamiliar sign-in properties, etc.  Microsoft utilizes machine learning and heuristic systems to reduce the false positive rate but there will be false positives.\nThe temporal factor of this control's detection is low because although there are some real-time detections most are offline detections (multi-day)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Response Type:  Eradication\nSupports blocking and resetting the user's credentials based on the detection of a risky user/sign-in manually and also supports automation via its user and sign-in risk policies."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1078.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "When Azure Active Directory (AAD) Federation is configured for a tenant, an adversary that compromises a domain credential can use it to access (Azure) cloud resources. Identity Protection supports applying its risk detections (e.g.:  Anonymous IP address, Atypical travel, Malware linked IP address, Unfamiliar sign-in properties, etc.) to federated identities thereby providing detection mitigation for this risk. Because this detection is specific to an adversary utilizing valid domain credentials to access cloud resources and does not mitigate the usage of valid domain credentials to access on-premise resources, this detection has been scored as Partial.\n\nThe temporal factor of this control's detection is low because although there are some real-time detections most are offline detections (multi-day)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Response Type:  Containment\nSupports risk detection responses such as blocking a user's access and enforcing MFA. These responses contain the impact of this sub-technique but do not eradicate it (by forcing a password reset)."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1606",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be effective at detecting forged web credentials because it uses environmental properties (e.g. IP address, device info, etc.) to detect risky users and sign-ins even when valid credentials are utilized.  It provides partial coverage of this technique's sub-techniques and therefore has been assessed a Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Provides Significant response capabilities for one of this technique's sub-techniques (SAML tokens)."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1606.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control supports detecting risky sign-ins and users that involve federated users and therefore can potentially alert on this activity.  Not all alert types for this control support federated accounts therefore the detection coverage for this technique is partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Response Type:  Eradication\nSupports blocking and resetting the user's credentials based on the detection of a risky user/sign-in manually and also supports automation via its user and sign-in risk policies."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides Minimal detection for one of this technique's sub-techniques while not providing any detection for the remaining, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Provides significant response capabilities for one of this technique's sub-techniques (Password Spray).  Due to this capability being specific to one of its sub-techniques and not its remaining sub-techniques, the coverage score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control specifically provides detection of Password Spray attacks for Azure Active Directory accounts.  Microsoft documentation states that this detection is based on a machine learning algorithm that has been improved with the latest improvement yielding a 100 percent increase in recall and  98 percent precision.  The temporal factor for this detection is Partial as its detection is described as offline (i.e. detections may not show up in reporting for two to twenty-four hours)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Response Type:  Eradication\nSupports blocking and resetting the user's credentials based on the detection of a risky user/sign-in (such as Password Spray attack) manually and also supports automation via its user and sign-in risk policies."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

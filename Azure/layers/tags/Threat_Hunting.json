@@ -1,0 +1,4667 @@
+{
+    "name": "Threat Hunting",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: Azure Sentinel",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for all of this technique's sub-techniques and a number of its procedures, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Rare processes run by Service accounts\" query can identify potential misuse of default accounts. Because this detection is specific to rare processes its coverage score is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potential compromise of domain accounts based on access attempts and/or account usage: \"Suspicious Windows Login outside normal hours\", \"User account added or removed from  security group by an unauthorized user\", \"User Account added to Built in Domain Local or Global Group\", \"User Login IP Address Teleportation\", \"User made Owner of multiple teams\", \"Tracking Privileged Account Rare Activity\", \"New Admin account activity which was not seen historically\", \"New client running queries\", \"New users running queries\", \"Non-owner mailbox login activity\", \"Powershell or non-browser mailbox login activity\", \"Rare User Agent strings\", \"Same IP address with multiple csUserAgent\" which may indicate that an account is being used from a new device, \"Rare domains seen in Cloud Logs\" when accounts from uncommon domains access or attempt to access cloud resources, \"Same User - Successful logon for a given App and failure on another App within 1m and low distribution\", \"Hosts with new logons\", \"Inactive or new account signins\", \"Long lookback User Account Created and Deleted within 10mins\", \"Anomalous Geo Location Logon\", and \"Anomalous Sign-in Activity\".\nThe following Azure Sentinel Analytics queries can identify potential compromise of domain accounts based on access attempts and/or account usage: \"Anomalous User Agent connection attempt\", \"New UserAgent observed in last 24 hours\" which may indicate that an account is being used from a new device, \"Anomalous sign-in location by user account and authenticating application\", \"Anomalous login followed by Teams action\", \"GitHub Signin Burst from Multiple Locations\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"Failed Host logons but success logon to AzureAD\", and \"Anomalous RDP Login Detections\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potential compromise of local accounts based on access attempts and/or account usage: \"Suspicious Windows Login outside normal hours\", \"User Login IP Address Teleportation\", \"User account added or removed from a security group by an unauthorized user\", \"User Account added to Built in Domain Local or Global Group\", \"User added to SQL Server SecurityAdmin Group\", \"User Role altered on SQL Server\", \"User made Owner of multiple teams\", \"Tracking Privileged Account Rare Activity\", and \"Anomalous Login to Devices\".\nThe following Azure Sentinel Analytics queries can identify potential compromise of local accounts based on access attempts and/or account usage: \"User account enabled and disabled within 10 mins\", \"Long lookback User Account Created and Deleted within 10mins\", \"Explicit MFA Deny\", \"Hosts with new logons\", \"Inactive or new account signins\", \"Anomalous SSH Login Detection\", and \"Anomalous RDP Login Detections\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potential compromise of cloud accounts: \"New Admin account activity which was not seen historically\", \"New client running queries\", \"New users running queries\", \"User returning more data than daily average\", \"User Login IP Address Teleportation\", \"Non-owner mailbox login activity\", \"Powershell or non-browser mailbox login activity\", \"Rare User Agent strings\" and \"Same IP address with multiple csUserAgent\" which may indicate that an account is being used from a new device, \"Rare domains seen in Cloud Logs\", \"Same User - Successful logon for a given App and failure on another App within 1m and low distribution\", \"Anomalous Azure Active Directory Apps based on authentication location\", \"Anomalous Geo Location Logon\", \"Anomalous Sign-in Activity\", \"Azure Active Directory sign-in burst from multiple locations\", and \"Azure Active Directory signins from new locations\".\n\nThe following Azure Sentinel Analytics queries can identify potential compromise of cloud accounts: \"Anomalous User Agent connection attempt\" and \"New UserAgent observed in last 24 hours\", which may indicate that an account is being used from a new device which may belong to an adversary; \"Anomalous sign-in location by user account and authenticating application\", \"GitHub Signin Burst from Multiple Locations\", \"GitHub Activites from a New Country\", and \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", which may indicate adversary access from atypical locations; \"Azure Active Directory PowerShell accessing non-AAD resources\", \"Anomalous login followed by Teams action\", \"Login to AWS management console without MFA\", and \"Azure Active Directory PowerShell accessing non-AAD resources\" which may indicate an adversary attempting to use a valid account to access resources from other contexts. The \"Correlate Unfamiliar sign-in properties\" query can further enhance detection of anomalous activity."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1195",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for one of this technique's sub-techniques, and its coverage is more for supply chain concerns of downstream consumers of software developed within the environemnt than the Azure environment itself, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1195.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious changes to Azure DevOps project resources: \"Azure DevOps - Project Visibility changed to public\" can identify a specific action that may be an indicator of an attacker modifying the cloud compute infrastructure. \"Azure DevOps - Public project created\" and \"Azure DevOps - Public project enabled by admin\" can identify specific instances of potential defense evasion.\nThe following Azure Sentinel Analytics queries can identify potentially malicious changes to Azure DevOps project resources: \"AzureDevops Service Connection Abuse\" can detect potential malicious behavior associated with use of large number of service connections, \"External Upstream Source added to Azure DevOps\" identifies a specific behavior that could compromise the DevOps build pipeline, \"Azure DevOps Pull Request Policy Bypassing - History\" can identify specific potentially malicious behavior that compromises the build process, \"Azure DevOps Pipeline modified by a New User\" identifies potentially malicious activity that could compromise the DevOps pipeline, \"Azure DevOps Administrator Group Monitoring\" monitors for specific activity which could compromise the build/release process, \"New Agent Added to Pool by New User or a New OS\" can detect a suspicious behavior that could potentially compromise DevOps pipeline."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control includes partial detection coverage for most of this technique's sub-techniques on a periodic basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious manipulation of accounts to increase or maintain access: \"Azure DevOps - Guest users access enabled\", \"Azure DevOps - Additional Org Admin added\", \"Anomalous Activity Role Assignment\", \"Anomalous Role Assignment\", and \"Anomalous AAD Account Manipulation\", which indicate expansion of accounts' access/privileges; \"Bots added to multiple teams\" which indicates workspace access granted to automated accounts.\nThe following Azure Sentinel Analytics queries can identify potentially malicious manipulation of accounts to increase or maintain access: \"Suspicious granting of permissions to an account\" from a previously unobserved IP address, \"External user added and removed in short timeframe\" for Teams resources, \"Account added and removed from privileged group\", \"User account added to built in domain local or global group\", and \"New user created and added to the built-in administrator group\". \"Multiple Password Reset by user\" can detect potentially malicious iterative password resets."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"First access credential added to Application or Service Principal where no credential was present\" query can identify potentially malicious changes to Service Principal credentials.\nThe Azure Sentinel Analytics \"Credential added after admin consented to Application\" and \"New access credential added to Application or Service Principal\" queries can identify potentially malicious manipulation of additional cloud credentials."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Malformed user agent\" query can detect potential C2 or C2 agent activity.\nThis control provides minimal to partial coverage for a minority of this technique's sub-techniques and only some of its procedure examples, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Analytics queries can identify potentially malicious use of web protocols: \"Powershell Empire cmdlets seen in command line\" can identify use of Empire, which can perform command and control over protocols like HTTP and HTTPS. \"Request for single resource on domain\" can identify patterns that suggest possible command and control beaconing.  The coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious use of DNS: \"RareDNSLookupWithDataTransfer\" [sic] can identify data transfer over DNS, though it is contingent on DNS traffic meeting the requirements to be considered rare. \"Abnormally Long DNS URI queries\" can identify suspicious DNS queries that may be indicative of command and control operations. \"DNS - domain anomalous lookup increase\", \"DNS Full Name anomalous lookup increase\", and \"DNS lookups for commonly abused TLDs\" can identify increases in domain lookups for a client IP and indicate malicious traffic or exfiltration of sensitive data."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage to both of this technique's sub-techniques as well as some of its procedure examples, resulting in an overall score of Minimal.\nThe Azure Sentinel Analytics \"Malformed user agent\" query can detect potential exfiltration over a web service by malicious code with a hard-coded user agent string, or possibly data encoded via the user agent string."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can identify use of Empire, which can use Dropbox and GitHub for data exfiltration. The Azure Sentinel Analytics \"SharePointFileOperation via previously unseen IPs\" can detect potential exfiltration activity via SharePoint. The coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can identify use of Empire, which can use Dropbox and GitHub for data exfiltration. The Azure Sentinel Analytics \"SharePointFileOperation via previously unseen IPs\" can detect potential exfiltration activity via SharePoint. The coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Malformed user agent\" query can detect hard-coded user-agent strings associated with some vulnerability scanning tools.\nThis control provides partial coverage for only one of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"High count of connections by client IP on many ports\" query can identify client IP addresses with 30 or more active ports used within a ten minute window, checked at a default frequency of once per hour, which may indicate scanning. Note that false positives are probable based on changes in usage patterns and/or misconfiguration, and this detection only works if scanning is not spread out over a longer timespan."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1105",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Crypto currency miners EXECVE\" query can detect cryptocurrency mining software downloads through EXECVE.\nThe following Azure Sentinel Analytics queries can identify potentiall malicious tool transfer: \"Linked Malicious Storage Artifacts\" may identify potential adversary tool downloads that are missed by anti-malware. \"Powershell Empire cmdlets seen in command line\" detects downloads via Empire. \"New executable via Office FileUploaded Operations\" can identify ingress of malicious code and attacker tools to Office services such as SharePoint and OneDrive, but with potential for high false positive rates from normal user upload activity."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage for a minority of this technique's sub-techniques and does not cover all procedure examples, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potential exfiltration: \"Abnormally long DNS URI queries\" can identify potential exfiltration via DNS. \"Multiple users email forwarded to same destination\" and \"Office Mail Forwarding - Hunting Version\" can detect potential exfiltration via email.\nThe Azure Sentinel Analytics \"Multiple users email forwarded to same destination\" query can detect potential exfiltration via email.  The coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1496",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potential resource hijacking based on anomolies in access and usage patterns: \"Anomalous Resource Creation and related Network Activity\", \"Creation of an anomalous number of resources\".\nThe following Azure Sentinel Analytis queries can identify potential resource hijacking: \"Creation of Expensive Computes in Azure\" and \"Suspicious number of resource creation or deployed\" [sic] can identify suspicious outliers in resource quantities requested. \"Suspicious Resource deployment\" can identify deployments from new, potentially malicious, users. \"Process execution frequency anomaly\" can identify execution that may indicate hijacking. \"DNS events related to mining pools\", can identify potential cryptocurrency mining activity."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides specific minimal coverage for two of this technique's sub-techniques, without additional coverage of its procedure examples, resulting in an overall score of Minimal.\nThe Azure Sentinel Analytics \"Azure DevOps Agent Pool Created Then Deleted\" query can detect specific suspicious activity for DevOps Agent Pool. This is close to this technique's File Deletion sub-technique, but not a complete match."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Security Event Log Cleared\" query can detect clearing of the security event logs, though not necessarily clearing of any arbitrary Windows event logs."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Windows System Time changed on hosts\" query can detect potential timestomping activities.\nThe Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can identify use of Empire, which can timestomp files and/or payloads on a target machine to help them blend in."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage for most of this technique's sub-techniques, along with additional mappings for its procedure examples, resulting in an overall score of Minimal.\nThe following Azure Sentinel Hunting queries can identify potentially malicious use of command and scripting interpreters that does not map directly to one/more sub-techniques: \"Anomalous Code Execution\" can identifyanomalous runCommand operations on virtual machines, \"Azure CloudShell Usage\" can identify potentially malicious use of CloudShell, \"New processes observed in last 24 hours\", \"Rare processes run by Service accounts\", and \"Rare Custom Script Extension\" can identify execution outliers that may suggest misuse.\nThe following Azure Sentinel Analytics queries can identify potentially malicious use of command and scripting interpreters that does not map directly to one/more sub-techniques: \"New CloudShell User\" can identify potentially malicious use of CloudShell, \"Rare and Potentially high-risk Office operations\" can identify specific rare mailbox-related  ccount and permission changes via execution."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can identify use of Empire, which leverages PowerShell for the majority of its client-side agent tasks and can conduct PowerShell remoting.  The coverage for these queries is minimal (specific to Empire) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Cscript script daily summary breakdown\" can detect potentially malicious scripting. The Azure Sentinel Hunting \"Hosts running a rare process with commandline\" query can identify uncommon command shell usage that may be malicious.\nThe Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can identify use of Empire, which has modules for executing Windows Command Shell scripts. The Azure Sentinel Analytics \"Base64 encoded Windows process command-lines\" query can identify Base64 encoded PE files being launched via the command line."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Rare process running on a Linux host\" query can identify uncommon shell usage that may be malicious."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Cscript script daily summary breakdown\" can detect potentially malicious scripting. The Azure Sentinel Hunting \"Hosts running a rare process with commandline\" query can identify uncommon command shell usage that may be malicious."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Cscript script daily summary breakdown\" can detect potentially malicious scripting. The Azure Sentinel Hunting \"Hosts running a rare process with commandline\" query can identify uncommon command shell usage that may be malicious."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Cscript script daily summary breakdown\" can detect potentially malicious scripting. The Azure Sentinel Hunting \"Hosts running a rare process with commandline\" query can identify uncommon command shell usage that may be malicious."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1213",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial detection coverage for only this technique's SharePoint sub-technique.\nThe Azure Sentinel Hunting \"Cross workspace query anomaly\" query can identify potential adversary information collection (in this case from Azure ML workspaces), but does not map directly to any sub-techniques."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1213.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious access to SharePoint: \"SharePointFileOperation via clientIP with previously unseen user agents\", \"SharePointFileOperation via devices with previously unseen user agents\", and \"SharePointFileOperation via previously unseen IPs\".\nThe Azure Sentinel Analytics \"SharePointFileOperation via devices with previously unseen user agents\" query can identify a high number of upload or download actions by an unknown and possible malicious actor."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1531",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious behavior on user accounts: \"AD Account Lockout\", \"Anomalous Password Reset\", \"SQL User deleted from Database\", \"User removed from SQL Server Roles\", and \"User removed from SQL Server SecurityAdmin Group\".\nThe Azure Sentinel Analytics \"Sensitive Azure Key Vault operations\" query can identify attempts to remove account access by deleting keys or entire key vaults."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1018",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"High reverse DNS count by host\" and \"Squid malformed requests\" queries can indicate potentially malicious reconnaissance aimed at detecting network layout and the presence of network security devices.\nThe Azure Sentinel Analytics \"Several deny actions registered\" query can identify patterns in Azure Firewall incidents, potentially indicating that an adversary is scanning resources on the network, at a default frequency of once per hour. Note that detection only occurs if the firewall prevents the scanning. The Azure Sentinel Analytics \"Rare client observed with high reverse DNS lookup count\" query can detect when a particular IP address performs an unusually high number of reverse DNS lookups and has not been observed doing so previously. The coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for all of this technique's sub-techniques, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"New User created on SQL Server\" query can detect a specific type of potentially malicious local account creation.\nThe following Azure Sentinel Analytics queries can identify potentially malicious local account creation: \"Summary of users created using uncommon/undocumented commandline switches\" which can identify use of the net command to create user accounts, \"User created by unauthorized user\", \"User Granted Access and associated audit activity\" and \"User Granted Access and Grants others Access\" which may identify account creation followed by suspicious behavior, \"User account created and deleted within 10 mins\" which suggests an account may have existed only long enough to fulfill a malicious purpose, and \"Powershell Empire cmdlets seen in command line\" which can identify use of Empire, including for account creation."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Analytics queries can identify potentially malicious domain account creation: \"Summary of users created using uncommon/undocumented commandline switches\" which can identify use of the net command to create user accounts, \"User created by unauthorized user\", \"User Granted Access and associated audit activity\" and \"User Granted Access and Grants others Access\" which may identify account creation followed by suspicious behavior, \"User account created and deleted within 10 mins\" which suggests an account may have existed only long enough to fulfill a malicious purpose, and \"Powershell Empire cmdlets seen in command line\" which can identify use of Empire, including for account creation."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting queries can identify potentially malicious cloud account creation: \"External user added and removed in short timeframe\" and \"External user from a new organisation added\" can identify the addition of new external Teams user accounts.\nThe following Azure Sentinel Analytics queries can identify potentially malicious cloud account creation: \"User Granted Access and created resources\" which identifies a newly created user account gaining access and creating resources in Azure, and \"New Cloud Shell User\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1114",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage for all of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1114.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can identify use of Empire, which has the ability to collect emails on a target system.  The coverage for these queries is minimal (specific to Empire) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1114.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Suspect Mailbox Export on IIS/OWA\" query can identify potential malicious exfiltration hosting via IIS. The Azure Sentinel Hunting \"Host Exporting Mailbox and Removing Export\" query can identify potential exfiltration of data from Exchange servers. The coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1114.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Mail redirect via ExO transport rule\" query can detect potentially malicious email redirection, but is limited to Exchange servers only."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for only one of this technique's sub-techniques, resulting in overall coverage of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Web shell command alert enrichment\", \"Web shell Detection\", and \"Web shell file alert enrichment\" queries can identify potentially malicious activity via web shell."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1573",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage for one sub-technique of this technique, resulting in an overall coverage score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1573.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Analytics queries can detect potentially malicious usage of asymmetric cryptography channels: \"DNS events related to ToR proxies\" can identify potential use of Tor, though it provides only minimal coverage because it only covers a set of common domains and is easily bypassed via hardcoded IP addresses, redirection, etc. \"Powershell Empire cmdlets seen in command line\" can identify use of Empire, which can use TLS to encrypt a command and control channel."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage for one sub-technique of this technique, resulting in an overall coverage score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"DNS events related to ToR proxies\" query can identify potential use of Tor, though it provides only minimal coverage because it only covers a set of common domains and is easily bypassed via hardcoded IP addresses, redirection, etc."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal (mostly) to partial coverage for most of this technique's sub-techniques, resulting in an overall score of Minimal.\nThe Azure Sentinel Hunting \"Anomalous Defensive Mechanism Modification\" query detects users performing delete operations on security policies, which may indicate an adversary attempting to impair defenses."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious modifications to Sentinel resources: \"Azure Sentinel Analytics Rules Administrative Operations\", \"Azure Sentinel Connectors Administrative Operations\", and \"Azure Sentinel Workbooks Administrative Operations\".\nThe Azure Sentinel Analytics \"Starting or Stopping HealthService to Avoid Detection\" query can detect potentially malicious disabling of telemetry collection/detection.\nThe coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Audit policy manipulation using auditpol utility\" query can detect potentially malicious to modification and/or disabling of logging via the auditpol utility.  The coverage for these queries is minimal (specific to Audit policy) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Azure Sentinel Analytics Rules Administrative Operations\" query can identify potential attempts to impair defenses by changing or deleting detection analytics.\nThe Azure Sentinel Analytics \"Azure DevOps - Retention Reduced to Zero\" query can identify that an adversary is looking to reduce their malicious activity's footprint by preventing retention of artifacts. Control is specific to indicators produced by Azure DevOps. The coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious modifications to cloud firewall resources: \"Azure Network Security Group NSG Administrative Operations\" query can identify potential defensive evasion involving changing or disabling network access rules. \"Port opened for an Azure Resource\" may indicate an adversary increasing the accessibility of a resource for easier collection/exfiltration.\nThe Azure Sentinel Analytics \"Security Service Registry ACL Modification\" query can detect attempts to modify registry ACLs, potentially done to evade security solutions."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Exchange AuditLog disabled\" query can detect potentially malicious disabling of Exchange logs. The Azure Sentinel Analytics \"Azure DevOps Audit Stream Disabled\" query can identify disabling of Azure DevOps log streaming. The coverage for these queries is minimal (specific to these technologies) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1119",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious automated collection: \"Multiple large queries made by user\" and \"Query data volume anomolies\" can identify that automated queries are being used to collect data in bulk. \"New ServicePrincipal running queries\" can indicate that an application is performing automated collection via queries.\nThe following Azure Sentinel Analytics queries can identify potentially malicious automated collection: \"Mass secret retrieval from Azure Key Vault\" and \"Azure Key Vault access TimeSeries anomaly\" can detect a sudden increase in access counts, which may indicate that an adversary is dumping credentials via automated methods. \"Users searching for VIP user activity\" can identify potentially suspicious Log Analytics queries by users looking for a listing of 'VIP' activity.\nThe coverage for these queries is minimal (applicable to specific technologies) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Multiple Teams deleted by a single user\" query can detect when a threshold is met for number of Teams deleted within an hour. Coverage is minimal because the control is limited to a specific resource (teams) and only works when the threshold is met.\nThe Azure Sentinel Analytics \"Multiple Teams deleted by a single user\" query can detect when a threshold is met for number of Teams deleted within an hour. Coverage is minimal because the control is limited to a specific resource (teams) and only works when the threshold is met."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides partial coverage for one of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Potential DGA detected\" query can detect clients with a high NXDomain count, which might indicate an adversary cycling through possible C2 domains where most C2s are not live.\nThe following Azure Sentinel Analytics queries can identify potential use of domain generation algorithms: \"Possible contact with a domain generated by a DGA\" and \"Potential DGA detected\" within DNS."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Potential IIS code injection attempt\" query can detect some potential injection attacks against public-facing applications.\nThe Azure Sentinel Analytics \"A potentially malicious web request was executed against a web server\" query can detect a high ratio of blocked requests and unobstructed requests to a Web Application Firewall (WAF) for a given client IP and hostnam.\nThe coverage for these queries is minimal (e.g. IIS) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides minimal to partial coverage for a minority of this technique's\nsub-techniques and does not address all of its procedures, resulting in an overall score\nof Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Analytics queries can identify potentially malicious use of Outlook rules: \"Office policy tampering\", \"Malicious Inbox Rule\" which can detect rules intended to delete emails that contain certain keywords (generally meant to warn compromised users about adversary behaviors), and \"Mail redirect via ExO transport rule\" (potentially to an adversary mailbox configured to collect mail)."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Previously unseen bot or applicaiton added to Teams\" [sic] query can detect the addition of a potentially malicious add-in, but is specific to Microsoft Teams."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1140",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"New PowerShell Scripts encoded on the commandline\" query can detect a specific type of obfuscated file.\nThe Azure Sentinel Analytics \"Process executed from binary hidden in Base64 encoded file\" query can use security event searches to detect decoding by Python, bash/sh, and Ruby.\nThe coverage for these queries is minimal (e.g. base64, PowerShell) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1558",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides minimal to partial coverage for some this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1558.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Azure Sentinel Analytics includes a \"Potential Kerberoasting\" query. Kerberoasting via Empire can also be detected using the Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1558.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect execution of these sub-techniques via Empire, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1558.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect execution of these sub-techniques via Empire, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1047",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Gain Code Execution on ADFS Server via Remote WMI Execution\" query can detect use of Windows Managemement Instrumentation on ADFS servers. The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect WMI use via Empire, but does not address other procedures.\nThe coverage for these queries is minimal (specific to ADFS and Empire) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"High count of connections by client IP on many ports\" query can detect when a given client IP has 30 or more ports used within a 10 minute window, which may indicate malicious scanning. The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect scanning via Empire, but does not address other procedures."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal to partial coverage for some of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"anomalous RDP Activity\" query can detect potential lateral\nmovement employing RDP.\n\nThe following Azure Sentinel Analytics queries can identify potentially malicious use\nof RDP:\n\"Anomalous RDP Login Detections\", \"Multiple RDP connections from Single Systems\",\n\"Rare RDP Connections\", and \"RDP Nesting\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Anomalous Resource Access\" query can identify potential lateral movement via use of valid accounts to access network shares (Windows Event 4624:3)."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can utilize Invoke-DCOM to leverage remote COM execution for lateral movement, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which contains modules for executing commands over SSH as well as in-memory VNC agent injection, but does not address other procedures. Azure Sentinel Analytics also provides a \"New internet-exposed SSH endpoints\" query.\nThe coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides a highly specific detection for a misconfiguration that can lead to one of this technique's sub-techniques, ultimately preventing it."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal to partial coverage for a minority of this technique's sub-techniques, resulting in an overall detection score of Minimal."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1552.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Azure DevOps - Variable Secret Not Secured\" query can identify credentials stored in the build process and protect against future credential access by suggesting that they be moved to a secret or stored in KeyVault before they can be accessed by an adversary.\nThe coverage for these queries is minimal resulting in an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Query looking for secrets\" query can identify potentially malicious database requests for secrets like passwords or other credentials.\nThe Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can use various modules to search for files containing passwords, but does not address other procedures.\nThe coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1552.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"ADFS DKM Master Key Export\" and \"ADFS Key Export (Sysmon)\" queries can detect potentially malicious access intended to decrypt access tokens. The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can use modules to extract private key and session information, but does not address other procedures.\nThe coverage for these queries is minimal (specific to Empire, ADFS) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1590",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control detects a highly specific behavior that applies to one sub-technique of this technique."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1590.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Rare client observed with high reverse DNS lookup count\" query can detect if a particular IP is observed performing an unusually high number of reverse DNS lookups and has not been observed doing so previously."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which includes various modules to attempt to bypass UAC for privilege escalation, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1134",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage of a minority of this technique's sub-techniques, but does not address other procedures, resulting in an overall score of Minimal.\nThe Azure Sentinel Analytics \"Azure DevOps Personal Access Token misuse\" query can identify anomalous use of Personal Access Tokens, but does not map directly to any sub-techniques."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1134.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can be used to make tokens via Invoke-RunAs and add a SID-History to a user if on a domain controller, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1134.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can be used to make tokens via Invoke-RunAs and add a SID-History to a user if on a domain controller, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides specific forms of minimal coverage for half of this technique's sub-techniques, but does not address other procedures, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Enumeration of users and groups\" query can identify potentially malicious account discovery through the use of the net tool.\nThe Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can acquire local and domain user account information, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Enumeration of users and groups\" query can identify potentially malicious account discovery through the use of the net tool.\nThe Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can acquire local and domain user account information, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Mail.Read Permissions Granted to Application\" query can identify applications that may have been abused to gain access to mailboxes."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1560",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can ZIP directories on target systems, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify three of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can enumerate SSPs, install malicious SSPs, persist by modifying .lnk files to include backdoors, and modify the registry run keys, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.009",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can enumerate SSPs, install malicious SSPs, persist by modifying .lnk files to include backdoors, and modify the registry run keys, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can enumerate SSPs, install malicious SSPs, persist by modifying .lnk files to include backdoors, and modify the registry run keys, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1217",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which has the ability to gather browser data including bookmarks and history, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1115",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can harvest clipboard data on Windows, but does not address other procedures or platforms."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can modify service binaries and restore them to their original states, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1555",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1555.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can extract passwords from common web browsers including Firefox and Chrome, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1484",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal to partial coverage of both of this technique's sub-techniques, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1484.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can modify group policy objects to install and execute malicious scheduled tasks, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1484.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Modified Domain Federation Trust Settings\" query can detect potentially malicious changes to domain trust settings."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1482",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can enumerate domain trusts, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can leverage WMI debugging to remotely replace binaries like seth.exe, utilman.exe, and magnify.exe with cmd.exe, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can send data gathered from a target through a command and control channel, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can exploit known system vulnerabilities, but does not explicitly address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which includes built-in modules for exploiting remote SMB, JBoss, and Jenkins servers, but does not address other procedures. The Azure Sentinel Analytics \"Gain Code Execution on ADFS Server via SMB + Remote Service or Scheduled Task\" query can detect when an adversary gains execution capability on an ADFS server through SMB and Remote Service or Scheduled Task."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1083",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which includes modules for finding files of interest on hosts and network shares, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify several of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can discover and exploit DLL hijacking opportunities, path interception opportunities in the PATH environment variable, search order hijacking vulnerabilities, and unquoted path vulnerabilities, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can discover and exploit DLL hijacking opportunities, path interception opportunities in the PATH environment variable, search order hijacking vulnerabilities, and unquoted path vulnerabilities, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can discover and exploit DLL hijacking opportunities, path interception opportunities in the PATH environment variable, search order hijacking vulnerabilities, and unquoted path vulnerabilities, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.009",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can discover and exploit DLL hijacking opportunities, path interception opportunities in the PATH environment variable, search order hijacking vulnerabilities, and unquoted path vulnerabilities, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1056",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify two of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1056.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which includes keylogging capabilities for both Windows and Linux and contains modules that leverage API hooking to carry out tasks, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1056.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which includes keylogging capabilities for both Windows and Linux and contains modules that leverage API hooking to carry out tasks, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1557.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can use Inveigh to conduct name service poisoning for credential theft and associated relay attacks, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1106",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which includes a variety of enumeration modules that have an option to use API calls to carry out tasks, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1135",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can perform port scans from an infected host, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can be used to conduct packet capture on target hosts, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1027",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can obfuscate commands using Invoke-Obfuscation, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which contains an implementation of Mimikatz to gather credentials from memory, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1057",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can find information about processes running on local and remote systems, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which contains multiple modules for injecting into processes, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal to partial coverage of a minority of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Editing Linux scheduled tasks through Crontab\" query can detect potentially malicious modification of cron jobs."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can interact with the Windows task scheduler, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1113",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can capture screenshots on Windows, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1518",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1518.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can enumerate antivirus software on the target, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1082",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can enumerate host information like OS, architecture, applied patches, etc., but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1016",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can acquire network configuration information including DNS servers and network proxies used by a host, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1049",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can enumerate the current network connections of a host, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1569",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1569.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can use PsExec to execute a payload on a remote host, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1127",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1127.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can use abuse trusted utilities including MSBuild.exe, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1550",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage of half of this technique's sub-techniques, without additional coverage of procedure examples, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1550.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Azure DevOps - PAT used with Browser.\" query can identify potentially malicious usage of Personal Access Tokens intended for code or applications to be used through the web browser."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1550.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can perform pass the hash attacks, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1125",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can capture webcam data on Windows, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1102",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify one of this technique's sub-techniques when executed via \"Powershell Empire cmdlets seen in command line\", but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1102.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Powershell Empire cmdlets seen in command line\" query can detect the use of Empire, which can use Dropbox and GitHub for command and control, but does not address other procedures."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1556",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Azure DevOps Conditional Access Disabled\" query can identify potentially malicious modifications of the DevOps access policy.\nThe Azure Sentinel Analytics \"MFA disabled for a user\" and \"GitHub Two Factor Auth Disable\" queries can detect potentially malicious changes in multi-factor authentication settings."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1080",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Potential Build Process Compromise\" query can detect when source code files have been modified immediately after the build process has started. The Azure Sentinel Analytics \"ADO Build Variable Modified by New User\" query may indicate malicious modification to the build process to taint shared content.\nThe coverage for these queries is minimal (specific to Azure DevOps) resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1074",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1074.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Malware in the recycle bin\" query can detect local hidden malware."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1490",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Sensitive Azure Key Vault Operations\" query can identify potential attacker activity intended to interfere with backups."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Sensitive Azure Key Vault Operations\" query can identify potential attacker activity intended to delete private key(s) required to decrypt content."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1535",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Suspicious Resource deployment\" query can identify adversary attempts to maintain persistence or evade defenses by leveraging unused and/or unmonitored resources."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Anomalous Data Access\" query identifies all users performing out-of-profile read operations regarding data or files, which may be indicative of adversarial collection from cloud storage objects."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1036",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal to partial coverage of a minority of this technique's sub-techniques and a minority of its procedure examples, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1036.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Exes with double file extension and access summary\" can identify malicious executable files that have been hidden as other file types."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1036.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Masquerading Files\" and \"Rare Process Path\" queries can detect an adversary attempting to make malicious activity blend in with legitimate commands and files. The Azure Sentinel Hunting \"Azure DevOps Display Name Changes\" query can detect potentially maliicous changes to the DevOps user display name."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1578",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Azure Resources assigned Public IP addresses\" query detect suspicious IP address changes."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1580",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Azure storage key enumeration\" query can identify potential attempts by an attacker to discover cloud infrastructure resources."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1528",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Consent to Application discovery\" query can identify recent permissions granted by a user to a particular app."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1069",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage for one of this technique's sub-techniques and only minimal coverage for its procedure examples, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1069.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Enumeration of users and groups\" query can identify potentially malicious group discovery through the use of the net tool."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1069.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Hunting \"Enumeration of users and groups\" query can identify potentially malicious group discovery through the use of the net tool."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}
