@@ -8,3 +8,5 @@ tools/mapping.db
 **/*.swp
 tools/techniques.json
 tools/venv/
+mappings/**/README.html
+mappings/**/README.md
