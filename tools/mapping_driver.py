@@ -69,8 +69,11 @@ class MappingDriver():
                 with open(mapping_file, "r") as f:
                     mapping_yaml = yaml.safe_load(f)
 
-                validation_pass = validation_pass and \
-                    self.mapping_validator.validate_mapping(mapping_file, mapping_yaml)
+                if "ATT&CK version" in mapping_yaml and "platform" in mapping_yaml:
+                    validation_pass = validation_pass and \
+                        self.mapping_validator.validate_mapping(mapping_file, mapping_yaml)
+                else:
+                    print(f"Skipping {mapping_file}, not a mapping file")
 
         return validation_pass
 

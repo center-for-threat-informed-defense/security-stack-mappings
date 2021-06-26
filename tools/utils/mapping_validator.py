@@ -191,6 +191,8 @@ class MappingValidator:
 
 
     def validate_mapping(self, mapping_file, mapping_yaml):
+        print(f"Validating mapping file {mapping_file} ...")
+
         self.validation_pass = True
         self.comments_found = False
         if self.attack_version != mapping_yaml["ATT&CK version"]:
@@ -201,7 +203,6 @@ class MappingValidator:
         with open(f'{root_dir}/tools/config/mapping_schema.json') as file_object:
             mapping_schema = json.load(file_object)
 
-        print(f"Validating mapping file {mapping_file} ...")
         if mapping_file.name.endswith(".yml"):
             self.print_validation_warning(f"Mapping file extension yaml is preferable to yml.")
 
