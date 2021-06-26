@@ -2312,7 +2312,7 @@
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Respond"
                 },
                 {
                     "name": "value",
@@ -2320,7 +2320,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Data backups provide significant mitigation against data destruction."
+                    "value": "Data backups provide a significant response to data destruction by enabling the restoration of data from backup."
                 },
                 {
                     "divider": true
@@ -2377,7 +2377,7 @@
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Respond"
                 },
                 {
                     "name": "value",
@@ -2385,13 +2385,13 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Provides significant mitigation against data encryption/ransomware attacks."
+                    "value": "Data backups provide a significant response to data encryption/ransomware by enabling the restoration of data from backup."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#5c00a3",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Protect"
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1565",
@@ -4843,33 +4843,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1110.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
             "techniqueID": "T1557.002",
             "enabled": true,
             "showSubtechniques": false,
@@ -6847,7 +6820,7 @@
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Respond"
                 },
                 {
                     "name": "value",
@@ -6855,13 +6828,13 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Provides significant mitigation against defacement"
+                    "value": "Data backups provide a significant response to data defacement attacks by enabling the restoration of data from backup."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#b80000",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Protect"
+            "category": "Respond"
         },
         {
             "techniqueID": "T1491.002",
@@ -6874,7 +6847,7 @@
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Respond"
                 },
                 {
                     "name": "value",
@@ -6882,13 +6855,13 @@
                 },
                 {
                     "name": "comment",
-                    "value": "n/a"
+                    "value": "Data backups provide a significant response to external or internal data defacement attacks by enabling the restoration of data from backup."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#b80000",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Protect"
+            "category": "Respond"
         },
         {
             "techniqueID": "T1491.001",
@@ -6901,7 +6874,7 @@
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Respond"
                 },
                 {
                     "name": "value",
@@ -6909,13 +6882,13 @@
                 },
                 {
                     "name": "comment",
-                    "value": "n/a"
+                    "value": "Data backups provide a significant response to external or internal data defacement attacks by enabling the restoration of data from backup."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#b80000",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Protect"
+            "category": "Respond"
         },
         {
             "techniqueID": "T1561",
@@ -6928,7 +6901,7 @@
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Respond"
                 },
                 {
                     "name": "value",
@@ -6936,13 +6909,13 @@
                 },
                 {
                     "name": "comment",
-                    "value": "n/a"
+                    "value": "Data backups provide a significant response to disk wipe attacks by enabling the restoration of data from backup."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#b80000",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Protect"
+            "category": "Respond"
         },
         {
             "techniqueID": "T1561.001",
@@ -6955,7 +6928,7 @@
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Respond"
                 },
                 {
                     "name": "value",
@@ -6963,13 +6936,13 @@
                 },
                 {
                     "name": "comment",
-                    "value": "n/a"
+                    "value": "Data backups provide a significant response to disk content wipe attacks by enabling the restoration of data from backup."
                 }
             ],
-            "color": "#7FFF00",
+            "color": "#b80000",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Protect"
+            "category": "Respond"
         },
         {
             "techniqueID": "T1561.002",
@@ -6982,7 +6955,7 @@
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Respond"
                 },
                 {
                     "name": "value",
@@ -6993,10 +6966,10 @@
                     "value": "Allows for recovery of disk content, though Disk structure wipes require additional procedures for recovery."
                 }
             ],
-            "color": "#659D32",
+            "color": "#ff0505",
             "score_num": 50,
             "score_display": "Partial",
-            "category": "Protect"
+            "category": "Respond"
         },
         {
             "techniqueID": "T1552",
