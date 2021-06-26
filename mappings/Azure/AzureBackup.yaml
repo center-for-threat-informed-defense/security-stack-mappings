@@ -14,21 +14,27 @@ techniques:
   - id: T1485
     name: Data Destruction
     technique-scores:
-      - category: Protect
+      - category: Response
         value: Significant
-        comments: Data backups provide significant mitigation against data destruction.
+        comments: >-
+          Data backups provide a significant response to data destruction by enabling the restoration of data
+          from backup.
   - id: T1486
     name: Data Encrypted for Impact
     technique-scores:
-      - category: Protect
+      - category: Response
         value: Significant
-        comments: Provides significant mitigation against data encryption/ransomware attacks.
+        comments: >-
+          Data backups provide a significant response to data encryption/ransomware by enabling the restoration of
+          data from backup.
   - id: T1491
     name: Defacement
     technique-scores:
-      - category: Protect
+      - category: Response
         value: Significant
-        comments: Provides significant mitigation against defacement
+        comments: >-
+          Data backups provide a significant response to data defacement attacks by enabling the restoration of
+          data from backup.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1491.002
@@ -36,32 +42,39 @@ techniques:
           - id: T1491.001
             name: Internal Defacement
         scores:
-          - category: Protect
+          - category: Response
             value: Significant
+            comments: >-
+              Data backups provide a significant response to external or internal data defacement attacks by enabling
+              the restoration of data from backup.
   - id: T1561
     name: Disk Wipe
     technique-scores:
-      - category: Protect
+      - category: Response
         value: Significant
+        comments: >-
+          Data backups provide a significant response to disk wipe attacks by enabling the restoration of data from backup.
     sub-techniques-scores:
       - sub-techniques:
           - id: T1561.001
             name: Disk Content Wipe
         scores:
-          - category: Protect
+          - category: Response
             value: Significant
+            comments: >-
+              Data backups provide a significant response to disk content wipe attacks by enabling the restoration of data
+              from backup.
       - sub-techniques:
           - id: T1561.002
             name: Disk Structure Wipe
         scores:
-          - category: Protect
+          - category: Response
             value: Partial
             comments: >-
-              Allows for recovery of disk content, though Disk structure wipes require additional
-              procedures for recovery.
+              Allows for recovery of disk content, though Disk structure wipes require additional procedures for recovery.
 comments: >-
   Azure Backup service provides defense against destruction/manipulation of data at rest. Scoring as
-  "Significant" since it is an essential practice against data destruction et al, though there is an argument
-  for a Partial score since it does not prevent so much as enable recovery.
+  "Significant" since it is an essential practice against data destruction et al, and can eradicate the
+  threat event by restoring from backup.
 references:
   - 'https://docs.microsoft.com/en-us/azure/backup/backup-overview'
