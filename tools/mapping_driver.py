@@ -40,9 +40,13 @@ class MappingDriver():
         self.mapping_files = [paths]
 
 
-    def load_mapping_dir(self, map_dir):
-        self.mapping_files = [path for path in Path(map_dir).rglob("*.yaml")]
-        self.mapping_files.extend([path for path in Path(map_dir).rglob("*.yml")])
+    def load_mapping_dir(self, map_dir, no_recurse=False):
+        if no_recurse:
+            self.mapping_files = [path for path in Path(map_dir).glob("*.yaml")]
+            self.mapping_files.extend([path for path in Path(map_dir).glob("*.yml")])
+        else:
+            self.mapping_files = [path for path in Path(map_dir).rglob("*.yaml")]
+            self.mapping_files.extend([path for path in Path(map_dir).rglob("*.yml")])
 
 
     def load_mapping_file(self, map_file):

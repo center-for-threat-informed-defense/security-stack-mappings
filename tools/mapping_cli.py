@@ -33,6 +33,8 @@ def subcommand(args=[], parent=subparsers):
     argument("--visualizer", help="The name of the visualizer that will generate the visualizations", 
         required=True,choices=mapping_driver.get_visualizer_names()),
     argument('--mapping-dir', help='Path to the directory containing the mapping files', required=False, type=dir_path),
+    argument('--no-recurse', help='Do not search nested directories for mapping files',
+        required=False, default=False, action="store_true"),
     argument('--mapping-file', help='Path to the mapping file', required=False, type=file_path),
     argument("--output", help="Path to the directory were the visualizations will be written",
         required=False, type=dir_path),
@@ -83,11 +85,11 @@ def visualize(args):
         mapping_driver.load_mapping_file(args.mapping_file)
     elif args.mapping_dir:
         options["include-aggregates"] = args.include_aggregates
-        mapping_driver.load_mapping_dir(args.mapping_dir)
+        mapping_driver.load_mapping_dir(args.mapping_dir, args.no_recurse)
     else:
         options["include-aggregates"] = args.include_aggregates
         root_dir = get_project_root()
-        mapping_driver.load_mapping_dir(f'{root_dir}/mappings')
+        mapping_driver.load_mapping_dir(f'{root_dir}/mappings', args.no_recurse)
 
 
     if not args.skip_validation:
@@ -105,6 +107,8 @@ def techniques_json(args):
 @subcommand([
     argument('--mapping-dir', help='Path to the directory containing the mapping files',
         required=False, type=dir_path),
+    argument('--no-recurse', help='Do not search nested directories for mapping files',
+        required=False, default=False, action="store_true"),
     argument('--mapping-file', help='Path to the mapping file', required=False, type=file_path),
     argument('--tags-file', help='Path to the file containing the list of valid tags',
         required=False, type=file_path)
@@ -114,10 +118,10 @@ def validate(args):
     if args.mapping_file:
         mapping_driver.load_mapping_file(args.mapping_file)
     elif args.mapping_dir:
-        mapping_driver.load_mapping_dir(args.mapping_dir)
+        mapping_driver.load_mapping_dir(args.mapping_dir, args.no_recurse)
     else:
         root_dir = get_project_root()
-        mapping_driver.load_mapping_dir(f'{root_dir}/mappings')
+        mapping_driver.load_mapping_dir(f'{root_dir}/mappings', args.no_recurse)
 
     if args.tags_file:
         mapping_driver.load_specified_tags(args.tags_file)
@@ -134,6 +138,8 @@ def validate(args):
         required=False),
     argument('--mapping-dir', help='Path to the directory containing the mapping files',
         required=False, type=dir_path),
+    argument('--no-recurse', help='Do not search nested directories for mapping files',
+        required=False, default=False, action="store_true"),
     argument('--skip-attack', help='Rebuild an existing mapping.db by just rebuilding the mapping data'
         ' (and reuse the already built ATT&CK data)',
         default=False, required=False, action="store_true"),
@@ -143,10 +149,10 @@ def validate(args):
 def rebuild_mappings(args):
     """Builds the mapping database used to provide the query capabilities of the list_mappings and list_scores modes"""
     if args.mapping_dir:
-        mapping_driver.load_mapping_dir(args.mapping_dir)
+        mapping_driver.load_mapping_dir(args.mapping_dir, args.no_recurse)
     else:
         root_dir = get_project_root()
-        mapping_driver.load_mapping_dir(f'{root_dir}/mappings')
+        mapping_driver.load_mapping_dir(f'{root_dir}/mappings', args.no_recurse)
 
     mapping_driver.set_mapping_db(args.mapping_db)
     mapping_driver.rebuild_mappings(args.skip_validation, args.skip_attack)
