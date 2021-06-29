@@ -19,7 +19,7 @@ This project provides the following supporting resouces:
 - **[Scoring Rubric](docs/scoring.md)** - A scoring rubric that enables assessing the effectiveness of a security control native to a technology platform in mitigating the set of ATT&CK techniques that it has been mapped to.  This scoring rubric enables providing a score for each (sub-)technique included in a security control's mapping file.
 - **[Mapping data format](docs/mapping_format.md)** - The specification of a YAML file that captures the mapping of a security control native to a technology platform to the set of ATT&CK techniques that it mitigates.
 - **[Mapping Tool](tools/)** – A Python-based tool that enables validating and producing [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for mapping files.
-- **[Change Log](CHANGELOG.md)** - A list of updates to this repository.
+- **[Releases](https://github.com/center-for-threat-informed-defense/security-stack-mappings/releases)** - A list of updates to this repository.
 
 ## Getting Involved
 
