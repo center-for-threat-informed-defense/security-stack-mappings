@@ -13,7 +13,7 @@ This project has produced mapping files for the following technology platforms, 
 
 ## Supporting Resources
 
-This project provides the following supporting resouces:
+This project provides the following supporting resources:
 - **[Use Cases](docs/use_cases.md)** - There are several use cases for applying the mapping files to advance the state-of-the-art and the state-of-the-practice in threat-informed defense.
 - **[Methodology](docs/mapping_methodology.md)** – A methodology for using the mapping data format and scoring rubric to produce mapping files for security controls native to a technology platform.  By providing a methodology, we hope to encourage a consistent, best-practice approach to performing mappings that will make mappings more comparable to each other. It also encourages community mappings to be developed – including, potentially, by security vendors themselves.
 - **[Scoring Rubric](docs/scoring.md)** - A scoring rubric that enables assessing the effectiveness of a security control native to a technology platform in mitigating the set of ATT&CK techniques that it has been mapped to.  This scoring rubric enables providing a score for each (sub-)technique included in a security control's mapping file.
