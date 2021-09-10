@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: File Integrity Monitoring,Azure Defender for App Service,Docker Host Hardening,Azure Automation Update Management,Linux auditd alerts and Log Analytics agent integration",
+    "description": "Controls: File Integrity Monitoring,Docker Host Hardening,Azure Automation Update Management,Azure Defender for App Service,Linux auditd alerts and Log Analytics agent integration",
     "filters": {
         "platforms": [
             "Linux",
@@ -1988,6 +1988,820 @@
             "category": "Detect"
         },
         {
+            "techniqueID": "T1525",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious container images running mining software or SSH servers. Privileged Docker containers and privileged commands running within containers may also be detected. These alerts are only generated on containers in Linux endpoint machines and not for containers running from Azure Docker deployment."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to remove setuid and setguid permissions from container images. It may not be feasible to audit and remediate all binaries that have and require setuid and setguid permissions."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage of methods that leverage vulnerabilities in unpatched software since it enables automated updates of software and rapid configuration change management"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious arguments used to exploit Xorg vulnerabilities for privilege escalation."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may recommend usage of TLS to encrypt communication between the Docker daemon and clients. This can prevent possible leakage of sensitive information through network sniffing. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1083",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to ensure sensitive host system directories are not mounted in the container. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux environments. Among the sub-techinques that are relevant for Linux, this control may only alert on SSH."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to ensure sshd is not running within Docker containers. This can prevent attackers from utilizing unmonitored SSH servers within containers. This may not prevent attackers from installing a SSH server in containers or hosts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alerts on SSH brute force attempts, addition of new SSH keys, and usage of a SSH server within a container. Alerts may not be generated by usage of existing SSH keys by malicious actors for lateral movement."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations that limit the ability of an attacker to gain access to a host from a container, preventing the attacker from discovering and compromising local system data."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1195",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1195.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1195.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1072",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage of attacks that leverage software flaws in unpatched deployment tools since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage of techniques that leverage vulnerabilities in unpatched remote services since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in an exposed service. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1211",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage of defensive evasion methods that exploit unpatched vulnerabilities in software/systems since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for techniques that exploit vulnerabilities in (common) unpatched software since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1212",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage of credential access techniques that leverage unpatched software vulnerabilities since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1203",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage for Exploitation for client execution methods that leverage unpatched vulnerabilities since it enables automated updates of software and rapid configuration change management."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides protection against the subset of Denial of Service (DOS) attacks that leverage system/application vulnerabilities as opposed to volumetric attacks since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection against Denial of Service (DOS) attacks that leverage system/application vulnerabilities as opposed to volumetric attacks since it enables automated updates of software and rapid configuration change management."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1554",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection against compromised client software binaries since it can provide a baseline to compare with potentially compromised/modified software binaries."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1189",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Automation Update Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control protects against a subset of drive-by methods that leverage unpatched client software since it enables automated updates of software and rapid configuration change management"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected into browser or other process memory as part of a drive-by attack. Detection is periodic at an unknown rate."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
             "techniqueID": "T1584",
             "enabled": true,
             "showSubtechniques": false,
@@ -2755,366 +3569,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1203",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant coverage for Exploitation for client execution methods that leverage unpatched vulnerabilities since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1211",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant coverage of defensive evasion methods that exploit unpatched vulnerabilities in software/systems since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant coverage of methods that leverage vulnerabilities in unpatched software since it enables automated updates of software and rapid configuration change management"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious arguments used to exploit Xorg vulnerabilities for privilege escalation."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1212",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant coverage of credential access techniques that leverage unpatched software vulnerabilities since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1189",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected into browser or other process memory as part of a drive-by attack. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control protects against a subset of drive-by methods that leverage unpatched client software since it enables automated updates of software and rapid configuration change management"
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial coverage for techniques that exploit vulnerabilities in (common) unpatched software since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1210",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in an exposed service. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant coverage of techniques that leverage vulnerabilities in unpatched remote services since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
             "techniqueID": "T1559",
             "enabled": true,
             "showSubtechniques": false,
@@ -3383,52 +3837,6 @@
             "score_num": 10,
             "score_display": "Minimal",
             "category": "Detect"
-        },
-        {
-            "techniqueID": "T1005",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations that limit the ability of an attacker to gain access to a host from a container, preventing the attacker from discovering and compromising local system data."
-                }
-            ],
-            "color": "#bf6bff",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Mixed"
         },
         {
             "techniqueID": "T1482",
@@ -3953,414 +4361,6 @@
             "score_num": 10,
             "score_display": "Minimal",
             "category": "Detect"
-        },
-        {
-            "techniqueID": "T1525",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious container images running mining software or SSH servers. Privileged Docker containers and privileged commands running within containers may also be detected. These alerts are only generated on containers in Linux endpoint machines and not for containers running from Azure Docker deployment."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1548.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations to remove setuid and setguid permissions from container images. It may not be feasible to audit and remediate all binaries that have and require setuid and setguid permissions."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1040",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may recommend usage of TLS to encrypt communication between the Docker daemon and clients. This can prevent possible leakage of sensitive information through network sniffing. "
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1083",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations to ensure sensitive host system directories are not mounted in the container. "
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1021",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is only relevant for Linux environments. Among the sub-techinques that are relevant for Linux, this control may only alert on SSH."
-                }
-            ],
-            "color": "#bf6bff",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1021.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations to ensure sshd is not running within Docker containers. This can prevent attackers from utilizing unmonitored SSH servers within containers. This may not prevent attackers from installing a SSH server in containers or hosts."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alerts on SSH brute force attempts, addition of new SSH keys, and usage of a SSH server within a container. Alerts may not be generated by usage of existing SSH keys by malicious actors for lateral movement."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1195",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1195.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1195.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides coverage of some aspects of software supply chain compromise since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1072",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial coverage of attacks that leverage software flaws in unpatched deployment tools since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1499",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides protection against the subset of Denial of Service (DOS) attacks that leverage system/application vulnerabilities as opposed to volumetric attacks since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1499.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection against Denial of Service (DOS) attacks that leverage system/application vulnerabilities as opposed to volumetric attacks since it enables automated updates of software and rapid configuration change management."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1554",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Automation Update Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection against compromised client software binaries since it can provide a baseline to compare with potentially compromised/modified software binaries."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
         },
         {
             "techniqueID": "T1136",

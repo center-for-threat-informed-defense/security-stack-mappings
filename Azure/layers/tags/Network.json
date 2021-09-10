@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Azure Network Traffic Analytics,Azure Private Link,Azure DNS Alias Records,Azure DNS Analytics,Azure Alerts for Network Layer,Azure DDOS Protection Standard,Azure VPN Gateway,Alerts for DNS,Azure Firewall,Network Security Groups",
+    "description": "Controls: Azure Network Traffic Analytics,Azure Firewall,Azure DNS Alias Records,Network Security Groups,Azure Alerts for Network Layer,Azure DNS Analytics,Azure Private Link,Azure DDOS Protection Standard,Alerts for DNS,Azure VPN Gateway",
     "filters": {
         "platforms": [
             "Linux",
@@ -416,44 +416,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous / high talker DNS clients, possibly related to exfil via DNS"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect anomalous use of DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure Firewall"
                 },
                 {
@@ -486,6 +448,44 @@
                 {
                     "name": "comment",
                     "value": "NSG can minimize alternative protocols allowed to communicate externally."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous / high talker DNS clients, possibly related to exfil via DNS"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous use of DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
                 }
             ],
             "color": "#5c00a3",
@@ -513,25 +513,6 @@
                 {
                     "name": "comment",
                     "value": "This control can identify anomalous traffic with respect specific ports (though it can't identify presence or lack of encryption)."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can potentially be used to forensically identify exfiltration via DNS protocol."
                 },
                 {
                     "divider": true
@@ -570,6 +551,25 @@
                 {
                     "name": "comment",
                     "value": "This control can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can potentially be used to forensically identify exfiltration via DNS protocol."
                 }
             ],
             "color": "#5c00a3",
@@ -1128,25 +1128,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can potentially identify malicious use of remote services via alerts such as \"Suspicious incoming RDP network activity\" and \"Suspicious Incoming SSH network activity\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure Firewall"
                 },
                 {
@@ -1179,6 +1160,25 @@
                 {
                     "name": "comment",
                     "value": "This control can be used to restrict direct access to remote service gateways and concentrators that typically accompany external remote services.  This can be circumvented though if an adversary is able to compromise a trusted host and use it to access the external remote service. This results in an overall partial (coverage) score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can potentially identify malicious use of remote services via alerts such as \"Suspicious incoming RDP network activity\" and \"Suspicious Incoming SSH network activity\"."
                 }
             ],
             "color": "#9305ff",
@@ -1342,25 +1342,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts via DNS."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure Alerts for Network Layer"
                 },
                 {
@@ -1374,6 +1355,25 @@
                 {
                     "name": "comment",
                     "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on block list. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts via DNS."
                 },
                 {
                     "divider": true
@@ -1426,25 +1426,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure Alerts for Network Layer"
                 },
                 {
@@ -1458,6 +1439,25 @@
                 {
                     "name": "comment",
                     "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts."
                 },
                 {
                     "divider": true
@@ -1602,6 +1602,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for a majority of this control's sub-techinques and procedure examples resulting in overall score of Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Private Link"
                 },
                 {
@@ -1634,25 +1653,6 @@
                 {
                     "name": "comment",
                     "value": "Protects against volumetric and protocol DOS, though not application."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for a majority of this control's sub-techinques and procedure examples resulting in overall score of Partial."
                 }
             ],
             "color": "#5c00a3",
@@ -1686,6 +1686,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Private Link"
                 },
                 {
@@ -1718,25 +1737,6 @@
                 {
                     "name": "comment",
                     "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
                 }
             ],
             "color": "#5c00a3",
@@ -1770,6 +1770,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Private Link"
                 },
                 {
@@ -1802,25 +1821,6 @@
                 {
                     "name": "comment",
                     "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
                 }
             ],
             "color": "#5c00a3",
@@ -1854,6 +1854,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Private Link"
                 },
                 {
@@ -1886,25 +1905,6 @@
                 {
                     "name": "comment",
                     "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
                 }
             ],
             "color": "#5c00a3",
@@ -1938,25 +1938,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect DNS activity to anonymity networks e.g. TOR.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Network Security Groups"
                 },
                 {
@@ -1970,6 +1951,25 @@
                 {
                     "name": "comment",
                     "value": "This control can restrict ports and inter-system / inter-enclave connections as described by the Proxy related sub-techniques although it doesn't provide protection for domain-fronting.  It furthermore provides partial protection of this technique's procedure examples resulting in an overall Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect DNS activity to anonymity networks e.g. TOR.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
                 }
             ],
             "color": "#9305ff",
@@ -2114,920 +2114,6 @@
             "score_num": 50,
             "score_display": "Partial",
             "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1557",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for this technique's sub-techniques resulting in an overall Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can mitigate Man-in-the-Middle attacks that manipulate network protocol data in transit."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to limit access to network infrastructure and resources that can be used to reshape traffic or otherwise produce MiTM conditions."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1557.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1557.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1565",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for one of this technique's sub-techniques resulting in an overall Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection against one sub-technique (Transmitted Data Manipulation)  of this technique while not providing protection for its remaining sub-techniques resulting in overall score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1565.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control reduces the likelihood of data manipulation for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1499.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1498",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Prevents Denial of Service (DOS) against systems that would otherwise need to connect via an internet-traversing path (coverage partial, since doesn't apply to systems that must be directly exposed to the Internet)"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DDOS Protection Standard"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Designed to address multiple DDOS techniques including volumetric attacks."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end network DOS attacks."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1498.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DDOS Protection Standard"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1498.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DDOS Protection Standard"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1040",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control reduces the likelihood of a network sniffing attack for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control encrypts traffic traversing over untrusted networks which can prevent information from being gathered via network sniffing."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1584",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Alias Records"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1584.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Alias Records"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Alias records prevent dangling references by tightly coupling the life cycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource.  This control is effective for protecting DNS records that resolve to Azure resources but does not offer protection for records pointing to non-Azure resources, resulting in a Partial score."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1568",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can identify \"random\" DNS occurences which can be associated with domain generation algorithm or Fast Flux sub-techniques.  Partial for coverage and accuracy (potential for false positive/benign).\n"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1568.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1568.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1041",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can potentially be used to forensically identify exfiltration via a DNS-based C2 channel."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1566",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1566.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline. It provides significant detection from most of this technique's sub-techniques and  procedure examples resulting in an overall score of Significant."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1572",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can identify protocol misuse/anomalies in DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
         },
         {
             "techniqueID": "T1590",
@@ -3457,6 +2543,125 @@
             "category": "Protect"
         },
         {
+            "techniqueID": "T1584",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Alias Records"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1584.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Alias Records"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Alias records prevent dangling references by tightly coupling the life cycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource.  This control is effective for protecting DNS records that resolve to Azure resources but does not offer protection for records pointing to non-Azure resources, resulting in a Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to limit access to network infrastructure and resources that can be used to reshape traffic or otherwise produce MiTM conditions."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for this technique's sub-techniques resulting in an overall Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can mitigate Man-in-the-Middle attacks that manipulate network protocol data in transit."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
             "techniqueID": "T1210",
             "enabled": true,
             "showSubtechniques": false,
@@ -3536,6 +2741,801 @@
             "score_num": 50,
             "score_display": "Partial",
             "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end network DOS attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Prevents Denial of Service (DOS) against systems that would otherwise need to connect via an internet-traversing path (coverage partial, since doesn't apply to systems that must be directly exposed to the Internet)"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Designed to address multiple DDOS techniques including volumetric attacks."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline. It provides significant detection from most of this technique's sub-techniques and  procedure examples resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify \"random\" DNS occurences which can be associated with domain generation algorithm or Fast Flux sub-techniques.  Partial for coverage and accuracy (potential for false positive/benign).\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can potentially be used to forensically identify exfiltration via a DNS-based C2 channel."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1557.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for one of this technique's sub-techniques resulting in an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection against one sub-technique (Transmitted Data Manipulation)  of this technique while not providing protection for its remaining sub-techniques resulting in overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of data manipulation for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of a network sniffing attack for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control encrypts traffic traversing over untrusted networks which can prevent information from being gathered via network sniffing."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1572",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify protocol misuse/anomalies in DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
         }
     ],
     "gradient": {
