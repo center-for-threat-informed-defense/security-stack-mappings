@@ -7,7 +7,6 @@ from utils.utils import file_path, dir_path, chunkstring, get_project_root
 from prettytable import PrettyTable
 from pathlib import Path
 
-
 parser = argparse.ArgumentParser(description='Provides functionality related to querying and '
     'visualizing the data contained in mapping files.')
 subparsers = parser.add_subparsers(dest="subcommand", description="Specify the subcommand with -h option for help"
@@ -49,6 +48,8 @@ def subcommand(args=[], parent=subparsers):
         ' platform also.  This depends on visualizer support.', default=False, required=False, action="store_true"),
     argument('--include-html', help='When generating a visualization, if supported, generate an HTML version too.',
         default=False, required=False, action="store_true"),
+    argument('--mapping-db', help='Path to the mapping.db file to generate', default="mapping.db",
+        required=False),
     ])
 def visualize(args):
     """Build visualizations from mapping file(s)"""
@@ -66,6 +67,8 @@ def visualize(args):
                 'Specifying tags is mutually exclusive with --mapping-dir argument')
         if not args.title:
             raise argparse.ArgumentTypeError('Specifying tags requires the --title argument')
+        if not args.mapping_db:
+            raise argparse.ArgumentTypeError('Specifying tags requires the --mapping-db argument')
     if args.mapping_file:
         if not args.output:
             raise argparse.ArgumentTypeError(
@@ -74,6 +77,7 @@ def visualize(args):
     options["include-aggregates"] = False
     options["include-html"] = args.include_html
     if args.tag:
+        mapping_driver.set_mapping_db(args.mapping_db)
         mappings = mapping_driver.query_mapping_files(args.tag, args.relationship, None, None)
         mapping_files = [mapping.path for mapping in mappings]
         if not mapping_files:
