@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Alerts for Azure Cosmos DB,Advanced Threat Protection for Azure SQL Database,SQL Vulnerability Assessment",
+    "description": "Controls: Advanced Threat Protection for Azure SQL Database,SQL Vulnerability Assessment,Alerts for Azure Cosmos DB",
     "filters": {
         "platforms": [
             "Linux",
@@ -38,25 +38,6 @@
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Azure Cosmos DB"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's detection is specific to the Cosmos DB and therefore provides minimal overall detection coverage for Valid Accounts resulting in a Minimal score. A relevant alert is \"Access from an unusual location to a Cosmos DB account\"."
-                },
-                {
-                    "divider": true
-                },
                 {
                     "name": "control",
                     "value": "Advanced Threat Protection for Azure SQL Database"
@@ -91,18 +72,10 @@
                 {
                     "name": "comment",
                     "value": "n/a"
-                }
-            ],
-            "color": "#bf6bff",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1078.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "Alerts for Azure Cosmos DB"
@@ -117,11 +90,19 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control triggers an alert when there is a change in the access pattern to an Azure Cosmos account based on access from an unusual geographical location. False positives are fairly likely and misuse from a typical location is not covered, so score is Minimal. Relevant alert is \"Access from an unusual location to a Cosmos DB account\""
-                },
-                {
-                    "divider": true
-                },
+                    "value": "This control's detection is specific to the Cosmos DB and therefore provides minimal overall detection coverage for Valid Accounts resulting in a Minimal score. A relevant alert is \"Access from an unusual location to a Cosmos DB account\"."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
                 {
                     "name": "control",
                     "value": "Advanced Threat Protection for Azure SQL Database"
@@ -137,18 +118,10 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on logon events that are suspicious. This includes logins from unusual locations, logins from suspicious IP addresses, and users that do not commonly access the resource. These alerts may limit the ability of an attacker to utilize a valid cloud account to access and manipulate Azure databases. "
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1213",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "Alerts for Azure Cosmos DB"
@@ -163,11 +136,19 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control triggers an alert when an unusually large amount of data is extracted from/by an account compared to recent activity. False positives are fairly likely and extraction in quantities below the control's threshold is not detected, so score is Minimal. Neither of the sub-techniques are relevant in this context, since they are repository-specific.  Relevant alert is \"Unusual amount of data extracted from a Cosmos DB account\""
-                },
-                {
-                    "divider": true
-                },
+                    "value": "This control triggers an alert when there is a change in the access pattern to an Azure Cosmos account based on access from an unusual geographical location. False positives are fairly likely and misuse from a typical location is not covered, so score is Minimal. Relevant alert is \"Access from an unusual location to a Cosmos DB account\""
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1213",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
                 {
                     "name": "control",
                     "value": "Advanced Threat Protection for Azure SQL Database"
@@ -183,6 +164,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on extraction of a large amount of data to an unusual location. No documentation is provided on the logic for determining an unusual location."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Azure Cosmos DB"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control triggers an alert when an unusually large amount of data is extracted from/by an account compared to recent activity. False positives are fairly likely and extraction in quantities below the control's threshold is not detected, so score is Minimal. Neither of the sub-techniques are relevant in this context, since they are repository-specific.  Relevant alert is \"Unusual amount of data extracted from a Cosmos DB account\""
                 }
             ],
             "color": "#AEEEEE",
