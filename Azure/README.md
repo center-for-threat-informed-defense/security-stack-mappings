@@ -2,10 +2,15 @@
 Microsoft Azure Security Control Mappings to MITRE ATT&CK®
 ==========================================================
 
+
+These mappings of the Microsoft Azure Infrastructure as a Services (IaaS) security controls to MITRE ATT&CK® are designed to empower organizations with independent data on which native Azure security controls are most useful in defending against the adversary TTPs that they care about. These mappings are part of a collection of mappings of native product security controls to ATT&CK based on a common methodology, scoring rubric, data model, and tool set. This full set of resources is available on the Center’s project [page](https://ctid.mitre-engenuity.org/our-work/security-stack-mappings-azure/).
+
+[Aggregate Navigator Layer For All Controls](layers/platform.json) ([JSON](layers/platform.json))
+
+
 Contents
 ========
 
-* [Introduction](#introduction)
 * [Controls](#controls)
 	* [1. Adaptive Application Controls](#1-adaptive-application-controls)
 	* [2. Advanced Threat Protection for Azure SQL Database](#2-advanced-threat-protection-for-azure-sql-database)
@@ -77,12 +82,6 @@ Contents
 	* [19. Threat Hunting](#19-threat-hunting)
 	* [20. Windows](#20-windows)
 
-# Introduction
-
-
-These mappings of the Microsoft Azure Infrastructure as a Services (IaaS) security controls to MITRE ATT&CK® are designed to empower organizations with independent data on which native Azure security controls are most useful in defending against the adversary TTPs that they care about. These mappings are part of a collection of mappings of native product security controls to ATT&CK based on a common methodology, scoring rubric, data model, and tool set. This full set of resources is available on the Center’s project [page](https://ctid.mitre-engenuity.org/our-work/security-stack-mappings-azure/).
-
-[Aggregate Navigator Layer For All Controls](layers/platform.json) ([JSON](layers/platform.json))
 # Controls
 
 ## 1. Adaptive Application Controls

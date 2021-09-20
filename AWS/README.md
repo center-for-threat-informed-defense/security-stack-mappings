@@ -2,10 +2,15 @@
 Amazon Web Services Security Control Mappings to MITRE ATT&CK®
 ==============================================================
 
+
+These mappings of the Amazon Web Services (AWS) security controls to MITRE ATT&CK® are designed to empower organizations with independent data on which native AWS security controls are most useful in defending against the adversary TTPs that they care about. These mappings are part of a collection of mappings of native product security controls to ATT&CK based on a common methodology, scoring rubric, data model, and tool set. This full set of resources is available on the Center’s project [page](https://ctid.mitre-engenuity.org/our-work/security-stack-mappings-aws/).
+
+[Aggregate Navigator Layer For All Controls](layers/platform.json) ([JSON](layers/platform.json))
+
+
 Contents
 ========
 
-* [Introduction](#introduction)
 * [Controls](#controls)
 	* [1. AWS Artifact](#1-aws-artifact)
 	* [2. AWS Audit Manager](#2-aws-audit-manager)
@@ -50,12 +55,6 @@ Contents
 	* [11. Reports](#11-reports)
 	* [12. Storage](#12-storage)
 
-# Introduction
-
-
-These mappings of the Amazon Web Services (AWS) security controls to MITRE ATT&CK® are designed to empower organizations with independent data on which native AWS security controls are most useful in defending against the adversary TTPs that they care about. These mappings are part of a collection of mappings of native product security controls to ATT&CK based on a common methodology, scoring rubric, data model, and tool set. This full set of resources is available on the Center’s project [page](https://ctid.mitre-engenuity.org/our-work/security-stack-mappings-aws/).
-
-[Aggregate Navigator Layer For All Controls](layers/platform.json) ([JSON](layers/platform.json))
 # Controls
 
 ## 1. AWS Artifact
