@@ -1,0 +1,1228 @@
+{
+    "name": "AWS Network Firewall",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "The AWS Network Firewall provides a stateful network firewall and intrusion detection and prevention system (via Suricata) at the perimeter of virtual private clouds (VPCs). It is able to filter traffic going to and coming from an internet gateway, NAT gateway, VPN, or AWS  Direct Connect.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block malicious or unwanted traffic leveraging application layer protocols. Given this supports all sub-techniques, the mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block malicious or unwanted traffic leveraging application layer protocols. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block malicious or unwanted traffic leveraging application layer protocols. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block malicious or unwanted traffic leveraging application layer protocols. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block malicious or unwanted traffic leveraging application layer protocols. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from accessing resources such as cloud storage objects by implementing restrictions on which IP addresses and domains can access the resources (e.g., allow lists). However, since cloud storage objects are located outside the virtual private cloud where the AWS Network Firewall protects, the mapping is only given a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from carrying out denial of service attacks by implementing restrictions on which IP addresses and domains can access the resources (e.g., allow lists) as well as which protocol traffic is permitted. That is, the AWS Network Firewall could block the source of the denial of service attack. This mapping is given a score of Partial because it only supports a subset of the sub-techniques (3 of 4) and because the source of the attack would have to be known before rules could be put in place to protect against it. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from carrying out denial of service attacks by implementing restrictions on which IP addresses and domains can access the resources (e.g., allow lists) as well as which protocol traffic is permitted. That is, the AWS Network Firewall could block the source of the denial of service attack. This mapping is given a score of Partial because the source of the attack would have to be known before rules could be put in place to protect against it. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from carrying out denial of service attacks by implementing restrictions on which IP addresses and domains can access the resources (e.g., allow lists) as well as which protocol traffic is permitted. That is, the AWS Network Firewall could block the source of the denial of service attack. This mapping is given a score of Partial because the source of the attack would have to be known before rules could be put in place to protect against it. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from carrying out denial of service attacks by implementing restrictions on which IP addresses and domains can access the resources (e.g., allow lists) as well as which protocol traffic is permitted. That is, the AWS Network Firewall could block the source of the denial of service attack. This mapping is given a score of Partial because the source of the attack would have to be known before rules could be put in place to protect against it. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from accessing resources from which to exfiltrate data as well as prevent resources from communicating with known-bad IP addresses and domains that might be used to receive exfiltrated data. This mapping is given a score of Partial because the known-bad IP addresses and domains would need to be known in advance and AWS Network Firewall wouldn't have deep packet inspection visibility into encrypted non-C2 protocols. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from accessing resources from which to exfiltrate data as well as prevent resources from communicating with known-bad IP addresses and domains that might be used to receive exfiltrated data. This mapping is given a score of Partial because the known-bad IP addresses and domains would need to be known in advance and AWS Network Firewall wouldn't have deep packet inspection visibility into encrypted non-C2 protocols. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from accessing resources from which to exfiltrate data as well as prevent resources from communicating with known-bad IP addresses and domains that might be used to receive exfiltrated data. This mapping is given a score of Partial because the known-bad IP addresses and domains would need to be known in advance and AWS Network Firewall wouldn't have deep packet inspection visibility into encrypted non-C2 protocols. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from accessing resources from which to exfiltrate data as well as prevent resources from communicating with known-bad IP addresses and domains that might be used to receive exfiltrated data. This mapping is given a score of Partial because the known-bad IP addresses and domains would need to be known in advance and AWS Network Firewall wouldn't have deep packet inspection visibility into encrypted non-C2 protocols. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1187",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block SMB and WebDAV traffic from exiting the network which can protect against adversaries from forcing authentication over SMB and WebDAV. This mapping is given a score of Significant because AWS Network Firewall can block this traffic or restrict where it can go to. "
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block the sources of smaller-scale network denial of service attacks. While AWS Network Firewall supports both all sub-techniques (2 of 2), this mapping is given a score of Minimal because often times it is necessary to block the traffic at an Internet Service Provider or Content Provider Network level. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block the sources of smaller-scale network denial of service attacks. This mapping is given a score of Minimal because often times it is necessary to block the traffic at an Internet Service Provider or Content Provider Network level. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block the sources of smaller-scale network denial of service attacks. This mapping is given a score of Minimal because often times it is necessary to block the traffic at an Internet Service Provider or Content Provider Network level. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1095",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block malicious or unwanted traffic leveraging non-application layer protocols. Given this, the mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1572",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block traffic from known bad IP addresses and domains which could protect against protocol tunneling by adversaries. This mapping is given a score of partial because it only blocks known bad IP addresses and domains and does not protect against unknown ones."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block traffic from known bad IP addresses and to known bad domains that serve as proxies for adversaries. This mapping is given a score of partial because it only supports a subset of the sub-techniques (2 of 4) and because it only blocks known bad IP addresses and domains and does not protect against unknown ones."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block traffic from known bad IP addresses and to known bad domains that serve as proxies for adversaries. This mapping is given a score of partial because it only blocks known bad IP addresses and domains and does not protect against unknown ones."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block traffic from known bad IP addresses and to known bad domains that serve as proxies for adversaries. This mapping is given a score of partial because it only blocks known bad IP addresses and domains and does not protect against unknown ones."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1219",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to only allow remote access software from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because even though it can restrict remote access software traffic from untrusted hosts, it cannot protect against an adversary using a trusted host that is permitted to use remote access software as part of an attack."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to only allow remote services from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because even though it can restrict remote services traffic from untrusted hosts for most of the sub-techniques (5 of 6), it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to only allow remote services from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because even though it can restrict remote services traffic from untrusted hosts, it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to only allow remote services from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because even though it can restrict remote services traffic from untrusted hosts, it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to only allow remote services from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because even though it can restrict remote services traffic from untrusted hosts, it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to only allow remote services from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because even though it can restrict remote services traffic from untrusted hosts, it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to only allow remote services from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because even though it can restrict remote services traffic from untrusted hosts, it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1205",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block traffic to unused ports from reaching hosts on the network which may help protect against traffic signaling from external systems. This mapping is given a score of partial because the AWS Network Firewall does not do anything to protect against traffic signaling among hosts within the network and behind the firewall."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1205.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block traffic to unused ports from reaching hosts on the network which may help protect against port knocking from external systems. This mapping is given a score of partial because the AWS Network Firewall does not do anything to protect against port knocking among hosts within the network and behind the firewall."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block communication with known fallback channels by filtering based on known bad IP addresses and domains. This mapping is given a score of Partial because it only protects against known fallback channels and not channels yet to be identified. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1104",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block communication with known command and control channels by filtering based on known bad IP addresses and domains. This mapping is given a score of Partial because it only protects against known channels and not channels yet to be identified. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against network service scanning. This mapping is given a score of Partial because it only protects against network service scanning attacks that originate from outside the firewall and not from within network protected by the firewall. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against active scanning. While this mapping supports al sub-techniques (2 of 2), this mapping is given a score of Partial because it only protects against active scanning attacks that originate from outside the firewall and not from within network protected by the firewall. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against active scanning. This mapping is given a score of Partial because it only protects against active scanning attacks that originate from outside the firewall and not from within network protected by the firewall. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against active scanning. This mapping is given a score of Partial because it only protects against active scanning attacks that originate from outside the firewall and not from within network protected by the firewall. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1571",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict which protocols and port numbers are allowed through the firewall and prevent adversaries from using non-standard ports. As a result, this mapping is given a score of Significant. "
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block traffic over known TFTP ports. This mapping is given a score of Minimal because AWS Network Firewall only supports a subset of sub-techniques (1 of 5) and it does not do anything to protect against TFTP booting among hosts within the network and behind the firewall."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1542.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block traffic over known TFTP ports. This mapping is given a score of Partial because AWS Network Firewall does not do anything to protect against TFTP booting among hosts within the network and behind the firewall."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from accessing resources from which to exfiltrate data as well as prevent resources from communicating with known-bad IP addresses and domains that might be used to receive exfiltrated data. This mapping is given a score of Partial because the known-bad IP addresses and domains would need to be known in advance. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1018",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to block adversaries from discovering endpoints behind the firewall. This mapping is given a score of Partial because it does not protect against discovering endpoints within the network and behind the firewall. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to only allow certain remote services to be available. Futhermore, it can enforce restrictions such that remote services are only from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because while it can limit which external remote services and hosts can be used to access the network, it cannot protect against the misuse of legitimate external remote services (e.g., it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack)."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against adversaries gathering information about the network. While this mapping supports most of the sub-techniques (4 of 6), it is only given a score of Partial because it only protects against attempts to gather information via scanning that originate from outside the firewall and it does not protect against phishing. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against adversaries gathering information about the network. This mapping is given a score of Partial because it only protects against attempts to gather information via scanning that originate from outside the firewall and it does not protect against phishing. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against adversaries gathering information about the network. This mapping is given a score of Partial because it only protects against attempts to gather information via scanning that originate from outside the firewall and it does not protect against phishing. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against adversaries gathering information about the network. This mapping is given a score of Partial because it only protects against attempts to gather information via scanning that originate from outside the firewall and it does not protect against phishing. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS Network Firewall has the ability to pass, drop, or alert on traffic based on the network protocol as well as perform deep packet inspection on the payload. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against adversaries gathering information about the network. This mapping is given a score of Partial because it only protects against attempts to gather information via scanning that originate from outside the firewall and it does not protect against phishing. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

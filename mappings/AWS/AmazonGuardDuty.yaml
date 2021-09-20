@@ -1,0 +1,633 @@
+version: 1
+ATT&CK version: 9
+creation date: 04/19/2021
+name: Amazon GuardDuty
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+description: >-
+  Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity
+  and unauthorized behavior to protect your AWS accounts, workloads, and data stored in Amazon S3.
+  The service uses machine learning, anomaly detection, and integrated threat intelligence to
+  identify and prioritize potential threats. GuardDuty analyzes tens of billions of events across
+  multiple AWS data sources, such as AWS CloudTrail event logs, Amazon VPC Flow Logs, and DNS logs.
+techniques:
+  - id: T1595
+    name: Active Scanning
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Documentation states that the Service can flag such attempts: Reconnaissance -- Activity
+          suggesting reconnaissance by an attacker, such as unusual API activity, intra-VPC port
+          scanning, unusual patterns of failed login requests, or unblocked port probing from a
+          known bad IP. Note: This is from the perspective of the resource running in the AWS
+          account. Meaning GuardDuty has several finding types that flag events that take place via
+          a resource (e.g., EC2, IAM, S3).
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1595.001
+            name: Scanning IP Blocks
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              There are a few finding types offered by GuardDuty that flag this behavior:
+              Recon:EC2/PortProbeEMRUnprotectedPort, Recon:EC2/PortProbeUnprotectedPort,
+              Recon:EC2/Portscan, Impact:EC2/PortSweep.
+      - sub-techniques:
+          - id: T1595.002
+            name: Vulnerability Scanning
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              There are finding types that show when an EC2 instance is probing other AWS resources
+              for information. Recon:EC2/PortProbeEMRUnprotectedPort,
+              Recon:EC2/PortProbeUnprotectedPort, Recon:EC2/Portscan, Impact:EC2/PortSweep
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: 'There is a GuardDuty Finding that flags this behavior: Trojan:EC2/DriveBySourceTraffic!DNS'
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          There is a GuardDuty finding type that captures when vulnerable publicly facing resources
+          are leveraged to capture data not intended to be viewable (e.g., IAM credentials
+          associated with the resource).
+
+          UnauthorizedAccess:EC2/MetadataDNSRebind - This finding type only detects
+          MetadataDNSRebind and is more focused on the EC2 instance and not the application running
+          on the instance itself resulting in Minimal coverage.
+  - id: T1566
+    name: Phishing
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          GuardDuty implements a finding type that flags/alerts when an EC2 service queries a Domain
+          known to be tied to a phishing attack.
+
+          Trojan:EC2/PhishingDomainRequest!DNS
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1566.001
+            name: Spearphishing Attachment
+          - id: T1566.002
+            name: Spearphishing Link
+          - id: T1566.003
+            name: Spearphishing via Service
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              The domain associated with phishing can be delivered by various means these
+              sub-techniques are added to the mapping and scoring of this Security service.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          GuardDuty implements a finding that flags occurrences unattended behavior from an IAM User
+          in the Account.
+
+          PenTest:IAMUser/KaliLinux, PenTest:IAMUser/ParrotLinux, PenTest:IAMUser/PentooLinux,
+          Policy:IAMUser/RootCredentialUsage, PrivilegeEscalation:IAMUser/AdministrativePermissions,
+          UnauthorizedAccess:IAMUser/ConsoleLogin, UnauthorizedAccess:IAMUser/ConsoleLoginSuccess.B,
+          UnauthorizedAccess:IAMUser/MaliciousIPCaller,
+          UnauthorizedAccess:IAMUser/MaliciousIPCaller.Custom,
+          UnauthorizedAccess:IAMUser/TorIPCaller, Policy:S3/AccountBlockPublicAccessDisabled,
+          Policy:S3/BucketAnonymousAccessGranted, Policy:S3/BucketBlockPublicAccessDisabled,
+          Policy:S3/BucketPublicAccessGranted, CredentialAccess:IAMUser/AnomalousBehavior,
+          DefenseEvasion:IAMUser/AnomalousBehavior, Discovery:IAMUser/AnomalousBehavior,
+          Exfiltration:IAMUser/AnomalousBehavior, Impact:IAMUser/AnomalousBehavior,
+          Persistence:IAMUser/AnomalousBehavior, Recon:IAMUser/MaliciousIPCaller,
+          Recon:IAMUser/MaliciousIPCaller.Custom,
+          UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.001
+            name: Default Accounts
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              Listed findings above flag instances where there are indications of account compromise.
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          GuardDuty has a finding types that flag events where an adversary may have compromised an
+          AWS IAM User.  Finding Type: Persistence:IAMUser/AnomalousBehavior
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.001
+            name: Additional Cloud Credentials
+          - id: T1098.004
+            name: SSH Authorized Keys
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              The Persistence:IAMUser/AnomalousBehavior finding can detect anomalous API requests that can
+              be used by adversaries to maintain persistence such as CreateAccessKey, ImportKeyPair.
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          GuardDuty flags the following finding type DefenseEvasion:IAMUser/AnomalousBehavior as a
+          defense evasion technique. It looks for API calls that delete, disable, or stop
+          operations, such as, DeleteFlowLogs, DisableAlarmActions, or StopLogging. The following
+          Finding types are examples:
+
+          Stealth:IAMUser/CloudTrailLoggingDisabled Stealth:IAMUser/PasswordPolicyChange
+          Stealth:S3/ServerAccessLoggingDisabled
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1562.008
+            name: Disable Cloud Logs
+          - id: T1562.006
+            name: Indicator Blocking
+          - id: T1562.001
+            name: Disable or Modify Tools
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              The following GuardDuty findings provide indicators of malicious activity in defense measures:
+
+              Stealth:IAMUser/CloudTrailLoggingDisabled Stealth:IAMUser/PasswordPolicyChange
+              Stealth:S3/ServerAccessLoggingDisabled Impact:S3/MaliciousIPCaller Exfiltration:S3/MaliciousIPCaller
+              Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux
+              PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom
+              UnauthorizedAccess:S3/TorIPCaller
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Finding types such as UnauthorizedAccess:EC2/RDPBruteForce, UnauthorizedAccess:EC2/SSHBruteForce,
+          Impact:EC2/WinRMBruteForce, and Stealth:IAMUser/PasswordPolicyChange can detect when an EC2 instance
+          may be involved in a brute force attack aimed at obtaining passwords.  Due to the detection being
+          limited to a specific set of application protocols, its coverage is Minimal resulting in a Minimal score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              Due to the detection being limited to a specific set of application protocols, its
+              coverage is Minimal resulting in a Minimal score.
+  - id: T1552
+    name: Unsecured Credentials
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control provides minimal to partial coverage for a minority of this technique's
+          sub-techniques, and without specific coverage for its procedures, resulting in an overall
+          score of Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1552.001
+            name: Credentials In Files
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              The following finding types in Amazon GuardDuty can be used to identify potentially
+              malicious interactions with S3 which may lead to the compromise of any credential files
+              stored in S3:
+              Impact:S3/MaliciousIPCaller
+              Exfiltration:S3/MaliciousIPCaller
+              Exfiltration:S3/ObjectRead.Unusual
+              PenTest:S3/KaliLinux
+              PenTest:S3/ParrotLinux
+              PenTest:S3/PentooLinux
+              UnauthorizedAccess:S3/MaliciousIPCaller.Custom
+              UnauthorizedAccess:S3/TorIPCaller
+
+              The score is capped at Partial since the findings only apply to credential files stored
+              within S3 buckets and only certain types of suspicious behaviors.
+      - sub-techniques:
+          - id: T1552.005
+            name: Cloud Instance Metadata API
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              The UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration finding type flags attempts
+              to run AWS API operations from a host outside of EC2 using temporary AWS credentials that
+              were created on an EC2 instance in your AWS environment. This may indicate that the
+              temporary credentials have been compromised. Score is capped at Minimal because external
+              use is required for detection.
+  - id: T1580
+    name: Cloud Infrastructure Discovery
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding types flag events that are linked to Discovery techniques
+          and can be used to capture events where a malicious user may be searching through the account
+          looking for available resources. The finding types are also used to flag certain signatures of
+          running services to detect malicious user activities from commonly used pentest operating systems.
+
+          Discovery:IAMUser/AnomalousBehavior Discovery:S3/MaliciousIPCaller
+          Discovery:S3/MaliciousIPCaller.Custom Discovery:S3/TorIPCaller PenTest:IAMUser/KaliLinux
+          PenTest:IAMUser/ParrotLinux PenTest:IAMUser/PentooLinux PenTest:S3/KaliLinux
+          PenTest:S3/ParrotLinux PenTest:S3/PentooLinux
+  - id: T1526
+    name: Cloud Service Discovery
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          GuardDuty has the following finding types to flag events where there is an attempt to
+          discover information about resources on the account.
+
+          Recon:IAMUser/MaliciousIPCaller Recon:IAMUser/MaliciousIPCaller.Custom
+          Recon:IAMUser/TorIPCaller
+  - id: T1046
+    name: Network Service Scanning
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding types reflect flagged events where there is an attempt to
+          get a list of services running on a remote host.
+
+          Recon:EC2/PortProbeEMRUnprotectedPort Recon:EC2/PortProbeUnprotectedPort
+          Recon:EC2/Portscan Impact:EC2/PortSweep
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding types flag events where adversaries may have access data
+          objects from improperly secured cloud storage.
+
+          UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller
+          Impact:S3/MaliciousIPCaller Exfiltration:S3/MaliciousIPCaller
+          Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux
+          PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom
+          UnauthorizedAccess:S3/TorIPCaller
+  - id: T1071
+    name: Application Layer Protocol
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >
+          GuardDuty flags events matching the following finding types that relate to adversaries
+          attempting to communicate using application layer protocols to avoid detection.
+
+          UnauthorizedAccess:EC2/MaliciousIPCaller.Custom Trojan:EC2/DropPoint!DNS
+          Trojan:EC2/DropPoint Backdoor:EC2/C&CActivity.B!DNS Trojan:EC2/BlackholeTraffic
+          Trojan:EC2/BlackholeTraffic!DNS
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1071.001
+            name: Web Protocols
+          - id: T1071.002
+            name: File Transfer Protocols
+          - id: T1071.003
+            name: Mail Protocols
+          - id: T1071.004
+            name: DNS
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              GuardDuty flags events matching the following finding types that relate to adversaries
+              attempting to communicate using application layer protocols to avoid detection.
+
+              UnauthorizedAccess:EC2/MaliciousIPCaller.Custom Backdoor:EC2/C&CActivity.B
+              Backdoor:EC2/C&CActivity.B!DNS Trojan:EC2/BlackholeTraffic
+              Trojan:EC2/BlackholeTraffic!DNS Trojan:EC2/DropPoint Trojan:EC2/DropPoint!DNS
+              Backdoor:EC2/C&CActivity.B Impact:EC2/MaliciousDomainRequest.Reputation
+              Impact:EC2/SuspiciousDomainRequest.Reputation
+  - id: T1568
+    name: Dynamic Resolution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          GuardDuty has the following finding types to flag events where adversaries may dynamically
+          establish connections to command-and-control infrastructure to evade common detections and
+          remediations.
+
+          Trojan:EC2/DGADomainRequest.B Trojan:EC2/DGADomainRequest.C!DNS
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1568.002
+            name: Domain Generation Algorithms
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              GuardDuty has the following finding types to flag events where adversaries may
+              dynamically establish connections to command-and-control infrastructure to evade
+              common detections and remediations.
+
+              Trojan:EC2/DGADomainRequest.B Trojan:EC2/DGADomainRequest.C!DNS
+  - id: T1571
+    name: Non-Standard Port
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          GuardDuty has the following finding type to flag events where adversaries may communicate
+          using a protocol and port paring that are typically not associated.
+
+          Behavior:EC2/NetworkPortUnusual
+  - id: T1090
+    name: Proxy
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          The following GuardDuty finding type flags events where adversaries may use a connection
+          proxy to direct network traffic between systems or act as an intermediary for network
+          communications to a command-and-control server to avoid direct connections to their
+          infrastructure.
+
+          UnauthorizedAccess:EC2/TorClient UnauthorizedAccess:EC2/TorRelay
+
+          Due to the detection being limited to a specific type of proxy, Tor, its coverage is
+          Minimal resulting in a Minimal score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1090.001
+            name: Internal Proxy
+          - id: T1090.002
+            name: External Proxy
+          - id: T1090.003
+            name: Multi-hop Proxy
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              The UnauthorizedAccess:EC2/TorClient GuardDuty finding type flags events where adversaries may
+              use a connection proxy to direct network traffic between systems or act as an intermediary
+              for network communications to a command-and-control server to avoid direct connections
+              to their infrastructure.
+
+              Due to the detection being limited to a specific type of proxy, Tor, its coverage is Minimal
+              resulting in a Minimal score.
+  - id: T1020
+    name: Automated Exfiltration
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding type flags events that may indicate adversaries attempting
+          to exfiltrate data, such as sensitive documents, through the use of automated processing
+          after being gathered during Collection.
+
+          Behavior:EC2/TrafficVolumeUnusual Exfiltration:S3/MaliciousIPCaller
+          Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux
+          PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom
+          UnauthorizedAccess:S3/TorIPCaller
+  - id: T1029
+    name: Scheduled Transfer
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          The following GuardDuty finding type flags events that may indicate adversaries attempting
+          to exfiltrate data, such as sensitive documents, through the use of automated processing
+          after being gathered during Collection.
+
+          Behavior:EC2/TrafficVolumeUnusual
+
+          Accuracy and Coverage is unknown, as this finding flags traffic volume that differs from a
+          baseline.
+  - id: T1041
+    name: Exfiltration Over C2 Channel
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          The following GuardDuty finding type flags events that may indicate adversaries attempting
+          to exfiltrate data, such as sensitive documents.
+
+          Behavior:EC2/TrafficVolumeUnusual
+
+          Accuracy and Coverage is unknown, as this finding flags traffic volume that differs from a
+          baseline.
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding type flags events where adversaries may steal data by
+          exfiltrating it over a different protocol than that of the existing command-and-control
+          channel.
+
+          Trojan:EC2/DNSDataExfiltration Behavior:EC2/TrafficVolumeUnusual
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1048.003
+            name: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              The following GuardDuty finding type flags events where adversaries may steal data by
+              exfiltrating it over a different protocol than that of the existing command and
+              control channel.
+
+              Trojan:EC2/DNSDataExfiltration Behavior:EC2/TrafficVolumeUnusual
+  - id: T1567
+    name: Exfiltration Over Web Service
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following finding types in GuardDuty flag events where adversaries may use an
+          existing, legitimate external Web service to exfiltrate data rather than their primary
+          command-and-control channel.
+
+          Exfiltration:S3/ObjectRead.Unusual Exfiltration:S3/MaliciousIPCaller
+          Exfiltration:IAMUser/AnomalousBehavior Behavior:EC2/TrafficVolumeUnusual
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1567.001
+            name: Exfiltration to Code Repository
+          - id: T1567.002
+            name: Exfiltration to Cloud Storage
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              The following finding types in GuardDuty flag events where adversaries may use an
+              existing, legitimate external Web service to exfiltrate data rather than their primary
+              command-and-control channel.
+
+              Exfiltration:S3/ObjectRead.Unusual Exfiltration:S3/MaliciousIPCaller
+              Exfiltration:IAMUser/AnomalousBehavior Behavior:EC2/TrafficVolumeUnusual
+  - id: T1531
+    name: Account Access Removal
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty Finding type flags events where adversaries may interrupt
+          availability of system and network resources by inhibiting access to accounts utilized by
+          legitimate users.
+
+          Impact:IAMUser/AnomalousBehavior
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding type flags events where adversaries may destroy data and
+          files on specific systems or in large numbers on a network to interrupt availability to
+          systems, services, and network resources.
+
+          Impact:S3/MaliciousIPCaller, Impact:IAMUser/AnomalousBehavior
+          Stealth:S3/ServerAccessLoggingDisabled UnauthorizedAccess:S3/MaliciousIPCaller.Custom
+          UnauthorizedAccess:S3/TorIPCaller PenTest:S3/PentooLinux PenTest:S3/ParrotLinux
+          PenTest:S3/KaliLinux
+  - id: T1486
+    name: Data Encrypted for Impact
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding type flags events where adversaries may encrypt data on
+          target systems or on large numbers of systems in a network to interrupt availability to
+          system and network resources.
+
+          Impact:S3/MaliciousIPCaller Stealth:S3/ServerAccessLoggingDisabled
+          UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller
+          PenTest:S3/PentooLinux PenTest:S3/ParrotLinux PenTest:S3/KaliLinux
+  - id: T1565
+    name: Data Manipulation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding type flags events where adversaries may insert, delete, or
+          manipulate data in order to manipulate external outcomes or hide activity.
+
+          Impact:S3/MaliciousIPCaller
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1565.001
+            name: Stored Data Manipulation
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              The Impact:S3/MaliciousIPCaller finding type is looking for API calls commonly associated
+              with Impact tactic of techniques where an adversary is trying to manipulate, interrupt, or
+              destroy data within your AWS environment.
+  - id: T1498
+    name: Network Denial of Service
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following finding types in GuardDuty flag events where adversaries may perform Network
+          Denial of Service (DoS) attacks to degrade or block the availability of targeted resources
+          to users.
+
+          Backdoor:EC2/DenialOfService.UdpOnTcpPorts Backdoor:EC2/DenialOfService.UnusualProtocol
+          Backdoor:EC2/DenialOfService.Udp Backdoor:EC2/DenialOfService.Tcp
+          Backdoor:EC2/DenialOfService.Dns
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1498.001
+            name: Direct Network Flood
+          - id: T1498.002
+            name: Reflection Amplification
+        scores:
+          - category: Detect
+            value: Partial
+            comments: >-
+              The following finding types in GuardDuty flag events where adversaries may perform
+              Network Denial of Service (DoS) attacks to degrade or block the availability of
+              targeted resources to users.
+
+              Backdoor:EC2/DenialOfService.UdpOnTcpPorts
+              Backdoor:EC2/DenialOfService.UnusualProtocol Backdoor:EC2/DenialOfService.Udp
+              Backdoor:EC2/DenialOfService.Tcp Backdoor:EC2/DenialOfService.Dns
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          The following GuardDuty finding types flag events where adversaries may leverage the
+          resources of co-opted systems in order to solve resource intensive problems which may
+          impact system and/or hosted service availability.
+
+          CryptoCurrency:EC2/BitcoinTool.B CryptoCurrency:EC2/BitcoinTool.B!DNS
+          Impact:EC2/BitcoinDomainRequest.Reputation UnauthorizedAccess:EC2/TorRelay
+  - id: T1491
+    name: Defacement
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          GuardDuty provides multiple finding types that flag malicious activity against resources.
+          These findings focus on API calls that look suspicious and although they do not flag events
+          such as Defacement specifically, it can be inferred that these findings can result in mitigating
+          this technique's negative impact. With this assumption the score is capped at Partial. 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1491.002
+            name: External Defacement
+          - id: T1491.001
+            name: Internal Defacement
+        scores:
+          - category: Detect
+            value: Partial
+            comments: |-
+              The following finding types can be used to detect behavior that can lead to the defacement of
+              cloud resources:
+              Impact:S3/MaliciousIPCaller
+              Exfiltration:S3/MaliciousIPCaller
+              Exfiltration:S3/ObjectRead.Unusual
+              PenTest:S3/KaliLinux
+              PenTest:S3/ParrotLinux
+              PenTest:S3/PentooLinux
+              UnauthorizedAccess:S3/MaliciousIPCaller.Custom
+              UnauthorizedAccess:S3/TorIPCaller
+comments: >-
+  Scores for this service are capped at Partial due to limited coverage and accuracy information.
+
+  The temporal factor for this control is consistent: the first instance of a finding taking place
+  is alerted within 5 minutes of the event occurring. After that any subsequent events can be
+  customized to be reported at 15 minutes, 1 hour, or the default of 6 hours.
+
+  The following findings were not mappable:
+    Backdoor:EC2/Spambot
+    Impact:EC2/AbusedDomainRequest.Reputation
+    InitialAccess:IAMUser/AnomalousBehavior
+references:
+  - https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-ec2.html#recon-ec2-portscan
+  - https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html

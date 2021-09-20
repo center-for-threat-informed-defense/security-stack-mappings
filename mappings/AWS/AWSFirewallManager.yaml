@@ -1,0 +1,23 @@
+version: 1
+ATT&CK version: 9
+creation date: 07/12/2021
+name: AWS Firewall Manager
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+  - Network
+  - Not Mappable
+description: >-
+  AWS Firewall Manager is a security management service that allows you to configure and manage
+  rules and security groups for AWS WAF, AWS Shield, AWS VPC, AWS Network Firewall, and Amazon Route
+  53 Resolvers DNS Firewall across multiple AWS accounts and resources.  
+techniques: []
+comments: >-
+  This control was not mapped because AWS Firewall Manager is simply a management service for other
+  AWS security services. It does not inherently protect against any ATT&CK (sub-)techniques. All
+  protections against ATT&CK (sub-)techniques are provided by the lower-level services that it manages
+  (e.g., AWS WAF, AWS Network Firewall, etc.).  This is evident by the fact that to use firewall
+  rules or security groups, they must first be configured in the respective lower-level services. 
+references:
+  - 'https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html'
