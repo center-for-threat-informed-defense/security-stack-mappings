@@ -1,0 +1,1527 @@
+{
+    "name": "Amazon GuardDuty",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts, workloads, and data stored in Amazon S3. The service uses machine learning, anomaly detection, and integrated threat intelligence to identify and prioritize potential threats. GuardDuty analyzes tens of billions of events across multiple AWS data sources, such as AWS CloudTrail event logs, Amazon VPC Flow Logs, and DNS logs.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1595",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Documentation states that the Service can flag such attempts: Reconnaissance -- Activity suggesting reconnaissance by an attacker, such as unusual API activity, intra-VPC port scanning, unusual patterns of failed login requests, or unblocked port probing from a known bad IP. Note: This is from the perspective of the resource running in the AWS account. Meaning GuardDuty has several finding types that flag events that take place via a resource (e.g., EC2, IAM, S3)."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1595.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "There are a few finding types offered by GuardDuty that flag this behavior: Recon:EC2/PortProbeEMRUnprotectedPort, Recon:EC2/PortProbeUnprotectedPort, Recon:EC2/Portscan, Impact:EC2/PortSweep."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "There are finding types that show when an EC2 instance is probing other AWS resources for information. Recon:EC2/PortProbeEMRUnprotectedPort, Recon:EC2/PortProbeUnprotectedPort, Recon:EC2/Portscan, Impact:EC2/PortSweep"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1189",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "There is a GuardDuty Finding that flags this behavior: Trojan:EC2/DriveBySourceTraffic!DNS"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "There is a GuardDuty finding type that captures when vulnerable publicly facing resources are leveraged to capture data not intended to be viewable (e.g., IAM credentials associated with the resource).\nUnauthorizedAccess:EC2/MetadataDNSRebind - This finding type only detects MetadataDNSRebind and is more focused on the EC2 instance and not the application running on the instance itself resulting in Minimal coverage."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty implements a finding type that flags/alerts when an EC2 service queries a Domain known to be tied to a phishing attack.\nTrojan:EC2/PhishingDomainRequest!DNS"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The domain associated with phishing can be delivered by various means these sub-techniques are added to the mapping and scoring of this Security service."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The domain associated with phishing can be delivered by various means these sub-techniques are added to the mapping and scoring of this Security service."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The domain associated with phishing can be delivered by various means these sub-techniques are added to the mapping and scoring of this Security service."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty implements a finding that flags occurrences unattended behavior from an IAM User in the Account.\nPenTest:IAMUser/KaliLinux, PenTest:IAMUser/ParrotLinux, PenTest:IAMUser/PentooLinux, Policy:IAMUser/RootCredentialUsage, PrivilegeEscalation:IAMUser/AdministrativePermissions, UnauthorizedAccess:IAMUser/ConsoleLogin, UnauthorizedAccess:IAMUser/ConsoleLoginSuccess.B, UnauthorizedAccess:IAMUser/MaliciousIPCaller, UnauthorizedAccess:IAMUser/MaliciousIPCaller.Custom, UnauthorizedAccess:IAMUser/TorIPCaller, Policy:S3/AccountBlockPublicAccessDisabled, Policy:S3/BucketAnonymousAccessGranted, Policy:S3/BucketBlockPublicAccessDisabled, Policy:S3/BucketPublicAccessGranted, CredentialAccess:IAMUser/AnomalousBehavior, DefenseEvasion:IAMUser/AnomalousBehavior, Discovery:IAMUser/AnomalousBehavior, Exfiltration:IAMUser/AnomalousBehavior, Impact:IAMUser/AnomalousBehavior, Persistence:IAMUser/AnomalousBehavior, Recon:IAMUser/MaliciousIPCaller, Recon:IAMUser/MaliciousIPCaller.Custom, UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Listed findings above flag instances where there are indications of account compromise."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Listed findings above flag instances where there are indications of account compromise."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty has a finding types that flag events where an adversary may have compromised an AWS IAM User.  Finding Type: Persistence:IAMUser/AnomalousBehavior"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Persistence:IAMUser/AnomalousBehavior finding can detect anomalous API requests that can be used by adversaries to maintain persistence such as CreateAccessKey, ImportKeyPair."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Persistence:IAMUser/AnomalousBehavior finding can detect anomalous API requests that can be used by adversaries to maintain persistence such as CreateAccessKey, ImportKeyPair."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty flags the following finding type DefenseEvasion:IAMUser/AnomalousBehavior as a defense evasion technique. It looks for API calls that delete, disable, or stop operations, such as, DeleteFlowLogs, DisableAlarmActions, or StopLogging. The following Finding types are examples:\nStealth:IAMUser/CloudTrailLoggingDisabled Stealth:IAMUser/PasswordPolicyChange Stealth:S3/ServerAccessLoggingDisabled"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty findings provide indicators of malicious activity in defense measures:\nStealth:IAMUser/CloudTrailLoggingDisabled Stealth:IAMUser/PasswordPolicyChange Stealth:S3/ServerAccessLoggingDisabled Impact:S3/MaliciousIPCaller Exfiltration:S3/MaliciousIPCaller Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty findings provide indicators of malicious activity in defense measures:\nStealth:IAMUser/CloudTrailLoggingDisabled Stealth:IAMUser/PasswordPolicyChange Stealth:S3/ServerAccessLoggingDisabled Impact:S3/MaliciousIPCaller Exfiltration:S3/MaliciousIPCaller Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty findings provide indicators of malicious activity in defense measures:\nStealth:IAMUser/CloudTrailLoggingDisabled Stealth:IAMUser/PasswordPolicyChange Stealth:S3/ServerAccessLoggingDisabled Impact:S3/MaliciousIPCaller Exfiltration:S3/MaliciousIPCaller Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Finding types such as UnauthorizedAccess:EC2/RDPBruteForce, UnauthorizedAccess:EC2/SSHBruteForce, Impact:EC2/WinRMBruteForce, and Stealth:IAMUser/PasswordPolicyChange can detect when an EC2 instance may be involved in a brute force attack aimed at obtaining passwords.  Due to the detection being limited to a specific set of application protocols, its coverage is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Due to the detection being limited to a specific set of application protocols, its coverage is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Due to the detection being limited to a specific set of application protocols, its coverage is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Due to the detection being limited to a specific set of application protocols, its coverage is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal to partial coverage for a minority of this technique's sub-techniques, and without specific coverage for its procedures, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types in Amazon GuardDuty can be used to identify potentially malicious interactions with S3 which may lead to the compromise of any credential files stored in S3: Impact:S3/MaliciousIPCaller Exfiltration:S3/MaliciousIPCaller Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller\nThe score is capped at Partial since the findings only apply to credential files stored within S3 buckets and only certain types of suspicious behaviors."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration finding type flags attempts to run AWS API operations from a host outside of EC2 using temporary AWS credentials that were created on an EC2 instance in your AWS environment. This may indicate that the temporary credentials have been compromised. Score is capped at Minimal because external use is required for detection."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1580",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding types flag events that are linked to Discovery techniques and can be used to capture events where a malicious user may be searching through the account looking for available resources. The finding types are also used to flag certain signatures of running services to detect malicious user activities from commonly used pentest operating systems.\nDiscovery:IAMUser/AnomalousBehavior Discovery:S3/MaliciousIPCaller Discovery:S3/MaliciousIPCaller.Custom Discovery:S3/TorIPCaller PenTest:IAMUser/KaliLinux PenTest:IAMUser/ParrotLinux PenTest:IAMUser/PentooLinux PenTest:S3/KaliLinux PenTest:S3/ParrotLinux PenTest:S3/PentooLinux"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1526",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty has the following finding types to flag events where there is an attempt to discover information about resources on the account.\nRecon:IAMUser/MaliciousIPCaller Recon:IAMUser/MaliciousIPCaller.Custom Recon:IAMUser/TorIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding types reflect flagged events where there is an attempt to get a list of services running on a remote host.\nRecon:EC2/PortProbeEMRUnprotectedPort Recon:EC2/PortProbeUnprotectedPort Recon:EC2/Portscan Impact:EC2/PortSweep"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding types flag events where adversaries may have access data objects from improperly secured cloud storage.\nUnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller Impact:S3/MaliciousIPCaller Exfiltration:S3/MaliciousIPCaller Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty flags events matching the following finding types that relate to adversaries attempting to communicate using application layer protocols to avoid detection.\nUnauthorizedAccess:EC2/MaliciousIPCaller.Custom Trojan:EC2/DropPoint!DNS Trojan:EC2/DropPoint Backdoor:EC2/C&CActivity.B!DNS Trojan:EC2/BlackholeTraffic Trojan:EC2/BlackholeTraffic!DNS\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty flags events matching the following finding types that relate to adversaries attempting to communicate using application layer protocols to avoid detection.\nUnauthorizedAccess:EC2/MaliciousIPCaller.Custom Backdoor:EC2/C&CActivity.B Backdoor:EC2/C&CActivity.B!DNS Trojan:EC2/BlackholeTraffic Trojan:EC2/BlackholeTraffic!DNS Trojan:EC2/DropPoint Trojan:EC2/DropPoint!DNS Backdoor:EC2/C&CActivity.B Impact:EC2/MaliciousDomainRequest.Reputation Impact:EC2/SuspiciousDomainRequest.Reputation"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty flags events matching the following finding types that relate to adversaries attempting to communicate using application layer protocols to avoid detection.\nUnauthorizedAccess:EC2/MaliciousIPCaller.Custom Backdoor:EC2/C&CActivity.B Backdoor:EC2/C&CActivity.B!DNS Trojan:EC2/BlackholeTraffic Trojan:EC2/BlackholeTraffic!DNS Trojan:EC2/DropPoint Trojan:EC2/DropPoint!DNS Backdoor:EC2/C&CActivity.B Impact:EC2/MaliciousDomainRequest.Reputation Impact:EC2/SuspiciousDomainRequest.Reputation"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty flags events matching the following finding types that relate to adversaries attempting to communicate using application layer protocols to avoid detection.\nUnauthorizedAccess:EC2/MaliciousIPCaller.Custom Backdoor:EC2/C&CActivity.B Backdoor:EC2/C&CActivity.B!DNS Trojan:EC2/BlackholeTraffic Trojan:EC2/BlackholeTraffic!DNS Trojan:EC2/DropPoint Trojan:EC2/DropPoint!DNS Backdoor:EC2/C&CActivity.B Impact:EC2/MaliciousDomainRequest.Reputation Impact:EC2/SuspiciousDomainRequest.Reputation"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty flags events matching the following finding types that relate to adversaries attempting to communicate using application layer protocols to avoid detection.\nUnauthorizedAccess:EC2/MaliciousIPCaller.Custom Backdoor:EC2/C&CActivity.B Backdoor:EC2/C&CActivity.B!DNS Trojan:EC2/BlackholeTraffic Trojan:EC2/BlackholeTraffic!DNS Trojan:EC2/DropPoint Trojan:EC2/DropPoint!DNS Backdoor:EC2/C&CActivity.B Impact:EC2/MaliciousDomainRequest.Reputation Impact:EC2/SuspiciousDomainRequest.Reputation"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty has the following finding types to flag events where adversaries may dynamically establish connections to command-and-control infrastructure to evade common detections and remediations.\nTrojan:EC2/DGADomainRequest.B Trojan:EC2/DGADomainRequest.C!DNS"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty has the following finding types to flag events where adversaries may dynamically establish connections to command-and-control infrastructure to evade common detections and remediations.\nTrojan:EC2/DGADomainRequest.B Trojan:EC2/DGADomainRequest.C!DNS"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1571",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty has the following finding type to flag events where adversaries may communicate using a protocol and port paring that are typically not associated.\nBehavior:EC2/NetworkPortUnusual"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events where adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications to a command-and-control server to avoid direct connections to their infrastructure.\nUnauthorizedAccess:EC2/TorClient UnauthorizedAccess:EC2/TorRelay\nDue to the detection being limited to a specific type of proxy, Tor, its coverage is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The UnauthorizedAccess:EC2/TorClient GuardDuty finding type flags events where adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications to a command-and-control server to avoid direct connections to their infrastructure.\nDue to the detection being limited to a specific type of proxy, Tor, its coverage is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The UnauthorizedAccess:EC2/TorClient GuardDuty finding type flags events where adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications to a command-and-control server to avoid direct connections to their infrastructure.\nDue to the detection being limited to a specific type of proxy, Tor, its coverage is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The UnauthorizedAccess:EC2/TorClient GuardDuty finding type flags events where adversaries may use a connection proxy to direct network traffic between systems or act as an intermediary for network communications to a command-and-control server to avoid direct connections to their infrastructure.\nDue to the detection being limited to a specific type of proxy, Tor, its coverage is Minimal resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1020",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events that may indicate adversaries attempting to exfiltrate data, such as sensitive documents, through the use of automated processing after being gathered during Collection.\nBehavior:EC2/TrafficVolumeUnusual Exfiltration:S3/MaliciousIPCaller Exfiltration:S3/ObjectRead.Unusual PenTest:S3/KaliLinux PenTest:S3/ParrotLinux PenTest:S3/PentooLinux UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1029",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events that may indicate adversaries attempting to exfiltrate data, such as sensitive documents, through the use of automated processing after being gathered during Collection.\nBehavior:EC2/TrafficVolumeUnusual\nAccuracy and Coverage is unknown, as this finding flags traffic volume that differs from a baseline."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events that may indicate adversaries attempting to exfiltrate data, such as sensitive documents.\nBehavior:EC2/TrafficVolumeUnusual\nAccuracy and Coverage is unknown, as this finding flags traffic volume that differs from a baseline."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events where adversaries may steal data by exfiltrating it over a different protocol than that of the existing command-and-control channel.\nTrojan:EC2/DNSDataExfiltration Behavior:EC2/TrafficVolumeUnusual"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events where adversaries may steal data by exfiltrating it over a different protocol than that of the existing command and control channel.\nTrojan:EC2/DNSDataExfiltration Behavior:EC2/TrafficVolumeUnusual"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types in GuardDuty flag events where adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command-and-control channel.\nExfiltration:S3/ObjectRead.Unusual Exfiltration:S3/MaliciousIPCaller Exfiltration:IAMUser/AnomalousBehavior Behavior:EC2/TrafficVolumeUnusual"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types in GuardDuty flag events where adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command-and-control channel.\nExfiltration:S3/ObjectRead.Unusual Exfiltration:S3/MaliciousIPCaller Exfiltration:IAMUser/AnomalousBehavior Behavior:EC2/TrafficVolumeUnusual"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types in GuardDuty flag events where adversaries may use an existing, legitimate external Web service to exfiltrate data rather than their primary command-and-control channel.\nExfiltration:S3/ObjectRead.Unusual Exfiltration:S3/MaliciousIPCaller Exfiltration:IAMUser/AnomalousBehavior Behavior:EC2/TrafficVolumeUnusual"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1531",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty Finding type flags events where adversaries may interrupt availability of system and network resources by inhibiting access to accounts utilized by legitimate users.\nImpact:IAMUser/AnomalousBehavior"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events where adversaries may destroy data and files on specific systems or in large numbers on a network to interrupt availability to systems, services, and network resources.\nImpact:S3/MaliciousIPCaller, Impact:IAMUser/AnomalousBehavior Stealth:S3/ServerAccessLoggingDisabled UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller PenTest:S3/PentooLinux PenTest:S3/ParrotLinux PenTest:S3/KaliLinux"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events where adversaries may encrypt data on target systems or on large numbers of systems in a network to interrupt availability to system and network resources.\nImpact:S3/MaliciousIPCaller Stealth:S3/ServerAccessLoggingDisabled UnauthorizedAccess:S3/MaliciousIPCaller.Custom UnauthorizedAccess:S3/TorIPCaller PenTest:S3/PentooLinux PenTest:S3/ParrotLinux PenTest:S3/KaliLinux"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding type flags events where adversaries may insert, delete, or manipulate data in order to manipulate external outcomes or hide activity.\nImpact:S3/MaliciousIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1565.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Impact:S3/MaliciousIPCaller finding type is looking for API calls commonly associated with Impact tactic of techniques where an adversary is trying to manipulate, interrupt, or destroy data within your AWS environment."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types in GuardDuty flag events where adversaries may perform Network Denial of Service (DoS) attacks to degrade or block the availability of targeted resources to users.\nBackdoor:EC2/DenialOfService.UdpOnTcpPorts Backdoor:EC2/DenialOfService.UnusualProtocol Backdoor:EC2/DenialOfService.Udp Backdoor:EC2/DenialOfService.Tcp Backdoor:EC2/DenialOfService.Dns"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types in GuardDuty flag events where adversaries may perform Network Denial of Service (DoS) attacks to degrade or block the availability of targeted resources to users.\nBackdoor:EC2/DenialOfService.UdpOnTcpPorts Backdoor:EC2/DenialOfService.UnusualProtocol Backdoor:EC2/DenialOfService.Udp Backdoor:EC2/DenialOfService.Tcp Backdoor:EC2/DenialOfService.Dns"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types in GuardDuty flag events where adversaries may perform Network Denial of Service (DoS) attacks to degrade or block the availability of targeted resources to users.\nBackdoor:EC2/DenialOfService.UdpOnTcpPorts Backdoor:EC2/DenialOfService.UnusualProtocol Backdoor:EC2/DenialOfService.Udp Backdoor:EC2/DenialOfService.Tcp Backdoor:EC2/DenialOfService.Dns"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1496",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following GuardDuty finding types flag events where adversaries may leverage the resources of co-opted systems in order to solve resource intensive problems which may impact system and/or hosted service availability.\nCryptoCurrency:EC2/BitcoinTool.B CryptoCurrency:EC2/BitcoinTool.B!DNS Impact:EC2/BitcoinDomainRequest.Reputation UnauthorizedAccess:EC2/TorRelay"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1491",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "GuardDuty provides multiple finding types that flag malicious activity against resources. These findings focus on API calls that look suspicious and although they do not flag events such as Defacement specifically, it can be inferred that these findings can result in mitigating this technique's negative impact. With this assumption the score is capped at Partial. "
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1491.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types can be used to detect behavior that can lead to the defacement of\ncloud resources:\nImpact:S3/MaliciousIPCaller\nExfiltration:S3/MaliciousIPCaller\nExfiltration:S3/ObjectRead.Unusual\nPenTest:S3/KaliLinux\nPenTest:S3/ParrotLinux\nPenTest:S3/PentooLinux\nUnauthorizedAccess:S3/MaliciousIPCaller.Custom\nUnauthorizedAccess:S3/TorIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1491.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following finding types can be used to detect behavior that can lead to the defacement of\ncloud resources:\nImpact:S3/MaliciousIPCaller\nExfiltration:S3/MaliciousIPCaller\nExfiltration:S3/ObjectRead.Unusual\nPenTest:S3/KaliLinux\nPenTest:S3/ParrotLinux\nPenTest:S3/PentooLinux\nUnauthorizedAccess:S3/MaliciousIPCaller.Custom\nUnauthorizedAccess:S3/TorIPCaller"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

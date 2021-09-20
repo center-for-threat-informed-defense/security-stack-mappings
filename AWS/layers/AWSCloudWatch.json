@@ -1,0 +1,170 @@
+{
+    "name": "AWS CloudWatch",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "AWS CloudWatch monitors resources, applications, and services to collect and track metrics in real-time. These metrics provide visibility into resource utilization, performance, and health. AWS CloudWatch integrates with over 70 AWS services including Amazon EC2, Amazon S3, and Amazon ECS among others. \n",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1496",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudWatch provides various metrics including CPU utilization, connections, disk space, memory, bytes sent/received, and the number of running containers among others. The following metrics (not an exhaustive list) could be used to detect if the usage of a resource has increased such as when an adversary hijacks a resource to perform intensive tasks.\nLinux/Mac OS ------------- cpu_time_active cpu_time_guest cpu_usage_active cpu_usage_guest disk_free disk_total disk_used ethtool_bw_in_allowance_exceeded ethtool_bw_out_allowance_exceeded ethtool_conntrack_allowance_exceeded mem_active mem_available_percent mem_free net_bytes_recv net_bytes_sent net_packets_sent net_packets_recv netstat_tcp_established netstat_tcp_listen processes_running processes_total swap_free swap_used\nContainers ---------- CpuUtilized MemoryUtilized NetworkRxBytes NetworkTxBytes node_cpu_usage_total node_cpu_utilization node_filesystem_utilization node_memory_utilization\nThis mapping is given a score of Partial because it is not possible to differentiate between an authorized and unauthorized increase in resource utilization. "
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1610",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudWatch provides various metrics including CPU utilization, connections, disk space, memory, bytes sent/received, and the number of running containers among others. The following metric could be used to detect if an adversary deployed a new container in the environment. \nnode_number_of_running_containers\nThis mapping is given a score of Partial because it is not possible to differentiate between an authorized and unauthorized deployment of a new container.  "
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudWatch uses TLS/SSL connections to communicate with other AWS resources which protects against network sniffing attacks. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

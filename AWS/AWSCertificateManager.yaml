@@ -1,0 +1,23 @@
+version: 1
+ATT&CK version: 9
+creation date: 07/15/2021
+name: AWS Certificate Manager
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+  - Credentials
+  - Not Mappable
+description: >-
+  AWS Certificate Manager is an Amazon service that supports the creation, storage, and renewal of
+  public and private SSL/TLS X.509 certificates and keys that protect AWS websites and applications.
+techniques: []
+comments: >-
+  This control was not mapped because AWS Certificate Manager simply issues certificates for use in
+  other AWS services such as Elastic Load Balancing, Amazon CloudFront, AWS Elastic Beanstalk,
+  Amazon API Gateway, AWS Nitro Enclaves, and AWS CloudFormation. It does not inherently protect
+  against any ATT&CK techniques as it cannot be used to deploy certificates to other AWS services.
+  That must be done either manually or with services integrated into AWS Certificate Manager.
+references:
+  - https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html
+  - https://aws.amazon.com/certificate-manager/faqs/?nc=sn&loc=5

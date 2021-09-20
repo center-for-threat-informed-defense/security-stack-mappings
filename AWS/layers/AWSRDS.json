@@ -1,0 +1,589 @@
+{
+    "name": "AWS RDS",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "AWS Relational Database Service (RDS) is a service that simplifies the setup, operation, and scaling of relational databases in AWS. AWS RDS manages backups, software patching, automatic failure detection, and recovery of databases. AWS RDS supports MySQL, MariaDB, PostgreSQL, Oracle, and Microsoft SQL Server instances.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS and AWS RDS Proxy support TLS/SSL connections to database instances which protects against network sniffing attacks. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the encryption of database instances using the AES-256 encryption algorithm. This can protect database instances from being modified at rest. Furthermore, AWS RDS supports TLS/SSL connections which protect data from being modified during transit. This mapping is given a score of Partial because it only supports a subset of the sub-techniques (2 of 3). "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that data is manipulated, AWS RDS can be used to restore the database instance to a previous point in time. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1565.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the encryption of database instances using the AES-256 encryption algorithm. This can protect database instances from being modified at rest. Furthermore, AWS RDS supports TLS/SSL connections which protect data from being modified during transit. As a result, this mapping is given a score of Significant."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that data is manipulated, AWS RDS can be used to restore the database instance to a previous point in time. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the encryption of database instances using the AES-256 encryption algorithm. This can protect database instances from being modified at rest. Furthermore, AWS RDS supports TLS/SSL connections which protect data from being modified during transit. As a result, this mapping is given a score of Significant."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that data is manipulated, AWS RDS can be used to restore the database instance to a previous point in time. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS and AWS RDS Proxy support TLS/SSL connections to database instances which protects against man-in-the-middle attacks. However, given that it does not support any sub-techniques, the mapping is given a score of Partial."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the automatic patching of minor versions of database instances. This can result in security flaws in the database instances being fixed before they can be exploited. This mapping is given a score of Partial because it does not protect against misconfigured database instances which may be susceptible to exploitation.     "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that a database instance is compromised, AWS RDS can be used to restore the database instance to a previous point in time. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the automatic patching of minor versions of database instances. This can result in security flaws in the database instances being fixed before they can be exploited. This mapping is given a score of Partial because it does not protect against misconfigured database instances which may be susceptible to exploitation.     "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that a database instance is compromised, AWS RDS can be used to restore the database instance to a previous point in time. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS provides deletion protection which prevents any user from deleting a database instance. If applied, the setting may mitigate attempts to delete a database instance. As a result, this mapping is given a score of Significant."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS generates events for database instances and includes the following events that may indicate that an adversary has destroyed the database instance.\nRDS-EVENT-0003: The DB instance has been deleted RDS-EVENT-0041: A DB snapshot has been deleted\nThis mapping is given a score of Partial because it can't differentiate between an authorized and unauthorized deletion.\n"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that a database instance is deleted, AWS RDS can be used to restore the database instance to a previous point in time. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that a database instance is encrypted by an adversary (e.g., ransomware), AWS RDS can be used to restore the database instance to a previous point in time. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1490",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS generates events for database instances and includes the following event that may indicate that an adversary has attempted to inhibit system recovery.\nRDS-EVENT-0028: Automatic backups for this DB instance have been disabled\nThis mapping is given a score of Partial because it can't differentiate between an authorized and unauthorized disabling of automatic backups.\n"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that a database instance is compromised and modified to disrupt recovery, AWS RDS can be used to restore the database instance to a previous point in time. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1561",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that a database instance is deleted during a disk wipe, AWS RDS can be used to restore the database instance to a previous point in time. However, this mapping is only given a score of Minimal because AWS RDS only provides a backup of the database instance and not the underlying system that it is hosted on."
+                }
+            ],
+            "color": "#ff6b6b",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that a database instance is deleted during a disk wipe, AWS RDS can be used to restore the database instance to a previous point in time. However, this mapping is only given a score of Partial because AWS RDS only provides a backup of the database instance and not the underlying system that it is hosted on."
+                }
+            ],
+            "color": "#ff6b6b",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the replication and recovery of database instances. In the event that a database instance is deleted during a disk wipe, AWS RDS can be used to restore the database instance to a previous point in time. However, this mapping is only given a score of Partial because AWS RDS only provides a backup of the database instance and not the underlying system that it is hosted on."
+                }
+            ],
+            "color": "#ff6b6b",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS supports the encryption of the underlying storage for database instances, backups, read replicas, and snapshots using the AES-256 encryption algorithm. This can protect against an adversary from gaining access to a database instance in the event they get access to the underlying system where the database instance is hosted or to S3 where the backups are stored. Furthermore, with AWS RDS, there is a setting that specifies whether or not a database instances is publicly accessible. When public accessibility is turned off, the database instance will not be available outside the VPC in which it was created. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1529",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS generates events for database instances and includes the following events that may indicate that an adversary has shutdown or rebooted the database instance. \nRDS-EVENT-0006: The DB instance restarted, RDS-EVENT-0004: The DB instance shutdown, RDS-EVENT-0022: An error has occurred while restarting MySQL or MariaDB\nThis mapping is given a score of Partial because it can't differentiate between an authorized and unauthorized shutdown/reboot."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1489",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS RDS generates events for database instances and includes the following event that may indicate that an adversary has attempted to stop a database instance.\nRDS-EVENT-0087: The DB instance has been stopped\nThis mapping is given a score of Partial because it can't differentiate between an authorized and unauthorized stopping of the database instance.\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}
