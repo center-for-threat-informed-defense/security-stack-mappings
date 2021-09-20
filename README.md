@@ -9,7 +9,10 @@ This project has produced mapping files for the following technology platforms, 
   - [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/Azure/README.html)
   - [YAML Mappings](mappings/Azure)
   - [JSON Navigator Layers](mappings/Azure/layers)
-- AWS (in-progress)
+- Amazon Web Services (AWS)
+  - [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/AWS/README.html)
+  - [YAML Mappings](mappings/AWS)
+  - [JSON Navigator Layers](mappings/AWS/layers)
 
 ## Supporting Resources
 
