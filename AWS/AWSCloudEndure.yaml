@@ -1,0 +1,131 @@
+version: 1
+ATT&CK version: 9
+creation date: 06/21/2021
+name: AWS CloudEndure Disaster Recovery
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+description: >+
+  AWS CloudEndure Disaster Recovery enables the replication and recovery of physical, virtual, and
+  cloud-based servers into AWS Cloud including public regions, AWS GovCloud, and AWS Outposts. AWS
+  CloudEndure continuously replicates servers and can launch fully provisioned machines within
+  minutes in the event that a disaster such as data center failures, server corruption, or cyber
+  attacks occur.
+
+techniques:
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS
+          Cloud. In the event that a public-facing application or server is compromised, AWS
+          CloudEndure can be used to provision an instance of the server from a previous point in
+          time within minutes. As a result, this mapping is given a score of Significant.
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS
+          Cloud. In the event that data on servers is destroyed, AWS CloudEndure can be used to
+          provision an instance of the server from a previous point in time within minutes. As a
+          result, this mapping is given a score of Significant.
+  - id: T1486
+    name: Data Encrypted for Impact
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >
+          AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS
+          Cloud. In the event that data on servers is encrypted (e.g., ransomware), AWS CloudEndure can be used to
+          provision an instance of the server from a previous point in time within minutes. As a
+          result, this mapping is given a score of Significant.
+  - id: T1565
+    name: Data Manipulation
+    technique-scores:
+      - category: Respond
+        value: Minimal
+        comments: >
+          AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS
+          Cloud. In the event that data on servers is manipulated, AWS CloudEndure can be used to
+          provision an instance of the server from a previous point in time within minutes. This
+          mapping is given a score of Minimal because it only supports a subset (1 of 3) of the
+          sub-techniques.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1565.001
+            name: Stored Data Manipulation
+        scores:
+          - category: Respond
+            value: Significant
+            comments: >-
+              AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into
+              AWS Cloud. In the event that data on servers is manipulated, AWS CloudEndure can be
+              used to provision an instance of the server from a previous point in time within
+              minutes. As a result, this mapping is given a score of Significant.
+  - id: T1491
+    name: Defacement
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS
+          Cloud. In the event that servers are defaced, AWS CloudEndure can be used to provision an
+          instance of the server from a previous point in time within minutes. This mapping is given
+          a score of Significant because it supports all of the sub-techniques (2 of 2).
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1491.001
+            name: Internal Defacement
+          - id: T1491.002
+            name: External Defacement
+        scores:
+          - category: Respond
+            value: Significant
+            comments: >-
+              AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into
+              AWS Cloud. In the event that servers are defaced, AWS CloudEndure can be used to
+              provision an instance of the server from a previous point in time within minutes. As a
+              result, this mapping is given a score of Significant.
+  - id: T1561
+    name: Disk Wipe
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS
+          Cloud. In the event that server disks are wiped, AWS CloudEndure can be used to provision
+          an instance of the server from a previous point in time within minutes. This mapping is
+          given a score of Significant because it supports all of the sub-techniques (2 of 2).
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1561.001
+            name: Disk Content Wipe
+          - id: T1561.002
+            name: Disk Structure Wipe
+        scores:
+          - category: Respond
+            value: Significant
+            comments: >-
+              AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into
+              AWS Cloud. In the event that server disks are wiped, AWS CloudEndure can be used to
+              provision an instance of the server from a previous point in time within minutes. As a
+              result, this mapping is given a score of Significant.
+  - id: T1490
+    name: Inhibit System Recovery
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS
+          Cloud. In the event that servers are modified to disrupt recovery, AWS CloudEndure can be
+          used to provision an instance of the server from a previous point in time within minutes.
+          As a result, this mapping is given a score of Significant.
+references:
+  - 'https://aws.amazon.com/cloudendure-disaster-recovery/'
+  - >-
+    https://docs.cloudendure.com/#Configuring_and_Running_Disaster_Recovery/Configuring_and_Running_Disaster_Recovery.htm

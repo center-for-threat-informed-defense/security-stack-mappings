@@ -1,0 +1,324 @@
+{
+    "name": "Storage",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: AWS S3,Amazon Macie",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS S3"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS S3 may protect against data destruction through application of several best practices. Multi-factor authentication can be enabled for delete operations and for changing the versioning state of a bucket. Versioning can be enabled to revert objects to a previous state after malicious destruction or corruption. S3 Object Lock can help prevent objects from being deleted or overwritten for a fixed amount of time or indefinitely.  In addition, S3 Cross Region Replication can be used to replicate S3 buckets to another AWS region for add protection."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS S3"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "S3 provides full control of access via Identity and Access Management (IAM) policies and with its access control lists (ACLs). The S3 Block Public Access feature allows for policies limiting public access to Amazon S3 resources that are enforced regardless of how the resources are created or associated IAM policies. Server-side encryption can be enabled for data at rest and allows for use of S3-managed keys, AWS Key Management Service managed keys, or customer-provided keys."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Amazon Macie"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Macie findings can detect the collection of data from S3 buckets: Policy:IAMUser/S3BlockPublicAccessDisabled Policy:IAMUser/S3BucketEncryptionDisabled Policy:IAMUser/S3BucketPublic Policy:IAMUser/S3BucketReplicatedExternally Policy:IAMUser/S3BucketSharedExternally\nThis type of detection is limited to only the S3 storage type and not other storage types available on the platform (such as file or block storage) and therefore has Minimal coverage resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Macie findings can protect against collection of sensitive data from S3 buckets: SensitiveData:S3Object/Credentials SensitiveData:S3Object/CustomIdentifier SensitiveData:S3Object/Financial SensitiveData:S3Object/Multiple SensitiveData:S3Object/Personal\nThe ability to discover this type of sensitive data stored in a bucket may lead to hardening steps or removing the data altogether which would prevent an adversary from being able to collect the data.\nThis type of protection is limited to only the S3 storage type and not other storage types available on the platform (such as file or block storage) and therefore has Minimal coverage resulting in a Minimal score."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1567",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Macie"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Macie only provides detection of this technique for the S3 storage type and not other storage types offerred by the platform such as file or block storage resulting in a Minimal coverage score resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Macie"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Macie findings can detect attempts to replicate data objects from a monitored bucket to an Amazon Web Services account that isn't part of your organization:\nPolicy:IAMUser/S3BucketReplicatedExternally Policy:IAMUser/S3BucketSharedExternally\nThis type of detection is limited to only the S3 storage type and not other storage types available on the platform (such as file or block storage) and therefore has Minimal coverage resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1537",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Macie"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Macie findings can detect attempts to replicate data objects from a monitored bucket to an Amazon Web Services account that isn't part of your organization:\nPolicy:IAMUser/S3BucketReplicatedExternally Policy:IAMUser/S3BucketSharedExternally\nThis type of detection is limited to only the S3 storage type and not other storage types available on the platform (such as file or block storage) and therefore has Minimal coverage resulting in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Macie"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Macie only provides detection for the Credentials in Files sub-technique of this technique and only for the S3 storage type resulting in Minimal coverage and an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1552.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Macie"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Macie findings can result in protecting sensitive data (e.g. credentials) from being collected from data stored in S3 buckets:\nSensitiveData:S3Object/Credentials SensitiveData:S3Object/Multiple\nS3 buckets can be mounted as file systems on some platforms (e.g. Linux) and therefore its objects can be accessed as normal files.  Consequently hardening these objects or removing the credentials altogether can protect against adversaries harvesting these credentials.\nThis type of detection is limited to only the S3 storage type and not other storage types available on the platform (such as file or block storage) and therefore has Minimal coverage resulting in a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

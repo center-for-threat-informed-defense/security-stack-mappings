@@ -1,0 +1,73 @@
+version: 1
+ATT&CK version: 9
+creation date: 06/16/2021
+name: AWS Organizations
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+  - Identity
+description: >-
+  AWS Organizations is an account management service that enables you to consolidate multiple AWS
+  accounts into an organization that you create and centrally manage. AWS Organizations is
+  integrated with other AWS services so you can define central configurations, security mechanisms,
+  and resource sharing across accounts in your organization.
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may protect against malicious use of cloud accounts but may not mitigate
+          exploitation of local, domain, or default accounts present within deployed resources.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              This control may protect against malicious use of cloud accounts by implementing
+              service control policies that define what actions an account may take. If best
+              practices are followed, AWS accounts should only have the least amount of privileges
+              required.
+  - id: T1087
+    name: Account Discovery
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may protect against cloud account discovery but does not mitigate against
+          other forms of account discovery.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1087.004
+            name: Cloud Account
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control may protect against cloud account discovery by segmenting accounts into
+              separate organizational units and restricting to least privileges between groups. 
+  - id: T1580
+    name: Cloud Infrastructure Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may protect against cloud infrastructure discovery by segmenting accounts
+          into separate organizational units and restricting infrastructure access by least
+          privilege.
+  - id: T1538
+    name: Cloud Service Dashboard
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may protect against cloud service dashboard abuse by segmenting accounts into
+          separate organizational units and restricting dashboard access by least privilege.
+references:
+  - 'https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html'
+  - 'https://aws.amazon.com/organizations/getting-started/best-practices/'

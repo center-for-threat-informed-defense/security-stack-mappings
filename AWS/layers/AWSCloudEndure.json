@@ -1,0 +1,377 @@
+{
+    "name": "AWS CloudEndure Disaster Recovery",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "AWS CloudEndure Disaster Recovery enables the replication and recovery of physical, virtual, and cloud-based servers into AWS Cloud including public regions, AWS GovCloud, and AWS Outposts. AWS CloudEndure continuously replicates servers and can launch fully provisioned machines within minutes in the event that a disaster such as data center failures, server corruption, or cyber attacks occur.\n\n",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that a public-facing application or server is compromised, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that data on servers is destroyed, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that data on servers is encrypted (e.g., ransomware), AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant.\n"
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that data on servers is manipulated, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. This mapping is given a score of Minimal because it only supports a subset (1 of 3) of the sub-techniques.\n"
+                }
+            ],
+            "color": "#ff6b6b",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1565.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that data on servers is manipulated, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1491",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that servers are defaced, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. This mapping is given a score of Significant because it supports all of the sub-techniques (2 of 2)."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1491.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that servers are defaced, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1491.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that servers are defaced, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that server disks are wiped, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. This mapping is given a score of Significant because it supports all of the sub-techniques (2 of 2)."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that server disks are wiped, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that server disks are wiped, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1490",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS CloudEndure Disaster Recovery enables the replication and recovery of servers into AWS Cloud. In the event that servers are modified to disrupt recovery, AWS CloudEndure can be used to provision an instance of the server from a previous point in time within minutes. As a result, this mapping is given a score of Significant."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}
