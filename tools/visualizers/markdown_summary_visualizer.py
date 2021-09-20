@@ -17,8 +17,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
         self.html_template = False
         root_dir = get_project_root()
-        with open(f"{root_dir}/tools/config/markdown_summary.json", "r") as f:
-            self.platform_summaries = json.load(f)
+        with open(f"{root_dir}/tools/config/markdown_summary_config.json", "r") as f:
+            self.summary_config = json.load(f)
 
 
     @staticmethod
@@ -210,9 +210,10 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             platform_data[mapping_yaml['name']].append(techniques)
 
         for platform, platform_data in summary_data.items():
-            mdFile = MdUtils(file_name="", title=f"{platform} Controls")
+            title = self.summary_config["titles"].get(platform, f"{platform} Controls")
+            summary = self.summary_config["summaries"].get(platform, "")
 
-            summary = self.platform_summaries.get(platform, "")
+            mdFile = MdUtils(file_name="", title=title)
 
             if not summary:
                 print(f"  Warning:  Platform {platform} does not provide summary text from tools/config/markdown_summary.json")

@@ -1,0 +1,1366 @@
+{
+    "name": "AWS Config",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "AWS Config rules evaluate the configuration settings of AWS resources in order to detect resources that are out of compliance with internal policies and best practices.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1020",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for this technique's only sub-technique, but without specific coverage for its procedures, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1020.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure SSL/TLS encryption is enabled to protect network traffic: \"acm-certificate-expiration-check\" for nearly expired certificates in AWS Certificate Manager (ACM); \"alb-http-to-https-redirection-check\" for Application Load Balancer (ALB) HTTP listeners; \"api-gw-ssl-enabled\" for API Gateway REST API stages; \"cloudfront-custom-ssl-certificate\", \"cloudfront-sni-enabled\", and \"cloudfront-viewer-policy-https\", for Amazon CloudFront distributions; \"elb-acm-certificate-required\", \"elb-custom-security-policy-ssl-check\", \"elb-predefined-security-policy-ssl-check\", and \"elb-tls-https-listeners-only\" for Elastic Load Balancing (ELB) Classic Load Balancer listeners; \"redshift-require-tls-ssl\" for Amazon Redshift cluster connections to SQL clients; \"s3-bucket-ssl-requests-only\" for requests for S3 bucket contents; and \"elasticsearch-node-to-node-encryption-check\" for Amazon ElasticSearch Service node-to-node communications.\nAll of these are run on configuration changes except \"alb-http-to-https-redirection-check\", which is run periodically. Coverage factor is partial for these rules, since they are specific to a subset of the available AWS services and can only mitigate behavior for adversaries who are unable to decrypt the relevant traffic, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure SSL/TLS encryption is enabled to protect network traffic: \"acm-certificate-expiration-check\" for nearly expired certificates in AWS Certificate Manager (ACM); \"alb-http-to-https-redirection-check\" for Application Load Balancer (ALB) HTTP listeners; \"api-gw-ssl-enabled\" for API Gateway REST API stages; \"cloudfront-custom-ssl-certificate\", \"cloudfront-sni-enabled\", and \"cloudfront-viewer-policy-https\", for Amazon CloudFront distributions; \"elb-acm-certificate-required\", \"elb-custom-security-policy-ssl-check\", \"elb-predefined-security-policy-ssl-check\", and \"elb-tls-https-listeners-only\" for Elastic Load Balancing (ELB) Classic Load Balancer listeners; \"redshift-require-tls-ssl\" for Amazon Redshift cluster connections to SQL clients; \"s3-bucket-ssl-requests-only\" for requests for S3 bucket contents; and \"elasticsearch-node-to-node-encryption-check\" for Amazon ElasticSearch Service node-to-node communications.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure that private traffic is routed securely and only within VPCs rather than on the public Internet: \"api-gw-endpoint-type-check\" for Amazon API Gateway APIs, \"elasticsearch-in-vpc-only\" for Amazon ElasticSearch Service domains, and \"redshift-enhanced-vpc-routing-enabled\" for Amazon Redshift cluster traffic.\nAll of these are run on configuration changes except \"alb-http-to-https-redirection-check\" and \"elasticsearch-in-vpc-only\", which are run periodically. Coverage factor is partial for these rules, since they are specific to a subset of the available AWS services and can only mitigate behavior for adversaries who are unable to decrypt the relevant traffic and/or do not have access to traffic within the relevant VPCs, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for one of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"eks-endpoint-no-public-access\" managed rule can identify whether Amazon Elastic Kubernetes Service (Amazon EKS) endpoints are misconfigured to allow public endpoint access, which should be fixed in order to prevent malicious external access to the Kubernetes API server, including malicious attempts to create or modify orchestration jobs. It is run periodically and only provides partial coverage because it is specific to public access, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ec2-managedinstance-applications-blacklisted\" managed rule verifies that a pre-defined list of applications are not installed on specified managed instances. It can be used to identify the presence of vulnerable applications (prompting removal before they can be exploited) and/or to identify the presence of allowed packages below a minimum version (prompting updates before they can be exploited). The \"ec2-managedinstance-platform-check\" managed rule verifies that managed instances are running desired platform types, including using a desired version (as opposed to an out-of-date one). Both can reduce instances' attack surface for adversary exploitation, including for privilege escalation.\nThe \"ecs-task-definition-user-for-host-mode-check\" managed rule can identify Amazon Elastic Container Service (ECS) task definitions for containers with host networking mode and 'privileged' or 'user' container definitions, which may enable adversaries to break out of containers and gain access to the underlying host, increasing their access and privileges.\nAll of these are run on configuration changes. Coverage factor is partial for these rules, since they are specific to a subset of the available AWS services and will only protect against certain forms of identifiable exploitation, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage for one of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure multi-factor authentication (MFA) is enabled properly, which can provide protection against attempted misuse of cloud accounts: \"iam-user-mfa-enabled\", \"mfa-enabled-for-iam-console-access\", \"root-account-hardware-mfa-enabled\", and \"root-account-mfa-enabled\". All of these controls are run periodically.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure that appropriate AWS Identity and Access Management (IAM) policies are in place to enforce fine-grained access policies and mitigate the impact of compromised valid accounts: \"iam-customer-policy-blocked-kms-actions\", \"iam-inline-policy-blocked-kms-actions\", \"iam-no-inline-policy-check\", \"iam-group-has-users-check\", \"iam-policy-blacklisted-check\", \"iam-policy-no-statements-with-admin-access\", \"iam-policy-no-statements-with-full-access\", \"iam-role-managed-policy-check\", \"iam-user-group-membership-check\", \"iam-user-no-policies-check\", and \"ec2-instance-profile-attached\" are run on configuration changes. \"iam-password-policy\", \"iam-policy-in-use\", \"iam-root-access-key-check\", \"iam-user-mfa-enabled\", \"iam-user-unused-credentials-check\", and \"mfa-enabled-for-iam-console-access\" are run periodically. The \"access-keys-rotated\" managed rule ensures that IAM access keys are rotated at an appropriate rate.\nGiven that these rules provide robust coverage for a variety of IAM configuration problems and most are evaluated on configuration changes, they result in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage for one of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure multi-factor authentication (MFA) is enabled properly, which can provide protection against attempted manipulation of cloud accounts: \"iam-user-mfa-enabled\", \"mfa-enabled-for-iam-console-access\", \"root-account-hardware-mfa-enabled\", and \"root-account-mfa-enabled\". All of these controls are run periodically and provide partial coverage, since adversaries may be able to manipulate cloud credentials via other mechanisms, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage for all of this technique's sub-techniques, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure multi-factor authentication (MFA) is enabled properly, which can significantly impede brute force authentication attempts by requiring adversaries to provide a second form of authentication even if they succeed in brute forcing a password via one of these sub-techniques: \"iam-user-mfa-enabled\", \"mfa-enabled-for-iam-console-access\", \"root-account-hardware-mfa-enabled\", and \"root-account-mfa-enabled\".\nThe \"iam-password-policy\" managed rule can identify insufficient password requirements that should be fixed in order to make brute force authentication more difficult by increasing the complexity of user passwords and decreasing the amount of time before they are rotated, giving adversaries less time to brute force passwords and making it more time consuming and resource intensive to do so. This is especially important in the case of Password Cracking, since adversaries in possession of password hashes may be able to recover usable credentials more quickly and do so without generating detectable noise via invalid login attempts.\nAll of these controls are run periodically, but implemented policies are enforced continuously once set and coverage factor is significant, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure multi-factor authentication (MFA) is enabled properly, which can significantly impede brute force authentication attempts by requiring adversaries to provide a second form of authentication even if they succeed in brute forcing a password via one of these sub-techniques: \"iam-user-mfa-enabled\", \"mfa-enabled-for-iam-console-access\", \"root-account-hardware-mfa-enabled\", and \"root-account-mfa-enabled\".\nThe \"iam-password-policy\" managed rule can identify insufficient password requirements that should be fixed in order to make brute force authentication more difficult by increasing the complexity of user passwords and decreasing the amount of time before they are rotated, giving adversaries less time to brute force passwords and making it more time consuming and resource intensive to do so. This is especially important in the case of Password Cracking, since adversaries in possession of password hashes may be able to recover usable credentials more quickly and do so without generating detectable noise via invalid login attempts.\nAll of these controls are run periodically, but implemented policies are enforced continuously once set and coverage factor is significant, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure multi-factor authentication (MFA) is enabled properly, which can significantly impede brute force authentication attempts by requiring adversaries to provide a second form of authentication even if they succeed in brute forcing a password via one of these sub-techniques: \"iam-user-mfa-enabled\", \"mfa-enabled-for-iam-console-access\", \"root-account-hardware-mfa-enabled\", and \"root-account-mfa-enabled\".\nThe \"iam-password-policy\" managed rule can identify insufficient password requirements that should be fixed in order to make brute force authentication more difficult by increasing the complexity of user passwords and decreasing the amount of time before they are rotated, giving adversaries less time to brute force passwords and making it more time consuming and resource intensive to do so. This is especially important in the case of Password Cracking, since adversaries in possession of password hashes may be able to recover usable credentials more quickly and do so without generating detectable noise via invalid login attempts.\nAll of these controls are run periodically, but implemented policies are enforced continuously once set and coverage factor is significant, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure multi-factor authentication (MFA) is enabled properly, which can significantly impede brute force authentication attempts by requiring adversaries to provide a second form of authentication even if they succeed in brute forcing a password via one of these sub-techniques: \"iam-user-mfa-enabled\", \"mfa-enabled-for-iam-console-access\", \"root-account-hardware-mfa-enabled\", and \"root-account-mfa-enabled\".\nThe \"iam-password-policy\" managed rule can identify insufficient password requirements that should be fixed in order to make brute force authentication more difficult by increasing the complexity of user passwords and decreasing the amount of time before they are rotated, giving adversaries less time to brute force passwords and making it more time consuming and resource intensive to do so. This is especially important in the case of Password Cracking, since adversaries in possession of password hashes may be able to recover usable credentials more quickly and do so without generating detectable noise via invalid login attempts.\nAll of these controls are run periodically, but implemented policies are enforced continuously once set and coverage factor is significant, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1119",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure that storage volumes are encrypted, which may mitigate adversary attempts to automate collection within cloud environments: \"ec2-ebs-encryption-by-default\" which is run periodically and \"encrypted-volumes\" which is run on configuration changes.\nCoverage factor is minimal for these rules, since they are specific to EBS volumes and will only prevent certain forms of collection since adversaries with access to mounted volumes may be able to decrypt their contents, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for one of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure multi-factor authentication (MFA) is enabled properly, which can provide significant protection against attempted manipulation of cloud accounts, including the creation of new ones: \"iam-user-mfa-enabled\", \"mfa-enabled-for-iam-console-access\", \"root-account-hardware-mfa-enabled\", and \"root-account-mfa-enabled\". All of these controls are run periodically and provide partial coverage, since adversaries may be able to create cloud credentials via other mechanisms, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure that applications intended for internal use cannot be accessed externally for exploitation: \"api-gw-endpoint-type-check\" can ensure that Amazon API Gateway APIs are private and can only be accessed from within VPCs, \"elasticsearch-in-vpc-only\" can ensure that Amazon ElasticSearch Service (Amazon ES) domains are in the same VPC and the domain endpoint is not public, \"lambda-function-public-access-prohibited\" can verify that AWS Lambda functions are not publicly available, and \"ec2-instance-no-public-ip\" can verify whether EC2 instances have public IP addresses.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure that insecure applications are not installed and installed packages are kept updated, reducing the likelihood of adversary exploitation: the \"ec2-managedinstance-applications-blacklisted\" managed rule verifies that a pre-defined list of applications are not installed on specified managed instances. It can be used to identify the presence of vulnerable applications (prompting removal before they can be exploited) and/or to identify the presence of allowed packages below a minimum version (prompting updates before they can be exploited). The \"ec2-managedinstance-platform-check\" managed rule verifies that managed instances are running desired platform types, including using a desired version (as opposed to an out-of-date one). Both can reduce instances' attack surface for adversary exploitation. \"rds-automatic-minor-version-upgrade-enabled\" can verify that Amazon RDS is being patched, and \"elastic-beanstalk-managed-updates-enabled\" can verify that Elastic Beanstalk is being patched.\nCoverage factor is partial for these rules, since they are specific to a subset of the available AWS services that can be used to host public-facing applications and will only protect against certain forms of identifiable exploitation, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1203",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ec2-managedinstance-applications-blacklisted\" managed rule verifies that a pre-defined list of applications are not installed on specified managed instances. It can be used to identify the presence of vulnerable applications (prompting removal before they can be exploited) and/or to identify the presence of allowed packages below a minimum version (prompting updates before they can be exploited). The \"ec2-managedinstance-platform-check\" managed rule verifies that managed instances are running desired platform types, including using a desired version (as opposed to an out-of-date one). Both can reduce instances' attack surface for adversary exploitation, including for client execution.\nAll of these are run on configuration changes. Coverage factor is partial for these rules, since they are specific to a subset of the available AWS services and will only protect against certain forms of identifiable exploitation, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ec2-managedinstance-applications-blacklisted\" managed rule verifies that a pre-defined list of applications are not installed on specified managed instances. It can be used to identify the presence of vulnerable applications (prompting removal before they can be exploited) and/or to identify the presence of allowed packages below a minimum version (prompting updates before they can be exploited), both of which can reduce instances' attack surface for adversary exploitation, including via those applications' exposed remote services. The \"ec2-instance-no-public-ip\" managed rule identifies EC2 instances with public IP associations, which should be removed unless necessary to avoid exposing services publicly for adversary access.\nAll of these are run on configuration changes. Coverage factor is partial for these rules, since they are specific to a subset of the available AWS services and will only protect against certain forms of identifiable exploitation, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1211",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ec2-managedinstance-applications-blacklisted\" managed rule verifies that a pre-defined list of applications are not installed on specified managed instances. It can be used to identify the presence of vulnerable applications (prompting removal before they can be exploited) and/or to identify the presence of allowed packages below a minimum version (prompting updates before they can be exploited). The \"ec2-managedinstance-platform-check\" managed rule verifies that managed instances are running desired platform types, including using a desired version (as opposed to an out-of-date one). Both can reduce instances' attack surface for adversary exploitation, including for defense evasion.\nAll of these are run on configuration changes. Coverage factor is partial for these rules, since they are specific to a subset of the available AWS services and will only protect against certain forms of identifiable exploitation, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1212",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ec2-managedinstance-applications-blacklisted\" managed rule verifies that a pre-defined list of applications are not installed on specified managed instances. It can be used to identify the presence of vulnerable applications (prompting removal before they can be exploited) and/or to identify the presence of allowed packages below a minimum version (prompting updates before they can be exploited). The \"ec2-managedinstance-platform-check\" managed rule verifies that managed instances are running desired platform types, including using a desired version (as opposed to an out-of-date one).Both can reduce instances' attack surface for adversary exploitation, including for credential access.\nAll of these are run on configuration changes. Coverage factor is partial for these rules, since they are specific to a subset of the available AWS services and will only protect against certain forms of identifiable exploitation, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1204",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage for one of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1204.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify running instances that are not using AMIs within a specified allow list: \"approved-amis-by-id\" and \"approved-amis-by-tag\", both of which are run on configuration changes. They provide significant coverage, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to prevent malicious write access to data within Amazon Simple Storage Service (S3) storage, which may include data destruction: \"s3-bucket-blacklisted-actions-prohibited\" checks whether bucket policies prohibit disallowed actions (including S3:DeleteObject) for principals from other AWS accounts, \"s3-bucket-default-lock-enabled\" checks whether a bucket that should be locked in write-once-read-many (WORM) mode is configured to prevent modification, and \"s3-bucket-public-write-prohibited\" checks whether a bucket is configured to allow public access and modification. All of these controls are run on configuration changes.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure backups and redundancy are in place which can mitigate the effects of data destruction: \"aurora-mysql-backtracking-enabled\" for data in Aurora MySQL; \"db-instance-backup-enabled\" and \"rds-in-backup-plan\" for Amazon Relational Database Service (RDS) data; \"dynamodb-in-backup-plan\" and \"dynamodb-pitr-enabled\" for Amazon DynamoDB table contents; \"ebs-in-backup-plan\" for Elastic Block Store (EBS) volumes; \"efs-in-backup-plan\" for Amazon Elastic File System (EFS) file systems; \"elasticache-redis-cluster-automatic-backup-check\" for Amazon ElastiCache Redis cluster data; \"redshift-backup-enabled\" and \"redshift-cluster-maintenancesettings-check\" for Redshift; \"s3-bucket-replication-enabled\" and \"s3-bucket-versioning-enabled\" for S3 storage; and \"cloudfront-origin-failover-enabled\" for CloudFront.\nThe following AWS Config managed rules provide specific detections for configuration problems that should be fixed in order to prevent malicious deletion of specific data: \"elb-deletion-protection-enabled\" for Elastic Block Store (EBS) volumes, and \"rds-cluster-deletion-protection-enabled\" and \"rds-instance-deletion-protection-enabled\" for RDS data.\nCoverage factor is partial for these rules, since they are specific to a subset of the available AWS services and will only protect certain types of data against destruction, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to prevent malicious changes to data encryption within Amazon Simple Storage Service (S3) storage: \"s3-bucket-blacklisted-actions-prohibited\" checks whether bucket policies prohibit disallowed actions (including encryption configuration changes) for principals from other AWS accounts, \"s3-bucket-default-lock-enabled\" checks whether a bucket that should be locked in write-once-read-many (WORM) mode is configured to prevent modification, and \"s3-bucket-public-write-prohibited\" checks whether a bucket is configured to allow public access and modification. All of these controls are run on configuration changes.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure backups and redundancy are in place which can mitigate the effects of malicious changes to data encryption: \"aurora-mysql-backtracking-enabled\" for data in Aurora MySQL; \"db-instance-backup-enabled\" and \"rds-in-backup-plan\" for Amazon Relational Database Service (RDS) data; \"dynamodb-in-backup-plan\" and \"dynamodb-pitr-enabled\" for Amazon DynamoDB table contents; \"ebs-in-backup-plan\" for Elastic Block Store (EBS) volumes; \"efs-in-backup-plan\" for Amazon Elastic File System (EFS) file systems; \"elasticache-redis-cluster-automatic-backup-check\" for Amazon ElastiCache Redis cluster data; \"redshift-backup-enabled\" and \"redshift-cluster-maintenancesettings-check\" for Redshift; \"s3-bucket-replication-enabled\" and \"s3-bucket-versioning-enabled\" for S3 storage; and \"cloudfront-origin-failover-enabled\" for CloudFront.\nCoverage factor is partial for these rules, since they are specific to a subset of the available AWS services and will only protect certain types of data against malicious encryption changes, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1491",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage for all of this technique's sub-techniques, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1491.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to prevent malicious write access to data within Amazon Simple Storage Service (S3) storage, which may include internal and/or external defacement: \"s3-bucket-blacklisted-actions-prohibited\" checks whether bucket policies prohibit disallowed actions (including encryption configuration changes) for principals from other AWS accounts, \"s3-bucket-default-lock-enabled\" checks whether a bucket that should be locked in write-once-read-many (WORM) mode is configured to prevent modification, and \"s3-bucket-public-write-prohibited\" checks whether a bucket is configured to allow public access and modification. All of these controls are run on configuration changes.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure backups and redundancy are in place which can mitigate the effects of malicious defacement: \"aurora-mysql-backtracking-enabled\" for data in Aurora MySQL; \"db-instance-backup-enabled\" and \"rds-in-backup-plan\" for Amazon Relational Database Service (RDS) data; \"dynamodb-in-backup-plan\" and \"dynamodb-pitr-enabled\" for Amazon DynamoDB table contents; \"ebs-in-backup-plan\" for Elastic Block Store (EBS) volumes; \"efs-in-backup-plan\" for Amazon Elastic File System (EFS) file systems; \"elasticache-redis-cluster-automatic-backup-check\" for Amazon ElastiCache Redis cluster data; \"redshift-backup-enabled\" and \"redshift-cluster-maintenancesettings-check\" for Redshift; \"s3-bucket-replication-enabled\" and \"s3-bucket-versioning-enabled\" for S3 storage; and \"cloudfront-origin-failover-enabled\" for CloudFront.\nCoverage factor is significant for these rules, since they cover a wide range of services used to host content for websites within AWS, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1491.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to prevent malicious write access to data within Amazon Simple Storage Service (S3) storage, which may include internal and/or external defacement: \"s3-bucket-blacklisted-actions-prohibited\" checks whether bucket policies prohibit disallowed actions (including encryption configuration changes) for principals from other AWS accounts, \"s3-bucket-default-lock-enabled\" checks whether a bucket that should be locked in write-once-read-many (WORM) mode is configured to prevent modification, and \"s3-bucket-public-write-prohibited\" checks whether a bucket is configured to allow public access and modification. All of these controls are run on configuration changes.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure backups and redundancy are in place which can mitigate the effects of malicious defacement: \"aurora-mysql-backtracking-enabled\" for data in Aurora MySQL; \"db-instance-backup-enabled\" and \"rds-in-backup-plan\" for Amazon Relational Database Service (RDS) data; \"dynamodb-in-backup-plan\" and \"dynamodb-pitr-enabled\" for Amazon DynamoDB table contents; \"ebs-in-backup-plan\" for Elastic Block Store (EBS) volumes; \"efs-in-backup-plan\" for Amazon Elastic File System (EFS) file systems; \"elasticache-redis-cluster-automatic-backup-check\" for Amazon ElastiCache Redis cluster data; \"redshift-backup-enabled\" and \"redshift-cluster-maintenancesettings-check\" for Redshift; \"s3-bucket-replication-enabled\" and \"s3-bucket-versioning-enabled\" for S3 storage; and \"cloudfront-origin-failover-enabled\" for CloudFront.\nCoverage factor is significant for these rules, since they cover a wide range of services used to host content for websites within AWS, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1496",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure alarms exist for spikes in resource utilization, which help to identify malicious use of resources within a cloud environment: \"cloudwatch-alarm-action-check\", \"cloudwatch-alarm-resource-check\", \"cloudwatch-alarm-settings-check\", \"desired-instance-tenancy\", \"desired-instance-type\", \"dynamodb-autoscaling-enabled\", \"dynamodb-throughput-limit-check\", \"ec2-instance-detailed-monitoring-enabled\", and \"rds-enhanced-monitoring-enabled\".\nCoverage factor is partial for these rules, since they are specific to a subset of the available AWS services and will only detect resource hijacking that results in a change in utilization that is significant enough to trigger alarms, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage for this technique's sub-techniques as well as its procedures, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"elb-cross-zone-load-balancing-enabled\" managed rule can verify that load balancing is properly configured, which can mitigate adversaries' ability to perform Denial of Service (DoS) attacks and impact resource availability. \"cloudfront-origin-failover-enabled\" can verify that failover policies are in place to increase CloudFront content availability.\nCoverage factor is minimal for these rules, since they are specific to a subset of the available AWS services, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"elb-cross-zone-load-balancing-enabled\" managed rule can verify that load balancing is properly configured, which can mitigate adversaries' ability to perform Denial of Service (DoS) attacks and impact resource availability. \"cloudfront-origin-failover-enabled\" can verify that failover policies are in place to increase CloudFront content availability.\nCoverage factor is minimal for these rules, since they are specific to a subset of the available AWS services, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal coverage for this technique's sub-techniques as well as its procedures, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"elb-cross-zone-load-balancing-enabled\" managed rule can verify that load balancing is properly configured, which can mitigate adversaries' ability to perform Denial of Service (DoS) attacks and impact resource availability. \"cloudfront-origin-failover-enabled\" can verify that failover policies are in place to increase CloudFront content availability.\nCoverage factor is minimal for these rules, since they are specific to a subset of the available AWS services, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"elb-cross-zone-load-balancing-enabled\" managed rule can verify that load balancing is properly configured, which can mitigate adversaries' ability to perform Denial of Service (DoS) attacks and impact resource availability. \"cloudfront-origin-failover-enabled\" can verify that failover policies are in place to increase CloudFront content availability.\nCoverage factor is minimal for these rules, since they are specific to a subset of the available AWS services, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"elb-cross-zone-load-balancing-enabled\" managed rule can verify that load balancing is properly configured, which can mitigate adversaries' ability to perform Denial of Service (DoS) attacks and impact resource availability. \"cloudfront-origin-failover-enabled\" can verify that failover policies are in place to increase CloudFront content availability.\nCoverage factor is minimal for these rules, since they are specific to a subset of the available AWS services, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1499.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"elb-cross-zone-load-balancing-enabled\" managed rule can verify that load balancing is properly configured, which can mitigate adversaries' ability to perform Denial of Service (DoS) attacks and impact resource availability. \"cloudfront-origin-failover-enabled\" can verify that failover policies are in place to increase CloudFront content availability.\nCoverage factor is minimal for these rules, since they are specific to a subset of the available AWS services, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1525",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify running instances that are not using AMIs within a specified allow list: \"approved-amis-by-id\" and \"approved-amis-by-tag\", both of which are run on configuration changes. This does not provide detection of the image implanting itself, but does provide detection for any subsequent use of images that are implanted and not present within the allow list, resulting in a score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to prevent malicious access of data within Amazon Simple Storage Service (S3) storage: \"s3-account-level-public-access-blocks\", \"s3-bucket-level-public-access-prohibited\", \"s3-bucket-public-read-prohibited\", \"s3-bucket-policy-not-more-permissive\", \"cloudfront-origin-access-identity-enabled\", and \"cloudfront-default-root-object-configured\" identify objects that are publicly available or subject to overly permissive access policies; \"s3-bucket-blacklisted-actions-prohibited\" checks whether bucket policies prohibit disallowed actions for principals from other AWS accounts; and \"s3-bucket-policy-grantee-check\" checks whether bucket policies appropriately control which AWS principals, federated users, service principals, IP addresses, and VPCs have access. All of these controls are run on configuration changes.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to prevent malicious access of data from other AWS services: \"dms-replication-not-public\" for AWS Database Migration Service; \"emr-master-no-public-ip\" for Amazon Elastic MapReduce (EMR); \"rds-cluster-iam-authentication-enabled\", \"rds-instance-iam-authentication-enabled\", \"rds-instance-public-access-check\" and \"rds-snapshots-public-prohibited\" for Amazon Relational Database Service; \"redshift-cluster-public-access-check\" for Amazon Redshift; and \"sagemaker-notebook-no-direct-internet-access\" for SageMaker.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure that cloud storage data are encrypted to prevent malicious access: \"dax-encryption-enabled\", \"dynamodb-table-encrypted-kms\", and \"dynamodb-table-encryption-enabled\" for Amazon DynamoDB table contents; \"efs-encrypted-check\" for Amazon Elastic File System (EFS) file systems; \"elasticsearch-encrypted-at-rest\" for Elasticsearch Service (ES) domains; \"rds-snapshot-encrypted\" and \"rds-storage-encrypted\" for Amazon Relational Database Service; \"s3-bucket-server-side-encryption-enabled\" and \"s3-default-encryption-kms\" for S3 storage; \"sns-encrypted-kms\" for Amazon Simple Notification Service (SNS); \"redshift-cluster-configuration-check\" and \"redshift-cluster-kms-enabled\" for Redshift clusters; \"sagemaker-endpoint-configuration-kms-key-configured\" and \"sagemaker-notebook-instance-kms-key-configured\" for SageMaker.\nThese rules provide a wide range of coverage for many AWS services, especially those most significant to procedures for this technique, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1538",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"mfa-enabled-for-iam-console-access\" managed rule checks whether multi-factor authentication is enabled for all AWS IAM users that use a console password, protecting against misuse of those accounts' dashboard access. It is run periodically, and provides significant coverage, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1552",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify insecure plaintext credentials within specific parts of a cloud environment: \"codebuild-project-envvar-awscred-check\" for credentials (AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY) stored within environment variables, \"codebuild-project-source-repo-url-check\" for personal access tokens and/or credentials within source repository URLs.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure that the contents of secrets in AWS Secrets Manager (including credentials) are properly secured to avoid adversary access: \"secretsmanager-rotation-enabled-check\", \"secretsmanager-scheduled-rotation-success-check\", \"secretsmanager-secret-periodic-rotation\", and \"secretsmanager-using-cmk\".\nThis control provides partial coverage for a minority of this technique's sub-techniques, in addition to the parent coverage above, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1552.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to prevent malicious access of data within Amazon Simple Storage Service (S3) storage, which may include files containing credentials: \"s3-account-level-public-access-blocks\", \"s3-bucket-level-public-access-prohibited\", \"s3-bucket-public-read-prohibited\", \"s3-bucket-policy-not-more-permissive\", \"cloudfront-origin-access-identity-enabled\", and \"cloudfront-default-root-object-configured\" identify objects that are publicly available or subject to overly permissive access policies; and \"s3-bucket-policy-grantee-check\" checks whether bucket policies appropriately control which AWS principals, federated users, service principals, IP addresses, and VPCs have access. All of these controls are run on configuration changes.\nThe following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure that cloud storage data - which may include files containing credentials - are encrypted to prevent malicious access: \"s3-bucket-server-side-encryption-enabled\" and \"s3-default-encryption-kms\" for S3 storage, \"ec2-ebs-encryption-by-default\" and \"encrypted-volumes\" for EBS volumes.\nCoverage factor is partial for these rules, since they are specific to a subset of the available AWS services, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1552.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ec2-imdsv2-check\" managed rule can identify instances which are configured to use the outdated Instance Metadata Service Version 1 (IMDSv1), which is less secure than IMDSv2. This provides partial coverage, since adversaries may find ways to exploit the more secure IMDSv2, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1552.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"eks-endpoint-no-public-access\" managed rule can identify whether Amazon Elastic Kubernetes Service (Amazon EKS) endpoints are misconfigured to allow public endpoint access, which should be fixed in order to prevent malicious external access to the Kubernetes API server, including malicious attempts to gather credentials via the API. The \"eks-secrets-encrypted\" managed rule can identify configuration problems that should be fixed in order to ensure that Kubernetes secrets (including those containing credentials) are encrypted to prevent malicious access. Both controls are run periodically and only provide partial coverage because they are specific to public access and adversaries without the ability to decrypt secrets, respectively, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify configuration problems that should be fixed in order to ensure SSL/TLS encryption is enabled to protect network traffic: \"acm-certificate-expiration-check\" for nearly expired certificates in AWS Certificate Manager (ACM); \"alb-http-to-https-redirection-check\" for Application Load Balancer (ALB) HTTP listeners; \"api-gw-ssl-enabled\" for API Gateway REST API stages; \"cloudfront-custom-ssl-certificate\", \"cloudfront-sni-enabled\", and \"cloudfront-viewer-policy-https\", for Amazon CloudFront distributions; \"elb-acm-certificate-required\", \"elb-custom-security-policy-ssl-check\", \"elb-predefined-security-policy-ssl-check\", and \"elb-tls-https-listeners-only\" for Elastic Load Balancing (ELB) Classic Load Balancer listeners; \"redshift-require-tls-ssl\" for Amazon Redshift cluster connections to SQL clients; \"s3-bucket-ssl-requests-only\" for requests for S3 bucket contents; and \"elasticsearch-node-to-node-encryption-check\" for Amazon ElasticSearch Service node-to-node communications.\nAll of these are run on configuration changes except \"alb-http-to-https-redirection-check\", which is run periodically. Coverage factor is partial for these rules, since they are specific to a subset of the available AWS services and can only mitigate behavior for adversaries who are unable to decrypt the relevant traffic. This control does not provide specific coverage for this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1562",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant coverage for a minority of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ec2-managedinstance-applications-required\" managed rule verifies that all applications in a pre-defined list of requirements are installed on specified managed instances, and is run on configuration changes. It will not detect modification to those applications, but will detect if they are uninstalled. The \"ec2-managedinstance-applications-blacklisted\" managed rule verifies that a pre-defined list of applications are not installed on specified managed instances, and can be used to detect installation of applications below a minimum version, which can identify adversary attempts to downgrade required tools to insecure or ineffective older versions. Given the host-based scoping of this technique, coverage is partial, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify potentially malicious changes to cloud firewall status and ensure that a WAF is enabled and enforcing specified ACLs: \"lab-waf-enabled\" for Application Load Balancers; \"api-gw-associated-with-waf\" for Amazon API Gateway API stages; \"cloudfront-associated-with-waf\" for Amazon CloudFront distributions; \"fms-webacl-resource-policy-check\", \"fms-webacl-resource-policy-check\", and \"fms-webacl-rulegroup-association-check\" for AWS Firewall Manager; \"vpc-default-security-group-closed\", \"vpc-network-acl-unused-check\", and \"vpc-sg-open-only-to-authorized-ports\" for VPC security groups; and \"ec2-security-group-attached-to-eni\" for EC2 and ENI security groups; all of which are run on configuration changes.\nThe following AWS Config managed rules can identify specific configuration changes to VPC configuration that may suggest malicious modification to bypass protections: \"internet-gateway-authorized-vpc-only\" can identify Internet gateways (IGWs) attached to unauthorized VPCs, which can allow unwanted communication between a VPC and the Internet; \"lambda-inside-vpc\" can identify VPCs that have granted execution access to unauthorized Lambda functions; \"service-vpc-endpoint-enabled\" can verify that endpoints are active for the appropriate services across VPCs; \"subnet-auto-assign-public-ip-disabled\" checks for public IP addresses assigned to subnets within VPCs.\nCoverage factor is significant for these rules, since they cover firewall configuration for and via a wide range of services, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS Config managed rules can identify potentially malicious changes to cloud logging: \"api-gw-execution-logging-enabled\", \"cloudfront-accesslogs-enabled\", \"elasticsearch-logs-to-cloudwatch\", \"elb-logging-enabled\", \"redshift-cluster-configuration-check\", \"rds-logging-enabled\", and \"s3-bucket-logging-enabled\" are run on configuration changes. \"cloudtrail-security-trail-enabled\", \"cloud-trail-cloud-watch-logs-enabled\", \"cloudtrail-s3-dataevents-enabled\", \"vpc-flow-logs-enabled\", \"waf-classic-logging-enabled\", and \"wafv2-logging-enabled\" are run periodically.\nCoverage factor is significant for these rules, since they cover logging configuration for a wide range of services, resulting in an overall score of Significant."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1609",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"eks-endpoint-no-public-access\" managed rule can identify whether Amazon Elastic Kubernetes Service (Amazon EKS) endpoints are misconfigured to allow public endpoint access, which should be fixed in order to prevent malicious external access to the Kubernetes API server, including malicious attempts to execute commands via the API. It is run periodically and only provides partial coverage because it is specific to public access, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1610",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"eks-endpoint-no-public-access\" managed rule can identify whether Amazon Elastic Kubernetes Service (Amazon EKS) endpoints are misconfigured to allow public endpoint access, which should be fixed in order to prevent malicious external access to the Kubernetes API server, including malicious attempts to deploy containers. It is run periodically and only provides partial coverage because it is specific to public access, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1611",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ecs-task-definition-user-for-host-mode-check\" managed rule can identify Amazon Elastic Container Service (ECS) task definitions for containers with host networking mode and 'privileged' or 'user' container definitions, which may enable adversaries to break out of containers and gain access to the underlying host. It is run on configuration changes. Coverage is partial, since adversaries may find other means to escape a container to the underlying host, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1613",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"eks-endpoint-no-public-access\" managed rule can identify whether Amazon Elastic Kubernetes Service (Amazon EKS) endpoints are misconfigured to allow public endpoint access, which should be fixed in order to prevent malicious external access to the Kubernetes API server, including malicious attempts to discover containers and other resources. It is run periodically and only provides partial coverage because it is specific to public access, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

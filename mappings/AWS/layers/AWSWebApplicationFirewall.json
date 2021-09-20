@@ -1,0 +1,469 @@
+{
+    "name": "AWS Web Application Firewall",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "The AWS Web Application Firewall (WAF) protects web applications and Application Programmer Interfaces (APIs) from exploits and bots that may impact the availability and security of resources by filtering out unwanted or malicious web traffic based on a set of rules. AWS WAF can be configured to control how Amazon CloudFront, Amazon API Gateway REST API, Application Load Balancer, and AWS AppSync GraphQL API respond to web requests. This mapping focuses on the AWS Managed Rules rule groups currently available. It does not cover paid solutions from Amazon or managed rules from Amazon Marketplace. ",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The AWS WAF protects public-facing applications against a range of vulnerabilities including those listed in the OWASP Top 10. AWS WAF provides this protection via the following rule sets that block malicious traffic across a variety of operating systems and applications.\nAWSManagedRulesCommonRuleSet  AWSManagedRulesKnownBadInputRuleSet AWSManagedRulesSQLiRuleSet  AWSManagedRulesLinuxRuleSet  AWSManagedRulesUnixRuleSet AWSManagedRulesWindowsRuleSet  AWSManagedRulesPHPRuleSet  AWSManagedRulesWordPressRuleSet\nThis is given a score of Significant because it protects against vulnerabilities across multiple operating systems (Windows, Linux, POSIX) and technologies (JavaScript, SQL, PHP, WordPress). Furthermore, it blocks the malicious content in near real-time."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1189",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS WAF protects against drive-by compromises by blocking malicious traffic that contains cross-site scripting patterns with the following rule set.\nAWSManagedRulesCommonRuleSet\nThis is scored as Significant because the rule set is broadly applicable to web applications and blocks the malicious traffic in near real-time."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1203",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS WAF protects against exploitation for client execution (browser-based exploitation) by blocking malicious traffic that contains cross-site scripting patterns with the following rule set.\nAWSManagedRulesCommonRuleSet\nThis is scored as Significant because the rule set is broadly applicable to web applications and blocks the malicious traffic in near real-time."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1059",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The AWS WAF protects web applications from injection attacks that leverage command and scripting interpreters. AWS WAF provides this protection via the following rule sets that block malicious traffic across a variety of operating systems and applications.\nAWSManagedRulesCommonRuleSet AWSManagedRulesSQLiRuleSet  AWSManagedRulesUnixRuleSet  AWSManagedRulesWindowsRuleSet AWSManagedRulesPHPRuleSet  AWSManagedRulesWordPressRuleSet\nThis is given a score of Partial (instead of Minimal) because while it only protects against a subset of sub-techniques (3 out of 8), it does provide protections for command and scripting interpreters that do not have sub-techniques (SQL, PHP, etc.). Furthermore, it blocks the malicious content in near real-time."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1059.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The AWS WAF protects web applications from injection attacks that leverage command and scripting interpreters. AWS WAF provides this protection via the following rule sets that block malicious traffic across a variety of operating systems and applications.\nAWSManagedRulesCommonRuleSet AWSManagedRulesSQLiRuleSet  AWSManagedRulesUnixRuleSet  AWSManagedRulesWindowsRuleSet AWSManagedRulesPHPRuleSet  AWSManagedRulesWordPressRuleSet\nThis is given a score of Significant because it provides protections for PowerShell, Unix, and JavaScript command and scripting interpreters by blocking the malicious content in near real-time."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1059.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The AWS WAF protects web applications from injection attacks that leverage command and scripting interpreters. AWS WAF provides this protection via the following rule sets that block malicious traffic across a variety of operating systems and applications.\nAWSManagedRulesCommonRuleSet AWSManagedRulesSQLiRuleSet  AWSManagedRulesUnixRuleSet  AWSManagedRulesWindowsRuleSet AWSManagedRulesPHPRuleSet  AWSManagedRulesWordPressRuleSet\nThis is given a score of Significant because it provides protections for PowerShell, Unix, and JavaScript command and scripting interpreters by blocking the malicious content in near real-time."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1059.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The AWS WAF protects web applications from injection attacks that leverage command and scripting interpreters. AWS WAF provides this protection via the following rule sets that block malicious traffic across a variety of operating systems and applications.\nAWSManagedRulesCommonRuleSet AWSManagedRulesSQLiRuleSet  AWSManagedRulesUnixRuleSet  AWSManagedRulesWindowsRuleSet AWSManagedRulesPHPRuleSet  AWSManagedRulesWordPressRuleSet\nThis is given a score of Significant because it provides protections for PowerShell, Unix, and JavaScript command and scripting interpreters by blocking the malicious content in near real-time."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The AWS WAF protects web applications from access by adversaries that leverage tools that obscure their identity (e.g., VPN, proxies, Tor, hosting providers). AWS WAF provides this protection via the following rule set that blocks incoming traffic from IP addresses known to anonymize connection information or be less likely to source end user traffic.\nAWSManagedRulesAnonymousIpList\nThis is given a score of Partial because it provides protections for only a subset of the sub-techniques (2 out of 4) and is based only on known IP addresses. Furthermore, it blocks the malicious content in near real-time."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The AWS WAF protects web applications from access by adversaries that leverage tools that obscure their identity (e.g., VPN, proxies, Tor, hosting providers). AWS WAF provides this protection via the following rule set that blocks incoming traffic from IP addresses known to anonymize connection information or be less likely to source end user traffic.\nAWSManagedRulesAnonymousIpList\nThis is given a score of Partial because it provide protections for only a subset of the sub-techniques (2 out of 4) and is based only on known IP addresses. Furthermore, it blocks the malicious content in near real-time."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1090.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The AWS WAF protects web applications from access by adversaries that leverage tools that obscure their identity (e.g., VPN, proxies, Tor, hosting providers). AWS WAF provides this protection via the following rule set that blocks incoming traffic from IP addresses known to anonymize connection information or be less likely to source end user traffic.\nAWSManagedRulesAnonymousIpList\nThis is given a score of Partial because it provide protections for only a subset of the sub-techniques (2 out of 4) and is based only on known IP addresses. Furthermore, it blocks the malicious content in near real-time."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS WAF protects against bots that run scans against web applications such as Nessus (vulnerability assessments) and Nmap (IP address and port scans) among others. AWS WAF does this by blocking malicious traffic that indicates bad bots such as those listed above (e.g., via User-Agent values). AWS WAF uses the following rule sets to provide this protection.\nAWSManagedRulesCommonRuleSet  AWSManagedRulesBotControlRuleSet\nThis is scored as Partial because the rule sets, while they block malicious traffic in near real-time, only protect web applications against scans performed by bots."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS WAF protects against bots that run scans against web applications such as Nessus (vulnerability assessments) and Nmap (IP address and port scans) among others. AWS WAF does this by blocking malicious traffic that indicate bad bots such as those listed above (e.g., via User-Agent values). AWS WAF uses the following rule sets to provide this protection.\nAWSManagedRulesCommonRuleSet  AWSManagedRulesBotControlRuleSet\nThis is scored as Partial because the rule sets, while they block malicious traffic  in near real-time, only protect web applications against scans performed by bots."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS WAF protects against bots that run scans against web applications such as Nessus (vulnerability assessments) and Nmap (IP address and port scans) among others. AWS WAF does this by blocking malicious traffic that indicate bad bots such as those listed above (e.g., via User-Agent values). AWS WAF uses the following rule sets to provide this protection.\nAWSManagedRulesCommonRuleSet  AWSManagedRulesBotControlRuleSet\nThis is scored as Partial because the rule sets, while they block malicious traffic  in near real-time, only protect web applications against scans performed by bots."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS WAF protects against bots that run scans against web applications such as Nessus (vulnerability assessments) and Nmap (IP address and port scans) among others. AWS WAF does this by blocking malicious traffic that indicate bad bots such as those listed above (e.g., via User-Agent values). AWS WAF uses the following rule sets to provide this protection.\nAWSManagedRulesCommonRuleSet  AWSManagedRulesBotControlRuleSet\nThis is scored as Partial because the rule sets, while they block malicious traffic  in near real-time, only protect web applications against scans performed by bots."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS WAF protects against this by inspecting incoming requests and blocking malicious traffic. AWS WAF uses the following rule sets to provide this protection.\nAWSManagedRulesCommonRuleSet  AWSManagedRulesAdminProtectionRuleSet AWSManagedRulesKnownBadInputsRuleSet  AWSManagedRulesSQLiRuleSet AWSManagedRulesLinuxRuleSet  AWSManagedRulesUnixRuleSet  AWSManagedRulesWindowsRuleSet AWSManagedRulesPHPRuleSet  AWSManagedRulesWordPressRuleSet  AWSManagedRulesBotControlRuleSet\nThis is scored as Minimal because the rule sets only protect against a subset of the sub-techniques (1 of 4)."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "AWS WAF protects against this by inspecting incoming requests and blocking malicious traffic. AWS WAF uses the following rule sets to provide this protection.\nAWSManagedRulesCommonRuleSet  AWSManagedRulesAdminProtectionRuleSet AWSManagedRulesKnownBadInputsRuleSet  AWSManagedRulesSQLiRuleSet AWSManagedRulesLinuxRuleSet  AWSManagedRulesUnixRuleSet  AWSManagedRulesWindowsRuleSet AWSManagedRulesPHPRuleSet  AWSManagedRulesWordPressRuleSet AWSManagedRulesBotControlRuleSet\nThis is scored as Minimal because the rule sets only protect against the web protocols sub-technique."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

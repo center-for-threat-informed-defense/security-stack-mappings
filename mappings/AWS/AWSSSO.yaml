@@ -1,0 +1,69 @@
+version: 1
+ATT&CK version: 9
+creation date: 07/07/2021
+name: AWS Single Sign-On
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+  - Identity
+  - Credentials
+description: >-
+  AWS Single Sign-On is a cloud-based single sign-on (SSO) service that makes it easy to centrally
+  manage SSO access to all your AWS accounts and cloud applications. Specifically, it helps you
+  manage SSO access and user permissions across all your AWS accounts in AWS Organizations. AWS SSO
+  also helps you manage access and permissions to commonly used third-party software as a service
+  (SaaS) applications, AWS SSO-integrated applications as well as custom applications that support
+  Security Assertion Markup Language (SAML) 2.0.
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+          - id: T1078.002
+            name: Domain Accounts
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control may protect against malicious use of valid accounts by implementing fine
+              grained and least privilege access through use of permission sets (a collection of
+              administrator-defined policies that AWS SSO uses to determine a user's effective permissions
+              to access a given AWS account). The ability to reduce the set of credentials and accounts
+              needed for a user allows for simpler and safer access and privilege management.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control may protect against abuse of external remote services by requiring
+          multi-factor authentication for single sign-on accounts. 
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: This control may not provide any mitigation against password cracking.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              This control may protect against brute force techniques by enabling multi-factor
+              authentication. All accounts that can be replace with single sign-on can benefit from
+              a unified multi-factor authentication requirement.
+references:
+  - 'https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html'

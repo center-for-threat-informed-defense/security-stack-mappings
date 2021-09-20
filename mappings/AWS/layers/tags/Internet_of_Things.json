@@ -1,0 +1,701 @@
+{
+    "name": "Internet of Things",
+    "versions": {
+        "attack": "9",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: AWS IoT Device Defender",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1020",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for this technique's only sub-technique, but without specific coverage for its procedures, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1020.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender audit checks and corresponding mitigation actions can identify and resolve configuration problems that should be fixed in order to ensure SSL/TLS encryption is enabled and secure to protect network traffic to/from IoT devices: \"CA certificate expiring\" (\"CA_CERTIFICATE_EXPIRING_CHECK\" in the CLI and API), \"CA certificate key quality\" (\"CA_CERTIFICATE_KEY_QUALITY_CHECK\" in the CLI and API), and \"CA certificate revoked but device certificates still active\" (\"REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API) can identify problems with certificate authority (CA) certificates being used for signing and support the \"UPDATE_CA_CERTIFICATE\" mitigation action which can resolve them. \"Device certificate expiring\" (\"DEVICE_CERTIFICATE_EXPIRING_CHECK\" in the CLI and API), \"Device certificate key quality\" (\"DEVICE_CERTIFICATE_KEY_QUALITY_CHECK\" in the CLI and API), \"Device certificate shared\" (\"DEVICE_CERTIFICATE_SHARED_CHECK\" in the CLI and API), and \"Revoked device certificate still active\" (\"REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API) can identify problems with IoT devices' certificates and support the \"UPDATE_DEVICE_CERTIFICATE\" and \"ADD_THINGS_TO_THING_GROUP\" mitigation actions which can resolve them.\nCoverage factor is partial for these checks and mitigations, since they are specific to IoT device communication and can only mitigate behavior for adversaries who are unable to decrypt the relevant traffic, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender audit checks and corresponding mitigation actions can identify and resolve configuration problems that should be fixed in order to ensure SSL/TLS encryption is enabled and secure to protect network traffic to/from IoT devices: \"CA certificate expiring\" (\"CA_CERTIFICATE_EXPIRING_CHECK\" in the CLI and API), \"CA certificate key quality\" (\"CA_CERTIFICATE_KEY_QUALITY_CHECK\" in the CLI and API), and \"CA certificate revoked but device certificates still active\" (\"REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API) can identify problems with certificate authority (CA) certificates being used for signing and support the \"UPDATE_CA_CERTIFICATE\" mitigation action which can resolve them. \"Device certificate expiring\" (\"DEVICE_CERTIFICATE_EXPIRING_CHECK\" in the CLI and API), \"Device certificate key quality\" (\"DEVICE_CERTIFICATE_KEY_QUALITY_CHECK\" in the CLI and API), \"Device certificate shared\" (\"DEVICE_CERTIFICATE_SHARED_CHECK\" in the CLI and API), and \"Revoked device certificate still active\" (\"REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API) can identify problems with IoT devices' certificates and support the \"UPDATE_DEVICE_CERTIFICATE\" and \"ADD_THINGS_TO_THING_GROUP\" mitigation actions which can resolve them.\nCoverage factor is partial for these checks and mitigations, since they are specific to IoT device communication and can only mitigate behavior for adversaries who are unable to decrypt the relevant traffic, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be exfiltrating collected data from compromised AWS IoT devices using an established command and control channel to/from those devices: \"Destination IPs\" (\"aws:destination-ip-addresses\") outside of expected IP address ranges may suggest that a device is communicating with unexpected parties. \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that the device is sending and/or receiving non-standard traffic, which may include exfiltration of stolen data. \"Listening TCP ports\" (\"aws:listening-tcp-ports\"), \"Listening TCP port count\" (\"aws:num-listening-tcp-ports\"), \"Established TCP connections count\" (\"aws:num-established-tcp-connections\"), \"Listening UDP ports\" (\"aws:listening-udp-ports\"), and \"Listening UDP port count\" (\"aws:num-listening-udp-ports\") values outside of expected norms may indicate that devices are communicating via unexpected ports/protocols, which may include exfiltration of data over command and control channels.\nCoverage factor is partial, since these metrics are limited to exfiltration from IoT devices, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be leveraging compromised AWS IoT devices to search their networks for other hosts and their running services, possibly to subsequently carry out lateral movement techniques: \"Destination IPs\" (\"aws:destination-ip-addresses\") outside of expected IP address ranges may suggest that a device is communicating with unexpected devices. \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that the device is sending and/or receiving non-standard traffic, which may traffic used to discover other hosts/services. \"Listening TCP ports\" (\"aws:listening-tcp-ports\"), \"Listening TCP port count\" (\"aws:num-listening-tcp-ports\"), \"Established TCP connections count\" (\"aws:num-established-tcp-connections\"), \"Listening UDP ports\" (\"aws:listening-udp-ports\"), and \"Listening UDP port count\" (\"aws:num-listening-udp-ports\") values outside of expected norms may indicate that devices are communicating via unexpected ports/protocols that may suggest scanning is taking place.\nCoverage factor is partial, since these metrics are limited to IoT device communication and detection is only based on network traffic, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for this technique and all of its sub-techniques, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be exfiltrating collected data from compromised AWS IoT devices over a given channel to/from those devices: \"Destination IPs\" (\"aws:destination-ip-addresses\") outside of expected IP address ranges may suggest that a device is communicating with unexpected parties. \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that the device is sending and/or receiving non-standard traffic, which may include exfiltration of stolen data. \"Listening TCP ports\" (\"aws:listening-tcp-ports\"), \"Listening TCP port count\" (\"aws:num-listening-tcp-ports\"), \"Established TCP connections count\" (\"aws:num-established-tcp-connections\"), \"Listening UDP ports\" (\"aws:listening-udp-ports\"), and \"Listening UDP port count\" (\"aws:num-listening-udp-ports\") values outside of expected norms may indicate that devices are communicating via unexpected ports/protocols, which may include exfiltration of data over those ports/protocols.\nCoverage factor is partial, since these metrics are limited to exfiltration from IoT devices, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be exfiltrating collected data from compromised AWS IoT devices over a given channel to/from those devices: \"Destination IPs\" (\"aws:destination-ip-addresses\") outside of expected IP address ranges may suggest that a device is communicating with unexpected parties. \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that the device is sending and/or receiving non-standard traffic, which may include exfiltration of stolen data. \"Listening TCP ports\" (\"aws:listening-tcp-ports\"), \"Listening TCP port count\" (\"aws:num-listening-tcp-ports\"), \"Established TCP connections count\" (\"aws:num-established-tcp-connections\"), \"Listening UDP ports\" (\"aws:listening-udp-ports\"), and \"Listening UDP port count\" (\"aws:num-listening-udp-ports\") values outside of expected norms may indicate that devices are communicating via unexpected ports/protocols, which may include exfiltration of data over those ports/protocols.\nCoverage factor is partial, since these metrics are limited to exfiltration from IoT devices, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be exfiltrating collected data from compromised AWS IoT devices over a given channel to/from those devices: \"Destination IPs\" (\"aws:destination-ip-addresses\") outside of expected IP address ranges may suggest that a device is communicating with unexpected parties. \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that the device is sending and/or receiving non-standard traffic, which may include exfiltration of stolen data. \"Listening TCP ports\" (\"aws:listening-tcp-ports\"), \"Listening TCP port count\" (\"aws:num-listening-tcp-ports\"), \"Established TCP connections count\" (\"aws:num-established-tcp-connections\"), \"Listening UDP ports\" (\"aws:listening-udp-ports\"), and \"Listening UDP port count\" (\"aws:num-listening-udp-ports\") values outside of expected norms may indicate that devices are communicating via unexpected ports/protocols, which may include exfiltration of data over those ports/protocols.\nCoverage factor is partial, since these metrics are limited to exfiltration from IoT devices, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender cloud-side detection metrics can detect indicators that an adversary may be leveraging compromised AWS IoT devices and application layer protocols - especially the Message Queuing Telemetry Transport (MQTT) protocol - to communicate for command and control purposes: \"Source IP\" (\"aws:source-ip-address\") values outside of expected IP address ranges may suggest that a device has been stolen. \"Messages sent\" (\"aws:num-messages-sent\"), \"Messages received\" (\"aws:num-messages-received\"), and \"Message size\" (\"aws:message-byte-size\") values outside of expected norms may indicate that devices are sending and/or receiving non-standard traffic, which may include command and control traffic.\nThe following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be leveraging compromised AWS IoT devices and application layer protocols - especially the Message Queuing Telemetry Transport (MQTT) protocol - to communicate for command and control purposes: \"Destination IPs\" (\"aws:destination-ip-addresses\") outside of expected IP address ranges may suggest that a device is communicating with unexpected parties. \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that the device is sending and/or receiving non-standard traffic, which may include command and control traffic. \"Listening TCP ports\" (\"aws:listening-tcp-ports\"), \"Listening TCP port count\" (\"aws:num-listening-tcp-ports\"), \"Established TCP connections count\" (\"aws:num-established-tcp-connections\"), \"Listening UDP ports\" (\"aws:listening-udp-ports\"), and \"Listening UDP port count\" (\"aws:num-listening-udp-ports\") values outside of expected norms may indicate that devices are communicating via unexpected ports/protocols that may suggest application layer command and control traffic.\nCoverage factor is minimal, since these metrics are limited to IoT device communication and none of this technique's sub-techniques are addressed, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial detection capability for one of this technique's sub-techniques and a few of its procedure examples resulting in an overall Minimal protection score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for one of this technique's sub-techniques and a few of its procedure examples resulting in an overall Minimal protection score."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender audit checks can identify potentially malicious use of valid cloud credentials by AWS IoT devices, which may indicate that devices have been compromised: \"CA certificate revoked but device certificates still active\" (\"REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API) indicates that device certificates signed using a revoked CA certificate are still active, which may indicate that devices using those certificates are controlled by an adversary if the CA certificate was revoked due to compromise. \"Device certificate shared\" (\"DEVICE_CERTIFICATE_SHARED_CHECK\" in the CLI and API), \"Revoked device certificate still active\" (\"REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API), and \"Conflicting MQTT client IDs\" (\"CONFLICTING_CLIENT_IDS_CHECK\" in the CLI and API) can indicate that devices are in use with duplicate certificates and/or IDs and/or certificates that have been revoked due to compromise, all of which suggest that an adversary may be using clones of compromised devices to leverage their access.\nThe following AWS IoT Device Defender cloud-side detection metrics can identify potentially malicious use of valid cloud credentials by IoT devices, which may indicate that devices have been compromised: \"Source IP\" (\"aws:source-ip-address\") values outside of expected IP address ranges may suggest that a device has been stolen. \"Authorization failures\" (\"aws:num-authorization-failures\") counts above a typical threshold may indicate that a compromised device is attempting to use its connection to AWS IoT to access resources for which it does not have access and being denied. High counts for \"Disconnects\" (\"aws:num-disconnects\"), especially in conjunction with high counts for \"Connection attempts\" (\"aws:num-connection-attempts\"), which include successful attempts, may indicate that a compromised device is connecting and disconnecting from AWS IoT using the device's associated access.\nCoverage factor is partial for these metrics, checks, and mitigations, since they are specific to use of cloud accounts for AWS IoT access and actions, resulting in an overall score of Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender audit checks and corresponding mitigation actions can identify and in some cases resolve configuration problems that should be fixed in order to limit the potential impact of compromised accounts with access to AWS IoT resources: The \"Authenticated Cognito role overly permissive\" (\"AUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK\" in the CLI and API) audit check can identify policies which grant excessive privileges and permissions for AWS IoT actions to Amazon Cognito identity pool roles. The \"Unauthenticated Cognito role overly permissive\" (\"UNAUTHENTICATED_COGNITO_ROLE_OVERLY_PERMISSIVE_CHECK\" in the CLI and API) audit check can identify policies which grant excessive privileges and permissions for AWS IoT actions to Amazon Cognito identity pool roles and do not require authentication, which pose a substantial risk because they can be trivially accessed. The \"AWS IoT policies overly permissive\" (\"IOT_POLICY_OVERLY_PERMISSIVE_CHECK\" in the CLI and API) audit check can identify AWS IoT policies which grant excessive privileges and permissions for AWS IoT actions and supports the \"REPLACE_DEFAULT_POLICY_VERSION\" mitigation action which can reduce permissions to limit potential misuse. The \"Role alias allows access to unused services\" (\"IOT_ROLE_ALIAS_ALLOWS_ACCESS_TO_UNUSED_SERVICES_CHECK\" in the CLI and API) and \"Role alias overly permissive\" (\"IOT_ROLE_ALIAS_OVERLY_PERMISSIVE_CHECK\" in the CLI and API) audit checks can identify AWS IoT role aliases which allow connected devices to authenticate using their certificates and obtain short-lived AWS credentials from an associated IAM role which grant permissions and privileges beyond those necessary to the devices' functions and should be fixed in order to prevent further account compromise from compromised devices.\nCoverage factor is partial for these checks and mitigations, since they are specific to use of cloud accounts for AWS IoT access and actions, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1095",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender cloud-side detection metrics can detect indicators that an adversary may be leveraging compromised AWS IoT devices and non-application layer protocols - especially TCP and UDP - to communicate for command and control purposes: \"Source IP\" (\"aws:source-ip-address\") values outside of expected IP address ranges may suggest that a device has been stolen. \"Messages sent\" (\"aws:num-messages-sent\"), \"Messages received\" (\"aws:num-messages-received\"), and \"Message size\" (\"aws:message-byte-size\") values outside of expected norms may indicate that devices are sending and/or receiving non-standard traffic, which may include command and control traffic.\nThe following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be leveraging compromised AWS IoT devices and non-application layer protocols - especially TCP and UDP - to communicate for command and control purposes: \"Destination IPs\" (\"aws:destination-ip-addresses\") outside of expected IP address ranges may suggest that a device is communicating with unexpected parties. \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that the device is sending and/or receiving non-standard traffic, which may include command and control traffic. \"Listening TCP ports\" (\"aws:listening-tcp-ports\"), \"Listening TCP port count\" (\"aws:num-listening-tcp-ports\"), \"Established TCP connections count\" (\"aws:num-established-tcp-connections\"), \"Listening UDP ports\" (\"aws:listening-udp-ports\"), and \"Listening UDP port count\" (\"aws:num-listening-udp-ports\") values outside of expected norms may indicate that devices are communicating via TCP and/or UDP on unexpected ports that may suggest command and control traffic.\nCoverage factor is minimal, since these metrics are limited to IoT device communication and none of this technique's sub-techniques are addressed, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1496",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be leveraging compromised AWS IoT devices' resources to perform resource-intensive operations like mining cryptocurrency or performing denial of service attacks on other environments: \"Destination IPs\" (\"aws:destination-ip-addresses\") outside of expected IP address ranges may suggest that a device is communicating with unexpected parties. \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that the device is sending and/or receiving non-standard traffic, which may include traffic related to resource hijacking activities. \"Listening TCP ports\" (\"aws:listening-tcp-ports\"), \"Listening TCP port count\" (\"aws:num-listening-tcp-ports\"), \"Established TCP connections count\" (\"aws:num-established-tcp-connections\"), \"Listening UDP ports\" (\"aws:listening-udp-ports\"), and \"Listening UDP port count\" (\"aws:num-listening-udp-ports\") values outside of expected norms may indicate that devices are communicating via unexpected ports/protocols which may include traffic related to resource hijacking activities.\nCoverage factor is partial, since these metrics are limited to IoT device hijacking, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender cloud-side detection metrics can detect indicators that an adversary may be leveraging compromised AWS IoT devices and the Message Queuing Telemetry Transport (MQTT) protocol for unauthorized data transfer from cloud-side data sources: \"Source IP\" (\"aws:source-ip-address\") values outside of expected IP address ranges may suggest that a device has been stolen. \"Messages sent\" (\"aws:num-messages-sent\"), \"Messages received\" (\"aws:num-messages-received\"), and \"Message size\" (\"aws:message-byte-size\") values outside of expected norms may indicate that devices are sending and/or receiving non-standard traffic, which may include data retrieved from cloud storage.\nThe following AWS IoT Device Defender device-side detection metrics can detect indicators that an adversary may be leveraging compromised AWS IoT devices and the Message Queuing Telemetry Transport (MQTT) protocol for unauthorized data transfer from cloud-side data sources: \"Bytes in\" (\"aws:all-bytes-in\"), \"Bytes out\" (\"aws:all-bytes-out\"), \"Packets in\" (\"aws:all-packets-in\"), and \"Packets out\" (\"aws:all-packets-out\") values outside of expected norms may indicate that devices are sending and/or receiving non-standard traffic, which may include data retrieved from cloud storage.\nCoverage factor is partial, since these metrics are limited to IoT device-based collection, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for a minority of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender audit checks can identify potentially malicious use of private keys associated with AWS IoT devices, which may indicate that the keys have been taken from compromised devices and repurposed by an adversary: \"Device certificate shared\" (\"DEVICE_CERTIFICATE_SHARED_CHECK\" in the CLI and API) and \"Revoked device certificate still active\" (\"REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API) can indicate that devices are in use with duplicate certificates and/or certificates that have been revoked due to compromise, both of which suggest that an adversary may be misusing stolen private keys.\nCoverage factor is partial for these checks and mitigations, since they are specific to use of private keys associated with AWS IoT devices, resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following AWS IoT Device Defender audit checks and corresponding mitigation actions can identify and resolve configuration problems that should be fixed in order to ensure SSL/TLS encryption is enabled and secure to protect network traffic to/from IoT devices: \"CA certificate expiring\" (\"CA_CERTIFICATE_EXPIRING_CHECK\" in the CLI and API), \"CA certificate key quality\" (\"CA_CERTIFICATE_KEY_QUALITY_CHECK\" in the CLI and API), and \"CA certificate revoked but device certificates still active\" (\"REVOKED_CA_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API) can identify problems with certificate authority (CA) certificates being used for signing and support the \"UPDATE_CA_CERTIFICATE\" mitigation action which can resolve them. \"Device certificate expiring\" (\"DEVICE_CERTIFICATE_EXPIRING_CHECK\" in the CLI and API), \"Device certificate key quality\" (\"DEVICE_CERTIFICATE_KEY_QUALITY_CHECK\" in the CLI and API), \"Device certificate shared\" (\"DEVICE_CERTIFICATE_SHARED_CHECK\" in the CLI and API), and \"Revoked device certificate still active\" (\"REVOKED_DEVICE_CERTIFICATE_STILL_ACTIVE_CHECK\" in the CLI and API) can identify problems with IoT devices' certificates and support the \"UPDATE_DEVICE_CERTIFICATE\" and \"ADD_THINGS_TO_THING_GROUP\" mitigation actions which can resolve them.\nCoverage factor is partial for these checks and mitigations, since they are specific to IoT device communication and can only mitigate behavior for adversaries who are unable to decrypt the relevant traffic, resulting in an overall score of Partial. This control does not provide specific coverage for this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1562",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for a minority of this technique's sub-techniques, resulting in an overall score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for a minority of this technique's sub-techniques, resulting in an overall score of Minimal."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1562.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS IoT Device Defender"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"Logging disabled\" audit check (\"LOGGING_DISABLED_CHECK\" in the CLI and API) can identify potentially malicious changes to AWS IoT logs (both V1 and V2), which should be enabled in Amazon CloudWatch. Score is limited to Partial since this control only addresses IoT logging."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"ENABLE_IOT_LOGGING\" mitigation action (which is supported by the \"Logging disabled\" audit check) enables AWS IoT logging if it is not enabled when the check is run, effectively reversing the adversary behavior if those logs were disabled due to malicious changes. Score is limited to Partial since this control only addresses IoT logging."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

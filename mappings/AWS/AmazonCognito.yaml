@@ -1,0 +1,65 @@
+version: 1
+ATT&CK version: 9
+creation date: 05/27/2021
+name: Amazon Cognito
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+  - Identity
+description: >-
+  Amazon Cognito is a service that provides user management for web and mobile apps. The service
+  establishes authentication and authorization for its registered users. 
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control provides partial protection for one of this technique's sub-techniques and
+          a few of its procedure examples resulting in an overall Minimal protection score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              Amazon Cognito has the ability to alert and block accounts where credentials were
+              found to be compromised elsewhere (compromised credential protection). The service also
+              detects unusual sign-in activity, such as sign-in attempts from new locations and devices
+              and can either prompt users for additional verification or block the sign-in request.  There
+              was insufficient detail on the operation of these capabilities and therefore a conservative
+              assessment of a Partial score has been assigned.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Amazon Cognito's MFA capability provides significant protection against password compromises, requiring
+          the adversary to complete an additional authentication method before their access is permitted.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.002
+            name: Password Cracking
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              MFA can significantly reduce the impact of a password compromise, requiring the
+              adversary to complete an additional authentication method before their access is permitted.
+references:
+  - 'https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html'
+  - >-
+    https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-compromised-credentials.html
+  - >-
+    https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html

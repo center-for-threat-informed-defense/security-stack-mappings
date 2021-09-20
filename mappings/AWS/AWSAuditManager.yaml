@@ -1,0 +1,24 @@
+version: 1
+ATT&CK version: 9
+creation date: 07/15/2021
+name: AWS Audit Manager
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+  - Auditing
+  - Reports
+  - Not Mappable
+description: >-
+  AWS Audit Manager automates evidence collection from other services (notably AWS Config, AWS
+  Security Hub, AWS API calls, and AWS CloudTrail) for evaluation against compliance
+  frameworks/regulations and transformation into audit-friendly reports.
+techniques: []
+comments: >-
+  This control was not mapped because AWS Audit Manager is used to aggregate evidence from other
+  services in order to produce audit-ready reports, not provide protection against any ATT&CK
+  techniques or adversary behaviors. All protections against ATT&CK techniques are provided by the
+  lower-level services used for the evidence collection, which are assessed in different mappings.
+references:
+  - 'https://aws.amazon.com/audit-manager'
+  - 'https://docs.aws.amazon.com/audit-manager'

@@ -1,0 +1,21 @@
+version: 1
+ATT&CK version: 9
+creation date: 07/12/2021
+name: AWS Directory Service
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+  - Identity
+  - Not Mappable
+description: >-
+  AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft Active
+  Directory (AD), enables your directory-aware workloads and AWS resources to use managed Active
+  Directory (AD) in AWS.
+techniques: []
+comments: >-
+  This control was not mapped because it is primarily acting as a connector for Microsoft Active
+  Directory with AWS services and does not provide any security functions other than allowing use of
+  other AWS security controls.
+references:
+  - 'https://docs.aws.amazon.com/directory-service/index.html#lang/en_us'
