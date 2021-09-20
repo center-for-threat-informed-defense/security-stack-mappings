@@ -1,0 +1,52 @@
+version: 1
+ATT&CK version: 8.2
+creation date: 03/04/2021
+name: Azure DDOS Protection Standard
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Azure Security Center Recommendation
+  - Network
+description: >-
+  Azure DDoS Protection Standard, combined with application design best practices, provides enhanced
+  DDoS mitigation features to defend against DDoS attacks. 
+
+  It is automatically tuned to help protect your specific Azure resources in a virtual network.
+techniques:
+  - id: T1498
+    name: Network Denial of Service
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: Designed to address multiple DDOS techniques including volumetric attacks.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1498.002
+            name: Reflection Amplification
+          - id: T1498.001
+            name: Direct Network Flood
+        scores:
+          - category: Protect
+            value: Significant
+  - id: T1499
+    name: Endpoint Denial of Service
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Protects against volumetric and protocol DOS, though not application.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1499.003
+            name: Application Exhaustion Flood
+          - id: T1499.002
+            name: Service Exhaustion Flood
+          - id: T1499.001
+            name: OS Exhaustion Flood
+        scores:
+          - category: Protect
+            value: Significant
+references:
+  - >-
+    https://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview
