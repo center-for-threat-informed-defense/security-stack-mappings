@@ -24,3 +24,6 @@ score_values:
     Minimal:  10
     Partial:  50
     Significant:  100
+platform_attack_versions:
+    Azure: 8
+    AWS: 9
