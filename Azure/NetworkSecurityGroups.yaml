@@ -1,0 +1,264 @@
+version: 1.0
+ATT&CK version: 8.2
+creation date: 03/01/2021
+name: Network Security Groups
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: Azure
+tags:
+  - Adaptive Network Hardening
+  - Azure Security Center Recommendation
+  - Network
+description: >-
+  You can use an Azure network security group to filter network traffic to and from Azure resources
+  in an Azure virtual network. A network security group contains security rules that allow or deny
+  inbound network traffic to, or outbound network traffic from, several types of Azure resources.
+  For each rule, you can specify source and destination, port, and protocol.
+techniques:
+  - id: T1199
+    name: Trusted Relationship
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can isolate portions of network that do not require network-wide access, limiting some
+          attackers that leverage trusted relationships such as remote access for vendor
+          maintenance. Coverage partial, Temporal Immediate.
+  - id: T1557
+    name: Man-in-the-Middle
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to limit access to network infrastructure and resources that can be used to reshape
+          traffic or otherwise produce MiTM conditions.
+  - id: T1602
+    name: Data from Configuration Repository
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can limit attackers access to configuration repositories such as SNMP management stations,
+          or to dumps of client configurations from common management ports.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1602.002
+            name: Network Device Configuration Dump
+          - id: T1602.001
+            name: SNMP (MIB Dump)
+        scores:
+          - category: Protect
+            value: Partial
+            comments: Can limit access to client management interfaces or configuration databases
+  - id: T1542
+    name: Pre-OS Boot
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Provides protection coverage for only one sub-technique partially
+          (booting from remote devies ala TFTP boot) resulting in an overall score of Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1542.005
+            name: TFTP Boot
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control can be used to restrict clients to connecting (and therefore booting) from
+              only trusted network resources.
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: NSG can minimize alternative protocols allowed to communicate externally.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1048.003
+            name: Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
+          - id: T1048.002
+            name: Exfiltration Over Asymmetric Encrypted Non-C2 Protocol
+          - id: T1048.001
+            name: Exfiltration Over Symmetric Encrypted Non-C2 Protocol
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              This control can reduce the protocols available for data exfiltration.
+              Temporal immediate, coverage substantial.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: This control can be used to restrict access to remote services to minimum necessary.
+  - id: T1021
+    name: Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides partial protection for all of its sub-techniques and procedure examples
+          resulting in an overall score of Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1021.006
+            name: Windows Remote Management
+          - id: T1021.005
+            name: VNC
+          - id: T1021.004
+            name: SSH
+          - id: T1021.003
+            name: Distributed Component Object Model
+          - id: T1021.002
+            name: SMB/Windows Admin Shares
+          - id: T1021.001
+            name: Remote Desktop Protocol
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control can be used to restrict direct access to remote services to trusted networks.  This mitigates
+              even an adversary with a valid account from accessing resources.  This can be circumvented though if an
+              adversary is able to compromise a trusted host and move laterally to a protected network.  This results
+              in an overall partial (coverage) score.
+  - id: T1072
+    name: Software Deployment Tools
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: This control can be used to limit access to critical network systems such as software deployment tools.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to restrict direct access to remote service gateways and concentrators that
+          typically accompany external remote services.  This can be circumvented though if an
+          adversary is able to compromise a trusted host and use it to access the external remote service.
+          This results in an overall partial (coverage) score.
+  - id: T1482
+    name: Domain Trust Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: This control can be used to isolate sensitive domains to limit discovery.
+  - id: T1046
+    name: Network Service Scanning
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: This control can be used to restrict access to trusted networks.
+  - id: T1095
+    name: Non-Application Layer Protocol
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: This control can be used to restrict access to trusted networks and protocols.
+  - id: T1571
+    name: Non-Standard Port
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: This control can restrict traffic to standard ports and protocols.
+  - id: T1499
+    name: Endpoint Denial of Service
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides partial protection for a majority of this control's sub-techinques and
+          procedure examples resulting in overall score of Partial.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1499.003
+            name: Application Exhaustion Flood
+          - id: T1499.002
+            name: Service Exhaustion Flood
+          - id: T1499.001
+            name: OS Exhaustion Flood
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks.
+  - id: T1570
+    name: Lateral Tool Transfer
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to limit traffic between systems and enclaves to minimum necessary for example
+          via a zero-trust strategy.
+  - id: T1498
+    name: Network Denial of Service
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to restrict access to endpoints and thereby mitigate low-end network DOS attacks.
+  - id: T1090
+    name: Proxy
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can restrict ports and inter-system / inter-enclave connections as described by the
+          Proxy related sub-techniques although it doesn't provide protection for domain-fronting.  It furthermore
+          provides partial protection of this technique's procedure examples resulting in an overall Partial score.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1090.003
+            name: Multi-hop Proxy
+          - id: T1090.002
+            name: External Proxy
+          - id: T1090.001
+            name: Internal Proxy
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control can restrict access between systems, enclaves, and workloads thereby mitigating these
+              proxy related sub-techniques.
+  - id: T1219
+    name: Remote Access Software
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to restrict network communications to protect sensitive enclaves that may mitigate
+          some of the procedure examples of this technique.
+  - id: T1205
+    name: Traffic Signaling
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides partial protection for this technique's sub-techniques and procedure examples
+          resulting in an overall Partial score.  Other variations that trigger a special response, such
+          as executing a malicous task are not mitigated by this control.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1205.001
+            name: Port Knocking
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              This control can be used to implement whitelist based network rules that can mitigate variations of
+              this sub-techniques that result in opening closed ports for communication. Because this control
+              is able to drop traffic before reaching a compromised host, it can effectively mitigate this port
+              knocking sub-technique.
+comments: >-
+  Note: one can employ Application Security Groups (ASG) in Network Security Group (NSG) rules to map 
+  rules to workloads etc. Not scoring ASG as a separate control. One can employ Adaptive Network Hardening (ANH) 
+  to generate recommended NSG rules based on traffic, known trusted configuration, threat intelligence, and
+  other inidcators of compromise. Not scoring ANH as a separate control.
+references:
+  - 'https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview'
+  - 'https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works'
+  - >-
+    https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-network-hardening
