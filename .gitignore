@@ -3,7 +3,7 @@ output/
 **/__pycache__/
 **/*.py[cod]
 **/*$py.class
-tools/mapping.db
+**/mapping.db
 **/.vscode
 **/*.swp
 tools/techniques.json

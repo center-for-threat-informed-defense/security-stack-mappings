@@ -119,6 +119,8 @@ The set of configuration and template files used to generate the visualizations 
 ```./mapping_cli.py visualize --visualizer AttackNavigator --tag "Azure Defender" --title "Azure Defender" --skip-validation```
 -  Generate [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for each mapping file in the default mappings directory (```../mappings```).  In addition, generate a layer for each tag and an aggregate layer for all mapping files for each platform:</br>
 ```./mapping_cli.py visualize --visualizer AttackNavigator --skip-validation --include-aggregates```
+-  Generate [ATT&CK Navigator](https://mitre-attack.github.io/attack-navigator/) layers for each mapping file found only in the current directory.  In addition, generate a layer for each tag and an aggregate layer for all mapping files for each platform:</br>
+```mapping_cli.py visualize --visualizer AttackNavigator --mapping-dir .  --no-recurse --skip-validation --include-aggregates```
 -  Generate a Markdown Summary view of all mapping files in the default mappings directory (```../mappings```).  In addition, generate an HTML version of the view:</br>
 ```./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html```
 

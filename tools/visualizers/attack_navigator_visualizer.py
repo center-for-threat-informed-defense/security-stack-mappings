@@ -137,6 +137,8 @@ class AttackNavigatorVisualizer(AbstractVisualizer):
             mapping_yaml = yaml.safe_load(f)
             layer["name"] = mapping_yaml["name"]
             layer["description"] = mapping_yaml["description"]
+            attack_version = self.config["platform_attack_versions"][mapping_yaml["platform"]]
+            layer["versions"]["attack"] = str(attack_version)
 
             for technique in mapping_yaml.get("techniques", []):
                 tech = {"id": technique["id"], "scores": technique["technique-scores"]}

@@ -26,9 +26,10 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
         return "MarkdownSummary"
 
 
-    def initialize_html_template(self):
+    def initialize_html_template(self, platform):
         root_dir = get_project_root()
-        with open(f"{root_dir}/tools/config/markdown_summary_template.html", "r") as f:
+        platform = platform.lower()
+        with open(f"{root_dir}/tools/config/{platform}_markdown_summary_template.html", "r") as f:
             self.html_template = f.read()
 
 
@@ -175,9 +176,6 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
 
     def visualize(self, mapping_files, options = {}):
-        if options.get("include-html", False):
-            self.initialize_html_template()
-
         summary_data = {}
         for mapping_file in mapping_files:
             mapping_path = Path(mapping_file)
@@ -235,5 +233,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             else:
                 readme_path = platform_data[0]
                 options["output_absolute_filename"] = readme_path
+
+            if options.get("include-html", False):
+                self.initialize_html_template(platform)
 
             self.output(options, mapping_file, mdFile)
