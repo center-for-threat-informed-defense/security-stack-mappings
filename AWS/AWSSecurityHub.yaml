@@ -1,0 +1,539 @@
+version: 1
+ATT&CK version: 9
+creation date: 06/04/2021
+name: AWS Security Hub
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+description: >
+  AWS Security Hub is a tool that supports the aggregation, organization, and prioritization of
+  security alerts and findings from multiple services including Amazon GuardDuty, Amazon Inspector,
+  Amazon Macie, AWS Identity and Access Management (IAM) Access Analyzer, AWS Systems Manager, AWS
+  Firewall Manager, and AWS Partner Network (APN) solutions. To do this, AWS Security Hub relies on
+  managed insights which are collections of findings that identify security areas that need to be
+  addressed as well as custom checks for different detections. While AWS Security Hub supports 
+  custom insights and numerous AWS Config checks, this mapping focuses only on the managed insights 
+  and the custom Security Hub checks provided by Amazon. Custom managed insights and AWS Config checks
+  are considered out of scope for this mapping as the custom managed insights will vary from organization 
+  to organization and AWS Config has its own mapping. 
+techniques:
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub detects improperly secured data from S3 buckets such as public read and
+          write access that may result in an adversary getting access to data in cloud storage. AWS
+          Security Hub provides this detection with the following managed insight.
+
+          S3 buckets with public write or read permissions
+
+          AWS Security Hub also performs checks from the AWS Foundations CIS Benchmark that, if
+          implemented, would help towards detecting improperly secured S3 buckets which could result
+          in them being discovered. AWS Security Hub provides this detection with the following
+          check.
+
+          3.8 Ensure a log metric filter and alarm exist for S3 bucket policy changes 
+
+          This is scored as Partial because it only detects when S3 buckets have public read or write access 
+          and doesn't detect improperly secured data in other storage types (e.g., DBs, NFS, etc.).
+  - id: T1592
+    name: Gather Victim Host Information
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          AWS Security Hub detects improperly secured data from S3 buckets such as public read and
+          write access that may result in an adversary getting access to information that could be
+          used during targeting. AWS Security Hub provides these detections with the following managed
+          insights.
+
+          S3 buckets with public write or read permissions
+          S3 buckets with sensitive data
+
+          This is scored as Minimal because S3 only represents one of many available sources of
+          information that an adversary could use for targeting. 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1592.001
+            name: Hardware
+          - id: T1592.002
+            name: Software
+          - id: T1592.003
+            name: Firmware
+          - id: T1592.004
+            name: Client Configurations
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              AWS Security Hub detects improperly secured data from S3 buckets such as public read
+              and write access that may result in an adversary getting access to information that
+              could be used during targeting. AWS Security Hub provides these detections with the
+              following managed insights.
+
+              S3 buckets with public write or read permissions
+              S3 buckets with sensitive data
+
+              This is scored as Minimal because S3 only represents one of many available sources of
+              information that an adversary could use for targeting. 
+  - id: T1589
+    name: Gather Victim Identity Information
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          AWS Security Hub detects improperly secured data from S3 buckets such as public read and
+          write access that may result in an adversary getting access to information that could be
+          used during targeting. AWS Security Hub provides these detections with the following managed
+          insights.
+
+          S3 buckets with public write or read permissions
+          S3 buckets with sensitive data
+
+          This is scored as Minimal because S3 only represents one of many available sources of
+          information that an adversary could use for targeting. 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1589.001
+            name: Credentials
+          - id: T1589.002
+            name: Email Addresses
+          - id: T1589.003
+            name: Employee Names
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              AWS Security Hub detects improperly secured data from S3 buckets such as public read
+              and write access that may result in an adversary getting access to information that
+              could be used during targeting. AWS Security Hub provides these detections with the
+              following managed insights.
+
+              S3 buckets with public write or read permissions
+              S3 buckets with sensitive data
+
+              This is scored as Minimal because S3 only represents one of many available sources of
+              information that an adversary could use for targeting. 
+  - id: T1590
+    name: Gather Victim Network Information
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          AWS Security Hub detects improperly secured data from S3 buckets such as public read and
+          write access that may result in an adversary getting access to information that could be
+          used during targeting. AWS Security Hub provides these detections with the following managed
+          insights.
+
+          S3 buckets with public write or read permissions
+          S3 buckets with sensitive data
+
+          This is scored as Minimal because S3 only represents one of many available sources of
+          information that an adversary could use for targeting. 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1590.001
+            name: Domain Properties
+          - id: T1590.002
+            name: DNS
+          - id: T1590.003
+            name: Network Trust Dependencies
+          - id: T1590.004
+            name: Network Topology
+          - id: T1590.005
+            name: IP Addresses
+          - id: T1590.006
+            name: Network Security Appliances
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              AWS Security Hub detects improperly secured data from S3 buckets such as public read
+              and write access that may result in an adversary getting access to information that
+              could be used during targeting. AWS Security Hub provides these detections with the
+              following managed insights.
+
+              S3 buckets with public write or read permissions
+              S3 buckets with sensitive data
+
+              This is scored as Minimal because S3 only represents one of many available sources of
+              information that an adversary could use for targeting. 
+  - id: T1591
+    name: Gather Victim Org Information
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          AWS Security Hub detects improperly secured data from S3 buckets such as public read and
+          write access that may result in an adversary getting access to information that could be
+          used during targeting. AWS Security Hub provides these detections with the following managed
+          insights.
+
+          S3 buckets with public write or read permissions
+          S3 buckets with sensitive data
+
+          This is scored as Minimal because S3 only represents one of many available sources of
+          information that an adversary could use for targeting. 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1591.001
+            name: Determine Physical Locations
+          - id: T1591.002
+            name: Business Relationships
+          - id: T1591.003
+            name: Identify Business Tempo
+          - id: T1591.004
+            name: Identify Roles
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              AWS Security Hub detects improperly secured data from S3 buckets such as public read
+              and write access that may result in an adversary getting access to information that
+              could be used during targeting. AWS Security Hub provides these detections with the
+              following managed insights.
+
+              S3 buckets with public write or read permissions
+              S3 buckets with sensitive data
+
+              This is scored as Minimal because S3 only represents one of many available sources of
+              information that an adversary could use for targeting. 
+  - id: T1580
+    name: Cloud Infrastructure Discovery
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub detects improperly secured data from S3 buckets such as public read and
+          write access as well as accessible EC2 instances that may result in an adversary learning 
+          about cloud infrastructure used by the organization. AWS Security Hub provides these detections 
+          with the following managed insights.
+
+          S3 buckets with public write or read permissions
+          EC2 instances that have ports accessible from the Internet
+          EC2 instances that are open to the Internet
+
+          AWS Security Hub also performs checks from the AWS Foundations CIS Benchmark that, if
+          implemented, would help towards detecting improperly secured S3 buckets which could result
+          in them being discovered. AWS Security Hub provides this detection with the following
+          check.
+
+          3.8 Ensure a log metric filter and alarm exist for S3 bucket policy changes 
+
+          This is scored as Partial because S3 and EC2 only represent a subset of available cloud
+          infrastructure components. 
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          AWS Security Hub detects suspicious activity by AWS accounts which could indicate valid
+          accounts being leveraged by an adversary. AWS Security Hub provides these detections with
+          the following managed insights.
+
+          AWS principals with suspicious access key activity
+          Credentials that may have leaked
+          AWS resources with unauthorized access attempts
+          IAM users with suspicious activity
+
+          AWS Security Hub also performs checks from the AWS Foundations CIS Benchmark and PCI-DSS security 
+          standard that, if implemented, would help towards detecting the misuse of valid accounts. AWS 
+          Security Hub provides these detections with the following checks.
+
+          3.1 Ensure a log metric filter and alarm exist for unauthorized API calls
+          3.2 Ensure a log metric filter and alarm exist for Management Console sign-in without MFA
+          3.3 Ensure a log metric filter and alarm exist for usage of "root" account 
+          3.4 Ensure a log metric filter and alarm exist for IAM policy changes
+          3.6 Ensure a log metric filter and alarm exist for AWS Management Console authentication failures
+          [PCI.CW.1] A log metric filter and alarm should exist for usage of the "root" user
+
+          By monitoring the root account, activity where accounts make unauthorized API calls, and
+          changes to IAM permissions among other things, it may be possible to detect valid accounts that 
+          are being misused and are potentially compromised.
+
+          This is scored as Minimal because it only supports a subset of the sub-techniques (1 of
+          4). 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1078.004
+            name: Cloud Accounts
+        scores:
+          - category: Detect
+            value: Significant
+            comments: >-
+              AWS Security Hub detects suspicious activity by AWS accounts which could indicate
+              valid accounts being leveraged by an adversary. AWS Security Hub provides these
+              detections with the following managed insights.
+
+              AWS principals with suspicious access key activity
+              Credentials that may have leaked
+              AWS resources with unauthorized access attempts
+              IAM users with suspicious activity
+
+              AWS Security Hub also performs checks from the AWS Foundations CIS Benchmark and PCI-DSS security 
+              standard that, if implemented, would help towards detecting the misuse of valid accounts. 
+              AWS Security Hub provides these detections with the following checks.
+
+              3.1 Ensure a log metric filter and alarm exist for unauthorized API calls
+              3.2 Ensure a log metric filter and alarm exist for Management Console sign-in without MFA
+              3.3 Ensure a log metric filter and alarm exist for usage of "root" account 
+              3.4 Ensure a log metric filter and alarm exist for IAM policy changes
+              3.6 Ensure a log metric filter and alarm exist for AWS Management Console authentication failures
+              [PCI.CW.1] A log metric filter and alarm should exist for usage of the "root" user
+
+              By monitoring the root account, activity where accounts make unauthorized API calls, and 
+              changes to IAM permissions among other things, it may be possible to detect valid accounts that 
+              are being misused and are potentially compromised.
+
+              This is scored as Significant because it reports on suspicious activity by AWS
+              accounts. 
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub reports on EC2 instances that are missing security patches for
+          vulnerabilities which could enable an adversary to exploit vulnerabilities through the
+          attack lifecycle. AWS Security Hub provides this detection with the following managed
+          insight.
+
+          EC2 instances that have missing security patches for important vulnerabilities
+
+          This is scored as Partial because the checks associated with Security Hub would only report
+          on missing patches for known vulnerabilities. It doesn't not cover zero-day vulnerabilities.
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub reports on EC2 instances that are missing security patches for
+          vulnerabilities which could enable an adversary to exploit vulnerabilities through the
+          attack lifecycle. AWS Security Hub provides this detection with the following managed
+          insight.
+
+          EC2 instances that have missing security patches for important vulnerabilities
+
+          This is scored as Partial because the checks associated with Security Hub would only report
+          on missing patches for known vulnerabilities. It doesn't not cover zero-day vulnerabilities.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub reports on EC2 instances that are missing security patches for
+          vulnerabilities which could enable an adversary to exploit vulnerabilities through the
+          attack lifecycle. AWS Security Hub provides this detection with the following managed
+          insight.
+
+          EC2 instances that have missing security patches for important vulnerabilities
+
+          This is scored as Partial because the checks associated with Security Hub would only report
+          on missing patches for known vulnerabilities. It doesn't not cover zero-day vulnerabilities.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub reports on EC2 instances that are missing security patches for
+          vulnerabilities which could enable an adversary to exploit vulnerabilities through the
+          attack lifecycle. AWS Security Hub provides this detection with the following managed
+          insight.
+
+          EC2 instances that have missing security patches for important vulnerabilities
+
+          This is scored as Partial because the checks associated with Security Hub would only report
+          on missing patches for known vulnerabilities. It doesn't not cover zero-day vulnerabilities.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub reports on EC2 instances that are missing security patches for
+          vulnerabilities which could enable an adversary to exploit vulnerabilities through the
+          attack lifecycle. AWS Security Hub provides this detection with the following managed
+          insight.
+
+          EC2 instances that have missing security patches for important vulnerabilities
+
+          This is scored as Partial because the checks associated with Security Hub would only report
+          on missing patches for known vulnerabilities. It doesn't not cover zero-day vulnerabilities.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub reports on EC2 instances that are missing security patches for
+          vulnerabilities which could enable an adversary to exploit vulnerabilities through the
+          attack lifecycle. AWS Security Hub provides this detection with the following managed
+          insight.
+
+          EC2 instances that have missing security patches for important vulnerabilities
+
+          This is scored as Partial because the checks associated with Security Hub would only report
+          on missing patches for known vulnerabilities. It doesn't not cover zero-day vulnerabilities.
+  - id: T1531
+    name: Account Access Removal
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub performs a check from the AWS Foundations CIS Benchmark that, if
+          implemented, would help towards detecting the modification of accounts. AWS Security Hub
+          provides this detection with the following check.
+
+          3.4 Ensure a log metric filter and alarm exist for IAM policy changes 
+
+          This is scored as Partial because it only supports the monitoring of changes to AWS IAM
+          accounts and not the accounts on instances of operating systems.  
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          AWS Security Hub performs a check from the AWS Foundations CIS Benchmark that, if
+          implemented, would help towards detecting the manipulation of accounts. AWS Security Hub
+          provides this detection with the following check.
+
+          3.4 Ensure a log metric filter and alarm exist for IAM policy changes 
+
+          This is scored as Minimal because it only supports a subset of the sub-techniques (1 of
+          4).  
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1098.001
+            name: Additional Cloud Credentials
+        scores:
+          - category: Detect
+            value: Significant
+            comments: >-
+              AWS Security Hub performs a check from the AWS Foundations CIS Benchmark that, if
+              implemented, would help towards detecting the manipulation of accounts. AWS Security
+              Hub provides this detection with the following check.
+
+              3.4 Ensure a log metric filter and alarm exist for IAM policy changes 
+
+              This is scored as Significant because it can monitor all changes to IAM policy which
+              can be used to detect any changes made to accounts. 
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          AWS Security Hub performs checks from the AWS Foundations CIS Benchmark that, if
+          implemented, would help towards detecting changes to key AWS services. AWS Security Hub
+          provides these detections with the following checks.
+
+          3.5 Ensure a log metric filter and alarm exist for CloudTrail configuration changes
+          3.9 Ensure a log metric filter and alarm exist for AWS Config configuration changes
+          3.10 Ensure a log metric filter and alarm exist for security group changes
+          3.11 Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL) 
+          3.12 Ensure a log metric filter and alarm exist for changes to network gateways 
+          3.13 Ensure a log metric filter and alarm exist for route table changes
+          3.14 Ensure a log metric filter and alarm exist for VPC changes
+
+          This is scored as Partial because it only supports a subset of the sub-techniques (3 of
+          8).  
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1562.008
+            name: Disable Cloud Logs
+          - id: T1562.001
+            name: Disable or Modify Tools
+          - id: T1562.007
+            name: Disable or Modify Cloud Firewall
+        scores:
+          - category: Detect
+            value: Significant
+            comments: >-
+              AWS Security Hub performs checks from the AWS Foundations CIS Benchmark that, if
+              implemented, would help towards detecting changes to key AWS services. AWS Security
+              Hub provides these detections with the following checks.
+
+              3.5 Ensure a log metric filter and alarm exist for CloudTrail configuration changes
+              3.9 Ensure a log metric filter and alarm exist for AWS Config configuration changes
+              3.10 Ensure a log metric filter and alarm exist for security group changes
+              3.11 Ensure a log metric filter and alarm exist for changes to Network Access Control Lists (NACL) 
+              3.12 Ensure a log metric filter and alarm exist for changes to network gateways 
+              3.13 Ensure a log metric filter and alarm exist for route table changes
+              3.14 Ensure a log metric filter and alarm exist for VPC changes
+
+              This is scored as Significant because it can detect when changes are made to key AWS
+              services (e.g., CloudTrail, Config, etc.) such as when they stop logging or other
+              configuration changes are made.  
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          AWS Security Hub performs a check from the AWS Foundations CIS Benchmark that, if
+          implemented, would help towards detecting the brute forcing of accounts. AWS Security Hub
+          provides this detection with the following checks.
+
+          3.6 Ensure a log metric filter and alarm exist for AWS Management Console authentication failures
+
+          This is scored as Minimal because it only applies to the AWS Management Console and not other access
+          mechanisms (e.g., CLI, SDK, etc.) and it only supports a subset of the sub-techniques (3 of 4). Furthermore,
+          it does not detect brute-forcing methods for other components such as EC2 instances. 
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1110.001
+            name: Password Guessing
+          - id: T1110.003
+            name: Password Spraying
+          - id: T1110.004
+            name: Credential Stuffing
+        scores:
+          - category: Detect
+            value: Minimal
+            comments: >-
+              AWS Security Hub performs a check from the AWS Foundations CIS Benchmark that, if
+              implemented, would help towards detecting the brute forcing of accounts. AWS Security
+              Hub provides this detection with the following checks.
+
+              3.6 Ensure a log metric filter and alarm exist for AWS Management Console authentication failures
+
+              This is scored as Minimal because it only applies to the AWS Management Console and not other access 
+              mechanisms (e.g., CLI, SDK, etc.). Furthermore, it does not detect brute-forcing methods for other 
+              components such as EC2 instances. 
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          AWS Security Hub performs a check from the AWS Foundations CIS Benchmark that, if
+          implemented, would help towards detecting the scheduled destruction of Customer Master
+          Keys (CMKs) which are critical for being able to decrypt data. AWS Security Hub provides
+          this detection with the following check.
+
+          Ensure a log metric filter and alarm exist for disabling or scheduled deletion of customer created CMKs
+
+          This is scored as Minimal because CMKs only represent one type of data that could be
+          destroyed by an adversary. 
+comments: >
+  Managed Insights: AWS Security Hub reports on collections of related findings which are known as
+  managed insights. When possible, these managed insights are mapped to ATT&CK techniques (e.g., "S3
+  buckets with public write or read permissions"). It should be noted that not all managed insights
+  have the level of detail to be able to map them to ATT&CK techniques and are not included in the
+  mapping (e.g., "EC2 instances involved in known Tactics, Techniques, and Procedures (TTPs)"). 
+
+  AWS Config: AWS Security Hub supports reporting on findings from AWS Config (e.g., for CIS AWS
+  Foundations Benchmark controls among others). Given that AWS Config is its own service, these
+  findings will not be mapped to ATT&CK. The only controls that will be included in this mapping 
+  are those for which Security Hub implements custom logic. It should also be noted that there will 
+  be a future CTID project that maps specific CIS Benchmarks to ATT&CK techniques. 
+references:
+  - 'https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html'

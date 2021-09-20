@@ -1,0 +1,73 @@
+version: 1
+ATT&CK version: 9
+creation date: 07/26/2021
+name: AWS Key Management Service
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: AWS
+tags:
+  - Credentials
+description: >-
+  AWS Key Management Service (KMS) allows you to create and manage cryptographic keys and control
+  their usage across a wide range of AWS services and in your applications. It uses hardware security modules
+  that have been validated under FIPS 140-2.
+techniques:
+  - id: T1552
+    name: Unsecured Credentials
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control's protection is specific to a minority of this technique's sub-techniques and
+          procedure examples resulting in a Minimal Coverage score and consequently an overall score
+          of Minimal.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1552.001
+            name: Credentials In Files
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This service provides a more secure alternative to storing encryption keys in the file system.
+              As a result of this service only supporting cryptographic keys and not other types of credentials,
+              the coverage score is assessed as Partial resulting in an overall Partial score.
+      - sub-techniques:
+          - id: T1552.004
+            name: Private Keys
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              This service allows for securely storing encryption keys and enforcing fine-grained access to the keys.
+              The service does not allow anyone access to retrieve plaintext keys from the service.
+  - id: T1588
+    name: Obtain Capabilities
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Provides protection against sub-techniques involved with stealing credentials, certificates, and keys from
+          the organization. As documented, access can be provisioned and monitored.
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1588.003
+            name: Code Signing Certificates
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              The encryption key for the certificate can be stored in KMS, reducing its attack surface. Score is capped at
+              Partial because adversaries can still misuse keys/certs if KMS and KMS resources are compromised.
+      - sub-techniques:
+          - id: T1588.004
+            name: Digital Certificates
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              The encryption key for the certificate can be stored in KMS, reducing its attack surface. Score is capped at
+              Partial because adversaries can still misuse keys/certs if KMS and KMS resources are compromised.
+references:
+  - 'https://aws.amazon.com/kms/'
+  - 'https://docs.aws.amazon.com/kms/latest/developerguide/overview.html'

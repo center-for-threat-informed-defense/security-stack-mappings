@@ -1,0 +1,1372 @@
+{
+    "name": "Amazon Inspector",
+    "versions": {
+        "attack": "8",
+        "navigator": "4.2",
+        "layer": "4.1"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: Amazon Inspector",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1189",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Inspector can detect known vulnerabilities on various Windows and Linux endpoints. Furthermore, the Amazon Inspector Best Practices assessment package can assess security controls for \"Enable Address Space Layout Randomization (ASLR)\" and \"Enable Data Execution Prevention (DEP)\" that makes it more difficult for an attacker to exploit vulnerabilities in software. This information can be used to patch, isolate, and remove vulnerable software and endpoints. Amazon Inspector does not directly protect against exploitation and it is not effective against zero-day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Inspector can detect known vulnerabilities on various Windows and Linux endpoints. Furthermore, the Amazon Inspector Best Practices assessment package can assess security controls for \"Enable Address Space Layout Randomization (ASLR)\" and \"Enable Data Execution Prevention (DEP)\" that makes it more difficult for an attacker to exploit vulnerabilities in software. This information can be used to patch, isolate, and remove vulnerable software and endpoints. Amazon Inspector does not directly protect against exploitation and it is not effective against zero-day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1203",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Inspector can detect known vulnerabilities on various Windows and Linux endpoints. Furthermore, the Amazon Inspector Best Practices assessment package can assess security controls for \"Enable Address Space Layout Randomization (ASLR)\" and \"Enable Data Execution Prevention (DEP)\" that makes it more difficult for an attacker to exploit vulnerabilities in software. This information can be used to patch, isolate, and remove vulnerable software and endpoints. Amazon Inspector does not directly protect against exploitation and it is not effective against zero-day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Inspector can detect known vulnerabilities on various Windows and Linux endpoints. Furthermore, the Amazon Inspector Best Practices assessment package can assess security controls for \"Enable Address Space Layout Randomization (ASLR)\" and \"Enable Data Execution Prevention (DEP)\" that makes it more difficult for an attacker to exploit vulnerabilities in software. This information can be used to patch, isolate, and remove vulnerable software and endpoints. Amazon Inspector does not directly protect against exploitation and it is not effective against zero-day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1211",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Inspector can detect known vulnerabilities on various Windows and Linux endpoints. Furthermore, the Amazon Inspector Best Practices assessment package can assess security controls for \"Enable Address Space Layout Randomization (ASLR)\" and \"Enable Data Execution Prevention (DEP)\" that makes it more difficult for an attacker to exploit vulnerabilities in software. This information can be used to patch, isolate, and remove vulnerable software and endpoints. Amazon Inspector does not directly protect against exploitation and it is not effective against zero-day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1212",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Inspector can detect known vulnerabilities on various Windows and Linux endpoints. Furthermore, the Amazon Inspector Best Practices assessment package can assess security controls for \"Enable Address Space Layout Randomization (ASLR)\" and \"Enable Data Execution Prevention (DEP)\" that makes it more difficult for an attacker to exploit vulnerabilities in software. This information can be used to patch, isolate, and remove vulnerable software and endpoints. Amazon Inspector does not directly protect against exploitation and it is not effective against zero-day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Inspector can detect known vulnerabilities on various Windows and Linux endpoints. This information can be used to patch, isolate, and remove vulnerable software and endpoints. Furthermore, the Amazon Inspector Best Practices assessment package can assess a security control \"Support SSH version 2 only\" that prevents the use of a vulnerable version of SSH from being used as well as assess security controls for \"Enable Address Space Layout Randomization (ASLR)\" and \"Enable Data Execution Prevention (DEP)\" that makes it more difficult for an attacker to exploit vulnerabilities in software. Amazon Inspector does not directly protect against exploitation and it is not effective against zero-day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can detect security control settings related to authentication and password policies on Linux endpoints. Specific security controls it can assess include \"Disable password authentication over SSH\", \"Configure password maximum age\", \"Configure password minimum length\", and \"Configure password complexity\" all of which impact the ability to brute force a password. This information can be used identify insecure configurations and harden the endpoints. Amazon Inspector does not directly protect against brute force attacks. Given Amazon Inspector can only assess these security controls on Linux platforms (although it also supports Windows), the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can detect security control settings related to authentication and password policies on Linux endpoints. Specific security controls it can assess include \"Disable password authentication over SSH\", \"Configure password maximum age\", \"Configure password minimum length\", and \"Configure password complexity\" all of which impact the ability to brute force a password. This information can be used identify insecure configurations and harden the endpoints. Amazon Inspector does not directly protect against brute force attacks. Given Amazon Inspector can only assess these security controls on Linux platforms (although it also supports Windows), the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can detect security control settings related to authentication and password policies on Linux endpoints. Specific security controls it can assess include \"Disable password authentication over SSH\", \"Configure password maximum age\", \"Configure password minimum length\", and \"Configure password complexity\" all of which impact the ability to brute force a password. This information can be used identify insecure configurations and harden the endpoints. Amazon Inspector does not directly protect against brute force attacks. Given Amazon Inspector can only assess these security controls on Linux platforms (although it also supports Windows), the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can detect security control settings related to authentication and password policies on Linux endpoints. Specific security controls it can assess include \"Disable password authentication over SSH\", \"Configure password maximum age\", \"Configure password minimum length\", and \"Configure password complexity\" all of which impact the ability to brute force a password. This information can be used identify insecure configurations and harden the endpoints. Amazon Inspector does not directly protect against brute force attacks. Given Amazon Inspector can only assess these security controls on Linux platforms (although it also supports Windows), the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can detect security control settings related to authentication and password policies on Linux endpoints. Specific security controls it can assess include \"Disable password authentication over SSH\", \"Configure password maximum age\", \"Configure password minimum length\", and \"Configure password complexity\" all of which impact the ability to brute force a password. This information can be used identify insecure configurations and harden the endpoints. Amazon Inspector does not directly protect against brute force attacks. Given Amazon Inspector can only assess these security controls on Linux platforms (although it also supports Windows), the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can detect a security control setting related to remote service access on Linux endpoints. Specifically, \"Disable root login over SSH\". This information can be used identify insecure configurations and harden the endpoints. Amazon Inspector does not directly protect against adversaries accessing remote services. Given Amazon Inspector can only assess this security control on Linux platforms (although it also supports Windows) and it only restricts access to remote services for one user account [Q = (1) Do we assume an everything is locked down approach in which case it's worth pointing out it only covers one user? Or, do we assume the service is needed in which case the fact it only protects for one user (albeit important) is less important? (2) Or, is this a case where you exclude it from the mapping because it's not a practical way to mitigate the technique such as a firewall that blocks a port?], the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can detect a security control setting related to remote service access on Linux endpoints. Specifically, \"Disable root login over SSH\". This information can be used identify insecure configurations and harden the endpoints. Amazon Inspector does not directly protect against adversaries accessing remote services. Given Amazon Inspector can only assess this security control on Linux platforms (although it also supports Windows), it only restricts access to remote services for one user account, and only supports one sub-technique [Q = (1) Do we assume an everything is locked down approach in which case it's worth pointing out it only covers one user? Or, do we assume the service is needed in which case the fact it only protects for one user (albeit important) is less important? (2) Or, is this a case where you exclude it from the mapping because it's not a practical way to mitigate the technique such as a firewall that blocks a port?], the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can detect a security control setting related to remote service access on Linux endpoints. Specifically, \"Disable root login over SSH\". This information can be used identify insecure configurations and harden the endpoints. Amazon Inspector does not directly protect against adversaries accessing remote services. Given Amazon Inspector can only assess this security control on Linux platforms (although it also supports Windows) and it only restricts access to remote services for one user account [Q = (1) Do we assume an everything is locked down approach in which case it's worth pointing out it only covers one user? Or, do we assume the service is needed in which case the fact it only protects for one user (albeit important) is less important? (2) Or, is this a case where you exclude it from the mapping because it's not a practical way to mitigate the technique such as a firewall that blocks a port?], the coverage score is Minimal leading to an overall Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1222",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1222.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this the score is capped at Partial. "
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1562",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1562.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1562.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1562.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1562.006",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1070",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1070.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1070.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1070.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1070.005",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1070.006",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1599",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1599.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1003.007",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1003.008",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1053.006",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1489",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1529",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1548",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1548.003",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1037",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1037.004",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this, the score is capped at Partial. "
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1543",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Furthermore, Amazon Inspector only supports a subset of the sub-techniques for this technique. Due to these things and the fact the security control is only supported for Linux platforms, the score is Minimal. "
+                }
+            ],
+            "color": "#9CBA7F",
+            "score": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1543.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Best Practices assessment package can assess security control \"Configure permissions for system directories\" that prevents privilege escalation by local users and ensures only the root account can modify/execute system configuration information and binaries. Amazon Inspector does not directly protect against system modifications rather it just checks to see if security controls are in place which can inform decisions around hardening the system. Due to this, the score is capped at Partial. "
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1046",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Network Reachability assessment package can assess whether or not cloud/network components are vulnerable (e.g., publicly accessible from the Internet). Amazon Inspector does not directly protect cloud/network components rather reports on vulnerabilities that it identifies which can then be used to securely configure the cloud/network components. Due to this, the score is capped at Partial. "
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Network Reachability assessment package can assess whether or not cloud/network components are vulnerable (e.g., publicly accessible from the Internet). Amazon Inspector does not directly protect cloud/network components rather reports on vulnerabilities that it identifies which can then be used to securely configure the cloud/network components. Due to this, the score is capped at Partial. "
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.001",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Network Reachability assessment package can assess whether or not cloud/network components are vulnerable (e.g., publicly accessible from the Internet). Amazon Inspector does not directly protect cloud/network components rather reports on vulnerabilities that it identifies which can then be used to securely configure the cloud/network components. Due to this, the score is capped at Partial. "
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.002",
+            "enabled": "True",
+            "showSubtechniques": "True",
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Inspector"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Amazon Inspector Network Reachability assessment package can assess whether or not cloud/network components are vulnerable (e.g., publicly accessible from the Internet). Amazon Inspector does not directly protect cloud/network components rather reports on vulnerabilities that it identifies which can then be used to securely configure the cloud/network components. Due to this, the score is capped at Partial. "
+                }
+            ],
+            "color": "#659D32",
+            "score": "Partial",
+            "category": "Protect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}
