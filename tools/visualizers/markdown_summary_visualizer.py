@@ -43,7 +43,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
     def write_visualization(self, output_name, visualization):
         visualization.file_name = output_name
-        visualization.new_table_of_contents(table_title='Contents', depth=2)
+        visualization.new_table_of_contents(table_title='Contents', depth=2, marker="<TOC_MARKER>")
         visualization.create_md_file()
 
         if self.html_template:
@@ -217,9 +217,10 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
             if not summary:
                 print(f"  Warning:  Platform {platform} does not provide summary text from tools/config/markdown_summary.json")
-            mdFile.new_header(level=1, title="Introduction", add_table_of_contents='y')
             mdFile.new_paragraph(summary)
             mdFile.new_paragraph("[Aggregate Navigator Layer For All Controls](layers/platform.json) ([JSON](layers/platform.json))")
+
+            mdFile.new_paragraph("<TOC_MARKER>")
 
             tags = list(platform_data[2])
             tags.sort()
