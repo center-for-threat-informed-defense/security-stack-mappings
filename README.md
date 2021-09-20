@@ -5,14 +5,18 @@ This repository contains a collection of _native_ security controls mapped to MI
 ## Get the Mappings
 
 This project has produced mapping files for the following technology platforms, with more on the roadmap:
-- Microsoft Azure
-  - [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/Azure/README.html)
-  - [YAML Mappings](mappings/Azure)
-  - [JSON Navigator Layers](mappings/Azure/layers)
-- Amazon Web Services (AWS)
-  - [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/AWS/README.html)
-  - [YAML Mappings](mappings/AWS)
-  - [JSON Navigator Layers](mappings/AWS/layers)
+
+### Microsoft Azure 
+Released on June 29, 2021, these mappings cover the native security controls of Microsoft Azure Infrastructure as a Services for version 8.2 of MITRE ATT&CK.
+- [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/Azure/README.html)
+- [YAML Mappings](mappings/Azure)
+- [JSON Navigator Layers](mappings/Azure/layers)
+
+### Amazon Web Services
+Released on September 21, 2021, these mappings cover the native security controls of Amazon Web Services for version 9.0 of MITRE ATT&CK.
+- [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/AWS/README.html)
+- [YAML Mappings](mappings/AWS)
+- [JSON Navigator Layers](mappings/AWS/layers)
 
 ## Supporting Resources
 
