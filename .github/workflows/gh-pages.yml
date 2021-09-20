@@ -11,7 +11,6 @@ jobs:
     strategy:
       matrix:
         python-version: [3.8]
-        platform: [Azure, AWS]
     name: Validate Mappings and Update Visualizations
     steps:
       - name:  Checking out master branch
@@ -31,15 +30,18 @@ jobs:
       - name: Execute validation script
         working-directory: ./tools
         run: |
-          ./mapping_cli.py validate --mapping-dir ../mappings/${{ matrix.platform }}
+          ./mapping_cli.py validate --mapping-dir ../mappings/Azure
+          ./mapping_cli.py validate --mapping-dir ../mappings/AWS
       - name: Generate ATT&CK Navigator Visualization
         working-directory: ./tools
         run: |
-          ./mapping_cli.py visualize --visualizer AttackNavigator --skip-validation --include-aggregate --mapping-dir ../mappings/${{ matrix.platform }}
+          ./mapping_cli.py visualize --visualizer AttackNavigator --skip-validation --include-aggregate --mapping-dir ../mappings/Azure
+          ./mapping_cli.py visualize --visualizer AttackNavigator --skip-validation --include-aggregate --mapping-dir ../mappings/AWS
       - name: Generate Markdown Summary Visualization
         working-directory: ./tools
         run: |
-          ./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html --mapping-dir ../mappings/${{ matrix.platform }}
+          ./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html --mapping-dir ../mappings/Azure
+          ./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html --mapping-dir ../mappings/AWS
       - name: Prepare icons and images
         run: |
           mkdir -p docs/icons
@@ -48,8 +50,10 @@ jobs:
           cp images/PRPL-CTID-third.jpeg docs/icons
       - name: Updates docs folder with latest visualizations
         run: |
-          rm -rf docs/${{ matrix.platform }}
-          cp -r mappings/${{ matrix.platform }} docs/
+          rm -rf docs/Azure
+          rm -rf docs/AWS
+          cp -r mappings/Azure docs/
+          cp -r mappings/AWS docs/
       - name: Generate Index Page
         run: |
           echo '<meta http-equiv="refresh" content="0; URL=Azure/README.html" />' > docs/index.html
