@@ -7,16 +7,28 @@ This repository contains a collection of _native_ security controls mapped to MI
 This project has produced mapping files for the following technology platforms, with more on the roadmap:
 
 ### Microsoft Azure 
-Released on June 29, 2021, these mappings cover the native security controls of Microsoft Azure Infrastructure as a Services for version 8.2 of MITRE ATT&CK.
-- [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/Azure/README.html)
-- [YAML Mappings](mappings/Azure)
-- [JSON Navigator Layers](mappings/Azure/layers)
+
+| [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/Azure/README.html) | [YAML Mappings](mappings/Azure) | [ATT&CK Navigator Layers](mappings/Azure/layers) |
+|---|---|---|
+
+Released on June 29, 2021, these mappings cover the native security controls of Microsoft Azure Infrastructure as a Services for version 8.2 of MITRE ATT&CK. The following scoping decisions influenced the Azure mappings:
+- ATT&CK Scope: This work is focused on ATT&CK (sub-)techniques included in the Enterprise domain v8; Mobile techniques are not covered. There is a follow-on project that will update the mappings to ATT&CK v9.
+- Native Security Controls: This work focused on mapping the security controls produced by Microsoft or branded as Microsoft products. Third-party security controls available on the platform were excluded from analysis.
+- Azure Security Benchmark: Most of the controls included in scope were derived from [Microsoft’s Azure Security Benchmark v2](https://docs.microsoft.com/en-us/security/benchmark/azure/overview) and our review of [Azure security documentation](https://docs.microsoft.com/en-us/azure/security/).
+- Azure Defender for servers: This control was excluded from analysis due to its complexity and its inclusion within recent [MITRE ATT&CK Evaluations](https://attackevals.mitre-engenuity.org/enterprise/participants/microsoft/?adversary=carbanak_fin7).
 
 ### Amazon Web Services
-Released on September 21, 2021, these mappings cover the native security controls of Amazon Web Services for version 9.0 of MITRE ATT&CK.
-- [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/AWS/README.html)
-- [YAML Mappings](mappings/AWS)
-- [JSON Navigator Layers](mappings/AWS/layers)
+
+| [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/AWS/README.html) | [YAML Mappings](mappings/AWS) | [ATT&CK Navigator Layers](mappings/AWS/layers) |
+|---|---|---|
+
+
+Released on September 21, 2021, these mappings cover the native security controls of Amazon Web Services for version 9.0 of MITRE ATT&CK. The following scoping decisions influenced the AWS mappings:
+- ATT&CK Scope: This work is focused on ATT&CK techniques and sub-techniques included in ATT&CK for Enterprise v9; Mobile techniques are not covered.
+- Native Security Controls: This work focused on mapping the security controls produced by AWS or branded as AWS products. Third-party security controls available on the platform were excluded from analysis.
+- The [AWS Security, Identity, & Compliance products](https://aws.amazon.com/products/security/?nc=sn&loc=2) page was used to source the list of controls included within scope of this mapping.
+- Driven by Center participant interest, this effort also included mappings of security features of select, non-security services such as VPC, RDS, and S3.
+
 
 ## Supporting Resources
 
