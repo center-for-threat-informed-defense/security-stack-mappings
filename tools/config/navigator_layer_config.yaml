@@ -27,3 +27,4 @@ score_values:
 platform_attack_versions:
     Azure: 8
     AWS: 9
+    GCP: 10

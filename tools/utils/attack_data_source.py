@@ -67,8 +67,13 @@ class AttackDataSource:
             Filter('type', '=', 'attack-pattern'),
             Filter('kill_chain_phases.phase_name', '=', tactic_name),
             Filter('kill_chain_phases.kill_chain_name', '=', 'mitre-attack'),
-            Filter('x_mitre_is_subtechnique', '=', False)
         ])
+
+        # Some ATT&CK STIX objects do not have the x_mitre_is_subtechnique attribute,
+        # so this cannot be checked with a STIX Filter.
+        techniques = list(filter(lambda t: not hasattr(t, "x_mitre_is_subtechnique") \
+            or not t.x_mitre_is_subtechnique, techniques))
+
         return techniques
     
 
@@ -87,8 +92,13 @@ class AttackDataSource:
 
         techniques = self.tc_src.query([
             Filter("type", "=", "attack-pattern"),
-            Filter('x_mitre_is_subtechnique', '=', False)
         ])
+
+        # Some ATT&CK STIX objects do not have the x_mitre_is_subtechnique attribute,
+        # so this cannot be checked with a STIX Filter.
+        techniques = list(filter(lambda t: not hasattr(t, "x_mitre_is_subtechnique") \
+            or not t.x_mitre_is_subtechnique, techniques))
+
         return techniques
 
     
