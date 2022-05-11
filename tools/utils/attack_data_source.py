@@ -1,9 +1,11 @@
+import os
+import json
+import re
+
+import requests
 from stix2 import MemoryStore, TAXIICollectionSource, Filter
 from taxii2client.v20 import Collection
 
-import re
-import json
-import requests
 
 class AttackDataSource:
 
@@ -14,6 +16,7 @@ class AttackDataSource:
         self.latest_attack_version = self.versions[-1]
         self.current_version = None
         self.tc_src = None
+        self.attack_cache = dict()
 
 
     def get_versions(self):
@@ -21,9 +24,36 @@ class AttackDataSource:
         tags = requests.get("https://api.github.com/repos/mitre/cti/git/refs/tags").json()
         versions = list(map(lambda tag: refToTag.search(tag["ref"]).groups()[0],
             filter(lambda tag: "ATT&CK-v" in tag["ref"], tags)))
-
         return versions
 
+
+    def get_attack_json(self, version, domain):
+        """
+        Load ATT&CK STIX from a local file (if it exists) or download from
+        specified URL and cache for later use.
+
+        :param version: the ATT&CK version to load
+        :param domain: the ATT&CK domain to load
+        :returns: dict loaded from STIX JSON
+        """
+        url = f"https://raw.githubusercontent.com/mitre/cti/ATT%26CK-v{version}/{domain}/{domain}.json"
+        filename = f"{domain}-{version}.json"
+        local_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
+        local_file = os.path.realpath(os.path.join(local_dir, filename))
+        if not local_file.startswith(local_dir):
+            raise Exception(f"Invalid characters in filename: {filename}")
+
+        if os.path.exists(local_file):
+            print(f"Using cached ATT&CK STIX: {local_file}")
+            with open(local_file) as f:
+                stix_data = f.read()
+        else:
+            print(f"Downloading ATT&CK data from {url}")
+            stix_data = requests.get(url).text
+            with open(local_file, "w+") as f:
+                f.write(stix_data)
+
+        return json.loads(stix_data)
 
     def set_attack_version(self, version=None):
         version = version if version else self.latest_attack_version
@@ -31,12 +61,14 @@ class AttackDataSource:
         if "." not in str(version):
             version = f"{version}.0"
 
-        if self.tc_src and self.current_version == version:
-            return
+        if version in self.attack_cache:
+            self.tc_src = self.attack_cache[version]
+        else:
+            domain = self.ENTERPRISE_ATTACK_COLLECTION
+            stix_json = self.get_attack_json(version, domain)
+            self.tc_src = MemoryStore(stix_data=stix_json["objects"])
+            self.attack_cache[version] = self.tc_src
 
-        domain = self.ENTERPRISE_ATTACK_COLLECTION
-        stix_json = requests.get(f"https://raw.githubusercontent.com/mitre/cti/ATT%26CK-v{version}/{domain}/{domain}.json").json()
-        self.tc_src = MemoryStore(stix_data=stix_json["objects"])
         self.current_version = version
 
 
@@ -49,7 +81,7 @@ class AttackDataSource:
             tactic = self.tc_src.get(tactic_id)
             name = tactic["name"]
             tactics[name] = self.get_attack_id(tactic)
-    
+
         return tactics
 
 
@@ -67,10 +99,15 @@ class AttackDataSource:
             Filter('type', '=', 'attack-pattern'),
             Filter('kill_chain_phases.phase_name', '=', tactic_name),
             Filter('kill_chain_phases.kill_chain_name', '=', 'mitre-attack'),
-            Filter('x_mitre_is_subtechnique', '=', False)
         ])
+
+        # Some ATT&CK STIX objects do not have the x_mitre_is_subtechnique attribute,
+        # so this cannot be checked with a STIX Filter.
+        techniques = list(filter(lambda t: not hasattr(t, "x_mitre_is_subtechnique") \
+            or not t.x_mitre_is_subtechnique, techniques))
+
         return techniques
-    
+
 
     def get_subtechniques(self, version = None):
         self.set_attack_version(version)
@@ -87,11 +124,16 @@ class AttackDataSource:
 
         techniques = self.tc_src.query([
             Filter("type", "=", "attack-pattern"),
-            Filter('x_mitre_is_subtechnique', '=', False)
         ])
+
+        # Some ATT&CK STIX objects do not have the x_mitre_is_subtechnique attribute,
+        # so this cannot be checked with a STIX Filter.
+        techniques = list(filter(lambda t: not hasattr(t, "x_mitre_is_subtechnique") \
+            or not t.x_mitre_is_subtechnique, techniques))
+
         return techniques
 
-    
+
     def get_techniques_and_sub_techniques(self, sub_technique_keys = True, version = None):
         self.set_attack_version(version)
 
@@ -125,7 +167,7 @@ class AttackDataSource:
                 output_techniques[technique_id]["sub_techniques"][attack_id] = sub_tech
             else:
                 output_techniques[technique_id]["sub_techniques"].append(sub_tech)
-        
+
         return output_techniques
 
 
