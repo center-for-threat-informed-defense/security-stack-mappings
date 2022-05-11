@@ -48,7 +48,7 @@ class AbstractVisualizer(ABC):
                 Path(output_dir).mkdir(exist_ok=True)
             else:
                 output_dir = options["output_dir"]
-        
+
             file_name = options.get("output_filename", mapping_file.name)
             output_name = os.path.join(output_dir, file_name)
             pre, _ = os.path.splitext(output_name)

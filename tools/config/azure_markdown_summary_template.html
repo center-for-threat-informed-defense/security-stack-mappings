@@ -1,109 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
-<style>
-h2
-{
-    background: url('/security-stack-mappings/icons/azure_icon.svg') no-repeat #e8e8e8;
-    background-size: 50px;
-    padding-left: 60px;  /* width of the image plus a little extra padding */
-    padding-top: 5px;  /* width of the image plus a little extra padding */
-    display: block;  /* may not need this, but I've found I do */
-}
-
-a[href="#contents"]
-{
-    text-align:center;
-    display: block;
-}
-</style>
-<script type="text/javascript">
-    window.onload = function () {
-        let control_icon_style = "background: url('/security-stack-mappings/icons/azure_icon.svg') no-repeat #e8e8e8; \
-             background-size: 50px; \
-             padding-left: 60px; \
-             padding-top: 5px; \
-             display: block; \
-        ";
-
-        let tag_icon_style = "background: url('/security-stack-mappings/icons/clipboard.svg') no-repeat #e8e8e8; \
-             background-size: 35px; \
-             padding-left: 40px; \
-             padding-top: 5px; \
-             display: block; \
-        ";
-
-        let controls_h2s = document.getElementsByTagName("h2");
-        let style = control_icon_style;
-        let last_item_num = 1;
-        for (let item of controls_h2s) {
-            let item_num = parseInt(item.textContent.split(".")[0]);
-            if (last_item_num > item_num){
-                style = tag_icon_style;
-            }
-            item.style.cssText = style;
-            last_item_num = item_num;
-        }
-
-        let header_items = document.querySelectorAll("h1,h2");
-        let header_dict = {};
-        for (let header_item of header_items) {
-            header_dict[header_item.textContent] = header_item;
-        }
-
-        //fix URI fragments
-        let toc_items = document.getElementsByTagName("ul")[0].getElementsByTagName("a");
-        for (let toc_item of toc_items) {
-            let fragment = toc_item.href.split("#")[1];
-            let header_item = header_dict[toc_item.textContent];
-            if(header_item){
-                header_item.innerHTML = "<a id='" + fragment + "'></a>" + header_item.innerHTML;
-            }
-        }
-        header_dict["Contents"].innerHTML ="<a id='contents'></a>" + header_dict["Contents"].innerHTML;
-
-        //fix Navigator links
-        let nav_links = document.evaluate("//a[contains(.,'Navigator Layer')]", document, null, XPathResult.ANY_TYPE, null);
-        let nav_link = null;
-        let links = [];
-        while(nav_link = nav_links.iterateNext()) {
-            links.push(nav_link);
-        }
-        for (let nav_link of links) {
-            nav_link.href = "https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=" + nav_link.href;
-            nav_link.target = "_blank";
-        }
-
-        //fix Mapping links
-        let mapping_links = document.evaluate("//a[contains(.,'Mapping File')]", document, null, XPathResult.ANY_TYPE, null);
-        let mapping_link = null;
-        let mlinks = [];
-        while(mapping_link = mapping_links.iterateNext()) {
-            mlinks.push(mapping_link);
-        }
-        for (let mapping_link of mlinks) {
-            mapping_link.href = "https://www.treedoc.org/?dataUrl=" + mapping_link.href;
-            mapping_link.target = "_blank";
-        }
-    }
-</script>
-<title>Microsoft Azure Security Control Mappings to MITRE ATT&CK®</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+    <link rel="stylesheet" href="/mappings.css">
+    <script type="text/javascript" src="/mappings.js"></script>
+    <title>Microsoft Azure Security Control Mappings to MITRE ATT&CK®</title>
 </head>
+
 <body>
     <main>
         <article class="markdown-body">
-            <div style="height:50">
-                <img src="/security-stack-mappings/icons/PRPL-CTID-third.jpeg" alt="Center for Threat-Informed Defense logo" width="150" height="50">
-                <div style="text-align:right;float:right">
-                    <a href="https://ctid.mitre-engenuity.org/">Center for Threat-Informed Defense</a>
-                    </br>
-                    <a href="https://github.com/center-for-threat-informed-defense/security-stack-mappings">Security Stack Mapping Project on GitHub</a>
+            <div>
+                <div class="float-right">
+                    <a href="https://github.com/center-for-threat-informed-defense/security-stack-mappings">Security
+                        Stack Mapping Project on GitHub</a>
                 </div>
+                <a href="https://ctid.mitre-engenuity.org/"><img
+                        src="/security-stack-mappings/icons/PRPL-CTID-third.jpeg"
+                        alt="Center for Threat-Informed Defense logo"></a>
             </div>
             <CONTENT_HERE>
         </article>
     </main>
 </body>
-</html>
 
+</html>

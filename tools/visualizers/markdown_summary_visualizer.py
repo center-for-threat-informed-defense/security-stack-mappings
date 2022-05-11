@@ -7,8 +7,27 @@ from io import BytesIO
 import yaml
 import os
 import json
+import re
 
 from utils.utils import get_project_root
+
+
+def slug(text, prefix=""):
+    """
+    Convert a string into an HTML anchor name.
+
+    For example: "Access Transparency" -> "access-transparency"
+
+    :param text: a string to slugify
+    :param separator: not used (part of markdown api)
+    """
+    text = re.sub("[^a-z0-9]", "-", text.lower())
+    text = re.sub("-+", "-", text)
+    text = text.strip("-")
+    if prefix:
+        text = prefix + "-" + text
+    return text
+
 
 class MarkdownSummaryVisualizer(AbstractVisualizer):
 
@@ -43,7 +62,6 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
     def write_visualization(self, output_name, visualization):
         visualization.file_name = output_name
-        visualization.new_table_of_contents(table_title='Contents', depth=2, marker="<TOC_MARKER>")
         visualization.create_md_file()
 
         if self.html_template:
@@ -51,17 +69,21 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             html_name = ".".join([pre, "html"])
 
             markdown_data = BytesIO()
-            markdown.markdownFromFile(extensions= ['tables', 'nl2br', 'sane_lists'], 
+            markdown.markdownFromFile(extensions= ['tables', 'nl2br', 'sane_lists'],
                 input=visualization.file_name, output=markdown_data, encoding='utf8')
-            
+
             print(f"   Generating {html_name}")
             with open(html_name, "w") as f:
                 f.write(self.html_template.replace("<CONTENT_HERE>", markdown_data.getvalue().decode('UTF-8')))
 
 
     def get_control_reference(self, control):
+        """
+        Generate a reference to a control with out its control number.
+
+        E.g. "[Shielded VM](#31-shielded-vm)"
+        """
         item = Header.header_anchor(control)
-        # Don't include the control # in the link display
         item = item.split(" ")
         item = "[" + " ".join(item[1:]).replace(".", "")
         return item
@@ -69,18 +91,20 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
     def get_list_item(self, index, name):
         return f"{index}. {name}"
-        
-    
+
+
     def visualize_platform_controls(self, platform, platform_data, platform_tags, mdFile):
         mdFile.new_header(level=1, title="Controls", add_table_of_contents='y')
         control_index = 0
         controls_map = {}
+        icon = self.config["icons"].get(platform, "")
         for control_name in sorted(list(platform_data.keys())):
             control_index += 1
             control_data = platform_data[control_name]
             title = self.get_list_item(control_index, control_name)
             controls_map[control_name] = title
-            mdFile.new_header(level=2, title=title, add_table_of_contents='y')
+            mdFile.write(f"<a name='{slug(control_name)}'></a>\n")
+            mdFile.write(f"\n## ![GCP icon](/security-stack-mappings/icons/{icon}) {title}\n\n")
             mdFile.new_paragraph(control_data[0])
 
             mapping = control_data[1]
@@ -99,7 +123,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
             techniques = control_data[6]
             techniques.sort()
-            mdFile.new_header(level=3, title="Technique(s)", add_table_of_contents='n')
+            mdFile.new_header(level=3, title="Techniques", add_table_of_contents='n')
             table_data = ["Technique", "Category", "Value", "Comment"]
             for tech in techniques:
                 table_data.extend(tech)
@@ -109,24 +133,22 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             tags = control_data[5]
             if tags:
                 tags.sort()
-                mdFile.new_header(level=3, title="Tag(s)", add_table_of_contents='n')
+                mdFile.new_header(level=3, title="Tags", add_table_of_contents='n')
                 for tag in tags:
-                    tag_index = platform_tags.index(tag) + 1
-                    ref = self.get_control_reference(self.get_list_item(tag_index, tag))
-                    mdFile.write(f"- {ref}\n")
+                    mdFile.write(f"- [{tag}](#{slug(tag, 'tag')})\n")
                 mdFile.write('  \n\n')
 
             references = control_data[4]
-            mdFile.new_header(level=3, title="Reference(s)", add_table_of_contents='n')
+            mdFile.new_header(level=3, title="References", add_table_of_contents='n')
             for reference in references:
                 reference = reference.replace('"', "")
                 mdFile.write(f"- <{reference}>\n")
             mdFile.write('  \n\n')
-            mdFile.write('  [Back to Table Of Contents](#contents)')
-        
+            mdFile.write('<p class="text-center"><a href="#contents">Back to Contents</a></p>\n\n')
+
         return controls_map
 
-    
+
     def visualize_platform_tags(self, platform, platform_tags, controls_map, mdFile):
         mdFile.new_header(level=1, title="Control Tags", add_table_of_contents='y')
 
@@ -136,20 +158,20 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             controls = platform_tags[tag]
             controls.sort()
             tag_title = self.get_list_item(tag_index, tag)
-            mdFile.new_header(level=2, title=tag_title, add_table_of_contents='y')
+            mdFile.write(f"<a name='{slug(tag, 'tag')}'></a>\n")
+            mdFile.write(f"## ![tag icon](/security-stack-mappings/icons/tag-solid.svg) {tag_title}\n\n")
             mdFile.new_header(level=3, title="Controls", add_table_of_contents='n')
             for control in controls:
                 ref = self.get_control_reference(controls_map[control])
-                mdFile.write(f"- {ref}\n")
+            mdFile.write(f"- [{control}](#{slug(control)})\n")
 
-            #mdFile.write('\n\n')
             mdFile.new_header(level=3, title="Views", add_table_of_contents='n')
             layer_name = tag.replace(" ", "_")
             layer = f"layers/tags/{layer_name}.json"
             mdFile.write(f"- [Navigator Layer]({layer}) ([JSON]({layer}))\n")
 
             mdFile.write('  \n\n')
-            mdFile.write('  [Back to Table Of Contents](#contents)')
+            mdFile.write('<p class="text-center"><a href="#contents">Back to Contents</a></p>\n\n')
 
 
     def load_platform_tags(self, platform, platform_path):
@@ -167,7 +189,8 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
 
     def get_technique_rows(self, technique):
         techs = []
-        desc = f"[{technique['id']} - {technique['name']}](https://attack.mitre.org/techniques/{technique['id']}/)"
+        technique_path = technique["id"].replace(".", "/")
+        desc = f"[{technique['id']} - {technique['name']}](https://attack.mitre.org/techniques/{technique_path}/)"
         for score in technique["technique-scores"]:
             comment = score.get("comments", "").replace("\n", "<br/>").strip()
             techs.append([desc, score['category'], score['value'], comment])
@@ -181,7 +204,7 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             mapping_path = Path(mapping_file)
             with open(mapping_file, "r") as f:
                 mapping_yaml = yaml.safe_load(f)
-            
+
             platform = mapping_yaml["platform"]
             _, platform_data, platform_tags = summary_data.get(platform, ["", {}, {}])
             if not platform_data:
@@ -218,12 +241,12 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
             if not summary:
                 print(f"  Warning:  Platform {platform} does not provide summary text from tools/config/markdown_summary.json")
             mdFile.new_paragraph(summary)
-            mdFile.new_paragraph("[Aggregate Navigator Layer For All Controls](layers/platform.json) ([JSON](layers/platform.json))")
+            mdFile.new_paragraph("[Aggregate Navigator Layer For All Controls (JSON)](layers/platform.json)")
 
-            mdFile.new_paragraph("<TOC_MARKER>")
-
+            controls = platform_data[1]
             tags = list(platform_data[2])
             tags.sort()
+            self.write_toc(mdFile, controls, tags)
             control_map = self.visualize_platform_controls(platform, platform_data[1], tags, mdFile)
             self.visualize_platform_tags(platform, platform_data[2], control_map, mdFile)
 
@@ -240,3 +263,13 @@ class MarkdownSummaryVisualizer(AbstractVisualizer):
                 self.initialize_html_template(platform)
 
             self.output(options, mapping_file, mdFile)
+
+    def write_toc(self, mdFile, controls, tags):
+        mdFile.write("\n\n# <a name='contents'>Contents</a>\n\n")
+        mdFile.write("* Controls\n")
+        for idx, name in enumerate(sorted(controls)):
+            mdFile.write(f"    * [{idx+1}. {name}](#{slug(name)})\n")
+
+        mdFile.write("* Control Tags\n")
+        for idx, name in enumerate(tags):
+            mdFile.write(f"    * [{idx+1}. {name}](#{slug(name, 'tag')})\n")

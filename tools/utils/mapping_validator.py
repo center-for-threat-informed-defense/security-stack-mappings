@@ -53,7 +53,7 @@ class MappingValidator:
 
         if platform in self.tags_from_mappings:
             return self.tags_from_mappings[platform]
-        
+
         valid_tags = platform_dir / "valid_tags.txt"
         if valid_tags.exists():
             with open(valid_tags) as file_object:
@@ -86,7 +86,7 @@ class MappingValidator:
     def verify_tags(self, mapping):
         if "tags" in mapping:
             # this if check is here because we don't want to emit a warning in this case
-            # If the tags element is present but empty, then the assumption is that the 
+            # If the tags element is present but empty, then the assumption is that the
             # author explicitly excluded tags.
             if mapping["tags"]:
                 for tag in mapping['tags']:
@@ -129,6 +129,9 @@ class MappingValidator:
                 else:
                     self.print_validation_error(f"Technique name {tech_name} from mapping file does not match {tech_id} "
                         f"technique name {self.valid_techniques[tech_id]['technique_name']}")
+            elif tech_id in self.valid_subtechniques:
+                # If the technique ID is a subtechnique, then there's no further validation to do.
+                pass
             else:
                 self.print_validation_error(f"{tech_id} is not a valid ATT&CK Technique ID.")
 
@@ -147,7 +150,7 @@ class MappingValidator:
                     if cat_list.count(score['category']) > 1:
                         self.print_validation_error(f"There is more than one score of type {score['category']}  in "
                             f"technique-scores for {technique['name']}")
-                    
+
                     if score.get("comments", ""):
                         self.comments_found = True
             if 'sub-techniques-scores' in technique:
@@ -155,7 +158,7 @@ class MappingValidator:
                     sub_list = []
                     for subs in technique['sub-techniques-scores']:
                         if not len(subs.get('sub-techniques', [])):
-                            self.print_validation_error(f"Empty sub-technique list for sub-techniques-scores object " 
+                            self.print_validation_error(f"Empty sub-technique list for sub-techniques-scores object "
                                 f"for technique {technique['name']}")
 
                         for sub_id in subs['sub-techniques']:
@@ -165,7 +168,7 @@ class MappingValidator:
                             sub_list.append(sub_id)
 
                         if not len(subs.get('scores', [])):
-                            self.print_validation_error(f"Empty scores list for sub-techniques-scores object " 
+                            self.print_validation_error(f"Empty scores list for sub-techniques-scores object "
                                 f"for technique {technique['name']}")
                         if subs['scores']:
                             sub_scores = subs['scores']
@@ -198,6 +201,13 @@ class MappingValidator:
         if self.attack_version != mapping_yaml["ATT&CK version"]:
             self.attack_version = mapping_yaml["ATT&CK version"]
             self.valid_techniques = self.attack_ds.get_techniques_and_sub_techniques(True, self.attack_version)
+            self.valid_subtechniques = set()
+            for valid_technique in self.valid_techniques.values():
+                for sub_technique in valid_technique["sub_techniques"]:
+                    try:
+                        self.valid_subtechniques.add(sub_technique)
+                    except TypeError:
+                        print("TypeError", valid_technique, sub_technique)
 
         root_dir = get_project_root()
         with open(f'{root_dir}/tools/config/mapping_schema.json') as file_object:

@@ -4,6 +4,7 @@ from db.database import MappingDatabase
 from pathlib import Path
 from utils.mapping_validator import MappingValidator
 import yaml
+from yaml.scanner import ScannerError
 import os
 
 class MappingDriver():
@@ -25,18 +26,18 @@ class MappingDriver():
 
     def query_mapping_files(self, tags, relationship, control_names, platforms):
         return self.mapping_db.query_mapping_files(tags, relationship, control_names, platforms)
-    
+
 
     def query_mapping_file_scores(self, categories, attack_ids, controls, level, platforms, scores, tactics, tags):
         return self.mapping_db.query_mapping_file_scores(categories, attack_ids, controls, \
             level, platforms, scores, tactics, tags)
-    
+
 
     def load_mapping_files_as_unit(self, map_files):
         paths = []
         for map_file in map_files:
             paths.append(Path(map_file))
-        
+
         self.mapping_files = [paths]
 
 
@@ -71,7 +72,11 @@ class MappingDriver():
                     self.__validate_mapping_files(mapping_file)
             else:
                 with open(mapping_file, "r") as f:
-                    mapping_yaml = yaml.safe_load(f)
+                    try:
+                        mapping_yaml = yaml.safe_load(f)
+                    except ScannerError as se:
+                        validation_pass = False
+                        print(f"  Error:  Invalid YAML Syntax - {se.problem}{se.problem_mark}")
 
                 if "ATT&CK version" in mapping_yaml and "platform" in mapping_yaml:
                     validation_pass = validation_pass and \
@@ -91,7 +96,7 @@ class MappingDriver():
             tags = self.mapping_validator.get_tags(self.mapping_files)
             self.mapping_db.init_database(self.mapping_files, tags, skip_attack)
 
-    
+
     def visualize(self, visualizer, output_dir, options={}):
         options["output_dir"] = output_dir
         if output_dir:
