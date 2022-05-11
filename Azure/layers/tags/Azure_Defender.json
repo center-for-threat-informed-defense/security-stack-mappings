@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: File Integrity Monitoring,Azure Defender for App Service,Alerts for Windows Machines,Advanced Threat Protection for Azure SQL Database,Integrated Vulnerability Scanner Powered by Qualys,Azure Defender for Key Vault,Azure Defender for Resource Manager,Linux auditd alerts and Log Analytics agent integration,Azure Defender for Kubernetes,Azure Defender for Storage,Azure Defender for Container Registries",
+    "description": "Controls: Azure Defender for Kubernetes,Azure Defender for Resource Manager,Advanced Threat Protection for Azure SQL Database,File Integrity Monitoring,Linux auditd alerts and Log Analytics agent integration,Azure Defender for Container Registries,Azure Defender for App Service,Azure Defender for Storage,Integrated Vulnerability Scanner Powered by Qualys,Azure Defender for Key Vault,Alerts for Windows Machines",
     "filters": {
         "platforms": [
             "Linux",
@@ -33,6 +33,1272 @@
     },
     "hideDisabled": false,
     "techniques": [
+        {
+            "techniqueID": "T1525",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Kubernetes"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on containers with sensitive volume mounts, unneeded privileges, or running an image with digital currency mining software."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious container images running mining software or SSH servers. Privileged Docker containers and privileged commands running within containers may also be detected. These alerts are only generated on containers in Linux endpoint machines and not for containers running from Azure Docker deployment."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Container Registries"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may prevent adversaries from implanting malicious container images through fine grained permissions and use of container image tag signing. Image tag signing allows for verifiable container images that have been signed with legitimate keys."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may scan and alert on import or creation of container images with known vulnerabilities or a possible expanded surface area for exploitation."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Kubernetes"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on publicly exposed Kubernetes services. This may provide context on services that should be patched or hardened for public access."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on usage of faulty SQL statements. This generates an alert for a possible SQL injection by an application. Alerts may not be generated on usage of valid SQL statements by attackers for malicious purposes."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Container Registries"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide provide information about vulnerabilities within container images. The limited scope of containers and registries that are applicable to this control contribute to the lower score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Kubernetes"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on detection of new privileged containers and high privilege roles."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on escalation attempts from Azure AD to Azure accounts by  specific exploitation toolkits. Consequently, its Coverage score is Minimal  resulting in an overall Minimal score. The following alerts may be generated: \"PowerZure exploitation toolkit used to elevate access from Azure AD to Azure\"."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious arguments used to exploit Xorg vulnerabilities for privilege escalation."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Container Registries"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to avoid privileged containers and running containers as root."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1070",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Kubernetes"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on deletion of Kubernetes events. Attackers might delete those events for hiding their operations in the cluster. There is no relevant sub-technique for this control but the parent applies."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux environments and provides partial coverage for multiple Linux-relevant sub-techniques."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's detection is specific to a minority of this technique's sub-techniques and procedure examples  resulting in a Minimal Coverage score and consequently an overall score of Minimal."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Windows Defender security  features being disabled but does not alert on other security tools or logging being disabled or tampered with. Consequently, its Coverage score is Minimal  resulting in an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Due to low detection coverage, this technique is scored as minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides coverage for a miniority of the sub-techniques under this technique and provides no coverage for other relevant sub-techniques, such as Impair Command History Logging or Disable or Modify Tools, resulting in a score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following alerts are available for Windows Defender security features being disabled but none for third party security tools: \"Antimalware broad files exclusion in your virtual machine\", \"Antimalware disabled and code execution in your virtual machine\", \"Antimalware disabled in your virtual machine\", \"Antimalware file exclusion and code execution in your virtual machine\", \"Antimalware file exclusion in your virtual machine\", \"Antimalware real-time protection was disabled in your virtual machine\", \"Antimalware real-time protection  was disabled temporarily in your virtual machine\", \"Antimalware real-time  protection was disabled temporarily while code was executed in your virtual  machine\", \"Antimalware temporarily disabled in your virtual machine\",  \"Antimalware unusual file exclusion in your virtual machine\"."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "File Integrity Monitoring"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to monitor Registry keys related to security software or event logging processes that can detect when an adversary attempts to disable these tools via modifying or deleting Registry keys.  A majority of the cited procedure examples for this sub-technique are related to killing security processes rather than modifying the Registry, and therefore the detection coverage for this control is low."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect when critical services have been disabled, such as Windows Security Center. This control may also detect when IIS logging has been disabled. The  following alerts may be generated: \"Detected the disabling of critical services\", \"Detected actions indicative of disabling and deleting IIS log files\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1580",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Cloud Infrastructure Discovery activity generated by specific toolkits, such as MicroBurst, PowerZure, etc. It may not generate alerts on undocumented discovery  techniques or exploitation toolkits. The following alerts may be  generated: \"PowerZure exploitation toolkit used to enumerate storage containers, shares, and tables\", \"PowerZure exploitation toolkit used to enumerate resources\", \"MicroBurst exploitation toolkit used to enumerate resources in your subscriptions\", \"Azurite toolkit run detected\"."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Key Vault"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious access of key vaults, including suspicious listing of key vault contents. This control does not alert on discovery of other cloud services, such as VMs, snapshots, cloud storage and therefore has minimal coverage. Suspicious activity based on patterns of access from certain users and applications allows for managing false positive rates."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1538",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious management activity based on IP, time, anomalous behaviour, or PowerShell usage. Machine learning algorithms are used to reduce false positives. The following alerts may be generated: \"Activity from a risky IP address\", \"Activity from infrequent country\", \"Impossible travel activity\", \"Suspicious management session using PowerShell detected\", \"Suspicious management session using an inactive account detected\", \"Suspicious management session  using Azure portal detected\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1526",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Cloud Service Discovery activity generated by specific toolkits, such as MicroBurst, PowerZure, etc. It may not generate alerts on undocumented discovery  techniques or exploitation toolkits. The following alerts may be  generated: \"PowerZure exploitation toolkit used to enumerate storage containers, shares, and tables\", \"PowerZure exploitation toolkit used to enumerate resources\", \"MicroBurst exploitation toolkit used to enumerate resources in your subscriptions\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1069",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Azure domain cloud groups discovery activity but may not provide alerts for other account types or undocumented exploitation toolkits.  Consequently, its Coverage  score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1069.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Permission Groups Discovery of  Cloud Groups activity generated by specific toolkits, such as MicroBurst, PowerZure, etc. It may not generate alerts on undocumented discovery techniques or exploitation toolkits. The following alerts may be generated: \"MicroBurst exploitation toolkit used to enumerate resources in your subscriptions\", \"Azurite toolkit run detected\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Azure cloud account discovery activity but may not provide alerts for other account types or undocumented exploitation toolkits. Consequently, its Coverage  score is Minimal resulting in an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, and minimal coverage of its procedure examples resulting in a Minimal overall score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial detection for some of this technique's sub-techniques and procedure examples resulting in a Partial Coverage score and consequently an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Account Discovery of  Cloud Accounts activity generated by specific toolkits, such as MicroBurst, PowerZure, etc. It may not generate alerts on undocumented discovery techniques or exploitation toolkits. The following alerts may be  generated: \"PowerZure exploitation toolkit used to enumerate storage containers, shares, and tables\", \"PowerZure exploitation toolkit used to enumerate resources\", \"MicroBurst exploitation toolkit used to enumerate resources in your subscriptions\", \"Azurite toolkit run detected\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1555",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Resource Manager"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on credential dumping from Azure Key Vaults, App Services Configurations, and Automation accounts by specific exploitation toolkits. Consequently,  its Coverage score is Minimal resulting in an overall Minimal score. The following alerts may be generated: \"MicroBurst exploitation toolkit used to extract secrets from your Azure key vaults\", \"MicroBurst exploitation toolkit used to extract keys to your storage accounts\"."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the PowerSploit Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Key Vault"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect suspicious secret access from Azure key vaults. This does not apply to any sub-techniques under T1555 - Credentials from Password Stores but Azure Key Vault can be treated as a store for passwords, keys, and certificates. The coverage of this control could be deemed high for cloud credential and secret storage within Key Vault but is not applicable to traditional password stores, such as password managers, keychain, or web browsers. "
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Storage"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal detection for its procedure examples.  Additionally, it is able to detect only one of its sub-techniques (Cloud Accounts) resulting in a Minimal Coverage score and consequently an overall score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is able to detect some of this technique's sub-techniques resulting in a Partial Coverage score and consequently an overall score of Partial. "
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on logon events that are suspicious. This includes logins from unusual locations, logins from suspicious IP addresses, and users that do not commonly access the resource. These alerts may limit the ability of an attacker to utilize a valid cloud account to access and manipulate Azure databases. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Storage"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may generate alerts based on unfamiliar or suspicious IP addresses, TOR exit node, and anonymous access. "
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1213",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on extraction of a large amount of data to an unusual location. No documentation is provided on the logic for determining an unusual location."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control covers the majority of sub-techniques for this parent technique and may cover both successful and unsuccessful brute force attacks. This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial coverage for most of this technique's sub-techniques and procedures."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides detection for some of this technique's sub-techniques and procedure examples resulting  in a Partial Coverage score and consequently an overall score of Partial."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource.  Because this control is specific to Azure database offerings, the detection coverage is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect successful and failed brute force attempts with logic that factors the IP, time between attempts, and other suspicious activity. The following alerts may be generated: \"A logon from a malicious IP has been detected\", \"A logon from a malicious IP has been detected. [seen multiple times]\", \"Successful brute force attack\", \"Suspicious authentication activity\"."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource.  Because this control is specific to Azure database offerings, the detection coverage is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect successful and failed brute force attempts with logic that factors the IP, time between attempts, and other suspicious activity. The following alerts may be generated: \"A logon from a malicious IP has been detected\", \"A logon from a malicious IP has been detected. [seen multiple times]\", \"Successful brute force attack\", \"Suspicious authentication activity\"."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Advanced Threat Protection for Azure SQL Database"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource.  Because this control is specific to Azure database offerings, the detection coverage is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect successful and failed brute force attempts with logic that factors the IP, time between attempts, and other suspicious activity. The following alerts may be generated: \"A logon from a malicious IP has been detected\", \"A logon from a malicious IP has been detected. [seen multiple times]\", \"Successful brute force attack\", \"Suspicious authentication activity\"."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
         {
             "techniqueID": "T1053",
             "enabled": true,
@@ -351,6 +1617,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux endpoint machines and the only sub-technique relevant for Linux is Kernel Modules and Extensions."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Defender for App Service"
                 },
                 {
@@ -383,25 +1668,6 @@
                 {
                     "name": "comment",
                     "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is only relevant for Linux endpoint machines and the only sub-technique relevant for Linux is Kernel Modules and Extensions."
                 }
             ],
             "color": "#5F9F9F",
@@ -1727,6 +2993,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux environments, and provides partial coverage for one of the technique's two Linux-relevant sub-techniques."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Defender for App Service"
                 },
                 {
@@ -1759,25 +3044,6 @@
                 {
                     "name": "comment",
                     "value": "This control provides detection for a minority of this technique's sub-techniques and procedure examples  resulting in a Minimal Coverage score and consequently an overall score of Minimal.  Furthermore, its detection capability relies on detecting the usage of specific tools (e.g. sqldumper.exe) further adversely impacting  its score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is only relevant for Linux environments, and provides partial coverage for one of the technique's two Linux-relevant sub-techniques."
                 }
             ],
             "color": "#5F9F9F",
@@ -1951,155 +3217,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1562",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Due to low detection coverage, this technique is scored as minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Windows Defender security  features being disabled but does not alert on other security tools or logging being disabled or tampered with. Consequently, its Coverage score is Minimal  resulting in an overall Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides coverage for a miniority of the sub-techniques under this technique and provides no coverage for other relevant sub-techniques, such as Impair Command History Logging or Disable or Modify Tools, resulting in a score of Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1562.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "File Integrity Monitoring"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to monitor Registry keys related to security software or event logging processes that can detect when an adversary attempts to disable these tools via modifying or deleting Registry keys.  A majority of the cited procedure examples for this sub-technique are related to killing security processes rather than modifying the Registry, and therefore the detection coverage for this control is low."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect when critical services have been disabled, such as Windows Security Center. This control may also detect when IIS logging has been disabled. The  following alerts may be generated: \"Detected the disabling of critical services\", \"Detected actions indicative of disabling and deleting IIS log files\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The following alerts are available for Windows Defender security features being disabled but none for third party security tools: \"Antimalware broad files exclusion in your virtual machine\", \"Antimalware disabled and code execution in your virtual machine\", \"Antimalware disabled in your virtual machine\", \"Antimalware file exclusion and code execution in your virtual machine\", \"Antimalware file exclusion in your virtual machine\", \"Antimalware real-time protection was disabled in your virtual machine\", \"Antimalware real-time protection  was disabled temporarily in your virtual machine\", \"Antimalware real-time  protection was disabled temporarily while code was executed in your virtual  machine\", \"Antimalware temporarily disabled in your virtual machine\",  \"Antimalware unusual file exclusion in your virtual machine\"."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1562.004",
             "enabled": true,
             "showSubtechniques": false,
@@ -2125,25 +3242,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect modification of the Windows firewall through use of netsh.exe or using a method that matches a known threat actor. The following alerts may be generated: \"Malicious firewall rule created by ZINC server implant [seen multiple times]\", \"Detected suspicious new firewall rule\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Linux auditd alerts and Log Analytics agent integration"
                 },
                 {
@@ -2157,6 +3255,25 @@
                 {
                     "name": "comment",
                     "value": "This control may alert on manipulation of the on-host firewall. Firewall rules should not be changed often in a standard environment and such an event can provide a high fidelity alert."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect modification of the Windows firewall through use of netsh.exe or using a method that matches a known threat actor. The following alerts may be generated: \"Malicious firewall rule created by ZINC server implant [seen multiple times]\", \"Detected suspicious new firewall rule\"."
                 }
             ],
             "color": "#5F9F9F",
@@ -2284,6 +3401,636 @@
                 {
                     "name": "comment",
                     "value": "This control can be used to detect when the system root certificates has changed by detecting the corresponding Registry or File system modifications that occur as a result.  These root certificates should not change often and therefore the false positive rate is minimal. This control at worst scans for changes on an hourly basis."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious Unix shell and PHP execution. Mismatched script extensions may also generate alerts of suspicious activity. Only one of the technique's sub-techniques is covered, resulting in a score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides minimal detection for this technique's procedure examples and only two of its sub-techniques (only certain specific sub-technique behaviors), resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious commandline activity. Alerts may be generated on possible detection of shellcode usage on the commandline, based on arguments, location, user, etc."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control monitors host data for potential reverse shells used for command and control. Temporal factor is unknown."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux endpoints, and it provides partial coverage for the only sub-technique relevant on Linux endpoints, Local Account."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on usage of the useradd command to create new users and the creation of local user accounts with suspicious similarity to other account names."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect when an account is created with an account name that closely resembles a standard Windows account or group name. This may be an account created by an attacker to blend into the environment. The following alerts may be generated: \"Suspicious Account Creation Detected\"."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides coverage for the only sub-technique this control is relevant for, Web Shell, but that coverage is Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on usage of web shells. No documentation is provided on logic for this detection."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1564",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides coverage for a minority of this technique's relevant sub-techniques, resulting in a score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1564.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on the execution of hidden files. Since this control is only triggered on execution, it may not fire on a variety of hidden files or directories that are being utilized for malicious purposes."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1564.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on containers using privileged commands, running SSH servers, or running mining software."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on possible log tampering activity, including deletion of logs. No documentation is provided on which log sources are targeted by this control."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on clearing of the command history file. Documentation is not provided on the logic for detecting when the command history is cleared but on Linux machines the location of the history file tends not to change from the default."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1027",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides detection coverage for the Compile After Delivery sub-technique while not providing detection for all other sub-techniques relevant to the Linux platform or most of its procedure examples. As a result of this minimal coverage, the overall score is assessed as Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect usage of VBScript.Encode and base-64 encoding to obfuscate malicious commands and scripts. The following alerts may be generated: \"Detected suspicious execution of VBScript.Encode command\", \"Detected encoded executable in command line data\"."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1027.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious compilation. No documentation is provided on the logic for determining a suspicious compilation event."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on suspicious access to encrypted user passwords. The documentation does not reference \"/etc/passwd\" and \"/etc/shadow\" directly nor does it describe the logic in determining suspicious access."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is only relevant for Linux environments. Among the sub-techinques that are relevant for Linux, this control may only alert on SSH."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alerts on SSH brute force attempts, addition of new SSH keys, and usage of a SSH server within a container. Alerts may not be generated by usage of existing SSH keys by malicious actors for lateral movement."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1113",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Linux auditd alerts and Log Analytics agent integration"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on usage of a screenshot tool. Documentation is not provided on the logic for determining a screenshot tool."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for App Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-TimedScreenshot module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
                 }
             ],
             "color": "#5F9F9F",
@@ -2546,117 +4293,6 @@
             "category": "Protect"
         },
         {
-            "techniqueID": "T1059",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides minimal detection for this technique's procedure examples and only two of its sub-techniques (only certain specific sub-technique behaviors), resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious Unix shell and PHP execution. Mismatched script extensions may also generate alerts of suspicious activity. Only one of the technique's sub-techniques is covered, resulting in a score of Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1059.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control monitors host data for potential reverse shells used for command and control. Temporal factor is unknown."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious commandline activity. Alerts may be generated on possible detection of shellcode usage on the commandline, based on arguments, location, user, etc."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1059.001",
             "enabled": true,
             "showSubtechniques": false,
@@ -2728,25 +4364,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect usage of malware droppers and creation of suspicious files on the host machine. The following alerts may be generated: \"Detected possible execution of malware dropper\", \"Detected suspicious file creation\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure Defender for Storage"
                 },
                 {
@@ -2775,6 +4392,25 @@
                 {
                     "name": "comment",
                     "value": "\"When a file is suspected to contain malware, Security Center displays an alert and can optionally email the storage owner for approval to delete the suspicious file.\"  This delete response capability leads to a Response type of Eradication although it is specific to Azure Blob, Azure Files and Azure Data Lake Storage storage types resulting in an overall score of Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may detect usage of malware droppers and creation of suspicious files on the host machine. The following alerts may be generated: \"Detected possible execution of malware dropper\", \"Detected suspicious file creation\"."
                 }
             ],
             "color": "#9305ff",
@@ -3384,25 +5020,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Integrated Vulnerability Scanner Powered by Qualys"
                 },
                 {
@@ -3416,6 +5033,25 @@
                 {
                     "name": "comment",
                     "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
                 }
             ],
             "color": "#9305ff",
@@ -3449,90 +5085,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Integrated Vulnerability Scanner Powered by Qualys"
                 },
                 {
@@ -3552,45 +5104,7 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on escalation attempts from Azure AD to Azure accounts by  specific exploitation toolkits. Consequently, its Coverage score is Minimal  resulting in an overall Minimal score. The following alerts may be generated: \"PowerZure exploitation toolkit used to elevate access from Azure AD to Azure\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious arguments used to exploit Xorg vulnerabilities for privilege escalation."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Kubernetes"
+                    "value": "Alerts for Windows Machines"
                 },
                 {
                     "name": "category",
@@ -3602,26 +5116,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control may alert on detection of new privileged containers and high privilege roles."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Container Registries"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations to avoid privileged containers and running containers as root."
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
                 }
             ],
             "color": "#9305ff",
@@ -3655,25 +5150,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Integrated Vulnerability Scanner Powered by Qualys"
                 },
                 {
@@ -3687,6 +5163,25 @@
                 {
                     "name": "comment",
                     "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
                 }
             ],
             "color": "#9305ff",
@@ -3720,109 +5215,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Integrated Vulnerability Scanner Powered by Qualys"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode injected to exploit a vulnerability in a public-facing application. Detection is periodic at an unknown rate."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on usage of faulty SQL statements. This generates an alert for a possible SQL injection by an application. Alerts may not be generated on usage of valid SQL statements by attackers for malicious purposes."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Integrated Vulnerability Scanner Powered by Qualys"
                 },
                 {
@@ -3842,11 +5234,11 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure Defender for Kubernetes"
+                    "value": "Alerts for Windows Machines"
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Detect"
                 },
                 {
                     "name": "value",
@@ -3854,26 +5246,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control may alert on publicly exposed Kubernetes services. This may provide context on services that should be patched or hardened for public access."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Container Registries"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide provide information about vulnerabilities within container images. The limited scope of containers and registries that are applicable to this control contribute to the lower score."
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
                 }
             ],
             "color": "#9305ff",
@@ -3907,25 +5280,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Integrated Vulnerability Scanner Powered by Qualys"
                 },
                 {
@@ -3939,6 +5293,25 @@
                 {
                     "name": "comment",
                     "value": "Once this control is deployed, it can detect known vulnerabilities in Windows and various Linux endpoints. This information can be used to patch, isolate, or remove vulnerable software and machines. This control does not directly protect against exploitation and it is not effective against zero day attacks, vulnerabilities with no available patch, and software that may not be analyzed by the scanner. As a result, the score is capped at Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for Windows Machines"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's Fileless Attack Detection identifies shellcode executing within process memory, including shellcode executed as a payload in the exploitation of a software vulnerability. Detection is periodic at an unknown rate. The following alerts may be generated: \"Fileless attack technique detected\", \"Fileless attack behavior detected\", \"Fileless  attack toolkit detected\", \"Suspicious SVCHOST process executed\"."
                 }
             ],
             "color": "#9305ff",
@@ -4109,71 +5482,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1087",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, and minimal coverage of its procedure examples resulting in a Minimal overall score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial detection for some of this technique's sub-techniques and procedure examples resulting in a Partial Coverage score and consequently an overall score of Partial."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Azure cloud account discovery activity but may not provide alerts for other account types or undocumented exploitation toolkits. Consequently, its Coverage  score is Minimal resulting in an overall Minimal score."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1087.001",
             "enabled": true,
             "showSubtechniques": false,
@@ -4244,71 +5552,6 @@
             "color": "#AEEEEE",
             "score_num": 10,
             "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1555",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the PowerSploit Exfiltration modules on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Key Vault"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect suspicious secret access from Azure key vaults. This does not apply to any sub-techniques under T1555 - Credentials from Password Stores but Azure Key Vault can be treated as a store for passwords, keys, and certificates. The coverage of this control could be deemed high for cloud credential and secret storage within Key Vault but is not applicable to traditional password stores, such as password managers, keychain, or web browsers. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on credential dumping from Azure Key Vaults, App Services Configurations, and Automation accounts by specific exploitation toolkits. Consequently,  its Coverage score is Minimal resulting in an overall Minimal score. The following alerts may be generated: \"MicroBurst exploitation toolkit used to extract secrets from your Azure key vaults\", \"MicroBurst exploitation toolkit used to extract keys to your storage accounts\"."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
             "category": "Detect"
         },
         {
@@ -4528,71 +5771,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1027",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only covers one platform and procedure for one of this technique's sub-techniques, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect usage of VBScript.Encode and base-64 encoding to obfuscate malicious commands and scripts. The following alerts may be generated: \"Detected suspicious execution of VBScript.Encode command\", \"Detected encoded executable in command line data\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides detection coverage for the Compile After Delivery sub-technique while not providing detection for all other sub-techniques relevant to the Linux platform or most of its procedure examples. As a result of this minimal coverage, the overall score is assessed as Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1027.005",
             "enabled": true,
             "showSubtechniques": false,
@@ -4671,52 +5849,6 @@
             "color": "#AEEEEE",
             "score_num": 10,
             "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1113",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for App Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control analyzes host data to detect execution of known malicious PowerShell PowerSploit cmdlets. This covers execution of this technique via the Get-TimedScreenshot module on Windows, but does not address other procedures or platforms, and temporal factor is unknown, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on usage of a screenshot tool. Documentation is not provided on the logic for determining a screenshot tool."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
             "category": "Detect"
         },
         {
@@ -4901,13 +6033,40 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1078",
+            "techniqueID": "T1530",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Alerts for Windows Machines"
+                    "value": "Azure Defender for Storage"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "A variety of alerts may be generated by malicious access and enumeration of Azure Storage. "
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1080",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Storage"
                 },
                 {
                     "name": "category",
@@ -4919,14 +6078,37 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control is able to detect some of this technique's sub-techniques resulting in a Partial Coverage score and consequently an overall score of Partial. "
+                    "value": "This control may alert on upload of possible malware or executable and Azure Cloud Services Package files. These alerts are dependent on Microsoft threat intelligence and may not alert on novel or modified malware."
                 },
                 {
                     "divider": true
                 },
                 {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "\"When a file is suspected to contain malware, Security Center displays an alert and can optionally email the storage owner for approval to delete the suspicious file.\"  This delete response capability leads to a Response type of Eradication although it is specific to Azure Blob, Azure Files and Azure Data Lake Storage storage types resulting in an overall score of Partial."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1537",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
                     "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
+                    "value": "Azure Defender for Storage"
                 },
                 {
                     "name": "category",
@@ -4934,15 +6116,23 @@
                 },
                 {
                     "name": "value",
-                    "value": "Minimal"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
-                },
-                {
-                    "divider": true
-                },
+                    "value": "This control may alert on unusually large amounts of data being extracted from Azure storage and suspicious access to storage accounts. There are no alerts specifically tied to data transfer between cloud accounts but there are several alerts for anomalous storage access and transfer."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
                 {
                     "name": "control",
                     "value": "Azure Defender for Storage"
@@ -4957,12 +6147,12 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control provides minimal detection for its procedure examples.  Additionally, it is able to detect only one of its sub-techniques (Cloud Accounts) resulting in a Minimal Coverage score and consequently an overall score of Minimal."
+                    "value": "This control may generate alerts when there has been an unusual or unexpected delete operation within Azure cloud storage. Alerts may not be generated by disabling of storage backups, versioning, or editing of storage objects."
                 }
             ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Detect"
         },
         {
@@ -5074,144 +6264,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1136",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is only relevant for Linux endpoints, and it provides partial coverage for the only sub-technique relevant on Linux endpoints, Local Account."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1136.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect when an account is created with an account name that closely resembles a standard Windows account or group name. This may be an account created by an attacker to blend into the environment. The following alerts may be generated: \"Suspicious Account Creation Detected\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on usage of the useradd command to create new users and the creation of local user accounts with suspicious similarity to other account names."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1564",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's detection is specific to a minority of this technique's sub-techniques resulting in a Minimal Coverage score and consequently an overall score of Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides coverage for a minority of this technique's relevant sub-techniques, resulting in a score of Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1564.003",
             "enabled": true,
             "showSubtechniques": false,
@@ -5231,71 +6283,6 @@
                 {
                     "name": "comment",
                     "value": "This control may detect usage of the WindowPosition Registry value to hide application windows in non-visible sections of the desktop. The following alerts may be generated: \"Suspicious WindowPosition registry value detected\"."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1070",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's detection is specific to a minority of this technique's sub-techniques and procedure examples  resulting in a Minimal Coverage score and consequently an overall score of Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is only relevant for Linux environments and provides partial coverage for multiple Linux-relevant sub-techniques."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Kubernetes"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on deletion of Kubernetes events. Attackers might delete those events for hiding their operations in the cluster. There is no relevant sub-technique for this control but the parent applies."
                 }
             ],
             "color": "#5F9F9F",
@@ -5463,266 +6450,6 @@
             "color": "#5F9F9F",
             "score_num": 50,
             "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides detection for some of this technique's sub-techniques and procedure examples resulting  in a Partial Coverage score and consequently an overall score of Partial."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control covers the majority of sub-techniques for this parent technique and may cover both successful and unsuccessful brute force attacks. This control only provides alerts for a set of Azure database offerings. Databases that have been deployed to endpoints within Azure or third-party databases deployed to Azure do not generate alerts for this control."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial coverage for most of this technique's sub-techniques and procedures."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect successful and failed brute force attempts with logic that factors the IP, time between attempts, and other suspicious activity. The following alerts may be generated: \"A logon from a malicious IP has been detected\", \"A logon from a malicious IP has been detected. [seen multiple times]\", \"Successful brute force attack\", \"Suspicious authentication activity\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource.  Because this control is specific to Azure database offerings, the detection coverage is Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect successful and failed brute force attempts with logic that factors the IP, time between attempts, and other suspicious activity. The following alerts may be generated: \"A logon from a malicious IP has been detected\", \"A logon from a malicious IP has been detected. [seen multiple times]\", \"Successful brute force attack\", \"Suspicious authentication activity\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource.  Because this control is specific to Azure database offerings, the detection coverage is Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for Windows Machines"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may detect successful and failed brute force attempts with logic that factors the IP, time between attempts, and other suspicious activity. The following alerts may be generated: \"A logon from a malicious IP has been detected\", \"A logon from a malicious IP has been detected. [seen multiple times]\", \"Successful brute force attack\", \"Suspicious authentication activity\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on repeated sign in attempts to the resource and successful logins from a suspicious location, IP address, or a user that does not commonly log in to the resource.  Because this control is specific to Azure database offerings, the detection coverage is Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on multiple successful and failed brute force attempts against SSH. There are no alerts for other methods of logging into Linux machines."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
             "category": "Detect"
         },
         {
@@ -5988,733 +6715,6 @@
                 {
                     "name": "comment",
                     "value": "This control may detect suspicious use of Pcalua.exe to launch executable code. There are other methods of indirect command execution that this control may not detect. The following alerts may be generated: \"Detected suspicious use of Pcalua.exe to launch executable code\"."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1078.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on logon events that are suspicious. This includes logins from unusual locations, logins from suspicious IP addresses, and users that do not commonly access the resource. These alerts may limit the ability of an attacker to utilize a valid cloud account to access and manipulate Azure databases. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may generate alerts based on unfamiliar or suspicious IP addresses, TOR exit node, and anonymous access. "
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1213",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Advanced Threat Protection for Azure SQL Database"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on extraction of a large amount of data to an unusual location. No documentation is provided on the logic for determining an unusual location."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1580",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Key Vault"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious access of key vaults, including suspicious listing of key vault contents. This control does not alert on discovery of other cloud services, such as VMs, snapshots, cloud storage and therefore has minimal coverage. Suspicious activity based on patterns of access from certain users and applications allows for managing false positive rates."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Cloud Infrastructure Discovery activity generated by specific toolkits, such as MicroBurst, PowerZure, etc. It may not generate alerts on undocumented discovery  techniques or exploitation toolkits. The following alerts may be  generated: \"PowerZure exploitation toolkit used to enumerate storage containers, shares, and tables\", \"PowerZure exploitation toolkit used to enumerate resources\", \"MicroBurst exploitation toolkit used to enumerate resources in your subscriptions\", \"Azurite toolkit run detected\"."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1538",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious management activity based on IP, time, anomalous behaviour, or PowerShell usage. Machine learning algorithms are used to reduce false positives. The following alerts may be generated: \"Activity from a risky IP address\", \"Activity from infrequent country\", \"Impossible travel activity\", \"Suspicious management session using PowerShell detected\", \"Suspicious management session using an inactive account detected\", \"Suspicious management session  using Azure portal detected\"."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1526",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Cloud Service Discovery activity generated by specific toolkits, such as MicroBurst, PowerZure, etc. It may not generate alerts on undocumented discovery  techniques or exploitation toolkits. The following alerts may be  generated: \"PowerZure exploitation toolkit used to enumerate storage containers, shares, and tables\", \"PowerZure exploitation toolkit used to enumerate resources\", \"MicroBurst exploitation toolkit used to enumerate resources in your subscriptions\"."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1069",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Azure domain cloud groups discovery activity but may not provide alerts for other account types or undocumented exploitation toolkits.  Consequently, its Coverage  score is Minimal resulting in an overall Minimal score."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1069.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Permission Groups Discovery of  Cloud Groups activity generated by specific toolkits, such as MicroBurst, PowerZure, etc. It may not generate alerts on undocumented discovery techniques or exploitation toolkits. The following alerts may be generated: \"MicroBurst exploitation toolkit used to enumerate resources in your subscriptions\", \"Azurite toolkit run detected\"."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1087.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Resource Manager"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Account Discovery of  Cloud Accounts activity generated by specific toolkits, such as MicroBurst, PowerZure, etc. It may not generate alerts on undocumented discovery techniques or exploitation toolkits. The following alerts may be  generated: \"PowerZure exploitation toolkit used to enumerate storage containers, shares, and tables\", \"PowerZure exploitation toolkit used to enumerate resources\", \"MicroBurst exploitation toolkit used to enumerate resources in your subscriptions\", \"Azurite toolkit run detected\"."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1505",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides coverage for the only sub-technique this control is relevant for, Web Shell, but that coverage is Minimal."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1505.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on usage of web shells. No documentation is provided on logic for this detection."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1564.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on the execution of hidden files. Since this control is only triggered on execution, it may not fire on a variety of hidden files or directories that are being utilized for malicious purposes."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1564.006",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on containers using privileged commands, running SSH servers, or running mining software."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1070.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on possible log tampering activity, including deletion of logs. No documentation is provided on which log sources are targeted by this control."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1070.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on clearing of the command history file. Documentation is not provided on the logic for detecting when the command history is cleared but on Linux machines the location of the history file tends not to change from the default."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1027.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious compilation. No documentation is provided on the logic for determining a suspicious compilation event."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1003.008",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious access to encrypted user passwords. The documentation does not reference \"/etc/passwd\" and \"/etc/shadow\" directly nor does it describe the logic in determining suspicious access."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1021",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is only relevant for Linux environments. Among the sub-techinques that are relevant for Linux, this control may only alert on SSH."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1021.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alerts on SSH brute force attempts, addition of new SSH keys, and usage of a SSH server within a container. Alerts may not be generated by usage of existing SSH keys by malicious actors for lateral movement."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1525",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Linux auditd alerts and Log Analytics agent integration"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on suspicious container images running mining software or SSH servers. Privileged Docker containers and privileged commands running within containers may also be detected. These alerts are only generated on containers in Linux endpoint machines and not for containers running from Azure Docker deployment."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Kubernetes"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on containers with sensitive volume mounts, unneeded privileges, or running an image with digital currency mining software."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Container Registries"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may prevent adversaries from implanting malicious container images through fine grained permissions and use of container image tag signing. Image tag signing allows for verifiable container images that have been signed with legitimate keys."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may scan and alert on import or creation of container images with known vulnerabilities or a possible expanded surface area for exploitation."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1530",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "A variety of alerts may be generated by malicious access and enumeration of Azure Storage. "
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1080",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on upload of possible malware or executable and Azure Cloud Services Package files. These alerts are dependent on Microsoft threat intelligence and may not alert on novel or modified malware."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Respond"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "\"When a file is suspected to contain malware, Security Center displays an alert and can optionally email the storage owner for approval to delete the suspicious file.\"  This delete response capability leads to a Response type of Eradication although it is specific to Azure Blob, Azure Files and Azure Data Lake Storage storage types resulting in an overall score of Partial."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1537",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on unusually large amounts of data being extracted from Azure storage and suspicious access to storage accounts. There are no alerts specifically tied to data transfer between cloud accounts but there are several alerts for anomalous storage access and transfer."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1485",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may generate alerts when there has been an unusual or unexpected delete operation within Azure cloud storage. Alerts may not be generated by disabling of storage backups, versioning, or editing of storage objects."
                 }
             ],
             "color": "#AEEEEE",

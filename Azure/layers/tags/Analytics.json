@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Azure Sentinel,Azure Alerts for Network Layer,Azure Network Traffic Analytics",
+    "description": "Controls: Azure Alerts for Network Layer,Azure Sentinel,Azure Network Traffic Analytics",
     "filters": {
         "platforms": [
             "Linux",
@@ -33,6 +33,504 @@
     },
     "hideDisabled": false,
     "techniques": [
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline. It provides significant detection from most of this technique's sub-techniques and  procedure examples resulting in an overall score of Significant."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control includes partial detection coverage for most of this technique's sub-techniques on a periodic basis."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on block list. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The Azure Sentinel Analytics \"Malformed user agent\" query can detect potential C2 or C2 agent activity.\nThis control provides minimal to partial coverage for a minority of this technique's sub-techniques and only some of its procedure examples, resulting in an overall score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous traffic with respect to NSG and application layer protocols."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious use of DNS: \"RareDNSLookupWithDataTransfer\" [sic] can identify data transfer over DNS, though it is contingent on DNS traffic meeting the requirements to be considered rare. \"Abnormally Long DNS URI queries\" can identify suspicious DNS queries that may be indicative of command and control operations. \"DNS - domain anomalous lookup increase\", \"DNS Full Name anomalous lookup increase\", and \"DNS lookups for commonly abused TLDs\" can identify increases in domain lookups for a client IP and indicate malicious traffic or exfiltration of sensitive data."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous application protocol traffic with respect to network security group (NSG) (though web traffic would be typically too commonplace for this control to be useful)."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous application protocol traffic with respect to network security group (NSG) (though web traffic would be typically too commonplace for this control to be useful)."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous application protocol traffic with respect to network security group (NSG) (though web traffic would be typically too commonplace for this control to be useful)."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Sentinel"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "The following Azure Sentinel Analytics queries can identify potentially malicious use of web protocols: \"Powershell Empire cmdlets seen in command line\" can identify use of Empire, which can perform command and control over protocols like HTTP and HTTPS. \"Request for single resource on domain\" can identify patterns that suggest possible command and control beaconing.  The coverage for these queries is minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Alerts for Network Layer"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can potentially identify malicious use of remote services via alerts such as \"Suspicious incoming RDP network activity\" and \"Suspicious Incoming SSH network activity\"."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous access to external remote services."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
         {
             "techniqueID": "T1078",
             "enabled": true,
@@ -223,190 +721,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1110",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Sentinel"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control includes partial detection coverage for most of this technique's sub-techniques on a periodic basis."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline. It provides significant detection from most of this technique's sub-techniques and  procedure examples resulting in an overall score of Significant."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Sentinel"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Sentinel"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1110.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Sentinel"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The \"Summary of user logons by logon type\" Azure Sentinel Hunting query compares successful and unsuccessful logon attempts to identify potential lateral movement.\nThe following Azure Sentinel Hunting queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"VIP account more than 6 failed logons in 10\", \"Multiple Failed Logon on SQL Server in Short time Span\", \"Permutations on logon attempts by UserPrincipalNames indicating potential brute force\", \"Potential IIS brute force\", \"Failed attempt to access Azure Portal\", \"Failed Login Attempt by Expired account\", \"Failed Logon Attempts on SQL Server\", \"Failed Logon on SQL Server from Same IPAddress in Short time Span\", \"Failed service logon attempt by user account with available AuditData\", \"Login attempt by Blocked MFA user\", \"Login spike with increase failure rate\", \"Attempts to sign-in to disabled accounts by IP address\", \"Attempts to sign-in to disabled accounts by account name\", \"Brute Force attack against Azure Portal\", and \"Anomalous Failed Logon\"\nThe following Azure Sentinel Analytics queries can identify potential attempts at credential brute force based on unsuccessful attempts: \"Brute force attack against Azure Portal\", \"Password spray attack against Azure AD application\", \"Successful logon from IP and failure from a different IP\", \"Failed logon attempts in authpriv\", \"Failed AzureAD logons but success logon to host\", \"Excessive Windows logon failures\", \"Failed login attempts to Azure Portal\", \"Failed logon attempts by valid accounts within 10 mins\", \"Brute Force Attack against GitHub Account\", \"Distributed Password cracking attempts in AzureAD\", \"Potential Password Spray Attack\" based on periodic assessment of Azure Active Directory sign-in events and Okta console logins, \"Attempts to sign in to disabled accounts\", \"Sign-ins from IPs that attempt sign-ins to disabled accounts\", \"High count of failed logins by a user\", \"Hi count of failed attempts same client IP\", \"SSH - Potential Brute Force\", and \"SecurityEvent - Multiple authentication failures followed by success\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify multiple connection attempts by external IPs, which may be indicative of Brute Force attempts, though not T1110.002, which is performed offline."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1098",
             "enabled": true,
             "showSubtechniques": false,
@@ -458,182 +772,6 @@
             "color": "#AEEEEE",
             "score_num": 10,
             "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Sentinel"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "The Azure Sentinel Analytics \"Malformed user agent\" query can detect potential C2 or C2 agent activity.\nThis control provides minimal to partial coverage for a minority of this technique's sub-techniques and only some of its procedure examples, resulting in an overall score of Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on block list. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous traffic with respect to NSG and application layer protocols."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Sentinel"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "The following Azure Sentinel Analytics queries can identify potentially malicious use of web protocols: \"Powershell Empire cmdlets seen in command line\" can identify use of Empire, which can perform command and control over protocols like HTTP and HTTPS. \"Request for single resource on domain\" can identify patterns that suggest possible command and control beaconing.  The coverage for these queries is minimal resulting in an overall Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Sentinel"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The following Azure Sentinel Hunting queries can identify potentially malicious use of DNS: \"RareDNSLookupWithDataTransfer\" [sic] can identify data transfer over DNS, though it is contingent on DNS traffic meeting the requirements to be considered rare. \"Abnormally Long DNS URI queries\" can identify suspicious DNS queries that may be indicative of command and control operations. \"DNS - domain anomalous lookup increase\", \"DNS Full Name anomalous lookup increase\", and \"DNS lookups for commonly abused TLDs\" can identify increases in domain lookups for a client IP and indicate malicious traffic or exfiltration of sensitive data."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous application protocol traffic with respect to network security group (NSG) (though web traffic would be typically too commonplace for this control to be useful)."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
             "category": "Detect"
         },
         {
@@ -4977,144 +5115,6 @@
             "color": "#AEEEEE",
             "score_num": 10,
             "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous application protocol traffic with respect to network security group (NSG) (though web traffic would be typically too commonplace for this control to be useful)."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify connections to known malicious sites. Scored minimal since the malicious sites must be on a block list. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous application protocol traffic with respect to network security group (NSG) (though web traffic would be typically too commonplace for this control to be useful)."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1133",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Alerts for Network Layer"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can potentially identify malicious use of remote services via alerts such as \"Suspicious incoming RDP network activity\" and \"Suspicious Incoming SSH network activity\"."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous access to external remote services."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
             "category": "Detect"
         },
         {

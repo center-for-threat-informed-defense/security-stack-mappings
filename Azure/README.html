@@ -1,192 +1,116 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
-<style>
-h2
-{
-    background: url('/security-stack-mappings/icons/azure_icon.svg') no-repeat #e8e8e8;
-    background-size: 50px;
-    padding-left: 60px;  /* width of the image plus a little extra padding */
-    padding-top: 5px;  /* width of the image plus a little extra padding */
-    display: block;  /* may not need this, but I've found I do */
-}
-
-a[href="#contents"]
-{
-    text-align:center;
-    display: block;
-}
-</style>
-<script type="text/javascript">
-    window.onload = function () {
-        let control_icon_style = "background: url('/security-stack-mappings/icons/azure_icon.svg') no-repeat #e8e8e8; \
-             background-size: 50px; \
-             padding-left: 60px; \
-             padding-top: 5px; \
-             display: block; \
-        ";
-
-        let tag_icon_style = "background: url('/security-stack-mappings/icons/clipboard.svg') no-repeat #e8e8e8; \
-             background-size: 35px; \
-             padding-left: 40px; \
-             padding-top: 5px; \
-             display: block; \
-        ";
-
-        let controls_h2s = document.getElementsByTagName("h2");
-        let style = control_icon_style;
-        let last_item_num = 1;
-        for (let item of controls_h2s) {
-            let item_num = parseInt(item.textContent.split(".")[0]);
-            if (last_item_num > item_num){
-                style = tag_icon_style;
-            }
-            item.style.cssText = style;
-            last_item_num = item_num;
-        }
-
-        let header_items = document.querySelectorAll("h1,h2");
-        let header_dict = {};
-        for (let header_item of header_items) {
-            header_dict[header_item.textContent] = header_item;
-        }
-
-        //fix URI fragments
-        let toc_items = document.getElementsByTagName("ul")[0].getElementsByTagName("a");
-        for (let toc_item of toc_items) {
-            let fragment = toc_item.href.split("#")[1];
-            let header_item = header_dict[toc_item.textContent];
-            if(header_item){
-                header_item.innerHTML = "<a id='" + fragment + "'></a>" + header_item.innerHTML;
-            }
-        }
-        header_dict["Contents"].innerHTML ="<a id='contents'></a>" + header_dict["Contents"].innerHTML;
-
-        //fix Navigator links
-        let nav_links = document.evaluate("//a[contains(.,'Navigator Layer')]", document, null, XPathResult.ANY_TYPE, null);
-        let nav_link = null;
-        let links = [];
-        while(nav_link = nav_links.iterateNext()) {
-            links.push(nav_link);
-        }
-        for (let nav_link of links) {
-            nav_link.href = "https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=" + nav_link.href;
-            nav_link.target = "_blank";
-        }
-
-        //fix Mapping links
-        let mapping_links = document.evaluate("//a[contains(.,'Mapping File')]", document, null, XPathResult.ANY_TYPE, null);
-        let mapping_link = null;
-        let mlinks = [];
-        while(mapping_link = mapping_links.iterateNext()) {
-            mlinks.push(mapping_link);
-        }
-        for (let mapping_link of mlinks) {
-            mapping_link.href = "https://www.treedoc.org/?dataUrl=" + mapping_link.href;
-            mapping_link.target = "_blank";
-        }
-    }
-</script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+    <link rel="stylesheet" href="/mappings.css">
+    <script type="text/javascript" src="/mappings.js"></script>
+    <title>Microsoft Azure Security Control Mappings to MITRE ATT&CK®</title>
 </head>
+
 <body>
     <main>
         <article class="markdown-body">
-            <div style="height:50">
-                <img src="/security-stack-mappings/icons/PRPL-CTID-third.jpeg" width="150" height="50">
-                <div style="text-align:right;float:right">
-                    <a href="https://ctid.mitre-engenuity.org/">Center for Threat-Informed Defense</a>
-                    </br>
-                    <a href="https://github.com/center-for-threat-informed-defense/security-stack-mappings">Security Stack Mapping Project on GitHub</a>
+            <div>
+                <div class="float-right">
+                    <a href="https://github.com/center-for-threat-informed-defense/security-stack-mappings">Security
+                        Stack Mapping Project on GitHub</a>
                 </div>
+                <a href="https://ctid.mitre-engenuity.org/"><img
+                        src="/security-stack-mappings/icons/PRPL-CTID-third.jpeg"
+                        alt="Center for Threat-Informed Defense logo"></a>
             </div>
             <h1>Microsoft Azure Security Control Mappings to MITRE ATT&amp;CK®</h1>
 <p>These mappings of the Microsoft Azure Infrastructure as a Services (IaaS) security controls to MITRE ATT&amp;CK® are designed to empower organizations with independent data on which native Azure security controls are most useful in defending against the adversary TTPs that they care about. These mappings are part of a collection of mappings of native product security controls to ATT&amp;CK based on a common methodology, scoring rubric, data model, and tool set. This full set of resources is available on the Center’s project <a href="https://ctid.mitre-engenuity.org/our-work/security-stack-mappings-azure/">page</a>.</p>
-<p><a href="layers/platform.json">Aggregate Navigator Layer For All Controls</a> (<a href="layers/platform.json">JSON</a>)</p>
-<h1>Contents</h1>
+<p><a href="layers/platform.json">Aggregate Navigator Layer For All Controls (JSON)</a></p>
+<h1><a name='contents'>Contents</a></h1>
 <ul>
-<li><a href="#controls">Controls</a><ul>
-<li><a href="#1-adaptive-application-controls">1. Adaptive Application Controls</a></li>
-<li><a href="#2-advanced-threat-protection-for-azure-sql-database">2. Advanced Threat Protection for Azure SQL Database</a></li>
-<li><a href="#3-alerts-for-azure-cosmos-db">3. Alerts for Azure Cosmos DB</a></li>
-<li><a href="#4-alerts-for-dns">4. Alerts for DNS</a></li>
-<li><a href="#5-alerts-for-windows-machines">5. Alerts for Windows Machines</a></li>
-<li><a href="#6-azure-ad-identity-protection">6. Azure AD Identity Protection</a></li>
-<li><a href="#7-azure-ad-identity-secure-score">7. Azure AD Identity Secure Score</a></li>
-<li><a href="#8-azure-ad-multi-factor-authentication">8. Azure AD Multi-Factor Authentication</a></li>
-<li><a href="#9-azure-ad-password-policy">9. Azure AD Password Policy</a></li>
-<li><a href="#10-azure-ad-privileged-identity-management">10. Azure AD Privileged Identity Management</a></li>
-<li><a href="#11-azure-active-directory-password-protection">11. Azure Active Directory Password Protection</a></li>
-<li><a href="#12-azure-alerts-for-network-layer">12. Azure Alerts for Network Layer</a></li>
-<li><a href="#13-azure-automation-update-management">13. Azure Automation Update Management</a></li>
-<li><a href="#14-azure-backup">14. Azure Backup</a></li>
-<li><a href="#15-azure-ddos-protection-standard">15. Azure DDOS Protection Standard</a></li>
-<li><a href="#16-azure-dns-alias-records">16. Azure DNS Alias Records</a></li>
-<li><a href="#17-azure-dns-analytics">17. Azure DNS Analytics</a></li>
-<li><a href="#18-azure-dedicated-hsm">18. Azure Dedicated HSM</a></li>
-<li><a href="#19-azure-defender-for-app-service">19. Azure Defender for App Service</a></li>
-<li><a href="#20-azure-defender-for-container-registries">20. Azure Defender for Container Registries</a></li>
-<li><a href="#21-azure-defender-for-key-vault">21. Azure Defender for Key Vault</a></li>
-<li><a href="#22-azure-defender-for-kubernetes">22. Azure Defender for Kubernetes</a></li>
-<li><a href="#23-azure-defender-for-resource-manager">23. Azure Defender for Resource Manager</a></li>
-<li><a href="#24-azure-defender-for-storage">24. Azure Defender for Storage</a></li>
-<li><a href="#25-azure-firewall">25. Azure Firewall</a></li>
-<li><a href="#26-azure-key-vault">26. Azure Key Vault</a></li>
-<li><a href="#27-azure-network-traffic-analytics">27. Azure Network Traffic Analytics</a></li>
-<li><a href="#28-azure-policy">28. Azure Policy</a></li>
-<li><a href="#29-azure-private-link">29. Azure Private Link</a></li>
-<li><a href="#30-azure-security-center-recommendations">30. Azure Security Center Recommendations</a></li>
-<li><a href="#31-azure-sentinel">31. Azure Sentinel</a></li>
-<li><a href="#32-azure-vpn-gateway">32. Azure VPN Gateway</a></li>
-<li><a href="#33-azure-web-application-firewall">33. Azure Web Application Firewall</a></li>
-<li><a href="#34-cloud-app-security-policies">34. Cloud App Security Policies</a></li>
-<li><a href="#35-conditional-access">35. Conditional Access</a></li>
-<li><a href="#36-continuous-access-evaluation">36. Continuous Access Evaluation</a></li>
-<li><a href="#37-docker-host-hardening">37. Docker Host Hardening</a></li>
-<li><a href="#38-file-integrity-monitoring">38. File Integrity Monitoring</a></li>
-<li><a href="#39-integrated-vulnerability-scanner-powered-by-qualys">39. Integrated Vulnerability Scanner Powered by Qualys</a></li>
-<li><a href="#40-just-in-time-vm-access">40. Just-in-Time VM Access</a></li>
-<li><a href="#41-linux-auditd-alerts-and-log-analytics-agent-integration">41. Linux auditd alerts and Log Analytics agent integration</a></li>
-<li><a href="#42-managed-identities-for-azure-resources">42. Managed identities for Azure resources</a></li>
-<li><a href="#43-microsoft-antimalware-for-azure">43. Microsoft Antimalware for Azure</a></li>
-<li><a href="#44-microsoft-defender-for-identity">44. Microsoft Defender for Identity</a></li>
-<li><a href="#45-network-security-groups">45. Network Security Groups</a></li>
-<li><a href="#46-passwordless-authentication">46. Passwordless Authentication</a></li>
-<li><a href="#47-role-based-access-control">47. Role Based Access Control</a></li>
-<li><a href="#48-sql-vulnerability-assessment">48. SQL Vulnerability Assessment</a></li>
+<li>Controls<ul>
+<li><a href="#adaptive-application-controls">1. Adaptive Application Controls</a></li>
+<li><a href="#advanced-threat-protection-for-azure-sql-database">2. Advanced Threat Protection for Azure SQL Database</a></li>
+<li><a href="#alerts-for-azure-cosmos-db">3. Alerts for Azure Cosmos DB</a></li>
+<li><a href="#alerts-for-dns">4. Alerts for DNS</a></li>
+<li><a href="#alerts-for-windows-machines">5. Alerts for Windows Machines</a></li>
+<li><a href="#azure-ad-identity-protection">6. Azure AD Identity Protection</a></li>
+<li><a href="#azure-ad-identity-secure-score">7. Azure AD Identity Secure Score</a></li>
+<li><a href="#azure-ad-multi-factor-authentication">8. Azure AD Multi-Factor Authentication</a></li>
+<li><a href="#azure-ad-password-policy">9. Azure AD Password Policy</a></li>
+<li><a href="#azure-ad-privileged-identity-management">10. Azure AD Privileged Identity Management</a></li>
+<li><a href="#azure-active-directory-password-protection">11. Azure Active Directory Password Protection</a></li>
+<li><a href="#azure-alerts-for-network-layer">12. Azure Alerts for Network Layer</a></li>
+<li><a href="#azure-automation-update-management">13. Azure Automation Update Management</a></li>
+<li><a href="#azure-backup">14. Azure Backup</a></li>
+<li><a href="#azure-ddos-protection-standard">15. Azure DDOS Protection Standard</a></li>
+<li><a href="#azure-dns-alias-records">16. Azure DNS Alias Records</a></li>
+<li><a href="#azure-dns-analytics">17. Azure DNS Analytics</a></li>
+<li><a href="#azure-dedicated-hsm">18. Azure Dedicated HSM</a></li>
+<li><a href="#azure-defender-for-app-service">19. Azure Defender for App Service</a></li>
+<li><a href="#azure-defender-for-container-registries">20. Azure Defender for Container Registries</a></li>
+<li><a href="#azure-defender-for-key-vault">21. Azure Defender for Key Vault</a></li>
+<li><a href="#azure-defender-for-kubernetes">22. Azure Defender for Kubernetes</a></li>
+<li><a href="#azure-defender-for-resource-manager">23. Azure Defender for Resource Manager</a></li>
+<li><a href="#azure-defender-for-storage">24. Azure Defender for Storage</a></li>
+<li><a href="#azure-firewall">25. Azure Firewall</a></li>
+<li><a href="#azure-key-vault">26. Azure Key Vault</a></li>
+<li><a href="#azure-network-traffic-analytics">27. Azure Network Traffic Analytics</a></li>
+<li><a href="#azure-policy">28. Azure Policy</a></li>
+<li><a href="#azure-private-link">29. Azure Private Link</a></li>
+<li><a href="#azure-security-center-recommendations">30. Azure Security Center Recommendations</a></li>
+<li><a href="#azure-sentinel">31. Azure Sentinel</a></li>
+<li><a href="#azure-vpn-gateway">32. Azure VPN Gateway</a></li>
+<li><a href="#azure-web-application-firewall">33. Azure Web Application Firewall</a></li>
+<li><a href="#cloud-app-security-policies">34. Cloud App Security Policies</a></li>
+<li><a href="#conditional-access">35. Conditional Access</a></li>
+<li><a href="#continuous-access-evaluation">36. Continuous Access Evaluation</a></li>
+<li><a href="#docker-host-hardening">37. Docker Host Hardening</a></li>
+<li><a href="#file-integrity-monitoring">38. File Integrity Monitoring</a></li>
+<li><a href="#integrated-vulnerability-scanner-powered-by-qualys">39. Integrated Vulnerability Scanner Powered by Qualys</a></li>
+<li><a href="#just-in-time-vm-access">40. Just-in-Time VM Access</a></li>
+<li><a href="#linux-auditd-alerts-and-log-analytics-agent-integration">41. Linux auditd alerts and Log Analytics agent integration</a></li>
+<li><a href="#managed-identities-for-azure-resources">42. Managed identities for Azure resources</a></li>
+<li><a href="#microsoft-antimalware-for-azure">43. Microsoft Antimalware for Azure</a></li>
+<li><a href="#microsoft-defender-for-identity">44. Microsoft Defender for Identity</a></li>
+<li><a href="#network-security-groups">45. Network Security Groups</a></li>
+<li><a href="#passwordless-authentication">46. Passwordless Authentication</a></li>
+<li><a href="#role-based-access-control">47. Role Based Access Control</a></li>
+<li><a href="#sql-vulnerability-assessment">48. SQL Vulnerability Assessment</a></li>
 </ul>
 </li>
-<li><a href="#control-tags">Control Tags</a><ul>
-<li><a href="#1-adaptive-network-hardening">1. Adaptive Network Hardening</a></li>
-<li><a href="#2-analytics">2. Analytics</a></li>
-<li><a href="#3-azure-active-directory">3. Azure Active Directory</a></li>
-<li><a href="#4-azure-defender">4. Azure Defender</a></li>
-<li><a href="#5-azure-defender-for-sql">5. Azure Defender for SQL</a></li>
-<li><a href="#6-azure-defender-for-servers">6. Azure Defender for Servers</a></li>
-<li><a href="#7-azure-security-center">7. Azure Security Center</a></li>
-<li><a href="#8-azure-security-center-recommendation">8. Azure Security Center Recommendation</a></li>
-<li><a href="#9-containers">9. Containers</a></li>
-<li><a href="#10-credentials">10. Credentials</a></li>
-<li><a href="#11-dns">11. DNS</a></li>
-<li><a href="#12-database">12. Database</a></li>
-<li><a href="#13-identity">13. Identity</a></li>
-<li><a href="#14-linux">14. Linux</a></li>
-<li><a href="#15-mfa">15. MFA</a></li>
-<li><a href="#16-microsoft-365-defender">16. Microsoft 365 Defender</a></li>
-<li><a href="#17-network">17. Network</a></li>
-<li><a href="#18-passwords">18. Passwords</a></li>
-<li><a href="#19-threat-hunting">19. Threat Hunting</a></li>
-<li><a href="#20-windows">20. Windows</a></li>
+<li>Control Tags<ul>
+<li><a href="#tag-adaptive-network-hardening">1. Adaptive Network Hardening</a></li>
+<li><a href="#tag-analytics">2. Analytics</a></li>
+<li><a href="#tag-azure-active-directory">3. Azure Active Directory</a></li>
+<li><a href="#tag-azure-defender">4. Azure Defender</a></li>
+<li><a href="#tag-azure-defender-for-sql">5. Azure Defender for SQL</a></li>
+<li><a href="#tag-azure-defender-for-servers">6. Azure Defender for Servers</a></li>
+<li><a href="#tag-azure-security-center">7. Azure Security Center</a></li>
+<li><a href="#tag-azure-security-center-recommendation">8. Azure Security Center Recommendation</a></li>
+<li><a href="#tag-containers">9. Containers</a></li>
+<li><a href="#tag-credentials">10. Credentials</a></li>
+<li><a href="#tag-dns">11. DNS</a></li>
+<li><a href="#tag-database">12. Database</a></li>
+<li><a href="#tag-identity">13. Identity</a></li>
+<li><a href="#tag-linux">14. Linux</a></li>
+<li><a href="#tag-mfa">15. MFA</a></li>
+<li><a href="#tag-microsoft-365-defender">16. Microsoft 365 Defender</a></li>
+<li><a href="#tag-network">17. Network</a></li>
+<li><a href="#tag-passwords">18. Passwords</a></li>
+<li><a href="#tag-threat-hunting">19. Threat Hunting</a></li>
+<li><a href="#tag-windows">20. Windows</a></li>
 </ul>
 </li>
 </ul>
 <h1>Controls</h1>
-<h2>1. Adaptive Application Controls</h2>
+<p><a name='adaptive-application-controls'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 1. Adaptive Application Controls</h2>
 <p>Security Center's Adaptive Application Controls uses machine learning to analyze the applications running on machines and create a list of known-safe software. Allow lists are based on specific Azure workloads and can be further customized. They are based on trusted paths, publishers, and hashes. When Adaptive Application Controls are enabled, security alerts are generated when applications are run that have not been defined as safe.</p>
 <ul>
 <li><a href="AdaptiveApplicationControls.yaml">Mapping File</a> (<a href="AdaptiveApplicationControls.yaml">YAML</a>)</li>
 <li><a href="layers/AdaptiveApplicationControls.json">Navigator Layer</a> (<a href="layers/AdaptiveApplicationControls.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -223,24 +147,26 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#6-azure-defender-for-servers">Azure Defender for Servers</a></li>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-azure-defender-for-servers">Azure Defender for Servers</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application">https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-application</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>2. Advanced Threat Protection for Azure SQL Database</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='advanced-threat-protection-for-azure-sql-database'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 2. Advanced Threat Protection for Azure SQL Database</h2>
 <p>This control provides alerts for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics. An alert may be generated on suspicious database activities, potential vulnerabilities, and SQL injection attacks, as well as anomalous database access and query patterns.</p>
 <ul>
 <li><a href="ATPForAzureSQLDatabase.yaml">Mapping File</a> (<a href="ATPForAzureSQLDatabase.yaml">YAML</a>)</li>
 <li><a href="layers/ATPForAzureSQLDatabase.json">Navigator Layer</a> (<a href="layers/ATPForAzureSQLDatabase.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -277,21 +203,23 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#5-azure-defender-for-sql">Azure Defender for SQL</a></li>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#12-database">Database</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-defender-for-sql">Azure Defender for SQL</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-database">Database</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/threat-detection-overview">https://docs.microsoft.com/en-us/azure/azure-sql/database/threat-detection-overview</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>3. Alerts for Azure Cosmos DB</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='alerts-for-azure-cosmos-db'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 3. Alerts for Azure Cosmos DB</h2>
 <p>The Azure Cosmos DB alerts are generated by unusual and potentially harmful attempts to access or exploit Azure Cosmos DB accounts.</p>
 <ul>
 <li><a href="AlertsForAzureCosmosDB.yaml">Mapping File</a> (<a href="AlertsForAzureCosmosDB.yaml">YAML</a>)</li>
@@ -299,7 +227,7 @@ a[href="#contents"]
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control is still in preview, so its coverage will likely expand in the future. This mapping is based on its current (preview) state.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -324,25 +252,27 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#12-database">Database</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-database">Database</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/other-threat-protections">https://docs.microsoft.com/en-us/azure/security-center/other-threat-protections</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/cosmos-db/cosmos-db-advanced-threat-protection">https://docs.microsoft.com/en-us/azure/cosmos-db/cosmos-db-advanced-threat-protection</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>4. Alerts for DNS</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='alerts-for-dns'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 4. Alerts for DNS</h2>
 <p>Azure Defender for DNS provides an additional layer of protection for your cloud resources by continuously monitoring all DNS queries from your Azure resources and running advanced security analytics to alert you about suspicious activity</p>
 <ul>
 <li><a href="AlertsForDNS.yaml">Mapping File</a> (<a href="AlertsForDNS.yaml">YAML</a>)</li>
 <li><a href="layers/AlertsForDNS.json">Navigator Layer</a> (<a href="layers/AlertsForDNS.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -385,24 +315,26 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#11-dns">DNS</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-dns">DNS</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-dns-introduction</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-dns">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-dns</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>5. Alerts for Windows Machines</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='alerts-for-windows-machines'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 5. Alerts for Windows Machines</h2>
 <p>For Windows, Azure Defender integrates with Azure services to monitor and protect your Windows-based machines. Security Center presents the alerts and remediation suggestions from all of these services in an easy-to-use format.</p>
 <ul>
 <li><a href="AlertsForWindowsMachines.yaml">Mapping File</a> (<a href="AlertsForWindowsMachines.yaml">YAML</a>)</li>
 <li><a href="layers/AlertsForWindowsMachines.json">Navigator Layer</a> (<a href="layers/AlertsForWindowsMachines.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -619,19 +551,21 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#6-azure-defender-for-servers">Azure Defender for Servers</a></li>
-<li><a href="#20-windows">Windows</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-defender-for-servers">Azure Defender for Servers</a></li>
+<li><a href="#tag-windows">Windows</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-windows">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-windows</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>6. Azure AD Identity Protection</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-ad-identity-protection'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 6. Azure AD Identity Protection</h2>
 <p>Identity Protection is a tool that allows organizations to accomplish three key tasks:<br />
 Automate the detection and remediation of identity-based risks.<br />
 Investigate risks using data in the portal.<br />
@@ -640,7 +574,7 @@ Export risk detection data to third-party utilities for further analysis.</p>
 <li><a href="IdentityProtection.yaml">Mapping File</a> (<a href="IdentityProtection.yaml">YAML</a>)</li>
 <li><a href="layers/IdentityProtection.json">Navigator Layer</a> (<a href="layers/IdentityProtection.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -689,22 +623,24 @@ Export risk detection data to third-party utilities for further analysis.</p>
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#10-credentials">Credentials</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#16-microsoft-365-defender">Microsoft 365 Defender</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-microsoft-365-defender">Microsoft 365 Defender</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk">https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection">https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks">https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks</a></li>
 <li><a href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azuread-identity-protection-adds-support-for-federated/ba-p/244328">https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azuread-identity-protection-adds-support-for-federated/ba-p/244328</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>7. Azure AD Identity Secure Score</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-ad-identity-secure-score'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 7. Azure AD Identity Secure Score</h2>
 <p>The identity secure score is a percentage that functions as an indicator for how aligned you are with Microsoft's best practice recommendations for security. Each improvement action in Identity Secure Score is tailored to your specific configuration.  The score helps you to:  Objectively measure your identity security posture, plan identity security improvements, and review the success of your improvements.<br />
 Every 48 hours, Azure looks at your security configuration and compares your settings with the recommended best practices. Based on the outcome of this evaluation, a new score is calculated for your directory.</p>
 <ul>
@@ -716,7 +652,7 @@ Every 48 hours, Azure looks at your security configuration and compares your set
 The following improvement actions were analyzed:<br />
 Require MFA for administrative roles, Designate more than one global admin,  Do not allow users to grant consent to unmanaged applications, Use limited administrative roles, Do not expire passwords, Enable policy to block legacy authentication  Turn on sign-in risk policy, Turn on user risk policy, Ensure all users can complete multi-factor authentication for secure access, Enable self-service password reset, Resolve unsecure account attributes, Reduce lateral movement path risk to sensitive entities,  Set a honeytoken account, Stop clear text credentials exposure, Install Defender for Identity Sensor on all Domain Controllers,  Disable Print spooler service on domain controllers, Configure VPN integration,  Configure Microsoft Defender for Endpoint Integration (*excluded, would increase the scope, see mapping for Microsoft  Defender for Endpoint), Stop legacy protocols communication, Stop weak cipher usage,  Remove dormant accounts from sensitive groups, Protect and manage local admin passwords with Microsoft LAPS,  Remove unsecure SID history attributes from entities, Fix Advanced Audit Policy issues, Modify unsecure Kerberos  delegations to prevent impersonation. <br />
 All scores were capped at Partial since this control provides recommendations rather than applying/enforcing the recommended actions.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -801,22 +737,24 @@ All scores were capped at Partial since this control provides recommendations ra
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#10-credentials">Credentials</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#15-mfa">MFA</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-mfa">MFA</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/identity-secure-score">https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/identity-secure-score</a></li>
 <li><a href="https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#">https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302#</a></li>
 <li><a href="https://docs.microsoft.com/en-us/defender-for-identity/cas-isp-unsecure-account-attributes">https://docs.microsoft.com/en-us/defender-for-identity/cas-isp-unsecure-account-attributes</a></li>
 <li><a href="https://techcommunity.microsoft.com/t5/microsoft-defender-for-identity/new-identity-security-posture-assessments-riskiest-lmps-and/m-p/1491675">https://techcommunity.microsoft.com/t5/microsoft-defender-for-identity/new-identity-security-posture-assessments-riskiest-lmps-and/m-p/1491675</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>8. Azure AD Multi-Factor Authentication</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-ad-multi-factor-authentication'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 8. Azure AD Multi-Factor Authentication</h2>
 <p>Multi-factor authentication is a process where a user is prompted during the sign-in process for an additional form of identification, such as to enter a code on their cellphone or to provide a fingerprint scan.<br />
 If you only use a password to authenticate a user, it leaves an insecure vector for attack. If  the password is weak or has been exposed elsewhere, is it really the user signing in with the  username and password, or is it an attacker? When you require a second form of authentication, security is increased as this additional factor isn't something that's easy for an attacker to  obtain or duplicate.</p>
 <ul>
@@ -825,7 +763,7 @@ If you only use a password to authenticate a user, it leaves an insecure vector 
 </ul>
 <h3>Mapping Comments</h3>
 <p>Note that MFA that is triggered in response to privileged operations (such as assigning a user a privileged role) are considered functionality of the Azure AD Privileged Identity Management control.  Consult the mapping for this control for the ATT&amp;CK (sub-)techniques it maps to.  This mapping specifically deals with MFA when it is enabled as a security default.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -850,21 +788,23 @@ If you only use a password to authenticate a user, it leaves an insecure vector 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#10-credentials">Credentials</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#15-mfa">MFA</a></li>
-<li><a href="#18-passwords">Passwords</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-mfa">MFA</a></li>
+<li><a href="#tag-passwords">Passwords</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks">https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>9. Azure AD Password Policy</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-ad-password-policy'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 9. Azure AD Password Policy</h2>
 <p>A password policy is applied to all user accounts that are created and managed directly in Azure Active Directory (AD). Some of these password policy settings can't be modified, though you can configure custom banned passwords for Azure AD password protection or account lockout parameters.</p>
 <ul>
 <li><a href="AzureADPasswordPolicy.yaml">Mapping File</a> (<a href="AzureADPasswordPolicy.yaml">YAML</a>)</li>
@@ -872,7 +812,7 @@ If you only use a password to authenticate a user, it leaves an insecure vector 
 </ul>
 <h3>Mapping Comments</h3>
 <p>Most scores have been assessed as Partial because this control increases the strength of user passwords thereby reducing the likelihood of a successful brute force attack.  But given sufficient resources, an adversary may still successfully execute the attack vectors included  in this mapping.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -891,25 +831,27 @@ If you only use a password to authenticate a user, it leaves an insecure vector 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#10-credentials">Credentials</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#18-passwords">Passwords</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-passwords">Passwords</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts">https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>10. Azure AD Privileged Identity Management</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-ad-privileged-identity-management'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 10. Azure AD Privileged Identity Management</h2>
 <p>Privileged Identity Management (PIM) is a service in Azure Active Directory (Azure AD) that enables you to manage, control, and monitor access to important resources in your organization. These resources include resources in Azure AD, Azure, and other Microsoft Online Services such as Microsoft 365 or Microsoft Intune.</p>
 <ul>
 <li><a href="PrivilegedIdentityManagement.yaml">Mapping File</a> (<a href="PrivilegedIdentityManagement.yaml">YAML</a>)</li>
 <li><a href="layers/PrivilegedIdentityManagement.json">Navigator Layer</a> (<a href="layers/PrivilegedIdentityManagement.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -946,18 +888,20 @@ If you only use a password to authenticate a user, it leaves an insecure vector 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#15-mfa">MFA</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-mfa">MFA</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure">https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>11. Azure Active Directory Password Protection</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-active-directory-password-protection'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 11. Azure Active Directory Password Protection</h2>
 <p>Azure AD Password Protection detects and blocks known weak passwords and their variants,  and can also block additional weak terms that are specific to your organization. Azure AD Password Protection provides a global banned password list that is automatically applied to all users in an Azure AD tenant.  The Azure AD Identity Protection team constantly analyzes Azure AD security telemetry data looking for commonly used weak or compromised passwords.  When weak terms are found, they're added to the global banned password list. To support your own business and security needs, you can define entries in a custom banned  password list. When users change or reset their passwords, these banned  password lists are checked to enforce the use of strong passwords.</p>
 <ul>
 <li><a href="AzureADPasswordProtection.yaml">Mapping File</a> (<a href="AzureADPasswordProtection.yaml">YAML</a>)</li>
@@ -965,7 +909,7 @@ If you only use a password to authenticate a user, it leaves an insecure vector 
 </ul>
 <h3>Mapping Comments</h3>
 <p>All scores have been assessed as Partial because this control increases the strength of user passwords thereby reducing the likelihood of a successful brute force attack.  Due to the fact that a user's password is not checked  against the banned list of passwords unless the user changes or resets their  password (which is an infrequent event), there is still ample opportunity  for attackers to utilize this technique to gain access. This is what prevented the score from being elevated to Significant.</p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -984,19 +928,21 @@ If you only use a password to authenticate a user, it leaves an insecure vector 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#10-credentials">Credentials</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#18-passwords">Passwords</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-passwords">Passwords</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad">https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>12. Azure Alerts for Network Layer</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-alerts-for-network-layer'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 12. Azure Alerts for Network Layer</h2>
 <p>Security Center network-layer analytics are based on sample IPFIX data, which are packet headers collected by Azure core routers. Based on this data feed, Security Center uses machine learning models to identify and flag malicious traffic activities. Security Center also uses the Microsoft Threat Intelligence database to enrich IP addresses.</p>
 <ul>
 <li><a href="AlertsNetworkLayer.yaml">Mapping File</a> (<a href="AlertsNetworkLayer.yaml">YAML</a>)</li>
@@ -1005,7 +951,7 @@ If you only use a password to authenticate a user, it leaves an insecure vector 
 <h3>Mapping Comments</h3>
 <p>Associated with the Azure Security Center.<br />
 The alerts can pick up outbound Denial of Service (DOS) attacks, though that's not an ATT&amp;CK technique  per se (description oriented towards inbound DOS), also is a form of resource hijacking (though not in ATT&amp;CK description, which is oriented towards cryptomining).  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1036,18 +982,20 @@ The alerts can pick up outbound Denial of Service (DOS) attacks, though that's n
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-analytics">Analytics</a></li>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-analytics">Analytics</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurenetlayer">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurenetlayer</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>13. Azure Automation Update Management</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-automation-update-management'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 13. Azure Automation Update Management</h2>
 <p>"Use Azure Automation Update Management or a third-party solution to ensure that the most recent security updates are installed on your Windows and Linux VMs. "</p>
 <ul>
 <li><a href="AzureAutomationUpdateMGT.yaml">Mapping File</a> (<a href="AzureAutomationUpdateMGT.yaml">YAML</a>)</li>
@@ -1055,7 +1003,7 @@ The alerts can pick up outbound Denial of Service (DOS) attacks, though that's n
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control generally applies to techniques that leverage vulnerabilities in unpatched software, which can be specific techniques  sub-techniques.   </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1134,17 +1082,19 @@ The alerts can pick up outbound Denial of Service (DOS) attacks, though that's n
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#14-linux">Linux</a></li>
-<li><a href="#20-windows">Windows</a></li>
+<li><a href="#tag-linux">Linux</a></li>
+<li><a href="#tag-windows">Windows</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/automation/update-management/overview">https://docs.microsoft.com/en-us/azure/automation/update-management/overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>14. Azure Backup</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-backup'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 14. Azure Backup</h2>
 <p>"The Azure Backup service provides simple, secure, and cost-effective solutions to back up your data and recover it from the Microsoft Azure cloud."</p>
 <ul>
 <li><a href="AzureBackup.yaml">Mapping File</a> (<a href="AzureBackup.yaml">YAML</a>)</li>
@@ -1152,7 +1102,7 @@ The alerts can pick up outbound Denial of Service (DOS) attacks, though that's n
 </ul>
 <h3>Mapping Comments</h3>
 <p>Azure Backup service provides defense against destruction/manipulation of data at rest. Scoring as "Significant" since it is an essential practice against data destruction et al, and can eradicate the threat event by restoring from backup.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1189,23 +1139,25 @@ The alerts can pick up outbound Denial of Service (DOS) attacks, though that's n
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/backup/backup-overview">https://docs.microsoft.com/en-us/azure/backup/backup-overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>15. Azure DDOS Protection Standard</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-ddos-protection-standard'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 15. Azure DDOS Protection Standard</h2>
 <p>Azure DDoS Protection Standard, combined with application design best practices, provides enhanced DDoS mitigation features to defend against DDoS attacks. <br />
 It is automatically tuned to help protect your specific Azure resources in a virtual network.</p>
 <ul>
 <li><a href="AzureDDOS.yaml">Mapping File</a> (<a href="AzureDDOS.yaml">YAML</a>)</li>
 <li><a href="layers/AzureDDOS.json">Navigator Layer</a> (<a href="layers/AzureDDOS.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1230,23 +1182,25 @@ It is automatically tuned to help protect your specific Azure resources in a vir
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview">https://docs.microsoft.com/en-us/azure/ddos-protection/ddos-protection-overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>16. Azure DNS Alias Records</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-dns-alias-records'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 16. Azure DNS Alias Records</h2>
 <p>Azure DNS alias records are qualifications on a DNS record set. They can reference other Azure resources from within your DNS zone.   For example, you can create an alias record set that references an Azure public IP address instead of an A record. Your alias record set points to an Azure public IP address service instance dynamically. As a result, the alias record set seamlessly updates itself during DNS resolution.</p>
 <ul>
 <li><a href="AzureDNSAliasRecords.yaml">Mapping File</a> (<a href="AzureDNSAliasRecords.yaml">YAML</a>)</li>
 <li><a href="layers/AzureDNSAliasRecords.json">Navigator Layer</a> (<a href="layers/AzureDNSAliasRecords.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1265,17 +1219,19 @@ It is automatically tuned to help protect your specific Azure resources in a vir
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#11-dns">DNS</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-dns">DNS</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/dns/dns-alias#prevent-dangling-dns-records">https://docs.microsoft.com/en-us/azure/dns/dns-alias#prevent-dangling-dns-records</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>17. Azure DNS Analytics</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-dns-analytics'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 17. Azure DNS Analytics</h2>
 <p>"DNS Analytics helps you to: identify clients that try to resolve malicious domain names, identify stale resource records, identify frequently queried domain names and talkative DNS clients,  view request load on DNS servers, and view dynamic DNS registration failures.<br />
 The solution collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers."</p>
 <ul>
@@ -1284,7 +1240,7 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </ul>
 <h3>Mapping Comments</h3>
 <p>The temporal score for this control on most of the techniques and subtechnique is minimal, since it does not provide specific analytics itself (though can be used to provide data to other analytics after the fact. "The event-related data is collected near real time from the analytic and audit logs provided by enhanced DNS logging and diagnostics in Windows Server 2012 R2.".  Inventory-related data is uploaded every 48 hours.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1327,17 +1283,19 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#11-dns">DNS</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-dns">DNS</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/azure-monitor/insights/dns-analytics">https://docs.microsoft.com/en-us/azure/azure-monitor/insights/dns-analytics</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>18. Azure Dedicated HSM</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-dedicated-hsm'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 18. Azure Dedicated HSM</h2>
 <p>"Azure Dedicated HSM is an Azure service that provides cryptographic key storage in Azure ... for customers who require FIPS 140-2 Level 3-validated devices and complete and exclusive control of the HSM appliance."</p>
 <ul>
 <li><a href="AzureDedicatedHSM.yaml">Mapping File</a> (<a href="AzureDedicatedHSM.yaml">YAML</a>)</li>
@@ -1345,7 +1303,7 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </ul>
 <h3>Mapping Comments</h3>
 <p>Note there is also a Managed HSM service.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1376,17 +1334,19 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#10-credentials">Credentials</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/dedicated-hsm/overview">https://docs.microsoft.com/en-us/azure/dedicated-hsm/overview</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/">https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>19. Azure Defender for App Service</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-defender-for-app-service'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 19. Azure Defender for App Service</h2>
 <p>Azure Defender for App Service monitors VM instances and their management interfaces, App Service apps and their requests/responses, and App Service internal logs to detect threats to App Service resources and provide security recommendations to mitigate them.</p>
 <ul>
 <li><a href="AzureDefenderForAppService.yaml">Mapping File</a> (<a href="AzureDefenderForAppService.yaml">YAML</a>)</li>
@@ -1394,7 +1354,7 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </ul>
 <h3>Mapping Comments</h3>
 <p>The AppServices_KnownCredentialAccessTools alert is used to detect suspicious processes associated with credential theft. This is clearly linked to the Credential Access tactic, but does not clearly detect any specific technique or set of techniques, so it has been omitted from this mapping.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1635,23 +1595,25 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#14-linux">Linux</a></li>
-<li><a href="#20-windows">Windows</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-linux">Linux</a></li>
+<li><a href="#tag-windows">Windows</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-app-service-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-app-service-introduction</a></li>
 <li><a href="https://azure.microsoft.com/en-us/services/app-service/">https://azure.microsoft.com/en-us/services/app-service/</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>20. Azure Defender for Container Registries</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-defender-for-container-registries'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 20. Azure Defender for Container Registries</h2>
 <p>Azure Defender for container registries includes a vulnerability scanner to scan the images in your Azure Resource Manager-based Azure Container Registry registries and provide deeper visibility into your images' vulnerabilities. The integrated scanner is powered by Qualys. Azure Container Registry is a managed, private Docker registry service based on the open-source Docker Registry 2.0.</p>
 <ul>
 <li><a href="AzureDefenderForContainerRegistries.yaml">Mapping File</a> (<a href="AzureDefenderForContainerRegistries.yaml">YAML</a>)</li>
@@ -1659,7 +1621,7 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </ul>
 <h3>Mapping Comments</h3>
 <p>This mapping file covers Docker container registries security features along with the Azure Defender for Container Registries scanner. The scanning capability of the control is only available for Linux images in registries accessible from the public internet with shell access which limits the general applicability.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1696,19 +1658,21 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#9-containers">Containers</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-containers">Containers</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-container-registries-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-container-registries-introduction</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro">https://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>21. Azure Defender for Key Vault</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-defender-for-key-vault'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 21. Azure Defender for Key Vault</h2>
 <p>Azure Defender detects unusual and potentially harmful attempts to access or exploit Key Vault accounts. When anomalous activities occur, Azure Defender shows alerts and optionally sends them via email to relevant members of your organization. These alerts include the details of the suspicious activity and recommendations on how to investigate and remediate threats.</p>
 <ul>
 <li><a href="AzureDefenderForKeyVault.yaml">Mapping File</a> (<a href="AzureDefenderForKeyVault.yaml">YAML</a>)</li>
@@ -1716,7 +1680,7 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control provides alerts for suspicious activity for Azure Key Vault. Documentation has been offered on how to respond to alerts but no specific tool or feature is offered for response.   </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1741,25 +1705,27 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#10-credentials">Credentials</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-key-vault-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-key-vault-introduction</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurekv">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurekv</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>22. Azure Defender for Kubernetes</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-defender-for-kubernetes'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 22. Azure Defender for Kubernetes</h2>
 <p>Azure Defender for Kubernetes provides cluster-level threat protection by monitoring your Azure Kubernetes Service (AKS) managed services through the logs retrieved by AKS. Examples of security events that Azure Defender for Kubernetes monitors include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.</p>
 <ul>
 <li><a href="AzureDefenderForKubernetes.yaml">Mapping File</a> (<a href="AzureDefenderForKubernetes.yaml">YAML</a>)</li>
 <li><a href="layers/AzureDefenderForKubernetes.json">Navigator Layer</a> (<a href="layers/AzureDefenderForKubernetes.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1796,25 +1762,27 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#9-containers">Containers</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-containers">Containers</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-kubernetes-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-kubernetes-introduction</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-akscluster">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-akscluster</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>23. Azure Defender for Resource Manager</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-defender-for-resource-manager'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 23. Azure Defender for Resource Manager</h2>
 <p>Azure Defender for Resource Manager automatically monitors the  resource management operations in your organization, whether they're  performed through the Azure portal, Azure REST APIs, Azure CLI, or  other Azure programmatic clients. Alerts are generated by threats  detected in Azure Resource Manager logs and Azure Activity logs.  Azure Defender runs advanced security analytics to detect threats  and alert you about suspicious activity.</p>
 <ul>
 <li><a href="AlertsForResourceManager.yaml">Mapping File</a> (<a href="AlertsForResourceManager.yaml">YAML</a>)</li>
 <li><a href="layers/AlertsForResourceManager.json">Navigator Layer</a> (<a href="layers/AlertsForResourceManager.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1875,23 +1843,25 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-resource-manager-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-resource-manager-introduction</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-resourcemanager">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-resourcemanager</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>24. Azure Defender for Storage</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-defender-for-storage'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 24. Azure Defender for Storage</h2>
 <p>Azure Defender for Storage can detect unusual and potentially harmful attempts to access or exploit storage accounts. Security alerts may trigger due to suspicious access patterns, suspicious activities, and upload of malicious content. Alerts include details of the incident that triggered them, as well as recommendations on how to investigate and remediate threats. Alerts can be exported to Azure Sentinel or any other third-party SIEM or any other external tool.</p>
 <ul>
 <li><a href="AzureDefenderForStorage.yaml">Mapping File</a> (<a href="AzureDefenderForStorage.yaml">YAML</a>)</li>
 <li><a href="layers/AzureDefenderForStorage.json">Navigator Layer</a> (<a href="layers/AzureDefenderForStorage.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1952,24 +1922,26 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-storage-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-storage-introduction</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurestorage">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-azurestorage</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>25. Azure Firewall</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-firewall'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 25. Azure Firewall</h2>
 <p>Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources.  It's a fully stateful firewall as a service (FWaaS) with built-in high availability and unrestricted cloud scalability.</p>
 <ul>
 <li><a href="AzureFirewall.yaml">Mapping File</a> (<a href="AzureFirewall.yaml">YAML</a>)</li>
 <li><a href="layers/AzureFirewall.json">Navigator Layer</a> (<a href="layers/AzureFirewall.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2048,23 +2020,25 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/firewall/overview">https://docs.microsoft.com/en-us/azure/firewall/overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>26. Azure Key Vault</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-key-vault'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 26. Azure Key Vault</h2>
 <p>Azure Key Vault provides a way to store and manage secrets, keys, and certificates used throughout Azure and for internally connected resources. This control allows for fine grained permissions for authentication and authorization for access while providing monitoring for all activity with the key vault.</p>
 <ul>
 <li><a href="AzureKeyVault.yaml">Mapping File</a> (<a href="AzureKeyVault.yaml">YAML</a>)</li>
 <li><a href="layers/AzureKeyVault.json">Navigator Layer</a> (<a href="layers/AzureKeyVault.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2101,24 +2075,26 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#10-credentials">Credentials</a></li>
-<li><a href="#18-passwords">Passwords</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-passwords">Passwords</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/key-vault/general/overview">https://docs.microsoft.com/en-us/azure/key-vault/general/overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>27. Azure Network Traffic Analytics</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-network-traffic-analytics'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 27. Azure Network Traffic Analytics</h2>
 <p>Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in cloud networks. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud.  It can identify security threats to, and secure your network, with information such as open-ports, applications attempting internet access, and virtual machines (VM) connecting to rogue networks.</p>
 <ul>
 <li><a href="AzureTrafficAnalytics.yaml">Mapping File</a> (<a href="AzureTrafficAnalytics.yaml">YAML</a>)</li>
 <li><a href="layers/AzureTrafficAnalytics.json">Navigator Layer</a> (<a href="layers/AzureTrafficAnalytics.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2215,17 +2191,19 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-analytics">Analytics</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-analytics">Analytics</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics">https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>28. Azure Policy</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-policy'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 28. Azure Policy</h2>
 <p>Azure Policy evaluates resources in Azure by comparing the properties of those resources to business rules. These business rules, described in JSON format, are known as policy definitions. Azure Policy helps to enforce organizational standards and to assess compliance at-scale.</p>
 <ul>
 <li><a href="AzurePolicy.yaml">Mapping File</a> (<a href="AzurePolicy.yaml">YAML</a>)</li>
@@ -2233,7 +2211,7 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </ul>
 <h3>Mapping Comments</h3>
 <p>This mapping is focused on the list of built-in policy definitions provided by Azure Policy. All scores are capped at Partial since this control provides recommendations rather than applying/enforcing the recommended actions.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2390,17 +2368,19 @@ The solution collects, analyzes, and correlates Windows DNS analytic and audit l
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/governance/policy/overview">https://docs.microsoft.com/en-us/azure/governance/policy/overview</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies#api-for-fhir">https://docs.microsoft.com/en-us/azure/governance/policy/samples/built-in-policies#api-for-fhir</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>29. Azure Private Link</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-private-link'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 29. Azure Private Link</h2>
 <p>Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.<br />
 Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers. Setup and consumption using Azure Private Link is consistent across Azure PaaS, customer-owned, and shared partner services.</p>
 <ul>
@@ -2409,7 +2389,7 @@ Traffic between your virtual network and the service travels the Microsoft backb
 </ul>
 <h3>Mapping Comments</h3>
 <p>This is a private network service, allowing connections between Azure, on-prem, and 3rd party services without traversing the Internet. Generally this reduces risk from MiTM, DOS, network-based data manipulation and network sniffing from untrusted network.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2452,17 +2432,19 @@ Traffic between your virtual network and the service travels the Microsoft backb
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/azure/private-link/private-link-overview">https://docs.microsoft.com/azure/private-link/private-link-overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>30. Azure Security Center Recommendations</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-security-center-recommendations'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 30. Azure Security Center Recommendations</h2>
 <p>This feature of Azure Security Center assesses your workloads and raises threat prevention recommendations and security alerts.</p>
 <ul>
 <li><a href="SecurityCenterRecommendations.yaml">Mapping File</a> (<a href="SecurityCenterRecommendations.yaml">YAML</a>)</li>
@@ -2472,7 +2454,7 @@ Traffic between your virtual network and the service travels the Microsoft backb
 <p>Security Center recommendations include recommendations to enable security controls that have already been mapped separately (e.g. "Azure Defender for App Service should be enabled").    Rather than including the (sub-)techniques that these controls map to within this mapping, consult the mapping files for these controls.  To make this latter task easier, we have tagged all such controls with the "Azure Security Center Recommendation" tag.<br />
 All scores are capped at Partial since this control provides recommendations rather than applying/enforcing the recommended actions.<br />
 IoT related recommendations were not included in this mapping.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2629,18 +2611,20 @@ IoT related recommendations were not included in this mapping.  </p>
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/recommendations-reference">https://docs.microsoft.com/en-us/azure/security-center/recommendations-reference</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction">https://docs.microsoft.com/en-us/azure/security-center/security-center-introduction</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>31. Azure Sentinel</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-sentinel'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 31. Azure Sentinel</h2>
 <p>Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution.</p>
 <ul>
 <li><a href="AzureSentinel.yaml">Mapping File</a> (<a href="AzureSentinel.yaml">YAML</a>)</li>
@@ -2651,7 +2635,7 @@ IoT related recommendations were not included in this mapping.  </p>
 Queries based on 3rd party analytics and/or specific IOC information were omitted from this mapping. Query names are identified in quotes throughout this mapping.<br />
 Azure Sentinel Analytics queries are generally periodic, typically on a period of one or more hours.<br />
 Azure Sentinel Hunting queries are performed on demand. Note also that a number of the Hunting queries are examples that can be modified for additional use, but scoring was performed on the queries as-written.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3162,25 +3146,27 @@ Azure Sentinel Hunting queries are performed on demand. Note also that a number 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-analytics">Analytics</a></li>
-<li><a href="#19-threat-hunting">Threat Hunting</a></li>
+<li><a href="#tag-analytics">Analytics</a></li>
+<li><a href="#tag-threat-hunting">Threat Hunting</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/sentinel/overview">https://docs.microsoft.com/en-us/azure/sentinel/overview</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/sentinel/hunting">https://docs.microsoft.com/en-us/azure/sentinel/hunting</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>32. Azure VPN Gateway</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-vpn-gateway'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 32. Azure VPN Gateway</h2>
 <p>A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. <br />
 You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network.</p>
 <ul>
 <li><a href="AzureVPN.yaml">Mapping File</a> (<a href="AzureVPN.yaml">YAML</a>)</li>
 <li><a href="layers/AzureVPN.json">Navigator Layer</a> (<a href="layers/AzureVPN.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3211,22 +3197,24 @@ You can also use a VPN gateway to send encrypted traffic between Azure virtual n
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways">https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>33. Azure Web Application Firewall</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='azure-web-application-firewall'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 33. Azure Web Application Firewall</h2>
 <p>Azure Web Application Firewall (WAF) provides centralized protection of your web applications  from common exploits and vulnerabilities.</p>
 <ul>
 <li><a href="AzureWebApplicationFirewall.yaml">Mapping File</a> (<a href="AzureWebApplicationFirewall.yaml">YAML</a>)</li>
 <li><a href="layers/AzureWebApplicationFirewall.json">Navigator Layer</a> (<a href="layers/AzureWebApplicationFirewall.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3281,16 +3269,18 @@ You can also use a VPN gateway to send encrypted traffic between Azure virtual n
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/web-application-firewall/overview">https://docs.microsoft.com/en-us/azure/web-application-firewall/overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>34. Cloud App Security Policies</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='cloud-app-security-policies'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 34. Cloud App Security Policies</h2>
 <p>Microsoft Cloud App Security is a Cloud Access Security Broker (CASB) that supports various deployment modes including log collection, API connectors, and reverse proxy. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your Microsoft and third-party cloud services.</p>
 <ul>
 <li><a href="CloudAppSecurity.yaml">Mapping File</a> (<a href="CloudAppSecurity.yaml">YAML</a>)</li>
@@ -3298,7 +3288,7 @@ You can also use a VPN gateway to send encrypted traffic between Azure virtual n
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control is basically a CASB, and various features can generate logs and alerts that can be incorporated into a SIEM such as Sentinel for moderate to high temporal score.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3491,14 +3481,16 @@ You can also use a VPN gateway to send encrypted traffic between Azure virtual n
 </tr>
 </tbody>
 </table>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/cloud-app-security/policies-cloud-discovery">https://docs.microsoft.com/en-us/cloud-app-security/policies-cloud-discovery</a></li>
 <li><a href="https://docs.microsoft.com/en-us/cloud-app-security/policies-information-protection">https://docs.microsoft.com/en-us/cloud-app-security/policies-information-protection</a></li>
 <li><a href="https://docs.microsoft.com/en-us/cloud-app-security/investigate-anomaly-alerts">https://docs.microsoft.com/en-us/cloud-app-security/investigate-anomaly-alerts</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>35. Conditional Access</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='conditional-access'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 35. Conditional Access</h2>
 <p>"Conditional access enables organizations to configure and fine-tune access policies with contextual factors such as user, device, location, and real-time risk information to control what a specific user can access, and how and when they have access."</p>
 <ul>
 <li><a href="ConditionalAccess.yaml">Mapping File</a> (<a href="ConditionalAccess.yaml">YAML</a>)</li>
@@ -3506,7 +3498,7 @@ You can also use a VPN gateway to send encrypted traffic between Azure virtual n
 </ul>
 <h3>Mapping Comments</h3>
 <p>At first glance, this control seems mappable to Exfiltration (sub-)techniques but upon further analysis, it doesn't really mitigate exfiltration but rather its prerequisite Collection (sub-)techniques.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3549,25 +3541,27 @@ You can also use a VPN gateway to send encrypted traffic between Azure virtual n
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#15-mfa">MFA</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-mfa">MFA</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview">https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>36. Continuous Access Evaluation</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='continuous-access-evaluation'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 36. Continuous Access Evaluation</h2>
 <p>Continuous Access Evaluation (CAE) provides the next level of identity security by terminating active user sessions to a subset of Microsoft services (Exchange and Teams) in real-time on changes such as account disable, password reset, and admin initiated user revocation.  CAE aims to improve the response time in situations where a policy setting that applies to a user changes but the user is able to circumvent the new policy setting because their OAuth access token was issued before the policy change.  It's typical that security access tokens issued by Azure AD, like OAuth 2.0 access tokens, are valid for an hour.<br />
 CAE enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within minutes after critical security events (such as user account is deleted, MFA is enabled for a user, High user risk detected by Azure AD Identity Protection, etc.).</p>
 <ul>
 <li><a href="ContinuousAccessEvaluation.yaml">Mapping File</a> (<a href="ContinuousAccessEvaluation.yaml">YAML</a>)</li>
 <li><a href="layers/ContinuousAccessEvaluation.json">Navigator Layer</a> (<a href="layers/ContinuousAccessEvaluation.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3586,17 +3580,19 @@ CAE enables the scenario where users lose access to organizational SharePoint On
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#13-identity">Identity</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-identity">Identity</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation">https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>37. Docker Host Hardening</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='docker-host-hardening'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 37. Docker Host Hardening</h2>
 <p>Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the Center for Internet Security (CIS) Docker Benchmark. Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations.</p>
 <ul>
 <li><a href="DockerHostHardening.yaml">Mapping File</a> (<a href="DockerHostHardening.yaml">YAML</a>)</li>
@@ -3604,7 +3600,7 @@ CAE enables the scenario where users lose access to organizational SharePoint On
 </ul>
 <h3>Mapping Comments</h3>
 <p>All scores are capped at Partial since this control provides recommendations rather than applying/enforcing the recommended actions.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3659,18 +3655,20 @@ CAE enables the scenario where users lose access to organizational SharePoint On
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#9-containers">Containers</a></li>
-<li><a href="#14-linux">Linux</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-containers">Containers</a></li>
+<li><a href="#tag-linux">Linux</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/harden-docker-hosts">https://docs.microsoft.com/en-us/azure/security-center/harden-docker-hosts</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>38. File Integrity Monitoring</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='file-integrity-monitoring'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 38. File Integrity Monitoring</h2>
 <p>File integrity monitoring (FIM), also known as change monitoring, examines operating system files, Windows registries, application software, Linux system files, and more, for changes that might indicate an attack. File Integrity Monitoring (FIM) informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. </p>
 <ul>
 <li><a href="FileIntegrityMonitoring.yaml">Mapping File</a> (<a href="FileIntegrityMonitoring.yaml">YAML</a>)</li>
@@ -3679,7 +3677,7 @@ CAE enables the scenario where users lose access to organizational SharePoint On
 <h3>Mapping Comments</h3>
 <p>The techniques included in this mapping result in Windows Registry or file system artifacts being created or modified which can be detected by this control.<br />
 The detection score for most techniques included in this mapping was scored as Significant and where there are exceptions, comments have been provided. This Significant score assessment  was due to the following factors: Coverage - (High) The control was able to detect most of the sub-techniques, references and procedure examples of the mapped techniques. Accuracy - (High) Although this control does not include built-in intelligence to minimize  the false positive rate, the specific artifacts generated by the techniques in this mapping do not change frequently and therefore the potential for a high false-positive is reduced.  Temporal - (Medium) This control at worst scans for changes on an hourly basis.</p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3776,21 +3774,23 @@ The detection score for most techniques included in this mapping was scored as S
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#6-azure-defender-for-servers">Azure Defender for Servers</a></li>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#14-linux">Linux</a></li>
-<li><a href="#20-windows">Windows</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-defender-for-servers">Azure Defender for Servers</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-linux">Linux</a></li>
+<li><a href="#tag-windows">Windows</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-file-integrity-monitoring">https://docs.microsoft.com/en-us/azure/security-center/security-center-file-integrity-monitoring</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>39. Integrated Vulnerability Scanner Powered by Qualys</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='integrated-vulnerability-scanner-powered-by-qualys'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 39. Integrated Vulnerability Scanner Powered by Qualys</h2>
 <p>This control provides a on-demand and scheduled vulnerability scan for Windows and Linux endpoints that are being protected by Azure Defender. The scanner generates a list of possible vulnerabilities in Azure Security Center for possible remediation. </p>
 <ul>
 <li><a href="VulnerabilityAssessmentQualys.yaml">Mapping File</a> (<a href="VulnerabilityAssessmentQualys.yaml">YAML</a>)</li>
@@ -3799,7 +3799,7 @@ The detection score for most techniques included in this mapping was scored as S
 <h3>Mapping Comments</h3>
 <p>Once this control is deployed, it will run a scan every four hours and scans can be run on demand. Documentation notes that within 48 hours of the disclosure of a critical vulnerability, Qualys incorporates the information into their processing and can identify affected machines.<br />
 All scores are capped at Partial since this control identifies vulnerabilities and does not address the detected vulnerabilities.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3854,24 +3854,26 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/deploy-vulnerability-assessment-vm">https://docs.microsoft.com/en-us/azure/security-center/deploy-vulnerability-assessment-vm</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/remediate-vulnerability-findings-vm">https://docs.microsoft.com/en-us/azure/security-center/remediate-vulnerability-findings-vm</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>40. Just-in-Time VM Access</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='just-in-time-vm-access'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 40. Just-in-Time VM Access</h2>
 <p>This control locks down inbound traffic to management ports for protocols such as RDP and SSH and only provides access upon request for a specified period of time. This reduces exposure to attacks while providing easy access when you need to connect to a virtual machine. Specific permissions are required to request access to virtual machines that have this control enabled and access can be requested through the Azure web UI, PowerShell, and a REST API.</p>
 <ul>
 <li><a href="JustInTimeVMAccess.yaml">Mapping File</a> (<a href="JustInTimeVMAccess.yaml">YAML</a>)</li>
 <li><a href="layers/JustInTimeVMAccess.json">Navigator Layer</a> (<a href="layers/JustInTimeVMAccess.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -3902,19 +3904,21 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#6-azure-defender-for-servers">Azure Defender for Servers</a></li>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-azure-defender-for-servers">Azure Defender for Servers</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-api">https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time?tabs=jit-config-asc%2Cjit-request-api</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/just-in-time-explained">https://docs.microsoft.com/en-us/azure/security-center/just-in-time-explained</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>41. Linux auditd alerts and Log Analytics agent integration</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='linux-auditd-alerts-and-log-analytics-agent-integration'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 41. Linux auditd alerts and Log Analytics agent integration</h2>
 <p>This integration enables collection of auditd events in all supported Linux distributions, without any prerequisites. Auditd records are collected, enriched, and aggregated into events by using the Log Analytics agent for Linux agent.</p>
 <ul>
 <li><a href="LinuxAuditdAndLogAnalytics.yaml">Mapping File</a> (<a href="LinuxAuditdAndLogAnalytics.yaml">YAML</a>)</li>
@@ -3922,7 +3926,7 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </ul>
 <h3>Mapping Comments</h3>
 <p>Detections are periodic at an unknown rate.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -4025,24 +4029,26 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-azure-defender">Azure Defender</a></li>
-<li><a href="#14-linux">Linux</a></li>
+<li><a href="#tag-azure-defender">Azure Defender</a></li>
+<li><a href="#tag-linux">Linux</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction">https://docs.microsoft.com/en-us/azure/security-center/defender-for-servers-introduction</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-linux">https://docs.microsoft.com/en-us/azure/security-center/alerts-reference#alerts-linux</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>42. Managed identities for Azure resources</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='managed-identities-for-azure-resources'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 42. Managed identities for Azure resources</h2>
 <p>Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having to hard-code credentials in your code.</p>
 <ul>
 <li><a href="AzureADManagedIdentities.yaml">Mapping File</a> (<a href="AzureADManagedIdentities.yaml">YAML</a>)</li>
 <li><a href="layers/AzureADManagedIdentities.json">Navigator Layer</a> (<a href="layers/AzureADManagedIdentities.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -4061,18 +4067,20 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#13-identity">Identity</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-identity">Identity</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview">https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>43. Microsoft Antimalware for Azure</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='microsoft-antimalware-for-azure'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 43. Microsoft Antimalware for Azure</h2>
 <p>Microsoft Antimalware for Azure is a free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. </p>
 <ul>
 <li><a href="MicrosoftAntimalwareForAzure.yaml">Mapping File</a> (<a href="MicrosoftAntimalwareForAzure.yaml">YAML</a>)</li>
@@ -4080,7 +4088,7 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </ul>
 <h3>Mapping Comments</h3>
 <p>Signature based antimalware solutions are generally dependent on Indicators of Compromise(IOCs) such as file hashes and malware signatures. ATT&amp;CK is primarily centered on behaviors and Tactics, Techniques, and Procedures(TTPs), hence the minimal amount of techinques and scoring.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -4135,17 +4143,19 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#7-azure-security-center">Azure Security Center</a></li>
+<li><a href="#tag-azure-security-center">Azure Security Center</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/security/fundamentals/antimalware">https://docs.microsoft.com/en-us/azure/security/fundamentals/antimalware</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security/fundamentals/antimalware-code-samples">https://docs.microsoft.com/en-us/azure/security/fundamentals/antimalware-code-samples</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>44. Microsoft Defender for Identity</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='microsoft-defender-for-identity'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 44. Microsoft Defender for Identity</h2>
 <p>Microsoft Defender for Identity (formerly Azure Advanced Threat Protection, also known as Azure ATP) is a cloud-based security solution that leverages your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization.</p>
 <ul>
 <li><a href="MicrosoftDefenderForIdentity.yaml">Mapping File</a> (<a href="MicrosoftDefenderForIdentity.yaml">YAML</a>)</li>
@@ -4153,7 +4163,7 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </ul>
 <h3>Mapping Comments</h3>
 <p>Understandably (to avoid enabling adversaries to circumvent the detection), many of the detections provided by this control do not provide a detailed description of the detection logic making it often times difficult to map to ATT&amp;CK Techniques.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -4298,20 +4308,22 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#10-credentials">Credentials</a></li>
-<li><a href="#11-dns">DNS</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#16-microsoft-365-defender">Microsoft 365 Defender</a></li>
-<li><a href="#20-windows">Windows</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-dns">DNS</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-microsoft-365-defender">Microsoft 365 Defender</a></li>
+<li><a href="#tag-windows">Windows</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/defender-for-identity/what-is">https://docs.microsoft.com/en-us/defender-for-identity/what-is</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>45. Network Security Groups</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='network-security-groups'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 45. Network Security Groups</h2>
 <p>You can use an Azure network security group to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. For each rule, you can specify source and destination, port, and protocol.</p>
 <ul>
 <li><a href="NetworkSecurityGroups.yaml">Mapping File</a> (<a href="NetworkSecurityGroups.yaml">YAML</a>)</li>
@@ -4319,7 +4331,7 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </ul>
 <h3>Mapping Comments</h3>
 <p>Note: one can employ Application Security Groups (ASG) in Network Security Group (NSG) rules to map  rules to workloads etc. Not scoring ASG as a separate control. One can employ Adaptive Network Hardening (ANH)  to generate recommended NSG rules based on traffic, known trusted configuration, threat intelligence, and other inidcators of compromise. Not scoring ANH as a separate control.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -4446,26 +4458,28 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#1-adaptive-network-hardening">Adaptive Network Hardening</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#17-network">Network</a></li>
+<li><a href="#tag-adaptive-network-hardening">Adaptive Network Hardening</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview">https://docs.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works">https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-network-hardening">https://docs.microsoft.com/en-us/azure/security-center/security-center-adaptive-network-hardening</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>46. Passwordless Authentication</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='passwordless-authentication'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 46. Passwordless Authentication</h2>
 <p>Features like multi-factor authentication (MFA) are a great way to secure your organization, but users often get frustrated with the additional security layer on top of having to remember their passwords. Passwordless authentication methods are more convenient because the password is removed and replaced with something you have, plus something you are or something you know.</p>
 <ul>
 <li><a href="PasswordlessAuthentication.yaml">Mapping File</a> (<a href="PasswordlessAuthentication.yaml">YAML</a>)</li>
 <li><a href="layers/PasswordlessAuthentication.json">Navigator Layer</a> (<a href="layers/PasswordlessAuthentication.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -4484,19 +4498,21 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#10-credentials">Credentials</a></li>
-<li><a href="#13-identity">Identity</a></li>
-<li><a href="#18-passwords">Passwords</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-passwords">Passwords</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless">https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-authentication-passwordless</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>47. Role Based Access Control</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='role-based-access-control'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 47. Role Based Access Control</h2>
 <p>Access management for cloud resources is a critical function for any organization that is using the cloud. Azure role-based access control (Azure RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.</p>
 <ul>
 <li><a href="AzureADRoleBasedAccessControl.yaml">Mapping File</a> (<a href="AzureADRoleBasedAccessControl.yaml">YAML</a>)</li>
@@ -4504,7 +4520,7 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </ul>
 <h3>Mapping Comments</h3>
 <p>RBAC enables organizations to limit the number of users within the organization with an IAM role that has administrative privileges.  This enables limiting the number of users within the tenant that have privileged access thereby resulting in a reduced attack surface and a coverage score factor of Partial.  Most sub-techniques have been scored as Partial for this reason.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -4571,18 +4587,20 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-azure-active-directory">Azure Active Directory</a></li>
-<li><a href="#8-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
-<li><a href="#13-identity">Identity</a></li>
+<li><a href="#tag-azure-active-directory">Azure Active Directory</a></li>
+<li><a href="#tag-azure-security-center-recommendation">Azure Security Center Recommendation</a></li>
+<li><a href="#tag-identity">Identity</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/role-based-access-control/overview">https://docs.microsoft.com/en-us/azure/role-based-access-control/overview</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>48. SQL Vulnerability Assessment</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='sql-vulnerability-assessment'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/azure_icon.svg" /> 48. SQL Vulnerability Assessment</h2>
 <p>SQL vulnerability assessment is a service that provides visibility into your security state. The service employs a knowledge base of rules that flag security vulnerabilities. It highlights deviations from best practices, such as misconfigurations, excessive permissions, and unprotected sensitive data.</p>
 <ul>
 <li><a href="SQLVulnerabilityAssessment.yaml">Mapping File</a> (<a href="SQLVulnerabilityAssessment.yaml">YAML</a>)</li>
@@ -4590,7 +4608,7 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </ul>
 <h3>Mapping Comments</h3>
 <p>All scores are capped at Partial since this control provides recommendations rather than applying/enforcing the recommended actions.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -4633,328 +4651,260 @@ All scores are capped at Partial since this control identifies vulnerabilities a
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#5-azure-defender-for-sql">Azure Defender for SQL</a></li>
-<li><a href="#12-database">Database</a></li>
+<li><a href="#tag-azure-defender-for-sql">Azure Defender for SQL</a></li>
+<li><a href="#tag-database">Database</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-vulnerability-assessment">https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-vulnerability-assessment</a></li>
 <li><a href="https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-vulnerability-assessment-rules">https://docs.microsoft.com/en-us/azure/azure-sql/database/sql-database-vulnerability-assessment-rules</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
 <h1>Control Tags</h1>
-<h2>1. Adaptive Network Hardening</h2>
+<p><a name='tag-adaptive-network-hardening'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 1. Adaptive Network Hardening</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#45-network-security-groups">Network Security Groups</a></li>
+<li><a href="#network-security-groups">Network Security Groups</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Adaptive_Network_Hardening.json">Navigator Layer</a> (<a href="layers/tags/Adaptive_Network_Hardening.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>2. Analytics</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-analytics'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 2. Analytics</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#12-azure-alerts-for-network-layer">Azure Alerts for Network Layer</a></li>
-<li><a href="#27-azure-network-traffic-analytics">Azure Network Traffic Analytics</a></li>
-<li><a href="#31-azure-sentinel">Azure Sentinel</a></li>
+<li><a href="#azure-sentinel">Azure Sentinel</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Analytics.json">Navigator Layer</a> (<a href="layers/tags/Analytics.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>3. Azure Active Directory</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-azure-active-directory'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 3. Azure Active Directory</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#6-azure-ad-identity-protection">Azure AD Identity Protection</a></li>
-<li><a href="#7-azure-ad-identity-secure-score">Azure AD Identity Secure Score</a></li>
-<li><a href="#8-azure-ad-multi-factor-authentication">Azure AD Multi-Factor Authentication</a></li>
-<li><a href="#9-azure-ad-password-policy">Azure AD Password Policy</a></li>
-<li><a href="#10-azure-ad-privileged-identity-management">Azure AD Privileged Identity Management</a></li>
-<li><a href="#11-azure-active-directory-password-protection">Azure Active Directory Password Protection</a></li>
-<li><a href="#35-conditional-access">Conditional Access</a></li>
-<li><a href="#36-continuous-access-evaluation">Continuous Access Evaluation</a></li>
-<li><a href="#42-managed-identities-for-azure-resources">Managed identities for Azure resources</a></li>
-<li><a href="#46-passwordless-authentication">Passwordless Authentication</a></li>
-<li><a href="#47-role-based-access-control">Role Based Access Control</a></li>
+<li><a href="#role-based-access-control">Role Based Access Control</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Azure_Active_Directory.json">Navigator Layer</a> (<a href="layers/tags/Azure_Active_Directory.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>4. Azure Defender</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-azure-defender'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 4. Azure Defender</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#2-advanced-threat-protection-for-azure-sql-database">Advanced Threat Protection for Azure SQL Database</a></li>
-<li><a href="#5-alerts-for-windows-machines">Alerts for Windows Machines</a></li>
-<li><a href="#19-azure-defender-for-app-service">Azure Defender for App Service</a></li>
-<li><a href="#20-azure-defender-for-container-registries">Azure Defender for Container Registries</a></li>
-<li><a href="#21-azure-defender-for-key-vault">Azure Defender for Key Vault</a></li>
-<li><a href="#22-azure-defender-for-kubernetes">Azure Defender for Kubernetes</a></li>
-<li><a href="#23-azure-defender-for-resource-manager">Azure Defender for Resource Manager</a></li>
-<li><a href="#24-azure-defender-for-storage">Azure Defender for Storage</a></li>
-<li><a href="#38-file-integrity-monitoring">File Integrity Monitoring</a></li>
-<li><a href="#39-integrated-vulnerability-scanner-powered-by-qualys">Integrated Vulnerability Scanner Powered by Qualys</a></li>
-<li><a href="#41-linux-auditd-alerts-and-log-analytics-agent-integration">Linux auditd alerts and Log Analytics agent integration</a></li>
+<li><a href="#linux-auditd-alerts-and-log-analytics-agent-integration">Linux auditd alerts and Log Analytics agent integration</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Azure_Defender.json">Navigator Layer</a> (<a href="layers/tags/Azure_Defender.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>5. Azure Defender for SQL</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-azure-defender-for-sql'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 5. Azure Defender for SQL</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#2-advanced-threat-protection-for-azure-sql-database">Advanced Threat Protection for Azure SQL Database</a></li>
-<li><a href="#48-sql-vulnerability-assessment">SQL Vulnerability Assessment</a></li>
+<li><a href="#sql-vulnerability-assessment">SQL Vulnerability Assessment</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Azure_Defender_for_SQL.json">Navigator Layer</a> (<a href="layers/tags/Azure_Defender_for_SQL.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>6. Azure Defender for Servers</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-azure-defender-for-servers'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 6. Azure Defender for Servers</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#1-adaptive-application-controls">Adaptive Application Controls</a></li>
-<li><a href="#5-alerts-for-windows-machines">Alerts for Windows Machines</a></li>
-<li><a href="#38-file-integrity-monitoring">File Integrity Monitoring</a></li>
-<li><a href="#40-just-in-time-vm-access">Just-in-Time VM Access</a></li>
+<li><a href="#just-in-time-vm-access">Just-in-Time VM Access</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Azure_Defender_for_Servers.json">Navigator Layer</a> (<a href="layers/tags/Azure_Defender_for_Servers.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>7. Azure Security Center</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-azure-security-center'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 7. Azure Security Center</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#1-adaptive-application-controls">Adaptive Application Controls</a></li>
-<li><a href="#2-advanced-threat-protection-for-azure-sql-database">Advanced Threat Protection for Azure SQL Database</a></li>
-<li><a href="#3-alerts-for-azure-cosmos-db">Alerts for Azure Cosmos DB</a></li>
-<li><a href="#12-azure-alerts-for-network-layer">Azure Alerts for Network Layer</a></li>
-<li><a href="#19-azure-defender-for-app-service">Azure Defender for App Service</a></li>
-<li><a href="#30-azure-security-center-recommendations">Azure Security Center Recommendations</a></li>
-<li><a href="#37-docker-host-hardening">Docker Host Hardening</a></li>
-<li><a href="#38-file-integrity-monitoring">File Integrity Monitoring</a></li>
-<li><a href="#39-integrated-vulnerability-scanner-powered-by-qualys">Integrated Vulnerability Scanner Powered by Qualys</a></li>
-<li><a href="#40-just-in-time-vm-access">Just-in-Time VM Access</a></li>
-<li><a href="#43-microsoft-antimalware-for-azure">Microsoft Antimalware for Azure</a></li>
+<li><a href="#microsoft-antimalware-for-azure">Microsoft Antimalware for Azure</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Azure_Security_Center.json">Navigator Layer</a> (<a href="layers/tags/Azure_Security_Center.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>8. Azure Security Center Recommendation</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-azure-security-center-recommendation'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 8. Azure Security Center Recommendation</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#1-adaptive-application-controls">Adaptive Application Controls</a></li>
-<li><a href="#2-advanced-threat-protection-for-azure-sql-database">Advanced Threat Protection for Azure SQL Database</a></li>
-<li><a href="#8-azure-ad-multi-factor-authentication">Azure AD Multi-Factor Authentication</a></li>
-<li><a href="#14-azure-backup">Azure Backup</a></li>
-<li><a href="#15-azure-ddos-protection-standard">Azure DDOS Protection Standard</a></li>
-<li><a href="#19-azure-defender-for-app-service">Azure Defender for App Service</a></li>
-<li><a href="#20-azure-defender-for-container-registries">Azure Defender for Container Registries</a></li>
-<li><a href="#21-azure-defender-for-key-vault">Azure Defender for Key Vault</a></li>
-<li><a href="#22-azure-defender-for-kubernetes">Azure Defender for Kubernetes</a></li>
-<li><a href="#24-azure-defender-for-storage">Azure Defender for Storage</a></li>
-<li><a href="#25-azure-firewall">Azure Firewall</a></li>
-<li><a href="#26-azure-key-vault">Azure Key Vault</a></li>
-<li><a href="#28-azure-policy">Azure Policy</a></li>
-<li><a href="#29-azure-private-link">Azure Private Link</a></li>
-<li><a href="#30-azure-security-center-recommendations">Azure Security Center Recommendations</a></li>
-<li><a href="#33-azure-web-application-firewall">Azure Web Application Firewall</a></li>
-<li><a href="#38-file-integrity-monitoring">File Integrity Monitoring</a></li>
-<li><a href="#40-just-in-time-vm-access">Just-in-Time VM Access</a></li>
-<li><a href="#42-managed-identities-for-azure-resources">Managed identities for Azure resources</a></li>
-<li><a href="#45-network-security-groups">Network Security Groups</a></li>
-<li><a href="#47-role-based-access-control">Role Based Access Control</a></li>
+<li><a href="#role-based-access-control">Role Based Access Control</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Azure_Security_Center_Recommendation.json">Navigator Layer</a> (<a href="layers/tags/Azure_Security_Center_Recommendation.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>9. Containers</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-containers'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 9. Containers</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#20-azure-defender-for-container-registries">Azure Defender for Container Registries</a></li>
-<li><a href="#22-azure-defender-for-kubernetes">Azure Defender for Kubernetes</a></li>
-<li><a href="#37-docker-host-hardening">Docker Host Hardening</a></li>
+<li><a href="#docker-host-hardening">Docker Host Hardening</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Containers.json">Navigator Layer</a> (<a href="layers/tags/Containers.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>10. Credentials</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-credentials'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 10. Credentials</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#6-azure-ad-identity-protection">Azure AD Identity Protection</a></li>
-<li><a href="#7-azure-ad-identity-secure-score">Azure AD Identity Secure Score</a></li>
-<li><a href="#8-azure-ad-multi-factor-authentication">Azure AD Multi-Factor Authentication</a></li>
-<li><a href="#9-azure-ad-password-policy">Azure AD Password Policy</a></li>
-<li><a href="#11-azure-active-directory-password-protection">Azure Active Directory Password Protection</a></li>
-<li><a href="#18-azure-dedicated-hsm">Azure Dedicated HSM</a></li>
-<li><a href="#21-azure-defender-for-key-vault">Azure Defender for Key Vault</a></li>
-<li><a href="#26-azure-key-vault">Azure Key Vault</a></li>
-<li><a href="#44-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
-<li><a href="#46-passwordless-authentication">Passwordless Authentication</a></li>
+<li><a href="#passwordless-authentication">Passwordless Authentication</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Credentials.json">Navigator Layer</a> (<a href="layers/tags/Credentials.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>11. DNS</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-dns'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 11. DNS</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#4-alerts-for-dns">Alerts for DNS</a></li>
-<li><a href="#16-azure-dns-alias-records">Azure DNS Alias Records</a></li>
-<li><a href="#17-azure-dns-analytics">Azure DNS Analytics</a></li>
-<li><a href="#44-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
+<li><a href="#microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/DNS.json">Navigator Layer</a> (<a href="layers/tags/DNS.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>12. Database</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-database'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 12. Database</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#2-advanced-threat-protection-for-azure-sql-database">Advanced Threat Protection for Azure SQL Database</a></li>
-<li><a href="#3-alerts-for-azure-cosmos-db">Alerts for Azure Cosmos DB</a></li>
-<li><a href="#48-sql-vulnerability-assessment">SQL Vulnerability Assessment</a></li>
+<li><a href="#sql-vulnerability-assessment">SQL Vulnerability Assessment</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Database.json">Navigator Layer</a> (<a href="layers/tags/Database.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>13. Identity</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-identity'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 13. Identity</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#6-azure-ad-identity-protection">Azure AD Identity Protection</a></li>
-<li><a href="#7-azure-ad-identity-secure-score">Azure AD Identity Secure Score</a></li>
-<li><a href="#8-azure-ad-multi-factor-authentication">Azure AD Multi-Factor Authentication</a></li>
-<li><a href="#9-azure-ad-password-policy">Azure AD Password Policy</a></li>
-<li><a href="#10-azure-ad-privileged-identity-management">Azure AD Privileged Identity Management</a></li>
-<li><a href="#11-azure-active-directory-password-protection">Azure Active Directory Password Protection</a></li>
-<li><a href="#35-conditional-access">Conditional Access</a></li>
-<li><a href="#36-continuous-access-evaluation">Continuous Access Evaluation</a></li>
-<li><a href="#42-managed-identities-for-azure-resources">Managed identities for Azure resources</a></li>
-<li><a href="#44-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
-<li><a href="#46-passwordless-authentication">Passwordless Authentication</a></li>
-<li><a href="#47-role-based-access-control">Role Based Access Control</a></li>
+<li><a href="#role-based-access-control">Role Based Access Control</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Identity.json">Navigator Layer</a> (<a href="layers/tags/Identity.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>14. Linux</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-linux'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 14. Linux</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#13-azure-automation-update-management">Azure Automation Update Management</a></li>
-<li><a href="#19-azure-defender-for-app-service">Azure Defender for App Service</a></li>
-<li><a href="#37-docker-host-hardening">Docker Host Hardening</a></li>
-<li><a href="#38-file-integrity-monitoring">File Integrity Monitoring</a></li>
-<li><a href="#41-linux-auditd-alerts-and-log-analytics-agent-integration">Linux auditd alerts and Log Analytics agent integration</a></li>
+<li><a href="#linux-auditd-alerts-and-log-analytics-agent-integration">Linux auditd alerts and Log Analytics agent integration</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Linux.json">Navigator Layer</a> (<a href="layers/tags/Linux.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>15. MFA</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-mfa'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 15. MFA</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#7-azure-ad-identity-secure-score">Azure AD Identity Secure Score</a></li>
-<li><a href="#8-azure-ad-multi-factor-authentication">Azure AD Multi-Factor Authentication</a></li>
-<li><a href="#10-azure-ad-privileged-identity-management">Azure AD Privileged Identity Management</a></li>
-<li><a href="#35-conditional-access">Conditional Access</a></li>
+<li><a href="#conditional-access">Conditional Access</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/MFA.json">Navigator Layer</a> (<a href="layers/tags/MFA.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>16. Microsoft 365 Defender</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-microsoft-365-defender'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 16. Microsoft 365 Defender</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#6-azure-ad-identity-protection">Azure AD Identity Protection</a></li>
-<li><a href="#44-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
+<li><a href="#microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Microsoft_365_Defender.json">Navigator Layer</a> (<a href="layers/tags/Microsoft_365_Defender.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>17. Network</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-network'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 17. Network</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#4-alerts-for-dns">Alerts for DNS</a></li>
-<li><a href="#12-azure-alerts-for-network-layer">Azure Alerts for Network Layer</a></li>
-<li><a href="#15-azure-ddos-protection-standard">Azure DDOS Protection Standard</a></li>
-<li><a href="#16-azure-dns-alias-records">Azure DNS Alias Records</a></li>
-<li><a href="#17-azure-dns-analytics">Azure DNS Analytics</a></li>
-<li><a href="#25-azure-firewall">Azure Firewall</a></li>
-<li><a href="#27-azure-network-traffic-analytics">Azure Network Traffic Analytics</a></li>
-<li><a href="#29-azure-private-link">Azure Private Link</a></li>
-<li><a href="#32-azure-vpn-gateway">Azure VPN Gateway</a></li>
-<li><a href="#45-network-security-groups">Network Security Groups</a></li>
+<li><a href="#network-security-groups">Network Security Groups</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Network.json">Navigator Layer</a> (<a href="layers/tags/Network.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>18. Passwords</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-passwords'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 18. Passwords</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#8-azure-ad-multi-factor-authentication">Azure AD Multi-Factor Authentication</a></li>
-<li><a href="#9-azure-ad-password-policy">Azure AD Password Policy</a></li>
-<li><a href="#11-azure-active-directory-password-protection">Azure Active Directory Password Protection</a></li>
-<li><a href="#26-azure-key-vault">Azure Key Vault</a></li>
-<li><a href="#46-passwordless-authentication">Passwordless Authentication</a></li>
+<li><a href="#passwordless-authentication">Passwordless Authentication</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Passwords.json">Navigator Layer</a> (<a href="layers/tags/Passwords.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>19. Threat Hunting</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-threat-hunting'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 19. Threat Hunting</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#31-azure-sentinel">Azure Sentinel</a></li>
+<li><a href="#azure-sentinel">Azure Sentinel</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Threat_Hunting.json">Navigator Layer</a> (<a href="layers/tags/Threat_Hunting.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>20. Windows</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-windows'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 20. Windows</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#5-alerts-for-windows-machines">Alerts for Windows Machines</a></li>
-<li><a href="#13-azure-automation-update-management">Azure Automation Update Management</a></li>
-<li><a href="#19-azure-defender-for-app-service">Azure Defender for App Service</a></li>
-<li><a href="#38-file-integrity-monitoring">File Integrity Monitoring</a></li>
-<li><a href="#44-microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
+<li><a href="#microsoft-defender-for-identity">Microsoft Defender for Identity</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Windows.json">Navigator Layer</a> (<a href="layers/tags/Windows.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
         </article>
     </main>
 </body>
-</html>
 
+</html>

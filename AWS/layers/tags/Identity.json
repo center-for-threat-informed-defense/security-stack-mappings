@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Amazon Cognito,AWS Single Sign-On,AWS Organizations,AWS Directory Service,AWS Identity and Access Management",
+    "description": "Controls: AWS Directory Service,Amazon Cognito,AWS Single Sign-On,AWS Organizations,AWS Identity and Access Management",
     "filters": {
         "platforms": [
             "Linux",

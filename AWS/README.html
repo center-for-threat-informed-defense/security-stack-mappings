@@ -1,159 +1,83 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
-<style>
-h2
-{
-    background: url('/security-stack-mappings/icons/aws_icon.png') no-repeat #e8e8e8;
-    background-size: 50px;
-    padding-left: 60px;  /* width of the image plus a little extra padding */
-    padding-top: 5px;  /* width of the image plus a little extra padding */
-    display: block;  /* may not need this, but I've found I do */
-}
-
-a[href="#contents"]
-{
-    text-align:center;
-    display: block;
-}
-</style>
-<script type="text/javascript">
-    window.onload = function () {
-        let control_icon_style = "background: url('/security-stack-mappings/icons/aws_icon.png') no-repeat #e8e8e8; \
-             background-size: 50px; \
-             padding-left: 60px; \
-             padding-top: 0px; \
-             display: block; \
-        ";
-
-        let tag_icon_style = "background: url('/security-stack-mappings/icons/clipboard.svg') no-repeat #e8e8e8; \
-             background-size: 35px; \
-             padding-left: 40px; \
-             padding-top: 5px; \
-             display: block; \
-        ";
-
-        let controls_h2s = document.getElementsByTagName("h2");
-        let style = control_icon_style;
-        let last_item_num = 1;
-        for (let item of controls_h2s) {
-            let item_num = parseInt(item.textContent.split(".")[0]);
-            if (last_item_num > item_num){
-                style = tag_icon_style;
-            }
-            item.style.cssText = style;
-            last_item_num = item_num;
-        }
-
-        let header_items = document.querySelectorAll("h1,h2");
-        let header_dict = {};
-        for (let header_item of header_items) {
-            header_dict[header_item.textContent] = header_item;
-        }
-
-        //fix URI fragments
-        let toc_items = document.getElementsByTagName("ul")[0].getElementsByTagName("a");
-        for (let toc_item of toc_items) {
-            let fragment = toc_item.href.split("#")[1];
-            let header_item = header_dict[toc_item.textContent];
-            if(header_item){
-                header_item.innerHTML = "<a id='" + fragment + "'></a>" + header_item.innerHTML;
-            }
-        }
-        header_dict["Contents"].innerHTML ="<a id='contents'></a>" + header_dict["Contents"].innerHTML;
-
-        //fix Navigator links
-        let nav_links = document.evaluate("//a[contains(.,'Navigator Layer')]", document, null, XPathResult.ANY_TYPE, null);
-        let nav_link = null;
-        let links = [];
-        while(nav_link = nav_links.iterateNext()) {
-            links.push(nav_link);
-        }
-        for (let nav_link of links) {
-            nav_link.href = "https://mitre-attack.github.io/attack-navigator/enterprise/#layerURL=" + nav_link.href;
-            nav_link.target = "_blank";
-        }
-
-        //fix Mapping links
-        let mapping_links = document.evaluate("//a[contains(.,'Mapping File')]", document, null, XPathResult.ANY_TYPE, null);
-        let mapping_link = null;
-        let mlinks = [];
-        while(mapping_link = mapping_links.iterateNext()) {
-            mlinks.push(mapping_link);
-        }
-        for (let mapping_link of mlinks) {
-            mapping_link.href = "https://www.treedoc.org/?dataUrl=" + mapping_link.href;
-            mapping_link.target = "_blank";
-        }
-    }
-</script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css">
+    <link rel="stylesheet" href="/mappings.css">
+    <script type="text/javascript" src="/mappings.js"></script>
+    <title>Amazon Web Services Security Control Mappings to MITRE ATT&CK®</title>
 </head>
+
 <body>
     <main>
         <article class="markdown-body">
-            <div style="height:50">
-                <img src="/security-stack-mappings/icons/PRPL-CTID-third.jpeg" width="150" height="50">
-                <div style="text-align:right;float:right">
-                    <a href="https://ctid.mitre-engenuity.org/">Center for Threat-Informed Defense</a>
-                    </br>
-                    <a href="https://github.com/center-for-threat-informed-defense/security-stack-mappings">Security Stack Mapping Project on GitHub</a>
+            <div>
+                <div class="float-right">
+                    <a href="https://github.com/center-for-threat-informed-defense/security-stack-mappings">Security
+                        Stack Mapping Project on GitHub</a>
                 </div>
+                <a href="https://ctid.mitre-engenuity.org/"><img
+                        src="/security-stack-mappings/icons/PRPL-CTID-third.jpeg"
+                        alt="Center for Threat-Informed Defense logo"></a>
             </div>
             <h1>Amazon Web Services Security Control Mappings to MITRE ATT&amp;CK®</h1>
 <p>These mappings of the Amazon Web Services (AWS) security controls to MITRE ATT&amp;CK® are designed to empower organizations with independent data on which native AWS security controls are most useful in defending against the adversary TTPs that they care about. These mappings are part of a collection of mappings of native product security controls to ATT&amp;CK based on a common methodology, scoring rubric, data model, and tool set. This full set of resources is available on the Center’s project <a href="https://ctid.mitre-engenuity.org/our-work/security-stack-mappings-aws/">page</a>.</p>
-<p><a href="layers/platform.json">Aggregate Navigator Layer For All Controls</a> (<a href="layers/platform.json">JSON</a>)</p>
-<h1>Contents</h1>
+<p><a href="layers/platform.json">Aggregate Navigator Layer For All Controls (JSON)</a></p>
+<h1><a name='contents'>Contents</a></h1>
 <ul>
-<li><a href="#controls">Controls</a><ul>
-<li><a href="#1-aws-artifact">1. AWS Artifact</a></li>
-<li><a href="#2-aws-audit-manager">2. AWS Audit Manager</a></li>
-<li><a href="#3-aws-certificate-manager">3. AWS Certificate Manager</a></li>
-<li><a href="#4-aws-cloudendure-disaster-recovery">4. AWS CloudEndure Disaster Recovery</a></li>
-<li><a href="#5-aws-cloudhsm">5. AWS CloudHSM</a></li>
-<li><a href="#6-aws-cloudtrail">6. AWS CloudTrail</a></li>
-<li><a href="#7-aws-cloudwatch">7. AWS CloudWatch</a></li>
-<li><a href="#8-aws-config">8. AWS Config</a></li>
-<li><a href="#9-aws-directory-service">9. AWS Directory Service</a></li>
-<li><a href="#10-aws-firewall-manager">10. AWS Firewall Manager</a></li>
-<li><a href="#11-aws-identity-and-access-management">11. AWS Identity and Access Management</a></li>
-<li><a href="#12-aws-iot-device-defender">12. AWS IoT Device Defender</a></li>
-<li><a href="#13-aws-key-management-service">13. AWS Key Management Service</a></li>
-<li><a href="#14-aws-network-firewall">14. AWS Network Firewall</a></li>
-<li><a href="#15-aws-organizations">15. AWS Organizations</a></li>
-<li><a href="#16-aws-rds">16. AWS RDS</a></li>
-<li><a href="#17-aws-resource-access-manager">17. AWS Resource Access Manager</a></li>
-<li><a href="#18-aws-s3">18. AWS S3</a></li>
-<li><a href="#19-aws-secrets-manager">19. AWS Secrets Manager</a></li>
-<li><a href="#20-aws-security-hub">20. AWS Security Hub</a></li>
-<li><a href="#21-aws-shield">21. AWS Shield</a></li>
-<li><a href="#22-aws-single-sign-on">22. AWS Single Sign-On</a></li>
-<li><a href="#23-aws-web-application-firewall">23. AWS Web Application Firewall</a></li>
-<li><a href="#24-amazon-cognito">24. Amazon Cognito</a></li>
-<li><a href="#25-amazon-detective">25. Amazon Detective</a></li>
-<li><a href="#26-amazon-guardduty">26. Amazon GuardDuty</a></li>
-<li><a href="#27-amazon-inspector">27. Amazon Inspector</a></li>
-<li><a href="#28-amazon-macie">28. Amazon Macie</a></li>
-<li><a href="#29-amazon-virtual-private-cloud">29. Amazon Virtual Private Cloud</a></li>
+<li>Controls<ul>
+<li><a href="#aws-artifact">1. AWS Artifact</a></li>
+<li><a href="#aws-audit-manager">2. AWS Audit Manager</a></li>
+<li><a href="#aws-certificate-manager">3. AWS Certificate Manager</a></li>
+<li><a href="#aws-cloudendure-disaster-recovery">4. AWS CloudEndure Disaster Recovery</a></li>
+<li><a href="#aws-cloudhsm">5. AWS CloudHSM</a></li>
+<li><a href="#aws-cloudtrail">6. AWS CloudTrail</a></li>
+<li><a href="#aws-cloudwatch">7. AWS CloudWatch</a></li>
+<li><a href="#aws-config">8. AWS Config</a></li>
+<li><a href="#aws-directory-service">9. AWS Directory Service</a></li>
+<li><a href="#aws-firewall-manager">10. AWS Firewall Manager</a></li>
+<li><a href="#aws-identity-and-access-management">11. AWS Identity and Access Management</a></li>
+<li><a href="#aws-iot-device-defender">12. AWS IoT Device Defender</a></li>
+<li><a href="#aws-key-management-service">13. AWS Key Management Service</a></li>
+<li><a href="#aws-network-firewall">14. AWS Network Firewall</a></li>
+<li><a href="#aws-organizations">15. AWS Organizations</a></li>
+<li><a href="#aws-rds">16. AWS RDS</a></li>
+<li><a href="#aws-resource-access-manager">17. AWS Resource Access Manager</a></li>
+<li><a href="#aws-s3">18. AWS S3</a></li>
+<li><a href="#aws-secrets-manager">19. AWS Secrets Manager</a></li>
+<li><a href="#aws-security-hub">20. AWS Security Hub</a></li>
+<li><a href="#aws-shield">21. AWS Shield</a></li>
+<li><a href="#aws-single-sign-on">22. AWS Single Sign-On</a></li>
+<li><a href="#aws-web-application-firewall">23. AWS Web Application Firewall</a></li>
+<li><a href="#amazon-cognito">24. Amazon Cognito</a></li>
+<li><a href="#amazon-detective">25. Amazon Detective</a></li>
+<li><a href="#amazon-guardduty">26. Amazon GuardDuty</a></li>
+<li><a href="#amazon-inspector">27. Amazon Inspector</a></li>
+<li><a href="#amazon-macie">28. Amazon Macie</a></li>
+<li><a href="#amazon-virtual-private-cloud">29. Amazon Virtual Private Cloud</a></li>
 </ul>
 </li>
-<li><a href="#control-tags">Control Tags</a><ul>
-<li><a href="#1-auditing">1. Auditing</a></li>
-<li><a href="#2-credentials">2. Credentials</a></li>
-<li><a href="#3-database">3. Database</a></li>
-<li><a href="#4-denial-of-service">4. Denial of Service</a></li>
-<li><a href="#5-identity">5. Identity</a></li>
-<li><a href="#6-internet-of-things">6. Internet of Things</a></li>
-<li><a href="#7-iot">7. IoT</a></li>
-<li><a href="#8-metrics">8. Metrics</a></li>
-<li><a href="#9-network">9. Network</a></li>
-<li><a href="#10-not-mappable">10. Not Mappable</a></li>
-<li><a href="#11-reports">11. Reports</a></li>
-<li><a href="#12-storage">12. Storage</a></li>
+<li>Control Tags<ul>
+<li><a href="#tag-auditing">1. Auditing</a></li>
+<li><a href="#tag-credentials">2. Credentials</a></li>
+<li><a href="#tag-database">3. Database</a></li>
+<li><a href="#tag-denial-of-service">4. Denial of Service</a></li>
+<li><a href="#tag-identity">5. Identity</a></li>
+<li><a href="#tag-internet-of-things">6. Internet of Things</a></li>
+<li><a href="#tag-iot">7. IoT</a></li>
+<li><a href="#tag-metrics">8. Metrics</a></li>
+<li><a href="#tag-network">9. Network</a></li>
+<li><a href="#tag-not-mappable">10. Not Mappable</a></li>
+<li><a href="#tag-reports">11. Reports</a></li>
+<li><a href="#tag-storage">12. Storage</a></li>
 </ul>
 </li>
 </ul>
 <h1>Controls</h1>
-<h2>1. AWS Artifact</h2>
+<p><a name='aws-artifact'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 1. AWS Artifact</h2>
 <p>AWS Artifact is a central resource that provides on-demand access to AWS's security and compliance reports and online agreements. Available reports include Service Organization Control (SOC) reports, Payment Card Industry (PCI) reports, and certifications from accreditation bodies across geographies and compliance verticals that validate the implementation and operating effectiveness of AWS security controls. Agreements available include the Business Associate Addendum (BAA) and the Nondisclosure Agreement (NDA).</p>
 <ul>
 <li><a href="AWSArtifact.yaml">Mapping File</a> (<a href="AWSArtifact.yaml">YAML</a>)</li>
@@ -161,7 +85,7 @@ a[href="#contents"]
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control was not mapped because AWS Artifact provides access to reports and information but does not protect against any ATT&amp;CK techniques. All protections against ATT&amp;CK techniques are provided by the lower-level services evaluated by and referenced in those reports.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -180,17 +104,19 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#10-not-mappable">Not Mappable</a></li>
+<li><a href="#tag-not-mappable">Not Mappable</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/artifact">https://aws.amazon.com/artifact</a></li>
 <li><a href="https://docs.aws.amazon.com/artifact">https://docs.aws.amazon.com/artifact</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>2. AWS Audit Manager</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-audit-manager'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 2. AWS Audit Manager</h2>
 <p>AWS Audit Manager automates evidence collection from other services (notably AWS Config, AWS Security Hub, AWS API calls, and AWS CloudTrail) for evaluation against compliance frameworks/regulations and transformation into audit-friendly reports.</p>
 <ul>
 <li><a href="AWSAuditManager.yaml">Mapping File</a> (<a href="AWSAuditManager.yaml">YAML</a>)</li>
@@ -198,7 +124,7 @@ a[href="#contents"]
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control was not mapped because AWS Audit Manager is used to aggregate evidence from other services in order to produce audit-ready reports, not provide protection against any ATT&amp;CK techniques or adversary behaviors. All protections against ATT&amp;CK techniques are provided by the lower-level services used for the evidence collection, which are assessed in different mappings.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -217,19 +143,21 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#1-auditing">Auditing</a></li>
-<li><a href="#10-not-mappable">Not Mappable</a></li>
-<li><a href="#11-reports">Reports</a></li>
+<li><a href="#tag-auditing">Auditing</a></li>
+<li><a href="#tag-not-mappable">Not Mappable</a></li>
+<li><a href="#tag-reports">Reports</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/audit-manager">https://aws.amazon.com/audit-manager</a></li>
 <li><a href="https://docs.aws.amazon.com/audit-manager">https://docs.aws.amazon.com/audit-manager</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>3. AWS Certificate Manager</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-certificate-manager'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 3. AWS Certificate Manager</h2>
 <p>AWS Certificate Manager is an Amazon service that supports the creation, storage, and renewal of public and private SSL/TLS X.509 certificates and keys that protect AWS websites and applications.</p>
 <ul>
 <li><a href="AWSCertificateManager.yaml">Mapping File</a> (<a href="AWSCertificateManager.yaml">YAML</a>)</li>
@@ -237,7 +165,7 @@ a[href="#contents"]
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control was not mapped because AWS Certificate Manager simply issues certificates for use in other AWS services such as Elastic Load Balancing, Amazon CloudFront, AWS Elastic Beanstalk, Amazon API Gateway, AWS Nitro Enclaves, and AWS CloudFormation. It does not inherently protect against any ATT&amp;CK techniques as it cannot be used to deploy certificates to other AWS services. That must be done either manually or with services integrated into AWS Certificate Manager.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -256,24 +184,26 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-credentials">Credentials</a></li>
-<li><a href="#10-not-mappable">Not Mappable</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-not-mappable">Not Mappable</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html">https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html</a></li>
 <li><a href="https://aws.amazon.com/certificate-manager/faqs/?nc=sn&amp;loc=5">https://aws.amazon.com/certificate-manager/faqs/?nc=sn&amp;loc=5</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>4. AWS CloudEndure Disaster Recovery</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-cloudendure-disaster-recovery'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 4. AWS CloudEndure Disaster Recovery</h2>
 <p>AWS CloudEndure Disaster Recovery enables the replication and recovery of physical, virtual, and cloud-based servers into AWS Cloud including public regions, AWS GovCloud, and AWS Outposts. AWS CloudEndure continuously replicates servers and can launch fully provisioned machines within minutes in the event that a disaster such as data center failures, server corruption, or cyber attacks occur.</p>
 <ul>
 <li><a href="AWSCloudEndure.yaml">Mapping File</a> (<a href="AWSCloudEndure.yaml">YAML</a>)</li>
 <li><a href="layers/AWSCloudEndure.json">Navigator Layer</a> (<a href="layers/AWSCloudEndure.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -328,19 +258,21 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/cloudendure-disaster-recovery/">https://aws.amazon.com/cloudendure-disaster-recovery/</a></li>
 <li><a href="https://docs.cloudendure.com/#Configuring_and_Running_Disaster_Recovery/Configuring_and_Running_Disaster_Recovery.htm">https://docs.cloudendure.com/#Configuring_and_Running_Disaster_Recovery/Configuring_and_Running_Disaster_Recovery.htm</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>5. AWS CloudHSM</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-cloudhsm'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 5. AWS CloudHSM</h2>
 <p>AWS CloudHSM provides hardware security modules (HSM) in the AWS Cloud.  Using this service allows generating, storing, importing, exporting, and managing cryptographic keys, including symmetric keys and asymmetric key pairs.</p>
 <ul>
 <li><a href="AWSCloudHSM.yaml">Mapping File</a> (<a href="AWSCloudHSM.yaml">YAML</a>)</li>
 <li><a href="layers/AWSCloudHSM.json">Navigator Layer</a> (<a href="layers/AWSCloudHSM.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -371,18 +303,20 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-credentials">Credentials</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/cloudhsm/">https://aws.amazon.com/cloudhsm/</a></li>
 <li><a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/use-cases.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/use-cases.html</a></li>
 <li><a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html">https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>6. AWS CloudTrail</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-cloudtrail'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 6. AWS CloudTrail</h2>
 <p>AWS CloudTrail is an AWS service that helps you enable governance, compliance, and operational and risk auditing of your AWS account. Actions taken by a user, role, or an AWS service are recorded as events in CloudTrail.</p>
 <ul>
 <li><a href="AWSCloudTrail.yaml">Mapping File</a> (<a href="AWSCloudTrail.yaml">YAML</a>)</li>
@@ -390,7 +324,7 @@ a[href="#contents"]
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control is not mappable because it does not provide any detection of malicious techniques. It primarily provides a way to log and record events within AWS which then can be piped to other security controls to determine if malicious activity has occurred.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -409,22 +343,24 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#10-not-mappable">Not Mappable</a></li>
+<li><a href="#tag-not-mappable">Not Mappable</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html">https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>7. AWS CloudWatch</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-cloudwatch'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 7. AWS CloudWatch</h2>
 <p>AWS CloudWatch monitors resources, applications, and services to collect and track metrics in real-time. These metrics provide visibility into resource utilization, performance, and health. AWS CloudWatch integrates with over 70 AWS services including Amazon EC2, Amazon S3, and Amazon ECS among others. </p>
 <ul>
 <li><a href="AWSCloudWatch.yaml">Mapping File</a> (<a href="AWSCloudWatch.yaml">YAML</a>)</li>
 <li><a href="layers/AWSCloudWatch.json">Navigator Layer</a> (<a href="layers/AWSCloudWatch.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -455,16 +391,18 @@ a[href="#contents"]
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#8-metrics">Metrics</a></li>
+<li><a href="#tag-metrics">Metrics</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html">https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>8. AWS Config</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-config'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 8. AWS Config</h2>
 <p>AWS Config rules evaluate the configuration settings of AWS resources in order to detect resources that are out of compliance with internal policies and best practices.</p>
 <ul>
 <li><a href="AWSConfig.yaml">Mapping File</a> (<a href="AWSConfig.yaml">YAML</a>)</li>
@@ -473,7 +411,7 @@ a[href="#contents"]
 <h3>Mapping Comments</h3>
 <p>Mappings are based on the set of AWS managed rules provided by AWS Config, which are predefined rules that AWS Config uses to test for compliance with common best practices.<br />
 AWS Config rules can be set to one of two types, "configuration changes" and "periodic", which are evaluated upon configuration changes and at a user-defined period, respectively.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -672,14 +610,16 @@ AWS Config rules can be set to one of two types, "configuration changes" and "pe
 </tr>
 </tbody>
 </table>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/config">https://docs.aws.amazon.com/config</a></li>
 <li><a href="https://docs.aws.amazon.com/config/latest/developerguide">https://docs.aws.amazon.com/config/latest/developerguide</a></li>
 <li><a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>9. AWS Directory Service</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-directory-service'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 9. AWS Directory Service</h2>
 <p>AWS Directory Service for Microsoft Active Directory, also known as AWS Managed Microsoft Active Directory (AD), enables your directory-aware workloads and AWS resources to use managed Active Directory (AD) in AWS.</p>
 <ul>
 <li><a href="AWSDirectoryService.yaml">Mapping File</a> (<a href="AWSDirectoryService.yaml">YAML</a>)</li>
@@ -687,7 +627,7 @@ AWS Config rules can be set to one of two types, "configuration changes" and "pe
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control was not mapped because it is primarily acting as a connector for Microsoft Active Directory with AWS services and does not provide any security functions other than allowing use of other AWS security controls.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -706,17 +646,19 @@ AWS Config rules can be set to one of two types, "configuration changes" and "pe
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#5-identity">Identity</a></li>
-<li><a href="#10-not-mappable">Not Mappable</a></li>
+<li><a href="#tag-identity">Identity</a></li>
+<li><a href="#tag-not-mappable">Not Mappable</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/directory-service/index.html#lang/en_us">https://docs.aws.amazon.com/directory-service/index.html#lang/en_us</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>10. AWS Firewall Manager</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-firewall-manager'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 10. AWS Firewall Manager</h2>
 <p>AWS Firewall Manager is a security management service that allows you to configure and manage rules and security groups for AWS WAF, AWS Shield, AWS VPC, AWS Network Firewall, and Amazon Route 53 Resolvers DNS Firewall across multiple AWS accounts and resources.  </p>
 <ul>
 <li><a href="AWSFirewallManager.yaml">Mapping File</a> (<a href="AWSFirewallManager.yaml">YAML</a>)</li>
@@ -724,7 +666,7 @@ AWS Config rules can be set to one of two types, "configuration changes" and "pe
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control was not mapped because AWS Firewall Manager is simply a management service for other AWS security services. It does not inherently protect against any ATT&amp;CK (sub-)techniques. All protections against ATT&amp;CK (sub-)techniques are provided by the lower-level services that it manages (e.g., AWS WAF, AWS Network Firewall, etc.).  This is evident by the fact that to use firewall rules or security groups, they must first be configured in the respective lower-level services.   </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -743,23 +685,25 @@ AWS Config rules can be set to one of two types, "configuration changes" and "pe
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#9-network">Network</a></li>
-<li><a href="#10-not-mappable">Not Mappable</a></li>
+<li><a href="#tag-network">Network</a></li>
+<li><a href="#tag-not-mappable">Not Mappable</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html">https://docs.aws.amazon.com/waf/latest/developerguide/fms-chapter.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>11. AWS Identity and Access Management</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-identity-and-access-management'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 11. AWS Identity and Access Management</h2>
 <p>AWS Identity and Access Management (IAM) is a web service that helps you securely control access to AWS resources. You use IAM to control who is authenticated (signed in) and authorized (has permissions) to use resources.</p>
 <ul>
 <li><a href="AWSIAM.yaml">Mapping File</a> (<a href="AWSIAM.yaml">YAML</a>)</li>
 <li><a href="layers/AWSIAM.json">Navigator Layer</a> (<a href="layers/AWSIAM.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -808,17 +752,19 @@ AWS Config rules can be set to one of two types, "configuration changes" and "pe
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-credentials">Credentials</a></li>
-<li><a href="#5-identity">Identity</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-identity">Identity</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/iam/index.html">https://docs.aws.amazon.com/iam/index.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>12. AWS IoT Device Defender</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-iot-device-defender'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 12. AWS IoT Device Defender</h2>
 <p>AWS IoT Device Defender is a security service that allows users to audit the configuration of their Internet of Things (IoT) devices, monitor connected devices to detect abnormal behavior, and mitigate security risks. It provides the ability to enforce consistent security policies across AWS IoT device fleets and respond when devices are compromised.</p>
 <ul>
 <li><a href="AWSIOTDeviceDefender.yaml">Mapping File</a> (<a href="AWSIOTDeviceDefender.yaml">YAML</a>)</li>
@@ -827,7 +773,7 @@ AWS Config rules can be set to one of two types, "configuration changes" and "pe
 <h3>Mapping Comments</h3>
 <p>Mappings for AWS IoT Device Defender audit are based on the current set of AWS IoT Device Defender audit checks that can be enabled. AWS IoT Device Defender's predefined mitigation actions are also included for those audit checks that support them. Audit checks can be run as needed (on-demand audits) or scheduled to be run periodically (scheduled audits), so temporal scoring factors are uniformly high for this control, based on the assumption that checks are run (at minimum) on a frequent basis. Audit check and mitigation names are identified in quotes throughout this mapping.<br />
 Mappings for AWS IoT Device Defender detect are based on the current set of AWS IoT Device Defender device-side and cloud-side detection metrics. Cloud-side detection alarms are triggered when set thresholds are exceeded, and device-side detection metrics are published on a chosen interval with a minimum value of 5 minutes, so temporal scoring factors are uniformly high for this control, based on the assumption that thresholds are set to sensible values that detect suspicious values quickly and device-side metric publishing is not set to an unreasonably large interval. Detect metric names are identified in quotes throughout this mapping.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -930,12 +876,12 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#6-internet-of-things">Internet of Things</a></li>
-<li><a href="#7-iot">IoT</a></li>
+<li><a href="#tag-internet-of-things">Internet of Things</a></li>
+<li><a href="#tag-iot">IoT</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/iot-device-defender/">https://aws.amazon.com/iot-device-defender/</a></li>
 <li><a href="https://docs.aws.amazon.com/iot-device-defender">https://docs.aws.amazon.com/iot-device-defender</a></li>
@@ -947,14 +893,16 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 <li><a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit">https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-audit</a></li>
 <li><a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect">https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-detect</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>13. AWS Key Management Service</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-key-management-service'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 13. AWS Key Management Service</h2>
 <p>AWS Key Management Service (KMS) allows you to create and manage cryptographic keys and control their usage across a wide range of AWS services and in your applications. It uses hardware security modules that have been validated under FIPS 140-2.</p>
 <ul>
 <li><a href="AWSKeyManagementService.yaml">Mapping File</a> (<a href="AWSKeyManagementService.yaml">YAML</a>)</li>
 <li><a href="layers/AWSKeyManagementService.json">Navigator Layer</a> (<a href="layers/AWSKeyManagementService.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -979,23 +927,25 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-credentials">Credentials</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/kms/">https://aws.amazon.com/kms/</a></li>
 <li><a href="https://docs.aws.amazon.com/kms/latest/developerguide/overview.html">https://docs.aws.amazon.com/kms/latest/developerguide/overview.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>14. AWS Network Firewall</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-network-firewall'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 14. AWS Network Firewall</h2>
 <p>The AWS Network Firewall provides a stateful network firewall and intrusion detection and prevention system (via Suricata) at the perimeter of virtual private clouds (VPCs). It is able to filter traffic going to and coming from an internet gateway, NAT gateway, VPN, or AWS  Direct Connect.</p>
 <ul>
 <li><a href="AWSNetworkFirewall.yaml">Mapping File</a> (<a href="AWSNetworkFirewall.yaml">YAML</a>)</li>
 <li><a href="layers/AWSNetworkFirewall.json">Navigator Layer</a> (<a href="layers/AWSNetworkFirewall.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1140,22 +1090,24 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#9-network">Network</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html">https://docs.aws.amazon.com/network-firewall/latest/developerguide/what-is-aws-network-firewall.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>15. AWS Organizations</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-organizations'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 15. AWS Organizations</h2>
 <p>AWS Organizations is an account management service that enables you to consolidate multiple AWS accounts into an organization that you create and centrally manage. AWS Organizations is integrated with other AWS services so you can define central configurations, security mechanisms, and resource sharing across accounts in your organization.</p>
 <ul>
 <li><a href="AWSOrganizations.yaml">Mapping File</a> (<a href="AWSOrganizations.yaml">YAML</a>)</li>
 <li><a href="layers/AWSOrganizations.json">Navigator Layer</a> (<a href="layers/AWSOrganizations.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1192,23 +1144,25 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#5-identity">Identity</a></li>
+<li><a href="#tag-identity">Identity</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html">https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html</a></li>
 <li><a href="https://aws.amazon.com/organizations/getting-started/best-practices/">https://aws.amazon.com/organizations/getting-started/best-practices/</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>16. AWS RDS</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-rds'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 16. AWS RDS</h2>
 <p>AWS Relational Database Service (RDS) is a service that simplifies the setup, operation, and scaling of relational databases in AWS. AWS RDS manages backups, software patching, automatic failure detection, and recovery of databases. AWS RDS supports MySQL, MariaDB, PostgreSQL, Oracle, and Microsoft SQL Server instances.</p>
 <ul>
 <li><a href="AWSRDS.yaml">Mapping File</a> (<a href="AWSRDS.yaml">YAML</a>)</li>
 <li><a href="layers/AWSRDS.json">Navigator Layer</a> (<a href="layers/AWSRDS.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1329,16 +1283,18 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#3-database">Database</a></li>
+<li><a href="#tag-database">Database</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html">https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>17. AWS Resource Access Manager</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-resource-access-manager'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 17. AWS Resource Access Manager</h2>
 <p>AWS RAM lets you share your resources with an organization or organizational units (OUs) in AWS Organizations, and AWS accounts. For supported resource types, you can also share resources with IAM roles and IAM users.</p>
 <ul>
 <li><a href="AWSResourceAccessManager.yaml">Mapping File</a> (<a href="AWSResourceAccessManager.yaml">YAML</a>)</li>
@@ -1346,7 +1302,7 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </ul>
 <h3>Mapping Comments</h3>
 <p>This control is not mappable because it does not provide any security capabilities other than allowing for use of security features contained within AWS Organizations and AWS Identity and Access Management.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1365,16 +1321,18 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#10-not-mappable">Not Mappable</a></li>
+<li><a href="#tag-not-mappable">Not Mappable</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/ram/latest/userguide/what-is.html">https://docs.aws.amazon.com/ram/latest/userguide/what-is.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>18. AWS S3</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-s3'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 18. AWS S3</h2>
 <p>Amazon Simple Storage Service (Amazon S3) is an object storage service that offers industry-leading scalability, data availability, security, and performance.  Amazon S3 has a simple web services interface that you can use to store and retrieve any amount of data, at any time, from anywhere on the web.</p>
 <ul>
 <li><a href="AWSS3.yaml">Mapping File</a> (<a href="AWSS3.yaml">YAML</a>)</li>
@@ -1382,7 +1340,7 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </ul>
 <h3>Mapping Comments</h3>
 <p>The S3 server access logging feature was not mapped because it was deemed to be a data source that can be used with other detective controls rather than a security control in of itself.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1407,22 +1365,24 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#12-storage">Storage</a></li>
+<li><a href="#tag-storage">Storage</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html">https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>19. AWS Secrets Manager</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-secrets-manager'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 19. AWS Secrets Manager</h2>
 <p>AWS Secrets Manager helps you protect secrets needed to access your applications, services, and IT resources. The service enables you to easily rotate, manage, and retrieve database credentials, API keys, and other secrets throughout their lifecycle.</p>
 <ul>
 <li><a href="AWSSecretsManager.yaml">Mapping File</a> (<a href="AWSSecretsManager.yaml">YAML</a>)</li>
 <li><a href="layers/AWSSecretsManager.json">Navigator Layer</a> (<a href="layers/AWSSecretsManager.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1459,17 +1419,19 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-credentials">Credentials</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html</a></li>
 <li><a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/best-practices.html">https://docs.aws.amazon.com/secretsmanager/latest/userguide/best-practices.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>20. AWS Security Hub</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-security-hub'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 20. AWS Security Hub</h2>
 <p>AWS Security Hub is a tool that supports the aggregation, organization, and prioritization of security alerts and findings from multiple services including Amazon GuardDuty, Amazon Inspector, Amazon Macie, AWS Identity and Access Management (IAM) Access Analyzer, AWS Systems Manager, AWS Firewall Manager, and AWS Partner Network (APN) solutions. To do this, AWS Security Hub relies on managed insights which are collections of findings that identify security areas that need to be addressed as well as custom checks for different detections. While AWS Security Hub supports  custom insights and numerous AWS Config checks, this mapping focuses only on the managed insights  and the custom Security Hub checks provided by Amazon. Custom managed insights and AWS Config checks are considered out of scope for this mapping as the custom managed insights will vary from organization  to organization and AWS Config has its own mapping. </p>
 <ul>
 <li><a href="AWSSecurityHub.yaml">Mapping File</a> (<a href="AWSSecurityHub.yaml">YAML</a>)</li>
@@ -1478,7 +1440,7 @@ Mappings for AWS IoT Device Defender detect are based on the current set of AWS 
 <h3>Mapping Comments</h3>
 <p>Managed Insights: AWS Security Hub reports on collections of related findings which are known as managed insights. When possible, these managed insights are mapped to ATT&amp;CK techniques (e.g., "S3 buckets with public write or read permissions"). It should be noted that not all managed insights have the level of detail to be able to map them to ATT&amp;CK techniques and are not included in the mapping (e.g., "EC2 instances involved in known Tactics, Techniques, and Procedures (TTPs)"). <br />
 AWS Config: AWS Security Hub supports reporting on findings from AWS Config (e.g., for CIS AWS Foundations Benchmark controls among others). Given that AWS Config is its own service, these findings will not be mapped to ATT&amp;CK. The only controls that will be included in this mapping  are those for which Security Hub implements custom logic. It should also be noted that there will  be a future CTID project that maps specific CIS Benchmarks to ATT&amp;CK techniques. </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1599,12 +1561,14 @@ AWS Config: AWS Security Hub supports reporting on findings from AWS Config (e.g
 </tr>
 </tbody>
 </table>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html">https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>21. AWS Shield</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-shield'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 21. AWS Shield</h2>
 <p>AWS Shield is a service that protects against Distributed Denial of Service attacks. There are two tiers for this service Standard and Advanced.<br />
 AWS Shield Standard defends against most common, frequently occurring network and transport (Layer 3 and 4 attacks) layer DDoS attacks that target your web site or applications.<br />
 AWS Shield Advanced adds on to standard by providing additional detection and mitigation against large and sophisticated DDoS attacks. There is near real-time visibility into attacks. AWS Shield Advanced also comes with 24x7 access to the AWS DDoS Response Team (DRT).</p>
@@ -1614,7 +1578,7 @@ AWS Shield Advanced adds on to standard by providing additional detection and mi
 </ul>
 <h3>Mapping Comments</h3>
 <p>There is not much documentation that lends itself useful to scoring the accuracy of this control although offerings such as Shield Advanced protection groups and the AWS Shield Response Team (SRT) can be leveraged to improve the accuracy of this control. The control states that DDOS attacks can be mitigated in real time (temporal factor) and not increase cause latency for impacted services.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1639,24 +1603,26 @@ AWS Shield Advanced adds on to standard by providing additional detection and mi
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#4-denial-of-service">Denial of Service</a></li>
-<li><a href="#9-network">Network</a></li>
+<li><a href="#tag-denial-of-service">Denial of Service</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/shield/?whats-new-cards.sort-by=item.additionalFields.postDateTime&amp;whats-new-cards.sort-order=desc">https://aws.amazon.com/shield/?whats-new-cards.sort-by=item.additionalFields.postDateTime&amp;whats-new-cards.sort-order=desc</a></li>
 <li><a href="https://aws.amazon.com/shield/features/">https://aws.amazon.com/shield/features/</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>22. AWS Single Sign-On</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-single-sign-on'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 22. AWS Single Sign-On</h2>
 <p>AWS Single Sign-On is a cloud-based single sign-on (SSO) service that makes it easy to centrally manage SSO access to all your AWS accounts and cloud applications. Specifically, it helps you manage SSO access and user permissions across all your AWS accounts in AWS Organizations. AWS SSO also helps you manage access and permissions to commonly used third-party software as a service (SaaS) applications, AWS SSO-integrated applications as well as custom applications that support Security Assertion Markup Language (SAML) 2.0.</p>
 <ul>
 <li><a href="AWSSSO.yaml">Mapping File</a> (<a href="AWSSSO.yaml">YAML</a>)</li>
 <li><a href="layers/AWSSSO.json">Navigator Layer</a> (<a href="layers/AWSSSO.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1687,23 +1653,25 @@ AWS Shield Advanced adds on to standard by providing additional detection and mi
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#2-credentials">Credentials</a></li>
-<li><a href="#5-identity">Identity</a></li>
+<li><a href="#tag-credentials">Credentials</a></li>
+<li><a href="#tag-identity">Identity</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>23. AWS Web Application Firewall</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='aws-web-application-firewall'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 23. AWS Web Application Firewall</h2>
 <p>The AWS Web Application Firewall (WAF) protects web applications and Application Programmer Interfaces (APIs) from exploits and bots that may impact the availability and security of resources by filtering out unwanted or malicious web traffic based on a set of rules. AWS WAF can be configured to control how Amazon CloudFront, Amazon API Gateway REST API, Application Load Balancer, and AWS AppSync GraphQL API respond to web requests. This mapping focuses on the AWS Managed Rules rule groups currently available. It does not cover paid solutions from Amazon or managed rules from Amazon Marketplace. </p>
 <ul>
 <li><a href="AWSWebApplicationFirewall.yaml">Mapping File</a> (<a href="AWSWebApplicationFirewall.yaml">YAML</a>)</li>
 <li><a href="layers/AWSWebApplicationFirewall.json">Navigator Layer</a> (<a href="layers/AWSWebApplicationFirewall.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1764,25 +1732,27 @@ AWS Shield Advanced adds on to standard by providing additional detection and mi
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#9-network">Network</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/waf/">https://aws.amazon.com/waf/</a></li>
 <li><a href="https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html">https://docs.aws.amazon.com/waf/latest/developerguide/what-is-aws-waf.html</a></li>
 <li><a href="https://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html">https://docs.aws.amazon.com/waf/latest/APIReference/Welcome.html</a></li>
 <li><a href="https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html">https://docs.aws.amazon.com/waf/latest/developerguide/aws-managed-rule-groups-list.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>24. Amazon Cognito</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='amazon-cognito'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 24. Amazon Cognito</h2>
 <p>Amazon Cognito is a service that provides user management for web and mobile apps. The service establishes authentication and authorization for its registered users. </p>
 <ul>
 <li><a href="AmazonCognito.yaml">Mapping File</a> (<a href="AmazonCognito.yaml">YAML</a>)</li>
 <li><a href="layers/AmazonCognito.json">Navigator Layer</a> (<a href="layers/AmazonCognito.json">JSON</a>)</li>
 </ul>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1807,18 +1777,20 @@ AWS Shield Advanced adds on to standard by providing additional detection and mi
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#5-identity">Identity</a></li>
+<li><a href="#tag-identity">Identity</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html</a></li>
 <li><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-compromised-credentials.html">https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-compromised-credentials.html</a></li>
 <li><a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html">https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>25. Amazon Detective</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='amazon-detective'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 25. Amazon Detective</h2>
 <p>Amazon Detective is an automated data enrichment tool that extracts time-based events from other services such as AWS CloudTrail, Amazon VPC flow logs, and GuardDuty.<br />
 These events include: login attempts,  API calls,  and network traffic and can be very useful in understanding security issues or operational account activity. Amazon Detective uses machine learning, statistical analysis, and graph theory to help you visualize and conduct faster and more efficient security investigations.</p>
 <ul>
@@ -1827,7 +1799,7 @@ These events include: login attempts,  API calls,  and network traffic and can b
 </ul>
 <h3>Mapping Comments</h3>
 <p>Although this service can be scored as a Response control (Minimal/Data Enrichment/Forensics), due to the generic nature of its functionality, currently it does not look to be reasonably mappable to specific (sub-)techniques of MITRE ATT&amp;CK.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -1846,18 +1818,20 @@ These events include: login attempts,  API calls,  and network traffic and can b
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#10-not-mappable">Not Mappable</a></li>
+<li><a href="#tag-not-mappable">Not Mappable</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://aws.amazon.com/detective/">https://aws.amazon.com/detective/</a></li>
 <li><a href="https://aws.amazon.com/detective/faqs/">https://aws.amazon.com/detective/faqs/</a></li>
 <li><a href="https://docs.aws.amazon.com/detective/latest/adminguide/what-is-detective.html">https://docs.aws.amazon.com/detective/latest/adminguide/what-is-detective.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>26. Amazon GuardDuty</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='amazon-guardduty'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 26. Amazon GuardDuty</h2>
 <p>Amazon GuardDuty is a threat detection service that continuously monitors for malicious activity and unauthorized behavior to protect your AWS accounts, workloads, and data stored in Amazon S3. The service uses machine learning, anomaly detection, and integrated threat intelligence to identify and prioritize potential threats. GuardDuty analyzes tens of billions of events across multiple AWS data sources, such as AWS CloudTrail event logs, Amazon VPC Flow Logs, and DNS logs.</p>
 <ul>
 <li><a href="AmazonGuardDuty.yaml">Mapping File</a> (<a href="AmazonGuardDuty.yaml">YAML</a>)</li>
@@ -1870,7 +1844,7 @@ The following findings were not mappable:<br />
   Backdoor:EC2/Spambot<br />
   Impact:EC2/AbusedDomainRequest.Reputation<br />
   InitialAccess:IAMUser/AnomalousBehavior  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2057,13 +2031,15 @@ The following findings were not mappable:<br />
 </tr>
 </tbody>
 </table>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-ec2.html#recon-ec2-portscan">https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-ec2.html#recon-ec2-portscan</a></li>
 <li><a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html">https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>27. Amazon Inspector</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='amazon-inspector'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 27. Amazon Inspector</h2>
 <p>Amazon Inspector is an automated assessment service that evaluates the security and compliance of applications in AWS. It supports assessment packages for CVEs, CIS Benchmarks (various Windows and Linux platforms), Best Practices (Linux only), and Network Reachability. The result of running an assessment is a list of findings that can be used to inform decision-making processes that improve the security of applications.  </p>
 <ul>
 <li><a href="AmazonInspector.yaml">Mapping File</a> (<a href="AmazonInspector.yaml">YAML</a>)</li>
@@ -2071,7 +2047,7 @@ The following findings were not mappable:<br />
 </ul>
 <h3>Mapping Comments</h3>
 <p>The CIS Benchmarks assessment package is considered out of scope because a separate project will be responsible for mapping CIS Benchmarks and ATT&amp;CK.  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2222,12 +2198,14 @@ The following findings were not mappable:<br />
 </tr>
 </tbody>
 </table>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html">https://docs.aws.amazon.com/inspector/latest/userguide/inspector_introduction.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>28. Amazon Macie</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='amazon-macie'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 28. Amazon Macie</h2>
 <p>Amazon Macie is a fully managed data security and data privacy service that uses machine learning and pattern matching to help you discover, monitor, and protect sensitive data in your AWS environment.  Macie automates the discovery of sensitive data, such as personally identifiable information (PII) and financial data, to provide you with a better understanding of the data that your organization stores in Amazon Simple Storage Service (Amazon S3).<br />
 Macie also provides you with an inventory of your S3 buckets, and it automatically evaluates and monitors those buckets for security and access control. Within minutes, Macie can identify and report overly permissive or unencrypted buckets for your organization.<br />
 If Macie detects sensitive data or potential issues with the security or privacy of your data, it creates detailed findings for you to review and remediate as necessary.</p>
@@ -2237,7 +2215,7 @@ If Macie detects sensitive data or potential issues with the security or privacy
 </ul>
 <h3>Mapping Comments</h3>
 <p>Although the service detects the instance of sensitive data, it does not create an alert for the user to take immediate action. It does create a log report which the user can then view to see the results of the scan jobs.    </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2280,11 +2258,11 @@ If Macie detects sensitive data or potential issues with the security or privacy
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#12-storage">Storage</a></li>
+<li><a href="#tag-storage">Storage</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/macie/latest/user/securityhub-integration.html#securityhub-integration-finding-example">https://docs.aws.amazon.com/macie/latest/user/securityhub-integration.html#securityhub-integration-finding-example</a></li>
 <li><a href="https://docs.aws.amazon.com/macie/latest/user/custom-data-identifiers.html">https://docs.aws.amazon.com/macie/latest/user/custom-data-identifiers.html</a></li>
@@ -2292,8 +2270,10 @@ If Macie detects sensitive data or potential issues with the security or privacy
 <li><a href="https://docs.aws.amazon.com/macie/latest/user/discovery-jobs-manage.html">https://docs.aws.amazon.com/macie/latest/user/discovery-jobs-manage.html</a></li>
 <li><a href="https://docs.aws.amazon.com/macie/latest/user/findings-types.html">https://docs.aws.amazon.com/macie/latest/user/findings-types.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>29. Amazon Virtual Private Cloud</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='amazon-virtual-private-cloud'></a></p>
+<h2><img alt="GCP icon" src="/security-stack-mappings/icons/aws_icon.png" /> 29. Amazon Virtual Private Cloud</h2>
 <p>Amazon Virtual Private Cloud (Amazon VPC) is a service that lets you launch AWS resources in a logically isolated virtual network that you define.  Amazon VPC provides advanced security features that allow you to perform inbound and outbound filtering at the instance and subnet level.  Amazon VPC also has monitoring features that let you perform functions like out-of-band monitoring and inline traffic inspection, which help you screen and secure traffic.</p>
 <ul>
 <li><a href="AmazonVirtualPrivateCloud.yaml">Mapping File</a> (<a href="AmazonVirtualPrivateCloud.yaml">YAML</a>)</li>
@@ -2301,7 +2281,7 @@ If Macie detects sensitive data or potential issues with the security or privacy
 </ul>
 <h3>Mapping Comments</h3>
 <p>The mappings contained in this file were based on Amazon's "Security in Amazon Virtual Private Cloud" documentation listed in the references section. The following VPC components were assessed to produce this mapping: Security Groups, Network Access Control Lists (NACLs), VPC Peering, VPC Endpoints, and Virtual Private Network (VPN).  </p>
-<h3>Technique(s)</h3>
+<h3>Techniques</h3>
 <table>
 <thead>
 <tr>
@@ -2464,159 +2444,162 @@ If Macie detects sensitive data or potential issues with the security or privacy
 </tr>
 </tbody>
 </table>
-<h3>Tag(s)</h3>
+<h3>Tags</h3>
 <ul>
-<li><a href="#9-network">Network</a></li>
+<li><a href="#tag-network">Network</a></li>
 </ul>
-<h3>Reference(s)</h3>
+<h3>References</h3>
 <ul>
 <li><a href="https://docs.aws.amazon.com/vpc/latest/userguide/security.html">https://docs.aws.amazon.com/vpc/latest/userguide/security.html</a></li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
 <h1>Control Tags</h1>
-<h2>1. Auditing</h2>
+<p><a name='tag-auditing'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 1. Auditing</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#2-aws-audit-manager">AWS Audit Manager</a></li>
+<li><a href="#aws-audit-manager">AWS Audit Manager</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Auditing.json">Navigator Layer</a> (<a href="layers/tags/Auditing.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>2. Credentials</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-credentials'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 2. Credentials</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#3-aws-certificate-manager">AWS Certificate Manager</a></li>
-<li><a href="#5-aws-cloudhsm">AWS CloudHSM</a></li>
-<li><a href="#11-aws-identity-and-access-management">AWS Identity and Access Management</a></li>
-<li><a href="#13-aws-key-management-service">AWS Key Management Service</a></li>
-<li><a href="#19-aws-secrets-manager">AWS Secrets Manager</a></li>
-<li><a href="#22-aws-single-sign-on">AWS Single Sign-On</a></li>
+<li><a href="#aws-single-sign-on">AWS Single Sign-On</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Credentials.json">Navigator Layer</a> (<a href="layers/tags/Credentials.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>3. Database</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-database'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 3. Database</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#16-aws-rds">AWS RDS</a></li>
+<li><a href="#aws-rds">AWS RDS</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Database.json">Navigator Layer</a> (<a href="layers/tags/Database.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>4. Denial of Service</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-denial-of-service'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 4. Denial of Service</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#21-aws-shield">AWS Shield</a></li>
+<li><a href="#aws-shield">AWS Shield</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Denial_of_Service.json">Navigator Layer</a> (<a href="layers/tags/Denial_of_Service.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>5. Identity</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-identity'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 5. Identity</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#9-aws-directory-service">AWS Directory Service</a></li>
-<li><a href="#11-aws-identity-and-access-management">AWS Identity and Access Management</a></li>
-<li><a href="#15-aws-organizations">AWS Organizations</a></li>
-<li><a href="#22-aws-single-sign-on">AWS Single Sign-On</a></li>
-<li><a href="#24-amazon-cognito">Amazon Cognito</a></li>
+<li><a href="#amazon-cognito">Amazon Cognito</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Identity.json">Navigator Layer</a> (<a href="layers/tags/Identity.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>6. Internet of Things</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-internet-of-things'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 6. Internet of Things</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#12-aws-iot-device-defender">AWS IoT Device Defender</a></li>
+<li><a href="#aws-iot-device-defender">AWS IoT Device Defender</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Internet_of_Things.json">Navigator Layer</a> (<a href="layers/tags/Internet_of_Things.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>7. IoT</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-iot'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 7. IoT</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#12-aws-iot-device-defender">AWS IoT Device Defender</a></li>
+<li><a href="#aws-iot-device-defender">AWS IoT Device Defender</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/IoT.json">Navigator Layer</a> (<a href="layers/tags/IoT.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>8. Metrics</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-metrics'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 8. Metrics</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#7-aws-cloudwatch">AWS CloudWatch</a></li>
+<li><a href="#aws-cloudwatch">AWS CloudWatch</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Metrics.json">Navigator Layer</a> (<a href="layers/tags/Metrics.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>9. Network</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-network'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 9. Network</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#10-aws-firewall-manager">AWS Firewall Manager</a></li>
-<li><a href="#14-aws-network-firewall">AWS Network Firewall</a></li>
-<li><a href="#21-aws-shield">AWS Shield</a></li>
-<li><a href="#23-aws-web-application-firewall">AWS Web Application Firewall</a></li>
-<li><a href="#29-amazon-virtual-private-cloud">Amazon Virtual Private Cloud</a></li>
+<li><a href="#amazon-virtual-private-cloud">Amazon Virtual Private Cloud</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Network.json">Navigator Layer</a> (<a href="layers/tags/Network.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>10. Not Mappable</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-not-mappable'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 10. Not Mappable</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#1-aws-artifact">AWS Artifact</a></li>
-<li><a href="#2-aws-audit-manager">AWS Audit Manager</a></li>
-<li><a href="#3-aws-certificate-manager">AWS Certificate Manager</a></li>
-<li><a href="#6-aws-cloudtrail">AWS CloudTrail</a></li>
-<li><a href="#9-aws-directory-service">AWS Directory Service</a></li>
-<li><a href="#10-aws-firewall-manager">AWS Firewall Manager</a></li>
-<li><a href="#17-aws-resource-access-manager">AWS Resource Access Manager</a></li>
-<li><a href="#25-amazon-detective">Amazon Detective</a></li>
+<li><a href="#amazon-detective">Amazon Detective</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Not_Mappable.json">Navigator Layer</a> (<a href="layers/tags/Not_Mappable.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>11. Reports</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-reports'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 11. Reports</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#2-aws-audit-manager">AWS Audit Manager</a></li>
+<li><a href="#aws-audit-manager">AWS Audit Manager</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Reports.json">Navigator Layer</a> (<a href="layers/tags/Reports.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
-<h2>12. Storage</h2>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
+
+<p><a name='tag-storage'></a></p>
+<h2><img alt="tag icon" src="/security-stack-mappings/icons/tag-solid.svg" /> 12. Storage</h2>
 <h3>Controls</h3>
 <ul>
-<li><a href="#18-aws-s3">AWS S3</a></li>
-<li><a href="#28-amazon-macie">Amazon Macie</a></li>
+<li><a href="#amazon-macie">Amazon Macie</a></li>
 </ul>
 <h3>Views</h3>
 <ul>
 <li><a href="layers/tags/Storage.json">Navigator Layer</a> (<a href="layers/tags/Storage.json">JSON</a>)</li>
 </ul>
-<p><a href="#contents">Back to Table Of Contents</a></p>
+<p class="text-center"><a href="#contents">Back to Contents</a></p>
         </article>
     </main>
 </body>
-</html>
 
+</html>

@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Continuous Access Evaluation,Azure AD Identity Protection,Azure AD Identity Secure Score,Passwordless Authentication,Azure Active Directory Password Protection,Azure AD Multi-Factor Authentication,Conditional Access,Azure AD Password Policy,Azure AD Privileged Identity Management,Managed identities for Azure resources,Role Based Access Control",
+    "description": "Controls: Role Based Access Control,Azure AD Password Policy,Azure AD Identity Protection,Conditional Access,Azure AD Multi-Factor Authentication,Continuous Access Evaluation,Passwordless Authentication,Azure AD Identity Secure Score,Azure Active Directory Password Protection,Managed identities for Azure resources,Azure AD Privileged Identity Management",
     "filters": {
         "platforms": [
             "Linux",
@@ -34,17 +34,17 @@
     "hideDisabled": false,
     "techniques": [
         {
-            "techniqueID": "T1078",
+            "techniqueID": "T1087",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Continuous Access Evaluation"
+                    "value": "Role Based Access Control"
                 },
                 {
                     "name": "category",
-                    "value": "Respond"
+                    "value": "Protect"
                 },
                 {
                     "name": "value",
@@ -52,7 +52,61 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control only protects cloud accounts and therefore its overall coverage is minimal resulting in a Minimal respond score for this technique."
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for its procedure examples nor its remaining sub-technqiues and therefore its coverage score factor is Minimal, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1087.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the accounts that can be used for account discovery."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for its procedure examples (due to being specific to Azure AD) nor its remaining sub-technqiues.  Consequently its coverage score factor is Minimal, resulting in a Minimal score."
                 },
                 {
                     "divider": true
@@ -93,6 +147,63 @@
                 },
                 {
                     "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides minimal protection for this technique's procedure examples along and also only protects one of its sub-techniques resulting in an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Multi-Factor Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only protects cloud accounts and therefore its overall protection coverage is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Continuous Access Evaluation"
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only protects cloud accounts and therefore its overall coverage is minimal resulting in a Minimal respond score for this technique."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure AD Identity Secure Score"
                 },
                 {
@@ -127,44 +238,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only protects cloud accounts and therefore its overall protection coverage is Minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides minimal protection for this technique's procedure examples along and also only protects one of its sub-techniques resulting in an overall Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure AD Privileged Identity Management"
                 },
                 {
@@ -178,25 +251,6 @@
                 {
                     "name": "comment",
                     "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for its procedure examples (due to being specific to Azure AD) nor its remaining sub-technqiues.  Consequently its coverage score factor is Minimal, resulting in a Minimal score."
                 }
             ],
             "color": "#9305ff",
@@ -211,11 +265,11 @@
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Continuous Access Evaluation"
+                    "value": "Role Based Access Control"
                 },
                 {
                     "name": "category",
-                    "value": "Respond"
+                    "value": "Protect"
                 },
                 {
                     "name": "value",
@@ -223,7 +277,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Security controls like Azure AD Identity Protection can raise a user's risk level asynchronously after they have used a valid account to access organizational data.  This CAE control can respond to this change in the users risky state to terminate the user's access within minutes or enforce an additional authentication method such as MFA.   This mitigates the impact of an adversary using a valid account.  This is control only forces the user to re-authenticate and doesn't resolve the usage of a valid account (i.e. password change) and is therefore a containment type of response. "
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit what an adversary can do with a valid account."
                 },
                 {
                     "divider": true
@@ -264,6 +318,63 @@
                 },
                 {
                     "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can protect against the abuse of valid cloud accounts by requiring MFA or blocking access altogether based on signals such as the user's IP location information, device compliance state, risky sign-in/user state (through integration with Azure AD Identity Protection).  Additionally, session controls that can limit what a valid user can do within an app can also be triggered based on the aforementioned triggers."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Multi-Factor Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted.  This is an incomplete protection measure though as the adversary may also have obtained credentials enabling bypassing the additional authentication method. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Continuous Access Evaluation"
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Security controls like Azure AD Identity Protection can raise a user's risk level asynchronously after they have used a valid account to access organizational data.  This CAE control can respond to this change in the users risky state to terminate the user's access within minutes or enforce an additional authentication method such as MFA.   This mitigates the impact of an adversary using a valid account.  This is control only forces the user to re-authenticate and doesn't resolve the usage of a valid account (i.e. password change) and is therefore a containment type of response. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure AD Identity Secure Score"
                 },
                 {
@@ -298,7 +409,7 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
+                    "value": "Azure AD Privileged Identity Management"
                 },
                 {
                     "name": "category",
@@ -310,14 +421,87 @@
                 },
                 {
                     "name": "comment",
-                    "value": "MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted.  This is an incomplete protection measure though as the adversary may also have obtained credentials enabling bypassing the additional authentication method. "
+                    "value": "This control's Access Review feature supports scheduling a routine review of cloud account permission levels to look for those that could allow an adversary to gain wide access.  This information can then be used to validate if such access is required and identify which (privileged) accounts should be monitored closely.  This reduces the availability of valid accounts to adversaries.  This review would normally be scheduled periodically, at most weekly, and therefore its temporal score is Partial."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
                 },
                 {
                     "divider": true
                 },
                 {
                     "name": "control",
-                    "value": "Conditional Access"
+                    "value": "Azure AD Privileged Identity Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any detection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can create accounts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Privileged Identity Management"
                 },
                 {
                     "name": "category",
@@ -329,7 +513,34 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control can protect against the abuse of valid cloud accounts by requiring MFA or blocking access altogether based on signals such as the user's IP location information, device compliance state, risky sign-in/user state (through integration with Azure AD Identity Protection).  Additionally, session controls that can limit what a valid user can do within an app can also be triggered based on the aforementioned triggers."
+                    "value": "Privileged roles such as the User Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition, these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides protection for some of this technique's sub-techniques and therefore its coverage score factor is Partial, resulting in a Partial score."
                 },
                 {
                     "divider": true
@@ -348,11 +559,34 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control's Access Review feature supports scheduling a routine review of cloud account permission levels to look for those that could allow an adversary to gain wide access.  This information can then be used to validate if such access is required and identify which (privileged) accounts should be monitored closely.  This reduces the availability of valid accounts to adversaries.  This review would normally be scheduled periodically, at most weekly, and therefore its temporal score is Partial."
+                    "value": "This control provides significant protection for some of this technique's sub-techniques while not providing any protection for others, resulting in a Partial score."
                 },
                 {
                     "divider": true
                 },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides detection for one of this technique's sub-techniques while not providing any detection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
                 {
                     "name": "control",
                     "value": "Role Based Access Control"
@@ -367,13 +601,877 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit what an adversary can do with a valid account."
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can modify accounts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Privileged Identity Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Privileged roles such as the Application Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can modify accounts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Privileged Identity Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can require MFA to be triggered when the Global Administrator role is assigned to an account or when the role is activated by a user."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can notify administrators whenever the Global Administrator role is assigned to an account and can therefore be used to detect the execution of this sub-technique.  Assigning the Global Administrator role to an account is an infrequent operation and as a result, the false positive rate should be minimal."
                 }
             ],
             "color": "#5c00a3",
             "score_num": 100,
             "score_display": "Significant",
             "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1578",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for all of its sub-techniques and therefore its coverage score factor is Partial, resulting in a Partial score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1578.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can perform these privileged operations."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1578.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can perform these privileged operations."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1578.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can perform these privileged operations."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1578.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can perform these privileged operations."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1580",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to limit the number of users that have privileges to discover cloud infrastructure thereby reducing an organization's cloud infrastructure attack surface."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1538",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to limit the number of users that have dashboard visibility thereby reducing the attack surface."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to limit the number of users that have access to storage solutions except for the applications, users, and services that require access, thereby reducing the attack surface."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access, when granting (risky) users access to cloud storage, specifically OneDrive, can restrict what they can do in these applications using its app-enforced restrictions.   For example, it can enforce that users on unmanaged devices will have browser-only access to OneDrive with no ability to download, print, or sync files.  This can impede an adversary's ability to exfiltrate data from OneDrive.  The protection coverage provided by this control is Minimal as it doesn't provide protection for other storage services available on Azure such as the Azure Storage service."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1528",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Role Based Access Control"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to limit the number of users that are authorized to grant consent to applications for accessing organizational data.  This can reduce the likelihood that a user is fooled into granting consent to a malicious application that then utilizes the user's OAuth access token to access organizational data."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Identity Secure Score"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Do not allow users to grant consent to unmanaged applications\" recommendation can protect against an adversary constructing a malicious application designed to be granted access to resources with the target user's OAuth token by ensuring users can not be fooled into granting consent to the application. \nDue to this being a recommendation, its score is capped at Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Password Policy"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for most of this technique's sub-techniques and therefore has been scored as Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Identity Protection"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides Minimal detection for one of this technique's sub-techniques while not providing any detection for the remaining, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Provides significant response capabilities for one of this technique's sub-techniques (Password Spray).  Due to this capability being specific to one of its sub-techniques and not its remaining sub-techniques, the coverage score is Minimal resulting in an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which provides significant protection against  password compromises, requiring an adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Multi-Factor Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Passwordless Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection against this brute force technique by completing obviating the need for passwords by replacing it with passwordless credentials."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Identity Secure Score"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The MFA recommendation provides significant protection against password compromises, but because this is a recommendation and doesn't actually enforce MFA, the assessed score is capped at Partial. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Active Directory Password Protection"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Password Policy"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The password restrictions provided by the default Password policy along with the lockout threshold and duration settings is an effective protection against this Password Guessing sub-technique."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Multi-Factor Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Passwordless Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection against password based attacks by completing obviating the need for passwords by replacing it with passwordless credentials."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Identity Secure Score"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Active Directory Password Protection"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Password Policy"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The password restrictions provided by the default Password policy can provide partial protection against password cracking but a determined adversary with sufficient resources can still be successful with this attack vector.\nIn regards to Credential Stuffing, the password policy's lockout threshold can be partially effective in mitigating this sub-technique as it may lock the account before the correct credential is attempted.   Although with credential stuffing, the number of passwords attempted for an account is often (much) fewer than with Password Guessing reducing the effectiveness of a lockout threshold.  This led to its score being assessed as Partial rather than Significant (as was assessed for Password Guessing)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Passwordless Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection against password based attacks by completing obviating the need for passwords by replacing it with passwordless credentials."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Identity Secure Score"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Active Directory Password Protection"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Password Policy"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The password restrictions provided by the default Password policy can provide partial protection against password cracking but a determined adversary with sufficient resources can still be successful with this attack vector.\nIn regards to Credential Stuffing, the password policy's lockout threshold can be partially effective in mitigating this sub-technique as it may lock the account before the correct credential is attempted.   Although with credential stuffing, the number of passwords attempted for an account is often (much) fewer than with Password Guessing reducing the effectiveness of a lockout threshold.  This led to its score being assessed as Partial rather than Significant (as was assessed for Password Guessing)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Multi-Factor Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Passwordless Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection against password based attacks by completing obviating the need for passwords by replacing it with passwordless credentials."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Identity Secure Score"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Active Directory Password Protection"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
         },
         {
             "techniqueID": "T1078.002",
@@ -559,162 +1657,6 @@
             "category": "Mixed"
         },
         {
-            "techniqueID": "T1110",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Identity Protection"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides Minimal detection for one of this technique's sub-techniques while not providing any detection for the remaining, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Respond"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Provides significant response capabilities for one of this technique's sub-techniques (Password Spray).  Due to this capability being specific to one of its sub-techniques and not its remaining sub-techniques, the coverage score is Minimal resulting in an overall Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Identity Secure Score"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The MFA recommendation provides significant protection against password compromises, but because this is a recommendation and doesn't actually enforce MFA, the assessed score is capped at Partial. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Passwordless Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection against this brute force technique by completing obviating the need for passwords by replacing it with passwordless credentials."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Active Directory Password Protection"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which provides significant protection against  password compromises, requiring an adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Password Policy"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for most of this technique's sub-techniques and therefore has been scored as Partial."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
             "techniqueID": "T1110.003",
             "enabled": true,
             "showSubtechniques": false,
@@ -755,26 +1697,7 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure AD Identity Secure Score"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Passwordless Authentication"
+                    "value": "Conditional Access"
                 },
                 {
                     "name": "category",
@@ -786,26 +1709,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control provides significant protection against password based attacks by completing obviating the need for passwords by replacing it with passwordless credentials."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Active Directory Password Protection"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
+                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
                 },
                 {
                     "divider": true
@@ -831,7 +1735,7 @@
                 },
                 {
                     "name": "control",
-                    "value": "Conditional Access"
+                    "value": "Passwordless Authentication"
                 },
                 {
                     "name": "category",
@@ -843,7 +1747,45 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
+                    "value": "This control provides significant protection against password based attacks by completing obviating the need for passwords by replacing it with passwordless credentials."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure AD Identity Secure Score"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Active Directory Password Protection"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
                 }
             ],
             "color": "#5c00a3",
@@ -852,86 +1794,10 @@
             "category": "Mixed"
         },
         {
-            "techniqueID": "T1110.001",
+            "techniqueID": "T1074",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Identity Secure Score"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Passwordless Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection against password based attacks by completing obviating the need for passwords by replacing it with passwordless credentials."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Active Directory Password Protection"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
                 {
                     "name": "control",
                     "value": "Conditional Access"
@@ -942,99 +1808,23 @@
                 },
                 {
                     "name": "value",
-                    "value": "Significant"
+                    "value": "Minimal"
                 },
                 {
                     "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Password Policy"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "The password restrictions provided by the default Password policy along with the lockout threshold and duration settings is an effective protection against this Password Guessing sub-technique."
+                    "value": "This control only provides the ability to restrict file downloads for a limited set of applications and therefore its overall Coverage score is minimal."
                 }
             ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
-            "techniqueID": "T1110.002",
+            "techniqueID": "T1074.002",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Identity Secure Score"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Passwordless Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection against password based attacks by completing obviating the need for passwords by replacing it with passwordless credentials."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Active Directory Password Protection"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
                 {
                     "name": "control",
                     "value": "Conditional Access"
@@ -1045,118 +1835,23 @@
                 },
                 {
                     "name": "value",
-                    "value": "Significant"
+                    "value": "Minimal"
                 },
                 {
                     "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Password Policy"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The password restrictions provided by the default Password policy can provide partial protection against password cracking but a determined adversary with sufficient resources can still be successful with this attack vector.\nIn regards to Credential Stuffing, the password policy's lockout threshold can be partially effective in mitigating this sub-technique as it may lock the account before the correct credential is attempted.   Although with credential stuffing, the number of passwords attempted for an account is often (much) fewer than with Password Guessing reducing the effectiveness of a lockout threshold.  This led to its score being assessed as Partial rather than Significant (as was assessed for Password Guessing)."
+                    "value": "Conditional Access (CA), when granting (risky) users access to Office applications like SharePoint and OneDrive, can restrict what they can do in these applications using its app-enforced restrictions.   For example, it can enforce that users on unmanaged devices will have browser-only access to SharePoint/OneDrive with no ability to download, print, or sync files.  This can impede an adversary's ability to collect and stage files.  This offers minimal coverage as it requires the target application to support such a feature that can be triggered by this control and to date only a few (Office) applications support this."
                 }
             ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
-            "techniqueID": "T1110.004",
+            "techniqueID": "T1074.001",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Identity Secure Score"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Passwordless Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection against password based attacks by completing obviating the need for passwords by replacing it with passwordless credentials."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Active Directory Password Protection"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
                 {
                     "name": "control",
                     "value": "Conditional Access"
@@ -1167,18 +1862,53 @@
                 },
                 {
                     "name": "value",
-                    "value": "Significant"
+                    "value": "Minimal"
                 },
                 {
                     "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
-                },
-                {
-                    "divider": true
-                },
+                    "value": "Conditional Access (CA), when granting (risky) users access to Office applications like SharePoint and OneDrive, can restrict what they can do in these applications using its app-enforced restrictions.   For example, it can enforce that users on unmanaged devices will have browser-only access to SharePoint/OneDrive with no ability to download, print, or sync files.  This can impede an adversary's ability to collect and stage files.  This offers minimal coverage as it requires the target application to support such a feature that can be triggered by this control and to date only a few (Office) applications support this."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1213",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure AD Password Policy"
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides the ability to restrict an adversary from collecting valuable information for a limited set of applications (SharePoint, Exchange, OneDrive) and therefore its overall Coverage score is minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1213.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
                 },
                 {
                     "name": "category",
@@ -1190,12 +1920,12 @@
                 },
                 {
                     "name": "comment",
-                    "value": "The password restrictions provided by the default Password policy can provide partial protection against password cracking but a determined adversary with sufficient resources can still be successful with this attack vector.\nIn regards to Credential Stuffing, the password policy's lockout threshold can be partially effective in mitigating this sub-technique as it may lock the account before the correct credential is attempted.   Although with credential stuffing, the number of passwords attempted for an account is often (much) fewer than with Password Guessing reducing the effectiveness of a lockout threshold.  This led to its score being assessed as Partial rather than Significant (as was assessed for Password Guessing)."
+                    "value": "Conditional Access (CA), when granting (risky) users access to Office applications like SharePoint can restrict what they can do in these applications using its app-enforced restrictions.   For example, it can enforce that users on unmanaged devices will have browser-only access to SharePoint with no ability to download, print, or sync files.  Furthermore, with its integration with Microsoft Cloud App Security, it can even restrict  cut, copy and paste operations.  This can impede an adversary's ability to collect valuable information and/or files from the application.   This protection is partial as it doesn't prohibit an adversary from potentially viewing sensitive information and manually collecting it, for example simply writing down information by hand."
                 }
             ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
@@ -1272,52 +2002,6 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Designate more than one global admin\" can enable recovery from an adversary locking a global administrator account (deleted, locked, or manipulated (ex: changed credentials)).  Due to this being a recommendation, its score is capped as Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1528",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Identity Secure Score"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's \"Do not allow users to grant consent to unmanaged applications\" recommendation can protect against an adversary constructing a malicious application designed to be granted access to resources with the target user's OAuth token by ensuring users can not be fooled into granting consent to the application. \nDue to this being a recommendation, its score is capped at Partial."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to limit the number of users that are authorized to grant consent to applications for accessing organizational data.  This can reduce the likelihood that a user is fooled into granting consent to a malicious application that then utilizes the user's OAuth access token to access organizational data."
                 }
             ],
             "color": "#659D32",
@@ -1669,447 +2353,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1074",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides the ability to restrict file downloads for a limited set of applications and therefore its overall Coverage score is minimal."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1074.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access (CA), when granting (risky) users access to Office applications like SharePoint and OneDrive, can restrict what they can do in these applications using its app-enforced restrictions.   For example, it can enforce that users on unmanaged devices will have browser-only access to SharePoint/OneDrive with no ability to download, print, or sync files.  This can impede an adversary's ability to collect and stage files.  This offers minimal coverage as it requires the target application to support such a feature that can be triggered by this control and to date only a few (Office) applications support this."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1074.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access (CA), when granting (risky) users access to Office applications like SharePoint and OneDrive, can restrict what they can do in these applications using its app-enforced restrictions.   For example, it can enforce that users on unmanaged devices will have browser-only access to SharePoint/OneDrive with no ability to download, print, or sync files.  This can impede an adversary's ability to collect and stage files.  This offers minimal coverage as it requires the target application to support such a feature that can be triggered by this control and to date only a few (Office) applications support this."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1530",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access, when granting (risky) users access to cloud storage, specifically OneDrive, can restrict what they can do in these applications using its app-enforced restrictions.   For example, it can enforce that users on unmanaged devices will have browser-only access to OneDrive with no ability to download, print, or sync files.  This can impede an adversary's ability to exfiltrate data from OneDrive.  The protection coverage provided by this control is Minimal as it doesn't provide protection for other storage services available on Azure such as the Azure Storage service."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to limit the number of users that have access to storage solutions except for the applications, users, and services that require access, thereby reducing the attack surface."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1213",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides the ability to restrict an adversary from collecting valuable information for a limited set of applications (SharePoint, Exchange, OneDrive) and therefore its overall Coverage score is minimal."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1213.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access (CA), when granting (risky) users access to Office applications like SharePoint can restrict what they can do in these applications using its app-enforced restrictions.   For example, it can enforce that users on unmanaged devices will have browser-only access to SharePoint with no ability to download, print, or sync files.  Furthermore, with its integration with Microsoft Cloud App Security, it can even restrict  cut, copy and paste operations.  This can impede an adversary's ability to collect valuable information and/or files from the application.   This protection is partial as it doesn't prohibit an adversary from potentially viewing sensitive information and manually collecting it, for example simply writing down information by hand."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1098",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection for some of this technique's sub-techniques while not providing any protection for others, resulting in a Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides detection for one of this technique's sub-techniques while not providing any detection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides protection for some of this technique's sub-techniques and therefore its coverage score factor is Partial, resulting in a Partial score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1098.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can require MFA to be triggered when the Global Administrator role is assigned to an account or when the role is activated by a user."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can notify administrators whenever the Global Administrator role is assigned to an account and can therefore be used to detect the execution of this sub-technique.  Assigning the Global Administrator role to an account is an infrequent operation and as a result, the false positive rate should be minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can modify accounts."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1098.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Privileged roles such as the Application Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can modify accounts."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1136",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any detection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1136.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Privileged roles such as the User Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition, these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can create accounts."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
             "techniqueID": "T1552.001",
             "enabled": true,
             "showSubtechniques": false,
@@ -2129,249 +2372,6 @@
                 {
                     "name": "comment",
                     "value": "This control provides an alternative to hard-coding credentials for accessing Azure services in application code.  This control only protects credentials for accessing Azure services and not other credential types, resulting in a Partial coverage score."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1087",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for its procedure examples nor its remaining sub-technqiues and therefore its coverage score factor is Minimal, resulting in a Minimal score."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1087.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the accounts that can be used for account discovery."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1578",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for all of its sub-techniques and therefore its coverage score factor is Partial, resulting in a Partial score."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1578.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can perform these privileged operations."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1578.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can perform these privileged operations."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1578.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can perform these privileged operations."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1578.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to implement the least-privilege principle for account management  and thereby limit the number of accounts that can perform these privileged operations."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1580",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to limit the number of users that have privileges to discover cloud infrastructure thereby reducing an organization's cloud infrastructure attack surface."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1538",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Role Based Access Control"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to limit the number of users that have dashboard visibility thereby reducing the attack surface."
                 }
             ],
             "color": "#659D32",
