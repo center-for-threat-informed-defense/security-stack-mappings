@@ -54,6 +54,8 @@ jobs:
           rm -rf docs/AWS
           cp -r mappings/Azure docs/
           cp -r mappings/AWS docs/
+          cp mappings.* docs/Azure/
+          cp mappings.* docs/AWS/
       - name: Generate Index Page
         run: |
           echo '<meta http-equiv="refresh" content="0; URL=Azure/README.html" />' > docs/index.html
