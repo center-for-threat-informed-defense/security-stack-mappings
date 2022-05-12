@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Azure Defender for Kubernetes,Docker Host Hardening,Azure Defender for Container Registries",
+    "description": "Controls: Azure Defender for Kubernetes,Azure Defender for Container Registries,Docker Host Hardening",
     "filters": {
         "platforms": [
             "Linux",
@@ -59,25 +59,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure Defender for Container Registries"
                 },
                 {
@@ -106,6 +87,25 @@
                 {
                     "name": "comment",
                     "value": "This control may scan and alert on import or creation of container images with known vulnerabilities or a possible expanded surface area for exploitation."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
                 }
             ],
             "color": "#9305ff",
@@ -185,25 +185,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure Defender for Container Registries"
                 },
                 {
@@ -217,6 +198,25 @@
                 {
                     "name": "comment",
                     "value": "This control may provide recommendations to avoid privileged containers and running containers as root."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
                 }
             ],
             "color": "#9305ff",

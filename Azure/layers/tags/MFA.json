@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Conditional Access,Azure AD Multi-Factor Authentication,Azure AD Identity Secure Score,Azure AD Privileged Identity Management",
+    "description": "Controls: Azure AD Multi-Factor Authentication,Conditional Access,Azure AD Privileged Identity Management,Azure AD Identity Secure Score",
     "filters": {
         "platforms": [
             "Linux",
@@ -40,25 +40,6 @@
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which provides significant protection against  password compromises, requiring an adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure AD Multi-Factor Authentication"
                 },
                 {
@@ -72,6 +53,25 @@
                 {
                     "name": "comment",
                     "value": "MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which provides significant protection against  password compromises, requiring an adversary to complete an additional authentication method before their access is permitted."
                 },
                 {
                     "divider": true
@@ -105,25 +105,6 @@
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure AD Multi-Factor Authentication"
                 },
                 {
@@ -141,33 +122,6 @@
                 {
                     "divider": true
                 },
-                {
-                    "name": "control",
-                    "value": "Azure AD Identity Secure Score"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
                 {
                     "name": "control",
                     "value": "Conditional Access"
@@ -216,25 +170,6 @@
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure AD Multi-Factor Authentication"
                 },
                 {
@@ -248,6 +183,25 @@
                 {
                     "name": "comment",
                     "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
                 },
                 {
                     "divider": true
@@ -281,25 +235,6 @@
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Conditional Access"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure AD Multi-Factor Authentication"
                 },
                 {
@@ -313,6 +248,25 @@
                 {
                     "name": "comment",
                     "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
                 },
                 {
                     "divider": true
@@ -346,6 +300,25 @@
             "metadata": [
                 {
                     "name": "control",
+                    "value": "Azure AD Multi-Factor Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only protects cloud accounts and therefore its overall protection coverage is Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Conditional Access"
                 },
                 {
@@ -365,7 +338,7 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
+                    "value": "Azure AD Privileged Identity Management"
                 },
                 {
                     "name": "category",
@@ -377,7 +350,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control only protects cloud accounts and therefore its overall protection coverage is Minimal."
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
                 },
                 {
                     "divider": true
@@ -412,25 +385,6 @@
                 {
                     "name": "comment",
                     "value": "This control provides recommendations that can lead to the detection of the malicious usage of valid cloud accounts but does not provide recommendations for the remaining sub-techniques Additionally, it provides limited detection for this technique's procedure examples. Consequently, its overall detection coverage score is minimal."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
                 }
             ],
             "color": "#bf6bff",
@@ -443,6 +397,25 @@
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Multi-Factor Authentication"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted.  This is an incomplete protection measure though as the adversary may also have obtained credentials enabling bypassing the additional authentication method. "
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "Conditional Access"
@@ -464,7 +437,7 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure AD Multi-Factor Authentication"
+                    "value": "Azure AD Privileged Identity Management"
                 },
                 {
                     "name": "category",
@@ -476,7 +449,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted.  This is an incomplete protection measure though as the adversary may also have obtained credentials enabling bypassing the additional authentication method. "
+                    "value": "This control's Access Review feature supports scheduling a routine review of cloud account permission levels to look for those that could allow an adversary to gain wide access.  This information can then be used to validate if such access is required and identify which (privileged) accounts should be monitored closely.  This reduces the availability of valid accounts to adversaries.  This review would normally be scheduled periodically, at most weekly, and therefore its temporal score is Partial."
                 },
                 {
                     "divider": true
@@ -511,13 +484,40 @@
                 {
                     "name": "comment",
                     "value": "This control's \"Turn on sign-in risk policy\" and \"Turn on user risk policy\" recommendations recommend enabling Azure AD Identity Protection which can lead to detecting adversary usage of valid accounts.  See the mapping for Azure AD Identity Protection."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1110.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Conditional Access"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Conditional Access can be used to enforce MFA for users which can significantly reduce the impact of a password compromise, requiring an adversary to complete an additional authentication method before  their access is permitted."
                 },
                 {
                     "divider": true
                 },
                 {
                     "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
+                    "value": "Azure AD Identity Secure Score"
                 },
                 {
                     "name": "category",
@@ -529,13 +529,13 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control's Access Review feature supports scheduling a routine review of cloud account permission levels to look for those that could allow an adversary to gain wide access.  This information can then be used to validate if such access is required and identify which (privileged) accounts should be monitored closely.  This reduces the availability of valid accounts to adversaries.  This review would normally be scheduled periodically, at most weekly, and therefore its temporal score is Partial."
+                    "value": "This control's \"Require MFA for administrative roles\" and \"Ensure all users can complete multi-factor authentication for secure access\" recommendations for enabling MFA can significantly lead to reducing the impact of a password compromise of accounts, requiring the adversary to complete an additional authentication method before their access is permitted.\nThis control's \"Do not expire passwords\" recommendation also can lead to mitigating the Password Guessing or Cracking sub-techniques by disabling password reset which tends to lead to users selecting weaker passwords.  \nThis control's \"Enable policy to block legacy authentication\" and \"Stop legacy protocols communication\" recommendations can lead to protecting against these brute force attacks as Microsoft research has shown organizations that have disabled legacy authentication experience 67 percent fewer compromises than those where legacy authentication is enabled. Additionally, the same research shows that more than 99 percent of password spray and more than 97 percent of credential stuffing attacks use legacy authentication.\nThis control's \"Resolve unsecure account attributes\" recommendation can lead to detecting accounts with disabled (Kerberos) Preauthentication which can enable offline Password Cracking.\nBecause these are recommendations and do not actually enforce MFA, the assessed score is capped at Partial. "
                 }
             ],
-            "color": "#5c00a3",
+            "color": "#7FFF00",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Mixed"
+            "category": "Protect"
         },
         {
             "techniqueID": "T1074",
@@ -697,6 +697,171 @@
             "color": "#659D32",
             "score_num": 50,
             "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Privileged Identity Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection for some of this technique's sub-techniques while not providing any protection for others, resulting in a Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides detection for one of this technique's sub-techniques while not providing any detection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1098.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Privileged Identity Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can require MFA to be triggered when the Global Administrator role is assigned to an account or when the role is activated by a user."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can notify administrators whenever the Global Administrator role is assigned to an account and can therefore be used to detect the execution of this sub-technique.  Assigning the Global Administrator role to an account is an infrequent operation and as a result, the false positive rate should be minimal."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Privileged Identity Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Privileged roles such as the Application Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Privileged Identity Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any detection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1136.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure AD Privileged Identity Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Privileged roles such as the User Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition, these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
@@ -1211,171 +1376,6 @@
             "score_num": 50,
             "score_display": "Partial",
             "category": "Detect"
-        },
-        {
-            "techniqueID": "T1098",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection for some of this technique's sub-techniques while not providing any protection for others, resulting in a Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides detection for one of this technique's sub-techniques while not providing any detection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1098.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can require MFA to be triggered when the Global Administrator role is assigned to an account or when the role is activated by a user."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can notify administrators whenever the Global Administrator role is assigned to an account and can therefore be used to detect the execution of this sub-technique.  Assigning the Global Administrator role to an account is an infrequent operation and as a result, the false positive rate should be minimal."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1098.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Privileged roles such as the Application Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1136",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any detection for the remaining and therefore its coverage score is Minimal, resulting in a Minimal score."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1136.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure AD Privileged Identity Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Privileged roles such as the User Administrator role can be configured to require MFA on activation to provide additional protection against the execution of this technique.  In addition, these privileged roles can be assigned as eligible rather than permanently active roles to further reduce the attack surface."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
         }
     ],
     "gradient": {
