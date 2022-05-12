@@ -32,16 +32,19 @@ jobs:
         run: |
           ./mapping_cli.py validate --mapping-dir ../mappings/Azure
           ./mapping_cli.py validate --mapping-dir ../mappings/AWS
+          ./mapping_cli.py validate --mapping-dir ../mappings/GCP
       - name: Generate ATT&CK Navigator Visualization
         working-directory: ./tools
         run: |
           ./mapping_cli.py visualize --visualizer AttackNavigator --skip-validation --include-aggregate --mapping-dir ../mappings/Azure
           ./mapping_cli.py visualize --visualizer AttackNavigator --skip-validation --include-aggregate --mapping-dir ../mappings/AWS
+          ./mapping_cli.py visualize --visualizer AttackNavigator --skip-validation --include-aggregate --mapping-dir ../mappings/GCP
       - name: Generate Markdown Summary Visualization
         working-directory: ./tools
         run: |
           ./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html --mapping-dir ../mappings/Azure
           ./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html --mapping-dir ../mappings/AWS
+          ./mapping_cli.py visualize --visualizer MarkdownSummary --skip-validation --include-html --mapping-dir ../mappings/GCP
       - name: Prepare icons and images
         run: |
           mkdir -p docs/icons
@@ -52,10 +55,13 @@ jobs:
         run: |
           rm -rf docs/Azure
           rm -rf docs/AWS
+          rm -rf docs/GCP
           cp -r mappings/Azure docs/
           cp -r mappings/AWS docs/
+          cp -r mappings/GCP docs/
           cp mappings.* docs/Azure/
           cp mappings.* docs/AWS/
+          cp mappings.* docs/GCP/
       - name: Generate Index Page
         run: |
           echo '<meta http-equiv="refresh" content="0; URL=Azure/README.html" />' > docs/index.html
