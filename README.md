@@ -34,10 +34,10 @@ Released on September 21, 2021, these mappings cover the native security control
 | [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/GCP/README.html) | [YAML Mappings](mappings/GCP) | [ATT&CK Navigator Layers](mappings/GCP/layers) |
 | ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ---------------------------------------------- |
 
-
-Released on June 27, 2022, these mappings cover the native security controls of Google Cloud Platform for version 10.0 of MITRE ATT&CK. The following scoping decisions influenced the GCP mappings:
-- ATT&CK Scope: This work is focused on ATT&CK techniques and sub-techniques included in ATT&CK for Enterprise v10; Mobile techniques are not covered.
-- Native Security Controls: This work focused on mapping the security controls produced by GCP or branded as GCP products. Third-party security controls available on the platform were excluded from analysis.
+Released on June 28, 2022, these mappings cover the native security controls of Google Cloud Platform (GCP) for version 10 of MITRE ATT&CK. The following scoping decisions influenced the GCP mappings:
+- ATT&CK Scope: This work is focused on ATT&CK (sub-)techniques included in the Enterprise domain v10; mobile techniques are not covered.
+- Native Security Controls: This work focused on mapping the security controls produced by Google or offered as Google products. The selected controls are considered native to the platform, i.e., produced by the vendor themselves or third-party controls branded or acquired by the vendor. Third-party security controls offered in cloud marketplaces are considered out of scope and were excluded from analysis.
+- Google Cloud Security: Most of the controls included in scope were derived from [Google Cloud Security Solutions]( https://cloud.google.com/solutions/security) and our review of [GCP security documentation]( https://cloud.google.com/docs/security).
 
 ## Supporting Resources
 
