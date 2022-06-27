@@ -1,0 +1,25 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/03/2022
+name: Cloud Logging
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Analytics
+  - Logging
+  - Not Mappable
+description: >-
+  Cloud Logging is a fully managed service that allows user to store, search, analyze, monitor, and
+  alert on logging data and events from Google Cloud and Amazon Web Services.  User can collect
+  logging data from over 150 common application components, on-premises systems, and hybrid cloud
+  systems.
+techniques: []
+comments: >-
+  This control is not mappable because it does not provide significant detection of malicious
+  techniques. Some of the other security controls that this control maps to are Azure DNS Analytics,
+  AWS CloudTrail, AWS S3, and AWS Audit Manager. The S3 server access logging feature was not mapped
+  because it was deemed to be a data source that can be used with other detective controls rather
+  than a security control in of itself.
+references:
+  - 'https://cloud.google.com/logging'

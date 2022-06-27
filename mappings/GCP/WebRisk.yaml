@@ -1,0 +1,62 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/28/2022
+name: Web Risk
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Network
+description: >-
+  Web Risk is a Google Cloud service that lets client applications check URLs against Google's
+  constantly updated lists of unsafe web resources. Unsafe web resources include social engineering
+  sites—such as phishing and deceptive sites—and sites that host malware or unwanted software. With
+  the Web Risk, you can quickly identify known bad sites, warn users before they click infected
+  links, and prevent users from posting links to known infected pages from your site.
+techniques:
+  - id: T1566
+    name: Phishing
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Web Risk allows client applications to check URLs against Google's list of unsafe web
+          resources. It also can provide warnings when attempting to access potentially unsafe
+          sites. However, Google cannot guarantee that its information is comprehensive and
+          error-free: some risky sites may not be identified, and some safe sites may be classified
+          in error. This has resulted in an overall score of Partial.
+  - id: T1598
+    name: Phishing for Information
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Web Risk allows client applications to check URLs against Google's list of unsafe web
+          resources. It also can provide warnings when attempting to access potentially unsafe
+          sites. However, Google cannot guarantee that its information is comprehensive and
+          error-free: some risky sites may not be identified, and some safe sites may be classified
+          in error. This has resulted in an overall score of Partial.
+  - id: T1204.001
+    name: Malicious Link
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Web Risk allows client applications to check URLs against Google's list of unsafe web
+          resources. It also can provide warnings when attempting to access potentially unsafe
+          sites. However, Google cannot guarantee that its information is comprehensive and
+          error-free: some risky sites may not be identified, and some safe sites may be classified
+          in error. This has resulted in an overall score of Partial.
+  - id: T1598.003
+    name: Spearphishing Link
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Web Risk allows client applications to check URLs against Google's list of unsafe web
+          resources. It also can provide warnings when attempting to access potentially unsafe
+          sites. However, Google cannot guarantee that its information is comprehensive and
+          error-free: some risky sites may not be identified, and some safe sites may be classified
+          in error. This has resulted in an overall score of Partial.
+references:
+  - 'https://cloud.google.com/web-risk/docs/overview'

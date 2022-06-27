@@ -1,0 +1,124 @@
+version: 1
+ATT&CK version: 10
+creation date: 05/11/2022
+name: Actifio Go
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Storage
+description: >-
+  Actifio GO is a Google Cloud backup and disaster recovery offering which enables powerful data
+  protection for Google Cloud and hybrid workloads. Actifio GO supports Google workloads such as
+  Compute Engine and VMware Engine, as well as hybrid workloads like VMware, SAP HANA, Oracle and
+  SQL Server, and others.
+techniques:
+  - id: T1565
+    name: Data Manipulation
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          Actifio is a copy data management plaform that virtualizes application data to improve an
+          organizations resiliency and cloud mobility. Actifio allows an organization to take
+          regular backups and provides several methods of restoring applications and/or VM data to a
+          previous state. This provide significant capability to respond to Data Manipulation since
+          an organization could restore manipulated data back to the latest backup.
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Actifio provides encryption in transit for data traveling between Actifio appliances,
+          Actifio and VMware environments, and for data traversing the control channel utilizing the
+          Actifio connector. This provides significant protection against Network Sniffing since
+          adversaries would be unable to read encrypted traffic. However, Actifio only encrypts data
+          in transit that interacts with Actifio components, rather than all traffic for a system.
+          This is also only relevant when traffic is being backed up, which is a small amount of the
+          time. In this case, it has been given a rating of Minimal.
+  - id: T1552
+    name: Unsecured Credentials
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Actifio Sky can be configured with optional storage pool encryption. Administrative
+          end-user credentials are hashed with a strong one-way salted SHA256 hash in the appliance
+          database. Credentials used by the appliance to access other systems (vCenters, databases,) are stored in an AES256 encrypted form. This provides significant protection against
+          adversaries searching compromised Actifio systems for insecurely stored credentials.
+          However, this does not provide protection for other credentials stored on non-Actifio
+          components. This has resulted in a score of partial.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Actifio uses two command line (CLI) interfaces for customer end-users and Actifio support
+          personnel. All CLI access is via key based authentication only. This provides significant
+          protection against brute force password attacks. However, this only provides protection
+          for Actifio components, rather than all components for a system. This has resulted in a
+          score of Partial.
+  - id: T1485
+    name: Data Destruction
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          Actifio is a copy data management plaform that virtualizes application data to improve an
+          organizations resiliency and cloud mobility. Actifio allows an organization to take
+          regular backups and provides several methods of restoring applications and/or VM data to a
+          previous state. This provide significant capability to respond to a Data Destruction event
+          since an organization could easily restore lost data back to the latest backup.
+  - id: T1486
+    name: Data Encrypted for Impact
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          Actifio is a copy data management plaform that virtualizes application data to improve an
+          organizations resiliency and cloud mobility. Actifio allows an organization to take
+          regular backups and provides several methods of restoring applications and/or VM data to a
+          previous state. This provide significant capability to respond to an adversary maliciously
+          encrypting  system data since an organization could restore encrypted data back to the
+          latest backup.
+  - id: T1491
+    name: Defacement
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          Actifio is a copy data management plaform that virtualizes application data to improve an
+          organizations resiliency and cloud mobility. Actifio allows an organization to take
+          regular backups and provides several methods of restoring applications and/or VM data to a
+          previous state. This provide significant capability to respond to Defacement since an
+          organization could easily restore defaced images back to the latest backup.
+  - id: T1561
+    name: Disk Wipe
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          Actifio is a copy data management plaform that virtualizes application data to improve an
+          organizations resiliency and cloud mobility. Actifio allows an organization to take
+          regular backups and provides several methods of restoring applications and/or VM data to a
+          previous state. This provide significant capability to respond to a Disk Wipe since an
+          organization could restore wiped data back to the latest backup.
+  - id: T1490
+    name: Inhibit System Recovery
+    technique-scores:
+      - category: Respond
+        value: Significant
+        comments: >-
+          Actifio is a copy data management plaform that virtualizes application data to improve an
+          organizations resiliency and cloud mobility. Actifio allows an organization to take
+          regular backups and provides several methods of restoring applications and/or VM data to a
+          previous state. This provide significant capability to respond to an adversary deleting or
+          removing built-in operating system data and services since an organization could restore
+          system and services back to the latest backup.
+comments: >-
+  This mapping was scored as significant due to the control’s notable remediation
+  capabilities.
+references:
+  - 'https://www.actifio.com/solutions/cloud/google/'

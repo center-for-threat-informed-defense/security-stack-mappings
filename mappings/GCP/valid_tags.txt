@@ -1,0 +1,49 @@
+Access Control Policies
+Access Management
+Adaptive Network Hardening
+Analytics
+Antimalware
+Antivirus
+Auditing
+Binary Authorization
+Certificate Service
+Chronicle
+Cloud IDS
+Config Management
+Configuration Management
+Containers
+Credentials
+Data Catalog
+Data Loss Prevention
+Data Security
+Database
+Denial of Service
+Domain Name System (DNS)
+Encryption
+Firewall
+Identity
+Internet of Things (IoT)
+Intrusion Detection Service (IDS)
+Kubernetes
+Logging
+Malware
+Multi-Factor Authentication
+Network
+Not Mappable
+OS Security
+Palo Alto Network's Threat Signatures
+Passwords
+Patch Management
+Phishing
+Policy
+Reports
+Role Based Access Control
+Security Command Center
+SIEM
+Storage
+Threat Detection
+Threat Hunting
+Virtual Private Cloud
+VPN
+Vulnerability Analysis
+Vulnerability Management

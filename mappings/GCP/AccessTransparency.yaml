@@ -1,0 +1,35 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/29/2022
+name: Access Transparency
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Auditing
+  - Access Management
+description: >-
+  Access Transparency logs record the actions that Google personnel take when accessing customer
+  content. Access Transparency log entries include details such as the affected resource and action,
+  the time of the action, the reason for the action, and information about the accessor.
+techniques:
+  - id: T1199
+    name: Trusted Relationship
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may expose and detect malicious access of customer data and resources by
+          compromised Google personnel accounts. The trusted relationship between Google personnel
+          who administer and allow customers to host their workloads on the cloud may be abused by
+          insider threats or compromise of Google.
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control may expose and detect malicious access of data from cloud storage by
+          compromised Google personnel accounts.
+references:
+  - 'https://cloud.google.com/cloud-provider-access-management/access-transparency/docs/overview'

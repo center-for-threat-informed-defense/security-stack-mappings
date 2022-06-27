@@ -1,0 +1,80 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/15/2022
+last update: 04/08/2022
+name: Google Kubernetes Engine
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Kubernetes
+  - Containers
+description: >-
+  Google Kubernetes Engine (GKE) provides the ability to secure containers across many layers of the
+  stack, to include container images, container runtime, cluster network, and access to cluster
+  API.
+techniques:
+  - id: T1613
+    name: Container and Resource Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          By default, GKE nodes use Google's Container-Optimized OS to enhance the security of GKE
+          clusters, including: Locked down firewall, read-only filesystem, limited user accounts,
+          and disabled root login.
+  - id: T1611
+    name: Escape to Host
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          By default, GKE nodes use Google's Container-Optimized OS to enhance the security of GKE
+          clusters, including: Read-only filesystem, limited user accounts, and disabled root login.
+      - category: Detect
+        value: Partial
+        comments: >-
+          GKE provides the ability to audit against a Center for Internet Security (CIS) Benchmark
+          which is a set of recommendations for configuring Kubernetes to support a strong security
+          posture. The Benchmark is tied to a specific Kubernetes release.
+  - id: T1610
+    name: Deploy Container
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Kubernetes role-based access control (RBAC), uses granular permissions to control access to
+          resources within projects and objects within Kubernetes clusters.
+  - id: T1053.007
+    name: Container Orchestration Job
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          GKE provides the ability to audit against a set of recommended benchmark [Center for
+          Internet Security (CIS)]. This control may avoid privileged containers and running
+          containers as root.
+  - id: T1609
+    name: Container Administration Command
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may provide provide information about vulnerabilities within container
+          images, such as the risk from remote management of a deployed container. With the right
+          permissions, an adversary could escalate to remote code execution in the Kubernetes
+          cluster.
+  - id: T1525
+    name: Implant Internal Image
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          After scanning for vulnerabilities, this control may alert personnel of tampered container
+          images that could be running in a Kubernetes cluster.
+comments: >-
+  This control provides information about security best practices and policies to apply when
+  deploying Google Kubernetes Engine.
+references:
+  - 'https://cloud.google.com/kubernetes-engine/docs/concepts/access-control'
+  - 'https://cloud.google.com/kubernetes-engine/docs/concepts/cis-benchmarks#how_to_audit_benchmarks'

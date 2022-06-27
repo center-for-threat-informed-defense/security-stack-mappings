@@ -1,0 +1,37 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/03/2022
+last update: 04/08/2022
+name: Shielded VM
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Vulnerability Management
+description: >-
+  Shielded VMs are virtual machines (VMs) on Google Cloud hardened by a set of security controls
+  that help defend against rootkits and bootkits. Shielded VMs leverage advanced platform security
+  capabilities such as secure and measured boot, a virtual trusted platform module (vTPM), UEFI
+  firmware, and integrity monitoring.
+techniques:
+  - id: T1542
+    name: Pre-OS Boot
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control is able to mitigate malicious modification of any portion of the
+          pre-os boot process through a combination of Secure Boot to verify signatures of firmware,
+          Measured Boot to establish a known good boot baseline, and Integrity Monitoring to measure
+          subsequent boots to previously established baselines. 
+  - id: T1014
+    name: Rootkit
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control is able to mitigate the use of rootkits that target any portion of the boot
+          process, such as malicious modification of the Master Boot Record or UEFI. This control
+          does not mitigate rootkits that exist in the kernel or userland.
+references:
+  - 'https://cloud.google.com/compute/shielded-vm/docs/shielded-vm'

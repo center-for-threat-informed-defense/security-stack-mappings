@@ -1,0 +1,27 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/02/2022
+last update: 06/07/2022
+name: Confidential VM and Compute Engine
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Encryption
+description: >-
+  Confidential VM includes inline memory encryption to secure processing of sensitive data in
+  memory. This type of virtual machine that uses AMD Secure Encrypted Virtualization to provide
+  encryption of data during processing (e.g., data-in-use encryption). 
+techniques:
+  - id: T1565.003
+    name: Runtime Data Manipulation
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Main memory encryption is performed using dedicated hardware within the memory
+          controllers. Each controller includes a high-performance Advanced Encryption Standard
+          (AES) engine. The AES engine encrypts data as it is written to DRAM or shared between
+          sockets, and decrypts it when data is read.
+references:
+  - 'https://cloud.google.com/compute/confidential-vm/docs/about-cvm#security_and_privacy_features'

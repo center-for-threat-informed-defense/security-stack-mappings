@@ -1,0 +1,19 @@
+version: 1
+ATT&CK version: 10
+creation date: 04/25/2022
+name: Hybrid Connectivity
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - VPN
+  - Not Mappable
+description: >-
+  Google Cloud Hybrid Connectivity provides several options for connecting to Google Cloud with
+  high-performance, guaranteed uptime, and flexible VPNs.
+techniques: []
+comments: >-
+  This is not a security control and the controls that fall under the Hybrid Connectivity umbrella
+  have their own mapping files.
+references:
+  - 'https://cloud.google.com/hybrid-connectivity'

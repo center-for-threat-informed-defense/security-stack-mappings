@@ -1,0 +1,52 @@
+version: 1
+ATT&CK version: 10
+creation date: 05/09/2022
+name: Endpoint Management
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Identity
+  - Patch Management
+description: >-
+  With Google endpoint management, you can make your organization's data more secure across your
+  users' mobile devices, desktops, laptops, and other endpoints.
+techniques:
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control allows for enforcement of strong password requirements for all mobile
+          devices, desktops, laptops, and other endpoints. This control also allows for use of
+          Google Credential Provider for Windows (GCPW) to utilize Google single sign on for Windows
+          devices that can leverage two-factor authentication and login challenges.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Respond
+        value: Partial
+        comments: >-
+          This control allows for blocking endpoints that have been compromised from accessing
+          company networks or resources. This control also allows for deletion of any compromised
+          accounts and data from compromised endpoints.
+  - id: T1052.001
+    name: Exfiltration over USB
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can prevent exfiltration over USB by disabling USB file transfers on enrolled
+          Android devices.
+  - id: T1567.002
+    name: Exfiltration to Cloud Storage
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may restrict which apps can be installed and accessed on enrolled devices,
+          preventing exfiltration of sensitive information from compromised endpoints to cloud
+          storage.
+references:
+  - 'https://support.google.com/a/answer/1734200?hl=en'

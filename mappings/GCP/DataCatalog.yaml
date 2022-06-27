@@ -1,0 +1,22 @@
+version: 1
+ATT&CK version: 10
+creation date: 04/13/2022
+name: Data Catalog
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Data Catalog
+  - Not Mappable
+description: >-
+  Google Cloud's Data Catalog enables customers to quickly query cloud assets, identify sensitive
+  data, and automatically tag it for integration with Google Cloud's Data Loss Prevention (DLP)
+  tool. 
+techniques: []
+comments: >-
+  This control was not mapped because the Data Catalog service isn't considered a security control
+  capable of defending against MITRE's ATT&CK techniques, and would require the use of a secondary
+  product, such as DLP, for cyber defense.
+references:
+  - 'https://cloud.google.com/data-catalog'
+  - 'https://cloud.google.com/data-catalog/docs/concepts/overview#how_works'

@@ -1,0 +1,26 @@
+version: 1
+ATT&CK version: 10
+creation date: 01/13/2022
+name: Cloud Data Loss Prevention
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Storage
+description: >-
+  Cloud DLP provides tools to classify, mask, tokenize, and transform sensitive elements to help you
+  better manage the data that you collect, store, or use for business or analytics.
+techniques:
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control is able to scan cloud storage objects for sensitive data and transform that
+          data into a secure or nonsensitive form. It is able to scan for a variety of common
+          sensitive data types, such as API keys, credentials, or credit card numbers. This
+          control is able to be scheduled daily, weekly, etc and can scan new changes to data. This
+          control is able to scan Google Cloud Storage, BigQuery tables, and Datastore. 
+references:
+  - 'https://cloud.google.com/dlp/docs'

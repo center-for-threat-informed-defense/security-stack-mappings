@@ -1,0 +1,28 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/04/2022
+last update: 06/07/2022
+name: Titan Security Key
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Multi-Factor Authentication
+  - Identity
+description: >-
+  The Titan Security Key provides a tamper resistant hardware security key that is used for 2-factor
+  authentication.
+techniques:
+  - id: T1566
+    name: Phishing
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control is able to mitigate against a variety of phishing attacks by requiring an
+          additional key for authentication outside of the user's password. Compared to other forms
+          of 2-factor authentication, this control will not allow for authentication to an
+          illegitimate service or website as the key can not be transmitted from the hardware device
+          to any other device.
+references:
+  - 'https://cloud.google.com/titan-security-key#section-3'

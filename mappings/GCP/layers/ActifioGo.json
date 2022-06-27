@@ -1,0 +1,308 @@
+{
+    "name": "Actifio Go",
+    "versions": {
+        "attack": "10",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Actifio GO is a Google Cloud backup and disaster recovery offering which enables powerful data protection for Google Cloud and hybrid workloads. Actifio GO supports Google workloads such as Compute Engine and VMware Engine, as well as hybrid workloads like VMware, SAP HANA, Oracle and SQL Server, and others.",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio is a copy data management plaform that virtualizes application data to improve an organizations resiliency and cloud mobility. Actifio allows an organization to take regular backups and provides several methods of restoring applications and/or VM data to a previous state. This provide significant capability to respond to Data Manipulation since an organization could restore manipulated data back to the latest backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio provides encryption in transit for data traveling between Actifio appliances, Actifio and VMware environments, and for data traversing the control channel utilizing the Actifio connector. This provides significant protection against Network Sniffing since adversaries would be unable to read encrypted traffic. However, Actifio only encrypts data in transit that interacts with Actifio components, rather than all traffic for a system. This is also only relevant when traffic is being backed up, which is a small amount of the time. In this case, it has been given a rating of Minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1552",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio Sky can be configured with optional storage pool encryption. Administrative end-user credentials are hashed with a strong one-way salted SHA256 hash in the appliance database. Credentials used by the appliance to access other systems (vCenters, databases,) are stored in an AES256 encrypted form. This provides significant protection against adversaries searching compromised Actifio systems for insecurely stored credentials. However, this does not provide protection for other credentials stored on non-Actifio components. This has resulted in a score of partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio uses two command line (CLI) interfaces for customer end-users and Actifio support personnel. All CLI access is via key based authentication only. This provides significant protection against brute force password attacks. However, this only provides protection for Actifio components, rather than all components for a system. This has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1485",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio is a copy data management plaform that virtualizes application data to improve an organizations resiliency and cloud mobility. Actifio allows an organization to take regular backups and provides several methods of restoring applications and/or VM data to a previous state. This provide significant capability to respond to a Data Destruction event since an organization could easily restore lost data back to the latest backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio is a copy data management plaform that virtualizes application data to improve an organizations resiliency and cloud mobility. Actifio allows an organization to take regular backups and provides several methods of restoring applications and/or VM data to a previous state. This provide significant capability to respond to an adversary maliciously encrypting  system data since an organization could restore encrypted data back to the latest backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1491",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio is a copy data management plaform that virtualizes application data to improve an organizations resiliency and cloud mobility. Actifio allows an organization to take regular backups and provides several methods of restoring applications and/or VM data to a previous state. This provide significant capability to respond to Defacement since an organization could easily restore defaced images back to the latest backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1561",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio is a copy data management plaform that virtualizes application data to improve an organizations resiliency and cloud mobility. Actifio allows an organization to take regular backups and provides several methods of restoring applications and/or VM data to a previous state. This provide significant capability to respond to a Disk Wipe since an organization could restore wiped data back to the latest backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1490",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Actifio is a copy data management plaform that virtualizes application data to improve an organizations resiliency and cloud mobility. Actifio allows an organization to take regular backups and provides several methods of restoring applications and/or VM data to a previous state. This provide significant capability to respond to an adversary deleting or removing built-in operating system data and services since an organization could restore system and services back to the latest backup."
+                }
+            ],
+            "color": "#b80000",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Respond"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

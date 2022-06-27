@@ -1,0 +1,189 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/02/2022
+last update: 06/07/2022
+name: Policy Intelligence
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Identity
+  - Role Based Access Control
+  - Access Management
+  - Credentials
+description: >-
+  Policy Intelligence helps enterprises understand and manage their policies to reduce their risk.
+  By utilizing machine learning and analytics, policy intelligence provides more visibility and
+  automation and  customers can increase their workload.
+techniques:
+  - id: T1087.004
+    name: Cloud Account
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to limit permissions to discover cloud accounts in accordance
+          with least privilege principles and thereby limits the accounts that can be used for
+          account discovery.
+  - id: T1580
+    name: Cloud Infrastructure Discovery
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          IAM Recommender helps admins remove unwanted access to GCP resources by using machine
+          learning to make smart access control recommendations. With Recommender, security teams
+          can automatically detect overly permissive access and rightsize them based on similar
+          users in the organization and their access patterns. This control may mitigate adversaries
+          that try to enumerate users access keys through VM or snapshots.
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Recommender generates policy insights by comparing the permissions that each principal
+          used during the past 90 days with the total permissions the principal has. This can be
+          used to limit the permissions associated with creating and modifying platform images or
+          containers that adversaries may try to access.
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Adversaries may attempt to implant cloud or container images with malicious code to gain
+          access to an environment. The IAM audit logs can be used to receive data access and
+          activity logs who has accessed to certain resources.
+  - id: T1538
+    name: Cloud Service Dashboard
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may limit the number of users that have privileges to discover cloud
+          infrastructure and may limit the discovery value of the dashboard in the event of a
+          compromised account.
+  - id: T1578
+    name: Modify Cloud Compute Infrastructure
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          IAM Recommender helps admins remove unwanted access to GCP resources by using machine
+          learning to make smart access control recommendations. With Recommender, security teams
+          can automatically detect overly permissive access and rightsize them based on similar
+          users in the organization and their access patterns. This control may mitigate adversaries
+          that try to gain access to permissions from modifying infrastructure components.
+  - id: T1548.002
+    name: Bypass User Account Control
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Adversaries may bypass UAC mechanisms to elevate process privileges. This control can be
+          used to help enforce least privilege principals to ensure that permission levels are
+          properly managed. Along with this, Policy Analyzer lets users know what principals have
+          access to resources based on its corresponding IAM allow policies.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          IAM Recommender helps admins remove unwanted access to GCP resources by using machine
+          learning to make smart access control recommendations. With Recommender, security teams
+          can automatically detect overly permissive access and rightsize them based on similar
+          users in the organization and their access patterns. This control may mitigate adversaries
+          that try to perform privilege escalation via permission levels and software exploitation.
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Adversaries that try to disable cloud logging capabilities have the advantage to limit the
+          amount of the data that can be collected and can possibly control not being detected. This
+          control may be used to ensure that permissions are in place to prevent adversaries from
+          disabling or interfering with security/logging services.
+  - id: T1078.004
+    name: Cloud Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Adversaries may obtain and abuse credentials of a cloud account by gaining access through
+          means of Initial Access, Persistence, Privilege Escalation, or Defense Evasion. IAM
+          Recommender helps enforce least privilege principals to ensure that permission levels are
+          properly managed.
+      - category: Detect
+        value: Minimal
+  - id: T1562.008
+    name: Disable Cloud Logs
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Adversaries that try to disable cloud logging capabilities have the advantage to limit the
+          amount of the data that can be collected and can possibly control not being detected. This
+          control may be used to routinely check role account permissions in IAM audit logs.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          IAM Recommender helps admins remove unwanted access to GCP resources by using machine
+          learning to make smart access control recommendations. With Recommender, security teams
+          can automatically detect overly permissive access and rightsize them based on similar
+          users in the organization and their access patterns. This control may mitigate adversaries
+          that try to perform privilege escalation via permission levels and software exploitation.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Adversaries may obtain and abuse credentials of a cloud account by gaining access through
+          means of Initial Access, Persistence, Privilege Escalation, or Defense Evasion. IAM
+          Recommender helps enforce least privilege principals to ensure that permission levels are
+          properly managed.
+  - id: T1087
+    name: Account Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to limit permissions to discover user accounts in accordance with
+          least privilege principles and thereby limits the accounts that can be used for account
+          discovery.
+  - id: T1098.001
+    name: Additional Cloud Credentials
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Utilization and enforcement of MFA for user accounts to ensure that IAM policies are
+          implemented properly shall mitigate adversaries so that they may not gain access to user
+          accounts. Enforce the principle of least privilege by ensuring that principals have only
+          the permissions that they actually need.
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Utilization and enforcement of MFA for user accounts to ensure that IAM policies are
+          implemented properly shall mitigate adversaries so that they may not gain access to user
+          accounts. Enforce the principle of least privilege by ensuring that principals have only
+          the permissions that they actually need.
+  - id: T1222
+    name: File and Directory Permissions Modification
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Adversaries may modify file or directory permissions/attributes to evade access control
+          lists (ACLs) and access protected files. Enforcing the principle of least privilege
+          through IAM Recommender role recommendations help admins identify and remove excess
+          permissions from users' principals, improving their resources' security configurations.
+comments: 'Similar to Azure Role based access control and Azure policy '
+references:
+  - 'https://cloud.google.com/policy-intelligence'

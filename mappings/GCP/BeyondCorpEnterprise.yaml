@@ -1,0 +1,118 @@
+version: 1
+ATT&CK version: 10
+creation date: 04/28/2022
+name: BeyondCorp Enterprise
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Access Control Policies
+  - Data Loss Prevention
+description: >-
+  A zero trust solution that enables secure access with integrated threat and data protection. It
+  provides secure access to critical applications and services, and increases visibility into unsafe
+  user activity.
+techniques:
+  - id: T1048
+    name: Exfiltration Over Alternative Protocol
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control can help mitigate adversaries that may try to steal data over network
+          protocols.  Data loss prevention can detect and block sensitive data being uploaded via
+          web browsers. In Beyond Corp Enterprise, Data Loss Prevention (DLP) features to use with
+          Chrome to implement sensitive data detection for files that are uploaded and downloaded,
+          and for content that is pasted or dragged and dropped. An example includes a rule setting
+          that is used to block files from being uploaded via Chrome browser.
+  - id: T1567
+    name: Exfiltration Over Web Service
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: ' This control can help mitigate adversaries that may try to steal data over web services. A threat actor gaining access to a corporate network can plant code to perform reconnaissance, discover privileged users’ credentials, and adversaries can use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. This can cause exfiltration to a command-and-control server out on the internet. Data loss prevention can be used to detect and block sensitive data being uploaded to web services via web browsers.'
+  - id: T1567.002
+    name: Exfiltration to Cloud Storage
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: ' This control can help mitigate adversaries that may try to steal data over web services. A threat actor gaining access to a corporate network can plant code to perform reconnaissance, discover privileged users’ credentials, and adversaries can use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. This can cause exfiltration to a command-and-control server out on the internet. Data loss prevention can be used to detect and block sensitive data being uploaded to web services via web browsers.'
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Implementing BeyondCorp Enterprise enacts a zero trust model. No one can access your
+          resources unless they meet all the rules and conditions. Instead of securing your
+          resources at the network-level, access controls are instead applied to individual devices and
+          users.
+  - id: T1189
+    name: Drive-by Compromise
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          To enable additional protections against data loss and malware in Chrome, you need to
+          enable Chrome Enterprise connectors so content gathered in Chrome is uploaded to Google
+          Cloud for analysis. The Chrome Enterprise connectors must be enabled for DLP rules to
+          integrate with Chrome.
+  - id: T1566.001
+    name: Spearphishing Attachment
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control can help detect malicious links sent via phishing. The details include a
+          list of samples of message delivery events.  Each item in the list includes the date,
+          message ID, subject hash, message body hash, username of the recipient, attachment hashes,
+          and your primary domain name. This can be used to block senders.
+  - id: T1566
+    name: Phishing
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control can help detect malicious links sent via phishing. The details include a
+          list of samples of message delivery events.  Each item in the list includes the date,
+          message ID, subject hash, message body hash, username of the recipient, attachment hashes,
+          and your primary domain name. As a result, this can be used to block senders.
+      - category: Detect
+        value: Significant
+        comments: >-
+          This control can help detect malicious links sent via phishing. The details include a
+          list of samples of message delivery events.  Each item in the list includes the date,
+          message ID, subject hash, message body hash, username of the recipient, attachment hashes,
+          and your primary domain name.
+  - id: T1071.001
+    name: Web Protocols
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          Google chrome policies can be setup through the Google Admin console, which can ensure
+          checks for sensitive data or help protect Chrome users from content that may contain
+          malware. This also enables certain files to be sent for analysis, and in return the admin
+          can then choose to allow or block uploads and downloads for those scanned and unscanned
+          files. By specifying a list of URL patterns, these policies can determine which pages
+          identified through Chrome violates a rule, and end users are prevented from accessing the
+          page.
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >+
+          Access Context Manager allows Google Cloud organization administrators to define
+          fine-grained, attribute based access control for projects and resources. Access levels
+          applied on resources with IAM Conditions enforce fine-grained access control based on a
+          variety of attributes, including IP subnetworks. Adversaries may obtain leaked
+          credentials; however, this control can block specific  adversaries from gaining access
+          permission controls by admins granting an access level based on the IP address of the
+          originating request.
+
+comments: >-
+  This solution was rated as significant due to the control’s high threat protection coverage and
+  temporal factors (e.g., real-time, periodical).
+references:
+  - 'https://cloud.google.com/beyondcorp-enterprise/docs/overview'

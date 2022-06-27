@@ -1,0 +1,75 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/15/2022
+name: Container Registry
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Containers
+  - Vulnerability Analysis
+description: >-
+  Container Registry is Google Cloud's service that provides a single location for storing and
+  managing container images that support Docker Image Manifest V2 and OCI image formats. Container
+  Analysis is the vulnerability scanning feature in Container Registry that detects software
+  weaknesses from the following sources: Debian, Ubuntu, Alpine, RHEL, CentOS, National
+  Vulnerability Database.
+techniques:
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Using Container Analysis, Container Registry scans the repository for vulnerabilities that
+          could potentially be used to escalate privileges, such as default accounts with root
+          permissions in Docker containers. Due to the medium threat protection coverage and scan
+          results being available 48 hours after completion, this control was scored as partial.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Container Registry scans the repository for known software vulnerabilities and various
+          system artifacts that could potentially be used to execute adversary-controlled code. Due
+          to the medium threat protection coverage and temporal factor, this control was scored as
+          partial.
+  - id: T1525
+    name: Implant Internal Image
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Using Container Analysis and Vulnerability scanning, this security solution can detect
+          known vulnerabilities in Docker containers. This information can be used to detect images
+          that deviate from the baseline norm, and could indicate a malicious implanted images in
+          the environment. Due to the medium threat detection coverage and temporal factor, the
+          control was scored as partial.
+  - id: T1610
+    name: Deploy Container
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can scan for known vulnerabilities in containers. This
+          information can be used to detect malicious deployed containers used to evade defenses and
+          execute processes in a target environment. Due to the medium threat detection coverage and
+          temporal factor, the control was scored as partial.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can detect known vulnerabilities in various OS packages
+          that could be used to escalate privileges and execute adversary-controlled code (e.g.,
+          Debian, Ubuntu, Alpine, RHEL, CentOS, National Vulnerability Database). Due to the medium
+          threat detection coverage and temporal factor, the control was scored as partial.
+comments: >-
+  Google Cloud's Artifact Registry is the recommended service for managing containers. Container
+  Registry provides a subset of the features found in Artifact Registry and will only receive
+  critical security fixes.
+references:
+  - 'https://cloud.google.com/container-registry/docs/container-analysis'
+  - 'https://cloud.google.com/artifact-registry/docs/transition/transition-from-gcr'

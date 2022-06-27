@@ -1,0 +1,16 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/07/2022
+name: Cloud NAT
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Not Mappable
+description: >-
+  Cloud NAT (Network Address Translation) lets certain resources without external IP addresses
+  create outbound connections to the internet.
+techniques: []
+comments: This control doesn't appear to provide coverage for any ATT&CK Techniques.
+references:
+  - 'https://cloud.google.com/nat/docs/overview'

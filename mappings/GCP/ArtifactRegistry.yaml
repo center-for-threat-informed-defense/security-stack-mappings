@@ -1,0 +1,106 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/15/2022
+last update: 04/08/2022
+name: Artifact Registry
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Containers
+  - Vulnerability Analysis
+  - OS Security
+description: >-
+  Artifact Registry provides a single location for storing and managing your system packages and
+  container images.
+techniques:
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can detect known vulnerabilities in various Linux OS
+          packages. This information can be used to patch, isolate, or remove vulnerable software
+          and machines. This control does not directly protect against exploitation and is not
+          effective against zero day attacks, vulnerabilities with no available patch, and other
+          end-of-life packages.
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can detect known OS package vulnerabilities in various
+          Linux OS packages (e.g., Debian, Ubuntu, Alpine, RHEL, CentOS, National Vulnerability
+          Database)
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can detect known vulnerabilities in various Linux OS
+          packages. This information can be used to patch, isolate, or remove vulnerable software
+          and machines. This control does not directly protect against exploitation and is not
+          effective against zero day attacks, vulnerabilities with no available patch, and other
+          end-of-life packages.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can detect known vulnerabilities in various Linux OS
+          packages. This information can be used to patch, isolate, or remove vulnerable software
+          and machines. This control does not directly protect against exploitation and is not
+          effective against zero day attacks, vulnerabilities with no available patch, and other
+          end-of-life packages.
+  - id: T1525
+    name: Implant Internal Image
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can detect known vulnerabilities in Docker containers.
+          This information can be used to detect malicious implanted images in the environment. This
+          control does not directly protect against exploitation.
+  - id: T1610
+    name: Deploy Container
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can detect known vulnerabilities in Docker containers.
+          This information can be used to detect malicious implanted images in the environment. This
+          control does not directly protect against exploitation.
+  - id: T1072
+    name: Software Deployment Tools
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Once this control is deployed, it can detect variations to store system packages and
+          container images.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Once this control is deployed, it can detect variations to store system packages and
+          images stored in the repository, which adversaries may target to establish persistence
+          while evading cyber defenses.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          Once this control is deployed, it can detect known OS package vulnerabilities in various
+          Linux OS packages that could be used to escalate privileges and execute adversary-controlled
+          code (e.g., Debian, Ubuntu, Alpine, RHEL, CentOS, National Vulnerability Database)
+comments: 'This control may provide information about software vulnerabilities in the environment. '
+references:
+  - 'https://cloud.google.com/container-analysis/docs/container-analysis'
+  - 'https://cloud.google.com/container-analysis/docs/container-scanning-overview'
