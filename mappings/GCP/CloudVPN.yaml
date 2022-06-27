@@ -1,0 +1,75 @@
+version: 1
+ATT&CK version: 10
+creation date: 04/18/2022
+last update: 05/05/2022
+name: CloudVPN
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Network
+  - Encryption
+description: >-
+  Cloud VPN securely connects your peer network to your Virtual Private Cloud (VPC) network through
+  an IPsec VPN connection. Traffic traveling between the two networks is encrypted by one VPN
+  gateway and then decrypted by the other VPN gateway. This action protects your data as it travels
+  over the internet. You can also connect two instances of Cloud VPN to each other.
+techniques:
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one
+          VPN gateway and then decrypted by the other VPN gateway. This action protects users' data
+          as it travels over the internet. This control may prevent adversaries from
+          sniffing network traffic. 
+  - id: T1557
+    name: Adversary-in-the-Middle
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one
+          VPN gateway and then decrypted by the other VPN gateway. This action protects users' data
+          as it travels over the internet. This control may prevent adversaries from
+          attempting to position themselves between two or more networks and modify traffic. 
+  - id: T1565
+    name: Data Manipulation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides protection against data from being manipulated by adversaries
+          through target applications by encrypting important information. 
+  - id: T1565.002
+    name: Transmitted Data Manipulation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides protection against data from being manipulated by adversaries
+          through target applications by encrypting important information. Since this control only
+          provides protection against data in transit, it received a partial score. 
+  - id: T1557.002
+    name: ARP Cache Poisoning
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one
+          VPN gateway and then decrypted by the other VPN gateway. This action protects users' data
+          as it travels over the internet. This control may prevent adversaries from
+          attempting to position themselves between two or more networks and modify traffic. 
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control provides protections against adversaries who try to access and/or persist
+          within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow
+          users to connect to internal enterprise network resources from external locations. 
+references:
+  - 'https://cloud.google.com/network-connectivity/docs/vpn/concepts/overview'

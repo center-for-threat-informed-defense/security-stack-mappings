@@ -1,0 +1,85 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/15/2022
+last update: 04/07/2022
+name: Binary Authorization
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Binary Authorization
+description: >-
+  Binary Authorization is a service that provides software supply-chain security for container-based
+  applications.
+techniques:
+  - id: T1610
+    name: Deploy Container
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Based on configured policies, Binary Authorization allows or blocks deployment of
+          container images.
+  - id: T1053.007
+    name: Container Orchestration Job
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Each image has a signer digitally sign using a private key. At deploy time, the enforcer
+          uses the attester's public key to verify the signature in the attestation.
+  - id: T1612
+    name: Build Image on Host
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Each container image  generated has a signer digitally sign using a private key to
+          generate the attestation report. At deploy time, the enforcer uses the attester's public
+          key to verify the signature or will block this process.
+  - id: T1554
+    name: Compromise Client Software Binary
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Each image has a signer digitally sign using a private key. At deploy time, the enforcer
+          uses the attester's public key to verify the signature in the attestation.
+  - id: T1525
+    name: Implant Internal Image
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Each image has a signer digitally sign using a private key. At deploy time, the enforcer
+          uses the attester's public key to verify the signature in the attestation.
+  - id: T1036.001
+    name: Invalid Code Signature
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Each image has a signer digitally sign using a private key. At deploy time, the enforcer
+          uses the attester's public key to verify the signature in the attestation.
+  - id: T1601
+    name: Modify System Image
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Each image has a signer digitally sign using a private key. At deploy time, the enforcer
+          uses the attester's public key to verify the signature in the attestation.
+  - id: T1204.003
+    name: Malicious Image
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Each image has a signer digitally sign using a private key. At deploy time, the enforcer
+          uses the attester's public key to verify the signature in the attestation.
+comments: >-
+  Binary authorization provides the capability to configure a policy that is enforced when an
+  attempt is made to deploy a container image.
+references:
+  - 'https://cloud.google.com/binary-authorization/docs/overview'
+  - 'https://cloud.google.com/binary-authorization/docs/attestations'

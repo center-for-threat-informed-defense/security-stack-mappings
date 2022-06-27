@@ -1,0 +1,95 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/07/2022
+name: VMManager
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Patch Management
+  - Vulnerability Management
+  - Configuration Management
+  - Credentials
+description: >-
+  VM Manager is a suite of tools that can be used to manage operating systems for large virtual
+  machine (VM) fleets running Windows and Linux on Compute Engine.
+
+
+  VM Manager helps drive efficiency through automation and reduces the operational burden of
+  maintaining these VM fleets.
+techniques:
+  - id: T1068
+    name: Exploitation for Privilege Escalation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VM Manager can apply on-demand and scheduled patches via automated patch deployment. This
+          can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM
+          Manager doesn't directly prevent exploitation of active vulnerabilities (including zero
+          day vulnerabilities) this control has resulted in a score of Partial.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VM Manager can apply on-demand and scheduled patches via automated patch deployment. This
+          can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM
+          Manager doesn't directly prevent exploitation of active vulnerabilities (including zero
+          day vulnerabilities) this control has resulted in a score of Partial.
+  - id: T1203
+    name: Exploitation for Client Execution
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VM Manager can apply on-demand and scheduled patches via automated patch deployment. This
+          can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM
+          Manager doesn't directly prevent exploitation of active vulnerabilities (including zero
+          day vulnerabilities) this control has resulted in a score of Partial.
+  - id: T1210
+    name: Exploitation of Remote Services
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VM Manager can apply on-demand and scheduled patches via automated patch deployment. This
+          can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM
+          Manager doesn't directly prevent exploitation of active vulnerabilities (including zero
+          day vulnerabilities) this control has resulted in a score of Partial.
+  - id: T1211
+    name: Exploitation for Defense Evasion
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VM Manager can apply on-demand and scheduled patches via automated patch deployment. This
+          can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM
+          Manager doesn't directly prevent exploitation of active vulnerabilities (including zero
+          day vulnerabilities) this control has resulted in a score of Partial.
+  - id: T1212
+    name: Exploitation for Credential Access
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VM Manager can apply on-demand and scheduled patches via automated patch deployment. This
+          can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM
+          Manager doesn't directly prevent exploitation of active vulnerabilities (including zero
+          day vulnerabilities) this control has resulted in a score of Partial.
+  - id: T1072
+    name: Software Deployment Tools
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VM Manager can apply on-demand and scheduled patches via automated patch deployment. This
+          can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM
+          Manager doesn't directly prevent exploitation of active vulnerabilities (including zero
+          day vulnerabilities) this control has resulted in a score of Partial.
+comments: >-
+  This mapping was scored as Partial due to the medium threat protection coverage to specific (sub-)
+  techniques of MITRE’s ATT&CK framework.
+references:
+  - 'https://cloud.google.com/compute/docs/vm-manager'

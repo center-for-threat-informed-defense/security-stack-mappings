@@ -1,0 +1,19 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/02/2022
+name: Packet Mirroring
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Not Mappable
+description: >-
+  This control is a feature found under Virtual Private Cloud tool that provides users with the
+  ability to duplicate traffic to enable cyber forensic investigations.
+techniques: []
+comments: >-
+  This tool provides the functional ability to clone traffic, but is not considered a stand-alone
+  security control as it requires a secondary security tool (e.g., IDS/IPS) to enable cyber defense
+  and digital forensics.
+references:
+  - 'https://cloud.google.com/vpc/docs/packet-mirroring'

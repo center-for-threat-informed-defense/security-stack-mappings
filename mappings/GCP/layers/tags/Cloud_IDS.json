@@ -1,0 +1,614 @@
+{
+    "name": "Cloud IDS",
+    "versions": {
+        "attack": "10",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: Cloud IDS",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1137",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office files (e.g., DOC, DOCX, RTF, XLS, XLSX, PPT, PPTX).\n\nAlthough there are ways an attacker could modify the signature and deliver a malicious office file, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to  execute malicious content and establish persistence, Palo Alto Network's antivirus signatures is able to detect malicious content found in Mach object files (Mach-O). These are used by the adversary to load and execute malicious dynamic libraries after the binary is executed.\n\nThis technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1204.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in portable document formats (PDF).\n\nAlthough there are ways an attacker could modify the signature and deliver a malicious file, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to escalate privileges and automatically run on Windows systems, Palo Alto Network's antivirus signatures is able to detect malware found in portable executables (PE).\n\nAlthough there are ways an attacker could avoid detection to deliver a malicious PE file, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1221",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office file templates (e.g., DOC, DOCX, RTF, XLS, XLSX, PPT, PPTX).\n\nAlthough there are ways an attacker could modify the known attack signature to avoid detection, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's threat signatures is able to detect programs that use an internet connection to provide remote access to a compromised internal system.\n\nAlthough there are multiple ways an attacker could establish unauthorized remote access to a compromised system, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1204.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect download attempts or traffic generated from malicious programs designed to mine cryptocurrency without the user's knowledge.\n\nAlthough there are ways an attacker could modify the attack to avoid detection, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these crypto-mining  attacks"
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts and anomalies over known command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications (e.g., WebShell).\n\nAlthough there are ways an attacker could exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications (e.g., WebShell).\n\nAlthough there are multiple ways an attacker could exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1020",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to gain access to a system, Palo Alto Network's vulnerability signature is able to detect multiple repetitive occurrences of a condition in a particular time that could indicate a brute force attack (e.g., failed logins).\n\nAlthough there are ways an attacker could brute force a system while avoiding detection, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to affect availability and deprive legitimate user access, Palo Alto Network's vulnerability signatures are able to detect denial-of-service (DoS) attacks that attempt to render a target system unavailable by flooding the resources with traffic.\n\nThis technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against a variety of denial-of-service attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to affect availability and deprive legitimate user access, Palo Alto Network's vulnerability signatures are able to detect denial-of-service (DoS) attacks that attempt to crash a target system by flooding it with application traffic.\n\nThis was scored as minimal because there are other ways adversaries could\n\nThis technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to take advantage of software weaknesses in web applications, Palo Alto Network's vulnerability signatures are able to detect SQL-injection attacks that attempt to read or modify a system database using common web hacking techniques (e.g., OWASP top 10).\n\nAlthough there are ways an attacker could leverage web application weaknesses to affect the sensitive data and databases, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to gain access to a system, Palo Alto Network's vulnerability signatures are able to detect when a user attempts to connect to a malicious site with a phishing kit landing page.\n\nAlthough there are other ways an adversary could attempt a phishing attack, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office add-ins.\n\nAlthough there are ways an attacker could deliver a malicious file, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office templates\n\nAlthough there are ways an attacker could deliver a malicious template, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

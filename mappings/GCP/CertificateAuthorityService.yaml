@@ -1,0 +1,27 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/28/2022
+last update: 06/07/2022
+name: Certificate Authority Service
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Certificate Service
+  - Network
+description: >-
+  Google Cloud Certificate Authority Service (CAS) is a highly available & scalable service that
+  enables you to simplify, automate, and customize the deployment, management, and security of
+  private certificate authorities (CA).
+techniques:
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may mitigate against Network Sniffing by providing certificates for internal
+          endpoints and applications to use with asymmetric encryption. This control helps protect
+          the issuing Certificate Authority with the use of Google's IAM and policy controls.
+references:
+  - 'https://cloud.google.com/certificate-authority-service/docs'

@@ -1,0 +1,2963 @@
+{
+    "name": "Threat Detection",
+    "versions": {
+        "attack": "10",
+        "navigator": "4.2",
+        "layer": "4.2"
+    },
+    "domain": "enterprise-attack",
+    "description": "Controls: Chronicle",
+    "filters": {
+        "platforms": [
+            "Linux",
+            "macOS",
+            "Windows",
+            "Office 365",
+            "Azure AD",
+            "AWS",
+            "GCP",
+            "Azure",
+            "SaaS",
+            "PRE",
+            "Network"
+        ]
+    },
+    "sorting": 0,
+    "layout": {
+        "layout": "side",
+        "showID": false,
+        "showName": true,
+        "showAggregateScores": false,
+        "countUnscored": false,
+        "aggregateFunction": "average"
+    },
+    "hideDisabled": false,
+    "techniques": [
+        {
+            "techniqueID": "T1021.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert for net use commands detected for SMB/Windows admin shares (e.g., \" net use.* (C|ADMIN|IPC)$\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/possible_system_network_connections_discovery__sysmon_windows_logs.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1037",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on registry modifications related to custom logon scripts. (e.g., \"REGISTRY_CREATION\", \"\"REGISTRY_MODIFICATION\", \"HKCU|HKEY_CURRENT_USER\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1547_001_windows_registry_run_keys_startup_folder.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on scheduled tasks using the command line (e.g., \"schtasks /create\"). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1053_005_windows_creation_of_scheduled_task.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1218.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on using MSHTA to call a remote HTML application on Windows (e.g., \"mshta.+http\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1218_005_windows_mshta_remote_usage.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/windows/mshta_spwaned_by_svchost_as_seen_in_lethalhta__sysmon.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on  property list files scheduled to automatically execute upon startup on macOS platforms (e.g., \"`/Library/LaunchAgents/`\").\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1543_001_macos_launch_agent.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on  plist files scheduled to automatically execute upon startup on macOS platforms (e.g., \"/Library/LaunchDaemons/\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1543_004_macos_launch_daemon.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on manipulation of default programs used for a given extension found on Windows platforms (e.g., \"cmd\\.exe /c assoc\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1546_001_windows_change_default_file_association.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on creation or changes of registry keys and run keys on Windows platforms (e.g., \"\"REGISTRY_MODIFICATION\", \"\"REGISTRY_CREATION\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1547_001_windows_registry_run_keys_startup_folder.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/suspicious_run_key_from_download.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1547",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on creation or changes of registry keys and run keys found on Windows platforms.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1547_001_windows_registry_run_keys_startup_folder.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on manipulation of default programs.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1546_001_windows_change_default_file_association.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on creation or modification to system-level processes on Windows machines.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/suspicious_process_creation.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on system-level processes and other modifications to MacOS platforms (e.g., \"FILE_MODIFICATION\", \"chflags hidden\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1564_001_macos_hidden_files_and_directories.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1564.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on processes, such as manually setting a file to set a file as a system file on Windows (e.g., \"attrib\\.exe \\+s\") setting a file to hidden on Windows platforms (e.g., \"attrib\\.exe \\+h\"), or on macOS (e.g., \"setfile -a V\" or  \"chflags hidden\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/hiding_files_with_attrib_exe.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1564",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on processes, such as hidden artifacts.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/abusing_attrib_exe_to_change_file_attributes.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/hiding_files_with_attrib_exe.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on process creations and  attacks against the NTDS database on Windows platforms (e.g., execution of \"ntdsutil.exe\")\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/main/soc_prime_rules/threat_hunting/windows"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on RDP logons from non-private IP ranges. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/active_directory_security/security/remote_desktop_from_internet__via_audit.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1134.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on successful and failed changes to SID-History. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/active_directory_security/windows/addition_of_sid_history_to_active_directory_object.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to detect suspicious command-line process attempted to escalate privileges.  Examples of credential access system events include:\n(e.g.,\"re.regex($selection.target.registry.registry_value_data, `.*DumpCreds.*`) or re.regex($selection.target.registry.registry_value_data, `.*Mimikatz.*`) or re.regex($selection.target.registry.registry_value_data, `.*PWCrack.*`) or $selection.target.registry.registry_value_data = \"HTool/WCE\" or re.regex($selection.target.registry.registry_value_data, `.*PSWtool.*`) or re.regex($selection.target.registry.registry_value_data, `.*PWDump.*`)).\n\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/antivirus/antivirus_password_dumper_detection.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1548",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on Custom Role changes.  \nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/gcp_cloudaudit/gcp_custom_role_changes.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1584.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle monitors and generates alerts for DNS creation or deletion activity from non-service accounts.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/gcp_cloudaudit/gcp_dns_modification.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1562.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on processes, such as  VPC Network Firewall rule changes. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/gcp_cloudaudit/gcp_firewall_rule_changes.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on changes to Cloud Storage IAM permissions.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/gcp_cloudaudit/gcp_gcs_iam_changes.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert to notify personnel of GCP resources (e.g., storage buckets) that are publicly accessible to unauthenticated users. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/gcp_cloudaudit/gcp_gcs_public_accessible.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on system events, such as deletion of cloud audit logs. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/gcp_cloudaudit/gcp_log_deletion.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger based on suspicious system event logs, such as newly created local user accounts in Windows AD environments (e.g., event 4720).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/detects_local_user_creation.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert to ensure multi-factor authentication is enabled for all non-service and administrator accounts.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/gcp_cloudaudit/gcp_multifactor_authentication.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1106",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert for suspicious events related to the API (e.g., \"API keys created for a project\"). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/gcp_cloudaudit/gcp_no_project_api_keys.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on accounts and authorized device access to a certain IP range (e.g., \"Attempted Lateral Movement via SSH metadata pivoting\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/main/gcp_cloudaudit"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1578",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on changes to the infrastructure (e.g., VPC network changes).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/gcp_cloudaudit/gcp_vpc_network_changes.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1052.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on events, such as \"new USB device is connected to a system\".\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/usb_device_plugged.yaral\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1112",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on events of interest, such as: \"Command-line execution of the Windows Registry Editor\".\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/info/command_line_regedit.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to detect an alert based on system events, such as remote service connections.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/main/soc_prime_rules/threat_hunting/windows"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1052",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger alerts based on system events, such as: USB device detected.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/info/usb_new_device.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/usb_device_plugged.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1053",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on  suspicious modifications to the infrastructure, such as: new task scheduling to execute programs. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/a_scheduled_task_was_created.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/mitre_attack/T1053_005_windows_creation_of_scheduled_task.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert when logs are cleared from the infrastructure.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/gcp_cloudaudit/gcp_log_deletion.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1134",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on modifications to user access controls.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/cloud_security/sysmon/suspicious_command_line_contains_azure_tokencache_dat_as_argument__via_cmdline.yaral\n\n\n\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1218",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on attempts to evade defenses, such as: bypass execution of digitally signed binaries.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/mavinject_process_injection.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1584",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle monitors and generates alerts based on modifications to the computing infrastructure.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/783e0e5947774785db1c55041b70176deeca6f46/gcp_cloudaudit\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/gcp_cloudaudit/gcp_dns_modification.yaral\n\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1056",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on adversary methods of obtaining credentials or collecting information (e.g., web skimming attacks). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/cloud_security/proxy/the_gocgle_malicious_campaign.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1056.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on adversary methods of obtaining credentials or collecting information (e.g., web skimming attacks). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/cloud_security/proxy/the_gocgle_malicious_campaign.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1056.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on adversary methods of obtaining credentials or collecting information (e.g., web skimming attacks). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/cloud_security/proxy/the_gocgle_malicious_campaign.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert  based on system events of interest, for example: detection of the Sunburst C2 channel used as backdoor access in the SolarWinds compromise.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/dns/solarwinds_backdoor_c2_host_name_detected___via_dns.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious modifications to the network infrastructure. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/main/gcp_cloudaudit\n\nhttps://github.com/chronicle/detection-rules/blob/main/gcp_cloudaudit/gcp_vpc_network_changes.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert  based on system events of interest, for example: decoding Windows payloads using \\\"certutil.exe\\\" functionality.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/suspicious_certutil_command.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1218.010",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious behavior in Windows with the use of regsvr32.exe and a possible fileless attack via this executable.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/ole_controls_registered_via_regsvr32_exe__sysmon_behavior.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/process_creation/fileless_attack_via_regsvr32_exe.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious behavior seen in the Windows command line.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/main/soc_prime_rules/threat_hunting/windows\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/suspicious_certutil_command.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1082",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious network behavior seen in malware RAT, such as Netwire activity via WScript or detect the utilization of wmic.exe in order to obtain specific system information.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/detect_enumeration_via_wmi.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1218.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert when adversaries attempt to abuse Microsoft's Connection Manager Profile Installer to proxy the execution of malicious code.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/cmstp_exe_execution_detector__sysmon_behavior.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1018",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle attempts to identify remote \nsystems via ping sweep. This technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/process_creation/remote_system_discovery___ping_sweep.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1552",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle detects an attempt to scan registry hives for unsecured passwords.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/process_creation/t1214___credentials_in_registry.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1486",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious events related to ransomware campaigns (e.g., $selection.target.file.md5 = \"0c3ef20ede53efbe5eebca50171a589731a17037147102838bdb4a41c33f94e5\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/sysmon/darkgate_cryptocurrency_mining_and_ransomware_campaign__sysmon.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/windows/formbook_malware__sysmon.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1204",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious user activity (e.g., clicking on a malicious links).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor. \n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/proxy/microsoft_teams_phishing_email.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/detect_possible_execution_of_phishing_attachment.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1036.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle can trigger an alert based on malware masquerading as legitimate process for example, Adobe's Acrobat Reader (e.g., re.regex($selection.target.process.file.full_path, `.*\\\\AcroRD32\\.exe).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/sysmon/detects_malware_acrord32_exe_execution_process.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1027.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle can trigger an alert based on delivery of encrypted or encoded payloads with uncompiled code. \n\nThis technique was scored as minimal based on low detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/suspicious_powershell_parameter_substring.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/encoded_iex.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1127.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on common command line arguments for msbuild.exe which is used by adversaries to execute code through a trusted Windows utility.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/mixed_other/security/possible_msbuild_abuse__via_cmdline.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1127",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on common command line arguments used by adversaries to proxy execution of code through trusted utilities.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/suspicious_certutil_command.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/detection_of_winrs_usage.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on suspicious behavior, such as exploitation attempts against web servers and/or applications (e.g., F5 BIG-IP CVE 2020-5902).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/big_ip/possible_f5_big_ip_tmui_attack_cve_2020_5902_part_1.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/big_ip/possible_f5_big_ip_tmui_attack_cve_2020_5902_part_2.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger alert based on suspicious command line behavior that could indicate remote code exploitation attempts (e.g., detect exploits using child processes spawned by Windows DNS processes).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/process_creation/cve_2020_1350_dns_remote_code_exploit__sigred___via_cmdline.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1036",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on Windows starting uncommon processes  (e.g., Detects Winword starting uncommon sub process MicroScMgmt.exe used for CVE-2015-1641).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/process_creation/exploit_for_cve_2015_1641.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle can trigger an alert based on suspicious running processes that could be used to evade defenses and escalate privileges. (e.g., directory traversal attempts via attachment downloads).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/mavinject_process_injection.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious system events IDs (e.g., anonymous users changing machine passwords). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/security/anonymous_user_changed_machine_password.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1037.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on suspicious connections (e.g., Netlogon connections).\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/system/vulnerable_netlogon_secure_channel_connection_allowed.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/logon_scripts__userinitmprlogonscript.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1212",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers alerts based on credential exploit attempts (e.g., read /dev/cmdb/sslvpn_websession file, this file contains login and passwords in (clear-text)).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/webserver/cve_2018_13379_fortigate_ssl_vpn_arbitrary_file_reading.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on webshell connections which are used to establish persistent access to a compromised machine [backdoor]. \n\nFor example: Detect webshell dropped into a keystore folder on the WebLogic server (`.*/config/keystore/.*\\.js.*).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/webserver/oracle_weblogic_exploit.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1059.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on webshell connections which are used to establish persistent access to a compromised machine [backdoor]. (e.g., `.*/config/keystore/.*\\.js.*).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/webserver/oracle_weblogic_exploit.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1560",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on adversary indicators of compromise seen when encrypting or compressing data before exfiltration.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation\n\n\n\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1203",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on Antivirus notifications that report an exploitation framework (e.g., Metapreter, Metasploit, Powersploit).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/detect_service_creation_by_metasploit_on_victim_machine.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/proxy/exploit_framework_user_agent.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1132",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on known indicators used by the adversary, such as data encoding techniques.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/windows/powershell_encoded_command__sysmon.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/emotet_process_creation.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/suspicious_powershell_parameter_substring.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1132.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on known indicators used by the adversary, such as data encoding techniques for commands &/or C&C traffic.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/suspicious_powershell_parameter_substring.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1195.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on unusual file write events by 3rd party software (e.g., SolarWinds executable \".*\\\\solarwinds\\.businesslayerhost\\.exe\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/file_event/unusual_solarwinds_file_creation__via_filewrite.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/security/unusual_solarwinds_child_process__via_cmdline.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1195",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger alerts based on unusual file write events by 3rd party software, specifically SolarWinds executable.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/file_event/unusual_solarwinds_file_creation__via_filewrite.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/suspicious/unusual_location_svchost_write.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1072",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger alerts based off suspicious activity on a Linux host that could indicate a bind or reverse shell with Netcat tool.  Note: This rule requires installation of auditbeat on the host machine to properly function. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/linux/possible_bind_or_reverse_shell_via_netcat__auditbeat_for_linux.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to generate alerts based off suspicious events, for example: execution of arbitrary code triggered by Netsh Helper DLLs (Netshell (Netsh.exe)).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/possible_system_network_configuration_discovery__sysmon_windows_logs.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger alerts based off suspicious events and command line arguments that could indicate an adversary tampering with system components.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/detection_of_com_hijacking.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger alerts based on suspicious system processes that could indicate hijacking via malicious payloads (e.g., Windows Unquoted Search Path explotation \"\"C:\\\\InventoryWebServer.exe\"\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1574",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger alerts based on suspicious system processes that could indicate hijacking via malicious payloads.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/antivirus/detects_powershell_attack__via_av_ids.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off command line arguments and suspicious system processes that could indicate adversary's account discovery techniques (e.g., \"net user /domain\", \"C:\\\\Windows\\\\System32\\\\net.exe\", \"C:\\\\Windows\\\\System32\\\\query.exe).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/account_discovery_activity_detector__sysmon_behavior.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1087",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off command line arguments and suspicious system processes that could indicate adversary's account discovery techniques.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/account_discovery_activity_detector__sysmon_behavior.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off system processes that indicate when backup catalogs are deleted from a windows machine. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/backup_catalog_deleted.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1020",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious sytem processes, such as using bitsadmin to automatically exfiltrate data from Windows machines (e.g., \".*\\\\bitsadmin\\.exe\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/soc_prime_rules/threat_hunting/windows/data_exfiltration_attempt_via_bitsadmin.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system processes or command-line arguments that could indicate exfiltration of data over the C2 channel.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/possible_data_exfiltration_via_smtp.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/data_exfiltration_attempt_via_bitsadmin.yaral\n\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1011",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system processes or command-line arguments that could indicate exfiltration of data over other network mediums.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/main/suspicious\n\n"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1027",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious command line arguments or processes that indicate obfuscation techniques to evade cyber defenses. For example, when cmd.exe has been obfuscated.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/detect_cmd_exe_obfuscation.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/ursnif_trojan_detection__cmd_obfuscation.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1484",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system events, such as modifications to Windows password policies (event ID 643 or 4739). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/detect_windows_password_policy_changes.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1136",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger based on suspicious system event logs, such as newly created local user accounts on Windows machines.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/detects_local_user_creation.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1543.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on system process modifications to existing Windows services which could indicate a malicious payload (e.g., \"C:\\\\Windows\\\\System32\\\\sc.exe\", \"C:\\\\Windows\\\\System32\\\\cmd.exe\"). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/underminer_exploit_kit_delivers_malware.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off modifications to file time attributes to hide changes to existing files on Windows machines.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/file_creation_time_changed_via_powershell.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1003.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to detect suspicious command-line process attempted to escalate privileges. For example: access credential material stored in the procecss memory of the Local Security Authority Subsystem Service (LSASS) on Windows machines (e.g., lsass\\.exe). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/tree/main/soc_prime_rules/threat_hunting/windows"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious  system processes, for example: detects Windows command line executable started from Microsoft's Word or Excel (e.g.., \".*\\\\WINWORD\\.EXE\", \".*\\\\EXCEL\\.EXE\"). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/office_macro_starts_cmd.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious  system processes, for example: command line executable started from Microsoft's Office-based applications.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/office_starup_folder_persistance.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/office_applications_suspicious_process_activity.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1057",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off command-line arguments that could indicate adversary's attempting to get information about running processes on Windows machines (e.g., \"tasklist.exe\", \"Get-Process.*\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/possible_process_enumeration__sysmon_windows_logs.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/fake_zoom_installer_exe__devil_shadow_botnet.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1016",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off processes and command-line arguments that may indicate adversary reconnaissance and information discovery techniques for network configuration settings (e.g., \"net config\", \"ipconfig.exe\", \"nbtstat.exe).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/possible_system_network_configuration_discovery__sysmon_windows_logs.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1049",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off command-line arguments that could indicate adversary's attempting to get information about network connections (e.g., \"net config\", \"net use\", \"net file\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/possible_system_network_connections_discovery__sysmon_windows_logs.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1033",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off command-line arguments that could indicate adversary's attempting to get information about system users (e.g., primary user, currently logged in user, set of users that commonly uses a system, or whether a user is actively using the system).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/possible_system_owner_user_discovery__sysmon_windows_logs.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1588.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alerts based off command-line arguments and suspicious system process that could indicate a tool being used for malicious purposes on Windows machines. For example: PsExec is a free Microsoft tool that can be used to execute a program on another computer.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/suspicious_psexec_execution.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/ioc_sigma/sysmon/psexec_detector.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/psexec_service_start.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1588",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alerts based off suspicious system processes, such as binaries in use on Windows machines. For example: PsExec is a free Microsoft tool that can be used to escalate privileges from administrator to SYSTEM with the -s argument, download files over a network share, and remotely create accounts.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/suspicious_psexec_execution.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1070.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious system events used to evade defenses, such as deletion of Windows security event logs. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/gcp_cloudaudit/gcp_log_deletion.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1569.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alerts based off command-line arguments and suspicious system process that could indicate abuse of Windows system service to execute malicious commands or code (e.g., \"*\\\\execute\\.bat\"). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/smbexec_py_service_installation.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1569",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alerts based off command-line arguments and suspicious system process that could indicate abuse of system services. \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/suspicious_calculator_usage.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/abusing_attrib_exe_to_change_file_attributes.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.008",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system processes that indicate usage and installation of a backdoor using built-in tools that are accessible from the login screen (e.g., sticky-keys attack).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/sticky_key_like_backdoor_usage.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system processes that could indicate exfiltration attempts using cURL from Windows machines (e.g., C:\\\\Windows\\\\System32\\\\curl.exe).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/suspicious_curl_usage.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1105",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system processes that could indicate tool transfer attempts using cURL from Windows machines (e.g., C:\\\\Windows\\\\System32\\\\curl.exe).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/suspicious_curl_usage.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1495",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious  logs that could indicate tampering with the component's firmware (e.g., detects driver load from a temporary directory).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/suspicious_driver_load_from_temp.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1497",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system events that may indicate an adversary's attempt to check for the presence of security tools (e.g., Sysinternals).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/usage_of_sysinternals_tools.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1202",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious  event IDs that indicate adversary's abuse of Windows system utilities to perform indirect command-line arguments or code execution. For example: malicious usage of bash.exe using Windows sub-system for Linux (e.g., WSL).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/lolbas_wsl_exe__via_cmdline.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based on suspicious events used by adversary's to establish persistence using Windows Management Instrumentation (WMI) command-line events (e.g. \"C:\\\\Windows\\\\System32\\\\wbem\\\\WmiPrvSE.exe\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/process_creation/wmi_spawning_windows_powershell.yaral"
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        }
+    ],
+    "gradient": {
+        "colors": [
+            "#ff6666",
+            "#ffe766",
+            "#8ec843"
+        ],
+        "minValue": 0,
+        "maxValue": 100
+    },
+    "legendItems": [
+        {
+            "label": "Protect - Minimal",
+            "color": "#9CBA7F"
+        },
+        {
+            "label": "Protect - Partial",
+            "color": "#659D32"
+        },
+        {
+            "label": "Protect - Significant",
+            "color": "#7FFF00"
+        },
+        {
+            "label": "Detect - Minimal",
+            "color": "#AEEEEE"
+        },
+        {
+            "label": "Detect - Partial",
+            "color": "#5F9F9F"
+        },
+        {
+            "label": "Detect - Significant",
+            "color": "#00FFFF"
+        },
+        {
+            "label": "Respond - Minimal",
+            "color": "#ff6b6b"
+        },
+        {
+            "label": "Respond - Partial",
+            "color": "#ff0505"
+        },
+        {
+            "label": "Respond - Significant",
+            "color": "#b80000"
+        },
+        {
+            "label": "Mixed - Minimal",
+            "color": "#bf6bff"
+        },
+        {
+            "label": "Mixed - Partial",
+            "color": "#9305ff"
+        },
+        {
+            "label": "Mixed - Significant",
+            "color": "#5c00a3"
+        }
+    ],
+    "metadata": [],
+    "showTacticRowBackground": false,
+    "tacticRowBackground": "#dddddd",
+    "selectTechniquesAcrossTactics": true,
+    "selectSubtechniquesWithParent": false
+}

@@ -1,0 +1,30 @@
+version: 1
+ATT&CK version: 10
+creation date: 05/06/2022
+name: Terraform on Google Cloud
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Not Mappable
+description: >-
+  Terraform is an open source tool that lets you provision Google Cloud resources with declarative
+  configuration files—resources such as virtual machines, containers, storage, and networking.
+  Terraform's infrastructure-as-code (IaC) approach supports DevOps best practices for change
+  management, letting you manage Terraform configuration files in source control to maintain an
+  ideal provisioning state for testing and production environments.
+techniques: []
+comments: >-
+  In its current state, this control was scored as not mappable as it does not look reasonable to
+  correlate to specific (sub-) techniques of MITRE’s ATT&CK.
+
+
+  While Terraform provides some security capabilities specific to Terraform processes (encryption
+  between Terraform Clients, encrypting workspace variables, 
+
+  Isolation between Terraform executions and Cloud tenants) the capabilities don't necessarily
+  benefit the entire organization. Terraform's primary function is to support the provisioning of
+  Google resources with configuration management. Therefore, this control has been identified as
+  not-mappable.
+references:
+  - 'https://cloud.google.com/docs/terraform'

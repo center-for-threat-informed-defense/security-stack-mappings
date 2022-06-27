@@ -6,10 +6,10 @@ This repository contains a collection of _native_ security controls mapped to MI
 
 This project has produced mapping files for the following technology platforms, with more on the roadmap:
 
-### Microsoft Azure 
+### Microsoft Azure
 
 | [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/Azure/README.html) | [YAML Mappings](mappings/Azure) | [ATT&CK Navigator Layers](mappings/Azure/layers) |
-|---|---|---|
+| -------------------------------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------ |
 
 Released on June 29, 2021, these mappings cover the native security controls of Microsoft Azure Infrastructure as a Services for version 8.2 of MITRE ATT&CK. The following scoping decisions influenced the Azure mappings:
 - ATT&CK Scope: This work is focused on ATT&CK (sub-)techniques included in the Enterprise domain v8; Mobile techniques are not covered. There is a follow-on project that will update the mappings to ATT&CK v9.
@@ -20,7 +20,7 @@ Released on June 29, 2021, these mappings cover the native security controls of 
 ### Amazon Web Services
 
 | [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/AWS/README.html) | [YAML Mappings](mappings/AWS) | [ATT&CK Navigator Layers](mappings/AWS/layers) |
-|---|---|---|
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ---------------------------------------------- |
 
 
 Released on September 21, 2021, these mappings cover the native security controls of Amazon Web Services for version 9.0 of MITRE ATT&CK. The following scoping decisions influenced the AWS mappings:
@@ -29,6 +29,15 @@ Released on September 21, 2021, these mappings cover the native security control
 - The [AWS Security, Identity, & Compliance products](https://aws.amazon.com/products/security/?nc=sn&loc=2) page was used to source the list of controls included within scope of this mapping.
 - Driven by Center participant interest, this effort also included mappings of security features of select, non-security services such as VPC, RDS, and S3.
 
+### Google Cloud Platform
+
+| [HTML Summary](https://center-for-threat-informed-defense.github.io/security-stack-mappings/GCP/README.html) | [YAML Mappings](mappings/GCP) | [ATT&CK Navigator Layers](mappings/GCP/layers) |
+| ------------------------------------------------------------------------------------------------------------ | ----------------------------- | ---------------------------------------------- |
+
+Released on June 28, 2022, these mappings cover the native security controls of Google Cloud Platform (GCP) for version 10 of MITRE ATT&CK. The following scoping decisions influenced the GCP mappings:
+- ATT&CK Scope: This work is focused on ATT&CK (sub-)techniques included in the Enterprise domain v10; mobile techniques are not covered.
+- Native Security Controls: This work focused on mapping the security controls produced by Google or offered as Google products. The selected controls are considered native to the platform, i.e., produced by the vendor themselves or third-party controls branded or acquired by the vendor. Third-party security controls offered in cloud marketplaces are considered out of scope and were excluded from analysis.
+- Google Cloud Security: Most of the controls included in scope were derived from [Google Cloud Security Solutions]( https://cloud.google.com/solutions/security) and our review of [GCP security documentation]( https://cloud.google.com/docs/security).
 
 ## Supporting Resources
 
@@ -42,11 +51,11 @@ This project provides the following supporting resources:
 
 ## Getting Involved
 
-There are several ways that you can get involved with this project and help advance threat-informed defense: 
+There are several ways that you can get involved with this project and help advance threat-informed defense:
 - **Review the mappings, use them, and tell us what you think.**  We welcome your review and feedback on the mappings, our methodology, and resources.
 - **Apply the methodology and share your security capability mappings.** We encourage organizations to apply our methodology to map the security capabilities of their products and we welcome mapping contributions.
 - **Help us prioritize additional platforms to map.** Let us know what platforms you would like to see mapped to ATT&CK. Your input will help us prioritize how we expand our mappings.
-- **Share your ideas.** We are interested in developing additional tools and resources to help the community understand and make threat-informed decisions in their risk management programs. If you have ideas or suggestions, we consider them as explore additional research projects. 
+- **Share your ideas.** We are interested in developing additional tools and resources to help the community understand and make threat-informed decisions in their risk management programs. If you have ideas or suggestions, we consider them as explore additional research projects.
 
 ## Questions and Feedback
 Please submit issues for any technical questions/concerns or contact ctid@mitre-engenuity.org directly for more general inquiries.

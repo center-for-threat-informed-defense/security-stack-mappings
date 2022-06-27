@@ -1,0 +1,350 @@
+version: 1
+ATT&CK version: 10
+creation date: 05/03/2022
+last update: 05/10/2022
+name: Security Command Center
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Analytics
+  - Security Command Center
+  - Vulnerability Management
+description: >-
+  Security Command Center (SCC) provides analysts with a centralized dashboard for cyber situational
+  awareness by aggregating threat and vulnerability reports. SCC works by scanning for weaknesses or
+  monitoring an organization's logging stream for anomalies (e.g., Google Workspace logs,
+  containers, vulnerabilities in web applications, and hypervisor-level instrumentation). To
+  further mitigate risks in the infrastructure, SCC easily integrates with other Google Cloud
+  security solutions: Cloud DLP, Chronicle, Binary Authorization, Cloud Armor, and 3rd party
+  solutions (e.g., SIEM, SOAR). The cyber-attacks in this solution are correlated to SCC's
+  premium tier which included additional security features for: Event Threat Detection, Container
+  Threat Detection, Virtual Machine Threat Detection, Web Security Scanner, and Security Health
+  Analytics
+techniques:
+  - id: T1204.003
+    name: Malicious Image
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect a potentially malicious binary being executed that was not part of
+          the original container image. Because of the high threat detection coverage and near-real
+          time temporal factor this control was graded as significant.
+  - id: T1525
+    name: Implant Internal Image
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect modifications that were not not part of the original container
+          image. Because of the high threat detection coverage and near-real time temporal factor
+          this control was graded as significant.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect attackers communicating with a compromised workload from a remote
+          system (e.g., "reverse shell"). SCC specifically detects for stdin bound to a remote
+          socket. Because of the high threat detection coverage and near-real time temporal factor
+          this control was graded as significant.
+  - id: T1505.003
+    name: Web Shell
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect attackers communicating with a compromised workload from a remote
+          system (e.g., "web shell"). Because of the high threat detection coverage and near-real
+          time temporal factor this control was graded as significant.
+  - id: T1105
+    name: Ingress Tool Transfer
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC uses machine learning [NLP techniques] to evaluate content of an executed bash script.
+          This security solution protects against potentially malicious scripts that are used to
+          transfer tools into a compromised environment and execute commands without binaries.
+          Because of the high threat detection coverage provided by the ML model and near-real time
+          temporal factor this control was graded as significant.
+  - id: T1059.004
+    name: Unix Shell
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC uses machine learning [NLP techniques] to evaluate content of an executed bash script.
+          This security solution protects against potentially malicious scripts that are used to
+          execute commands in compromised systems. Because of the high threat detection coverage
+          provided by the ML model and near-real time temporal factor this control was graded as
+          significant.
+  - id: T1071.004
+    name: DNS
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to ingest Cloud DNS logs and detect DNS queries that could indicate active
+          Log4j vulnerable to remote code execution. Because of the near-real time temporal factor
+          for detection this control was graded as significant.
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC uses syslog to detect successful brute force attacks [via SSH] on a host. Because of
+          the near-real time temporal factor when detecting cyber-attacks this control was graded
+          as significant.
+  - id: T1078.004
+    name: Cloud Accounts
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC ingests Cloud Audit logs to detect when an external member is added to a privileged
+          group with sensitive permissions or roles. This security solution protects against
+          compromised cloud accounts used to maintain persistence and harvest sensitive data.
+          Because of the near-real time temporal factor to detect against this cyber-attack the
+          control was graded as significant.
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC ingests VPC Audit logs to detect changes which would lead to changes in the security
+          posture. This security solution protects against network modifications that are used to
+          reduce the security perimeter, disable logs, and evade cyber-defense of a target
+          environment. Because of the near-real time temporal factor this control was graded as
+          significant.
+  - id: T1567
+    name: Exfiltration Over Web Service
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC ingests BigQueryAudit data access logs used to track sensitive data that is saved
+          outside of an organization or attempts to access protected resources. This security
+          solution detects exfiltration attacks that were attempted and completed to an external
+          or public resource. Because of the near-real time temporal factor this control was graded
+          as significant.
+  - id: T1567.002
+    name: Exfiltration to Cloud Storage
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC ingests BigQueryAudit data access logs used to track sensitive data that is saved to a
+          cloud storage (e.g., Google Drive). This security solution detects exfiltration attacks
+          that were attempted and completed to an external or public resource. Because of the
+          near-real time temporal factor this control was graded as significant.
+  - id: T1505.001
+    name: SQL Stored Procedures
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC ingests MySQL/PostgreSQL/SQL Server data access logs to track cloud sql instances that
+          are backed-up outside the organization. This security solution detects potential database
+          exfiltration attacks that were attempted and completed to an external resource. Because
+          of the near-real time temporal factor this control was graded as significant.
+  - id: T1098.001
+    name: Additional Cloud Credentials
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC ingests Cloud Audit logs to detect when permissions are changed in a privileged group
+          (i.e., modify group to public) with sensitive permissions or roles. This security solution
+          protects against compromised cloud accounts used to maintain persistence. Because of the
+          near-real time temporal factor to detect against this cyber-attack the control was graded
+          as significant.
+  - id: T1562.007
+    name: Disable or Modify Cloud Firewall
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect changes to VPC service controls that could modify and reduced the
+          secured perimeter. This security solution protects against modifications that could lead
+          to a lower security posture and defense evasion. Because of the near-real time temporal
+          factor to detect against this cyber-attack the control was graded as significant.
+  - id: T1589.001
+    name: Credentials
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          SCC has the capability to disable user account after detecting a related account password
+          leak. Because of the near-real time temporal factor to detect against this cyber-attack
+          the control was graded as significant.
+  - id: T1496
+    name: Resource Hijacking
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC detect compromised hosts that attempt to connect to known malicious crypto-mining
+          domains and IP addresses. Because of the near-real time temporal factor to detect against
+          this cyber-attack the control was graded as significant.
+  - id: T1213.003
+    name: Code Repositories
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Using Web Security Scanner, SCC is able to detect repositories (e.g., Git or SVN) that are
+          exposed to the public. Adversaries may use this lapse in security configuration to collect
+          information about the target. Because of the near-real time temporal factor to detect
+          against this cyber-attack this was graded as significant.
+  - id: T1040
+    name: Network Sniffing
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Using Web Security Scanner, SCC is able to detect when passwords are transmitted in
+          cleartext. Adversaries may use this traffic mirroring services to sniff traffic and
+          intercept unencrypted credentials. This technique was graded as partial due to the low
+          protect coverage when transmitting passwords in clear-text and there is more information
+          that could be gathered during a network sniffing attacks. 
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          Using Web Security Scanner, SCC is able to detect and provide guidance for web application
+          security risks (e.g., Cross-Site Scripting, SQL injection, Server Side Request Forgery,
+          Insecure Deserialization). Adversaries may exploit these web app weaknesses in a
+          cloud-based environment to compromise the underlying instance or container. This technique
+          was graded as significant due to the high detect coverage against varying forms of this
+          attack.  
+  - id: T1078.001
+    name: Default Accounts
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect when default service accounts are used. Adversaries may use this
+          attack as a means to gain initial access, privilege escalation, or defense evasion. This
+          subtechnique was graded as significant due to the high detect coverage and near-real time
+          temporal factor.
+  - id: T1542
+    name: Pre-OS Boot
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect when secure boot is not enabled. Adversaries may use this weakness
+          to abuse pre-boot mechanisms and persist on compromised systems. This technique was graded
+          as significant due to the high detect coverage and near real-time temporal factor.
+  - id: T1542.003
+    name: Bootkit
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect when secure boot is not enabled. Adversaries may use this weakness
+          to abuse pre-boot mechanisms and persist on compromised systems (e.g., bootkit).
+          This technique was graded as significant due to the high detect coverage and near
+          real-time temporal factor.
+  - id: T1014
+    name: Rootkit
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect when secure boot is not enabled. Adversaries may use this weakness
+          to abuse pre-boot mechanisms and persist on compromised systems (e.g., rootkit).
+          This technique was graded as significant due to the real-time temporal factor.
+  - id: T1070
+    name: Indicator Removal on Host
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC is able to detect when audit logging has been disabled for a resource. Adversaries may
+          use this weakness to hide their activity and remove evidence of their presence (e.g.,
+          clear command history, clear logs, file deletion). This technique was graded as
+          significant due to the high detect coverage and real-time temporal factor.
+  - id: T1484
+    name: Domain Policy Modification
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC ingests admin activity from Cloud Audit logs to detect when an external member is
+          added to a privileged group with sensitive permissions or roles. This security solution
+          protects against adversary created accounts used to establish or maintain persistence.
+          Because of the temporal factor to detect this attack, the control was graded as
+          significant.
+  - id: T1136.003
+    name: Cloud Account
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC ingests admin activity from Cloud Audit logs to detect when new service accounts are
+          created. This security solution protects against potential adversary generated accounts
+          used for initial access or to maintain persistence. Because of the temporal factor to
+          detect this attack the control was graded as significant.
+  - id: T1562.008
+    name: Disable Cloud Logs
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC detect changes to the configuration which would lead to disable logging on an instance
+          or container. This security solution protects against system modifications used to remove
+          evidence and evade defenses. Because of the near-real time temporal factor this control
+          was graded as significant.
+  - id: T1578
+    name: Modify Cloud Compute Infrastructure
+    technique-scores:
+      - category: Detect
+        value: Significant
+        comments: >-
+          SCC detect changes to the cloud infrastructure and resources which could indicate
+          malicious behavior (e.g., delete instances, create snapshot, revert cloud instance).
+          This security solution protects against modifications potentially used to remove evidence
+          and evade defenses. Because of the near-real time temporal factor and high detection
+          coverage this control was graded as significant.
+  - id: T1530
+    name: Data from Cloud Storage Object
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          SCC detect suspicious activity when accessing cloud storage objects (e.g.,  new IPs
+          accessing storage objects or enumeration from unfamiliar user identities). Because of the
+          real time temporal factor when detecting access to secure storage objects this control
+          was graded as partial.
+comments: >-
+  This mapping was rated as significant due to the control’s notable detection accuracy, mappable
+  threat coverage, and time-related factors (e.g., real-time).
+
+
+  SCC also provides users with compliance mappings that scan environments against violations
+  according to PCI-DSS v3.2.1, OWASP Top Ten, NIST 800-53, and ISO 27001. 
+
+
+  To improve cyber-situational awareness and detection against various threats, SCC ingests logging
+  data from multiple sources. Cloud Audit Admin Activity logs are always enabled by default and
+  cannot be disabled. SCC Premium consumes logs automatically when activated. SSH Logs and syslog
+  inform the brute force detector, and the set of network logs (VPC Flow/Cloud Firewall/Cloud
+  NAT/Cloud DNS).
+
+
+  Further automated response functionality can be extended in SCC to take actions against threats. A
+  full list of automated actions can be found on GCP's GitHub.
+
+
+  Reference: https://github.com/GoogleCloudPlatform/security-response-automation 
+references:
+  - 'https://cloud.google.com/security-command-center/docs/concepts-security-command-center-overview'
+  - 'https://github.com/GoogleCloudPlatform/security-analytics'

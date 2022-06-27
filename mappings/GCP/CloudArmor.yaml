@@ -1,0 +1,73 @@
+version: 1
+ATT&CK version: 10
+creation date: 01/31/2022
+name: Cloud Armor
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Network
+  - Firewall
+description: >-
+  Cloud Armor protects applications by providing Layer 7 filtering and by scrubbing incoming
+  requests for common web attacks or other Layer 7 attributes to potentially block traffic before it
+  reaches load balanced backend services or backend buckets.
+techniques:
+  - id: T1090
+    name: Proxy
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Traffic to known anonymity networks and C2 infrastructure can be blocked through the use
+          of network allow and block lists. However this can be circumvented by other techniques.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Google Cloud Armor security policies protect your application by providing Layer 7
+          filtering and by scrubbing incoming requests for common web attacks or other Layer 7
+          attributes. Google Cloud Armor detects malicious requests and drops them at the edge of
+          Google's infrastructure.
+  - id: T1498
+    name: Network Denial of Service
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Google Cloud Armor provides always-on DDoS protection against network or protocol-based
+          volumetric DDoS attacks. It allows users to allow/deny traffic at the Google Cloud edge,
+          closest to the source of traffic. This prevents unwelcome traffic from consuming
+          resources.
+  - id: T1499
+    name: Endpoint Denial of Service
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Google Cloud Armor provides always-on DDoS protection against network or protocol-based
+          volumetric DDoS attacks. It allows users to allow/deny traffic at the Google Cloud edge,
+          closest to the source of traffic. This prevents unwelcome traffic from consuming
+          resources.
+  - id: T1018
+    name: Remote System Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control typically filters external network traffic and therefore can be effective for
+          preventing external remote system discovery. Activity originating from inside the
+          trusted network is not mitigated.
+  - id: T1046
+    name: Network Service Scanning
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control typically filters external network traffic and therefore can be effective for
+          preventing external network service scanning. Network service scanning originating from
+          inside the trusted network is not mitigated.
+references:
+  - 'https://cloud.google.com/armor'

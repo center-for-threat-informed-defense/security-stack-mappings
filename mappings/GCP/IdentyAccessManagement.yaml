@@ -1,0 +1,121 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/01/2022
+name: Identity and Access Management
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Identity
+  - Credentials
+  - Access Management
+  - Multi-Factor Authentication
+  - Role Based Access Control
+description: >-
+  Identity and Access Management (IAM) gives administrators fine-grained access control and
+  visibility for centrally managing enterprise cloud resources. It gives more granular access to
+  specific Google Cloud resources and prevents unwanted access to other resources. IAM lets users
+  adopt the security principle of least privilege, so you grant only the necessary access to your
+  resources.
+techniques:
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Privileged roles and permissions can be granted to entire groups of users by default, and
+          admins can control unwanted access by utilizing machine learning to recommend smart access
+          control permissions within an organization. This control can  help mitigate adversaries
+          from gaining access to unwanted account.
+  - id: T1098.001
+    name: Additional Cloud Credentials
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Privileged roles and permissions can be granted to entire groups of users by default, and
+          admins can control unwanted access by utilizing machine learning to recommend smart access
+          control permissions within an organization. This control can  help mitigate adversaries
+          from gaining access to unwanted account.
+  - id: T1069
+    name: Permission Groups Discovery
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Group permissions and settings are inherited using the IAM roles that are specifically
+          granted to that group by admins. This control provides protection of possible adversaries
+          that may determine which user accounts and groups memberships are available in cloud
+          accounts. Received a score of Minimal because it only covers one of the sub-techniques.
+  - id: T1069.003
+    name: Cloud Groups
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Group permissions and settings are inherited using the IAM roles that are specifically
+          granted to that group by admins. This control provides protection of possible adversaries
+          that may determine which user accounts and groups memberships are available in cloud
+          accounts. Received a score of Minimal because it only covers one of the sub-techniques.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control may mitigate the impact of compromised valid accounts by enabling
+          fine-grained access policies and implementing least-privilege policies. MFA can provide
+          protection against an adversary that obtains valid credentials by requiring the adversary
+          to complete an additional authentication process before access is permitted.
+      - category: Detect
+        value: Partial
+  - id: T1078.004
+    name: Cloud Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control protects against malicious use of cloud accounts and gaining access to
+          them.   This control may mitigate the impact of compromised valid accounts by enabling
+          fine-grained access policies and implementing least-privilege policies. MFA can provide
+          protection against an adversary that obtains valid credentials by requiring the adversary
+          to complete an additional authentication process before access is permitted.
+  - id: T1087.004
+    name: Cloud Account
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to implement the least-privilege principle for account management
+          and thereby limit the accounts that can be used for account discovery. This control
+          receives a minimal score since it only covers one of the few sub-techniques.
+  - id: T1087
+    name: Account Discovery
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control protects against adversaries gaining access to accounts within a specific
+          environment or determining which accounts exists to follow on with malicious behavior. The
+          usage of GCP IAM enables admins to grant access to cloud resources at fine-grained levels,
+          possibly preventing adversaries of malicious use of cloud accounts and gaining access to
+          them.  This control receives a minimal score since it only covers one of the few
+          sub-techniques.
+  - id: T1613
+    name: Container and Resource Discovery
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          GCP Identity and Access Management allows admins to control access to Container Registry
+          hosts with Cloud Storage permissions. Specific accounts can be assigned roles and
+          Container Registry uses Cloud Storage buckets as the underlying storage for container
+          images. This control can help mitigate  against adversaries that may attempt to discover
+          resources including images and containers by controlling access to  images by granting
+          permissions to the bucket for a registry.
+comments: >-
+  Similar to Azure AD for Managed Identities, Azure Role Based Access Control, AWS Identity and
+  Access Management.
+references:
+  - 'https://cloud.google.com/iam'
