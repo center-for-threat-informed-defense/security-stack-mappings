@@ -1,0 +1,118 @@
+version: 1
+ATT&CK version: 10
+creation date: 04/27/2022
+last update: 05/13/2022
+name: AnthosConfigManagement
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Configuration Management
+  - Containers
+  - Policy
+description: >
+  Anthos Config Management enables platform operators to automatically deploy shared environment
+  configurations and enforce approved security policies across Kubernetes clusters on-premises, on
+  GKE, and in other public cloud platforms. It also lets platform admins configure Google Cloud
+  services using the same resource model.
+techniques:
+  - id: T1552.007
+    name: Container API
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Adversaries may gather credentials via APIs within a containers environment. APIs in these
+          environments, such as the Docker API and Kubernetes APIs. Anthos Config Management can
+          manage configuration for any Kubernetes API, including policies for the Istio service
+          mesh, resource quotas, and access control policies.
+  - id: T1525
+    name: Implant Internal Image
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Prevent configuration drift with continuous monitoring of your cluster state, using the
+          declarative model to apply policies that enforce compliance. This control can periodically
+          check the integrity of images and containers used in cloud deployments to ensure that
+          adversaries cannot implant malicious code to gain access to an environment. 
+      - category: Detect
+        value: Partial
+  - id: T1609
+    name: Container Administration Command
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Anthos Config Management lets you create and manage Kubernetes objects across multiple
+          clusters at once. PodSecurityPolicies can be enforced to prevent Pods from using the root
+          Linux user and prevents pods from running privileged containers. In hindsight this can
+          ensure containers are not running as root by default. 
+  - id: T1610
+    name: Deploy Container
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Anthos Config Management's Policy Controller enables you to enforce fully programmable
+          policies on your clusters. You can use these policies to shift security left and guard
+          against violations during development and test time, as well as runtime violations. This
+          control can be used to block adversaries that try to deploy new containers with malware or
+          configurations policies that are not in compliance with security policies already
+          defined. 
+  - id: T1613
+    name: Container and Resource Discovery
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Adversaries may attempt to discover containers and other resources that are available
+          within a containers environment. The "Network Policies" rule controls the network traffic
+          inside clusters, denying direct remote access to internal systems through the use of
+          network proxies, gateways, and firewalls
+  - id: T1611
+    name: Escape to Host
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Anthos Config Management lets you create and manage Kubernetes objects across multiple
+          clusters at once. PodSecurityPolicies can be enforced to prevent Pods from using the root
+          Linux user and prevents pods from running privileged containers. This control can be used
+          to limit container access to host process namespaces, the host network, and the host file
+          system, which may enable adversaries to break out of containers and gain access to the
+          underlying host.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Anthos Config Management lets you create and manage Kubernetes objects across multiple
+          clusters at once. PodSecurityPolicies can be enforced to prevent Pods from using the root
+          Linux user. Based on the medium detection coverage, this was scored as partial.
+  - id: T1078.001
+    name: Default Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Anthos Config Management lets you create and manage Kubernetes objects across multiple
+          clusters at once. PodSecurityPolicies can be enforced to prevent Pods from using the root
+          Linux user. Based on the medium detection coverage, this sub-technique was scored as
+          partial.
+  - id: T1078.004
+    name: Cloud Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Anthos Config Management lets you create and manage Kubernetes objects across multiple
+          clusters at once. PodSecurityPolicies can be enforced to prevent Pods from using the root
+          Linux user. Based on the medium detection coverage, this sub-technique was scored as
+          partial.
+comments: >-
+  Based on the medium detection coverage for the correlated cyber-attacks, most of the techniques
+  and sub-techniques in this security solution were rated as partial.
+references:
+  - 'https://cloud.google.com/anthos-config-management/ '

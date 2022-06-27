@@ -1,0 +1,54 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/27/2022
+name: Cloud Asset Inventory
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Credentials
+  - Access Management
+description: >
+  Cloud Asset Inventory provides inventory services based on a time series database. Cloud Asset
+  Inventory allows you to search asset metadata, export all asset metadata at a certain timestamp or
+  export event change history during a specific timeframe, monitor asset changes by subscribing to
+  real-time notifications, and analyze IAM policy to find out who has access to what.
+techniques:
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may be able to detect when adversaries use cloud accounts to elevate
+          privileges through manipulation of IAM or access policies. This monitoring can be fine
+          tuned to specific assets, policies, and organizations.
+  - id: T1098.001
+    name: Additional Cloud Credentials
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may be able to detect when adversaries use cloud accounts to elevate
+          privileges through manipulation of IAM or access policies for the creation of additional
+          accounts. This monitoring can be fine tuned to specific assets, policies, and organizations.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may be able to detect when adversaries use valid cloud accounts to elevate
+          privileges through manipulation of IAM or access policies. This monitoring can be fine
+          tuned to specific assets, policies, and organizations.
+  - id: T1078.004
+    name: Cloud Accounts
+    technique-scores:
+      - category: Detect
+        value: Partial
+        comments: >-
+          This control may be able to detect when adversaries use valid cloud accounts to elevate
+          privileges through manipulation of IAM or access policies. This monitoring can be fine
+          tuned to specific assets, policies, and organizations.
+references:
+  - 'https://cloud.google.com/asset-inventory/docs/overview'

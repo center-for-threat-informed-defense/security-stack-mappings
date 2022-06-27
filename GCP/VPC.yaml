@@ -1,0 +1,139 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/07/2022
+last update: 04/08/2022
+name: Virtual Private Cloud
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Network
+  - Virtual Private Cloud
+description: >-
+  Google Cloud's Virtual Private Cloud (VPC) allows users to logically isolate resources and define
+  security perimeters that filters [ingress and egress] traffic in a virtual network based on user
+  identity or policies for cloud assets (e.g., instance or subnet).
+techniques:
+  - id: T1590
+    name: Gather Victim Network Information
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can limit the impact from active scanning techniques used to gain
+          further information about the target environment.
+  - id: T1590.004
+    name: Network Topology
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can limit the impact from active scanning techniques used to gain
+          further information about the target environment.
+  - id: T1590.005
+    name: IP Addresses
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can limit the impact from active scanning techniques used to gain
+          further information about the target environment.
+  - id: T1046
+    name: Network Service Scanning
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can limit the impact from active scanning and lateral movement
+          techniques used to exploit the target environment.
+  - id: T1135
+    name: Network Share Discovery
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can limit the impact from active scanning and lateral movement
+          techniques used to exploit the target environment.
+  - id: T1595
+    name: Active Scanning
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can limit the impact from active scanning and lateral movement
+          techniques used to exploit the target environment.
+  - id: T1595.001
+    name: Scanning IP Blocks
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can limit the impact from active scanning on private networks and
+          lateral movement techniques used to exploit target environments.
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC further segments the environment by providing configurable granular access controls
+          which help limit user communications to critical systems.
+  - id: T1098.001
+    name: Additional Cloud Credentials
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VPC further segments the environment by providing configurable granular access controls
+          which help limit user permissions to communicate with critical systems.
+  - id: T1557
+    name: Adversary-in-the-Middle
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          VPC security perimeter mitigates the impact from Adversary-in-the-Middle by creating
+          virtual segmentation that limits the data and information broadcast on the network.
+  - id: T1602
+    name: Data from Configuration Repository
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can isolate resources and limit the impact from lateral movement
+          techniques used to access sensitive data.
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can segment private resources to further reduce user access and
+          operate in a logically separate hosting environment.
+  - id: T1552.007
+    name: Container API
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can segment private resources to provide access based on user
+          identity or organizational ingress/egress policies (e.g., instance, subnet).
+  - id: T1018
+    name: Remote System Discovery
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          VPC security perimeters can segment private resources to deny traffic based on
+          organizational policy.
+  - id: T1570
+    name: Lateral Tool Transfer
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          VPC security perimeters can segment private resources to deny ingress and egress traffic
+          based on organizational policies. Because this tool does not prevent attacks from valid accounts or compromised machines, it was scored as 
+          minimal.
+references:
+  - 'https://cloud.google.com/vpc-service-controls/docs'

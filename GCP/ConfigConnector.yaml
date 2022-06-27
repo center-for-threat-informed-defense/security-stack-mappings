@@ -1,0 +1,23 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/21/2022
+name: Config Connector
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Not Mappable
+description: >-
+  Config Connector is a Kubernetes addon that allows you to manage Google Cloud resources through
+  Kubernetes.
+
+  Many cloud-native development teams work with a mix of configuration systems, APIs, and tools to
+  manage their infrastructure. This mix is often difficult to understand, leading to reduced
+  velocity and expensive mistakes. Config Connector provides a method to configure many Google Cloud
+  services and resources using Kubernetes tooling and APIs.
+techniques: []
+comments: >-
+  This control was not mapped as it is not considered a security control but rather an alternative
+  to deploying and managing Google Cloud.
+references:
+  - 'https://cloud.google.com/config-connector/docs/overview'

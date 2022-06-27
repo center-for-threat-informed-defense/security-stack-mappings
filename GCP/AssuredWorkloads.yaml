@@ -1,0 +1,14 @@
+version: 1
+ATT&CK version: 10
+creation date: 04/17/2022
+name: Assured Workloads
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Not Mappable
+description: "Assured Workloads provides Google Cloud customers with the ability to apply security controls to an environment, in support of compliance requirements, without compromising the quality of their cloud experience. Customers should only use Assured Workloads if their Google Cloud use case is actively subject to regulatory compliance.\t"
+techniques: []
+comments: "Assure workloads doesn't appear to provide any specific mitigation for TTPs. Rather, it focuses on enabling customers to apply other security controls in ways to support regulatory compliance. As a result, we have not mapped any TTPs to this control.\t"
+references:
+  - 'https://cloud.google.com/assured-workloads/docs/concept-overview'

@@ -1,0 +1,82 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/08/2022
+last update: 06/07/2022
+name: Identity Aware Proxy
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Identity
+  - Credentials
+description: >-
+  Identity Aware Proxy (IAP) includes a number of features that can be used to protect access to
+  Google Cloud hosted resources and applications hosted on Google. IAP lets you establish a central
+  authorization layer for applications accessed by HTTPS, so you can use an application-level access
+  control model instead of relying on network-level firewalls.
+techniques:
+  - id: T1550.001
+    name: Application Access Token
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: 'This control may mitigate or prevent stolen application access tokens from occurring. '
+  - id: T1528
+    name: Steal Application Access Token
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          This control may mitigate application access token theft if the application is configured
+          to retrieve temporary security credentials using an IAM role.
+      - category: Detect
+        value: Partial
+        comments: Control can detect potentially malicious applications
+  - id: T1098.001
+    name: Additional Cloud Credentials
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          Adversaries may add adversary-controlled credentials to a cloud account to maintain
+          persistent access to victim accounts and instances within the environment. IAP lets you
+          enforce access control policies for applications and resources. This control may help
+          mitigate against adversaries gaining access through cloud account by the configuration of
+          access controls and firewalls, allowing limited access to systems.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          IAP applies the relevant IAM policy to check if the user is authorized to access the
+          requested resource. If the user has the IAP-secured Web App User role on the Cloud console
+          project where the resource exists, they're authorized to access the application. This
+          control can mitigate against adversaries that try to obtain credentials of accounts,
+          including cloud accounts.
+  - id: T1078.004
+    name: Cloud Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: 'Protects access to applications hosted within cloud and other premises. '
+  - id: T1190
+    name: Exploit Public-Facing Application
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          When an application or resource is protected by IAP, it can only be accessed through the
+          proxy by principals, also known as users, who have the correct Identity and Access
+          Management (IAM) role. IAP secures authentication and authorization of all requests to App
+          Engine, Cloud Load Balancing (HTTPS), or internal HTTP load balancing.
+
+
+          With adversaries that may try to attempt malicious activity via applications, the
+          application Firewalls may be used to limit exposure of applications to prevent exploit
+          traffic from reaching the application.
+comments: >-
+  This mapping was scored as Partial due the control's low to medium threat protection fidelity from
+  specific (sub-)techniques found in MITRE’s ATT&CK framework.
+references:
+  - 'https://cloud.google.com/iap'

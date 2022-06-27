@@ -1,0 +1,123 @@
+version: 1
+ATT&CK version: 10
+creation date: 02/24/2022
+name: Cloud Identity
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Identity
+  - Multi-Factor Authentication
+  - Credentials
+description: >-
+  Cloud Identity is an Identity as a Service (IDaaS) and enterprise mobility management (EMM)
+  product. It offers the identity services and endpoint administration that are available in Google
+  Workspace as a stand-alone product. As an end-user, Cloud Identity protects user access with
+  multi-factor authentication. As an administrator, one can use Cloud Identity to manage users,
+  apps, and devices from a central location—the Google Admin console.
+techniques:
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control may mitigate brute force attacks by enforcing multi-factor authentication,
+          enforcing strong password policies, and rotating credentials periodically. These
+          recommendations are IAM best practices but must be explicitly implemented by a cloud
+          administrator.
+  - id: T1110.003
+    name: Password Spraying
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control may mitigate brute force attacks by enforcing multi-factor authentication,
+          enforcing strong password policies, and rotating credentials periodically. These
+          recommendations are IAM best practices but must be explicitly implemented by a cloud
+          administrator.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to mitigate malicious attacks of cloud accounts by
+          implementing multi-factor authentication techniques or password policies.
+  - id: T1078.004
+    name: Cloud Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to mitigate malicious attacks of cloud accounts by
+          implementing multi-factor authentication techniques or password policies.
+  - id: T1110.001
+    name: Password Guessing
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control may mitigate brute force attacks by enforcing multi-factor authentication,
+          enforcing strong password policies, and rotating credentials periodically. These
+          recommendations are IAM best practices but must be explicitly implemented by a cloud
+          administrator.
+  - id: T1110.002
+    name: Password Cracking
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control may mitigate brute force attacks by enforcing multi-factor authentication,
+          enforcing strong password policies, and rotating credentials periodically. These
+          recommendations are IAM best practices but must be explicitly implemented by a cloud
+          administrator.
+  - id: T1110.004
+    name: Credential Stuffing
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          This control may mitigate brute force attacks by enforcing multi-factor authentication,
+          enforcing strong password policies, and rotating credentials periodically. These
+          recommendations are IAM best practices but must be explicitly implemented by a cloud
+          administrator.
+  - id: T1078.002
+    name: Domain Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          This control can be used to mitigate malicious attacks of domain accounts by
+          implementing multi-factor authentication techniques or password policies.
+  - id: T1021.004
+    name: SSH
+    technique-scores:
+      - category: Detect
+        value: Minimal
+        comments: >-
+          This control can be used to detect adversaries that may try to use Valid Accounts to log
+          into remote machines using Secure Shell (SSH).
+  - id: T1213.003
+    name: Code Repositories
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          MFA and enforcing the principal of least privilege can be used to control adversaries and
+          possibly hinder them from gaining access to a victim network or a private code repository.
+  - id: T1213
+    name: Data from Information Repositories
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          MFA and enforcing the principal of least privilege can be used to control adversaries and
+          possibly hinder them from gaining access to a victim network or a private code repository.
+  - id: T1133
+    name: External Remote Services
+    technique-scores:
+      - category: Protect
+        value: Minimal
+references:
+  - 'https://cloud.google.com/identity'

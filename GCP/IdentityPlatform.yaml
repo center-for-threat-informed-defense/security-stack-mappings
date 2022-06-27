@@ -1,0 +1,249 @@
+version: 1
+ATT&CK version: 10
+creation date: 03/25/2022
+name: IdentityPlatform
+contact: ctid@mitre-engenuity.org
+organization: Center for Threat Informed Defense (CTID)
+platform: GCP
+tags:
+  - Identity
+  - Multi-Factor Authentication
+  - Passwords
+  - Credentials
+  - Access Management
+description: >-
+  Identity Platform is a customer identity and access management (CIAM) platform that helps
+  organizations add identity and access management functionality to their applications, protect user
+  accounts, and scale with confidence on Google Cloud.
+techniques:
+  - id: T1098
+    name: Account Manipulation
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: "Identity Platform can help protect your app's users and prevent account takeovers by offering multi-factor authentication (MFA) and integrating with Google's intelligence for account protection. This will help mitigate adversaries from gaining access to permission levels."
+  - id: T1098.001
+    name: Additional Cloud Credentials
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: "Identity Platform can help protect your app's users and prevent account takeovers by offering multi-factor authentication (MFA) and integrating with Google's intelligence for account protection. This will help mitigate adversaries from gaining access to permission levels."
+  - id: T1110
+    name: Brute Force
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect
+          user accounts from phishing attacks. MFA provides significant protection against password
+          compromises, requiring the adversary to complete an additional authentication method
+          before their access is permitted.
+  - id: T1110.001
+    name: Password Guessing
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect
+          user accounts from phishing attacks. MFA provides significant protection against password
+          compromises, requiring the adversary to complete an additional authentication method
+          before their access is permitted.
+  - id: T1110.002
+    name: Password Cracking
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect
+          user accounts from phishing attacks. MFA provides significant protection against password
+          compromises, requiring the adversary to complete an additional authentication method
+          before their access is permitted.
+  - id: T1078
+    name: Valid Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: ' Identity Platform lets you add Google-grade authentication to your apps and services, making it easier to secure user accounts and securely managing credentials. MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted. '
+  - id: T1078.004
+    name: Cloud Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: ' Identity Platform lets you add Google-grade authentication to your apps and services, making it easier to secure user accounts and securely managing credentials. MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted. '
+  - id: T1078.003
+    name: Local Accounts
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: ' Identity Platform lets you add Google-grade authentication to your apps and services, making it easier to secure user accounts and securely managing credentials. MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted. '
+  - id: T1110.003
+    name: Password Spraying
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect
+          user accounts from phishing attacks. MFA provides significant protection against password
+          compromises, requiring the adversary to complete an additional authentication method
+          before their access is permitted.
+  - id: T1136
+    name: Create Account
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Identity Platform multi-tenancy uses tenants to create unique silos of users and
+          configurations within a single Identity Platform project. It provides provides secure,
+          easy-to-use authentication if you're building a service on Google Cloud, on your own
+          backend or on another platform; thereby, helping to mitigate adversaries from gaining
+          access to systems.
+  - id: T1136.003
+    name: Cloud Account
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Identity Platform multi-tenancy uses tenants to create unique silos of users and
+          configurations within a single Identity Platform project. It provides provides secure,
+          easy-to-use authentication if you're building a service on Google Cloud, on your own
+          backend or on another platform; thereby, helping to mitigate adversaries from gaining
+          access to systems.
+  - id: T1087
+    name: Account Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Identity Platform is a customer identity and access management (CIAM) platform that helps
+          organizations add identity and access management functionality to their applications,
+          protect user accounts, and scale with confidence on Google Cloud. With this, permissions
+          are limited to discover cloud accounts in accordance with least privilege and adversaries
+          may be prevented from getting access to a listing of domain accounts.
+  - id: T1087.004
+    name: Cloud Account
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Identity Platform is a customer identity and access management (CIAM) platform that helps
+          organizations add identity and access management functionality to their applications,
+          protect user accounts, and scale with confidence on Google Cloud. With this, permissions
+          are limited to discover cloud accounts in accordance with least privilege and adversaries
+          may be prevented from getting access to a listing of cloud accounts.
+  - id: T1580
+    name: Cloud Infrastructure Discovery
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Identity Platform is a customer identity and access management (CIAM) platform that helps
+          organizations add identity and access management functionality to their applications,
+          protect user accounts, and scale with confidence on Google Cloud. With this, permissions
+          are limited to discover cloud accounts in accordance with least privilege.
+  - id: T1528
+    name: Steal Application Access Token
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Identity Platform integrates tightly with Google Cloud services, and it leverages industry
+          standards like OAuth 2.0 and OpenID Connect, so it can be easily integrated with your
+          custom backend. This control may mitigate application access token theft if the
+          application is configured to retrieve temporary security credentials using an IAM role.
+  - id: T1550
+    name: Use Alternate Authentication Material
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: ' This control may mitigate application access token theft if the application is  configured to retrieve temporary security credentials using an IAM role. '
+  - id: T1550.001
+    name: Application Access Token
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: ' This control may mitigate application access token theft if the application is  configured to retrieve temporary security credentials using an IAM role. '
+  - id: T1562
+    name: Impair Defenses
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Identity Platform provides Admin APIs to manage  users and authentication tokens. To
+          prevent unwanted access to your users and tokens through these APIs, Identity Platform
+          leverages IAM to manage permission to specific Identity Platform APIs. This control will
+          ensure proper process and file permissions are in place to prevent adversaries from
+          disabling or interfering with security/logging services.
+  - id: T1562.008
+    name: Disable Cloud Logs
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: >-
+          Identity Platform provides Admin APIs to manage  users and authentication tokens. To
+          prevent unwanted access to your users and tokens through these APIs, Identity Platform
+          leverages IAM to manage permission to specific Identity Platform APIs. This control will
+          ensure proper process and file permissions are in place to prevent adversaries from
+          disabling or interfering with security/logging services.
+  - id: T1556
+    name: Modify Authentication Process
+    technique-scores:
+      - category: Protect
+        value: Minimal
+        comments: ' Identity Platform lets you add Google-grade authentication to your apps and services, making it easier to secure user accounts and securely managing credentials. MFA can be used to restrict access to cloud resources and APIs and provide protection against an adversaries that try to access  user credentials. '
+  - id: T1087.002
+    name: Domain Account
+    technique-scores:
+      - category: Protect
+        value: Partial
+        comments: >-
+          Identity Platform is a customer identity and access management (CIAM) platform that helps
+          organizations add identity and access management functionality to their applications,
+          protect user accounts, and scale with confidence on Google Cloud. With this, permissions
+          are limited to discover cloud accounts in accordance with least privilege and adversaries
+          may be prevented from getting access to a listing of domain accounts.
+  - id: T1098.002
+    name: Exchange Email Delegate Permissions
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: "Identity Platform can help protect your app's users and prevent account takeovers by offering multi-factor authentication (MFA) and integrating with Google's intelligence for account protection. This will help mitigate adversaries from gaining access to permission levels."
+  - id: T1098.003
+    name: Add Office 365 Global Administrator Role
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: "Identity Platform can help protect your app's users and prevent account takeovers by offering multi-factor authentication (MFA) and integrating with Google's intelligence for account protection. This will help mitigate adversaries from gaining access to permission levels."
+  - id: T1098.004
+    name: SSH Authorized Keys
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Identity Platform can help protect your app's users and prevent account takeovers by
+          offering multi-factor authentication (MFA) and integrating with Google's intelligence for
+          account protection. This will help mitigate adversaries from gaining access to
+          permission levels via files.
+  - id: T1136.001
+    name: Local Account
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Identity Platform multi-tenancy uses tenants to create unique silos of users and
+          configurations within a single Identity Platform project. It provides provides secure,
+          easy-to-use authentication if you're building a service on Google Cloud, on your own
+          backend or on another platform; thereby, helping to mitigate adversaries from gaining
+          access to systems and accounts.
+  - id: T1136.002
+    name: Domain Account
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Identity Platform multi-tenancy uses tenants to create unique silos of users and
+          configurations within a single Identity Platform project. It provides provides secure,
+          easy-to-use authentication if you're building a service on Google Cloud, on your own
+          backend or on another platform; thereby, helping to mitigate adversaries from gaining
+          access to systems.
+references:
+  - 'https://cloud.google.com/identity-platform/docs/concepts'

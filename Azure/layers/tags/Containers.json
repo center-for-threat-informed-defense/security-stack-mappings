@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Azure Defender for Kubernetes,Azure Defender for Container Registries,Docker Host Hardening",
+    "description": "Controls: Docker Host Hardening,Azure Defender for Kubernetes,Azure Defender for Container Registries",
     "filters": {
         "platforms": [
             "Linux",
@@ -38,6 +38,25 @@
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "Azure Defender for Kubernetes"
@@ -87,169 +106,12 @@
                 {
                     "name": "comment",
                     "value": "This control may scan and alert on import or creation of container images with known vulnerabilities or a possible expanded surface area for exploitation."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on Docker containers that are misconfigured or do not conform to CIS Docker Benchmarks. This may result in detection of container images implanted within Linux VMs with specific vulnerabilities or misconfigurations for malicious purposes."
                 }
             ],
             "color": "#9305ff",
             "score_num": 50,
             "score_display": "Partial",
             "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Kubernetes"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on publicly exposed Kubernetes services. This may provide context on services that should be patched or hardened for public access."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Container Registries"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide provide information about vulnerabilities within container images. The limited scope of containers and registries that are applicable to this control contribute to the lower score."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Kubernetes"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on detection of new privileged containers and high privilege roles."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Container Registries"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations to avoid privileged containers and running containers as root."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Docker Host Hardening"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1070",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Defender for Kubernetes"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may alert on deletion of Kubernetes events. Attackers might delete those events for hiding their operations in the cluster. There is no relevant sub-technique for this control but the parent applies."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
         },
         {
             "techniqueID": "T1548",
@@ -304,6 +166,71 @@
             "score_num": 10,
             "score_display": "Minimal",
             "category": "Protect"
+        },
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Docker Host Hardening"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations on how to reduce the surface area and mechanisms by which an attacker could escalate privileges. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Kubernetes"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on detection of new privileged containers and high privilege roles."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Container Registries"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide recommendations to avoid privileged containers and running containers as root."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1040",
@@ -439,6 +366,79 @@
             "score_num": 10,
             "score_display": "Minimal",
             "category": "Protect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Kubernetes"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on publicly exposed Kubernetes services. This may provide context on services that should be patched or hardened for public access."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Container Registries"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may provide provide information about vulnerabilities within container images. The limited scope of containers and registries that are applicable to this control contribute to the lower score."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1070",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Defender for Kubernetes"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may alert on deletion of Kubernetes events. Attackers might delete those events for hiding their operations in the cluster. There is no relevant sub-technique for this control but the parent applies."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
         }
     ],
     "gradient": {

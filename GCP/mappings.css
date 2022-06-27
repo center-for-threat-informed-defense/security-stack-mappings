@@ -1,0 +1,90 @@
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+}
+
+@media (max-width: 767px) {
+    .markdown-body {
+        padding: 15px;
+    }
+}
+
+.markdown-body h2 {
+    background: #e8e8e8;
+    padding: 0.4em 1em 1em 1.3em;
+}
+
+.markdown-body h2 img {
+    background-color: rgba(255, 0, 0, 0.0);
+    height: 1.5em;
+    position: relative;
+    top: 0.4em;
+    left: -0.2em;
+}
+
+.markdown-body li img {
+    display: none;
+}
+
+.markdown-body a.button {
+    border: 1px solid black;
+    color: black;
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    text-decoration: none;
+}
+
+.markdown-body a.button:visited {
+    border-color: black;
+    color: black;
+}
+
+.markdown-body a.button:hover {
+    border-color: grey;
+    color: grey;
+}
+
+.markdown-body a.button:active {
+    border-color: black;
+    color: black;
+}
+
+.markdown-body a.button img {
+    height: 1.5em;
+    position: relative;
+    top: 0.35em;
+    left: -0.1em;
+}
+
+.markdown-body p.text-center {
+    text-align: center;
+}
+
+.markdown-body div.float-right {
+    float: right;
+}
+
+.markdown-body a[href="#contents"] {
+    border: 1px solid grey;
+    padding: 0.5em 1em;
+    color: grey;
+    text-decoration: none;
+}
+
+.markdown-body a[href="#contents"]:visited {
+    border-color: grey;
+    color: grey;
+}
+
+.markdown-body a[href="#contents"]:hover {
+    border-color: #0166d6;
+    color: #0166d6;
+}
+
+.markdown-body a[href="#contents"]:active {
+    border-color: #002d5e;
+    color: #002d5e;
+}
