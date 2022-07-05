@@ -3,7 +3,7 @@ Google Cloud Platform Security Control Mappings to MITRE ATT&CK®
 ================================================================
 
 
-These mappings of the Google Cloud Platform (GCP) security controls to MITRE ATT&CK® are designed to empower organizations with independent data on which native AWS security controls are most useful in defending against the adversary TTPs that they care about. These mappings are part of a collection of mappings of native product security controls to ATT&CK based on a common methodology, scoring rubric, data model, and tool set. This full set of resources is available on the Center’s project [page](https://ctid.mitre-engenuity.org/our-work/gcp/).
+These mappings of the Google Cloud Platform (GCP) security controls to MITRE ATT&CK® are designed to empower organizations with independent data on which native GCP security controls are most useful in defending against the adversary TTPs that they care about. These mappings are part of a collection of mappings of native product security controls to ATT&CK based on a common methodology, scoring rubric, data model, and tool set. This full set of resources is available on the Center’s project [page](https://ctid.mitre-engenuity.org/our-work/gcp/).
 
 [Aggregate Navigator Layer For All Controls (JSON)](layers/platform.json)
 
