@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Cloud Data Loss Prevention,Actifio Go,Cloud Storage",
+    "description": "Controls: Actifio Go,Cloud Storage,Cloud Data Loss Prevention",
     "filters": {
         "platforms": [
             "Linux",
@@ -33,52 +33,6 @@
     },
     "hideDisabled": false,
     "techniques": [
-        {
-            "techniqueID": "T1530",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Data Loss Prevention"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is able to scan cloud storage objects for sensitive data and transform that data into a secure or nonsensitive form. It is able to scan for a variety of common sensitive data types, such as API keys, credentials, or credit card numbers. This control is able to be scheduled daily, weekly, etc and can scan new changes to data. This control is able to scan Google Cloud Storage, BigQuery tables, and Datastore. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to access data from improperly secured cloud storage. This technique was rated as significant due to the high protect coverage factor."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
         {
             "techniqueID": "T1565",
             "enabled": true,
@@ -321,6 +275,52 @@
             "score_num": 100,
             "score_display": "Significant",
             "category": "Respond"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud Storage"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to access data from improperly secured cloud storage. This technique was rated as significant due to the high protect coverage factor."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Data Loss Prevention"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is able to scan cloud storage objects for sensitive data and transform that data into a secure or nonsensitive form. It is able to scan for a variety of common sensitive data types, such as API keys, credentials, or credit card numbers. This control is able to be scheduled daily, weekly, etc and can scan new changes to data. This control is able to scan Google Cloud Storage, BigQuery tables, and Datastore. "
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
         },
         {
             "techniqueID": "T1565.001",

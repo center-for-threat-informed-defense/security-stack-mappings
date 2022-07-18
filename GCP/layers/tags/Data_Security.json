@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Secret Manager,Cloud Hardware Security Module (HSM),Cloud Storage",
+    "description": "Controls: Secret Manager,Cloud Storage,Cloud Hardware Security Module (HSM)",
     "filters": {
         "platforms": [
             "Linux",
@@ -161,6 +161,152 @@
             "category": "Protect"
         },
         {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud Storage"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to access data from improperly secured cloud storage. This technique was rated as significant due to the high protect coverage factor."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud Storage"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to manipulate customer data-at-rest. This technique was rated as significant due to the high protect coverage factor."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1588.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud Storage"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to manipulate customer data-at-rest. This technique was rated as partial due to the medium to high protect coverage factor against variations of this attack."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Hardware Security Module (HSM)"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Google Cloud's HSM may protect against adversary's attempts to compromise digital certificates that can used to encrypt data-in-transit or tamper with the certificate owner's communications.  Variations of this technique are difficult to mitigate, so a partial score was granted for this control's medium to high coverage factor."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1588.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud Storage"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to manipulate customer data-at-rest. This technique was rated as partial due to the medium to high protect coverage factor against variations of this attack."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Hardware Security Module (HSM)"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Google Cloud's HSM may protect against adversary's attempts to compromise code signing certificates that can used during targeting to run compromised code and other tampered executables. Variations of this technique are difficult to mitigate, so a partial score was granted for this control's medium to high coverage factor."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
             "techniqueID": "T1553",
             "enabled": true,
             "showSubtechniques": false,
@@ -180,98 +326,6 @@
                 {
                     "name": "comment",
                     "value": "Google Cloud's HSM may protect against adversary's attempts to undermine trusted controls and conduct nefarious activity or execute malicious programs. Variations of this technique are difficult to mitigate, so a partial score was granted for this control's medium to high coverage factor."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1588.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Hardware Security Module (HSM)"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Google Cloud's HSM may protect against adversary's attempts to compromise code signing certificates that can used during targeting to run compromised code and other tampered executables. Variations of this technique are difficult to mitigate, so a partial score was granted for this control's medium to high coverage factor."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to manipulate customer data-at-rest. This technique was rated as partial due to the medium to high protect coverage factor against variations of this attack."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1588.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Hardware Security Module (HSM)"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Google Cloud's HSM may protect against adversary's attempts to compromise digital certificates that can used to encrypt data-in-transit or tamper with the certificate owner's communications.  Variations of this technique are difficult to mitigate, so a partial score was granted for this control's medium to high coverage factor."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to manipulate customer data-at-rest. This technique was rated as partial due to the medium to high protect coverage factor against variations of this attack."
                 }
             ],
             "color": "#659D32",
@@ -358,60 +412,6 @@
             "color": "#659D32",
             "score_num": 50,
             "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1530",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to access data from improperly secured cloud storage. This technique was rated as significant due to the high protect coverage factor."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1565.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Storage"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "The cloud service provider's default encryption setting for data stored and written to disk in the cloud may protect against adversary's attempt to manipulate customer data-at-rest. This technique was rated as significant due to the high protect coverage factor."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
             "category": "Protect"
         }
     ],

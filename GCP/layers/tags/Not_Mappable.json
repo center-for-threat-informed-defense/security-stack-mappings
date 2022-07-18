@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Cloud NAT,Terraform on Google Cloud,Assured Workloads,Deployment Manager,Hybrid Connectivity,Data Catalog,Cloud Logging,Packet Mirroring,Config Connector,Siemplify",
+    "description": "Controls: Data Catalog,Hybrid Connectivity,Config Connector,Packet Mirroring,Terraform on Google Cloud,Assured Workloads,Cloud NAT,Siemplify,Deployment Manager,Cloud Logging",
     "filters": {
         "platforms": [
             "Linux",

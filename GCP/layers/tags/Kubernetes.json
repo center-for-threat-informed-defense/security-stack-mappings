@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Google Kubernetes Engine,Cloud CDN",
+    "description": "Controls: Cloud CDN,Google Kubernetes Engine",
     "filters": {
         "platforms": [
             "Linux",
@@ -33,6 +33,33 @@
     },
     "hideDisabled": false,
     "techniques": [
+        {
+            "techniqueID": "T1498",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud CDN"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Cloud CDN acts as a proxy between clients and origin servers. Cloud CDN can distribute requests for cacheable content across multiple points-of-presence (POPs), thereby providing a larger set of locations to absorb a DOS attack.\n\nHowever, Cloud CDN doesn't provide protection against DOS attacks for uncached content."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
         {
             "techniqueID": "T1613",
             "enabled": true,
@@ -209,33 +236,6 @@
             "score_num": 50,
             "score_display": "Partial",
             "category": "Detect"
-        },
-        {
-            "techniqueID": "T1498",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud CDN"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Cloud CDN acts as a proxy between clients and origin servers. Cloud CDN can distribute requests for cacheable content across multiple points-of-presence (POPs), thereby providing a larger set of locations to absorb a DOS attack.\n\nHowever, Cloud CDN doesn't provide protection against DOS attacks for uncached content."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
         }
     ],
     "gradient": {

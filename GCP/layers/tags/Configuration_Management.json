@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: AnthosConfigManagement,ResourceManager,VMManager",
+    "description": "Controls: VMManager,AnthosConfigManagement,ResourceManager",
     "filters": {
         "platforms": [
             "Linux",
@@ -33,6 +33,195 @@
     },
     "hideDisabled": false,
     "techniques": [
+        {
+            "techniqueID": "T1068",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VMManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VMManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1203",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VMManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1210",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VMManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1211",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VMManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1212",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VMManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1072",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VMManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
         {
             "techniqueID": "T1552.007",
             "enabled": true,
@@ -675,195 +864,6 @@
                 {
                     "name": "comment",
                     "value": "This control adopts the security principle of least privilege, which grants necessary access to user's resources when justified and needed. This control manages access control and ensures proper user permissions are in place to prevent adversaries that try to interfere with logging.\n"
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1068",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VMManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VMManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1203",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VMManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1210",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VMManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1211",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VMManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1212",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VMManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1072",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VMManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
                 }
             ],
             "color": "#659D32",

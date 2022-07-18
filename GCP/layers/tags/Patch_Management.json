@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Endpoint Management,VMManager",
+    "description": "Controls: VMManager,Endpoint Management",
     "filters": {
         "platforms": [
             "Linux",
@@ -33,114 +33,6 @@
     },
     "hideDisabled": false,
     "techniques": [
-        {
-            "techniqueID": "T1110",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Endpoint Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control allows for enforcement of strong password requirements for all mobile devices, desktops, laptops, and other endpoints. This control also allows for use of Google Credential Provider for Windows (GCPW) to utilize Google single sign on for Windows devices that can leverage two-factor authentication and login challenges."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1078",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Endpoint Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Respond"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control allows for blocking endpoints that have been compromised from accessing company networks or resources. This control also allows for deletion of any compromised accounts and data from compromised endpoints."
-                }
-            ],
-            "color": "#ff0505",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Respond"
-        },
-        {
-            "techniqueID": "T1052.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Endpoint Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can prevent exfiltration over USB by disabling USB file transfers on enrolled Android devices."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1567.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Endpoint Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may restrict which apps can be installed and accessed on enrolled devices, preventing exfiltration of sensitive information from compromised endpoints to cloud storage."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
         {
             "techniqueID": "T1068",
             "enabled": true,
@@ -323,6 +215,114 @@
                 {
                     "name": "comment",
                     "value": "VM Manager can apply on-demand and scheduled patches via automated patch deployment. This can remediate OS and software vulnerabilities that could otherwise be exploited. Since VM Manager doesn't directly prevent exploitation of active vulnerabilities (including zero day vulnerabilities) this control has resulted in a score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Endpoint Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control allows for enforcement of strong password requirements for all mobile devices, desktops, laptops, and other endpoints. This control also allows for use of Google Credential Provider for Windows (GCPW) to utilize Google single sign on for Windows devices that can leverage two-factor authentication and login challenges."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Endpoint Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Respond"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control allows for blocking endpoints that have been compromised from accessing company networks or resources. This control also allows for deletion of any compromised accounts and data from compromised endpoints."
+                }
+            ],
+            "color": "#ff0505",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Respond"
+        },
+        {
+            "techniqueID": "T1052.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Endpoint Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can prevent exfiltration over USB by disabling USB file transfers on enrolled Android devices."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1567.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Endpoint Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may restrict which apps can be installed and accessed on enrolled devices, preventing exfiltration of sensitive information from compromised endpoints to cloud storage."
                 }
             ],
             "color": "#659D32",

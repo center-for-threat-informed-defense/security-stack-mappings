@@ -223,33 +223,6 @@
             "category": "Protect"
         },
         {
-            "techniqueID": "T1601",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "AdvancedProtectionProgram"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. Using multi-factor authentication for user and privileged accounts can prevent adversaries from accessing and consequently modifying the operating system of embedded network devices.\n"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
             "techniqueID": "T1021",
             "enabled": true,
             "showSubtechniques": false,
@@ -328,33 +301,6 @@
             "color": "#7FFF00",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1059",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "AdvancedProtectionProgram"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Advanced Protection Program provides protection against harmful downloads. Google's \"Safe Browsing\" feature may flag Chrome downloads as potentially harmful, or even block downloads altogether. Users have the option to send suspicious files to Advanced Protection to be scanned to determine if its safe or dangerous. While Advanced Protection Program can help users identify and avoid downloading potentially harmful files, this capability is only available on Chrome.\n"
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
             "category": "Protect"
         },
         {

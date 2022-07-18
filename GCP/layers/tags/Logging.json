@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Cloud Logging,Cloud CDN,Firewalls",
+    "description": "Controls: Cloud CDN,Firewalls,Cloud Logging",
     "filters": {
         "platforms": [
             "Linux",

@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Cloud Identity,Titan Security Key,IdentityPlatform,Identity and Access Management,ReCAPTCHA Enterprise,AdvancedProtectionProgram",
+    "description": "Controls: ReCAPTCHA Enterprise,Titan Security Key,IdentityPlatform,Identity and Access Management,AdvancedProtectionProgram,Cloud Identity",
     "filters": {
         "platforms": [
             "Linux",
@@ -34,223 +34,13 @@
     "hideDisabled": false,
     "techniques": [
         {
-            "techniqueID": "T1110",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "IdentityPlatform"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect user accounts from phishing attacks. MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AdvancedProtectionProgram"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "IdentityPlatform"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect user accounts from phishing attacks. MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AdvancedProtectionProgram"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1078",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to mitigate malicious attacks of cloud accounts by implementing multi-factor authentication techniques or password policies."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "IdentityPlatform"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": " Identity Platform lets you add Google-grade authentication to your apps and services, making it easier to secure user accounts and securely managing credentials. MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Identity and Access Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate the impact of compromised valid accounts by enabling fine-grained access policies and implementing least-privilege policies. MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
             "techniqueID": "T1078.004",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Cloud Identity"
+                    "value": "ReCAPTCHA Enterprise"
                 },
                 {
                     "name": "category",
@@ -262,7 +52,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used to mitigate malicious attacks of cloud accounts by implementing multi-factor authentication techniques or password policies."
+                    "value": "ReCAPTCHA Enterprise allows users to configure Multifactor Authentication (MFA) to verify user's identity by sending a verification code by email or SMS (known as an MFA challenge). When ReCAPTCHA Enterprise assesses that user activity to exceeds a predetermined threshold (by the developer), it can trigger an MFA challenge to verify the user. This increases the likelihood that a compromised account will be prevented from impacting the system.\n\nSince ReCAPTCHA Enterprise does not require a MFA challenge for all user activity, it has been given a rating of Partial.\n"
                 },
                 {
                     "divider": true
@@ -307,25 +97,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "ReCAPTCHA Enterprise"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "ReCAPTCHA Enterprise allows users to configure Multifactor Authentication (MFA) to verify user's identity by sending a verification code by email or SMS (known as an MFA challenge). When ReCAPTCHA Enterprise assesses that user activity to exceeds a predetermined threshold (by the developer), it can trigger an MFA challenge to verify the user. This increases the likelihood that a compromised account will be prevented from impacting the system.\n\nSince ReCAPTCHA Enterprise does not require a MFA challenge for all user activity, it has been given a rating of Partial.\n"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "AdvancedProtectionProgram"
                 },
                 {
@@ -339,18 +110,10 @@
                 {
                     "name": "comment",
                     "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. Integrating multi-factor authentication (MFA) as part of organizational policy can greatly reduce the risk of an adversary gaining control of valid credentials that may be used for additional tactics such as initial access, lateral movement, and collecting information.\n"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "Cloud Identity"
@@ -361,114 +124,11 @@
                 },
                 {
                     "name": "value",
-                    "value": "Significant"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "IdentityPlatform"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect user accounts from phishing attacks. MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AdvancedProtectionProgram"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "IdentityPlatform"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect user accounts from phishing attacks. MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AdvancedProtectionProgram"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
+                    "value": "This control can be used to mitigate malicious attacks of cloud accounts by implementing multi-factor authentication techniques or password policies."
                 }
             ],
             "color": "#7FFF00",
@@ -481,25 +141,6 @@
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
-                },
-                {
-                    "divider": true
-                },
                 {
                     "name": "control",
                     "value": "ReCAPTCHA Enterprise"
@@ -534,6 +175,25 @@
                 {
                     "name": "comment",
                     "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
                 }
             ],
             "color": "#5c00a3",
@@ -542,13 +202,13 @@
             "category": "Mixed"
         },
         {
-            "techniqueID": "T1078.002",
+            "techniqueID": "T1136.003",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Cloud Identity"
+                    "value": "ReCAPTCHA Enterprise"
                 },
                 {
                     "name": "category",
@@ -560,14 +220,14 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used to mitigate malicious attacks of domain accounts by implementing multi-factor authentication techniques or password policies."
+                    "value": "ReCAPTCHA Enterprise can implement a number of mitigations to prevent the automated creation of multiple accounts such as adding checkbox challenges on pages where end users need to enter their credentials and assessing user activity for potential misuses on all pages where accounts are created.\n\nSince this control doesn't prevent the manual creation of accounts, it has been given a rating of Partial.\n"
                 },
                 {
                     "divider": true
                 },
                 {
                     "name": "control",
-                    "value": "AdvancedProtectionProgram"
+                    "value": "IdentityPlatform"
                 },
                 {
                     "name": "category",
@@ -579,134 +239,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. Integrating multi-factor authentication (MFA) as part of organizational policy can greatly reduce the risk of an adversary gaining control of valid credentials that may be used for additional tactics such as initial access, lateral movement, and collecting information.\n"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1021.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to detect adversaries that may try to use Valid Accounts to log into remote machines using Secure Shell (SSH)."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1213.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA and enforcing the principal of least privilege can be used to control adversaries and possibly hinder them from gaining access to a victim network or a private code repository."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1213",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA and enforcing the principal of least privilege can be used to control adversaries and possibly hinder them from gaining access to a victim network or a private code repository."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1133",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AdvancedProtectionProgram"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. Enabling MFA for remote service accounts can mitigate an adversary's ability to leverage stolen credentials since they won't have the respective security key to gain access.\n"
+                    "value": "Identity Platform multi-tenancy uses tenants to create unique silos of users and configurations within a single Identity Platform project. It provides provides secure, easy-to-use authentication if you're building a service on Google Cloud, on your own backend or on another platform; thereby, helping to mitigate adversaries from gaining access to systems."
                 }
             ],
             "color": "#7FFF00",
@@ -853,6 +386,281 @@
             "category": "Protect"
         },
         {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "IdentityPlatform"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect user accounts from phishing attacks. MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AdvancedProtectionProgram"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "IdentityPlatform"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect user accounts from phishing attacks. MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AdvancedProtectionProgram"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "IdentityPlatform"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect user accounts from phishing attacks. MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AdvancedProtectionProgram"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "IdentityPlatform"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": " Identity Platform lets you add Google-grade authentication to your apps and services, making it easier to secure user accounts and securely managing credentials. MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Identity and Access Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate the impact of compromised valid accounts by enabling fine-grained access policies and implementing least-privilege policies. MFA can provide protection against an adversary that obtains valid credentials by requiring the adversary to complete an additional authentication process before access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to mitigate malicious attacks of cloud accounts by implementing multi-factor authentication techniques or password policies."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
             "techniqueID": "T1078.003",
             "enabled": true,
             "showSubtechniques": false,
@@ -877,6 +685,71 @@
             "color": "#659D32",
             "score_num": 50,
             "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "IdentityPlatform"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Multi-factor authentication (MFA) methods, such as SMS, can also be used to help protect user accounts from phishing attacks. MFA provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AdvancedProtectionProgram"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. This provides significant protection against Brute Force techniques attempting to gain access to accounts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
@@ -918,52 +791,6 @@
                 {
                     "name": "comment",
                     "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. Enabling Advanced Protection Program for all users at an organization can prevent adversaries from maintaining access via created accounts because any accounts they create won't have the required security keys for MFA.\n"
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1136.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "IdentityPlatform"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Identity Platform multi-tenancy uses tenants to create unique silos of users and configurations within a single Identity Platform project. It provides provides secure, easy-to-use authentication if you're building a service on Google Cloud, on your own backend or on another platform; thereby, helping to mitigate adversaries from gaining access to systems."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "ReCAPTCHA Enterprise"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "ReCAPTCHA Enterprise can implement a number of mitigations to prevent the automated creation of multiple accounts such as adding checkbox challenges on pages where end users need to enter their credentials and assessing user activity for potential misuses on all pages where accounts are created.\n\nSince this control doesn't prevent the manual creation of accounts, it has been given a rating of Partial.\n"
                 }
             ],
             "color": "#7FFF00",
@@ -1569,7 +1396,7 @@
             "category": "Protect"
         },
         {
-            "techniqueID": "T1601",
+            "techniqueID": "T1133",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
@@ -1587,7 +1414,26 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. Using multi-factor authentication for user and privileged accounts can prevent adversaries from accessing and consequently modifying the operating system of embedded network devices.\n"
+                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. Enabling MFA for remote service accounts can mitigate an adversary's ability to leverage stolen credentials since they won't have the respective security key to gain access.\n"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
                 }
             ],
             "color": "#7FFF00",
@@ -1623,7 +1469,7 @@
             "category": "Protect"
         },
         {
-            "techniqueID": "T1059",
+            "techniqueID": "T1078.002",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
@@ -1637,11 +1483,111 @@
                 },
                 {
                     "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Advanced Protection Program enables the use of a security key for multi-factor authentication. Integrating multi-factor authentication (MFA) as part of organizational policy can greatly reduce the risk of an adversary gaining control of valid credentials that may be used for additional tactics such as initial access, lateral movement, and collecting information.\n"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
                     "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "Advanced Protection Program provides protection against harmful downloads. Google's \"Safe Browsing\" feature may flag Chrome downloads as potentially harmful, or even block downloads altogether. Users have the option to send suspicious files to Advanced Protection to be scanned to determine if its safe or dangerous. While Advanced Protection Program can help users identify and avoid downloading potentially harmful files, this capability is only available on Chrome.\n"
+                    "value": "This control can be used to mitigate malicious attacks of domain accounts by implementing multi-factor authentication techniques or password policies."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to detect adversaries that may try to use Valid Accounts to log into remote machines using Secure Shell (SSH)."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1213.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA and enforcing the principal of least privilege can be used to control adversaries and possibly hinder them from gaining access to a victim network or a private code repository."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1213",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA and enforcing the principal of least privilege can be used to control adversaries and possibly hinder them from gaining access to a victim network or a private code repository."
                 }
             ],
             "color": "#659D32",

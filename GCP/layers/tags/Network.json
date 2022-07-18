@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: CloudVPN,Certificate Authority Service,Web Risk,Cloud Armor,Virtual Private Cloud,Firewalls,ResourceManager,VPC Service Controls",
+    "description": "Controls: Cloud Armor,Firewalls,Web Risk,Virtual Private Cloud,Certificate Authority Service,ResourceManager,VPC Service Controls,CloudVPN",
     "filters": {
         "platforms": [
             "Linux",
@@ -33,333 +33,6 @@
     },
     "hideDisabled": false,
     "techniques": [
-        {
-            "techniqueID": "T1040",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "CloudVPN"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one VPN gateway and then decrypted by the other VPN gateway. This action protects users' data as it travels over the internet. This control may prevent adversaries from sniffing network traffic. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Certificate Authority Service"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate against Network Sniffing by providing certificates for internal endpoints and applications to use with asymmetric encryption. This control helps protect the issuing Certificate Authority with the use of Google's IAM and policy controls."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1557",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "CloudVPN"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one VPN gateway and then decrypted by the other VPN gateway. This action protects users' data as it travels over the internet. This control may prevent adversaries from attempting to position themselves between two or more networks and modify traffic. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeter mitigates the impact from Adversary-in-the-Middle by creating virtual segmentation that limits the data and information broadcast on the network."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1565",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "CloudVPN"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides protection against data from being manipulated by adversaries through target applications by encrypting important information. "
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1565.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "CloudVPN"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides protection against data from being manipulated by adversaries through target applications by encrypting important information. Since this control only provides protection against data in transit, it received a partial score. "
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1557.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "CloudVPN"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one VPN gateway and then decrypted by the other VPN gateway. This action protects users' data as it travels over the internet. This control may prevent adversaries from attempting to position themselves between two or more networks and modify traffic. "
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1133",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "CloudVPN"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides protections against adversaries who try to access and/or persist within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations. "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Firewalls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to only allow certain remote services to be available. Furthermore, it can enforce restrictions such that remote services are only from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because while it can limit which external remote services and hosts can be used to access the network, it cannot protect against the misuse of legitimate external remote services (e.g., it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack)."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1566",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Web Risk"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Web Risk allows client applications to check URLs against Google's list of unsafe web resources. It also can provide warnings when attempting to access potentially unsafe sites. However, Google cannot guarantee that its information is comprehensive and error-free: some risky sites may not be identified, and some safe sites may be classified in error. This has resulted in an overall score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1598",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Web Risk"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Web Risk allows client applications to check URLs against Google's list of unsafe web resources. It also can provide warnings when attempting to access potentially unsafe sites. However, Google cannot guarantee that its information is comprehensive and error-free: some risky sites may not be identified, and some safe sites may be classified in error. This has resulted in an overall score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1204.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Web Risk"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Web Risk allows client applications to check URLs against Google's list of unsafe web resources. It also can provide warnings when attempting to access potentially unsafe sites. However, Google cannot guarantee that its information is comprehensive and error-free: some risky sites may not be identified, and some safe sites may be classified in error. This has resulted in an overall score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1598.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Web Risk"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Web Risk allows client applications to check URLs against Google's list of unsafe web resources. It also can provide warnings when attempting to access potentially unsafe sites. However, Google cannot guarantee that its information is comprehensive and error-free: some risky sites may not be identified, and some safe sites may be classified in error. This has resulted in an overall score of Partial."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
         {
             "techniqueID": "T1090",
             "enabled": true,
@@ -570,25 +243,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can segment private resources to deny traffic based on organizational policy."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Firewalls"
                 },
                 {
@@ -602,6 +256,25 @@
                 {
                     "name": "comment",
                     "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to block adversaries from discovering endpoints behind the firewall. This mapping is given a score of Partial because it does not protect against discovering endpoints within the network and behind the firewall."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can segment private resources to deny traffic based on organizational policy."
                 }
             ],
             "color": "#7FFF00",
@@ -635,25 +308,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can limit the impact from active scanning and lateral movement techniques used to exploit the target environment."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Firewalls"
                 },
                 {
@@ -667,118 +321,10 @@
                 {
                     "name": "comment",
                     "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against network service scanning. This mapping is given a score of Partial because it only protects against network service scanning attacks that originate from outside the firewall and not from within network protected by the firewall."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1590",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can limit the impact from active scanning techniques used to gain further information about the target environment."
                 },
                 {
                     "divider": true
                 },
-                {
-                    "name": "control",
-                    "value": "Firewalls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against adversaries gathering information about the network. While this mapping supports most of the sub-techniques (4 of 6), it is only given a score of Partial because it only protects against attempts to gather information via scanning that originate from outside the firewall, and it does not protect against phishing."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1590.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can limit the impact from active scanning techniques used to gain further information about the target environment."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1590.005",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can limit the impact from active scanning techniques used to gain further information about the target environment."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1135",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
                 {
                     "name": "control",
                     "value": "Virtual Private Cloud"
@@ -799,271 +345,6 @@
             "color": "#7FFF00",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1595",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can limit the impact from active scanning and lateral movement techniques used to exploit the target environment."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Firewalls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against active scanning. While this mapping supports both sub-techniques (2 of 2), this mapping is given a score of Partial because it only protects against active scanning attacks that originate from outside the firewall and not from within network protected by the firewall."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1595.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can limit the impact from active scanning on private networks and lateral movement techniques used to exploit target environments."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1098",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC further segments the environment by providing configurable granular access controls which help limit user communications to critical systems."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "ResourceManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "GCP offers Identity and Access Management (IAM), which lets admins give more granular access to specific Google Cloud resources and prevents unwanted access to other resources. This allows configuration of access controls and firewalls to limit access to critical systems and domain controllers."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1098.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC further segments the environment by providing configurable granular access controls which help limit user permissions to communicate with critical systems."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "ResourceManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "GCP offers Identity and Access Management (IAM), which lets admins give more granular access to specific Google Cloud resources and prevents unwanted access to other resources. This allows configuration of access controls and firewalls to limit access to critical systems and domain controllers."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1602",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can isolate resources and limit the impact from lateral movement techniques used to access sensitive data."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1552.007",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can segment private resources to provide access based on user identity or organizational ingress/egress policies (e.g., instance, subnet)."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "ResourceManager"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "To control access to resources, GCP requires that accounts making API requests have appropriate IAM roles. IAM roles include permissions that allow users to perform specific actions on Google Cloud resources. This control may mitigate adversaries that gather credentials via APIs within a containers environment. Since this covers only one of the sub-techniques, it is given a Minimal scoring."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1570",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Virtual Private Cloud"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "VPC security perimeters can segment private resources to deny ingress and egress traffic based on organizational policies. Because this tool does not prevent attacks from valid accounts or compromised machines, it was scored as  minimal."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
             "category": "Protect"
         },
         {
@@ -1248,6 +529,52 @@
                 {
                     "name": "comment",
                     "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to block communication with known command and control channels by filtering based on known bad IP addresses and domains. This mapping is given a score of Partial because it only protects against known channels and not channels yet to be identified."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Firewalls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to only allow certain remote services to be available. Furthermore, it can enforce restrictions such that remote services are only from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because while it can limit which external remote services and hosts can be used to access the network, it cannot protect against the misuse of legitimate external remote services (e.g., it cannot protect against an adversary using a trusted host that is permitted to use remote services as part of an attack)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "CloudVPN"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides protections against adversaries who try to access and/or persist within a network. Remote services such as VPNs, Citrix, and other access mechanisms allow users to connect to internal enterprise network resources from external locations. "
                 }
             ],
             "color": "#659D32",
@@ -1461,6 +788,598 @@
             "color": "#659D32",
             "score_num": 50,
             "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Firewalls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against adversaries gathering information about the network. While this mapping supports most of the sub-techniques (4 of 6), it is only given a score of Partial because it only protects against attempts to gather information via scanning that originate from outside the firewall, and it does not protect against phishing."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can limit the impact from active scanning techniques used to gain further information about the target environment."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Firewalls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to restrict access to the endpoints within the virtual private cloud and protect against active scanning. While this mapping supports both sub-techniques (2 of 2), this mapping is given a score of Partial because it only protects against active scanning attacks that originate from outside the firewall and not from within network protected by the firewall."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can limit the impact from active scanning and lateral movement techniques used to exploit the target environment."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1566",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Web Risk"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Web Risk allows client applications to check URLs against Google's list of unsafe web resources. It also can provide warnings when attempting to access potentially unsafe sites. However, Google cannot guarantee that its information is comprehensive and error-free: some risky sites may not be identified, and some safe sites may be classified in error. This has resulted in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1598",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Web Risk"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Web Risk allows client applications to check URLs against Google's list of unsafe web resources. It also can provide warnings when attempting to access potentially unsafe sites. However, Google cannot guarantee that its information is comprehensive and error-free: some risky sites may not be identified, and some safe sites may be classified in error. This has resulted in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1204.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Web Risk"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Web Risk allows client applications to check URLs against Google's list of unsafe web resources. It also can provide warnings when attempting to access potentially unsafe sites. However, Google cannot guarantee that its information is comprehensive and error-free: some risky sites may not be identified, and some safe sites may be classified in error. This has resulted in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1598.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Web Risk"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Web Risk allows client applications to check URLs against Google's list of unsafe web resources. It also can provide warnings when attempting to access potentially unsafe sites. However, Google cannot guarantee that its information is comprehensive and error-free: some risky sites may not be identified, and some safe sites may be classified in error. This has resulted in an overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can limit the impact from active scanning techniques used to gain further information about the target environment."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1590.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can limit the impact from active scanning techniques used to gain further information about the target environment."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1135",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can limit the impact from active scanning and lateral movement techniques used to exploit the target environment."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1595.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can limit the impact from active scanning on private networks and lateral movement techniques used to exploit target environments."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC further segments the environment by providing configurable granular access controls which help limit user communications to critical systems."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "ResourceManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "GCP offers Identity and Access Management (IAM), which lets admins give more granular access to specific Google Cloud resources and prevents unwanted access to other resources. This allows configuration of access controls and firewalls to limit access to critical systems and domain controllers."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1098.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC further segments the environment by providing configurable granular access controls which help limit user permissions to communicate with critical systems."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "ResourceManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "GCP offers Identity and Access Management (IAM), which lets admins give more granular access to specific Google Cloud resources and prevents unwanted access to other resources. This allows configuration of access controls and firewalls to limit access to critical systems and domain controllers."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeter mitigates the impact from Adversary-in-the-Middle by creating virtual segmentation that limits the data and information broadcast on the network."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "CloudVPN"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one VPN gateway and then decrypted by the other VPN gateway. This action protects users' data as it travels over the internet. This control may prevent adversaries from attempting to position themselves between two or more networks and modify traffic. "
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1602",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can isolate resources and limit the impact from lateral movement techniques used to access sensitive data."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1552.007",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can segment private resources to provide access based on user identity or organizational ingress/egress policies (e.g., instance, subnet)."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "ResourceManager"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "To control access to resources, GCP requires that accounts making API requests have appropriate IAM roles. IAM roles include permissions that allow users to perform specific actions on Google Cloud resources. This control may mitigate adversaries that gather credentials via APIs within a containers environment. Since this covers only one of the sub-techniques, it is given a Minimal scoring."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1570",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Virtual Private Cloud"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "VPC security perimeters can segment private resources to deny ingress and egress traffic based on organizational policies. Because this tool does not prevent attacks from valid accounts or compromised machines, it was scored as  minimal."
+                }
+            ],
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1040",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Certificate Authority Service"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate against Network Sniffing by providing certificates for internal endpoints and applications to use with asymmetric encryption. This control helps protect the issuing Certificate Authority with the use of Google's IAM and policy controls."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "CloudVPN"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one VPN gateway and then decrypted by the other VPN gateway. This action protects users' data as it travels over the internet. This control may prevent adversaries from sniffing network traffic. "
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
         },
         {
@@ -1898,6 +1817,87 @@
                 {
                     "name": "comment",
                     "value": "This control may mitigate against discovery of cloud storage objects. This control is not able to protect metadata, such as cloud storage bucket names but can protect against discovery of the contents of a storage bucket. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "CloudVPN"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides protection against data from being manipulated by adversaries through target applications by encrypting important information. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "CloudVPN"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides protection against data from being manipulated by adversaries through target applications by encrypting important information. Since this control only provides protection against data in transit, it received a partial score. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "CloudVPN"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Cloud VPN enables traffic traveling between the two networks, and it is encrypted by one VPN gateway and then decrypted by the other VPN gateway. This action protects users' data as it travels over the internet. This control may prevent adversaries from attempting to position themselves between two or more networks and modify traffic. "
                 }
             ],
             "color": "#659D32",

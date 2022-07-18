@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Alerts for DNS,Microsoft Defender for Identity,Azure DNS Alias Records,Azure DNS Analytics",
+    "description": "Controls: Azure DNS Alias Records,Microsoft Defender for Identity,Azure DNS Analytics,Alerts for DNS",
     "filters": {
         "platforms": [
             "Linux",
@@ -34,36 +34,17 @@
     "hideDisabled": false,
     "techniques": [
         {
-            "techniqueID": "T1568",
+            "techniqueID": "T1584",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Alerts for DNS"
+                    "value": "Azure DNS Alias Records"
                 },
                 {
                     "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can identify \"random\" DNS occurences which can be associated with domain generation algorithm or Fast Flux sub-techniques.  Partial for coverage and accuracy (potential for false positive/benign).\n"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
+                    "value": "Protect"
                 },
                 {
                     "name": "value",
@@ -71,354 +52,40 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1584.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Alias Records"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Alias records prevent dangling references by tightly coupling the life cycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource.  This control is effective for protecting DNS records that resolve to Azure resources but does not offer protection for records pointing to non-Azure resources, resulting in a Partial score."
+                }
+            ],
+            "color": "#659D32",
             "score_num": 50,
             "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1568.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1568.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect potential DNS protocol misuse/anomalies. Technique coverage is restricted to DNS and therefore results in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Microsoft Defender for Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides Partial detection for one of this technique's sub-techniques, while not providing any detection for the remaining, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts via DNS."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1071.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can alert on anomalies and misuse of the DNS protocol."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Microsoft Defender for Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's \"Suspicious communication over DNS (external ID 2031)\" alert can detect malicious communication over DNS used for data exfiltration, command, and control, and/or evading corporate network restrictions.  The accuracy of this control is unknown and therefore its score has been assessed as Partial."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1572",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can identify protocol misuse/anomalies in DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1090",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect DNS activity to anonymity networks e.g. TOR.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1048",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect anomalous use of DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Microsoft Defender for Identity"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides Partial detection for one of this technique's sub-techniques, while not providing any detection for the remaining, resulting in a Minimal score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous / high talker DNS clients, possibly related to exfil via DNS"
-                }
-            ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Detect"
+            "category": "Protect"
         },
         {
             "techniqueID": "T1087",
@@ -1447,6 +1114,201 @@
             "category": "Detect"
         },
         {
+            "techniqueID": "T1071",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Microsoft Defender for Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides Partial detection for one of this technique's sub-techniques, while not providing any detection for the remaining, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts via DNS."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect potential DNS protocol misuse/anomalies. Technique coverage is restricted to DNS and therefore results in a Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1071.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Microsoft Defender for Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's \"Suspicious communication over DNS (external ID 2031)\" alert can detect malicious communication over DNS used for data exfiltration, command, and control, and/or evading corporate network restrictions.  The accuracy of this control is unknown and therefore its score has been assessed as Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can alert on anomalies and misuse of the DNS protocol."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Microsoft Defender for Identity"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides Partial detection for one of this technique's sub-techniques, while not providing any detection for the remaining, resulting in a Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous / high talker DNS clients, possibly related to exfil via DNS"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous use of DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
             "techniqueID": "T1048.003",
             "enabled": true,
             "showSubtechniques": false,
@@ -1493,17 +1355,17 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1584",
+            "techniqueID": "T1568",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure DNS Alias Records"
+                    "value": "Azure DNS Analytics"
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Detect"
                 },
                 {
                     "name": "value",
@@ -1511,26 +1373,18 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
-                }
-            ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1584.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
-                    "value": "Azure DNS Alias Records"
+                    "value": "Alerts for DNS"
                 },
                 {
                     "name": "category",
-                    "value": "Protect"
+                    "value": "Detect"
                 },
                 {
                     "name": "value",
@@ -1538,13 +1392,105 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Alias records prevent dangling references by tightly coupling the life cycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource.  This control is effective for protecting DNS records that resolve to Azure resources but does not offer protection for records pointing to non-Azure resources, resulting in a Partial score."
+                    "value": "Can identify \"random\" DNS occurences which can be associated with domain generation algorithm or Fast Flux sub-techniques.  Partial for coverage and accuracy (potential for false positive/benign).\n"
                 }
             ],
-            "color": "#659D32",
+            "color": "#5F9F9F",
             "score_num": 50,
             "score_display": "Partial",
-            "category": "Protect"
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
         },
         {
             "techniqueID": "T1041",
@@ -1620,6 +1566,60 @@
                 {
                     "name": "comment",
                     "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1572",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify protocol misuse/anomalies in DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1090",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect DNS activity to anonymity networks e.g. TOR.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
                 }
             ],
             "color": "#AEEEEE",
