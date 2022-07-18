@@ -84,16 +84,6 @@ techniques:
           can greatly reduce the risk of an adversary gaining control of valid credentials that may
           be used for additional tactics such as initial access, lateral movement, and collecting
           information.
-  - id: T1601
-    name: Modify System Image
-    technique-scores:
-      - category: Protect
-        value: Significant
-        comments: >
-          Advanced Protection Program enables the use of a security key for multi-factor
-          authentication. Using multi-factor authentication for user and privileged accounts can
-          prevent adversaries from accessing and consequently modifying the operating system of
-          embedded network devices.
   - id: T1021
     name: Remote Services
     technique-scores:
@@ -125,18 +115,6 @@ techniques:
           policy can greatly reduce the risk of an adversary gaining control of valid credentials
           that may be used for additional tactics such as initial access, lateral movement, and
           collecting information.
-  - id: T1059
-    name: Command and Scripting Interpreter
-    technique-scores:
-      - category: Protect
-        value: Partial
-        comments: >
-          Advanced Protection Program provides protection against harmful downloads. Google's "Safe
-          Browsing" feature may flag Chrome downloads as potentially harmful, or even block
-          downloads altogether. Users have the option to send suspicious files to Advanced
-          Protection to be scanned to determine if its safe or dangerous. While Advanced Protection
-          Program can help users identify and avoid downloading potentially harmful files, this
-          capability is only available on Chrome.
   - id: T1110.001
     name: Password Guessing
     technique-scores:
