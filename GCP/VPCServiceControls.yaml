@@ -32,7 +32,7 @@ techniques:
         value: Significant
         comments: >-
           This control may mitigate against exfiltration attempts to external cloud accounts by
-          limiting egress of data to accounts and services contained within the VPC network
+          limiting egress of data from accounts and services contained within the VPC network
           perimeter. 
   - id: T1530
     name: Data from Cloud Storage Object

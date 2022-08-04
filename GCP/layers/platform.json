@@ -6132,7 +6132,7 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control may mitigate against exfiltration attempts to external cloud accounts by limiting egress of data to accounts and services contained within the VPC network perimeter. "
+                    "value": "This control may mitigate against exfiltration attempts to external cloud accounts by limiting egress of data from accounts and services contained within the VPC network perimeter. "
                 }
             ],
             "color": "#7FFF00",
