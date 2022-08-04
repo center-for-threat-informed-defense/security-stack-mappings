@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Azure VPN Gateway,Azure Alerts for Network Layer,Azure Private Link,Azure DNS Alias Records,Azure Network Traffic Analytics,Azure DDOS Protection Standard,Azure Firewall,Network Security Groups,Azure DNS Analytics,Alerts for DNS",
+    "description": "Controls: Azure DNS Alias Records,Azure Alerts for Network Layer,Azure DNS Analytics,Azure Private Link,Azure Firewall,Network Security Groups,Azure Network Traffic Analytics,Alerts for DNS,Azure VPN Gateway,Azure DDOS Protection Standard",
     "filters": {
         "platforms": [
             "Linux",
@@ -34,235 +34,13 @@
     "hideDisabled": false,
     "techniques": [
         {
-            "techniqueID": "T1040",
+            "techniqueID": "T1584",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control encrypts traffic traversing over untrusted networks which can prevent information from being gathered via network sniffing."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control reduces the likelihood of a network sniffing attack for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1557",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can mitigate Man-in-the-Middle attacks that manipulate network protocol data in transit."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for this technique's sub-techniques resulting in an overall Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to limit access to network infrastructure and resources that can be used to reshape traffic or otherwise produce MiTM conditions."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1557.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1557.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1565",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides significant protection against one sub-technique (Transmitted Data Manipulation)  of this technique while not providing protection for its remaining sub-techniques resulting in overall score of Partial."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
+                    "value": "Azure DNS Alias Records"
                 },
                 {
                     "name": "category",
@@ -274,41 +52,22 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control provides partial protection for one of this technique's sub-techniques resulting in an overall Minimal score."
+                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
                 }
             ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
+            "color": "#9CBA7F",
+            "score_num": 10,
+            "score_display": "Minimal",
             "category": "Protect"
         },
         {
-            "techniqueID": "T1565.002",
+            "techniqueID": "T1584.001",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure VPN Gateway"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Private Link"
+                    "value": "Azure DNS Alias Records"
                 },
                 {
                     "name": "category",
@@ -320,12 +79,12 @@
                 },
                 {
                     "name": "comment",
-                    "value": "This control reduces the likelihood of data manipulation for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                    "value": "Alias records prevent dangling references by tightly coupling the life cycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource.  This control is effective for protecting DNS records that resolve to Azure resources but does not offer protection for records pointing to non-Azure resources, resulting in a Partial score."
                 }
             ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Protect"
         },
         {
@@ -462,25 +221,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous traffic with respect to NSG and application layer protocols."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure DNS Analytics"
                 },
                 {
@@ -494,6 +234,25 @@
                 {
                     "name": "comment",
                     "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts via DNS."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous traffic with respect to NSG and application layer protocols."
                 },
                 {
                     "divider": true
@@ -546,25 +305,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous application protocol traffic with respect to network security group (NSG) (though web traffic would be typically too commonplace for this control to be useful)."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure DNS Analytics"
                 },
                 {
@@ -578,6 +318,25 @@
                 {
                     "name": "comment",
                     "value": "This control can be used forensically to identify clients that communicated with identified C2 hosts."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous application protocol traffic with respect to network security group (NSG) (though web traffic would be typically too commonplace for this control to be useful)."
                 },
                 {
                     "divider": true
@@ -749,25 +508,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous access to external remote services."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Azure Firewall"
                 },
                 {
@@ -800,12 +540,686 @@
                 {
                     "name": "comment",
                     "value": "This control can be used to restrict direct access to remote service gateways and concentrators that typically accompany external remote services.  This can be circumvented though if an adversary is able to compromise a trusted host and use it to access the external remote service. This results in an overall partial (coverage) score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous access to external remote services."
                 }
             ],
             "color": "#9305ff",
             "score_num": 50,
             "score_display": "Partial",
             "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1568",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can identify \"random\" DNS occurences which can be associated with domain generation algorithm or Fast Flux sub-techniques.  Partial for coverage and accuracy (potential for false positive/benign).\n"
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1568.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                }
+            ],
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous / high talker DNS clients, possibly related to exfil via DNS"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for this technique's sub-techniques and some of its procedure examples resulting in an overall Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "NSG can minimize alternative protocols allowed to communicate externally."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic with respect to specific protocols/ports."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Alerts for DNS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can detect anomalous use of DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1048.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can potentially be used to forensically identify exfiltration via DNS protocol."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous traffic with respect specific ports (though it can't identify presence or lack of encryption)."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can potentially be used to forensically identify exfiltration via a DNS-based C2 channel."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure DNS Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
+                }
+            ],
+            "color": "#AEEEEE",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1557",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for this technique's sub-techniques resulting in an overall Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to limit access to network infrastructure and resources that can be used to reshape traffic or otherwise produce MiTM conditions."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can mitigate Man-in-the-Middle attacks that manipulate network protocol data in transit."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1557.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of MiTM for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for one of this technique's sub-techniques resulting in an overall Minimal score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides significant protection against one sub-technique (Transmitted Data Manipulation)  of this technique while not providing protection for its remaining sub-techniques resulting in overall score of Partial."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1565.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Private Link"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control reduces the likelihood of data manipulation for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
         },
         {
             "techniqueID": "T1499",
@@ -827,6 +1241,25 @@
                 {
                     "name": "comment",
                     "value": "Prevents Denial of Service (DOS) against systems that would otherwise need to connect via an internet-traversing path (coverage partial, since doesn't apply to systems that must be directly exposed to the Internet)"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for a majority of this control's sub-techinques and procedure examples resulting in overall score of Partial."
                 },
                 {
                     "divider": true
@@ -865,25 +1298,6 @@
                 {
                     "name": "comment",
                     "value": "Protects against volumetric and protocol DOS, though not application."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for a majority of this control's sub-techinques and procedure examples resulting in overall score of Partial."
                 }
             ],
             "color": "#5c00a3",
@@ -944,6 +1358,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Network Traffic Analytics"
                 },
                 {
@@ -976,25 +1409,6 @@
                 {
                     "name": "comment",
                     "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
                 }
             ],
             "color": "#5c00a3",
@@ -1028,6 +1442,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Network Traffic Analytics"
                 },
                 {
@@ -1060,25 +1493,6 @@
                 {
                     "name": "comment",
                     "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
                 }
             ],
             "color": "#5c00a3",
@@ -1112,6 +1526,25 @@
                 },
                 {
                     "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
                     "value": "Azure Network Traffic Analytics"
                 },
                 {
@@ -1144,25 +1577,6 @@
                 {
                     "name": "comment",
                     "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end DOS attacks."
                 }
             ],
             "color": "#5c00a3",
@@ -1196,25 +1610,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Azure DDOS Protection Standard"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Designed to address multiple DDOS techniques including volumetric attacks."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "Network Security Groups"
                 },
                 {
@@ -1228,6 +1623,25 @@
                 {
                     "name": "comment",
                     "value": "This control can be used to restrict access to endpoints and thereby mitigate low-end network DOS attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure DDOS Protection Standard"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Designed to address multiple DDOS techniques including volumetric attacks."
                 }
             ],
             "color": "#7FFF00",
@@ -1328,13 +1742,13 @@
             "category": "Protect"
         },
         {
-            "techniqueID": "T1584",
+            "techniqueID": "T1040",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure DNS Alias Records"
+                    "value": "Azure Private Link"
                 },
                 {
                     "name": "category",
@@ -1342,1446 +1756,36 @@
                 },
                 {
                     "name": "value",
-                    "value": "Minimal"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control only provides protection for one of this technique's sub-techniques while not providing any protection for the remaining and therefore its coverage score factor is Minimal, resulting in a Minimal score."
+                    "value": "This control reduces the likelihood of a network sniffing attack for traffic between remote users, cloud, and 3rd parties by routing the traffic via the Microsoft backbone rather than over the Internet."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure VPN Gateway"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control encrypts traffic traversing over untrusted networks which can prevent information from being gathered via network sniffing."
                 }
             ],
-            "color": "#9CBA7F",
-            "score_num": 10,
-            "score_display": "Minimal",
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
             "category": "Protect"
-        },
-        {
-            "techniqueID": "T1584.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure DNS Alias Records"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Alias records prevent dangling references by tightly coupling the life cycle of a DNS record with an Azure resource. For example, consider a DNS record that's qualified as an alias record to point to a public IP address or a Traffic Manager profile. If you delete those underlying resources, the DNS alias record becomes an empty record set. It no longer references the deleted resource.  This control is effective for protecting DNS records that resolve to Azure resources but does not offer protection for records pointing to non-Azure resources, resulting in a Partial score."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1199",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to gain insight into normal traffic from trusted third parties which can then be used to detect anomalous traffic that may be indicative of a threat."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can isolate portions of network that do not require network-wide access, limiting some attackers that leverage trusted relationships such as remote access for vendor maintenance. Coverage partial, Temporal Immediate."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1602",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous traffic with respect to configuration repositories or identified configuration management ports."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can limit attackers access to configuration repositories such as SNMP management stations, or to dumps of client configurations from common management ports."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1602.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can limit access to client management interfaces or configuration databases"
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1602.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can limit access to client management interfaces or configuration databases"
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1542",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous traffic related to one of its sub-techniques (TFTP boot)."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Provides protection coverage for only one sub-technique partially (booting from remote devies ala TFTP boot) resulting in an overall score of Minimal."
-                }
-            ],
-            "color": "#bf6bff",
-            "score_num": 10,
-            "score_display": "Minimal",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1542.005",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to identify anomalous TFTP boot traffic."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict clients to connecting (and therefore booting) from only trusted network resources."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1563",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to identify anomalous traffic related to RDP and SSH sessions or blocked attempts to access these management ports."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1563.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1563.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1048",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic with respect to specific protocols/ports."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Firewall"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for this technique's sub-techniques and some of its procedure examples resulting in an overall Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "NSG can minimize alternative protocols allowed to communicate externally."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous / high talker DNS clients, possibly related to exfil via DNS"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect anomalous use of DNS.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1048.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous traffic with respect specific ports (though it can't identify presence or lack of encryption)."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Firewall"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure DNS Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can potentially be used to forensically identify exfiltration via DNS protocol."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1048.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous traffic with respect specific ports (though it can't identify presence or lack of encryption)."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Firewall"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1048.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous traffic with respect specific ports (though it can't identify presence or lack of encryption)."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Firewall"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic to and from externally facing systems with respect to network security group (NSG) policy."
-                }
-            ],
-            "color": "#5F9F9F",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1021",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic or attempts related to network security group (NSG) for remote services."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for all of its sub-techniques and procedure examples resulting in an overall score of Partial."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1021.006",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1021.005",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1021.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1021.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1021.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1021.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1072",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic with respect to critical systems and software deployment ports."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to limit access to critical network systems such as software deployment tools."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1046",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect network service scanning/discovery activity."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Firewall"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control typically filters external network traffic and therefore can be effective for preventing external network service scanning but network service scanning originating from inside the trusted network is not mitigated.  Due to this partial protection coverage, it has been scored as Partial protection."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can be used to restrict access to trusted networks."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1571",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can identify anomalous traffic that utilizes non-standard application ports."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Azure Firewall"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can limit access to the minimum required ports and therefore protect against adversaries attempting to use non-standard ports for C2 traffic."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can restrict traffic to standard ports and protocols."
-                }
-            ],
-            "color": "#5c00a3",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1090",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can detect anomalous traffic between systems and external networks."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can restrict ports and inter-system / inter-enclave connections as described by the Proxy related sub-techniques although it doesn't provide protection for domain-fronting.  It furthermore provides partial protection of this technique's procedure examples resulting in an overall Partial score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Alerts for DNS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Can detect DNS activity to anonymity networks e.g. TOR.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1090.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can restrict access between systems, enclaves, and workloads thereby mitigating these proxy related sub-techniques."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1090.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can restrict access between systems, enclaves, and workloads thereby mitigating these proxy related sub-techniques."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1090.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Azure Network Traffic Analytics"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Network Security Groups"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control can restrict access between systems, enclaves, and workloads thereby mitigating these proxy related sub-techniques."
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
         },
         {
             "techniqueID": "T1590",
@@ -3065,6 +2069,71 @@
             "category": "Protect"
         },
         {
+            "techniqueID": "T1046",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control typically filters external network traffic and therefore can be effective for preventing external network service scanning but network service scanning originating from inside the trusted network is not mitigated.  Due to this partial protection coverage, it has been scored as Partial protection."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict access to trusted networks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect network service scanning/discovery activity."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
             "techniqueID": "T1018",
             "enabled": true,
             "showSubtechniques": false,
@@ -3165,6 +2234,71 @@
             "category": "Protect"
         },
         {
+            "techniqueID": "T1571",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can limit access to the minimum required ports and therefore protect against adversaries attempting to use non-standard ports for C2 traffic."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can restrict traffic to standard ports and protocols."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous traffic that utilizes non-standard application ports."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
             "techniqueID": "T1219",
             "enabled": true,
             "showSubtechniques": false,
@@ -3211,6 +2345,412 @@
             "category": "Protect"
         },
         {
+            "techniqueID": "T1048.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous traffic with respect specific ports (though it can't identify presence or lack of encryption)."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1048.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Firewall"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control's threat intelligence-based filtering feature can be enabled to alert and deny traffic from/to known malicious IP addresses and domains. The IP addresses and domains are sourced from the Microsoft Threat Intelligence feed.  Because this protection is limited to known malicious IP addresses and domains and does not provide protection from such attacks from unknown domains and IP addresses, this is scored as partial coverage resulting in an overall Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can reduce the protocols available for data exfiltration. Temporal immediate, coverage substantial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous traffic with respect specific ports (though it can't identify presence or lack of encryption)."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1199",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can isolate portions of network that do not require network-wide access, limiting some attackers that leverage trusted relationships such as remote access for vendor maintenance. Coverage partial, Temporal Immediate."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to gain insight into normal traffic from trusted third parties which can then be used to detect anomalous traffic that may be indicative of a threat."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1602",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can limit attackers access to configuration repositories such as SNMP management stations, or to dumps of client configurations from common management ports."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous traffic with respect to configuration repositories or identified configuration management ports."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1602.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to client management interfaces or configuration databases"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1602.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Can limit access to client management interfaces or configuration databases"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1542",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Provides protection coverage for only one sub-technique partially (booting from remote devies ala TFTP boot) resulting in an overall score of Minimal."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can identify anomalous traffic related to one of its sub-techniques (TFTP boot)."
+                }
+            ],
+            "color": "#bf6bff",
+            "score_num": 10,
+            "score_display": "Minimal",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1542.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict clients to connecting (and therefore booting) from only trusted network resources."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to identify anomalous TFTP boot traffic."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
             "techniqueID": "T1210",
             "enabled": true,
             "showSubtechniques": false,
@@ -3236,6 +2776,374 @@
             "score_num": 50,
             "score_display": "Partial",
             "category": "Protect"
+        },
+        {
+            "techniqueID": "T1021",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for all of its sub-techniques and procedure examples resulting in an overall score of Partial."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic or attempts related to network security group (NSG) for remote services."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1021.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1021.005",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1021.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1021.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1021.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1021.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to restrict direct access to remote services to trusted networks.  This mitigates even an adversary with a valid account from accessing resources.  This can be circumvented though if an adversary is able to compromise a trusted host and move laterally to a protected network.  This results in an overall partial (coverage) score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic with respect to remote access protocols and groups."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1072",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to limit access to critical network systems such as software deployment tools."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can detect anomalous traffic with respect to critical systems and software deployment ports."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
         },
         {
             "techniqueID": "T1482",
@@ -3292,13 +3200,32 @@
             "category": "Protect"
         },
         {
-            "techniqueID": "T1568",
+            "techniqueID": "T1090",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can restrict ports and inter-system / inter-enclave connections as described by the Proxy related sub-techniques although it doesn't provide protection for domain-fronting.  It furthermore provides partial protection of this technique's procedure examples resulting in an overall Partial score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
                 },
                 {
                     "name": "category",
@@ -3306,11 +3233,11 @@
                 },
                 {
                     "name": "value",
-                    "value": "Minimal"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                    "value": "This control can detect anomalous traffic between systems and external networks."
                 },
                 {
                     "divider": true
@@ -3325,45 +3252,45 @@
                 },
                 {
                     "name": "value",
-                    "value": "Partial"
+                    "value": "Minimal"
                 },
                 {
                     "name": "comment",
-                    "value": "Can identify \"random\" DNS occurences which can be associated with domain generation algorithm or Fast Flux sub-techniques.  Partial for coverage and accuracy (potential for false positive/benign).\n"
+                    "value": "Can detect DNS activity to anonymity networks e.g. TOR.  Because this detection is specific to DNS, its coverage score is Minimal resulting in an overall Minimal score."
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score_num": 50,
             "score_display": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
-            "techniqueID": "T1568.001",
+            "techniqueID": "T1090.003",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
+                    "value": "Network Security Groups"
                 },
                 {
                     "name": "category",
-                    "value": "Detect"
+                    "value": "Protect"
                 },
                 {
                     "name": "value",
-                    "value": "Minimal"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                    "value": "This control can restrict access between systems, enclaves, and workloads thereby mitigating these proxy related sub-techniques."
                 },
                 {
                     "divider": true
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for DNS"
+                    "value": "Azure Network Traffic Analytics"
                 },
                 {
                     "name": "category",
@@ -3375,41 +3302,41 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                    "value": "n/a"
                 }
             ],
-            "color": "#5F9F9F",
+            "color": "#9305ff",
             "score_num": 50,
             "score_display": "Partial",
-            "category": "Detect"
+            "category": "Mixed"
         },
         {
-            "techniqueID": "T1568.002",
+            "techniqueID": "T1090.002",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
+                    "value": "Network Security Groups"
                 },
                 {
                     "name": "category",
-                    "value": "Detect"
+                    "value": "Protect"
                 },
                 {
                     "name": "value",
-                    "value": "Minimal"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used for after-the-fact analysis of potential fast-flux DNS C2"
+                    "value": "This control can restrict access between systems, enclaves, and workloads thereby mitigating these proxy related sub-techniques."
                 },
                 {
                     "divider": true
                 },
                 {
                     "name": "control",
-                    "value": "Alerts for DNS"
+                    "value": "Azure Network Traffic Analytics"
                 },
                 {
                     "name": "category",
@@ -3421,7 +3348,80 @@
                 },
                 {
                     "name": "comment",
-                    "value": "Detects \"random\" DNS name occurences, potentially indicative of Fast Flux or DGA. Potential false positives from benign \"random\" DNS names."
+                    "value": "n/a"
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1090.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Network Security Groups"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can restrict access between systems, enclaves, and workloads thereby mitigating these proxy related sub-techniques."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1563",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Azure Network Traffic Analytics"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control can be used to identify anomalous traffic related to RDP and SSH sessions or blocked attempts to access these management ports."
                 }
             ],
             "color": "#5F9F9F",
@@ -3430,13 +3430,13 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1041",
+            "techniqueID": "T1563.002",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
+                    "value": "Azure Network Traffic Analytics"
                 },
                 {
                     "name": "category",
@@ -3444,26 +3444,26 @@
                 },
                 {
                     "name": "value",
-                    "value": "Minimal"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control can potentially be used to forensically identify exfiltration via a DNS-based C2 channel."
+                    "value": "n/a"
                 }
             ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
-            "techniqueID": "T1566",
+            "techniqueID": "T1563.001",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
+                    "value": "Azure Network Traffic Analytics"
                 },
                 {
                     "name": "category",
@@ -3471,26 +3471,26 @@
                 },
                 {
                     "name": "value",
-                    "value": "Minimal"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
+                    "value": "n/a"
                 }
             ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {
-            "techniqueID": "T1566.002",
+            "techniqueID": "T1190",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
                 {
                     "name": "control",
-                    "value": "Azure DNS Analytics"
+                    "value": "Azure Network Traffic Analytics"
                 },
                 {
                     "name": "category",
@@ -3498,16 +3498,16 @@
                 },
                 {
                     "name": "value",
-                    "value": "Minimal"
+                    "value": "Partial"
                 },
                 {
                     "name": "comment",
-                    "value": "This control can be used forensically to identify DNS queries to known malicious sites, which may be evidence of phishing."
+                    "value": "This control can detect anomalous traffic to and from externally facing systems with respect to network security group (NSG) policy."
                 }
             ],
-            "color": "#AEEEEE",
-            "score_num": 10,
-            "score_display": "Minimal",
+            "color": "#5F9F9F",
+            "score_num": 50,
+            "score_display": "Partial",
             "category": "Detect"
         },
         {

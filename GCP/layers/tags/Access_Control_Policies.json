@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: BeyondCorp Enterprise,VPC Service Controls",
+    "description": "Controls: VPC Service Controls,BeyondCorp Enterprise",
     "filters": {
         "platforms": [
             "Linux",
@@ -34,6 +34,179 @@
     "hideDisabled": false,
     "techniques": [
         {
+            "techniqueID": "T1078",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VPC Service Controls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is able to mitigate against abuse of compromised valid accounts by restricting access from those accounts to resources contained within the VPC perimeter the account belongs to. Resources and services contained in other VPC networks also cannot be accessed by user accounts that are not within the VPC network perimeter."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1537",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VPC Service Controls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate against exfiltration attempts to external cloud accounts by limiting egress of data to accounts and services contained within the VPC network perimeter. "
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1530",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VPC Service Controls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate against access to cloud storage objects by limiting access to accounts and services contained within the VPC network perimeter that contains those cloud storage objects. "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "BeyondCorp Enterprise"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Access Context Manager allows Google Cloud organization administrators to define fine-grained, attribute based access control for projects and resources. Access levels applied on resources with IAM Conditions enforce fine-grained access control based on a variety of attributes, including IP subnetworks. Adversaries may obtain leaked credentials; however, this control can block specific  adversaries from gaining access permission controls by admins granting an access level based on the IP address of the originating request.\n\n"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1567",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VPC Service Controls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control is able to mitigate against exfiltration of data over a web service. Data contained within a VPC network perimeter can not be moved to a Google cloud resource or service outside of the perimeter but may be moved to third party services or storage."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "BeyondCorp Enterprise"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": " This control can help mitigate adversaries that may try to steal data over web services. A threat actor gaining access to a corporate network can plant code to perform reconnaissance, discover privileged users\u2019 credentials, and adversaries can use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. This can cause exfiltration to a command-and-control server out on the internet. Data loss prevention can be used to detect and block sensitive data being uploaded to web services via web browsers."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1619",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "VPC Service Controls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate against discovery of cloud storage objects. This control is not able to protect metadata, such as cloud storage bucket names but can protect against discovery of the contents of a storage bucket. "
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
             "techniqueID": "T1048",
             "enabled": true,
             "showSubtechniques": false,
@@ -53,52 +226,6 @@
                 {
                     "name": "comment",
                     "value": "This control can help mitigate adversaries that may try to steal data over network protocols.  Data loss prevention can detect and block sensitive data being uploaded via web browsers. In Beyond Corp Enterprise, Data Loss Prevention (DLP) features to use with Chrome to implement sensitive data detection for files that are uploaded and downloaded, and for content that is pasted or dragged and dropped. An example includes a rule setting that is used to block files from being uploaded via Chrome browser."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1567",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "BeyondCorp Enterprise"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": " This control can help mitigate adversaries that may try to steal data over web services. A threat actor gaining access to a corporate network can plant code to perform reconnaissance, discover privileged users\u2019 credentials, and adversaries can use an existing, legitimate external Web service to exfiltrate data rather than their primary command and control channel. This can cause exfiltration to a command-and-control server out on the internet. Data loss prevention can be used to detect and block sensitive data being uploaded to web services via web browsers."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "VPC Service Controls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is able to mitigate against exfiltration of data over a web service. Data contained within a VPC network perimeter can not be moved to a Google cloud resource or service outside of the perimeter but may be moved to third party services or storage."
                 }
             ],
             "color": "#7FFF00",
@@ -282,133 +409,6 @@
             "score_num": 100,
             "score_display": "Significant",
             "category": "Detect"
-        },
-        {
-            "techniqueID": "T1530",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "BeyondCorp Enterprise"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Access Context Manager allows Google Cloud organization administrators to define fine-grained, attribute based access control for projects and resources. Access levels applied on resources with IAM Conditions enforce fine-grained access control based on a variety of attributes, including IP subnetworks. Adversaries may obtain leaked credentials; however, this control can block specific  adversaries from gaining access permission controls by admins granting an access level based on the IP address of the originating request.\n\n"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "VPC Service Controls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate against access to cloud storage objects by limiting access to accounts and services contained within the VPC network perimeter that contains those cloud storage objects. "
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1078",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VPC Service Controls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control is able to mitigate against abuse of compromised valid accounts by restricting access from those accounts to resources contained within the VPC perimeter the account belongs to. Resources and services contained in other VPC networks also cannot be accessed by user accounts that are not within the VPC network perimeter."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1537",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VPC Service Controls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate against exfiltration attempts to external cloud accounts by limiting egress of data to accounts and services contained within the VPC network perimeter. "
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1619",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "VPC Service Controls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate against discovery of cloud storage objects. This control is not able to protect metadata, such as cloud storage bucket names but can protect against discovery of the contents of a storage bucket. "
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
         }
     ],
     "gradient": {

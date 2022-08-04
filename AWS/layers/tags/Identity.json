@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: AWS Identity and Access Management,AWS Directory Service,Amazon Cognito,AWS Organizations,AWS Single Sign-On",
+    "description": "Controls: Amazon Cognito,AWS Single Sign-On,AWS Directory Service,AWS Identity and Access Management,AWS Organizations",
     "filters": {
         "platforms": [
             "Linux",
@@ -38,6 +38,44 @@
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Cognito"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control provides partial protection for one of this technique's sub-techniques and a few of its procedure examples resulting in an overall Minimal protection score."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AWS Single Sign-On"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "AWS Identity and Access Management"
@@ -74,25 +112,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Amazon Cognito"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control provides partial protection for one of this technique's sub-techniques and a few of its procedure examples resulting in an overall Minimal protection score."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "AWS Organizations"
                 },
                 {
@@ -106,6 +125,33 @@
                 {
                     "name": "comment",
                     "value": "This control may protect against malicious use of cloud accounts but may not mitigate exploitation of local, domain, or default accounts present within deployed resources."
+                }
+            ],
+            "color": "#9305ff",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1078.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Cognito"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Cognito has the ability to alert and block accounts where credentials were found to be compromised elsewhere (compromised credential protection). The service also detects unusual sign-in activity, such as sign-in attempts from new locations and devices and can either prompt users for additional verification or block the sign-in request.  There was insufficient detail on the operation of these capabilities and therefore a conservative assessment of a Partial score has been assigned."
                 },
                 {
                     "divider": true
@@ -124,19 +170,11 @@
                 },
                 {
                     "name": "comment",
-                    "value": "n/a"
-                }
-            ],
-            "color": "#9305ff",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Mixed"
-        },
-        {
-            "techniqueID": "T1078.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
+                    "value": "This control may protect against malicious use of valid accounts by implementing fine grained and least privilege access through use of permission sets (a collection of administrator-defined policies that AWS SSO uses to determine a user's effective permissions to access a given AWS account). The ability to reduce the set of credentials and accounts needed for a user allows for simpler and safer access and privilege management."
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "AWS Identity and Access Management"
@@ -173,25 +211,6 @@
                 },
                 {
                     "name": "control",
-                    "value": "Amazon Cognito"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Amazon Cognito has the ability to alert and block accounts where credentials were found to be compromised elsewhere (compromised credential protection). The service also detects unusual sign-in activity, such as sign-in attempts from new locations and devices and can either prompt users for additional verification or block the sign-in request.  There was insufficient detail on the operation of these capabilities and therefore a conservative assessment of a Partial score has been assigned."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
                     "value": "AWS Organizations"
                 },
                 {
@@ -205,6 +224,33 @@
                 {
                     "name": "comment",
                     "value": "This control may protect against malicious use of cloud accounts by implementing service control policies that define what actions an account may take. If best practices are followed, AWS accounts should only have the least amount of privileges required."
+                }
+            ],
+            "color": "#5c00a3",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Mixed"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Cognito"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Amazon Cognito's MFA capability provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
                 },
                 {
                     "divider": true
@@ -223,13 +269,308 @@
                 },
                 {
                     "name": "comment",
+                    "value": "This control may not provide any mitigation against password cracking."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AWS Identity and Access Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "n/a"
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Cognito"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AWS Single Sign-On"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may protect against brute force techniques by enabling multi-factor authentication. All accounts that can be replace with single sign-on can benefit from a unified multi-factor authentication requirement."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AWS Identity and Access Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Cognito"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Cognito"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AWS Single Sign-On"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may protect against brute force techniques by enabling multi-factor authentication. All accounts that can be replace with single sign-on can benefit from a unified multi-factor authentication requirement."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AWS Identity and Access Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1110.004",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Amazon Cognito"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AWS Single Sign-On"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may protect against brute force techniques by enabling multi-factor authentication. All accounts that can be replace with single sign-on can benefit from a unified multi-factor authentication requirement."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "AWS Identity and Access Management"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
+                }
+            ],
+            "color": "#7FFF00",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1078.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS Single Sign-On"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
                     "value": "This control may protect against malicious use of valid accounts by implementing fine grained and least privilege access through use of permission sets (a collection of administrator-defined policies that AWS SSO uses to determine a user's effective permissions to access a given AWS account). The ability to reduce the set of credentials and accounts needed for a user allows for simpler and safer access and privilege management."
                 }
             ],
-            "color": "#5c00a3",
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1133",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "AWS Single Sign-On"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "This control may protect against abuse of external remote services by requiring multi-factor authentication for single sign-on accounts. "
+                }
+            ],
+            "color": "#7FFF00",
             "score_num": 100,
             "score_display": "Significant",
-            "category": "Mixed"
+            "category": "Protect"
         },
         {
             "techniqueID": "T1098",
@@ -340,266 +681,6 @@
             "category": "Protect"
         },
         {
-            "techniqueID": "T1110",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "AWS Identity and Access Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "n/a"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Amazon Cognito"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Amazon Cognito's MFA capability provides significant protection against password compromises, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AWS Single Sign-On"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may not provide any mitigation against password cracking."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.004",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "AWS Identity and Access Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Amazon Cognito"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AWS Single Sign-On"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may protect against brute force techniques by enabling multi-factor authentication. All accounts that can be replace with single sign-on can benefit from a unified multi-factor authentication requirement."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "AWS Identity and Access Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Amazon Cognito"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AWS Single Sign-On"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may protect against brute force techniques by enabling multi-factor authentication. All accounts that can be replace with single sign-on can benefit from a unified multi-factor authentication requirement."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "AWS Identity and Access Management"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may mitigate brute force attacks by enforcing multi-factor authentication, enforcing strong password policies, and rotating credentials periodically. These recommendations are IAM best practices but must be explicitly implemented by a cloud administrator."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Amazon Cognito"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "AWS Single Sign-On"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may protect against brute force techniques by enabling multi-factor authentication. All accounts that can be replace with single sign-on can benefit from a unified multi-factor authentication requirement."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Protect"
-        },
-        {
             "techniqueID": "T1528",
             "enabled": true,
             "showSubtechniques": false,
@@ -624,33 +705,6 @@
             "color": "#9CBA7F",
             "score_num": 10,
             "score_display": "Minimal",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1110.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Amazon Cognito"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "MFA can significantly reduce the impact of a password compromise, requiring the adversary to complete an additional authentication method before their access is permitted."
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
             "category": "Protect"
         },
         {
@@ -759,60 +813,6 @@
             "color": "#659D32",
             "score_num": 50,
             "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1078.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "AWS Single Sign-On"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may protect against malicious use of valid accounts by implementing fine grained and least privilege access through use of permission sets (a collection of administrator-defined policies that AWS SSO uses to determine a user's effective permissions to access a given AWS account). The ability to reduce the set of credentials and accounts needed for a user allows for simpler and safer access and privilege management."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
-        {
-            "techniqueID": "T1133",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "AWS Single Sign-On"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "This control may protect against abuse of external remote services by requiring multi-factor authentication for single sign-on accounts. "
-                }
-            ],
-            "color": "#7FFF00",
-            "score_num": 100,
-            "score_display": "Significant",
             "category": "Protect"
         }
     ],

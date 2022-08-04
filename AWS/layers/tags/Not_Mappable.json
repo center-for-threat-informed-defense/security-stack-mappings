@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: AWS Directory Service,AWS Firewall Manager,AWS CloudTrail,AWS Certificate Manager,AWS Artifact,Amazon Detective,AWS Resource Access Manager,AWS Audit Manager",
+    "description": "Controls: AWS Artifact,AWS Directory Service,Amazon Detective,AWS Certificate Manager,AWS Audit Manager,AWS Resource Access Manager,AWS CloudTrail,AWS Firewall Manager",
     "filters": {
         "platforms": [
             "Linux",

@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Cloud CDN,Firewalls,Cloud Logging",
+    "description": "Controls: Firewalls,Cloud Logging,Cloud CDN",
     "filters": {
         "platforms": [
             "Linux",
@@ -33,52 +33,6 @@
     },
     "hideDisabled": false,
     "techniques": [
-        {
-            "techniqueID": "T1498",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud CDN"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Partial"
-                },
-                {
-                    "name": "comment",
-                    "value": "Cloud CDN acts as a proxy between clients and origin servers. Cloud CDN can distribute requests for cacheable content across multiple points-of-presence (POPs), thereby providing a larger set of locations to absorb a DOS attack.\n\nHowever, Cloud CDN doesn't provide protection against DOS attacks for uncached content."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Firewalls"
-                },
-                {
-                    "name": "category",
-                    "value": "Protect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to block the sources of smaller-scale network denial of service attacks. While Google Cloud Firewalls support both sub-techniques (2 of 2), this mapping is given a score of Minimal because often times it is necessary to block the traffic at an Internet Service Provider or Content Provider Network level."
-                }
-            ],
-            "color": "#659D32",
-            "score_num": 50,
-            "score_display": "Partial",
-            "category": "Protect"
-        },
         {
             "techniqueID": "T1008",
             "enabled": true,
@@ -450,6 +404,52 @@
                 {
                     "name": "comment",
                     "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to only allow remote access software from trusted hosts (i.e., only allow remote access traffic from certain hosts). This mapping is given a score of Partial because even though it can restrict remote access software traffic from untrusted hosts, it cannot protect against an adversary using a trusted host that is permitted to use remote access software as part of an attack."
+                }
+            ],
+            "color": "#659D32",
+            "score_num": 50,
+            "score_display": "Partial",
+            "category": "Protect"
+        },
+        {
+            "techniqueID": "T1498",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Firewalls"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Google Cloud Firewalls can allow or deny traffic based on the traffic's protocol, destination ports, sources, and destinations. This functionality can be used to block the sources of smaller-scale network denial of service attacks. While Google Cloud Firewalls support both sub-techniques (2 of 2), this mapping is given a score of Minimal because often times it is necessary to block the traffic at an Internet Service Provider or Content Provider Network level."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Cloud CDN"
+                },
+                {
+                    "name": "category",
+                    "value": "Protect"
+                },
+                {
+                    "name": "value",
+                    "value": "Partial"
+                },
+                {
+                    "name": "comment",
+                    "value": "Cloud CDN acts as a proxy between clients and origin servers. Cloud CDN can distribute requests for cacheable content across multiple points-of-presence (POPs), thereby providing a larger set of locations to absorb a DOS attack.\n\nHowever, Cloud CDN doesn't provide protection against DOS attacks for uncached content."
                 }
             ],
             "color": "#659D32",

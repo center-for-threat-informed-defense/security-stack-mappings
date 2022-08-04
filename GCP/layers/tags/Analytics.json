@@ -6,7 +6,7 @@
         "layer": "4.2"
     },
     "domain": "enterprise-attack",
-    "description": "Controls: Security Command Center,Chronicle,Cloud IDS,Cloud Logging",
+    "description": "Controls: Cloud Logging,Cloud IDS,Security Command Center,Chronicle",
     "filters": {
         "platforms": [
             "Linux",
@@ -34,10 +34,183 @@
     "hideDisabled": false,
     "techniques": [
         {
-            "techniqueID": "T1204.003",
+            "techniqueID": "T1137",
             "enabled": true,
             "showSubtechniques": false,
             "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office files (e.g., DOC, DOCX, RTF, XLS, XLSX, PPT, PPTX).\n\nAlthough there are ways an attacker could modify the signature and deliver a malicious office file, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious  system processes, for example: command line executable started from Microsoft's Office-based applications.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/office_starup_folder_persistance.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/office_applications_suspicious_process_activity.yaral"
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1546.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to  execute malicious content and establish persistence, Palo Alto Network's antivirus signatures is able to detect malicious content found in Mach object files (Mach-O). These are used by the adversary to load and execute malicious dynamic libraries after the binary is executed.\n\nThis technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1204.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in portable document formats (PDF).\n\nAlthough there are ways an attacker could modify the signature and deliver a malicious file, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1055.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to escalate privileges and automatically run on Windows systems, Palo Alto Network's antivirus signatures is able to detect malware found in portable executables (PE).\n\nAlthough there are ways an attacker could avoid detection to deliver a malicious PE file, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1221",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office file templates (e.g., DOC, DOCX, RTF, XLS, XLSX, PPT, PPTX).\n\nAlthough there are ways an attacker could modify the known attack signature to avoid detection, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1505.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's threat signatures is able to detect programs that use an internet connection to provide remote access to a compromised internal system.\n\nAlthough there are multiple ways an attacker could establish unauthorized remote access to a compromised system, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
+                },
+                {
+                    "divider": true
+                },
                 {
                     "name": "control",
                     "value": "Security Command Center"
@@ -52,11 +225,38 @@
                 },
                 {
                     "name": "comment",
-                    "value": "SCC is able to detect a potentially malicious binary being executed that was not part of the original container image. Because of the high threat detection coverage and near-real time temporal factor this control was graded as significant."
+                    "value": "SCC is able to detect attackers communicating with a compromised workload from a remote system (e.g., \"web shell\"). Because of the high threat detection coverage and near-real time temporal factor this control was graded as significant."
                 },
                 {
                     "divider": true
                 },
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on webshell connections which are used to establish persistent access to a compromised machine [backdoor]. \n\nFor example: Detect webshell dropped into a keystore folder on the WebLogic server (`.*/config/keystore/.*\\.js.*).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/webserver/oracle_weblogic_exploit.yaral"
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1204.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
                 {
                     "name": "control",
                     "value": "Cloud IDS"
@@ -72,6 +272,520 @@
                 {
                     "name": "comment",
                     "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect download attempts or traffic generated from malicious programs designed to mine cryptocurrency without the user's knowledge.\n\nAlthough there are ways an attacker could modify the attack to avoid detection, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these crypto-mining  attacks"
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Security Command Center"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "SCC is able to detect a potentially malicious binary being executed that was not part of the original container image. Because of the high threat detection coverage and near-real time temporal factor this control was graded as significant."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1048",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system processes that could indicate exfiltration attempts using cURL from Windows machines (e.g., C:\\\\Windows\\\\System32\\\\curl.exe).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/suspicious_curl_usage.yaral"
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1041",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts and anomalies over known command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious system processes or command-line arguments that could indicate exfiltration of data over the C2 channel.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/possible_data_exfiltration_via_smtp.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/data_exfiltration_attempt_via_bitsadmin.yaral\n\n"
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications (e.g., WebShell).\n\nAlthough there are ways an attacker could exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Security Command Center"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "SCC ingests BigQueryAudit data access logs used to track sensitive data that is saved outside of an organization or attempts to access protected resources. This security solution detects exfiltration attacks that were attempted and completed to an external or public resource. Because of the near-real time temporal factor this control was graded as significant."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1567.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications (e.g., WebShell).\n\nAlthough there are multiple ways an attacker could exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Security Command Center"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "SCC ingests BigQueryAudit data access logs used to track sensitive data that is saved to a cloud storage (e.g., Google Drive). This security solution detects exfiltration attacks that were attempted and completed to an external or public resource. Because of the near-real time temporal factor this control was graded as significant."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1020",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious sytem processes, such as using bitsadmin to automatically exfiltrate data from Windows machines (e.g., \".*\\\\bitsadmin\\.exe\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/soc_prime_rules/threat_hunting/windows/data_exfiltration_attempt_via_bitsadmin.yaral"
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1110",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to gain access to a system, Palo Alto Network's vulnerability signature is able to detect multiple repetitive occurrences of a condition in a particular time that could indicate a brute force attack (e.g., failed logins).\n\nAlthough there are ways an attacker could brute force a system while avoiding detection, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Security Command Center"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "SCC uses syslog to detect successful brute force attacks [via SSH] on a host. Because of the near-real time temporal factor when detecting cyber-attacks this control was graded as significant."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1499",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to affect availability and deprive legitimate user access, Palo Alto Network's vulnerability signatures are able to detect denial-of-service (DoS) attacks that attempt to render a target system unavailable by flooding the resources with traffic.\n\nThis technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against a variety of denial-of-service attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1499.003",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to affect availability and deprive legitimate user access, Palo Alto Network's vulnerability signatures are able to detect denial-of-service (DoS) attacks that attempt to crash a target system by flooding it with application traffic.\n\nThis was scored as minimal because there are other ways adversaries could\n\nThis technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1190",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to take advantage of software weaknesses in web applications, Palo Alto Network's vulnerability signatures are able to detect SQL-injection attacks that attempt to read or modify a system database using common web hacking techniques (e.g., OWASP top 10).\n\nAlthough there are ways an attacker could leverage web application weaknesses to affect the sensitive data and databases, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Security Command Center"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Using Web Security Scanner, SCC is able to detect and provide guidance for web application security risks (e.g., Cross-Site Scripting, SQL injection, Server Side Request Forgery, Insecure Deserialization). Adversaries may exploit these web app weaknesses in a cloud-based environment to compromise the underlying instance or container. This technique was graded as significant due to the high detect coverage against varying forms of this attack.  "
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle triggers an alert based on suspicious behavior, such as exploitation attempts against web servers and/or applications (e.g., F5 BIG-IP CVE 2020-5902).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/big_ip/possible_f5_big_ip_tmui_attack_cve_2020_5902_part_1.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/big_ip/possible_f5_big_ip_tmui_attack_cve_2020_5902_part_2.yaral"
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1566.002",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to gain access to a system, Palo Alto Network's vulnerability signatures are able to detect when a user attempts to connect to a malicious site with a phishing kit landing page.\n\nAlthough there are other ways an adversary could attempt a phishing attack, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.006",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office add-ins.\n\nAlthough there are ways an attacker could deliver a malicious file, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                }
+            ],
+            "color": "#00FFFF",
+            "score_num": 100,
+            "score_display": "Significant",
+            "category": "Detect"
+        },
+        {
+            "techniqueID": "T1137.001",
+            "enabled": true,
+            "showSubtechniques": false,
+            "metadata": [
+                {
+                    "name": "control",
+                    "value": "Cloud IDS"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Significant"
+                },
+                {
+                    "name": "comment",
+                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office templates\n\nAlthough there are ways an attacker could deliver a malicious template, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
+                },
+                {
+                    "divider": true
+                },
+                {
+                    "name": "control",
+                    "value": "Chronicle"
+                },
+                {
+                    "name": "category",
+                    "value": "Detect"
+                },
+                {
+                    "name": "value",
+                    "value": "Minimal"
+                },
+                {
+                    "name": "comment",
+                    "value": "Chronicle is able to trigger an alert based off suspicious  system processes, for example: detects Windows command line executable started from Microsoft's Word or Excel (e.g.., \".*\\\\WINWORD\\.EXE\", \".*\\\\EXCEL\\.EXE\"). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/office_macro_starts_cmd.yaral"
                 }
             ],
             "color": "#00FFFF",
@@ -126,71 +840,6 @@
                 {
                     "name": "comment",
                     "value": "SCC is able to detect attackers communicating with a compromised workload from a remote system (e.g., \"reverse shell\"). SCC specifically detects for stdin bound to a remote socket. Because of the high threat detection coverage and near-real time temporal factor this control was graded as significant."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1505.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Security Command Center"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "SCC is able to detect attackers communicating with a compromised workload from a remote system (e.g., \"web shell\"). Because of the high threat detection coverage and near-real time temporal factor this control was graded as significant."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Chronicle"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Chronicle triggers an alert based on webshell connections which are used to establish persistent access to a compromised machine [backdoor]. \n\nFor example: Detect webshell dropped into a keystore folder on the WebLogic server (`.*/config/keystore/.*\\.js.*).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/webserver/oracle_weblogic_exploit.yaral"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's threat signatures is able to detect programs that use an internet connection to provide remote access to a compromised internal system.\n\nAlthough there are multiple ways an attacker could establish unauthorized remote access to a compromised system, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
                 }
             ],
             "color": "#00FFFF",
@@ -299,52 +948,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1110",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Security Command Center"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "SCC uses syslog to detect successful brute force attacks [via SSH] on a host. Because of the near-real time temporal factor when detecting cyber-attacks this control was graded as significant."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to gain access to a system, Palo Alto Network's vulnerability signature is able to detect multiple repetitive occurrences of a condition in a particular time that could indicate a brute force attack (e.g., failed logins).\n\nAlthough there are ways an attacker could brute force a system while avoiding detection, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1078.004",
             "enabled": true,
             "showSubtechniques": false,
@@ -391,98 +994,6 @@
                 {
                     "name": "comment",
                     "value": "SCC ingests VPC Audit logs to detect changes which would lead to changes in the security posture. This security solution protects against network modifications that are used to reduce the security perimeter, disable logs, and evade cyber-defense of a target environment. Because of the near-real time temporal factor this control was graded as significant."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1567",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Security Command Center"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "SCC ingests BigQueryAudit data access logs used to track sensitive data that is saved outside of an organization or attempts to access protected resources. This security solution detects exfiltration attacks that were attempted and completed to an external or public resource. Because of the near-real time temporal factor this control was graded as significant."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications (e.g., WebShell).\n\nAlthough there are ways an attacker could exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1567.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Security Command Center"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "SCC ingests BigQueryAudit data access logs used to track sensitive data that is saved to a cloud storage (e.g., Google Drive). This security solution detects exfiltration attacks that were attempted and completed to an external or public resource. Because of the near-real time temporal factor this control was graded as significant."
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications (e.g., WebShell).\n\nAlthough there are multiple ways an attacker could exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
                 }
             ],
             "color": "#00FFFF",
@@ -697,71 +1208,6 @@
             "score_num": 10,
             "score_display": "Minimal",
             "category": "Protect"
-        },
-        {
-            "techniqueID": "T1190",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Security Command Center"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Using Web Security Scanner, SCC is able to detect and provide guidance for web application security risks (e.g., Cross-Site Scripting, SQL injection, Server Side Request Forgery, Insecure Deserialization). Adversaries may exploit these web app weaknesses in a cloud-based environment to compromise the underlying instance or container. This technique was graded as significant due to the high detect coverage against varying forms of this attack.  "
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Chronicle"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Chronicle triggers an alert based on suspicious behavior, such as exploitation attempts against web servers and/or applications (e.g., F5 BIG-IP CVE 2020-5902).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/big_ip/possible_f5_big_ip_tmui_attack_cve_2020_5902_part_1.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/proactive_exploit_detection/big_ip/possible_f5_big_ip_tmui_attack_cve_2020_5902_part_2.yaral"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to take advantage of software weaknesses in web applications, Palo Alto Network's vulnerability signatures are able to detect SQL-injection attacks that attempt to read or modify a system database using common web hacking techniques (e.g., OWASP top 10).\n\nAlthough there are ways an attacker could leverage web application weaknesses to affect the sensitive data and databases, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
         },
         {
             "techniqueID": "T1078.001",
@@ -3081,98 +3527,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1020",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Chronicle"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Chronicle is able to trigger an alert based off suspicious sytem processes, such as using bitsadmin to automatically exfiltrate data from Windows machines (e.g., \".*\\\\bitsadmin\\.exe\").\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/main/soc_prime_rules/threat_hunting/windows/data_exfiltration_attempt_via_bitsadmin.yaral"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1041",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Chronicle"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Chronicle is able to trigger an alert based off suspicious system processes or command-line arguments that could indicate exfiltration of data over the C2 channel.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/possible_data_exfiltration_via_smtp.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/data_exfiltration_attempt_via_bitsadmin.yaral\n\n"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts and anomalies over known command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1011",
             "enabled": true,
             "showSubtechniques": false,
@@ -3332,98 +3686,6 @@
             "color": "#AEEEEE",
             "score_num": 10,
             "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1137.001",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Chronicle"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Chronicle is able to trigger an alert based off suspicious  system processes, for example: detects Windows command line executable started from Microsoft's Word or Excel (e.g.., \".*\\\\WINWORD\\.EXE\", \".*\\\\EXCEL\\.EXE\"). \n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/office_macro_starts_cmd.yaral"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office templates\n\nAlthough there are ways an attacker could deliver a malicious template, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1137",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Chronicle"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Chronicle is able to trigger an alert based off suspicious  system processes, for example: command line executable started from Microsoft's Office-based applications.\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/office_starup_folder_persistance.yaral\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/sysmon/office_applications_suspicious_process_activity.yaral"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office files (e.g., DOC, DOCX, RTF, XLS, XLSX, PPT, PPTX).\n\nAlthough there are ways an attacker could modify the signature and deliver a malicious office file, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
             "category": "Detect"
         },
         {
@@ -3697,52 +3959,6 @@
             "category": "Detect"
         },
         {
-            "techniqueID": "T1048",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Chronicle"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Minimal"
-                },
-                {
-                    "name": "comment",
-                    "value": "Chronicle is able to trigger an alert based off suspicious system processes that could indicate exfiltration attempts using cURL from Windows machines (e.g., C:\\\\Windows\\\\System32\\\\curl.exe).\n\nThis technique was scored as minimal based on low or uncertain detection coverage factor.\n\nhttps://github.com/chronicle/detection-rules/blob/783e0e5947774785db1c55041b70176deeca6f46/soc_prime_rules/threat_hunting/windows/suspicious_curl_usage.yaral"
-                },
-                {
-                    "divider": true
-                },
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to compromise sensitive data, Palo Alto Network's spyware signatures is able to detect data exfiltration attempts over command and control communications.\n\nAlthough there are ways an attacker could still exfiltrate data from a compromised system, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
             "techniqueID": "T1495",
             "enabled": true,
             "showSubtechniques": false,
@@ -3848,222 +4064,6 @@
             "color": "#AEEEEE",
             "score_num": 10,
             "score_display": "Minimal",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1546.006",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to  execute malicious content and establish persistence, Palo Alto Network's antivirus signatures is able to detect malicious content found in Mach object files (Mach-O). These are used by the adversary to load and execute malicious dynamic libraries after the binary is executed.\n\nThis technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1204.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in portable document formats (PDF).\n\nAlthough there are ways an attacker could modify the signature and deliver a malicious file, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1055.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to escalate privileges and automatically run on Windows systems, Palo Alto Network's antivirus signatures is able to detect malware found in portable executables (PE).\n\nAlthough there are ways an attacker could avoid detection to deliver a malicious PE file, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1221",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office file templates (e.g., DOC, DOCX, RTF, XLS, XLSX, PPT, PPTX).\n\nAlthough there are ways an attacker could modify the known attack signature to avoid detection, this technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1499",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to affect availability and deprive legitimate user access, Palo Alto Network's vulnerability signatures are able to detect denial-of-service (DoS) attacks that attempt to render a target system unavailable by flooding the resources with traffic.\n\nThis technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against a variety of denial-of-service attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1499.003",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to affect availability and deprive legitimate user access, Palo Alto Network's vulnerability signatures are able to detect denial-of-service (DoS) attacks that attempt to crash a target system by flooding it with application traffic.\n\nThis was scored as minimal because there are other ways adversaries could\n\nThis technique was scored as significant based on  Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1566.002",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to gain access to a system, Palo Alto Network's vulnerability signatures are able to detect when a user attempts to connect to a malicious site with a phishing kit landing page.\n\nAlthough there are other ways an adversary could attempt a phishing attack, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against variations of these cyber-attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
-            "category": "Detect"
-        },
-        {
-            "techniqueID": "T1137.006",
-            "enabled": true,
-            "showSubtechniques": false,
-            "metadata": [
-                {
-                    "name": "control",
-                    "value": "Cloud IDS"
-                },
-                {
-                    "name": "category",
-                    "value": "Detect"
-                },
-                {
-                    "name": "value",
-                    "value": "Significant"
-                },
-                {
-                    "name": "comment",
-                    "value": "Often used by adversaries to establish persistence, Palo Alto Network's antivirus signatures is able to detect malware found in executables and Microsoft Office add-ins.\n\nAlthough there are ways an attacker could deliver a malicious file, this technique was scored as significant based on Palo Alto Network's advanced threat detection technology which constantly updates to detect against the latest known variations of these attacks."
-                }
-            ],
-            "color": "#00FFFF",
-            "score_num": 100,
-            "score_display": "Significant",
             "category": "Detect"
         }
     ],
