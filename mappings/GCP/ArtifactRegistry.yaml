@@ -17,7 +17,7 @@ techniques:
   - id: T1190
     name: Exploit Public-Facing Application
     technique-scores:
-      - category: Protect
+      - category: Detect
         value: Partial
         comments: >-
           Once this control is deployed, it can detect known vulnerabilities in various Linux OS
@@ -28,7 +28,7 @@ techniques:
   - id: T1068
     name: Exploitation for Privilege Escalation
     technique-scores:
-      - category: Protect
+      - category: Detect
         value: Partial
         comments: >-
           Once this control is deployed, it can detect known OS package vulnerabilities in various
@@ -37,7 +37,7 @@ techniques:
   - id: T1203
     name: Exploitation for Client Execution
     technique-scores:
-      - category: Protect
+      - category: Detect
         value: Partial
         comments: >-
           Once this control is deployed, it can detect known vulnerabilities in various Linux OS
@@ -48,7 +48,7 @@ techniques:
   - id: T1210
     name: Exploitation of Remote Services
     technique-scores:
-      - category: Protect
+      - category: Detect
         value: Partial
         comments: >-
           Once this control is deployed, it can detect known vulnerabilities in various Linux OS
@@ -59,7 +59,7 @@ techniques:
   - id: T1525
     name: Implant Internal Image
     technique-scores:
-      - category: Protect
+      - category: Detect
         value: Partial
         comments: >-
           Once this control is deployed, it can detect known vulnerabilities in Docker containers.
@@ -68,7 +68,7 @@ techniques:
   - id: T1610
     name: Deploy Container
     technique-scores:
-      - category: Protect
+      - category: Detect
         value: Partial
         comments: >-
           Once this control is deployed, it can detect known vulnerabilities in Docker containers.
@@ -77,7 +77,7 @@ techniques:
   - id: T1072
     name: Software Deployment Tools
     technique-scores:
-      - category: Protect
+      - category: Detect
         value: Minimal
         comments: >-
           Once this control is deployed, it can detect variations to store system packages and
@@ -85,7 +85,7 @@ techniques:
   - id: T1211
     name: Exploitation for Defense Evasion
     technique-scores:
-      - category: Protect
+      - category: Detect
         value: Partial
         comments: >-
           Once this control is deployed, it can detect variations to store system packages and
