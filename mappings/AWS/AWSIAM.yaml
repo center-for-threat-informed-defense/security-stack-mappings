@@ -129,5 +129,25 @@ techniques:
             value: Partial
             comments: >-
               This control provides coverage for one of this technique`s sub-techniques, resulting in an overall score of Partial. Enforce MFA in IAM Users.
+  - id: T1578
+    name: Modify Cloud Compute Infrastructure
+    technique-scores:
+      - category: Protect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1578.001
+            name: Create Snapshot
+          - id: T1578.002
+            name: Create Cloud Instance
+          - id: T1578.003
+            name: Delete Cloud Instance
+          - id: T1578.004
+            name: Revert Cloud Instance
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              Limit IAM permissions for creating, deleting, and otherwise altering compute components in accordance with least privilege.
 references:
   - 'https://docs.aws.amazon.com/iam/index.html'
