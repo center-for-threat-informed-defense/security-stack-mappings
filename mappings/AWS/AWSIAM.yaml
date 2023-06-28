@@ -133,7 +133,7 @@ techniques:
     name: Modify Cloud Compute Infrastructure
     technique-scores:
       - category: Protect
-        value: Partial
+        value: Significant
     sub-techniques-scores:
       - sub-techniques:
           - id: T1578.001
@@ -149,5 +149,21 @@ techniques:
             value: Significant
             comments: >-
               Limit IAM permissions for creating, deleting, and otherwise altering compute components in accordance with least privilege.
+  - id: T1606
+    name: Forge Web Credentials
+    technique-scores:
+      - category: Protect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1606.001
+            name: Web Cookies
+          - id: T1606.002
+            name: SAML Tokens
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              Limit IAM permissions from calling the sts:GetFederationToken API unless explicitly required, in accordance with least privilege.
 references:
   - 'https://docs.aws.amazon.com/iam/index.html'
