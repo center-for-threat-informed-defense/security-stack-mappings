@@ -106,5 +106,12 @@ techniques:
           configured to retrieve temporary security credentials using an IAM role. This
           recommendation is a best practice for IAM but must be explicitly implemented by the
           application developer.
+  - id: T1648
+    name: Serverless Execution
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Remove permissions to create, modify, or run serverless resources from IAM entities that do not explicitly require them.
 references:
   - 'https://docs.aws.amazon.com/iam/index.html'
