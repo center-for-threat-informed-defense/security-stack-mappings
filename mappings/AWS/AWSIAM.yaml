@@ -106,5 +106,85 @@ techniques:
           configured to retrieve temporary security credentials using an IAM role. This
           recommendation is a best practice for IAM but must be explicitly implemented by the
           application developer.
+  - id: T1648
+    name: Serverless Execution
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Remove permissions to create, modify, or run serverless resources from IAM entities that do not explicitly require them.
+  - id: T1580
+    name: Cloud Infrastructure Discovery
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Limit IAM permissions to discover cloud infrastructure in accordance with least privilege. Organizations should limit the number of users within the organization with an IAM role that has administrative privileges, strive to reduce all permanent privileged role assignments, and conduct periodic entitlement reviews on IAM users, roles and policies.
+  - id: T1201
+    name: Password Policy Discovery
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Ensure least privilege in IAM since password policies can be discovered in cloud environments using available APIs such as GetAccountPasswordPolicy in AWS.
+  - id: T1619
+    name: Cloud Storage Object Discovery
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Restrict granting of permissions related to listing objects in AWS S3 Buckets to necessary accounts.
+  - id: T1556
+    name: Modify Authentication Process
+    technique-scores:
+      - category: Protect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1556.006
+            name: Multi-Factor Authentication
+          - id: T1556.007
+            name: Hybrid Identity
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              This control provides coverage for one of this technique`s sub-techniques, resulting in an overall score of Partial. Enforce MFA in IAM Users.
+  - id: T1578
+    name: Modify Cloud Compute Infrastructure
+    technique-scores:
+      - category: Protect
+        value: Significant
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1578.001
+            name: Create Snapshot
+          - id: T1578.002
+            name: Create Cloud Instance
+          - id: T1578.003
+            name: Delete Cloud Instance
+          - id: T1578.004
+            name: Revert Cloud Instance
+        scores:
+          - category: Protect
+            value: Significant
+            comments: >-
+              Limit IAM permissions for creating, deleting, and otherwise altering compute components in accordance with least privilege.
+  - id: T1606
+    name: Forge Web Credentials
+    technique-scores:
+      - category: Protect
+        value: Partial
+    sub-techniques-scores:
+      - sub-techniques:
+          - id: T1606.001
+            name: Web Cookies
+          - id: T1606.002
+            name: SAML Tokens
+        scores:
+          - category: Protect
+            value: Partial
+            comments: >-
+              Limit IAM permissions from calling the sts:GetFederationToken API unless explicitly required, in accordance with least privilege.
 references:
   - 'https://docs.aws.amazon.com/iam/index.html'
