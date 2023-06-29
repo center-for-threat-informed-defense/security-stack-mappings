@@ -120,6 +120,13 @@ techniques:
         value: Significant
         comments: >-
           Limit IAM permissions to discover cloud infrastructure in accordance with least privilege. Organizations should limit the number of users within the organization with an IAM role that has administrative privileges, strive to reduce all permanent privileged role assignments, and conduct periodic entitlement reviews on IAM users, roles and policies.
+  - id: T1201
+    name: Password Policy Discovery
+    technique-scores:
+      - category: Protect
+        value: Significant
+        comments: >-
+          Ensure least privilege in IAM since password policies can be discovered in cloud environments using available APIs such as GetAccountPasswordPolicy in AWS.
   - id: T1619
     name: Cloud Storage Object Discovery
     technique-scores:
